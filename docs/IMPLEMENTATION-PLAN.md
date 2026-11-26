@@ -55,16 +55,17 @@ npx tauri dev         # builds the Rust host and opens the app
 
 ✅ Read (viewer) · ✅ Multi Tool (page editor) · ✅ Annotate · ✅ Sign (draw/type/image) · ✅ Add Text · ✅ Add Image · ✅ Compare · ✅ Remove Annotations · ✅ Adjust Colors/Contrast · ✅ PDF Text Editor (⚠️ its OCR button needs a backend) · ✅ Form Fill (⚠️ creating new fields needs a backend) · ✅ Redact (⚠️ manual mode only; auto-redact needs a backend)
 
-### Tools being ported to run in the app
+### Tools ported to run in the app
 
-Re-implemented with `@cantoo/pdf-lib` / PDFium as shadow hooks in `studio/hooks/tools/`; each returns to the menu when its port is tested.
+Re-implemented with `@cantoo/pdf-lib` as shadow hooks in `studio/hooks/tools/` and processors in `studio/services/pdfEdit/` (39 unit tests: `npx vitest run --project studio`). A tool returns to the menu when its id leaves `PORT_PLANNED_TOOL_IDS`.
 
-| | Tool | Approach |
+| | Tool | Notes |
 |---|---|---|
-| 🟡 | Merge, Rotate, Remove Pages, Change Metadata | In progress |
-| 🟡 | Extract Pages, Reorganize Pages | In progress |
-| 🟡 | Add Password, Remove Password, Change Permissions | In progress (pdf-lib encryption) |
-| 🟡 | Flatten (forms) | In progress |
+| ✅ | Merge | Also run inside the real app window (two 3-page PDFs gave 6 pages). ⚠️ Source bookmarks and fillable form fields are not carried over |
+| ✅ | Rotate, Remove Pages, Extract Pages, Change Metadata | Unit tested |
+| ✅ | Reorganize Pages (all 11 modes) | ⚠️ Booklet and side-stitch orders written from the UI descriptions, not compared with the Java output |
+| ✅ | Add Password, Remove Password, Change Permissions | ⚠️ Only round-tripped with pdf-lib; open an output in a real viewer to confirm |
+| 🟡 | Flatten | Forms-only mode works; the default whole-page-to-image mode is not built, so the tool stays hidden |
 | ⬜ | Split | Page-based modes first; chapters via bookmarks |
 | ⬜ | Show JavaScript, Edit Table of Contents, Manage Attachments | PDFium engine calls |
 | ⬜ | Crop, Watermark, Add Page Numbers, Sanitize, Get Info | pdf-lib |
