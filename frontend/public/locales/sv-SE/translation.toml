@@ -56,7 +56,7 @@ loading = "Laddar..."
 loginAgreementAccept = "Godkänn"
 loginAgreementDecline = "Avböj"
 loginAgreementLoadFailed = "Inloggningsavtalet kunde inte läsas in."
-loginAgreementProvider = "Detta meddelande tillhandahålls av din administratör, inte av Stirling PDF Inc."
+loginAgreementProvider = "Detta meddelande tillhandahålls av din administratör, inte av PDF Viewer Inc."
 loginAgreementRetry = "Försök igen"
 loginAgreementTitle = "Inloggningsavtal"
 logOut = "Logga ut"
@@ -726,9 +726,9 @@ permissionNotice = "tessdata-sökvägen är inte skrivbar. Nedladdningar öppnas
 
 [admin.settings.ai]
 customProvider = "Anpassad (OpenAI-kompatibel)"
-description = "Anslut Stirling till Python AI-motorn, välj dess modeller och ange skyddsräcken för hur den körs."
-managedByCloud = "Hanteras av Stirling Cloud i detta läge."
-managedByCloudShort = "Hanteras av Stirling Cloud"
+description = "Anslut PDF Viewer till Python AI-motorn, välj dess modeller och ange skyddsräcken för hur den körs."
+managedByCloud = "Hanteras av PDF Viewer Cloud i detta läge."
+managedByCloudShort = "Hanteras av PDF Viewer Cloud"
 
 [admin.settings.ai.documents]
 description = "Konfigurera inbäddningsmodellen och hämtningsinställningarna som används för att besvara frågor om dokument. Tillämpas på AI-motorn när de sparas."
@@ -779,16 +779,16 @@ description = "Slå på eller av enskilda AI-funktioner. Inaktiverade funktioner
 title = "Funktioner"
 
 [admin.settings.ai.general.cloud]
-note = "Modeller och leverantörsnycklar hanteras av Stirling Cloud, så de inställningarna gäller inte i detta läge."
+note = "Modeller och leverantörsnycklar hanteras av PDF Viewer Cloud, så de inställningarna gäller inte i detta läge."
 
 [admin.settings.ai.general.cloud.indexing]
-description = "Varje AI-verktyg skickar den sidtext det behöver för att svara. Detta avgör om Stirling Cloud också får behålla den texten, indexerad, så att senare frågor kan söka i dokumentet."
+description = "Varje AI-verktyg skickar den sidtext det behöver för att svara. Detta avgör om PDF Viewer Cloud också får behålla den texten, indexerad, så att senare frågor kan söka i dokumentet."
 help = "Av innebär att dokumentfrågor inte är tillgängliga. Det stoppar inte text från att skickas - bara från att lagras."
-label = "Låt Stirling Cloud behålla indexerade dokument"
+label = "Låt PDF Viewer Cloud behålla indexerade dokument"
 
 [admin.settings.ai.general.cloudNote]
-body = "Resonemanget körs på Stirlings infrastruktur och debiteras kontot som den här servern är länkad till. Det finns ingen container att köra och ingen leverantörsnyckel att ha här. Allt som AI:n läser bearbetas av Stirling Cloud istället för på din egen maskinvara."
-title = "Om Stirling Cloud AI"
+body = "Resonemanget körs på Stirlings infrastruktur och debiteras kontot som den här servern är länkad till. Det finns ingen container att köra och ingen leverantörsnyckel att ha här. Allt som AI:n läser bearbetas av PDF Viewer Cloud istället för på din egen maskinvara."
+title = "Om PDF Viewer Cloud AI"
 
 [admin.settings.ai.general.enabled]
 description = "Huvudbrytare. När den är avstängd är inga AI-verktyg, agenter eller motoranrop tillgängliga."
@@ -826,11 +826,11 @@ label = "Timeout för långvariga åtgärder (sekunder)"
 label = "Var AI körs"
 
 [admin.settings.ai.general.mode.cloud]
-description = "Ingen container, ingen leverantörsnyckel, inget modellval - arbetet körs på Stirling Cloud och debiteras kontot som den här servern är länkad till."
-linkCta = "Anslut den här servern till ett Stirling-konto"
+description = "Ingen container, ingen leverantörsnyckel, inget modellval - arbetet körs på PDF Viewer Cloud och debiteras kontot som den här servern är länkad till."
+linkCta = "Anslut den här servern till ett PDF Viewer-konto"
 notLinked = "Länka ett konto först"
-ownerOnly = "Endast organisationsägaren kan länka den här servern till ett Stirling-konto."
-title = "Använd Stirling Cloud AI"
+ownerOnly = "Endast organisationsägaren kan länka den här servern till ett PDF Viewer-konto."
+title = "Använd PDF Viewer Cloud AI"
 
 [admin.settings.ai.general.mode.off]
 description = "Inga AI-verktyg någonstans i appen, och inget lämnar den här servern."
@@ -842,7 +842,7 @@ title = "Kör din egen motor"
 
 [admin.settings.ai.general.note]
 docs = "Installationsguide"
-intro = "En separat container som du kör bredvid Stirling. Den sköter resonemanget; Stirling gör fortfarande varje sidåtgärd själv. Den behöver samma"
+intro = "En separat container som du kör bredvid PDF Viewer. Den sköter resonemanget; PDF Viewer gör fortfarande varje sidåtgärd själv. Den behöver samma"
 outro = "på båda containrarna och en modellleverantörsnyckel. Allt som AI:n läser skickas till leverantören du väljer - en Ollama som du hostar behåller varje sida internt."
 title = "Om AI-motorn"
 
@@ -944,24 +944,24 @@ url = "Motor-URL"
 
 [admin.settings.ai.status.cloud]
 hostDown = "Nere"
-hostLabel = "Stirling.com"
+hostLabel = "PDF Viewer.com"
 hostUp = "Uppe"
-name = "Stirling Cloud"
+name = "PDF Viewer Cloud"
 sharingLabel = "AI-delning"
 sharingOff = "Inaktiverad"
 sharingOn = "Aktiverad"
 
 [admin.settings.ai.status.cloud.degraded]
-body = "Stirling Cloud svarade men avvisade den här servern. Kontolänken kan ha återkallats."
-title = "Stirling Cloud avvisar den här servern"
+body = "PDF Viewer Cloud svarade men avvisade den här servern. Kontolänken kan ha återkallats."
+title = "PDF Viewer Cloud avvisar den här servern"
 
 [admin.settings.ai.status.cloud.down]
-body = "Den här servern kunde inte nå Stirling Cloud. Kontrollera kontolänken och att den här servern kan nå internet."
-title = "Stirling Cloud kan inte nås"
+body = "Den här servern kunde inte nå PDF Viewer Cloud. Kontrollera kontolänken och att den här servern kan nå internet."
+title = "PDF Viewer Cloud kan inte nås"
 
 [admin.settings.ai.status.cloud.ok]
-body = "Stirling Cloud accepterade den här servern. Inget att köra eller patcha här."
-title = "Körs på Stirling Cloud"
+body = "PDF Viewer Cloud accepterade den här servern. Inget att köra eller patcha här."
+title = "Körs på PDF Viewer Cloud"
 
 [admin.settings.ai.status.degraded]
 body = "Den svarade på hälsokontrollen men avvisade en riktig begäran. De två sidorna använder olika delade hemligheter."
@@ -1114,7 +1114,7 @@ confirmCodeLabel = "Ange bekräftelsekoden för att fortsätta"
 confirmImport = "Bekräfta import"
 confirmImportTitle = "Bekräfta databasimport"
 connection = "Anslutning"
-connectionDescription = "Peka Stirling mot en extern databas i stället för den inbyggda."
+connectionDescription = "Peka PDF Viewer mot en extern databas i stället för den inbyggda."
 createBackup = "Skapa säkerhetskopia"
 created = "Skapad"
 delete = "Ta bort"
@@ -1215,11 +1215,11 @@ description = "Konfigurera valfria funktioner och funktionalitet."
 title = "Funktioner"
 
 [admin.settings.features.serverCertificate]
-description = "Generera certifikatet som stöder signeringsfunktionen \"Sign with Stirling-PDF\"."
+description = "Generera certifikatet som stöder signeringsfunktionen \"Sign with PDF Viewer\"."
 label = "Certifikatsignering"
 
 [admin.settings.features.serverCertificate.enabled]
-description = "Erbjud \"Sign with Stirling-PDF\" med ett certifikat som denna server genererar"
+description = "Erbjud \"Sign with PDF Viewer\" med ett certifikat som denna server genererar"
 label = "Aktivera certifikatsignering"
 
 [admin.settings.features.serverCertificate.organizationName]
@@ -1314,7 +1314,7 @@ description = "Standardspråk för nya användare (t.ex. en_US, es_ES)"
 label = "Standardlocale"
 
 [admin.settings.general.enableFeedback]
-description = "Låt användare skicka feedback till Stirling-teamet"
+description = "Låt användare skicka feedback till PDF Viewer-teamet"
 label = "Aktivera feedback"
 
 [admin.settings.general.fileUploadLimit]
@@ -1368,7 +1368,7 @@ description = "URL eller filnamn till cookiepolicy"
 label = "Cookiepolicy"
 
 [admin.settings.legal.disclaimer]
-message = "Genom att anpassa dessa juridiska dokument tar du fullt ansvar för att säkerställa efterlevnad av alla tillämpliga lagar och regler, inklusive men inte begränsat till GDPR och andra EU-krav för dataskydd. Ändra endast dessa inställningar om: (1) du driver en personlig/privat instans, (2) du befinner dig utanför EU:s jurisdiktion och förstår dina lokala rättsliga skyldigheter, eller (3) du har erhållit korrekt juridisk rådgivning och accepterar ensamt ansvar för all användardata och rättslig efterlevnad. Stirling-PDF och dess utvecklare tar inget ansvar för dina rättsliga skyldigheter."
+message = "Genom att anpassa dessa juridiska dokument tar du fullt ansvar för att säkerställa efterlevnad av alla tillämpliga lagar och regler, inklusive men inte begränsat till GDPR och andra EU-krav för dataskydd. Ändra endast dessa inställningar om: (1) du driver en personlig/privat instans, (2) du befinner dig utanför EU:s jurisdiktion och förstår dina lokala rättsliga skyldigheter, eller (3) du har erhållit korrekt juridisk rådgivning och accepterar ensamt ansvar för all användardata och rättslig efterlevnad. PDF Viewer och dess utvecklare tar inget ansvar för dina rättsliga skyldigheter."
 title = "Varning om juridiskt ansvar"
 
 [admin.settings.legal.impressum]
@@ -1456,7 +1456,7 @@ description = "Användarnamn för SMTP-autentisering"
 label = "SMTP-användarnamn"
 
 [admin.settings.mcp]
-apikeyNote = "Klienter skickar en Stirling API-nyckel i huvudet X-API-KEY (eller Authorization: Bearer <key>). Nyckeln kopplas till sin Stirling-användare. Endast etablerade konton kommer in och åtgärder granskas som den användaren. Hantera nycklar under Konto > API-nycklar."
+apikeyNote = "Klienter skickar en PDF Viewer API-nyckel i huvudet X-API-KEY (eller Authorization: Bearer <key>). Nyckeln kopplas till sin PDF Viewer-användare. Endast etablerade konton kommer in och åtgärder granskas som den användaren. Hantera nycklar under Konto > API-nycklar."
 description = "Exponera Stirlings PDF-verktyg och AI-agenter för MCP-klienter via en slutpunkt med OAuth- eller API-nyckelautentisering."
 title = "MCP-server"
 
@@ -1487,7 +1487,7 @@ step3ApiKeyb = "huvud (eller Authorization: Bearer <key>). OAuth eller metadatas
 step4 = "Godkänn inloggningen; klienten försöker igen med en token. Verktygen grupperas som konvertera, sidor, övrigt, säkerhet och AI."
 step4ApiKey = "Verktygen grupperas som konvertera, sidor, övrigt, säkerhet och AI – varje anrop granskas som nyckelns ägare."
 tip = "Tips: registrera resurs-ID:t som en tillåten målgrupp i din IdP. Testat med MCP Inspector och Claude Desktop."
-tipApiKey = "Tips: API-nyckelläget behöver ingen extern IdP – enklast för självhosting. Nyckeln kopplas till sin Stirling-användare."
+tipApiKey = "Tips: API-nyckelläget behöver ingen extern IdP – enklast för självhosting. Nyckeln kopplas till sin PDF Viewer-användare."
 title = "Anslut en MCP-klient"
 
 [admin.settings.mcp.issuerUri]
@@ -1500,14 +1500,14 @@ label = "JWKS-URL (valfritt)"
 placeholder = "Hittas automatiskt från utfärdaren"
 
 [admin.settings.mcp.mode]
-apikey = "API-nyckel (Stirling-nyckel per användare)"
-description = "OAuth behöver en extern IdP. API-nyckel använder en Stirling-API-nyckel per användare (X-API-KEY); det är enklast för självhosting."
+apikey = "API-nyckel (PDF Viewer-nyckel per användare)"
+description = "OAuth behöver en extern IdP. API-nyckel använder en PDF Viewer-API-nyckel per användare (X-API-KEY); det är enklast för självhosting."
 label = "Autentiseringsläge"
 oauth = "OAuth 2.1 (extern IdP)"
 
 [admin.settings.mcp.requireAccount]
-description = "Tillåt endast token om dess subjekt kopplas till en etablerad och aktiverad Stirling-användare."
-label = "Kräv ett befintligt Stirling-konto"
+description = "Tillåt endast token om dess subjekt kopplas till en etablerad och aktiverad PDF Viewer-användare."
+label = "Kräv ett befintligt PDF Viewer-konto"
 
 [admin.settings.mcp.resourceId]
 description = "Den här serverns publika /mcp-URL. Token måste ange den i sin målgrupp (RFC 8707), annars avvisas de."
@@ -1518,7 +1518,7 @@ description = "Kräv mcp.tools.read för läsåtgärder och mcp.tools.write för
 label = "Tvinga OAuth-scope"
 
 [admin.settings.mcp.usernameClaim]
-description = "JWT-claim som matchas mot ett Stirling-användarnamn (t.ex. sub, email, preferred_username)."
+description = "JWT-claim som matchas mot ett PDF Viewer-användarnamn (t.ex. sub, email, preferred_username)."
 label = "Claim för användarnamn"
 
 [admin.settings.plan.noData]
@@ -1847,7 +1847,7 @@ description = "När aktiverat kan endast listade användar-ID:n använda boten."
 label = "Tillåt specifika användar-ID:n"
 
 [admin.settings.telegram.enabled]
-description = "Låt användare interagera med Stirling PDF via din konfigurerade Telegram-bot."
+description = "Låt användare interagera med PDF Viewer via din konfigurerade Telegram-bot."
 label = "Aktivera Telegram-bot"
 
 [admin.settings.telegram.feedback]
@@ -1920,7 +1920,7 @@ settingsOverview = "Detta är <strong>Inställningspanelen</strong>. Administrat
 systemCustomization = "Vi har omfattande sätt att anpassa gränssnittet: <strong>Systeminställningar</strong> låter dig ändra appnamn och språk, <strong>Funktioner</strong> möjliggör hantering av servercertifikat och <strong>Ändpunkter</strong> låter dig aktivera eller inaktivera specifika verktyg för dina användare."
 teamsAndUsers = "Hantera <strong>Team</strong> och enskilda användare här. Du kan bjuda in nya användare via e-post, delningsbara länkar eller skapa anpassade konton åt dem själv."
 welcome = "Välkommen till <strong>Admin-rundturen</strong>! Låt oss utforska de kraftfulla företagsfunktionerna och inställningarna som finns tillgängliga för systemadministratörer."
-wrapUp = "Det var administratörsturen! Du har sett enterprise-funktionerna som gör Stirling PDF till en kraftfull, anpassningsbar lösning för organisationer. Du kan spela upp den igen när som helst – öppna bara <strong>Inställningar</strong> och hitta den här i avsnittet <strong>Turer</strong> under Hjälp."
+wrapUp = "Det var administratörsturen! Du har sett enterprise-funktionerna som gör PDF Viewer till en kraftfull, anpassningsbar lösning för organisationer. Du kan spela upp den igen när som helst – öppna bara <strong>Inställningar</strong> och hitta den här i avsnittet <strong>Turer</strong> under Hjälp."
 
 [adminUserSettings]
 admin = "Administratör"
@@ -1936,9 +1936,9 @@ thai = "Thailändska"
 
 [analytics]
 learnMore = "Läs mer om vår analys"
-paragraph1 = "Stirling PDF har opt-in-analys för att hjälpa oss förbättra produkten. Vi spårar ingen personlig information eller filinnehåll."
-paragraph2 = "Var god aktivera analyser för att hjälpa Stirling-PDF att växa och tillåta oss att förstå våra användare bättre."
-title = "Vill du hjälpa till att göra Stirling PDF bättre?"
+paragraph1 = "PDF Viewer har opt-in-analys för att hjälpa oss förbättra produkten. Vi spårar ingen personlig information eller filinnehåll."
+paragraph2 = "Var god aktivera analyser för att hjälpa PDF Viewer att växa och tillåta oss att förstå våra användare bättre."
+title = "Vill du hjälpa till att göra PDF Viewer bättre?"
 
 [annotate]
 tags = "annotera,markera,rita,uppmärkning,kommentar,anteckningar,granskning,ändringsmarkering,återkoppling,uppmärkningsverktyg,notislappar,former,pilar,textruta,friform"
@@ -2887,9 +2887,9 @@ typeSignature = "Skriv ditt namn för att skapa en signatur"
 uploadCert = "Ladda upp ett certifikat"
 uploadCertDesc = "Använd ditt eget PKCS12-, PFX-, PEM- eller JKS-certifikat."
 uploadSignature = "Ladda upp din signaturbild"
-usePersonalCert = "Stirling Sign · Personlig"
+usePersonalCert = "PDF Viewer Sign · Personlig"
 usePersonalCertDesc = "Signera med certifikatet som skapats för ditt konto."
-useServerCert = "Stirling Sign · Organisation"
+useServerCert = "PDF Viewer Sign · Organisation"
 useServerCertDesc = "Signera med den här serverns delade organisationscertifikat."
 useSignature = "Använd signatur"
 
@@ -3208,8 +3208,8 @@ copy = "Kopiera meddelande"
 
 [chat.dock]
 collapse = "Fäll ihop chatten"
-placeholder = "Fråga Stirling Agent"
-title = "Stirling Agent"
+placeholder = "Fråga PDF Viewer Agent"
+title = "PDF Viewer Agent"
 
 [chat.header]
 clearChat = "Rensa chatt"
@@ -3363,7 +3363,7 @@ translatedMetadata = "En metadata-post med översättningar"
 
 [checkAccessibility.pdf]
 continued = "{{name}} (forts.)"
-footer = "Kontrollerad med Stirling PDF"
+footer = "Kontrollerad med PDF Viewer"
 page = "Sida {{n}}"
 title = "Tillgänglighetsrapport"
 
@@ -3804,9 +3804,9 @@ label = "Dokument efter typ: {{summary}}"
 noTypes = "Dessa dokument matchade inte någon känd typ."
 
 [classificationDemo.defaultApp]
-body = "Gör Stirling till din standardapp för PDF. Varje PDF du öppnar, från e-post, din webbläsare eller skrivbordet, hamnar här, redo att läsa eller redigera. Du kan ändra detta när som helst i Inställningar."
-cta = "Gör Stirling till min standardapp"
-title = "Öppna varje PDF i Stirling"
+body = "Gör PDF Viewer till din standardapp för PDF. Varje PDF du öppnar, från e-post, din webbläsare eller skrivbordet, hamnar här, redo att läsa eller redigera. Du kan ändra detta när som helst i Inställningar."
+cta = "Gör PDF Viewer till min standardapp"
+title = "Öppna varje PDF i PDF Viewer"
 
 [classificationDemo.followUp]
 background = "Detta körs i bakgrunden. Ringen till vänster visar förloppet."
@@ -3821,7 +3821,7 @@ other = "Annat"
 body = "Klassificera och organisera de {{count}} senaste PDF-filerna i mappen Hämtade filer efter typ."
 cta = "Bearbeta min Hämtade filer-mapp"
 privacy = "Dina PDF-filer stannar på den här enheten. Din anslutna server registrerar bearbetningsanvändning."
-title = "Se vad Stirling kan göra med en hel mapp"
+title = "Se vad PDF Viewer kan göra med en hel mapp"
 
 [classificationDemo.phase]
 finishing = "Slutför..."
@@ -3835,10 +3835,10 @@ counts = "av {{total}} PDF-filer bearbetade"
 [classificationDemo.results]
 documentCount_one = "{{count}} PDF"
 documentCount_other = "{{count}} PDF-filer"
-failedBody = "Stirling kunde inte läsa mappen Hämtade filer. Inget på din dator ändrades."
+failedBody = "PDF Viewer kunde inte läsa mappen Hämtade filer. Inget på din dator ändrades."
 failedTitle = "Det slutfördes inte"
 heading = "Dina hämtade filer, sorterade"
-summary = "Stirling läste {{documents}} och sorterade dem i {{types}}."
+summary = "PDF Viewer läste {{documents}} och sorterade dem i {{types}}."
 typeCount_one = "{{count}} typ"
 typeCount_other = "{{count}} typer"
 
@@ -4177,13 +4177,13 @@ upgradeButton = "Uppgradera konto"
 [config.apiKeys]
 copyKeyAriaLabel = "Kopiera API-nyckel"
 description = "Din API-nyckel för att komma åt Stirlings svit av PDF-verktyg. Kopiera den till ditt projekt eller uppdatera för att generera en ny."
-docsDescription = "Läs mer om integration med Stirling PDF:"
+docsDescription = "Läs mer om integration med PDF Viewer:"
 docsLink = "API-dokumentation"
 docsTitle = "API-dokumentation"
 generateError = "Vi kunde inte generera din API-nyckel."
 goToAccount = "Gå till konto"
 guestInfo = "Gästanvändare får inga API-nycklar. Skapa ett konto för att få en API-nyckel att använda i dina applikationer."
-intro = "Använd din API-nyckel för att programmässigt komma åt Stirling PDFs bearbetningsfunktioner."
+intro = "Använd din API-nyckel för att programmässigt komma åt PDF Viewers bearbetningsfunktioner."
 label = "API-nyckel"
 publicKeyAriaLabel = "Offentlig API-nyckel"
 refreshAriaLabel = "Uppdatera API-nyckel"
@@ -4207,10 +4207,10 @@ title = "Uppdatera API-nycklar"
 warning = "⚠️ Varning: Denna åtgärd kommer att generera nya API-nycklar och göra dina tidigare nycklar ogiltiga."
 
 [config.mcp]
-description = "Model Context Protocol (MCP) låter AI-assistenter som Claude använda dina Stirling PDF-verktyg direkt. Anslut en klient en gång så kan assistenten konvertera, redigera, skydda och bearbeta dokument åt dig."
-guestInfo = "Gästanvändare kan inte ansluta MCP-klienter. Skapa ett konto för att använda MCP-servern och låta din AI-assistent köra Stirling PDF-verktyg åt dig."
+description = "Model Context Protocol (MCP) låter AI-assistenter som Claude använda dina PDF Viewer-verktyg direkt. Anslut en klient en gång så kan assistenten konvertera, redigera, skydda och bearbeta dokument åt dig."
+guestInfo = "Gästanvändare kan inte ansluta MCP-klienter. Skapa ett konto för att använda MCP-servern och låta din AI-assistent köra PDF Viewer-verktyg åt dig."
 navLabel = "MCP-server"
-tip = "Varje åtgärd assistenten kör utförs som ditt konto och räknas mot din användning, precis som när du använder Stirling PDF direkt."
+tip = "Varje åtgärd assistenten kör utförs som ditt konto och räknas mot din användning, precis som när du använder PDF Viewer direkt."
 viewApiKeys = "Visa API-nycklar"
 
 [config.mcp.copy]
@@ -4226,7 +4226,7 @@ label = "Din MCP-slutpunkt"
 
 [config.mcp.setup]
 addTo = "Lägg till i"
-hint = "Välj klient, klistra in kodavsnittet i den visade filen och starta sedan om den. Vid första användningen loggar du in med ditt Stirling-konto – inga nycklar behöver kopieras."
+hint = "Välj klient, klistra in kodavsnittet i den visade filen och starta sedan om den. Vid första användningen loggar du in med ditt PDF Viewer-konto – inga nycklar behöver kopieras."
 title = "Anslut din AI-assistent"
 
 [config.overview]
@@ -4250,10 +4250,10 @@ step = "Steg {{current}} av {{total}}"
 [connect.confirm]
 acknowledge = "Jag känner igen den här adressen och vill ansluta den till mitt team"
 approve = "Anslut server"
-cannotDecide = "Endast en teamägare kan godkänna eller avvisa den här anslutningen. Använd ett annat konto eller stäng den här uppmaningen för att fortsätta använda Stirling."
+cannotDecide = "Endast en teamägare kan godkänna eller avvisa den här anslutningen. Använd ett annat konto eller stäng den här uppmaningen för att fortsätta använda PDF Viewer."
 deny = "Avvisa"
 dismiss = "Stäng"
-lead = "En Stirling-server ber om att ansluta till ditt team. Kontrollera att adressen nedan är din innan du godkänner."
+lead = "En PDF Viewer-server ber om att ansluta till ditt team. Kontrollera att adressen nedan är din innan du godkänner."
 originLabel = "Adress"
 signedInAs = "Inloggad som"
 switchAccount = "Använd ett annat konto"
@@ -4293,7 +4293,7 @@ disconnect = "Koppla från"
 google = "Google Drive"
 intro = "Anslut dina egna konton en gång. Dina pipelines kan sedan läsa från och spara till dem som du."
 microsoft = "Microsoft (OneDrive & SharePoint)"
-needsReconnect = "Stirling kan inte längre nå det här kontot, så pipelines som använder det har pausats."
+needsReconnect = "PDF Viewer kan inte längre nå det här kontot, så pipelines som använder det har pausats."
 none = "Din administratör har inte aktiverat anslutna konton."
 personal = "Privat konto"
 popupBlocked = "Din webbläsare blockerade inloggningsfönstret. Tillåt pop-ups för den här webbplatsen och försök igen."
@@ -4438,7 +4438,7 @@ showPreferencesBtn = "Hantera inställningar"
 title = "Hur vi använder cookies"
 
 [cookieBanner.popUp.description]
-1 = "Vi använder cookies och andra tekniker för att få Stirling PDF att fungera bättre för dig – hjälpa oss att förbättra våra verktyg och fortsätta bygga funktioner du kommer att uppskatta."
+1 = "Vi använder cookies och andra tekniker för att få PDF Viewer att fungera bättre för dig – hjälpa oss att förbättra våra verktyg och fortsätta bygga funktioner du kommer att uppskatta."
 2 = "Om du hellre avstår aktiverar ”Nej tack” bara de nödvändiga cookies som krävs för att allt ska fungera smidigt."
 
 [cookieBanner.preferencesModal]
@@ -4451,12 +4451,12 @@ subtitle = "Användning av cookies"
 title = "Center för samtyckesinställningar"
 
 [cookieBanner.preferencesModal.analytics]
-description = "Dessa cookies hjälper oss att förstå hur våra verktyg används, så att vi kan fokusera på att bygga de funktioner som vår community värdesätter mest. Var trygg – Stirling PDF kan inte och kommer aldrig att spåra innehållet i dokumenten du arbetar med."
+description = "Dessa cookies hjälper oss att förstå hur våra verktyg används, så att vi kan fokusera på att bygga de funktioner som vår community värdesätter mest. Var trygg – PDF Viewer kan inte och kommer aldrig att spåra innehållet i dokumenten du arbetar med."
 title = "Analys"
 
 [cookieBanner.preferencesModal.description]
-1 = "Stirling PDF använder cookies och liknande teknik för att förbättra din upplevelse och förstå hur våra verktyg används. Detta hjälper oss att förbättra prestanda, utveckla de funktioner du bryr dig om och ge löpande stöd till våra användare."
-2 = "Stirling PDF kan inte – och kommer aldrig att – spåra eller komma åt innehållet i dokumenten du använder."
+1 = "PDF Viewer använder cookies och liknande teknik för att förbättra din upplevelse och förstå hur våra verktyg används. Detta hjälper oss att förbättra prestanda, utveckla de funktioner du bryr dig om och ge löpande stöd till våra användare."
+2 = "PDF Viewer kan inte – och kommer aldrig att – spåra eller komma åt innehållet i dokumenten du använder."
 3 = "Din integritet och ditt förtroende är kärnan i det vi gör."
 
 [cookieBanner.preferencesModal.necessary]
@@ -4565,11 +4565,11 @@ message = "Det gick inte att ange standard-PDF-hanterare"
 title = "Fel"
 
 [defaultApp.settingsOpened]
-message = "I Windows-inställningar, sök efter 'PDF' och välj Stirling PDF som din standardapp"
+message = "I Windows-inställningar, sök efter 'PDF' och välj PDF Viewer som din standardapp"
 title = "Inställningar öppnade"
 
 [defaultApp.success]
-message = "Stirling PDF är nu din standard-PDF-redigerare"
+message = "PDF Viewer är nu din standard-PDF-redigerare"
 title = "Standardapp angiven"
 
 [desktop.fileSave]
@@ -4586,7 +4586,7 @@ minimize = "Minimera"
 restore = "Återställ"
 
 [desktopBilling]
-description = "Hantera användning och fakturering i din webbläsare. Logga in med samma Stirling-konto som du använder här."
+description = "Hantera användning och fakturering i din webbläsare. Logga in med samma PDF Viewer-konto som du använder här."
 open = "Öppna Användning och fakturering i webbläsaren"
 openFailed = "Det gick inte att öppna Användning och fakturering. Kontrollera din anslutning och försök igen."
 selfHostedDescription = "Hantera användning och fakturering på din anslutna server i din webbläsare. Logga in med ditt serverägarkonto."
@@ -4638,7 +4638,7 @@ updateFailedMessage = "Det gick inte att ladda ner eller installera uppdateringe
 
 [desktopUpdate.blocked]
 docsLink = "Visa installationsdokumentation"
-message = "Stirling-PDF har inte behörighet att uppdatera sig själv på den här datorn."
+message = "PDF Viewer har inte behörighet att uppdatera sig själv på den här datorn."
 title = "Administratörsbehörighet krävs"
 
 [devAirgapped]
@@ -4912,7 +4912,7 @@ description = "Extraherar de valda sidorna till en ny PDF och bevarar ordningen.
 open = "Skicka feedback"
 sendMore = "Skicka mer feedback"
 sent = "Tack för din feedback"
-title = "Hjälp oss förbättra Stirling"
+title = "Hjälp oss förbättra PDF Viewer"
 unavailable = "Feedback är inte tillgängligt"
 
 [feedback.tag]
@@ -5117,13 +5117,13 @@ save = "Byt namn"
 title = "Byt namn på fil"
 
 [filesPage]
-addedToLibrary = "Tillagd i Stirling-biblioteket"
-addingToLibrary = "Lägger till i Stirling-biblioteket…"
-addToLibrary = "Lägg till i Stirling-biblioteket…"
+addedToLibrary = "Tillagd i PDF Viewer-biblioteket"
+addingToLibrary = "Lägger till i PDF Viewer-biblioteket…"
+addToLibrary = "Lägg till i PDF Viewer-biblioteket…"
 addToLibraryFailed = "Vissa filer kunde inte läggas till"
 addToWorkspace = "Lägg till i arbetsyta"
 addToWorkspaceCount = "Lägg till {{count}} i arbetsyta"
-allFiles = "Stirling-bibliotek"
+allFiles = "PDF Viewer-bibliotek"
 back = "Tillbaka"
 backToFolder = "Tillbaka till {{folder}}"
 backToMyFiles = "Tillbaka till filbiblioteket"
@@ -5151,7 +5151,7 @@ deleteFolderContents_one = "Ta även bort {{count}} fil i mappen"
 deleteFolderContents_other = "Ta även bort {{count}} filer i mappen"
 deleteFolderContentsWarning = "Filerna tas bort permanent och kan inte återställas."
 deleteFolderError = "Kunde inte ta bort mappen. Försök igen."
-deleteFolderKeepHint = "Filer inuti flyttas till Stirling-biblioteket."
+deleteFolderKeepHint = "Filer inuti flyttas till PDF Viewer-biblioteket."
 deleteFolderTitle = "Ta bort mapp?"
 deselectAll = "Rensa markering"
 details = "Detaljer"
@@ -5189,7 +5189,7 @@ moveSkippedRemote_other = "{{count}} filer kunde inte flyttas på servern (ingen
 moveTo = "Flytta till…"
 newFolder = "Ny mapp"
 newFolderStorageDisabled = "Servermapplagring är inte aktiverad."
-newFolderTabUnavailable = "Växla till Stirling-biblioteket för att skapa mappar."
+newFolderTabUnavailable = "Växla till PDF Viewer-biblioteket för att skapa mappar."
 offlineNoFolderEdits = "Serverns mappsynk är inte tillgänglig – mappändringar är inaktiverade. Kontrollera inloggning och lagringskonfiguration."
 open = "Öppna"
 openVersionInWorkspace = "Öppna i arbetsyta"
@@ -5198,7 +5198,7 @@ recentFiles = "Senaste"
 refresh = "Uppdatera"
 refreshNeedsConnection = "Logga in för att uppdatera från servern."
 remove = "Ta bort"
-removeLocalFolder = "Avmontera från Stirling"
+removeLocalFolder = "Avmontera från PDF Viewer"
 removeVersion = "Ta bort den här versionen"
 rename = "Byt namn"
 renamed = "Omdöpt"
@@ -5210,7 +5210,7 @@ selectAll = "Markera alla"
 selectedCount = "{{count}} markerade"
 selectedFile = "{{name}}, vald"
 selectFile = "Välj fil {{name}}"
-serverFolderNeedsConnection = "Logga in på Stirling Cloud eller anslut en egenhostad server för att använda servermappar."
+serverFolderNeedsConnection = "Logga in på PDF Viewer Cloud eller anslut en egenhostad server för att använda servermappar."
 shareDisabledHint = "Fildelning är inte aktiverad på denna server. Be din administratör att aktivera den."
 shareManage = "Hantera delning"
 showDetails = "Visa detaljer"
@@ -5220,7 +5220,7 @@ summary_other = "{{count}} objekt"
 tree = "Mappar"
 unmount = "Avmontera"
 unmountFolderBody = "Avmontera \"{{name}}\"? Mappen och dess filer finns kvar på din disk."
-unmountFolderTitle = "Avmontera från Stirling?"
+unmountFolderTitle = "Avmontera från PDF Viewer?"
 upload = "Ladda upp"
 uploadFromMobile = "Ladda upp från mobil"
 versionActions = "Versionsåtgärder"
@@ -5263,7 +5263,7 @@ orphaned = "Inte på disken"
 orphanedHint = "Originalet på {{path}} är borta. Den här kopian finns bara här – om du sparar den ombeds du välja en ny plats."
 unavailable = "Inte tillgänglig"
 unavailableHintOffline = "Enheten eller delningen som den här filen finns på är inte ansluten. Anslut den igen för att hämta ändringar igen."
-unavailableHintPermission = "Stirling har inte behörighet att läsa den här platsen. Ge åtkomst i Systeminställningar för att hämta ändringar igen."
+unavailableHintPermission = "PDF Viewer har inte behörighet att läsa den här platsen. Ge åtkomst i Systeminställningar för att hämta ändringar igen."
 unavailableHintUnknown = "Den här filen kan inte nås just nu. Kopian här är oförändrad."
 
 [filesPage.diskState]
@@ -5378,7 +5378,7 @@ placeholder = "Mappnamn"
 
 [filesPage.folderOrigin]
 diskHint = "En mapp monterad från en katalog på din disk"
-serverHint = "En mapp som lagras på Stirling-servern"
+serverHint = "En mapp som lagras på PDF Viewer-servern"
 virtualHint = "En mapp som bara finns i den här webbläsaren"
 
 [filesPage.moveDialog]
@@ -5402,7 +5402,7 @@ serverHint = "Synkroniseras med ditt konto, tillgänglig överallt där du logga
 [filesPage.origin]
 all = "Alla källor"
 cloud = "Moln"
-cloudHint = "Lagrad på Stirling-servern"
+cloudHint = "Lagrad på PDF Viewer-servern"
 diskFileHint = "Lagras på din dator"
 diskHint = "En fil i den monterade mappen på din disk"
 local = "Lokalt"
@@ -5413,7 +5413,7 @@ sharedHint = "Delad med dig via länk"
 
 [filesPage.processing]
 active = "Bearbetar mapp"
-blockedNeedsConnection = "Logga in på Stirling Cloud eller anslut en egenhostad server för att bearbeta mappar."
+blockedNeedsConnection = "Logga in på PDF Viewer Cloud eller anslut en egenhostad server för att bearbeta mappar."
 edit = "Redigera bearbetning..."
 nothingToRestore = "Inga original att återställa – dessa filer är redan sina original."
 paused = "Bearbetning pausad"
@@ -5815,7 +5815,7 @@ invisible = "Osynlig (endast metadata)"
 location = "Plats:"
 logo = "Logotyp:"
 logoHidden = "Ingen logotyp"
-logoShown = "Stirling PDF-logotyp visas"
+logoShown = "PDF Viewer-logotyp visas"
 participantCount_one = "{{count}} deltagare har valts"
 participantCount_other = "{{count}} deltagare har valts"
 participants = "Deltagare"
@@ -5866,7 +5866,7 @@ title = "Signering i valfri ordning"
 dismiss = "Stäng bannern"
 message = "Skapa ett gratis konto för att spara ditt arbete, få tillgång till fler funktioner och stödja projektet."
 signUp = "Registrera dig gratis"
-title = "Du använder Stirling PDF som gäst!"
+title = "Du använder PDF Viewer som gäst!"
 
 [home.addAttachments]
 desc = "Visa, lägg till, extrahera, byt namn på eller ta bort inbäddade PDF-bilagor"
@@ -6050,7 +6050,7 @@ tags = "kombinera,sammanfoga,förena,slå ihop,slå ihop PDFs,kombinera PDFs,sam
 title = "Sammanfoga"
 
 [home.mobile]
-brandAlt = "Stirling PDF‑logotyp"
+brandAlt = "PDF Viewer‑logotyp"
 openFiles = "Öppna filer"
 swipeHint = "Svep vänster eller höger för att byta vy"
 tools = "Verktyg"
@@ -6084,7 +6084,7 @@ tags = "organisera,ordna om,ändra ordning,ordna sidor,sortera,flytta sidor,ta b
 title = "Ordna"
 
 [home.pdfTextEditor]
-desc = "Granska och redigera Stirling PDF JSON-exporter med grupperad textredigering och PDF-återgenerering"
+desc = "Granska och redigera PDF Viewer JSON-exporter med grupperad textredigering och PDF-återgenerering"
 tags = "redigera text,ändra text,modifiera text,redigera innehåll,uppdatera text,skriv om,rätta,justera,ändringsmarkera,granska,textredigerare,innehållsredigerare"
 title = "PDF-textredigerare"
 
@@ -6262,7 +6262,7 @@ passwordRequired = "Lösenord krävs"
 signIn = "Logga in"
 validating = "Validerar inbjudan..."
 validationError = "Misslyckades med att validera inbjudningslänken"
-welcome = "Välkommen till Stirling PDF"
+welcome = "Välkommen till PDF Viewer"
 welcomeSubtitle = "Slutför din kontoinställning för att komma igång"
 welcomeTitle = "Du har bjudits in!"
 
@@ -6309,8 +6309,8 @@ terms = "Villkor och betingelser"
 title = "Tredjepartslicenser"
 
 [localMode]
-automationUnavailable = "Logga in på Stirling Cloud eller en egenhostad server för att använda bearbetningsmappar och pipelines."
-toolUnavailable = "Detta verktyg kräver ett konto. Logga in på Stirling Cloud eller anslut till en självhostad server för att använda det."
+automationUnavailable = "Logga in på PDF Viewer Cloud eller en egenhostad server för att använda bearbetningsmappar och pipelines."
+toolUnavailable = "Detta verktyg kräver ett konto. Logga in på PDF Viewer Cloud eller anslut till en självhostad server för att använda det."
 
 [localMode.toolPicker]
 message = "Logga in för att låsa upp alla verktyg."
@@ -6550,7 +6550,7 @@ message = "Autentiseringen lyckades inte. Du kan stänga detta fönster och för
 title = "Autentisering misslyckades"
 
 [oauth.success]
-message = "Du kan stänga detta fönster och återgå till Stirling PDF."
+message = "Du kan stänga detta fönster och återgå till PDF Viewer."
 title = "Autentisering lyckades"
 
 [oauthConsent]
@@ -6563,17 +6563,17 @@ loadFailed = "Den här auktoriseringsbegäran är ogiltig eller har gått ut. St
 loading = "Läser in auktoriseringsbegäran…"
 missingId = "Auktoriseringsbegäran saknas. Starta anslutningen från appen och försök igen."
 redirecting = "Återgår till appen…"
-requesting = "{{app}} vill få åtkomst till ditt Stirling PDF-konto"
+requesting = "{{app}} vill få åtkomst till ditt PDF Viewer-konto"
 scopesIntro = "Detta ger {{app}} rätt att:"
 signedInAs = "Inloggad som {{name}}"
 signInButton = "Logga in för att fortsätta"
-signInPrompt = "Logga in på ditt Stirling PDF-konto för att fortsätta ansluta appen."
+signInPrompt = "Logga in på ditt PDF Viewer-konto för att fortsätta ansluta appen."
 title = "Godkänn åtkomst"
 unknownApp = "En tredjepartsapp"
 
 [oauthConsent.access]
 actAsYou = "Agera som du – allt {{app}} gör körs under ditt konto och räknas mot din användning"
-tools = "Använd dina Stirling PDF-verktyg åt dig – konvertera, redigera, signera, säkra och bearbeta dina dokument"
+tools = "Använd dina PDF Viewer-verktyg åt dig – konvertera, redigera, signera, säkra och bearbeta dina dokument"
 
 [oauthConsent.scope]
 email = "Se din e-postadress"
@@ -6703,26 +6703,26 @@ skipTheTour = "Hoppa över rundturen"
 
 [onboarding.checklist]
 dismiss = "Avfärda"
-title = "Konfigurera Stirling PDF"
+title = "Konfigurera PDF Viewer"
 
 [onboarding.checklist.downloadDesktop]
-description = "Kör Stirling lokalt på din dator"
-title = "Ladda ner Stirling för Desktop"
+description = "Kör PDF Viewer lokalt på din dator"
+title = "Ladda ner PDF Viewer för Desktop"
 
 [onboarding.checklist.inviteTeam]
 description = "Samarbeta med ditt team"
 title = "Bjud in teammedlemmar"
 
 [onboarding.checklist.setDefaultApp]
-description = "Öppna PDF-filer i Stirling PDF"
-title = "Gör Stirling till din standardapp"
+description = "Öppna PDF-filer i PDF Viewer"
+title = "Gör PDF Viewer till din standardapp"
 
 [onboarding.checklist.takeTour]
-description = "Se hur Stirling fungerar i en snabb genomgång"
+description = "Se hur PDF Viewer fungerar i en snabb genomgång"
 title = "Ta rundturen"
 
 [onboarding.desktopInstall]
-body = "Stirling fungerar bäst som ett skrivbordsprogram. Du kan använda det offline, komma åt dokument snabbare och göra redigeringar lokalt på din dator."
+body = "PDF Viewer fungerar bäst som ett skrivbordsprogram. Du kan använda det offline, komma åt dokument snabbare och göra redigeringar lokalt på din dator."
 selectOs = "Välj operativsystem"
 title = "Ladda ner"
 titleWithOs = "Ladda ner för {{osLabel}}"
@@ -6730,7 +6730,7 @@ titleWithOs = "Ladda ner för {{osLabel}}"
 [onboarding.desktopWelcome]
 body = "Det finns massor av nya ändringar att utforska, inklusive <strong>Agent Chat</strong>, automatisk dokument<strong>klassificering</strong> och mer."
 freeLine = "Redigeraren är nu <free>helt gratis</free>."
-title = "Välkommen till Stirling <product>Desktop</product>"
+title = "Välkommen till PDF Viewer <product>Desktop</product>"
 
 [onboarding.mfa]
 authenticationCode = "Autentiseringskod"
@@ -6751,21 +6751,21 @@ success = "MFA har aktiverats. Du kan nu fortsätta."
 title = "Konfigurera multifaktorautentisering"
 
 [onboarding.planOverview]
-adminBodyLoginDisabled = "När du aktiverar inloggningsläge kan du hantera användare, konfigurera inställningar och övervaka serverhälsa. De första <strong>{{freeTierLimit}}</strong> personerna på din server får använda Stirling gratis."
-adminBodyLoginEnabled = "Som admin kan du hantera användare, konfigurera inställningar och övervaka serverhälsa. De första <strong>{{freeTierLimit}}</strong> personerna på din server får använda Stirling gratis."
+adminBodyLoginDisabled = "När du aktiverar inloggningsläge kan du hantera användare, konfigurera inställningar och övervaka serverhälsa. De första <strong>{{freeTierLimit}}</strong> personerna på din server får använda PDF Viewer gratis."
+adminBodyLoginEnabled = "Som admin kan du hantera användare, konfigurera inställningar och övervaka serverhälsa. De första <strong>{{freeTierLimit}}</strong> personerna på din server får använda PDF Viewer gratis."
 adminTitle = "Adminöversikt"
 userBody = "Bjud in teammedlemmar, tilldela roller och håll dina dokument organiserade i en säker arbetsyta. Aktivera inloggningsläge när du är redo att växa bortom sololäge."
 userTitle = "Planöversikt"
 
 [onboarding.processorIntro]
-body = "Stirling kör nu <strong>policyer</strong> — automatiserade regler som klassificerar, säkrar och bearbetar varje dokument när det kommer in. Konfigurera dem och övervaka körningar i <strong>Processor</strong>."
+body = "PDF Viewer kör nu <strong>policyer</strong> — automatiserade regler som klassificerar, säkrar och bearbetar varje dokument när det kommer in. Konfigurera dem och övervaka körningar i <strong>Processor</strong>."
 cta = "Kolla in Processor"
-title = "Kolla in Stirling Processor"
+title = "Kolla in PDF Viewer Processor"
 
 [onboarding.saas.freeEditor]
 freeLine = "Redigeraren är nu <free>helt kostnadsfri</free>."
 premium = "Vi har lagt till många nya funktioner, bland annat <strong>policyer</strong> och <strong>agentchatt</strong>."
-title = "Välkommen till Stirling"
+title = "Välkommen till PDF Viewer"
 
 [onboarding.saas.team]
 addButton = "Lägg till"
@@ -6786,20 +6786,20 @@ roleUser = "Användare"
 title = "Säkerhetskontroll"
 
 [onboarding.serverLicense]
-freeBody = "Vår <strong>Open-Core</strong>-licens omfattar <strong>OAuth SSO</strong> och upp till <strong>{{freeTierLimit}}</strong> användare utan kostnad. För att skala utan avbrott rekommenderar vi Stirling Team-abonnemanget: <strong>100 användare</strong> för $99/mån."
+freeBody = "Vår <strong>Open-Core</strong>-licens omfattar <strong>OAuth SSO</strong> och upp till <strong>{{freeTierLimit}}</strong> användare utan kostnad. För att skala utan avbrott rekommenderar vi PDF Viewer Team-abonnemanget: <strong>100 användare</strong> för $99/mån."
 freeTitle = "Team-abonnemang"
-overLimitBody = "Vår licens tillåter upp till <strong>{{freeTierLimit}}</strong> användare gratis. Du har <strong>{{overLimitUserCopy}}</strong> Stirling-användare. För att fortsätta utan avbrott, uppgradera till Stirling Team-abonnemanget – <strong>100 användare</strong>, PDF-textredigering och full administratörskontroll för $99/mån."
+overLimitBody = "Vår licens tillåter upp till <strong>{{freeTierLimit}}</strong> användare gratis. Du har <strong>{{overLimitUserCopy}}</strong> PDF Viewer-användare. För att fortsätta utan avbrott, uppgradera till PDF Viewer Team-abonnemanget – <strong>100 användare</strong>, PDF-textredigering och full administratörskontroll för $99/mån."
 overLimitTitle = "Team-abonnemang krävs"
 seePlans = "Se planer →"
 upgrade = "Uppgradera nu →"
 
 [onboarding.tourOverview]
-body = "Stirling PDF V2 levereras med dussintals verktyg och en uppdaterad layout. Ta en snabb tur för att se vad som ändrats och var du hittar de funktioner du behöver."
+body = "PDF Viewer V2 levereras med dussintals verktyg och en uppdaterad layout. Ta en snabb tur för att se vad som ändrats och var du hittar de funktioner du behöver."
 title = "Översikt över rundtur"
 
 [onboarding.welcomeSlide]
-body = "Stirling PDF är nu redo för team i alla storlekar. Denna uppdatering innehåller en ny layout, kraftfulla nya adminfunktioner och vår mest efterfrågade funktion - <strong>Redigera text</strong>."
-title = "Välkommen till Stirling"
+body = "PDF Viewer är nu redo för team i alla storlekar. Denna uppdatering innehåller en ny layout, kraftfulla nya adminfunktioner och vår mest efterfrågade funktion - <strong>Redigera text</strong>."
+title = "Välkommen till PDF Viewer"
 
 [onboarding.whatsNew]
 activeFilesView = "Använd Aktiva filer för att se allt du har öppet och välja vad du vill arbeta med."
@@ -6912,7 +6912,7 @@ check = "Kontrollera igen"
 checkAccount = "Kontrollera konto"
 chooseEmail = "Välj deras konto i {{team}}, eller ange en e-postadress för att bjuda in dem."
 close = "Stäng överföringsdialog"
-cloudAccount = "Stirling-konto"
+cloudAccount = "PDF Viewer-konto"
 cloudScopeStyled = "<user>{{name}}</user> kommer att hantera {{team}}, dess medlemmar och fakturering."
 cloudTargetChanged = "Välj en annan molnmedlem. Det här kontot är inte längre berättigat till överlämningen."
 confirm = "Jag förstår ändringarna av åtkomst och ägarskap."
@@ -6927,7 +6927,7 @@ inviteAddress = "Bjud in <account>{{email}}</account> till {{team}}."
 inviteBlocked = "Inbjudan kunde inte skickas. Kontrollera tillgängliga teamplatser och om mottagaren redan har en betald prenumeration."
 linkChanged = "Serverns molnlänk har ändrats. Be serveroperatören att återställa den ursprungliga länken innan du återupptar."
 linkedServerCount = "{{count}} länkade servrar"
-linkRevoked = "Den här serverns molnlänk är inte längre giltig. Avbryt överföringen och anslut sedan ditt Stirling-konto igen i inställningarna. Ägarskapet ändras inte."
+linkRevoked = "Den här serverns molnlänk är inte längre giltig. Avbryt överföringen och anslut sedan ditt PDF Viewer-konto igen i inställningarna. Ägarskapet ändras inte."
 localScope = "De kommer att äga den här servern och hantera fakturering och molnanslutningar. Du behåller administratörsåtkomst, men förlorar åtkomst till dessa inställningar."
 membershipDetails = "Uppgifter om teammedlemskap"
 membershipFirst = "De måste gå med i teamet innan du kan bekräfta överföringen."
@@ -7255,7 +7255,7 @@ benefit1Body = "kedja verktyg, schemalägg körningar, batchbearbeta"
 benefit1Title = "Automationspipelines"
 benefit2Body = "sammanfatta, klassificera, maskera, AI-OCR"
 benefit2Title = "AI-verktyg"
-benefit3Body = "anropa valfri Stirling-slutpunkt programmatiskt"
+benefit3Body = "anropa valfri PDF Viewer-slutpunkt programmatiskt"
 benefit3Title = "API-åtkomst"
 button = "Aktivera Processor →"
 reassurance = "Ingen miniminivå · Ange en gräns på 0 USD för att testa · Avsluta när som helst"
@@ -7345,7 +7345,7 @@ editorLabel = "PDF-redigerare"
 login = "Logga in"
 manualToolsPromo = "Obegränsat med kostnadsfria manuella PDF-verktyg"
 processorLabel = "PDF-processor"
-processorTitle = "Skapa ett konto för att låsa upp det bästa av Stirling"
+processorTitle = "Skapa ett konto för att låsa upp det bästa av PDF Viewer"
 readerLabel = "PDF-läsare"
 
 [payg.spendCapMeter]
@@ -7385,7 +7385,7 @@ usdNote = "Uppskattat i USD. Efter prenumerationen kan du när som helst justera
 [payg.upgrade.checkout]
 capValue = "{{symbol}}{{amount}} / månad"
 edit = "Redigera"
-help = "Stripe hanterar dina kortuppgifter. Stirling ser dem aldrig."
+help = "Stripe hanterar dina kortuppgifter. PDF Viewer ser dem aldrig."
 loading = "Läser in kassan …"
 noCap = "Ingen gräns"
 title = "Lägg till betalningsmetod"
@@ -7393,7 +7393,7 @@ title = "Lägg till betalningsmetod"
 [payg.upgrade.help]
 aiBody = "summarise, classify, redact, AI-OCR"
 aiTitle = "AI-verktyg"
-apiBody = "programmatisk åtkomst till valfri Stirling-slutpunkt"
+apiBody = "programmatisk åtkomst till valfri PDF Viewer-slutpunkt"
 apiTitle = "API-anrop"
 automationBody = "kedjade verktyg eller schemalagda körningar som inte kräver klick"
 automationTitle = "Automationspipelines"
@@ -7492,7 +7492,7 @@ overCapacityConsequence = "Befintliga konton finns kvar. Att lägga till eller b
 overCapacityTitle = "Din server har fler användare än vad din plan täcker"
 perMonth = "/mån"
 perYear = "/år"
-planName = "Stirling Team"
+planName = "PDF Viewer Team"
 reductionNote = "Den lägre kapaciteten börjar vid din nästa förnyelse. Tills dess kan du använda din nuvarande tilldelning. Befintliga användare stannar kvar; nya användare blockeras om du överskrider kapaciteten när ändringen träder i kraft."
 renewalNote = "Förnyas för {{total}}{{period}}. Avbryt när som helst i Användning och fakturering."
 reviewChange = "Granska ändring i Stripe"
@@ -8437,35 +8437,35 @@ pdfa-3b = "PDF/A-3b"
 ownerRequired = "Endast organisationsägaren kan länka eller avlänka den här servern."
 
 [portal.accountLink.card]
-billingNote = "Den här servern delar ditt teams bearbetningstilldelning i Stirling Cloud."
-connectDescription = "Anslut den här servern för att använda ditt teams bearbetningstilldelning i Stirling Cloud."
-disconnectBody = "Den här servern slutar använda ditt teams bearbetningstilldelning i Stirling Cloud. Dina lokala filer finns kvar på den här servern. Följ de ursprungliga anslutningsstegen för att ansluta igen."
+billingNote = "Den här servern delar ditt teams bearbetningstilldelning i PDF Viewer Cloud."
+connectDescription = "Anslut den här servern för att använda ditt teams bearbetningstilldelning i PDF Viewer Cloud."
+disconnectBody = "Den här servern slutar använda ditt teams bearbetningstilldelning i PDF Viewer Cloud. Dina lokala filer finns kvar på den här servern. Följ de ursprungliga anslutningsstegen för att ansluta igen."
 disconnectTitle = "Koppla från den här instansen?"
 eyebrow = "Den här instansen"
-linkButton = "Anslut ditt Stirling-konto"
+linkButton = "Anslut ditt PDF Viewer-konto"
 loading = "Kontrollerar kontoanslutning"
 notLinked = "Inte ansluten"
-signedInAs = "Inloggad på Stirling Cloud som"
+signedInAs = "Inloggad på PDF Viewer Cloud som"
 statusError = "Kunde inte kontrollera kontoanslutningen"
-title = "Stirling Cloud"
+title = "PDF Viewer Cloud"
 unlink = "Koppla från den här instansen"
 
 [portal.accountLink.card.error]
 title = "Kunde inte uppdatera anslutningen"
 
 [portal.accountLink.card.loginNotConfigured]
-description = "Be din serveradministratör att aktivera anslutningen till Stirling Cloud."
+description = "Be din serveradministratör att aktivera anslutningen till PDF Viewer Cloud."
 title = "Kontoanslutning är inte tillgänglig"
 
 [portal.accountLink.connect]
-adminRequired = "Be din serveradministratör att öppna Användning och fakturering och länka ett Stirling-konto för fler månatliga krediter. Manuella PDF-verktyg är fortfarande tillgängliga."
+adminRequired = "Be din serveradministratör att öppna Användning och fakturering och länka ett PDF Viewer-konto för fler månatliga krediter. Manuella PDF-verktyg är fortfarande tillgängliga."
 adminTitle = "Fråga din serveradministratör"
 close = "Stäng"
 copied = "Kopierat"
 copyAdminMessage = "Kopiera meddelande till administratör"
-exhaustedLede = "Den här servern har använt sina kostnadsfria krediter för månaden. Länka ett nytt eller befintligt Stirling-konto för att komma åt ditt teams månatliga tilldelning."
+exhaustedLede = "Den här servern har använt sina kostnadsfria krediter för månaden. Länka ett nytt eller befintligt PDF Viewer-konto för att komma åt ditt teams månatliga tilldelning."
 notNow = "Inte nu"
-start = "Anslut Stirling-konto"
+start = "Anslut PDF Viewer-konto"
 step = "Steg {{current}} av {{total}}"
 
 [portal.accountLink.connect.benefits]
@@ -8479,9 +8479,9 @@ teamsDetail = "Lägg till fler användare med en betald Team-plan"
 teamsLabel = "Större team"
 
 [portal.accountLink.connect.callback]
-linkedNotSignedIn = "Du är inte inloggad på Stirling i den här webbläsaren, så användning och fakturering kommer att be dig logga in."
+linkedNotSignedIn = "Du är inte inloggad på PDF Viewer i den här webbläsaren, så användning och fakturering kommer att be dig logga in."
 retry = "Försök igen"
-signedInAnyway = "Du är inloggad på Stirling, så fakturering och användning läses in. Endast serverlänken är ofullständig."
+signedInAnyway = "Du är inloggad på PDF Viewer, så fakturering och användning läses in. Endast serverlänken är ofullständig."
 working = "Slutför anslutningen."
 
 [portal.accountLink.connect.callback.expired]
@@ -8497,7 +8497,7 @@ body = "Den här begäran avvisades eller har redan använts. Starta en ny om de
 title = "Anslutningen slutfördes inte"
 
 [portal.accountLink.connect.callback.unfinished]
-body = "Stirling bekräftade inte anslutningen. Detta är vanligtvis tillfälligt."
+body = "PDF Viewer bekräftade inte anslutningen. Detta är vanligtvis tillfälligt."
 title = "Inte klart ännu"
 
 [portal.accountLink.connect.done]
@@ -8508,23 +8508,23 @@ creditsBarLabel = "Kostnadsfria krediter kvar"
 creditsSuffix = "av {{allowance}} gratiskrediter kvar"
 cta = "Klar"
 inviteTeam = "Bjud in ditt team"
-lede = "Den här servern körs nu mot ditt Stirling-konto."
+lede = "Den här servern körs nu mot ditt PDF Viewer-konto."
 pendingTitle = "Nästan klart"
 switchOnProcessor = "Slå på Processor"
 title = "Ansluten"
 
 [portal.accountLink.connect.handoff]
-opening = "Öppnar Stirling-inloggning..."
-reauthLede = "Din Stirling-session har löpt ut. Logga in igen för att fortsätta se användning och fakturering. Den här servern förblir ansluten oavsett."
+opening = "Öppnar PDF Viewer-inloggning..."
+reauthLede = "Din PDF Viewer-session har löpt ut. Logga in igen för att fortsätta se användning och fakturering. Den här servern förblir ansluten oavsett."
 title = "Ansluter"
 
 [portal.accountLink.connectionNotice]
-expiredBody = "Den här servern har inte nått Stirling Cloud inom sin offline-tilldelning. Molnstödda Team-funktioner och Processor-arbeten är pausade. Befintliga data och installerade licensrättigheter bevaras. Åtkomsten återkommer automatiskt när en lyckad anslutning bekräftar din plan."
+expiredBody = "Den här servern har inte nått PDF Viewer Cloud inom sin offline-tilldelning. Molnstödda Team-funktioner och Processor-arbeten är pausade. Befintliga data och installerade licensrättigheter bevaras. Åtkomsten återkommer automatiskt när en lyckad anslutning bekräftar din plan."
 expiredTitle = "Molnåtkomst pausad"
 offlineBody = "Din senast bekräftade plan är tillgänglig till {{deadline}}. Återställ serverns anslutning före dess för att undvika att molnstödda funktioner och bearbetning pausas."
-offlineTitle = "Stirling Cloud kan inte nås"
+offlineTitle = "PDF Viewer Cloud kan inte nås"
 retry = "Kontrollera anslutning"
-revokedBody = "Stirling Cloud avvisade den här kontoanslutningen. Anslut kontot igen i Inställningar för att återställa berättigade molnstödda funktioner."
+revokedBody = "PDF Viewer Cloud avvisade den här kontoanslutningen. Anslut kontot igen i Inställningar för att återställa berättigade molnstödda funktioner."
 revokedTitle = "Kontoanslutningen har återkallats"
 
 [portal.accountLink.failure]
@@ -8553,17 +8553,17 @@ callbackMismatch = "Den här serverns konfigurerade frontend-adress matchar inte
 cancel = "Avbryt"
 continueReauth = "Logga in igen"
 exhaustedTitle = "Håll dina arbetsflöden igång"
-identity = "Stirling-konto"
-linkTitle = "Anslut ditt Stirling-konto"
-noAuthorizeUrl = "Stirling returnerade ingen plats att fortsätta till. Försök igen om en stund."
-startFailed = "Kunde inte nå Stirling för att starta anslutningen. Kontrollera serverns utgående nätverksåtkomst och försök igen."
+identity = "PDF Viewer-konto"
+linkTitle = "Anslut ditt PDF Viewer-konto"
+noAuthorizeUrl = "PDF Viewer returnerade ingen plats att fortsätta till. Försök igen om en stund."
+startFailed = "Kunde inte nå PDF Viewer för att starta anslutningen. Kontrollera serverns utgående nätverksåtkomst och försök igen."
 transferPending = "En ägarskapsöverföring väntar. Gå till Inställningar → Användare för att slutföra eller avbryta den och försök sedan länka igen."
 
 [portal.accountLink.modal.loginNotConfigured]
 after = "så att den här servern kan slutföra anslutningen när du kommer tillbaka."
 and = "och"
 before = "Ange"
-title = "Stirling-anslutningen är inte konfigurerad"
+title = "PDF Viewer-anslutningen är inte konfigurerad"
 
 [portal.accountLink.notice]
 loadFailed = "Dialogrutan för kontolänkning kunde inte läsas in."
@@ -8573,11 +8573,11 @@ openFailed = "Kunde inte öppna din webbläsare. Öppna Användning och fakturer
 instancesSub = "Självhostade servrar anslutna till samma team."
 instancesTitle = "Anslutna instanser"
 manageCloud = "Hantera på stirling.com"
-otherInstancesSub = "Andra egenhostade servrar anslutna till samma team i Stirling Cloud."
+otherInstancesSub = "Andra egenhostade servrar anslutna till samma team i PDF Viewer Cloud."
 otherInstancesTitle = "Andra anslutna instanser"
 revokeError = "Det gick inte att återkalla instansen"
 sessionRequired = "Anslutna instanser visas efter att du har förnyat faktureringsåtkomsten."
-sub = "Hantera den här serverns anslutning till ditt Stirling Cloud-konto."
+sub = "Hantera den här serverns anslutning till ditt PDF Viewer Cloud-konto."
 
 [portal.accountLink.panel.loadError]
 forbidden = "Endast teamägaren kan hantera anslutna instanser."
@@ -8600,7 +8600,7 @@ viewAll = "Visa alla pipelines"
 
 [portal.accountLink.rail]
 adminCta = "Så får du fler krediter"
-adminSub = "Be din serveradministratör länka ett Stirling-konto för fler krediter. Manuella PDF-verktyg är fortfarande tillgängliga."
+adminSub = "Be din serveradministratör länka ett PDF Viewer-konto för fler krediter. Manuella PDF-verktyg är fortfarande tillgängliga."
 exhaustedCta = "Länka konto för fler krediter"
 exhaustedSub = "Länka för månatliga krediter, delad fakturering och möjlighet att växa med en Team-plan."
 exhaustedTitle = "Den här serverns gratiskrediter är slut"
@@ -8614,9 +8614,9 @@ malformed = "Vi kunde inte verifiera detta inloggningssvar. Börja om från Anv�
 malformedTitle = "Kunde inte verifiera inloggning"
 rejected = "Den här inloggningsbegäran avvisades eller har redan använts. Försök igen för att förnya faktureringsåtkomsten."
 rejectedTitle = "Inloggningen slutfördes inte"
-retry = "Stirling kunde inte slutföra förnyelsen av faktureringsåtkomsten. Försök igen om en stund; din server är fortfarande ansluten."
+retry = "PDF Viewer kunde inte slutföra förnyelsen av faktureringsåtkomsten. Försök igen om en stund; din server är fortfarande ansluten."
 retryTitle = "Faktureringsåtkomst återställdes inte"
-success = "Din faktureringsåtkomst har förnyats. Den här servern är fortfarande ansluten till samma Stirling-konto."
+success = "Din faktureringsåtkomst har förnyats. Den här servern är fortfarande ansluten till samma PDF Viewer-konto."
 title = "Förnya faktureringsåtkomst"
 working = "Återställer faktureringsåtkomst."
 
@@ -8630,7 +8630,7 @@ close = "Stäng assistenten"
 error = "Det gick inte att nå assistenten."
 errorWithDetail = "Det gick inte att nå assistenten: {{detail}}"
 inputAriaLabel = "Fråga assistenten"
-inputPlaceholder = "Fråga om Stirling…"
+inputPlaceholder = "Fråga om PDF Viewer…"
 open = "Öppna assistenten"
 send = "Skicka"
 title = "Assistent"
@@ -8675,7 +8675,7 @@ title = "Ange din utgiftsgräns"
 [portal.billing.checkout.card]
 fields = "Kortnummer · MM / ÅÅ · CVC · ZIP"
 label = "Kortuppgifter"
-note = "Kortuppgifter samlas in av Stripe. Stirling lagrar aldrig PAN eller CVC."
+note = "Kortuppgifter samlas in av Stripe. PDF Viewer lagrar aldrig PAN eller CVC."
 
 [portal.billing.checkout.error]
 title = "Det gick inte att starta kassan"
@@ -8759,7 +8759,7 @@ pdfsUsed_one = "{{count}} PDF bearbetad"
 pdfsUsed_other = "{{count}} PDF-filer bearbetade"
 period = "Avtalsperiod: {{start}} – {{end}}"
 sub = "Air-gapped distribution, SCIM, datalagringsregion, drifttids-SLA:er och ett avtal som matchar."
-title = "Kör du Stirling i en reglerad miljö?"
+title = "Kör du PDF Viewer i en reglerad miljö?"
 trial = "{{days}} dagars testperiod · slutar {{date}}"
 usersAgreed = "{{used}} / {{agreed}} avtalade användare"
 usersOver_one = "{{count}} användare över avtalad mängd"
@@ -8909,7 +8909,7 @@ spendAgainstLimit = "{{spend}} av {{cap}} förbrukningsbaserat denna cykel"
 [portal.billing.seats]
 awaitingSync = "Väntar på sin dagliga synkronisering; ingår ännu inte i flottans total."
 breakdown = "Var användare räknas"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 deployment = "Länkad server"
 lastReported = "Rapporterat {{date}}"
 live = "Aktuellt antal användare"
@@ -9041,7 +9041,7 @@ description = "Där bearbetade dokument hamnar – en bucket, en enhet, ett äre
 label = "Fil och bifoga"
 
 [portal.connections.commonFields.accessToken]
-helperText = "Stirling lagrar detta krypterat och visar det aldrig igen."
+helperText = "PDF Viewer lagrar detta krypterat och visar det aldrig igen."
 label = "Åtkomsttoken"
 
 [portal.connections.commonFields.apiKey]
@@ -9630,8 +9630,8 @@ brandTag = "Enterprise"
 callInfo = "Ett 15-minuters samtal. Ta med dina frågor om pris, driftsättning eller säkerhet, eller planera din utrullning tillsammans."
 callTitle = "Prata med en lösningsingenjör"
 deployment = "Driftsättning"
-footer = "Frågor om Stirling Enterprise?"
-home = "Gå till Stirling"
+footer = "Frågor om PDF Viewer Enterprise?"
+home = "Gå till PDF Viewer"
 member = "Din teamledare hanterar Enterprise-affären. När den startar kan du följa dess framsteg här."
 memberDeal = "Din teamledare hanterar den här affären. Du kan följa dess framsteg här."
 quotePanel = "Din offert"
@@ -9644,8 +9644,8 @@ stagesLabel = "Förlopp"
 lede = "Prova gratis i 14 dagar, bygg sedan din offert och signera ditt avtal här. Inget kort krävs."
 tickAgreement = "Ett avtal som omfattar MSA, orderformulär, EULA och DPA"
 tickCompliance = "SCIM, datahemvist och SLA:er för upptid"
-tickDeploy = "Kör den på Stirling Cloud, dina egna servrar eller helt isolerat från internet"
-title = "Stirling Enterprise"
+tickDeploy = "Kör den på PDF Viewer Cloud, dina egna servrar eller helt isolerat från internet"
+title = "PDF Viewer Enterprise"
 
 [portal.enterprise.options.airgap]
 more = "Offline-licensdokumentation"
@@ -9655,7 +9655,7 @@ point3 = "Inloggning stannar inom ditt nätverk"
 tagline = "Självhostad i ett nätverk utan internetåtkomst."
 
 [portal.enterprise.options.cloud]
-more = "Dokumentation för Stirling Cloud"
+more = "Dokumentation för PDF Viewer Cloud"
 point1 = "Ditt team loggar in på stirling.com/app"
 point2 = "Körs på AWS, med lagrade filer krypterade i vila"
 point3 = "Single sign-on genom din egen identitetsleverantör kräver självhostning"
@@ -9697,11 +9697,11 @@ title = "Kör ditt första dokument"
 
 [portal.enterprise.setup.getApp]
 body = "Installera skrivbordsappen för Windows, Mac eller Linux och logga in med kontot du just skapade, eller använd den direkt i din webbläsare."
-title = "Skaffa Stirling"
+title = "Skaffa PDF Viewer"
 
 [portal.enterprise.setup.install]
-body = "Kör detta på din server. Det startar Stirling med din licens tillämpad, och avbilden inkluderar OCR och kontorskonvertering. För större team, använd Kubernetes."
-title = "Installera och starta Stirling"
+body = "Kör detta på din server. Det startar PDF Viewer med din licens tillämpad, och avbilden inkluderar OCR och kontorskonvertering. För större team, använd Kubernetes."
+title = "Installera och starta PDF Viewer"
 
 [portal.enterprise.setup.invite]
 body = "Ta in personerna som ska använda det, så speglar provet verkligt arbete."
@@ -9722,21 +9722,21 @@ invite = "Bjud in teammedlemmar"
 kubernetes = "Kubernetes-guide"
 licence = "Licensaktivering"
 ocr = "OCR-språk"
-openApp = "Öppna Stirling"
+openApp = "Öppna PDF Viewer"
 samlGuide = "SAML-guide"
 ssoGuide = "SSO-guide"
 
 [portal.enterprise.setup.offlineInstall]
 body = "Dra hem hela avbilden på en ansluten dator, för över den och licensfilen, ladda sedan in och starta. Den fullständiga avbilden lägger till de typsnitt som en offline-server inte kan ladda ner."
-title = "Ta över Stirling och starta det"
+title = "Ta över PDF Viewer och starta det"
 
 [portal.enterprise.setup.offlineLicence]
 body = "En isolerad server kan inte nå vår licenstjänst, så den kontrollerar i stället den här signerade filen. Behåll den tillsammans med avbilden du för över."
 title = "Ladda ner din offline-licens"
 
 [portal.enterprise.setup.people]
-bodyAirgap = "Skapa konton på <code>/settings/people</code>, eller peka Stirling mot din interna identitetsleverantör så att inloggningen aldrig lämnar ditt nätverk."
-bodySelfHosted = "Skapa konton på <code>/settings/people</code>, eller anslut din identitetsleverantör så att ditt team loggar in med sina arbetskonton. De använder Stirling i webbläsaren på din servers adress, eller i skrivbordsappen riktad mot den."
+bodyAirgap = "Skapa konton på <code>/settings/people</code>, eller peka PDF Viewer mot din interna identitetsleverantör så att inloggningen aldrig lämnar ditt nätverk."
+bodySelfHosted = "Skapa konton på <code>/settings/people</code>, eller anslut din identitetsleverantör så att ditt team loggar in med sina arbetskonton. De använder PDF Viewer i webbläsaren på din servers adress, eller i skrivbordsappen riktad mot den."
 title = "Lägg till dina personer"
 
 [portal.enterprise.setup.signIn]
@@ -9750,7 +9750,7 @@ retry = "Försök igen"
 title = "Något gick fel på den här sidan"
 
 [portal.failures]
-closedBySystem = "Stirling"
+closedBySystem = "PDF Viewer"
 noMatches = "Inget matchar de aktuella filtren"
 occurrences = "{{count}} förekomster"
 searchPlaceholder = "Sök problem, användare och fel"
@@ -9862,7 +9862,7 @@ description = "Den här servern saknar programvara som steget behöver, så kör
 title = "Programvara inte installerad"
 
 [portal.failures.kind.unknown]
-description = "Körningen misslyckades av en anledning som Stirling ännu inte känner igen. Råmeddelandet visas nedan."
+description = "Körningen misslyckades av en anledning som PDF Viewer ännu inte känner igen. Råmeddelandet visas nedan."
 title = "Okänt fel"
 
 [portal.failures.log]
@@ -9895,13 +9895,13 @@ title = "Inget att granska"
 [portal.home.download]
 back = "Tillbaka"
 body = "Ladda ner desktop-appen eller självhosta servern."
-bodyDesktop = "Ladda ner skrivbordsappen och logga sedan in med ditt Stirling-konto."
+bodyDesktop = "Ladda ner skrivbordsappen och logga sedan in med ditt PDF Viewer-konto."
 done = "Klart"
 guide = "Öppna guiden för {{name}}"
 openInBrowser = "Öppna i webbläsaren istället"
 sectionDesktop = "Desktop-app"
 sectionSelfHosted = "Självhostad"
-title = "Installera Stirling PDF Editor"
+title = "Installera PDF Viewer Editor"
 
 [portal.home.download.docker]
 detailBody = "Kör den officiella imagen på din server."
@@ -9983,7 +9983,7 @@ usageMonth = "Användning denna månad"
 usageToday = "Användning idag"
 
 [portal.infrastructure.apiKeys.empty]
-description = "Skapa en nyckel för att börja anropa Stirling API."
+description = "Skapa en nyckel för att börja anropa PDF Viewer API."
 title = "Inga API-nycklar ännu"
 
 [portal.infrastructure.apiKeys.error]
@@ -10073,7 +10073,7 @@ done = "Klar"
 keyNameLabel = "Nyckelnamn"
 keyNamePlaceholder = "t.ex. Produktionsintag"
 secretKeyCaption = "Hemlig nyckel"
-secretWarning = "Spara detta i en secrets manager. Stirling lagrar bara en hash, så det går inte att återställa det senare."
+secretWarning = "Spara detta i en secrets manager. PDF Viewer lagrar bara en hash, så det går inte att återställa det senare."
 subtitle = "Ge nyckeln ett namn så att du kan känna igen den senare. Du kan återkalla den när som helst."
 subtitleCreated = "Kopiera den här hemligheten nu — den visas inte igen."
 title = "Skapa API-nyckel"
@@ -10257,7 +10257,7 @@ connectionCount_one = "{{count}} anslutning"
 connectionCount_other = "{{count}} anslutningar"
 customApi = "Anpassat API"
 searchPlaceholder = "Sök integrationer"
-subtitle = "Allt som Stirling kan kommunicera med. Inloggningsuppgifter skapas en gång här och refereras sedan av källor, policies och pipelines."
+subtitle = "Allt som PDF Viewer kan kommunicera med. Inloggningsuppgifter skapas en gång här och refereras sedan av källor, policies och pipelines."
 title = "Integrationer"
 typedName = "{{tool}}-namn"
 
@@ -10942,8 +10942,8 @@ saveFailed = "Kunde inte spara pipelinen. Försök igen."
 
 [portal.policies.wizard.locations]
 aiSettings = "Öppna AI-inställningar"
-builtin = "Stirling-kunskapsbas"
-builtinHelp = "Indexerar sökbara delar i Stirling och returnerar den bearbetade PDF:en till destinationen nedan. En embedding-leverantör måste vara konfigurerad i AI-inställningar."
+builtin = "PDF Viewer-kunskapsbas"
+builtinHelp = "Indexerar sökbara delar i PDF Viewer och returnerar den bearbetade PDF:en till destinationen nedan. En embedding-leverantör måste vara konfigurerad i AI-inställningar."
 checking = "Kontrollerar ingestionstillgänglighet..."
 chooseOutput = "Välj en aktiverad utdatadestination innan du sparar."
 chooseSource = "Välj var dokument kommer från"
@@ -11035,7 +11035,7 @@ title = "Inget flöde ännu"
 
 [portal.processorFlow.sources]
 comingSoonTag = "Anslut"
-editor = "Stirling PDF-redigerare"
+editor = "PDF Viewer-redigerare"
 heading = "Källor"
 perDay = "{{n}} / 24 h"
 
@@ -11051,7 +11051,7 @@ title = "Inköp"
 agreeCta = "Signera avtal"
 confidential = "Konfidentiellt"
 confirm = "Jag har läst och godkänner detta avtal, och jag intygar att jag är behörig att signera det för organisationen som anges ovan."
-docName = "Stirling Enterprise-avtal"
+docName = "PDF Viewer Enterprise-avtal"
 docSub = "MSA, Order Form, EULA och DPA, samlat för en signatur."
 download = "Ladda ner"
 downloadDraftError = "Kunde inte generera avtalets PDF – dokumentrenderaren är inte tillgänglig. Försök igen snart eller kontakta supporten."
@@ -11091,7 +11091,7 @@ contactNamePlaceholder = "Jane Doe"
 continue = "Fortsätt"
 done = "Klart"
 editUsage = "Redigera användning"
-eula = "Jag har läst och godkänner Stirling Enterprise EULA. Den styr avtalet som genereras från denna offert."
+eula = "Jag har läst och godkänner PDF Viewer Enterprise EULA. Den styr avtalet som genereras från denna offert."
 generate = "Generera offert"
 indemnification = "Förstärkt IP-skydd"
 indemnificationSub = "Utökar vårt IP-försvar till patentanspråk. Grundläggande skadeslöshet för upphovsrätt, varumärken och företagshemligheter ingår utan kostnad."
@@ -11099,7 +11099,7 @@ minimum = "Enterprise kräver en minsta årlig kostnad på {{min}}."
 minimumBelow = "Den här offerten blir {{annual}} per år. Om du förväntar dig att använda mer, höj din uppskattade användning; annars är Team-planen troligen ett bättre val."
 minimumNear = "Enterprise kräver en minsta årlig kostnad på {{min}}. Höj din uppskattade användning för att nå den, eller prata igenom det med oss."
 minimumNearTitle = "Du saknar {{gap}} per år för Enterprise."
-paperBrand = "Stirling PDF"
+paperBrand = "PDF Viewer"
 paperEyebrow = "Enterprise-offert"
 paperFor = "Förberedd för"
 pdfSize = "PDF-storlek"
@@ -11210,7 +11210,7 @@ eyebrow = "Enterprise"
 eyebrowCompany = "{{company}} Enterprise"
 inviteTeammates = "Bjud in teammedlemmar"
 liveSub = "Din organisation är provisionerad och din licens är aktiv."
-liveTitle = "Du är live på Stirling Enterprise"
+liveTitle = "Du är live på PDF Viewer Enterprise"
 next = "Nästa: {{stage}}"
 open = "Öppna inköp"
 scheduleCall = "Boka ett samtal"
@@ -11246,7 +11246,7 @@ gatingAction = "Acceptera din offert"
 label = "Offert"
 
 [portal.procurement.journeySteps.trial]
-blurb = "Utvärdera Stirling mot dina dokument och arbetsflöden."
+blurb = "Utvärdera PDF Viewer mot dina dokument och arbetsflöden."
 gatingAction = "Bygg din offert"
 label = "Testperiod"
 
@@ -11261,7 +11261,7 @@ trialFileHint = "Detta är din testlicensfil. När ditt avtal är på plats kan 
 
 [portal.procurement.live]
 description = "Din prenumeration är aktiv och din licens är utfärdad. Ditt team är provisionerat och faktureringen har startat."
-title = "Du är live på Stirling Enterprise"
+title = "Du är live på PDF Viewer Enterprise"
 
 [portal.procurement.milestone]
 downloadError = "Det gick inte att ladda ner offert-PDF:en just nu — försök igen om en stund."
@@ -11294,11 +11294,11 @@ airgapSub = "Isolerad, ingen utgående trafik"
 back = "Tillbaka"
 businessName = "Företagsnamn"
 businessNamePlaceholder = "Acme Corp"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 cloudSub = "Hanterad, snabbast start"
 continue = "Fortsätt"
 deployment = "Var ska den distribueras?"
-eula = "Jag godkänner Stirling EULA och kommersiella villkor."
+eula = "Jag godkänner PDF Viewer EULA och kommersiella villkor."
 fullName = "Fullständigt namn"
 fullNamePlaceholder = "Ditt namn"
 invites = "Bjud in teammedlemmar · valfritt"
@@ -11344,7 +11344,7 @@ account-link = "Kontokoppling"
 [portal.shell.sidebar]
 appEditor = "Redigerare"
 appProcessor = "Processor"
-linkAccount = "Länka Stirling-konto"
+linkAccount = "Länka PDF Viewer-konto"
 primaryNav = "Primär navigering"
 
 [portal.shell.topbar]
@@ -11354,7 +11354,7 @@ search = "Sök"
 
 [portal.sources]
 processingModeHelp = "Spårning behåller original och bearbetar varje version en gång. Ögonblicksbild behåller original och bearbetar dem vid varje körning. Konsumera tar bort original efter lyckad leverans."
-subtitle = "Återanvändbara indatakopplingar som matar dokument till Stirling. Konfigurera en källa en gång och referera sedan till den från valfritt antal pipelines."
+subtitle = "Återanvändbara indatakopplingar som matar dokument till PDF Viewer. Konfigurera en källa en gång och referera sedan till den från valfritt antal pipelines."
 title = "Källor"
 
 [portal.sources.actions]
@@ -11590,7 +11590,7 @@ secretNote = "Signeringshemligheten visas en gång, när webhooken skapas. Skapa
 copy = "Kopiera"
 done = "Klart"
 secret = "Signeringshemlighet"
-secretHelp = "Signera varje leverans råa body med den här nyckeln (HMAC-SHA256) och skicka den som X-Stirling-Signature-header."
+secretHelp = "Signera varje leverans råa body med den här nyckeln (HMAC-SHA256) och skicka den som X-PDF Viewer-Signature-header."
 secretWarning = "Kopiera signeringshemligheten nu. För din säkerhet visas den bara en gång och kan inte hämtas senare."
 title = "Webhook skapad"
 url = "Leverans-URL"
@@ -11618,15 +11618,15 @@ adminOnly = "Den här serverns månatliga krediter delas av alla på den, så en
 barAria = "Återstående kostnadsfria krediter"
 capSuffix_one = "av {{allowance}} kostnadsfri kredit kvar den här månaden"
 capSuffix_other = "av {{allowance}} kostnadsfria krediter kvar den här månaden"
-connect = "Anslut ett Stirling-konto"
+connect = "Anslut ett PDF Viewer-konto"
 connectBody = "Anslutning lägger till en andra månatlig tilldelning, ökar antalet användare den här servern kan ha och aktiverar Processorn."
-connectTitle = "Den här servern har inget Stirling-konto"
+connectTitle = "Den här servern har inget PDF Viewer-konto"
 loadError = "Det gick inte att läsa serverns kreditanvändning. Försök igen om en stund."
 loadErrorTitle = "Det gick inte att läsa in kreditanvändning"
 resets = "Återställs {{date}}"
 
 [portal.usage.sessionExpired]
-body = "Din Stirling-kontosession har löpt ut. Logga in igen för att visa fakturering — din instans förblir länkad."
+body = "Din PDF Viewer-kontosession har löpt ut. Logga in igen för att visa fakturering — din instans förblir länkad."
 
 [portal.users]
 title = "Användare"
@@ -11741,7 +11741,7 @@ name = "Google Drive"
 scope = "Filimport"
 
 [provider.googledrive.accountScope]
-description = "drive når alla filer (Google måste verifiera en offentlig app för det); drive.file endast filer som personer väljer eller som Stirling skapar"
+description = "drive når alla filer (Google måste verifiera en offentlig app för det); drive.file endast filer som personer väljer eller som PDF Viewer skapar"
 label = "Drive-åtkomst"
 
 [provider.googledrive.allowAccountConnections]
@@ -11786,7 +11786,7 @@ description = "En inloggning för redigeraren och deras pipelines. Stäng av fö
 label = "Låt personer ansluta sitt eget konto"
 
 [provider.microsoft.allowEditorSaves]
-description = "Stäng av för att behålla ändringar i Stirling: filer som öppnas från OneDrive hämtas då i stället ned, och servern nekar att spara till OneDrive."
+description = "Stäng av för att behålla ändringar i PDF Viewer: filer som öppnas från OneDrive hämtas då i stället ned, och servern nekar att spara till OneDrive."
 label = "Låt redigeraren spara tillbaka till OneDrive"
 
 [provider.microsoft.clientId]
@@ -11931,7 +11931,7 @@ notConfigured = "OneDrive är inte konfigurerat"
 pickerFailed = "Det gick inte att öppna OneDrive"
 popupBlocked = "Din webbläsare blockerade Microsoft-inloggningsfönstret. Tillåt popup-fönster för den här webbplatsen och försök igen."
 reconnect = "Ditt Microsoft-konto behöver logga in igen. Återanslut det i Inställningar > Anslutna konton."
-serverError = "OneDrive eller Stirling-servern hade ett problem. Försök igen, eller fråga din administratör om det fortsätter att hända."
+serverError = "OneDrive eller PDF Viewer-servern hade ett problem. Försök igen, eller fråga din administratör om det fortsätter att hända."
 unreachable = "Det gick inte att nå OneDrive. Kontrollera din anslutning och försök igen."
 
 [provider.saml2]
@@ -12024,7 +12024,7 @@ files = "Filer"
 account = "Konto"
 docs = "Dokumentation"
 editor = "Redigerare"
-home = "Stirling"
+home = "PDF Viewer"
 invite = "Bjud in"
 landmark = "Snabbnavigering"
 noProcessorAccess = "Be en administratör om åtkomst till processorn"
@@ -12456,7 +12456,7 @@ yd = "Yards (yd)"
 back = "Tillbaka"
 continue = "Fortsätt"
 subtitle = "Välj var det körs."
-title = "Var vill du köra Stirling?"
+title = "Var vill du köra PDF Viewer?"
 
 [runLocation.choice.browser]
 description = "Webbappen."
@@ -12655,8 +12655,8 @@ hideTools = "Dölj otillgängliga verktyg ▴"
 messageNoFallback = "Verktygen är otillgängliga tills din server är online igen."
 messageWithFallback = "Vissa verktyg kräver en serveranslutning."
 showTools = "Visa otillgängliga verktyg ▾"
-title = "Din Stirling-PDF-server kan inte nås"
-toolNotAvailableLocally = "Din Stirling-PDF-server är offline och \"{{endpoint}}\" är inte tillgänglig i den lokala backend."
+title = "Din PDF Viewer-server kan inte nås"
+toolNotAvailableLocally = "Din PDF Viewer-server är offline och \"{{endpoint}}\" är inte tillgänglig i den lokala backend."
 
 [serverSetup]
 back = "Tillbaka"
@@ -12691,7 +12691,7 @@ usernameHelp = "Vad du kommer att logga in med. En e-postadress fungerar också.
 backendUrl = "Serveradress"
 backendUrlHelp = "Dit inloggningsleverantörer skickar tillbaka användare. Vanligtvis samma som webbadressen."
 frontendUrl = "Webbadress"
-frontendUrlHelp = "Där användare öppnar Stirling PDF. Används i e-post, delningslänkar och QR-koder."
+frontendUrlHelp = "Där användare öppnar PDF Viewer. Används i e-post, delningslänkar och QR-koder."
 subtitle = "Hur användare och inloggningsleverantörer når den här servern."
 title = "Adresser"
 
@@ -12705,7 +12705,7 @@ label = "Självhostad AI"
 provider = "Modellleverantör"
 providerCustom = "OpenAI-kompatibel"
 smartModel = "Fullständig modell"
-stirling = "Stirling AI"
+stirling = "PDF Viewer AI"
 subtitle = "Dokumentfrågor, automatiska redigeringar och AI-agenter."
 title = "AI"
 
@@ -12716,7 +12716,7 @@ changeLater = "Du kan ändra detta när som helst i {{path}}."
 decline = "Avböj och fortsätt"
 declineFinish = "Avböj och slutför"
 learnMore = "Vad vi samlar in"
-note = "Dela användningsdata från den här servern med oss för att hjälpa oss förbättra Stirling PDF. Vi samlar aldrig in filer eller deras innehåll."
+note = "Dela användningsdata från den här servern med oss för att hjälpa oss förbättra PDF Viewer. Vi samlar aldrig in filer eller deras innehåll."
 title = "Serveranalys"
 
 [serverSetup.documents]
@@ -12854,7 +12854,7 @@ description = "Din egen OneDrive, SharePoint och Google Drive, för dina pipelin
 title = "Anslutna konton"
 
 [settings.connectedInstances]
-confirmBody = "Detta återkallar instansens åtkomst till ditt team i Stirling Cloud. Det tar inte bort lokala filer eller tar bort användning som redan registrerats. För att ansluta igen, följ de ursprungliga anslutningsstegen på instansen."
+confirmBody = "Detta återkallar instansens åtkomst till ditt team i PDF Viewer Cloud. Det tar inte bort lokala filer eller tar bort användning som redan registrerats. För att ansluta igen, följ de ursprungliga anslutningsstegen på instansen."
 confirmTitle = "Ta bort {{name}}?"
 connectedAt = "Ansluten: {{date}}"
 connectedDate = "Ansluten"
@@ -12888,7 +12888,7 @@ unknown = "Inte tillgängligt"
 yourTeam = "Ditt team"
 
 [settings.connection]
-description = "Arbeta lokalt på den här datorn eller anslut appen till en Stirling-server."
+description = "Arbeta lokalt på den här datorn eller anslut appen till en PDF Viewer-server."
 localDescription = "Du använder den lokala backend utan konto. Vissa verktyg som kräver molnbearbetning eller en självhostad server är inte tillgängliga."
 logout = "Logga ut"
 server = "Serveranslutning"
@@ -12898,19 +12898,19 @@ user = "Inloggad som"
 
 [settings.connection.mode]
 local = "Endast lokalt"
-saas = "Stirling Cloud (molntjänst)"
+saas = "PDF Viewer Cloud (molntjänst)"
 selfhosted = "Självhostad"
 
 [settings.developer]
 apiKeys = "API-nycklar"
-apiKeysDescription = "Personliga nycklar för att anropa Stirling API från skript och integrationer."
+apiKeysDescription = "Personliga nycklar för att anropa PDF Viewer API från skript och integrationer."
 title = "Utvecklare"
 
 [settings.feedback]
 label = "Feedback"
 
 [settings.feedback.send]
-description = "Rapportera ett problem eller föreslå en förbättring till Stirling-teamet."
+description = "Rapportera ett problem eller föreslå en förbättring till PDF Viewer-teamet."
 label = "Skicka feedback"
 
 [settings.general]
@@ -12919,7 +12919,7 @@ autoUnzipFileLimit = "Begränsning för automatisk uppackning"
 autoUnzipFileLimitTooltip = "Packa bara upp om ZIP:en innehåller högst så här många filer. Ange högre för att extrahera större ZIP:ar."
 autoUnzipTooltip = "Packa automatiskt upp ZIP‑filer som returneras från API‑operationer. Inaktivera för att behålla ZIP‑filer intakta. Detta påverkar inte automationsarbetsflöden."
 defaultPdfEditor = "Standard-PDF-redigerare"
-defaultPdfEditorActive = "Stirling PDF är din standard-PDF-redigerare"
+defaultPdfEditorActive = "PDF Viewer är din standard-PDF-redigerare"
 defaultPdfEditorChecking = "Kontrollerar..."
 defaultPdfEditorInactive = "En annan app är standard"
 defaultPdfEditorSet = "Redan standard"
@@ -12990,7 +12990,7 @@ updateBehavior = "Uppdateringsbeteende"
 updateBehaviorDescription = "Välj om du vill bli tillfrågad innan uppdateringar installeras, installera dem automatiskt eller hoppa över uppdateringskontroller helt."
 updateBehaviorError = "Kunde inte ändra uppdateringsbeteende"
 updateBehaviorErrorLocked = "Den här inställningen är låst av din administratör."
-updateBehaviorLockedDescription = "Din administratör har konfigurerat hur Stirling-PDF hanterar uppdateringar på den här datorn. Kontakta dem för att ändra detta."
+updateBehaviorLockedDescription = "Din administratör har konfigurerat hur PDF Viewer hanterar uppdateringar på den här datorn. Kontakta dem för att ändra detta."
 updateBehaviorSaved = "Uppdateringsbeteende sparat."
 versionMismatch = "Varning: klientversionen och AppConfig-versionen skiljer sig åt. Olika versioner kan orsaka kompatibilitetsproblem, fel och säkerhetsrisker. Kontrollera att server och klient använder samma version."
 viewDetails = "Visa detaljer"
@@ -13091,7 +13091,7 @@ title = "Övervakning"
 [settings.planBilling]
 currentPlan = "Nuvarande plan"
 loading = "Läser in faktureringsinformation..."
-notAvailable = "Plan och fakturering är endast tillgängligt när du är ansluten till Stirling Cloud (SaaS-läge)."
+notAvailable = "Plan och fakturering är endast tillgängligt när du är ansluten till PDF Viewer Cloud (SaaS-läge)."
 title = "Plan och fakturering"
 
 [settings.planBilling.billing]
@@ -13226,7 +13226,7 @@ oauthFailed = "OAuth-inloggning misslyckades. Försök igen."
 openResetFailed = "Kunde inte öppna din webbläsare för att återställa ditt lösenord."
 
 [setup.saas]
-title = "Logga in på Stirling"
+title = "Logga in på PDF Viewer"
 
 [setup.selfhosted]
 changeServerLocked = "Din organisation har begränsat den här appen till en specifik server"
@@ -13272,7 +13272,7 @@ step3 = "Starta om servern"
 title = "Inloggning inte aktiverad"
 
 [setup.server.url]
-description = "Ange den fullständiga URL:en till din självhostade Stirling PDF-server"
+description = "Ange den fullständiga URL:en till din självhostade PDF Viewer-server"
 label = "Server-URL"
 
 [sharedSign]
@@ -13731,7 +13731,7 @@ pleaseFillAllFields = "Fyll i alla fält"
 signUp = "Registrera dig"
 signUpWith = "Registrera dig med"
 skip = "Hoppa över"
-subtitle = "Gå med i Stirling PDF för att komma igång"
+subtitle = "Gå med i PDF Viewer för att komma igång"
 title = "Skapa ett konto"
 unableToAccessTool = "Det går inte att komma åt verktyget: {{error}}"
 unexpectedError = "Oväntat fel: {{message}}"
@@ -14013,7 +14013,7 @@ download = "Ladda ned"
 downloaded = "Nedladdad"
 downloadFailed = "Det går inte att ladda ned den här filen."
 downloadsCount = "Nedladdningar: {{count}}"
-emailWarningBody = "Detta ser ut som en e-postadress. Om den här personen inte redan är Stirling PDF-användare kommer de inte att kunna få åtkomst till filen."
+emailWarningBody = "Detta ser ut som en e-postadress. Om den här personen inte redan är PDF Viewer-användare kommer de inte att kunna få åtkomst till filen."
 emailWarningConfirm = "Dela ändå"
 emailWarningTitle = "E-postadress"
 errorTitle = "Delning misslyckades"
@@ -14044,7 +14044,7 @@ manageTitle = "Hantera delning"
 noActivity = "Ingen aktivitet ännu."
 noLinks = "Inga aktiva delningslänkar ännu."
 noSharedUsers = "Inga användare har åtkomst ännu."
-openInApp = "Öppna i Stirling PDF"
+openInApp = "Öppna i PDF Viewer"
 ownerLabel = "Ägare"
 removeLink = "Ta bort länk"
 removeUser = "Ta bort"
@@ -14101,7 +14101,7 @@ all = "Alla"
 ariaLabel = "Snabbsökning"
 filtersAriaLabel = "Sökfilter"
 hint = "Skriv för att söka"
-placeholder = "Sök i Stirling"
+placeholder = "Sök i PDF Viewer"
 placeholderShort = "Sök"
 showLess = "Visa färre"
 showMore = "Visa {{count}} till"
@@ -14115,7 +14115,7 @@ settings = "Inställningar"
 tools = "Verktyg"
 
 [survey]
-title = "Stirling PDF-enkät"
+title = "PDF Viewer-enkät"
 
 [swagger]
 clickHere = "klicka här"
@@ -14237,7 +14237,7 @@ noFiles = "Lägg till en fil för att komma igång."
 scopeFiles = "filer"
 scopeThisFile = "denna fil"
 selectFilesHint = "Välj filer i Aktiva filer för att köra detta verktyg"
-signInRequired = "Detta kräver ett Stirling-konto. Logga in för att fortsätta."
+signInRequired = "Detta kräver ett PDF Viewer-konto. Logga in för att fortsätta."
 signInToUse = "Logga in för att använda"
 singleFileScope = "Gäller endast: {{fileName}}"
 viewerMode = "Växla till filredigeraren för att lägga till flera filer."
@@ -14290,7 +14290,7 @@ favorites = "Favoriter"
 heading = "Alla verktyg (helskärmsvy)"
 noResults = "Försök justera din sökning eller visa beskrivningar för att hitta det du behöver."
 recommended = "Rekommenderas"
-selfHostedOffline = "Kräver din Stirling-PDF-server (för närvarande offline):"
+selfHostedOffline = "Kräver din PDF Viewer-server (för närvarande offline):"
 showDetails = "Visa detaljer"
 unavailable = "Inaktiverad av serveradministratören:"
 unavailableDependency = "Otillgänglig – nödvändigt verktyg saknas på servern:"
@@ -14299,7 +14299,7 @@ unfavorite = "Ta bort från favoriter"
 [toolPanel.modePrompt]
 chooseFullscreen = "Använd helskärmsläge"
 chooseSidebar = "Använd sidopanelläge"
-description = "Förhandsgranska båda layouterna och bestäm hur du vill utforska Stirling PDF‑verktygen."
+description = "Förhandsgranska båda layouterna och bestäm hur du vill utforska PDF Viewer‑verktygen."
 dismiss = "Kanske senare"
 fullscreenDescription = "Bläddra i alla verktyg i en katalog som täcker arbetsytan tills du väljer ett."
 fullscreenTitle = "Helskärmsläge – (äldre)"
@@ -14366,7 +14366,7 @@ loadingDetailedInfo = "Laddar detaljerad information..."
 migrationGuide = "Migreringsguide"
 migrationGuides = "Migreringsguider"
 migrationGuidesDesc = "Granska viktiga ändringar innan du uppdaterar."
-modalSubtitle = "En ny version av Stirling PDF är redo att installeras."
+modalSubtitle = "En ny version av PDF Viewer är redo att installeras."
 modalTitle = "Uppdatering tillgänglig"
 notes = "Anteckningar"
 releaseNotes = "Versionsnyheter"
@@ -14392,7 +14392,7 @@ urgent = "Brådskande"
 attentionBody = "Din admin behöver logga in för att se mer info. Kontakta dem omedelbart."
 attentionBodyAdmin = "Gå igenom licenskraven för att hålla denna server kompatibel."
 attentionTitle = "Denna server kräver adminåtgärd"
-message = "Få ut det mesta av Stirling PDF med {{users}} användare, PDF-textredigering och avancerade funktioner"
+message = "Få ut det mesta av PDF Viewer med {{users}} användare, PDF-textredigering och avancerade funktioner"
 seeInfo = "Visa info"
 title = "Uppgradera till Team-planen"
 upgradeButton = "Uppgradera nu"
@@ -14530,7 +14530,7 @@ authWeb = "Lösenord"
 create = "Skapa konto"
 createSubtitle = "Skapa ett egenhostat konto med lösenord eller SSO."
 createTitle = "Skapa konto"
-editorDesc = "Redigera PDF:er i Stirling PDF Editor. Alla får detta."
+editorDesc = "Redigera PDF:er i PDF Viewer Editor. Alla får detta."
 email = "E-postadress"
 emailError = "Ange en giltig e-postadress"
 emailPlaceholder2 = "namn@foretag.se"
@@ -14545,7 +14545,7 @@ processorDeferred = "Inbjudan skickad, men Processor-åtkomst kunde inte bevilja
 processorDesc = "Styrningsytan, kör pipelines, agenter och API."
 role = "Roll"
 send2 = "Skicka inbjudan"
-subtitle2 = "De får ett e-postmeddelande för att gå med i din Stirling-arbetsyta."
+subtitle2 = "De får ett e-postmeddelande för att gå med i din PDF Viewer-arbetsyta."
 team = "Tilldela team"
 title = "Bjud in personer"
 username = "Användarnamn"
@@ -14687,7 +14687,7 @@ downloads = "Nedladdningar"
 entryLabel = "Signatursammanfattning"
 filesEvaluated_one = "{{count}} fil utvärderad"
 filesEvaluated_other = "{{count}} filer utvärderade"
-footer = "Validerad via Stirling PDF"
+footer = "Validerad via PDF Viewer"
 generatedAt = "Genererad"
 noPdf = "PDF-rapporten blir tillgänglig efter en lyckad validering."
 page = "Sida"
@@ -14896,7 +14896,7 @@ text = "Text"
 addFile = "Lägg till fil"
 count_one = "{{count}} fil i den här portföljen"
 count_other = "{{count}} filer i den här portföljen"
-import = "Importera till Stirling"
+import = "Importera till PDF Viewer"
 importFailed = "Den här filen kunde inte läggas till i din arbetsyta."
 memberUnavailable = "Den här filen kunde inte läsas från portföljen."
 preview = "Förhandsgranska"

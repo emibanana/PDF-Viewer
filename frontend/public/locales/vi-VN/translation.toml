@@ -56,7 +56,7 @@ loading = "Đang tải..."
 loginAgreementAccept = "Chấp nhận"
 loginAgreementDecline = "Từ chối"
 loginAgreementLoadFailed = "Không thể tải thỏa thuận đăng nhập."
-loginAgreementProvider = "Thông báo này do quản trị viên của bạn cung cấp, không phải Stirling PDF Inc."
+loginAgreementProvider = "Thông báo này do quản trị viên của bạn cung cấp, không phải PDF Viewer Inc."
 loginAgreementRetry = "Thử lại"
 loginAgreementTitle = "Thỏa thuận đăng nhập"
 logOut = "Đăng xuất"
@@ -726,9 +726,9 @@ permissionNotice = "Đường dẫn tessdata không thể ghi. Tệp tải xuố
 
 [admin.settings.ai]
 customProvider = "Tùy chỉnh (tương thích OpenAI)"
-description = "Kết nối Stirling với công cụ AI Python, chọn mô hình và đặt các giới hạn vận hành cho nó."
-managedByCloud = "Được Stirling Cloud quản lý ở chế độ này."
-managedByCloudShort = "Được Stirling Cloud quản lý"
+description = "Kết nối PDF Viewer với công cụ AI Python, chọn mô hình và đặt các giới hạn vận hành cho nó."
+managedByCloud = "Được PDF Viewer Cloud quản lý ở chế độ này."
+managedByCloudShort = "Được PDF Viewer Cloud quản lý"
 
 [admin.settings.ai.documents]
 description = "Cấu hình mô hình embedding và cài đặt truy xuất dùng để trả lời câu hỏi trên tài liệu. Được áp dụng cho AI engine khi lưu."
@@ -779,16 +779,16 @@ description = "Bật hoặc tắt từng tính năng AI. Các tính năng bị t
 title = "Khả năng"
 
 [admin.settings.ai.general.cloud]
-note = "Các mô hình và khóa nhà cung cấp được Stirling Cloud quản lý, nên các cài đặt đó không áp dụng ở chế độ này."
+note = "Các mô hình và khóa nhà cung cấp được PDF Viewer Cloud quản lý, nên các cài đặt đó không áp dụng ở chế độ này."
 
 [admin.settings.ai.general.cloud.indexing]
-description = "Mỗi công cụ AI gửi phần văn bản trang cần thiết để trả lời. Tùy chọn này quyết định liệu Stirling Cloud có thể giữ văn bản đó, đã được lập chỉ mục, để các câu hỏi sau này có thể tìm kiếm trong toàn bộ tài liệu hay không."
+description = "Mỗi công cụ AI gửi phần văn bản trang cần thiết để trả lời. Tùy chọn này quyết định liệu PDF Viewer Cloud có thể giữ văn bản đó, đã được lập chỉ mục, để các câu hỏi sau này có thể tìm kiếm trong toàn bộ tài liệu hay không."
 help = "Tắt nghĩa là không thể đặt câu hỏi về tài liệu. Điều này không ngăn việc gửi văn bản - chỉ ngăn lưu trữ."
-label = "Cho phép Stirling Cloud giữ tài liệu đã lập chỉ mục"
+label = "Cho phép PDF Viewer Cloud giữ tài liệu đã lập chỉ mục"
 
 [admin.settings.ai.general.cloudNote]
-body = "Quá trình suy luận chạy trên hạ tầng của Stirling, được tính phí vào tài khoản mà máy chủ này được liên kết. Không có container nào để chạy và không có khóa nhà cung cấp nào cần giữ ở đây. Bất cứ nội dung nào AI đọc đều được xử lý bởi Stirling Cloud thay vì trên phần cứng của riêng bạn."
-title = "Giới thiệu về Stirling Cloud AI"
+body = "Quá trình suy luận chạy trên hạ tầng của PDF Viewer, được tính phí vào tài khoản mà máy chủ này được liên kết. Không có container nào để chạy và không có khóa nhà cung cấp nào cần giữ ở đây. Bất cứ nội dung nào AI đọc đều được xử lý bởi PDF Viewer Cloud thay vì trên phần cứng của riêng bạn."
+title = "Giới thiệu về PDF Viewer Cloud AI"
 
 [admin.settings.ai.general.enabled]
 description = "Công tắc chính. Khi tắt, không có công cụ AI, agent hoặc lệnh gọi engine nào khả dụng."
@@ -826,11 +826,11 @@ label = "Thời gian chờ tác vụ dài (giây)"
 label = "AI chạy ở đâu"
 
 [admin.settings.ai.general.mode.cloud]
-description = "Không cần container, không cần khóa nhà cung cấp, không cần chọn mô hình - tác vụ chạy trên Stirling Cloud và được tính phí vào tài khoản mà máy chủ này được liên kết."
-linkCta = "Kết nối máy chủ này với tài khoản Stirling"
+description = "Không cần container, không cần khóa nhà cung cấp, không cần chọn mô hình - tác vụ chạy trên PDF Viewer Cloud và được tính phí vào tài khoản mà máy chủ này được liên kết."
+linkCta = "Kết nối máy chủ này với tài khoản PDF Viewer"
 notLinked = "Trước tiên hãy liên kết một tài khoản"
-ownerOnly = "Chỉ chủ sở hữu tổ chức mới có thể liên kết máy chủ này với tài khoản Stirling."
-title = "Sử dụng Stirling Cloud AI"
+ownerOnly = "Chỉ chủ sở hữu tổ chức mới có thể liên kết máy chủ này với tài khoản PDF Viewer."
+title = "Sử dụng PDF Viewer Cloud AI"
 
 [admin.settings.ai.general.mode.off]
 description = "Không có công cụ AI nào trong ứng dụng, và không có gì rời khỏi máy chủ này."
@@ -842,7 +842,7 @@ title = "Chạy engine của riêng bạn"
 
 [admin.settings.ai.general.note]
 docs = "Hướng dẫn thiết lập"
-intro = "Một container riêng biệt mà bạn chạy bên cạnh Stirling. Nó thực hiện suy luận; Stirling vẫn tự thực hiện mọi thao tác trên trang. Nó cần cùng"
+intro = "Một container riêng biệt mà bạn chạy bên cạnh PDF Viewer. Nó thực hiện suy luận; PDF Viewer vẫn tự thực hiện mọi thao tác trên trang. Nó cần cùng"
 outro = "trên cả hai container và khóa nhà cung cấp mô hình. Bất cứ nội dung nào AI đọc sẽ được gửi đến nhà cung cấp bạn chọn - một Ollama do bạn lưu trữ sẽ giữ mọi trang trong nội bộ."
 title = "Giới thiệu về AI engine"
 
@@ -944,24 +944,24 @@ url = "URL engine"
 
 [admin.settings.ai.status.cloud]
 hostDown = "Ngừng hoạt động"
-hostLabel = "Stirling.com"
+hostLabel = "PDF Viewer.com"
 hostUp = "Hoạt động"
-name = "Stirling Cloud"
+name = "PDF Viewer Cloud"
 sharingLabel = "Chia sẻ AI"
 sharingOff = "Đã tắt"
 sharingOn = "Đã bật"
 
 [admin.settings.ai.status.cloud.degraded]
-body = "Stirling Cloud đã phản hồi nhưng từ chối máy chủ này. Liên kết tài khoản có thể đã bị thu hồi."
-title = "Stirling Cloud đang từ chối máy chủ này"
+body = "PDF Viewer Cloud đã phản hồi nhưng từ chối máy chủ này. Liên kết tài khoản có thể đã bị thu hồi."
+title = "PDF Viewer Cloud đang từ chối máy chủ này"
 
 [admin.settings.ai.status.cloud.down]
-body = "Máy chủ này không thể kết nối tới Stirling Cloud. Hãy kiểm tra liên kết tài khoản và đảm bảo máy chủ này có thể truy cập internet."
-title = "Không thể truy cập Stirling Cloud"
+body = "Máy chủ này không thể kết nối tới PDF Viewer Cloud. Hãy kiểm tra liên kết tài khoản và đảm bảo máy chủ này có thể truy cập internet."
+title = "Không thể truy cập PDF Viewer Cloud"
 
 [admin.settings.ai.status.cloud.ok]
-body = "Stirling Cloud đã chấp nhận máy chủ này. Không có gì cần chạy hoặc vá ở đây."
-title = "Đang chạy trên Stirling Cloud"
+body = "PDF Viewer Cloud đã chấp nhận máy chủ này. Không có gì cần chạy hoặc vá ở đây."
+title = "Đang chạy trên PDF Viewer Cloud"
 
 [admin.settings.ai.status.degraded]
 body = "Nó đã phản hồi kiểm tra tình trạng nhưng từ chối một yêu cầu thực. Hai bên đang sử dụng các bí mật chia sẻ khác nhau."
@@ -1114,7 +1114,7 @@ confirmCodeLabel = "Nhập mã xác nhận để tiếp tục"
 confirmImport = "Xác nhận nhập"
 confirmImportTitle = "Xác nhận nhập cơ sở dữ liệu"
 connection = "Kết nối"
-connectionDescription = "Trỏ Stirling đến cơ sở dữ liệu bên ngoài thay vì cơ sở dữ liệu nhúng."
+connectionDescription = "Trỏ PDF Viewer đến cơ sở dữ liệu bên ngoài thay vì cơ sở dữ liệu nhúng."
 createBackup = "Tạo bản sao lưu"
 created = "Ngày tạo"
 delete = "Xóa"
@@ -1215,11 +1215,11 @@ description = "Cấu hình các tính năng và chức năng tùy chọn."
 title = "Tính năng"
 
 [admin.settings.features.serverCertificate]
-description = "Tạo chứng chỉ hỗ trợ tính năng ký \"Sign with Stirling-PDF\"."
+description = "Tạo chứng chỉ hỗ trợ tính năng ký \"Sign with PDF Viewer\"."
 label = "Ký chứng chỉ"
 
 [admin.settings.features.serverCertificate.enabled]
-description = "Cung cấp \"Sign with Stirling-PDF\" bằng chứng chỉ do máy chủ này tạo"
+description = "Cung cấp \"Sign with PDF Viewer\" bằng chứng chỉ do máy chủ này tạo"
 label = "Bật ký chứng chỉ"
 
 [admin.settings.features.serverCertificate.organizationName]
@@ -1236,7 +1236,7 @@ label = "Hiệu lực chứng chỉ (ngày)"
 
 [admin.settings.folderAccess]
 description = "Các thư mục mà nguồn thư mục và đầu ra thư mục được phép đọc và ghi. Đây là ranh giới bảo mật: tự động hóa không bao giờ có thể được trỏ tới đường dẫn máy chủ nằm ngoài danh sách này."
-securityNote = "Để trống mục này để tắt hoàn toàn nguồn thư mục và đầu ra thư mục. Thư mục cấu hình riêng của Stirling luôn bị cấm truy cập."
+securityNote = "Để trống mục này để tắt hoàn toàn nguồn thư mục và đầu ra thư mục. Thư mục cấu hình riêng của PDF Viewer luôn bị cấm truy cập."
 title = "Quyền truy cập thư mục"
 
 [admin.settings.folderAccess.roots]
@@ -1314,7 +1314,7 @@ description = "Ngôn ngữ mặc định cho người dùng mới (ví dụ: en_
 label = "Ngôn ngữ mặc định"
 
 [admin.settings.general.enableFeedback]
-description = "Cho phép người dùng gửi phản hồi đến nhóm Stirling"
+description = "Cho phép người dùng gửi phản hồi đến nhóm PDF Viewer"
 label = "Bật phản hồi"
 
 [admin.settings.general.fileUploadLimit]
@@ -1368,7 +1368,7 @@ description = "URL hoặc tên tệp cho chính sách cookie"
 label = "Chính sách cookie"
 
 [admin.settings.legal.disclaimer]
-message = "Bằng cách tùy chỉnh các tài liệu pháp lý này, bạn tự chịu hoàn toàn trách nhiệm bảo đảm tuân thủ mọi luật và quy định áp dụng, bao gồm nhưng không giới hạn GDPR và các yêu cầu bảo vệ dữ liệu của EU khác. Chỉ sửa các cài đặt này nếu: (1) bạn đang vận hành bản cài đặt cá nhân/riêng tư, (2) bạn ở ngoài phạm vi pháp lý của EU và hiểu nghĩa vụ pháp lý địa phương của mình, hoặc (3) bạn đã nhận được tư vấn pháp lý phù hợp và chấp nhận tự chịu trách nhiệm với toàn bộ dữ liệu người dùng và tuân thủ pháp lý. Stirling-PDF và các nhà phát triển không chịu bất kỳ trách nhiệm nào cho nghĩa vụ pháp lý của bạn."
+message = "Bằng cách tùy chỉnh các tài liệu pháp lý này, bạn tự chịu hoàn toàn trách nhiệm bảo đảm tuân thủ mọi luật và quy định áp dụng, bao gồm nhưng không giới hạn GDPR và các yêu cầu bảo vệ dữ liệu của EU khác. Chỉ sửa các cài đặt này nếu: (1) bạn đang vận hành bản cài đặt cá nhân/riêng tư, (2) bạn ở ngoài phạm vi pháp lý của EU và hiểu nghĩa vụ pháp lý địa phương của mình, hoặc (3) bạn đã nhận được tư vấn pháp lý phù hợp và chấp nhận tự chịu trách nhiệm với toàn bộ dữ liệu người dùng và tuân thủ pháp lý. PDF Viewer và các nhà phát triển không chịu bất kỳ trách nhiệm nào cho nghĩa vụ pháp lý của bạn."
 title = "Cảnh báo trách nhiệm pháp lý"
 
 [admin.settings.legal.impressum]
@@ -1456,8 +1456,8 @@ description = "Tên người dùng để xác thực SMTP"
 label = "Tên người dùng SMTP"
 
 [admin.settings.mcp]
-apikeyNote = "Client gửi Stirling API key trong header X-API-KEY (hoặc Authorization: Bearer <key>). Khóa ánh xạ tới người dùng Stirling sở hữu nó - chỉ các tài khoản đã được cấp quyền mới truy cập được, và các hành động được kiểm tra với tư cách người dùng đó. Quản lý khóa trong Tài khoản > API Keys."
-description = "Cung cấp các công cụ PDF và tác tử AI của Stirling cho MCP client qua endpoint được bảo vệ bằng OAuth."
+apikeyNote = "Client gửi PDF Viewer API key trong header X-API-KEY (hoặc Authorization: Bearer <key>). Khóa ánh xạ tới người dùng PDF Viewer sở hữu nó - chỉ các tài khoản đã được cấp quyền mới truy cập được, và các hành động được kiểm tra với tư cách người dùng đó. Quản lý khóa trong Tài khoản > API Keys."
+description = "Cung cấp các công cụ PDF và tác tử AI của PDF Viewer cho MCP client qua endpoint được bảo vệ bằng OAuth."
 title = "MCP Server"
 
 [admin.settings.mcp.acceptedAudiences]
@@ -1487,7 +1487,7 @@ step3ApiKeyb = "(hoặc Authorization: Bearer <key>). Không dùng OAuth hoặc 
 step4 = "Phê duyệt đăng nhập; client thử lại với token. Công cụ xuất hiện theo nhóm: chuyển đổi, trang, khác, bảo mật, ai."
 step4ApiKey = "Công cụ xuất hiện theo nhóm: chuyển đổi, trang, khác, bảo mật, ai - và mọi lệnh gọi được kiểm tra với tư cách chủ sở hữu khóa."
 tip = "Mẹo: đăng ký resource ID làm audience được phép trong IdP của bạn. Đã thử nghiệm với MCP Inspector và Claude Desktop."
-tipApiKey = "Mẹo: chế độ API-key không cần IdP bên ngoài - đơn giản nhất cho self-host. Khóa ánh xạ tới người dùng Stirling sở hữu nó."
+tipApiKey = "Mẹo: chế độ API-key không cần IdP bên ngoài - đơn giản nhất cho self-host. Khóa ánh xạ tới người dùng PDF Viewer sở hữu nó."
 title = "Kết nối MCP client"
 
 [admin.settings.mcp.issuerUri]
@@ -1500,14 +1500,14 @@ label = "JWKS URL (tùy chọn)"
 placeholder = "Tự động phát hiện từ issuer"
 
 [admin.settings.mcp.mode]
-apikey = "API key (khóa theo người dùng của Stirling)"
-description = "OAuth cần IdP bên ngoài. API key dùng API key theo từng người dùng của Stirling (X-API-KEY) - đơn giản nhất cho self-host."
+apikey = "API key (khóa theo người dùng của PDF Viewer)"
+description = "OAuth cần IdP bên ngoài. API key dùng API key theo từng người dùng của PDF Viewer (X-API-KEY) - đơn giản nhất cho self-host."
 label = "Chế độ xác thực"
 oauth = "OAuth 2.1 (IdP bên ngoài)"
 
 [admin.settings.mcp.requireAccount]
-description = "Chỉ cho token đi qua nếu subject của chúng ánh xạ tới một người dùng Stirling đã được cấp, đang bật."
-label = "Yêu cầu tài khoản Stirling hiện có"
+description = "Chỉ cho token đi qua nếu subject của chúng ánh xạ tới một người dùng PDF Viewer đã được cấp, đang bật."
+label = "Yêu cầu tài khoản PDF Viewer hiện có"
 
 [admin.settings.mcp.resourceId]
 description = "URL /mcp công khai của máy chủ này. Token phải liệt kê nó trong audience (RFC 8707) nếu không sẽ bị từ chối."
@@ -1518,7 +1518,7 @@ description = "Yêu cầu mcp.tools.read cho thao tác đọc và mcp.tools.writ
 label = "Bắt buộc OAuth scopes"
 
 [admin.settings.mcp.usernameClaim]
-description = "JWT claim được khớp với username Stirling (ví dụ: sub, email, preferred_username)."
+description = "JWT claim được khớp với username PDF Viewer (ví dụ: sub, email, preferred_username)."
 label = "Username claim"
 
 [admin.settings.plan.noData]
@@ -1847,7 +1847,7 @@ description = "Khi bật, chỉ các User ID trong danh sách mới được dù
 label = "Chỉ cho phép User ID cụ thể"
 
 [admin.settings.telegram.enabled]
-description = "Cho phép người dùng tương tác với Stirling PDF qua bot Telegram đã cấu hình của bạn."
+description = "Cho phép người dùng tương tác với PDF Viewer qua bot Telegram đã cấu hình của bạn."
 label = "Bật Bot Telegram"
 
 [admin.settings.telegram.feedback]
@@ -1920,7 +1920,7 @@ settingsOverview = "Đây là <strong>Bảng Cài đặt</strong>. Cài đặt q
 systemCustomization = "Chúng tôi có nhiều cách tùy biến UI: <strong>Cài đặt hệ thống</strong> cho phép đổi tên ứng dụng và ngôn ngữ, <strong>Tính năng</strong> cho phép quản lý chứng chỉ máy chủ, và <strong>Endpoint</strong> cho phép bật/tắt công cụ cụ thể cho người dùng của bạn."
 teamsAndUsers = "Quản lý <strong>Nhóm</strong> và người dùng riêng lẻ tại đây. Bạn có thể mời người dùng mới qua email, liên kết chia sẻ, hoặc tự tạo tài khoản tùy chỉnh cho họ."
 welcome = "Chào mừng đến với <strong>Chuyến tham quan Quản trị</strong>! Hãy khám phá các tính năng enterprise mạnh mẽ và cài đặt dành cho quản trị viên hệ thống."
-wrapUp = "Đó là chuyến tham quan dành cho admin! Bạn đã xem các tính năng enterprise giúp Stirling PDF trở thành giải pháp mạnh mẽ, tùy chỉnh cho tổ chức. Bạn có thể phát lại bất cứ lúc nào - chỉ cần mở <strong>Cài đặt</strong> và tìm nó trong phần <strong>Tham quan</strong> dưới Trợ giúp."
+wrapUp = "Đó là chuyến tham quan dành cho admin! Bạn đã xem các tính năng enterprise giúp PDF Viewer trở thành giải pháp mạnh mẽ, tùy chỉnh cho tổ chức. Bạn có thể phát lại bất cứ lúc nào - chỉ cần mở <strong>Cài đặt</strong> và tìm nó trong phần <strong>Tham quan</strong> dưới Trợ giúp."
 
 [adminUserSettings]
 admin = "Quản trị viên"
@@ -1936,9 +1936,9 @@ thai = "Tiếng Thái"
 
 [analytics]
 learnMore = "Tìm hiểu thêm về phân tích của chúng tôi"
-paragraph1 = "Stirling PDF có phân tích opt-in để giúp chúng tôi cải thiện sản phẩm. Chúng tôi không theo dõi bất kỳ thông tin cá nhân hoặc nội dung tệp nào."
-paragraph2 = "Vui lòng cân nhắc bật phân tích để giúp Stirling-PDF phát triển và cho phép chúng tôi hiểu người dùng tốt hơn."
-title = "Bạn có muốn giúp Stirling PDF tốt hơn không?"
+paragraph1 = "PDF Viewer có phân tích opt-in để giúp chúng tôi cải thiện sản phẩm. Chúng tôi không theo dõi bất kỳ thông tin cá nhân hoặc nội dung tệp nào."
+paragraph2 = "Vui lòng cân nhắc bật phân tích để giúp PDF Viewer phát triển và cho phép chúng tôi hiểu người dùng tốt hơn."
+title = "Bạn có muốn giúp PDF Viewer tốt hơn không?"
 
 [annotate]
 tags = "chú thích,tô sáng,vẽ,đánh dấu,bình luận,ghi chú,đánh giá,redline,phản hồi,công cụ đánh dấu,ghi chú dán,hình dạng,mũi tên,hộp văn bản,vẽ tay"
@@ -2887,9 +2887,9 @@ typeSignature = "Nhập tên của bạn để tạo chữ ký"
 uploadCert = "Tải lên chứng chỉ"
 uploadCertDesc = "Sử dụng chứng chỉ PKCS12, PFX, PEM hoặc JKS của riêng bạn."
 uploadSignature = "Tải lên hình ảnh chữ ký của bạn"
-usePersonalCert = "Stirling Sign · Cá nhân"
+usePersonalCert = "PDF Viewer Sign · Cá nhân"
 usePersonalCertDesc = "Ký bằng chứng chỉ được tạo cho tài khoản của bạn."
-useServerCert = "Stirling Sign · Tổ chức"
+useServerCert = "PDF Viewer Sign · Tổ chức"
 useServerCertDesc = "Ký bằng chứng chỉ tổ chức dùng chung của máy chủ này."
 useSignature = "Sử dụng chữ ký"
 
@@ -3208,8 +3208,8 @@ copy = "Sao chép tin nhắn"
 
 [chat.dock]
 collapse = "Thu gọn chat"
-placeholder = "Hỏi Stirling Agent"
-title = "Stirling Agent"
+placeholder = "Hỏi PDF Viewer Agent"
+title = "PDF Viewer Agent"
 
 [chat.header]
 clearChat = "Xóa trò chuyện"
@@ -3363,7 +3363,7 @@ translatedMetadata = "Một mục siêu dữ liệu có bản dịch"
 
 [checkAccessibility.pdf]
 continued = "{{name}} (tiếp tục)"
-footer = "Được kiểm tra bằng Stirling PDF"
+footer = "Được kiểm tra bằng PDF Viewer"
 page = "Trang {{n}}"
 title = "Báo cáo khả năng truy cập"
 
@@ -3804,9 +3804,9 @@ label = "Tài liệu theo loại: {{summary}}"
 noTypes = "Các tài liệu này không khớp với loại đã biết."
 
 [classificationDemo.defaultApp]
-body = "Đặt Stirling làm ứng dụng PDF mặc định của bạn. Mọi PDF bạn mở, từ email, trình duyệt hoặc màn hình nền, sẽ vào đây, sẵn sàng để đọc hoặc chỉnh sửa. Bạn có thể thay đổi điều này bất cứ lúc nào trong Cài đặt."
-cta = "Đặt Stirling làm mặc định của tôi"
-title = "Mở mọi PDF trong Stirling"
+body = "Đặt PDF Viewer làm ứng dụng PDF mặc định của bạn. Mọi PDF bạn mở, từ email, trình duyệt hoặc màn hình nền, sẽ vào đây, sẵn sàng để đọc hoặc chỉnh sửa. Bạn có thể thay đổi điều này bất cứ lúc nào trong Cài đặt."
+cta = "Đặt PDF Viewer làm mặc định của tôi"
+title = "Mở mọi PDF trong PDF Viewer"
 
 [classificationDemo.followUp]
 background = "Tác vụ này chạy trong nền. Vòng tròn bên trái hiển thị tiến trình."
@@ -3821,7 +3821,7 @@ other = "Khác"
 body = "Phân loại và sắp xếp {{count}} PDF gần đây nhất trong thư mục Tải xuống của bạn theo loại."
 cta = "Xử lý thư mục Tải xuống của tôi"
 privacy = "PDF của bạn vẫn ở trên thiết bị này. Máy chủ đã kết nối của bạn ghi lại mức sử dụng xử lý."
-title = "Xem Stirling có thể làm gì với cả một thư mục"
+title = "Xem PDF Viewer có thể làm gì với cả một thư mục"
 
 [classificationDemo.phase]
 finishing = "Đang hoàn tất..."
@@ -3835,10 +3835,10 @@ counts = "trong tổng số {{total}} PDF đã xử lý"
 [classificationDemo.results]
 documentCount_one = "{{count}} PDF"
 documentCount_other = "{{count}} PDF"
-failedBody = "Stirling không thể đọc thư mục Tải xuống của bạn. Không có gì trên máy tính của bạn bị thay đổi."
+failedBody = "PDF Viewer không thể đọc thư mục Tải xuống của bạn. Không có gì trên máy tính của bạn bị thay đổi."
 failedTitle = "Chưa hoàn tất"
 heading = "Tải xuống của bạn, đã được sắp xếp"
-summary = "Stirling đã đọc {{documents}} và sắp xếp chúng thành {{types}}."
+summary = "PDF Viewer đã đọc {{documents}} và sắp xếp chúng thành {{types}}."
 typeCount_one = "{{count}} loại"
 typeCount_other = "{{count}} loại"
 
@@ -4176,14 +4176,14 @@ upgradeButton = "Nâng cấp tài khoản"
 
 [config.apiKeys]
 copyKeyAriaLabel = "Sao chép khóa API"
-description = "Khóa API của bạn để truy cập bộ công cụ PDF của Stirling. Sao chép vào dự án của bạn hoặc làm mới để tạo khóa mới."
-docsDescription = "Tìm hiểu thêm về tích hợp với Stirling PDF:"
+description = "Khóa API của bạn để truy cập bộ công cụ PDF của PDF Viewer. Sao chép vào dự án của bạn hoặc làm mới để tạo khóa mới."
+docsDescription = "Tìm hiểu thêm về tích hợp với PDF Viewer:"
 docsLink = "Tài liệu API"
 docsTitle = "Tài liệu API"
 generateError = "Chúng tôi không thể tạo khóa API của bạn."
 goToAccount = "Đến Tài khoản"
 guestInfo = "Người dùng khách không nhận khóa API. Tạo tài khoản để có khóa API dùng trong ứng dụng của bạn."
-intro = "Sử dụng khóa API của bạn để truy cập lập trình vào khả năng xử lý của Stirling PDF."
+intro = "Sử dụng khóa API của bạn để truy cập lập trình vào khả năng xử lý của PDF Viewer."
 label = "Khóa API"
 publicKeyAriaLabel = "Khóa API công khai"
 refreshAriaLabel = "Làm mới khóa API"
@@ -4207,10 +4207,10 @@ title = "Làm mới khóa API"
 warning = "⚠️ Cảnh báo: Thao tác này sẽ tạo khóa API mới và khiến các khóa trước đó không còn hiệu lực."
 
 [config.mcp]
-description = "Model Context Protocol (MCP) cho phép trợ lý AI như Claude dùng trực tiếp các công cụ Stirling PDF của bạn. Kết nối client một lần và trợ lý của bạn có thể chuyển đổi, chỉnh sửa, bảo mật và xử lý tài liệu thay mặt bạn."
-guestInfo = "Người dùng khách không thể kết nối MCP client. Tạo tài khoản để dùng MCP server và cho phép trợ lý AI chạy công cụ Stirling PDF thay mặt bạn."
+description = "Model Context Protocol (MCP) cho phép trợ lý AI như Claude dùng trực tiếp các công cụ PDF Viewer của bạn. Kết nối client một lần và trợ lý của bạn có thể chuyển đổi, chỉnh sửa, bảo mật và xử lý tài liệu thay mặt bạn."
+guestInfo = "Người dùng khách không thể kết nối MCP client. Tạo tài khoản để dùng MCP server và cho phép trợ lý AI chạy công cụ PDF Viewer thay mặt bạn."
 navLabel = "MCP Server"
-tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using Stirling PDF directly."
+tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using PDF Viewer directly."
 viewApiKeys = "Xem API keys"
 
 [config.mcp.copy]
@@ -4226,7 +4226,7 @@ label = "MCP endpoint của bạn"
 
 [config.mcp.setup]
 addTo = "Thêm vào"
-hint = "Chọn client của bạn, dán đoạn snippet vào tệp được hiển thị, rồi khởi động lại. Bạn sẽ đăng nhập bằng tài khoản Stirling khi dùng lần đầu - không cần sao chép khóa."
+hint = "Chọn client của bạn, dán đoạn snippet vào tệp được hiển thị, rồi khởi động lại. Bạn sẽ đăng nhập bằng tài khoản PDF Viewer khi dùng lần đầu - không cần sao chép khóa."
 title = "Kết nối trợ lý AI của bạn"
 
 [config.overview]
@@ -4250,10 +4250,10 @@ step = "Bước {{current}} trên {{total}}"
 [connect.confirm]
 acknowledge = "Tôi nhận ra địa chỉ này và muốn kết nối nó với nhóm của tôi"
 approve = "Kết nối máy chủ"
-cannotDecide = "Chỉ chủ sở hữu nhóm mới có thể phê duyệt hoặc từ chối kết nối này. Dùng tài khoản khác hoặc đóng lời nhắc này để tiếp tục dùng Stirling."
+cannotDecide = "Chỉ chủ sở hữu nhóm mới có thể phê duyệt hoặc từ chối kết nối này. Dùng tài khoản khác hoặc đóng lời nhắc này để tiếp tục dùng PDF Viewer."
 deny = "Từ chối"
 dismiss = "Đóng"
-lead = "Một máy chủ Stirling đang yêu cầu kết nối với nhóm của bạn. Kiểm tra địa chỉ bên dưới là của bạn trước khi phê duyệt."
+lead = "Một máy chủ PDF Viewer đang yêu cầu kết nối với nhóm của bạn. Kiểm tra địa chỉ bên dưới là của bạn trước khi phê duyệt."
 originLabel = "Địa chỉ"
 signedInAs = "Đã đăng nhập với tư cách"
 switchAccount = "Dùng tài khoản khác"
@@ -4293,7 +4293,7 @@ disconnect = "Ngắt kết nối"
 google = "Google Drive"
 intro = "Kết nối các tài khoản của bạn một lần. Pipeline của bạn sau đó có thể đọc và lưu vào đó với quyền của bạn."
 microsoft = "Microsoft (OneDrive & SharePoint)"
-needsReconnect = "Stirling không thể truy cập tài khoản này nữa, nên các pipeline sử dụng nó đã tạm dừng."
+needsReconnect = "PDF Viewer không thể truy cập tài khoản này nữa, nên các pipeline sử dụng nó đã tạm dừng."
 none = "Quản trị viên của bạn chưa bật tính năng tài khoản đã kết nối."
 personal = "Tài khoản cá nhân"
 popupBlocked = "Trình duyệt đã chặn cửa sổ đăng nhập. Hãy cho phép pop-up cho trang này rồi thử lại."
@@ -4438,7 +4438,7 @@ showPreferencesBtn = "Quản lý tùy chọn"
 title = "Cách chúng tôi sử dụng Cookie"
 
 [cookieBanner.popUp.description]
-1 = "Chúng tôi dùng cookies và các công nghệ khác để Stirling PDF hoạt động tốt hơn cho bạn - giúp chúng tôi cải thiện công cụ và tiếp tục xây dựng các tính năng bạn sẽ thích."
+1 = "Chúng tôi dùng cookies và các công nghệ khác để PDF Viewer hoạt động tốt hơn cho bạn - giúp chúng tôi cải thiện công cụ và tiếp tục xây dựng các tính năng bạn sẽ thích."
 2 = "Nếu bạn không muốn, nhấp 'Không, cảm ơn' sẽ chỉ bật các cookies thiết yếu cần thiết để mọi thứ chạy trơn tru."
 
 [cookieBanner.preferencesModal]
@@ -4451,12 +4451,12 @@ subtitle = "Cách sử dụng cookie"
 title = "Trung tâm tùy chọn đồng ý"
 
 [cookieBanner.preferencesModal.analytics]
-description = "Những cookies này giúp chúng tôi hiểu cách các công cụ được sử dụng, để có thể tập trung xây dựng những tính năng mà cộng đồng coi trọng nhất. Hãy yên tâm - Stirling PDF không thể và sẽ không bao giờ theo dõi nội dung tài liệu bạn làm việc."
+description = "Những cookies này giúp chúng tôi hiểu cách các công cụ được sử dụng, để có thể tập trung xây dựng những tính năng mà cộng đồng coi trọng nhất. Hãy yên tâm - PDF Viewer không thể và sẽ không bao giờ theo dõi nội dung tài liệu bạn làm việc."
 title = "Phân tích"
 
 [cookieBanner.preferencesModal.description]
-1 = "Stirling PDF sử dụng cookie và các công nghệ tương tự để nâng cao trải nghiệm của bạn và hiểu cách các công cụ được sử dụng. Điều này giúp chúng tôi cải thiện hiệu năng, phát triển các tính năng bạn quan tâm và hỗ trợ người dùng lâu dài."
-2 = "Stirling PDF không thể - và sẽ không bao giờ - theo dõi hoặc truy cập nội dung tài liệu bạn sử dụng."
+1 = "PDF Viewer sử dụng cookie và các công nghệ tương tự để nâng cao trải nghiệm của bạn và hiểu cách các công cụ được sử dụng. Điều này giúp chúng tôi cải thiện hiệu năng, phát triển các tính năng bạn quan tâm và hỗ trợ người dùng lâu dài."
+2 = "PDF Viewer không thể - và sẽ không bao giờ - theo dõi hoặc truy cập nội dung tài liệu bạn sử dụng."
 3 = "Quyền riêng tư và sự tin tưởng của bạn là cốt lõi trong những gì chúng tôi làm."
 
 [cookieBanner.preferencesModal.necessary]
@@ -4565,11 +4565,11 @@ message = "Không thể đặt trình xử lý PDF mặc định"
 title = "Lỗi"
 
 [defaultApp.settingsOpened]
-message = "Trong Cài đặt Windows, tìm 'PDF' và chọn Stirling PDF làm ứng dụng mặc định của bạn"
+message = "Trong Cài đặt Windows, tìm 'PDF' và chọn PDF Viewer làm ứng dụng mặc định của bạn"
 title = "Đã mở Cài đặt"
 
 [defaultApp.success]
-message = "Stirling PDF hiện là trình chỉnh sửa PDF mặc định của bạn"
+message = "PDF Viewer hiện là trình chỉnh sửa PDF mặc định của bạn"
 title = "Đã đặt ứng dụng mặc định"
 
 [desktop.fileSave]
@@ -4586,7 +4586,7 @@ minimize = "Thu nhỏ"
 restore = "Khôi phục"
 
 [desktopBilling]
-description = "Quản lý mức sử dụng và thanh toán trong trình duyệt của bạn. Đăng nhập bằng cùng tài khoản Stirling mà bạn dùng ở đây."
+description = "Quản lý mức sử dụng và thanh toán trong trình duyệt của bạn. Đăng nhập bằng cùng tài khoản PDF Viewer mà bạn dùng ở đây."
 open = "Mở Mức sử dụng & Thanh toán trong trình duyệt"
 openFailed = "Không thể mở Mức sử dụng & Thanh toán. Kiểm tra kết nối của bạn và thử lại."
 selfHostedDescription = "Quản lý mức sử dụng và thanh toán trên máy chủ đã kết nối của bạn trong trình duyệt. Đăng nhập bằng tài khoản chủ sở hữu máy chủ của bạn."
@@ -4638,7 +4638,7 @@ updateFailedMessage = "Không thể tải xuống hoặc cài đặt bản cập
 
 [desktopUpdate.blocked]
 docsLink = "Xem tài liệu cài đặt"
-message = "Stirling-PDF không có quyền tự cập nhật trên máy này."
+message = "PDF Viewer không có quyền tự cập nhật trên máy này."
 title = "Cần quyền quản trị viên"
 
 [devAirgapped]
@@ -4912,7 +4912,7 @@ description = "Trích xuất các trang đã chọn vào một PDF mới, giữ 
 open = "Gửi phản hồi"
 sendMore = "Gửi thêm phản hồi"
 sent = "Cảm ơn phản hồi của bạn"
-title = "Giúp chúng tôi cải thiện Stirling"
+title = "Giúp chúng tôi cải thiện PDF Viewer"
 unavailable = "Không thể dùng tính năng phản hồi"
 
 [feedback.tag]
@@ -5117,13 +5117,13 @@ save = "Đổi tên"
 title = "Đổi tên tệp"
 
 [filesPage]
-addedToLibrary = "Đã thêm vào thư viện Stirling"
-addingToLibrary = "Đang thêm vào thư viện Stirling…"
-addToLibrary = "Thêm vào thư viện Stirling…"
+addedToLibrary = "Đã thêm vào thư viện PDF Viewer"
+addingToLibrary = "Đang thêm vào thư viện PDF Viewer…"
+addToLibrary = "Thêm vào thư viện PDF Viewer…"
 addToLibraryFailed = "Không thể thêm một số tệp"
 addToWorkspace = "Thêm vào không gian làm việc"
 addToWorkspaceCount = "Thêm {{count}} vào không gian làm việc"
-allFiles = "Thư viện Stirling"
+allFiles = "Thư viện PDF Viewer"
 back = "Quay lại"
 backToFolder = "Quay lại {{folder}}"
 backToMyFiles = "Quay lại Thư viện tệp"
@@ -5151,7 +5151,7 @@ deleteFolderContents_one = "Đồng thời xóa {{count}} tệp bên trong thư 
 deleteFolderContents_other = "Đồng thời xóa {{count}} tệp bên trong thư mục"
 deleteFolderContentsWarning = "Các tệp sẽ bị xóa vĩnh viễn và không thể phục hồi."
 deleteFolderError = "Không thể xóa thư mục. Hãy thử lại."
-deleteFolderKeepHint = "Các tệp bên trong sẽ được chuyển vào thư viện Stirling."
+deleteFolderKeepHint = "Các tệp bên trong sẽ được chuyển vào thư viện PDF Viewer."
 deleteFolderTitle = "Xóa thư mục?"
 deselectAll = "Bỏ chọn"
 details = "Chi tiết"
@@ -5189,7 +5189,7 @@ moveSkippedRemote_other = "Không thể di chuyển {{count}} tệp trên server
 moveTo = "Di chuyển đến…"
 newFolder = "Thư mục mới"
 newFolderStorageDisabled = "Lưu trữ thư mục trên server chưa được bật."
-newFolderTabUnavailable = "Chuyển sang thư viện Stirling để tạo thư mục."
+newFolderTabUnavailable = "Chuyển sang thư viện PDF Viewer để tạo thư mục."
 offlineNoFolderEdits = "Đồng bộ thư mục trên máy chủ không khả dụng - thay đổi thư mục bị vô hiệu. Kiểm tra đăng nhập và cấu hình lưu trữ."
 open = "Mở"
 openVersionInWorkspace = "Mở trong không gian làm việc"
@@ -5198,7 +5198,7 @@ recentFiles = "Gần đây"
 refresh = "Làm mới"
 refreshNeedsConnection = "Đăng nhập để làm mới từ máy chủ."
 remove = "Xóa"
-removeLocalFolder = "Ngắt gắn kết khỏi Stirling"
+removeLocalFolder = "Ngắt gắn kết khỏi PDF Viewer"
 removeVersion = "Xóa phiên bản này"
 rename = "Đổi tên"
 renamed = "Đã đổi tên"
@@ -5210,7 +5210,7 @@ selectAll = "Chọn tất cả"
 selectedCount = "Đã chọn {{count}}"
 selectedFile = "{{name}}, đã chọn"
 selectFile = "Chọn tệp {{name}}"
-serverFolderNeedsConnection = "Đăng nhập vào Stirling Cloud hoặc kết nối máy chủ tự lưu trữ để sử dụng thư mục máy chủ."
+serverFolderNeedsConnection = "Đăng nhập vào PDF Viewer Cloud hoặc kết nối máy chủ tự lưu trữ để sử dụng thư mục máy chủ."
 shareDisabledHint = "Chia sẻ tệp chưa được bật trên máy chủ này. Hãy yêu cầu quản trị viên bật nó."
 shareManage = "Quản lý chia sẻ"
 showDetails = "Hiển thị chi tiết"
@@ -5220,7 +5220,7 @@ summary_other = "{{count}} mục"
 tree = "Thư mục"
 unmount = "Ngắt gắn kết"
 unmountFolderBody = "Ngắt gắn kết \"{{name}}\"? Thư mục và các tệp của nó vẫn nằm trên ổ đĩa của bạn."
-unmountFolderTitle = "Ngắt gắn kết khỏi Stirling?"
+unmountFolderTitle = "Ngắt gắn kết khỏi PDF Viewer?"
 upload = "Tải lên"
 uploadFromMobile = "Tải lên từ Di động"
 versionActions = "Hành động phiên bản"
@@ -5263,7 +5263,7 @@ orphaned = "Không có trên ổ đĩa"
 orphanedHint = "Bản gốc tại {{path}} đã không còn. Bản sao này chỉ ở đây - khi lưu, bạn sẽ được yêu cầu chọn vị trí mới."
 unavailable = "Không khả dụng"
 unavailableHintOffline = "Ổ đĩa hoặc chia sẻ chứa tệp này chưa được kết nối. Kết nối lại để nhận các thay đổi."
-unavailableHintPermission = "Stirling không được phép đọc vị trí này. Cấp quyền truy cập trong Cài đặt hệ thống để nhận các thay đổi."
+unavailableHintPermission = "PDF Viewer không được phép đọc vị trí này. Cấp quyền truy cập trong Cài đặt hệ thống để nhận các thay đổi."
 unavailableHintUnknown = "Hiện không thể truy cập tệp này. Bản sao ở đây không thay đổi."
 
 [filesPage.diskState]
@@ -5378,7 +5378,7 @@ placeholder = "Tên thư mục"
 
 [filesPage.folderOrigin]
 diskHint = "Thư mục được gắn kết từ một thư mục trên ổ đĩa của bạn"
-serverHint = "Thư mục được lưu trữ trên máy chủ Stirling"
+serverHint = "Thư mục được lưu trữ trên máy chủ PDF Viewer"
 virtualHint = "Thư mục chỉ tồn tại trong trình duyệt này"
 
 [filesPage.moveDialog]
@@ -5402,7 +5402,7 @@ serverHint = "Được đồng bộ với tài khoản của bạn, khả dụng
 [filesPage.origin]
 all = "Tất cả nguồn"
 cloud = "Đám mây"
-cloudHint = "Lưu trên máy chủ Stirling"
+cloudHint = "Lưu trên máy chủ PDF Viewer"
 diskFileHint = "Được lưu trữ trên máy tính của bạn"
 diskHint = "Tệp trong thư mục đã gắn kết trên ổ đĩa của bạn"
 local = "Cục bộ"
@@ -5413,7 +5413,7 @@ sharedHint = "Được chia sẻ với bạn qua liên kết"
 
 [filesPage.processing]
 active = "Đang xử lý thư mục"
-blockedNeedsConnection = "Đăng nhập vào Stirling Cloud hoặc kết nối máy chủ tự lưu trữ để xử lý thư mục."
+blockedNeedsConnection = "Đăng nhập vào PDF Viewer Cloud hoặc kết nối máy chủ tự lưu trữ để xử lý thư mục."
 edit = "Chỉnh sửa xử lý..."
 nothingToRestore = "Không có bản gốc để khôi phục - các tệp này đã là bản gốc của chúng."
 paused = "Đã tạm dừng xử lý"
@@ -5815,7 +5815,7 @@ invisible = "Ẩn (chỉ siêu dữ liệu)"
 location = "Vị trí:"
 logo = "Logo:"
 logoHidden = "Không có logo"
-logoShown = "Hiển thị logo Stirling PDF"
+logoShown = "Hiển thị logo PDF Viewer"
 participantCount_one = "Đã chọn {{count}} người tham gia"
 participantCount_other = "Đã chọn {{count}} người tham gia"
 participants = "Người tham gia"
@@ -5866,7 +5866,7 @@ title = "Ký theo bất kỳ thứ tự nào"
 dismiss = "Ẩn banner"
 message = "Tạo tài khoản miễn phí để lưu công việc, truy cập nhiều tính năng hơn và ủng hộ dự án."
 signUp = "Đăng ký miễn phí"
-title = "Bạn đang dùng Stirling PDF với tư cách khách!"
+title = "Bạn đang dùng PDF Viewer với tư cách khách!"
 
 [home.addAttachments]
 desc = "Xem, thêm, trích xuất, đổi tên hoặc xóa tệp đính kèm PDF được nhúng"
@@ -6050,7 +6050,7 @@ tags = "kết hợp,nối,hợp nhất,gộp,gộp PDF,kết hợp PDF,nối PDF
 title = "Ghép nối"
 
 [home.mobile]
-brandAlt = "Logo Stirling PDF"
+brandAlt = "Logo PDF Viewer"
 openFiles = "Mở tệp"
 swipeHint = "Vuốt sang trái hoặc phải để chuyển chế độ xem"
 tools = "Công cụ"
@@ -6084,7 +6084,7 @@ tags = "sắp xếp,sắp xếp lại,đổi thứ tự,sắp xếp trang,phân 
 title = "Sắp xếp"
 
 [home.pdfTextEditor]
-desc = "Xem và chỉnh sửa xuất JSON của Stirling PDF với chỉnh sửa văn bản theo nhóm và tái tạo PDF"
+desc = "Xem và chỉnh sửa xuất JSON của PDF Viewer với chỉnh sửa văn bản theo nhóm và tái tạo PDF"
 tags = "chỉnh sửa văn bản,sửa văn bản,thay đổi văn bản,chỉnh sửa nội dung,cập nhật văn bản,viết lại,sửa lỗi,sửa đổi,redline,duyệt lại,trình chỉnh sửa văn bản,trình chỉnh sửa nội dung"
 title = "Trình chỉnh sửa văn bản PDF"
 
@@ -6262,7 +6262,7 @@ passwordRequired = "Yêu cầu mật khẩu"
 signIn = "Đăng nhập"
 validating = "Đang xác thực lời mời..."
 validationError = "Không thể xác thực liên kết mời"
-welcome = "Chào mừng đến với Stirling PDF"
+welcome = "Chào mừng đến với PDF Viewer"
 welcomeSubtitle = "Hoàn tất thiết lập tài khoản để bắt đầu"
 welcomeTitle = "Bạn đã được mời!"
 
@@ -6309,8 +6309,8 @@ terms = "Điều khoản và điều kiện"
 title = "Giấy phép bên thứ 3"
 
 [localMode]
-automationUnavailable = "Đăng nhập vào Stirling Cloud hoặc máy chủ tự lưu trữ để sử dụng thư mục xử lý và pipeline."
-toolUnavailable = "Công cụ này cần có tài khoản. Đăng nhập vào Stirling Cloud hoặc kết nối với máy chủ tự lưu trữ để sử dụng."
+automationUnavailable = "Đăng nhập vào PDF Viewer Cloud hoặc máy chủ tự lưu trữ để sử dụng thư mục xử lý và pipeline."
+toolUnavailable = "Công cụ này cần có tài khoản. Đăng nhập vào PDF Viewer Cloud hoặc kết nối với máy chủ tự lưu trữ để sử dụng."
 
 [localMode.toolPicker]
 message = "Đăng nhập để mở khóa tất cả công cụ."
@@ -6550,7 +6550,7 @@ message = "Xác thực không thành công. Bạn có thể đóng cửa sổ n�
 title = "Xác thực thất bại"
 
 [oauth.success]
-message = "Bạn có thể đóng cửa sổ này và quay lại Stirling PDF."
+message = "Bạn có thể đóng cửa sổ này và quay lại PDF Viewer."
 title = "Xác thực thành công"
 
 [oauthConsent]
@@ -6563,17 +6563,17 @@ loadFailed = "This authorisation request is invalid or has expired. Close this t
 loading = "Loading authorisation request..."
 missingId = "Missing authorisation request. Start the connection from your app and try again."
 redirecting = "Đang đưa bạn trở lại ứng dụng..."
-requesting = "{{app}} muốn truy cập tài khoản Stirling PDF của bạn"
+requesting = "{{app}} muốn truy cập tài khoản PDF Viewer của bạn"
 scopesIntro = "Điều này sẽ cho phép {{app}}:"
 signedInAs = "Đã đăng nhập với {{name}}"
 signInButton = "Đăng nhập để tiếp tục"
-signInPrompt = "Đăng nhập vào tài khoản Stirling PDF của bạn để tiếp tục kết nối ứng dụng."
+signInPrompt = "Đăng nhập vào tài khoản PDF Viewer của bạn để tiếp tục kết nối ứng dụng."
 title = "Authorise access"
 unknownApp = "Một ứng dụng bên thứ ba"
 
 [oauthConsent.access]
 actAsYou = "Hành động như bạn - mọi việc {{app}} thực hiện đều chạy dưới tài khoản của bạn và được tính vào mức sử dụng của bạn"
-tools = "Sử dụng các công cụ Stirling PDF thay mặt bạn - chuyển đổi, chỉnh sửa, ký, bảo mật và xử lý tài liệu của bạn"
+tools = "Sử dụng các công cụ PDF Viewer thay mặt bạn - chuyển đổi, chỉnh sửa, ký, bảo mật và xử lý tài liệu của bạn"
 
 [oauthConsent.scope]
 email = "Xem địa chỉ email của bạn"
@@ -6703,26 +6703,26 @@ skipTheTour = "Bỏ qua hướng dẫn"
 
 [onboarding.checklist]
 dismiss = "Bỏ qua"
-title = "Thiết lập Stirling PDF"
+title = "Thiết lập PDF Viewer"
 
 [onboarding.checklist.downloadDesktop]
-description = "Chạy Stirling nguyên bản trên máy của bạn"
-title = "Tải xuống Stirling cho Desktop"
+description = "Chạy PDF Viewer nguyên bản trên máy của bạn"
+title = "Tải xuống PDF Viewer cho Desktop"
 
 [onboarding.checklist.inviteTeam]
 description = "Cộng tác với đội ngũ của bạn"
 title = "Mời thành viên đội ngũ"
 
 [onboarding.checklist.setDefaultApp]
-description = "Mở tệp PDF trong Stirling PDF"
-title = "Đặt Stirling làm mặc định"
+description = "Mở tệp PDF trong PDF Viewer"
+title = "Đặt PDF Viewer làm mặc định"
 
 [onboarding.checklist.takeTour]
-description = "Xem cách Stirling hoạt động qua hướng dẫn nhanh"
+description = "Xem cách PDF Viewer hoạt động qua hướng dẫn nhanh"
 title = "Tham quan nhanh"
 
 [onboarding.desktopInstall]
-body = "Stirling hoạt động tốt nhất như ứng dụng desktop. Bạn có thể dùng offline, truy cập tài liệu nhanh hơn và chỉnh sửa trực tiếp trên máy."
+body = "PDF Viewer hoạt động tốt nhất như ứng dụng desktop. Bạn có thể dùng offline, truy cập tài liệu nhanh hơn và chỉnh sửa trực tiếp trên máy."
 selectOs = "Chọn hệ điều hành"
 title = "Tải xuống"
 titleWithOs = "Tải cho {{osLabel}}"
@@ -6730,7 +6730,7 @@ titleWithOs = "Tải cho {{osLabel}}"
 [onboarding.desktopWelcome]
 body = "Có rất nhiều thay đổi mới để khám phá, bao gồm <strong>Agent Chat</strong>, <strong>phân loại</strong> tài liệu tự động và nhiều hơn nữa."
 freeLine = "Trình chỉnh sửa hiện <free>hoàn toàn miễn phí</free>."
-title = "Chào mừng đến với Stirling <product>Desktop</product>"
+title = "Chào mừng đến với PDF Viewer <product>Desktop</product>"
 
 [onboarding.mfa]
 authenticationCode = "Mã xác thực"
@@ -6751,21 +6751,21 @@ success = "MFA đã được bật. Bây giờ bạn có thể tiếp tục."
 title = "Thiết lập xác thực đa yếu tố"
 
 [onboarding.planOverview]
-adminBodyLoginDisabled = "Khi bật chế độ đăng nhập, bạn có thể quản lý người dùng, cấu hình cài đặt và theo dõi tình trạng server. <strong>{{freeTierLimit}}</strong> người đầu tiên trên server của bạn được dùng Stirling miễn phí."
-adminBodyLoginEnabled = "Là admin, bạn có thể quản lý người dùng, cấu hình cài đặt và theo dõi tình trạng server. <strong>{{freeTierLimit}}</strong> người đầu tiên trên server của bạn được dùng Stirling miễn phí."
+adminBodyLoginDisabled = "Khi bật chế độ đăng nhập, bạn có thể quản lý người dùng, cấu hình cài đặt và theo dõi tình trạng server. <strong>{{freeTierLimit}}</strong> người đầu tiên trên server của bạn được dùng PDF Viewer miễn phí."
+adminBodyLoginEnabled = "Là admin, bạn có thể quản lý người dùng, cấu hình cài đặt và theo dõi tình trạng server. <strong>{{freeTierLimit}}</strong> người đầu tiên trên server của bạn được dùng PDF Viewer miễn phí."
 adminTitle = "Tổng quan Admin"
 userBody = "Mời đồng đội, gán vai trò và quản lý tài liệu gọn gàng trong một không gian làm việc an toàn. Bật chế độ đăng nhập khi bạn sẵn sàng vượt qua chế độ dùng cá nhân."
 userTitle = "Tổng quan gói"
 
 [onboarding.processorIntro]
-body = "Stirling hiện chạy <strong>Chính sách</strong> — các quy tắc tự động phân loại, bảo mật và xử lý mọi tài liệu khi tài liệu đến. Thiết lập và theo dõi các lần chạy trong <strong>Processor</strong>."
+body = "PDF Viewer hiện chạy <strong>Chính sách</strong> — các quy tắc tự động phân loại, bảo mật và xử lý mọi tài liệu khi tài liệu đến. Thiết lập và theo dõi các lần chạy trong <strong>Processor</strong>."
 cta = "Xem Processor"
-title = "Khám phá Stirling Processor"
+title = "Khám phá PDF Viewer Processor"
 
 [onboarding.saas.freeEditor]
 freeLine = "Trình chỉnh sửa hiện <free>hoàn toàn miễn phí</free>."
 premium = "Chúng tôi đã thêm rất nhiều tính năng mới, bao gồm <strong>Chính sách</strong> và <strong>Agent Chat</strong>."
-title = "Chào mừng đến với Stirling"
+title = "Chào mừng đến với PDF Viewer"
 
 [onboarding.saas.team]
 addButton = "Thêm"
@@ -6786,20 +6786,20 @@ roleUser = "Người dùng"
 title = "Kiểm tra bảo mật"
 
 [onboarding.serverLicense]
-freeBody = "Giấy phép <strong>Open-Core</strong> của chúng tôi bao gồm <strong>OAuth SSO</strong> và tối đa <strong>{{freeTierLimit}}</strong> người dùng miễn phí. Để mở rộng không gián đoạn, chúng tôi khuyến nghị gói Stirling Team — <strong>100 người dùng</strong> với giá 99 USD/tháng."
+freeBody = "Giấy phép <strong>Open-Core</strong> của chúng tôi bao gồm <strong>OAuth SSO</strong> và tối đa <strong>{{freeTierLimit}}</strong> người dùng miễn phí. Để mở rộng không gián đoạn, chúng tôi khuyến nghị gói PDF Viewer Team — <strong>100 người dùng</strong> với giá 99 USD/tháng."
 freeTitle = "Gói Team"
-overLimitBody = "Giấy phép của chúng tôi cho phép tối đa <strong>{{freeTierLimit}}</strong> người dùng miễn phí. Bạn có <strong>{{overLimitUserCopy}}</strong> người dùng Stirling. Để tiếp tục không gián đoạn, hãy nâng cấp lên gói Stirling Team - <strong>100 người dùng</strong>, chỉnh sửa văn bản PDF và toàn quyền quản trị với $99/tháng."
+overLimitBody = "Giấy phép của chúng tôi cho phép tối đa <strong>{{freeTierLimit}}</strong> người dùng miễn phí. Bạn có <strong>{{overLimitUserCopy}}</strong> người dùng PDF Viewer. Để tiếp tục không gián đoạn, hãy nâng cấp lên gói PDF Viewer Team - <strong>100 người dùng</strong>, chỉnh sửa văn bản PDF và toàn quyền quản trị với $99/tháng."
 overLimitTitle = "Cần gói Team"
 seePlans = "Xem gói →"
 upgrade = "Nâng cấp ngay →"
 
 [onboarding.tourOverview]
-body = "Stirling PDF V2 đi kèm hàng chục công cụ và bố cục được làm mới. Hãy tham quan nhanh để xem những thay đổi và nơi tìm các tính năng bạn cần."
+body = "PDF Viewer V2 đi kèm hàng chục công cụ và bố cục được làm mới. Hãy tham quan nhanh để xem những thay đổi và nơi tìm các tính năng bạn cần."
 title = "Tổng quan tour"
 
 [onboarding.welcomeSlide]
-body = "Stirling PDF nay sẵn sàng cho mọi quy mô đội nhóm. Bản cập nhật này có bố cục mới, khả năng quản trị mạnh mẽ và tính năng được yêu cầu nhiều nhất - <strong>Chỉnh sửa văn bản</strong>."
-title = "Chào mừng đến với Stirling"
+body = "PDF Viewer nay sẵn sàng cho mọi quy mô đội nhóm. Bản cập nhật này có bố cục mới, khả năng quản trị mạnh mẽ và tính năng được yêu cầu nhiều nhất - <strong>Chỉnh sửa văn bản</strong>."
+title = "Chào mừng đến với PDF Viewer"
 
 [onboarding.whatsNew]
 activeFilesView = "Dùng Tệp đang hoạt động để xem mọi thứ bạn đang mở và chọn việc cần làm."
@@ -6912,7 +6912,7 @@ check = "Kiểm tra lại"
 checkAccount = "Kiểm tra tài khoản"
 chooseEmail = "Chọn tài khoản của họ trong {{team}}, hoặc nhập email để mời họ."
 close = "Đóng hộp thoại chuyển giao"
-cloudAccount = "Tài khoản Stirling"
+cloudAccount = "Tài khoản PDF Viewer"
 cloudScopeStyled = "<user>{{name}}</user> sẽ quản lý {{team}}, thành viên và thanh toán của nhóm."
 cloudTargetChanged = "Chọn một thành viên đám mây khác. Tài khoản này không còn đủ điều kiện để bàn giao."
 confirm = "Tôi hiểu các thay đổi về quyền truy cập và quyền sở hữu."
@@ -6927,7 +6927,7 @@ inviteAddress = "Mời <account>{{email}}</account> vào {{team}}."
 inviteBlocked = "Không thể gửi lời mời. Kiểm tra số chỗ còn trống trong nhóm và liệu người nhận đã có gói đăng ký trả phí hay chưa."
 linkChanged = "Liên kết đám mây của máy chủ đã thay đổi. Hãy yêu cầu người vận hành máy chủ khôi phục liên kết ban đầu trước khi tiếp tục."
 linkedServerCount = "{{count}} máy chủ đã liên kết"
-linkRevoked = "Liên kết đám mây của máy chủ này không còn hợp lệ. Hủy chuyển giao, rồi kết nối lại tài khoản Stirling của bạn trong cài đặt. Quyền sở hữu sẽ không thay đổi."
+linkRevoked = "Liên kết đám mây của máy chủ này không còn hợp lệ. Hủy chuyển giao, rồi kết nối lại tài khoản PDF Viewer của bạn trong cài đặt. Quyền sở hữu sẽ không thay đổi."
 localScope = "Họ sẽ sở hữu máy chủ này và quản lý thanh toán cũng như kết nối đám mây. Bạn vẫn giữ quyền truy cập quản trị viên, nhưng mất quyền truy cập vào các cài đặt đó."
 membershipDetails = "Chi tiết tư cách thành viên nhóm"
 membershipFirst = "Họ phải tham gia nhóm trước khi bạn có thể xác nhận chuyển giao."
@@ -7255,7 +7255,7 @@ benefit1Body = "xâu chuỗi công cụ, lên lịch chạy, xử lý hàng lo�
 benefit1Title = "Pipeline tự động hóa"
 benefit2Body = "summarise, classify, redact, AI-OCR"
 benefit2Title = "Công cụ AI"
-benefit3Body = "gọi bất kỳ endpoint Stirling nào bằng lập trình"
+benefit3Body = "gọi bất kỳ endpoint PDF Viewer nào bằng lập trình"
 benefit3Title = "Truy cập API"
 button = "Bật Processor →"
 reassurance = "Không tối thiểu · Đặt giới hạn $0 để thử nghiệm · Hủy bất cứ lúc nào"
@@ -7345,7 +7345,7 @@ editorLabel = "Trình chỉnh sửa PDF"
 login = "Đăng nhập"
 manualToolsPromo = "Công cụ PDF thủ công miễn phí không giới hạn"
 processorLabel = "Bộ xử lý PDF"
-processorTitle = "Tạo tài khoản để mở khóa những tính năng tốt nhất của Stirling"
+processorTitle = "Tạo tài khoản để mở khóa những tính năng tốt nhất của PDF Viewer"
 readerLabel = "Trình đọc PDF"
 
 [payg.spendCapMeter]
@@ -7385,7 +7385,7 @@ usdNote = "Ước tính bằng USD. Bạn có thể điều chỉnh giới hạn
 [payg.upgrade.checkout]
 capValue = "{{symbol}}{{amount}} / tháng"
 edit = "Chỉnh sửa"
-help = "Stripe xử lý chi tiết thẻ của bạn. Stirling không bao giờ nhìn thấy chúng."
+help = "Stripe xử lý chi tiết thẻ của bạn. PDF Viewer không bao giờ nhìn thấy chúng."
 loading = "Đang tải thanh toán…"
 noCap = "Không giới hạn"
 title = "Thêm phương thức thanh toán của bạn"
@@ -7393,7 +7393,7 @@ title = "Thêm phương thức thanh toán của bạn"
 [payg.upgrade.help]
 aiBody = "summarise, classify, redact, AI-OCR"
 aiTitle = "Công cụ AI"
-apiBody = "truy cập bằng lập trình tới bất kỳ endpoint Stirling nào"
+apiBody = "truy cập bằng lập trình tới bất kỳ endpoint PDF Viewer nào"
 apiTitle = "Lệnh gọi API"
 automationBody = "công cụ xâu chuỗi hoặc lần chạy đã lên lịch không cần nhấp chuột"
 automationTitle = "Pipeline tự động hóa"
@@ -7492,7 +7492,7 @@ overCapacityConsequence = "Các tài khoản hiện có vẫn được giữ ngu
 overCapacityTitle = "Máy chủ của bạn có nhiều người dùng hơn mức gói của bạn bao phủ"
 perMonth = "/tháng"
 perYear = "/năm"
-planName = "Stirling Team"
+planName = "PDF Viewer Team"
 reductionNote = "Dung lượng thấp hơn bắt đầu từ lần gia hạn tiếp theo của bạn. Cho đến lúc đó, bạn có thể sử dụng hạn mức hiện tại. Người dùng hiện có vẫn ở lại; người dùng mới bị chặn nếu bạn vượt quá dung lượng khi thay đổi có hiệu lực."
 renewalNote = "Gia hạn với {{total}}{{period}}. Hủy bất cứ lúc nào trong Sử dụng & Thanh toán."
 reviewChange = "Xem lại thay đổi trong Stripe"
@@ -8437,35 +8437,35 @@ pdfa-3b = "PDF/A-3b"
 ownerRequired = "Chỉ chủ sở hữu tổ chức mới có thể liên kết hoặc hủy liên kết máy chủ này."
 
 [portal.accountLink.card]
-billingNote = "Máy chủ này chia sẻ hạn mức xử lý của đội bạn trong Stirling Cloud."
-connectDescription = "Kết nối máy chủ này để sử dụng hạn mức xử lý của nhóm bạn trong Stirling Cloud."
-disconnectBody = "Máy chủ này sẽ ngừng sử dụng hạn mức xử lý của nhóm bạn trong Stirling Cloud. Các tệp cục bộ của bạn vẫn ở trên máy chủ này. Để kết nối lại, hãy làm theo các bước kết nối ban đầu."
+billingNote = "Máy chủ này chia sẻ hạn mức xử lý của đội bạn trong PDF Viewer Cloud."
+connectDescription = "Kết nối máy chủ này để sử dụng hạn mức xử lý của nhóm bạn trong PDF Viewer Cloud."
+disconnectBody = "Máy chủ này sẽ ngừng sử dụng hạn mức xử lý của nhóm bạn trong PDF Viewer Cloud. Các tệp cục bộ của bạn vẫn ở trên máy chủ này. Để kết nối lại, hãy làm theo các bước kết nối ban đầu."
 disconnectTitle = "Ngắt kết nối phiên bản này?"
 eyebrow = "Instance này"
-linkButton = "Kết nối tài khoản Stirling của bạn"
+linkButton = "Kết nối tài khoản PDF Viewer của bạn"
 loading = "Đang kiểm tra kết nối tài khoản"
 notLinked = "Chưa kết nối"
-signedInAs = "Đã đăng nhập vào Stirling Cloud với tư cách"
+signedInAs = "Đã đăng nhập vào PDF Viewer Cloud với tư cách"
 statusError = "Không thể kiểm tra kết nối tài khoản"
-title = "Stirling Cloud"
+title = "PDF Viewer Cloud"
 unlink = "Ngắt kết nối instance này"
 
 [portal.accountLink.card.error]
 title = "Không thể cập nhật kết nối"
 
 [portal.accountLink.card.loginNotConfigured]
-description = "Yêu cầu quản trị viên máy chủ của bạn bật kết nối tới Stirling Cloud."
+description = "Yêu cầu quản trị viên máy chủ của bạn bật kết nối tới PDF Viewer Cloud."
 title = "Kết nối tài khoản không khả dụng"
 
 [portal.accountLink.connect]
-adminRequired = "Yêu cầu quản trị viên máy chủ của bạn mở Sử dụng & thanh toán và liên kết tài khoản Stirling để có thêm tín dụng hàng tháng. Các công cụ PDF thủ công vẫn khả dụng."
+adminRequired = "Yêu cầu quản trị viên máy chủ của bạn mở Sử dụng & thanh toán và liên kết tài khoản PDF Viewer để có thêm tín dụng hàng tháng. Các công cụ PDF thủ công vẫn khả dụng."
 adminTitle = "Yêu cầu quản trị viên máy chủ của bạn"
 close = "Đóng"
 copied = "Đã sao chép"
 copyAdminMessage = "Sao chép tin nhắn cho quản trị viên"
-exhaustedLede = "Máy chủ này đã sử dụng hết tín dụng miễn phí trong tháng. Liên kết tài khoản Stirling mới hoặc hiện có để truy cập hạn mức hàng tháng của nhóm bạn."
+exhaustedLede = "Máy chủ này đã sử dụng hết tín dụng miễn phí trong tháng. Liên kết tài khoản PDF Viewer mới hoặc hiện có để truy cập hạn mức hàng tháng của nhóm bạn."
 notNow = "Không phải bây giờ"
-start = "Kết nối tài khoản Stirling"
+start = "Kết nối tài khoản PDF Viewer"
 step = "Bước {{current}} trên {{total}}"
 
 [portal.accountLink.connect.benefits]
@@ -8479,9 +8479,9 @@ teamsDetail = "Thêm nhiều người dùng hơn với gói Team trả phí"
 teamsLabel = "Nhóm lớn hơn"
 
 [portal.accountLink.connect.callback]
-linkedNotSignedIn = "Bạn chưa đăng nhập vào Stirling trong trình duyệt này, nên phần sử dụng và thanh toán sẽ yêu cầu bạn đăng nhập."
+linkedNotSignedIn = "Bạn chưa đăng nhập vào PDF Viewer trong trình duyệt này, nên phần sử dụng và thanh toán sẽ yêu cầu bạn đăng nhập."
 retry = "Thử lại"
-signedInAnyway = "Bạn đã đăng nhập vào Stirling, nên thanh toán và sử dụng sẽ tải. Chỉ liên kết máy chủ là chưa hoàn tất."
+signedInAnyway = "Bạn đã đăng nhập vào PDF Viewer, nên thanh toán và sử dụng sẽ tải. Chỉ liên kết máy chủ là chưa hoàn tất."
 working = "Đang hoàn tất kết nối."
 
 [portal.accountLink.connect.callback.expired]
@@ -8497,7 +8497,7 @@ body = "Yêu cầu này đã bị từ chối hoặc đã được sử dụng. 
 title = "Kết nối chưa hoàn tất"
 
 [portal.accountLink.connect.callback.unfinished]
-body = "Stirling chưa xác nhận kết nối. Điều này thường chỉ là tạm thời."
+body = "PDF Viewer chưa xác nhận kết nối. Điều này thường chỉ là tạm thời."
 title = "Chưa hoàn tất"
 
 [portal.accountLink.connect.done]
@@ -8508,23 +8508,23 @@ creditsBarLabel = "Tín dụng miễn phí còn lại"
 creditsSuffix = "trong tổng số {{allowance}} tín dụng miễn phí còn lại"
 cta = "Xong"
 inviteTeam = "Mời nhóm của bạn"
-lede = "Server này hiện chạy bằng tài khoản Stirling của bạn."
+lede = "Server này hiện chạy bằng tài khoản PDF Viewer của bạn."
 pendingTitle = "Sắp hoàn tất"
 switchOnProcessor = "Bật Processor"
 title = "Đã kết nối"
 
 [portal.accountLink.connect.handoff]
-opening = "Đang mở đăng nhập Stirling..."
-reauthLede = "Phiên Stirling của bạn đã hết hạn. Đăng nhập lại giúp hiển thị mức sử dụng và thanh toán. Server này vẫn được kết nối trong mọi trường hợp."
+opening = "Đang mở đăng nhập PDF Viewer..."
+reauthLede = "Phiên PDF Viewer của bạn đã hết hạn. Đăng nhập lại giúp hiển thị mức sử dụng và thanh toán. Server này vẫn được kết nối trong mọi trường hợp."
 title = "Đang kết nối"
 
 [portal.accountLink.connectionNotice]
-expiredBody = "Server này chưa kết nối được tới Stirling Cloud trong hạn mức ngoại tuyến. Các tính năng Team dựa trên Cloud và công việc Processor đã tạm dừng. Dữ liệu hiện có và quyền giấy phép đã cài đặt được giữ nguyên. Quyền truy cập sẽ tự động trở lại sau khi kết nối thành công xác nhận gói của bạn."
+expiredBody = "Server này chưa kết nối được tới PDF Viewer Cloud trong hạn mức ngoại tuyến. Các tính năng Team dựa trên Cloud và công việc Processor đã tạm dừng. Dữ liệu hiện có và quyền giấy phép đã cài đặt được giữ nguyên. Quyền truy cập sẽ tự động trở lại sau khi kết nối thành công xác nhận gói của bạn."
 expiredTitle = "Quyền truy cập Cloud đã tạm dừng"
 offlineBody = "Gói được xác nhận gần nhất của bạn vẫn khả dụng cho đến {{deadline}}. Khôi phục kết nối của server này trước thời điểm đó để tránh tạm dừng các tính năng và xử lý dựa trên Cloud."
-offlineTitle = "Không thể truy cập Stirling Cloud"
+offlineTitle = "Không thể truy cập PDF Viewer Cloud"
 retry = "Kiểm tra kết nối"
-revokedBody = "Stirling Cloud đã từ chối kết nối tài khoản này. Kết nối lại tài khoản trong Cài đặt để khôi phục các tính năng dựa trên Cloud đủ điều kiện."
+revokedBody = "PDF Viewer Cloud đã từ chối kết nối tài khoản này. Kết nối lại tài khoản trong Cài đặt để khôi phục các tính năng dựa trên Cloud đủ điều kiện."
 revokedTitle = "Kết nối tài khoản đã bị thu hồi"
 
 [portal.accountLink.failure]
@@ -8553,17 +8553,17 @@ callbackMismatch = "Địa chỉ frontend đã cấu hình của server này kh�
 cancel = "Hủy"
 continueReauth = "Đăng nhập lại"
 exhaustedTitle = "Duy trì workflow của bạn"
-identity = "Tài khoản Stirling"
-linkTitle = "Kết nối tài khoản Stirling của bạn"
-noAuthorizeUrl = "Stirling không trả về nơi để tiếp tục. Hãy thử lại sau giây lát."
-startFailed = "Không thể kết nối tới Stirling để bắt đầu kết nối. Kiểm tra quyền truy cập mạng đi ra của server này, rồi thử lại."
+identity = "Tài khoản PDF Viewer"
+linkTitle = "Kết nối tài khoản PDF Viewer của bạn"
+noAuthorizeUrl = "PDF Viewer không trả về nơi để tiếp tục. Hãy thử lại sau giây lát."
+startFailed = "Không thể kết nối tới PDF Viewer để bắt đầu kết nối. Kiểm tra quyền truy cập mạng đi ra của server này, rồi thử lại."
 transferPending = "Đang chờ chuyển quyền sở hữu. Đi tới Cài đặt → Người dùng để hoàn tất hoặc hủy, rồi thử liên kết lại."
 
 [portal.accountLink.modal.loginNotConfigured]
 after = "để máy chủ này có thể hoàn tất kết nối khi bạn quay lại."
 and = "và"
 before = "Đặt"
-title = "Chưa cấu hình kết nối Stirling"
+title = "Chưa cấu hình kết nối PDF Viewer"
 
 [portal.accountLink.notice]
 loadFailed = "Không thể tải hộp thoại liên kết tài khoản."
@@ -8573,11 +8573,11 @@ openFailed = "Không thể mở trình duyệt của bạn. Mở Mức sử dụ
 instancesSub = "Máy chủ self-hosted được kết nối với cùng một đội."
 instancesTitle = "Instance đã kết nối"
 manageCloud = "Quản lý trên stirling.com"
-otherInstancesSub = "Các server tự lưu trữ khác được kết nối với cùng nhóm trong Stirling Cloud."
+otherInstancesSub = "Các server tự lưu trữ khác được kết nối với cùng nhóm trong PDF Viewer Cloud."
 otherInstancesTitle = "Các phiên bản được kết nối khác"
 revokeError = "Không thể thu hồi phiên bản"
 sessionRequired = "Các phiên bản được kết nối sẽ xuất hiện sau khi bạn gia hạn quyền truy cập thanh toán."
-sub = "Quản lý kết nối của máy chủ này với tài khoản Stirling Cloud của bạn."
+sub = "Quản lý kết nối của máy chủ này với tài khoản PDF Viewer Cloud của bạn."
 
 [portal.accountLink.panel.loadError]
 forbidden = "Chỉ chủ sở hữu đội mới có thể quản lý các instance đã kết nối."
@@ -8600,7 +8600,7 @@ viewAll = "Xem tất cả pipeline"
 
 [portal.accountLink.rail]
 adminCta = "Cách nhận thêm tín dụng"
-adminSub = "Yêu cầu quản trị viên server liên kết tài khoản Stirling để có thêm tín dụng. Các công cụ PDF thủ công vẫn khả dụng."
+adminSub = "Yêu cầu quản trị viên server liên kết tài khoản PDF Viewer để có thêm tín dụng. Các công cụ PDF thủ công vẫn khả dụng."
 exhaustedCta = "Liên kết tài khoản để có thêm tín dụng"
 exhaustedSub = "Liên kết để nhận tín dụng hằng tháng, thanh toán chung và tùy chọn mở rộng với gói Team."
 exhaustedTitle = "Tín dụng miễn phí của server này đã dùng hết"
@@ -8614,9 +8614,9 @@ malformed = "Chúng tôi không thể xác minh phản hồi đăng nhập này.
 malformedTitle = "Không thể xác minh đăng nhập"
 rejected = "Yêu cầu đăng nhập này đã bị từ chối hoặc đã được sử dụng. Thử lại để gia hạn quyền truy cập thanh toán."
 rejectedTitle = "Đăng nhập chưa hoàn tất"
-retry = "Stirling không thể hoàn tất gia hạn quyền truy cập thanh toán. Hãy thử lại sau giây lát; server của bạn vẫn được kết nối."
+retry = "PDF Viewer không thể hoàn tất gia hạn quyền truy cập thanh toán. Hãy thử lại sau giây lát; server của bạn vẫn được kết nối."
 retryTitle = "Quyền truy cập thanh toán chưa được khôi phục"
-success = "Quyền truy cập thanh toán của bạn đã được gia hạn. Server này vẫn được kết nối với cùng tài khoản Stirling."
+success = "Quyền truy cập thanh toán của bạn đã được gia hạn. Server này vẫn được kết nối với cùng tài khoản PDF Viewer."
 title = "Gia hạn quyền truy cập thanh toán"
 working = "Đang khôi phục quyền truy cập thanh toán."
 
@@ -8630,7 +8630,7 @@ close = "Đóng trợ lý"
 error = "Không thể kết nối với trợ lý."
 errorWithDetail = "Không thể kết nối với trợ lý: {{detail}}"
 inputAriaLabel = "Hỏi trợ lý"
-inputPlaceholder = "Hỏi về Stirling…"
+inputPlaceholder = "Hỏi về PDF Viewer…"
 open = "Mở trợ lý"
 send = "Gửi"
 title = "Trợ lý"
@@ -8675,7 +8675,7 @@ title = "Đặt giới hạn chi tiêu của bạn"
 [portal.billing.checkout.card]
 fields = "Số thẻ · MM / YY · CVC · ZIP"
 label = "Chi tiết thẻ"
-note = "Chi tiết thẻ do Stripe thu thập. Stirling không bao giờ lưu PAN hoặc CVC."
+note = "Chi tiết thẻ do Stripe thu thập. PDF Viewer không bao giờ lưu PAN hoặc CVC."
 
 [portal.billing.checkout.error]
 title = "Không thể bắt đầu thanh toán"
@@ -8759,7 +8759,7 @@ pdfsUsed_one = "{{count}} PDF đã xử lý"
 pdfsUsed_other = "Đã xử lý {{count}} PDF"
 period = "Thời hạn thỏa thuận: {{start}} – {{end}}"
 sub = "Triển khai air-gapped, SCIM, lưu trú dữ liệu, SLA thời gian hoạt động và thỏa thuận phù hợp."
-title = "Bạn đang chạy Stirling trong môi trường được quản lý?"
+title = "Bạn đang chạy PDF Viewer trong môi trường được quản lý?"
 trial = "Dùng thử {{days}} ngày · kết thúc {{date}}"
 usersAgreed = "{{used}} / {{agreed}} người dùng đã thỏa thuận"
 usersOver_one = "{{count}} người dùng vượt quá số lượng đã thỏa thuận"
@@ -8909,7 +8909,7 @@ spendAgainstLimit = "{{spend}} trong {{cap}} tính theo mức sử dụng trong 
 [portal.billing.seats]
 awaitingSync = "Đang chờ đồng bộ hằng ngày; chưa được tính vào tổng fleet."
 breakdown = "Nơi người dùng được tính"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 deployment = "Server đã liên kết"
 lastReported = "Đã báo cáo {{date}}"
 live = "Số người dùng trực tiếp"
@@ -9041,7 +9041,7 @@ description = "Nơi tài liệu đã xử lý kết thúc - bucket, drive, ticke
 label = "Tệp & đính kèm"
 
 [portal.connections.commonFields.accessToken]
-helperText = "Stirling lưu trữ mục này ở dạng mã hóa và không bao giờ hiển thị lại."
+helperText = "PDF Viewer lưu trữ mục này ở dạng mã hóa và không bao giờ hiển thị lại."
 label = "Token truy cập"
 
 [portal.connections.commonFields.apiKey]
@@ -9630,8 +9630,8 @@ brandTag = "Enterprise"
 callInfo = "Cuộc gọi 15 phút. Mang theo câu hỏi về giá, triển khai hoặc bảo mật, hoặc cùng lên kế hoạch triển khai."
 callTitle = "Trao đổi với kỹ sư giải pháp"
 deployment = "Triển khai"
-footer = "Có câu hỏi về Stirling Enterprise?"
-home = "Đến Stirling"
+footer = "Có câu hỏi về PDF Viewer Enterprise?"
+home = "Đến PDF Viewer"
 member = "Trưởng nhóm của bạn phụ trách thỏa thuận Enterprise. Khi bắt đầu, bạn có thể theo dõi tiến độ tại đây."
 memberDeal = "Trưởng nhóm của bạn phụ trách thỏa thuận này. Bạn có thể theo dõi tiến độ tại đây."
 quotePanel = "Báo giá của bạn"
@@ -9644,8 +9644,8 @@ stagesLabel = "Tiến độ"
 lede = "Dùng thử miễn phí 14 ngày, sau đó tạo báo giá và ký thỏa thuận tại đây. Không cần thẻ."
 tickAgreement = "Một thỏa thuận bao gồm MSA, đơn đặt hàng, EULA và DPA"
 tickCompliance = "SCIM, nơi lưu trữ dữ liệu và SLA thời gian hoạt động"
-tickDeploy = "Chạy trên Stirling Cloud, máy chủ của bạn, hoặc tách mạng hoàn toàn"
-title = "Stirling Enterprise"
+tickDeploy = "Chạy trên PDF Viewer Cloud, máy chủ của bạn, hoặc tách mạng hoàn toàn"
+title = "PDF Viewer Enterprise"
 
 [portal.enterprise.options.airgap]
 more = "Tài liệu giấy phép offline"
@@ -9655,7 +9655,7 @@ point3 = "Đăng nhập diễn ra bên trong mạng của bạn"
 tagline = "Tự lưu trữ trên mạng không có truy cập internet."
 
 [portal.enterprise.options.cloud]
-more = "Tài liệu Stirling Cloud"
+more = "Tài liệu PDF Viewer Cloud"
 point1 = "Nhóm của bạn đăng nhập tại stirling.com/app"
 point2 = "Chạy trên AWS, tệp lưu trữ được mã hóa khi lưu trữ"
 point3 = "SSO qua nhà cung cấp định danh của bạn cần tự lưu trữ"
@@ -9697,11 +9697,11 @@ title = "Xử lý tài liệu đầu tiên"
 
 [portal.enterprise.setup.getApp]
 body = "Cài ứng dụng máy tính cho Windows, Mac hoặc Linux và đăng nhập bằng tài khoản bạn vừa tạo, hoặc dùng trực tiếp từ trình duyệt."
-title = "Tải Stirling"
+title = "Tải PDF Viewer"
 
 [portal.enterprise.setup.install]
-body = "Chạy phần này trên máy chủ của bạn. Nó khởi động Stirling với giấy phép đã áp dụng, và image bao gồm OCR và chuyển đổi office. Với đội lớn hơn, hãy dùng Kubernetes."
-title = "Cài đặt và khởi động Stirling"
+body = "Chạy phần này trên máy chủ của bạn. Nó khởi động PDF Viewer với giấy phép đã áp dụng, và image bao gồm OCR và chuyển đổi office. Với đội lớn hơn, hãy dùng Kubernetes."
+title = "Cài đặt và khởi động PDF Viewer"
 
 [portal.enterprise.setup.invite]
 body = "Mời những người sẽ sử dụng vào, để bản dùng thử phản ánh công việc thực tế."
@@ -9722,21 +9722,21 @@ invite = "Mời đồng đội"
 kubernetes = "Hướng dẫn Kubernetes"
 licence = "Kích hoạt giấy phép"
 ocr = "Ngôn ngữ OCR"
-openApp = "Mở Stirling"
+openApp = "Mở PDF Viewer"
 samlGuide = "Hướng dẫn SAML"
 ssoGuide = "Hướng dẫn SSO"
 
 [portal.enterprise.setup.offlineInstall]
 body = "Kéo full image trên máy có kết nối, mang nó và tệp giấy phép sang, rồi load và khởi động. Full image bổ sung các phông mà máy chủ offline không thể tải."
-title = "Mang Stirling sang và khởi động"
+title = "Mang PDF Viewer sang và khởi động"
 
 [portal.enterprise.setup.offlineLicence]
 body = "Máy chủ tách mạng không thể truy cập dịch vụ giấy phép của chúng tôi, nên sẽ kiểm tra tệp đã ký này thay thế. Giữ tệp cùng với image bạn mang sang."
 title = "Tải giấy phép offline của bạn"
 
 [portal.enterprise.setup.people]
-bodyAirgap = "Tạo tài khoản tại <code>/settings/people</code>, hoặc trỏ Stirling tới nhà cung cấp định danh nội bộ để đăng nhập không rời khỏi mạng của bạn."
-bodySelfHosted = "Tạo tài khoản tại <code>/settings/people</code>, hoặc kết nối nhà cung cấp định danh để nhóm của bạn đăng nhập bằng tài khoản công việc. Họ dùng Stirling trong trình duyệt tại địa chỉ máy chủ của bạn, hoặc trong ứng dụng máy tính trỏ tới đó."
+bodyAirgap = "Tạo tài khoản tại <code>/settings/people</code>, hoặc trỏ PDF Viewer tới nhà cung cấp định danh nội bộ để đăng nhập không rời khỏi mạng của bạn."
+bodySelfHosted = "Tạo tài khoản tại <code>/settings/people</code>, hoặc kết nối nhà cung cấp định danh để nhóm của bạn đăng nhập bằng tài khoản công việc. Họ dùng PDF Viewer trong trình duyệt tại địa chỉ máy chủ của bạn, hoặc trong ứng dụng máy tính trỏ tới đó."
 title = "Thêm người dùng của bạn"
 
 [portal.enterprise.setup.signIn]
@@ -9750,7 +9750,7 @@ retry = "Thử lại"
 title = "Đã xảy ra lỗi trên trang này"
 
 [portal.failures]
-closedBySystem = "Stirling"
+closedBySystem = "PDF Viewer"
 noMatches = "Không có gì khớp với bộ lọc hiện tại"
 occurrences = "{{count}} lần xuất hiện"
 searchPlaceholder = "Tìm kiếm sự cố, người dùng và lỗi"
@@ -9862,7 +9862,7 @@ description = "Server này thiếu phần mềm mà bước cần, nên lần ch
 title = "Phần mềm chưa được cài đặt"
 
 [portal.failures.kind.unknown]
-description = "Đã xảy ra lỗi mà Stirling chưa nhận diện được."
+description = "Đã xảy ra lỗi mà PDF Viewer chưa nhận diện được."
 title = "Sự cố không được nhận diện"
 
 [portal.failures.log]
@@ -9895,13 +9895,13 @@ title = "Không có gì để xem xét"
 [portal.home.download]
 back = "Quay lại"
 body = "Tải xuống ứng dụng desktop hoặc tự lưu trữ máy chủ."
-bodyDesktop = "Tải ứng dụng máy tính, rồi đăng nhập bằng tài khoản Stirling của bạn."
+bodyDesktop = "Tải ứng dụng máy tính, rồi đăng nhập bằng tài khoản PDF Viewer của bạn."
 done = "Xong"
 guide = "Mở hướng dẫn {{name}}"
 openInBrowser = "Mở trong trình duyệt thay thế"
 sectionDesktop = "Ứng dụng desktop"
 sectionSelfHosted = "Tự lưu trữ"
-title = "Cài đặt Stirling PDF Editor"
+title = "Cài đặt PDF Viewer Editor"
 
 [portal.home.download.docker]
 detailBody = "Chạy image chính thức trên máy chủ của bạn."
@@ -9983,7 +9983,7 @@ usageMonth = "Sử dụng tháng này"
 usageToday = "Sử dụng hôm nay"
 
 [portal.infrastructure.apiKeys.empty]
-description = "Tạo một khóa để bắt đầu gọi Stirling API."
+description = "Tạo một khóa để bắt đầu gọi PDF Viewer API."
 title = "Chưa có khóa API"
 
 [portal.infrastructure.apiKeys.error]
@@ -10073,7 +10073,7 @@ done = "Xong"
 keyNameLabel = "Tên khóa"
 keyNamePlaceholder = "ví dụ: Nhập liệu Production"
 secretKeyCaption = "Khóa bí mật"
-secretWarning = "Hãy lưu thông tin này trong trình quản lý bí mật. Stirling chỉ lưu hash, vì vậy không có cách nào khôi phục sau này."
+secretWarning = "Hãy lưu thông tin này trong trình quản lý bí mật. PDF Viewer chỉ lưu hash, vì vậy không có cách nào khôi phục sau này."
 subtitle = "Đặt tên cho khóa để bạn có thể nhận ra sau này. Bạn có thể thu hồi khóa bất cứ lúc nào."
 subtitleCreated = "Sao chép bí mật này ngay — nó sẽ không được hiển thị lại."
 title = "Tạo khóa API"
@@ -10257,7 +10257,7 @@ connectionCount_one = "{{count}} kết nối"
 connectionCount_other = "{{count}} kết nối"
 customApi = "API tùy chỉnh"
 searchPlaceholder = "Tìm kiếm tích hợp"
-subtitle = "Mọi thứ Stirling có thể giao tiếp. Thông tin xác thực được tạo một lần tại đây, rồi được tham chiếu bởi nguồn, chính sách và pipeline."
+subtitle = "Mọi thứ PDF Viewer có thể giao tiếp. Thông tin xác thực được tạo một lần tại đây, rồi được tham chiếu bởi nguồn, chính sách và pipeline."
 title = "Tích hợp"
 typedName = "Tên {{tool}}"
 
@@ -10942,8 +10942,8 @@ saveFailed = "Không thể lưu quy trình. Vui lòng thử lại."
 
 [portal.policies.wizard.locations]
 aiSettings = "Mở cài đặt AI"
-builtin = "Cơ sở tri thức Stirling"
-builtinHelp = "Lập chỉ mục các đoạn có thể tìm kiếm trong Stirling và trả PDF đã xử lý về đích bên dưới. Phải cấu hình nhà cung cấp embedding trong cài đặt AI."
+builtin = "Cơ sở tri thức PDF Viewer"
+builtinHelp = "Lập chỉ mục các đoạn có thể tìm kiếm trong PDF Viewer và trả PDF đã xử lý về đích bên dưới. Phải cấu hình nhà cung cấp embedding trong cài đặt AI."
 checking = "Đang kiểm tra khả năng nạp..."
 chooseOutput = "Chọn đích đầu ra đã bật trước khi lưu."
 chooseSource = "Chọn nguồn tài liệu"
@@ -11035,7 +11035,7 @@ title = "Chưa có luồng"
 
 [portal.processorFlow.sources]
 comingSoonTag = "Kết nối"
-editor = "Stirling PDF Editor"
+editor = "PDF Viewer Editor"
 heading = "Nguồn"
 perDay = "{{n}} / 24h"
 
@@ -11051,7 +11051,7 @@ title = "Mua sắm"
 agreeCta = "Ký thỏa thuận"
 confidential = "Bảo mật"
 confirm = "Tôi đã đọc và đồng ý với Thỏa thuận này, và tôi xác nhận rằng tôi được ủy quyền ký thay mặt cho tổ chức được nêu ở trên."
-docName = "Thỏa thuận Stirling Enterprise"
+docName = "Thỏa thuận PDF Viewer Enterprise"
 docSub = "MSA, Order Form, EULA và DPA, kết hợp trong một chữ ký."
 download = "Tải xuống"
 downloadDraftError = "Không thể tạo PDF thỏa thuận - trình kết xuất tài liệu không khả dụng. Vui lòng thử lại sau hoặc liên hệ bộ phận hỗ trợ."
@@ -11091,7 +11091,7 @@ contactNamePlaceholder = "Jane Doe"
 continue = "Tiếp tục"
 done = "Xong"
 editUsage = "Chỉnh sửa mức sử dụng"
-eula = "Tôi đã đọc và đồng ý với Stirling Enterprise EULA. EULA này điều chỉnh thỏa thuận được tạo từ báo giá này."
+eula = "Tôi đã đọc và đồng ý với PDF Viewer Enterprise EULA. EULA này điều chỉnh thỏa thuận được tạo từ báo giá này."
 generate = "Tạo báo giá"
 indemnification = "Bảo vệ IP nâng cao"
 indemnificationSub = "Mở rộng phạm vi bảo vệ IP của chúng tôi cho các khiếu nại bằng sáng chế. Bồi thường cơ bản về bản quyền, nhãn hiệu và bí mật thương mại được bao gồm miễn phí."
@@ -11099,7 +11099,7 @@ minimum = "Enterprise yêu cầu chi tiêu tối thiểu hàng năm là {{min}}.
 minimumBelow = "Báo giá này là {{annual}} mỗi năm. Nếu dự kiến dùng nhiều hơn, hãy tăng mức sử dụng ước tính; nếu không, gói Team có thể phù hợp hơn."
 minimumNear = "Enterprise yêu cầu chi tiêu tối thiểu hàng năm là {{min}}. Hãy tăng mức sử dụng ước tính để đạt mức này, hoặc trao đổi với chúng tôi."
 minimumNearTitle = "Bạn còn thiếu {{gap}} mỗi năm để đạt Enterprise."
-paperBrand = "Stirling PDF"
+paperBrand = "PDF Viewer"
 paperEyebrow = "Báo giá Enterprise"
 paperFor = "Chuẩn bị cho"
 pdfSize = "Kích thước PDF"
@@ -11210,7 +11210,7 @@ eyebrow = "Doanh nghiệp"
 eyebrowCompany = "{{company}} Doanh nghiệp"
 inviteTeammates = "Mời đồng đội"
 liveSub = "Tổ chức của bạn đã được cấp phát và giấy phép của bạn đang hoạt động."
-liveTitle = "Bạn đang chạy Stirling Enterprise"
+liveTitle = "Bạn đang chạy PDF Viewer Enterprise"
 next = "Tiếp theo: {{stage}}"
 open = "Mở mua sắm"
 scheduleCall = "Lên lịch cuộc gọi"
@@ -11246,7 +11246,7 @@ gatingAction = "Chấp nhận báo giá của bạn"
 label = "Báo giá"
 
 [portal.procurement.journeySteps.trial]
-blurb = "Đánh giá Stirling với tài liệu và workflow của bạn."
+blurb = "Đánh giá PDF Viewer với tài liệu và workflow của bạn."
 gatingAction = "Tạo báo giá của bạn"
 label = "Dùng thử"
 
@@ -11261,7 +11261,7 @@ trialFileHint = "Đây là file giấy phép dùng thử của bạn. Khi thỏa
 
 [portal.procurement.live]
 description = "Đăng ký của bạn đang hoạt động và giấy phép của bạn đã được cấp. Đội ngũ của bạn đã được cấp phát và việc lập hóa đơn đã bắt đầu."
-title = "Bạn đã hoạt động trên Stirling Enterprise"
+title = "Bạn đã hoạt động trên PDF Viewer Enterprise"
 
 [portal.procurement.milestone]
 downloadError = "Chưa thể tải xuống PDF báo giá — vui lòng thử lại sau giây lát."
@@ -11294,11 +11294,11 @@ airgapSub = "Kín, không có kết nối outbound"
 back = "Quay lại"
 businessName = "Tên doanh nghiệp"
 businessNamePlaceholder = "Acme Corp"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 cloudSub = "Được quản lý, bắt đầu nhanh nhất"
 continue = "Tiếp tục"
 deployment = "Nên triển khai ở đâu?"
-eula = "Tôi đồng ý với Stirling EULA & Điều khoản thương mại."
+eula = "Tôi đồng ý với PDF Viewer EULA & Điều khoản thương mại."
 fullName = "Họ và tên"
 fullNamePlaceholder = "Tên của bạn"
 invites = "Mời đồng đội · tùy chọn"
@@ -11344,7 +11344,7 @@ account-link = "Kết nối tài khoản"
 [portal.shell.sidebar]
 appEditor = "Trình chỉnh sửa"
 appProcessor = "Trình xử lý"
-linkAccount = "Liên kết tài khoản Stirling"
+linkAccount = "Liên kết tài khoản PDF Viewer"
 primaryNav = "Điều hướng chính"
 
 [portal.shell.topbar]
@@ -11354,7 +11354,7 @@ search = "Tìm kiếm"
 
 [portal.sources]
 processingModeHelp = "Theo dõi giữ bản gốc và xử lý mỗi phiên bản một lần. Ảnh chụp giữ bản gốc và xử lý chúng trong mỗi lần chạy. Tiêu thụ xóa bản gốc sau khi gửi thành công."
-subtitle = "Các kết nối đầu vào có thể tái sử dụng để đưa tài liệu vào Stirling. Cấu hình một nguồn một lần, rồi tham chiếu nguồn đó từ bất kỳ số lượng quy trình nào."
+subtitle = "Các kết nối đầu vào có thể tái sử dụng để đưa tài liệu vào PDF Viewer. Cấu hình một nguồn một lần, rồi tham chiếu nguồn đó từ bất kỳ số lượng quy trình nào."
 title = "Nguồn"
 
 [portal.sources.actions]
@@ -11590,7 +11590,7 @@ secretNote = "Signing secret được hiển thị một lần, khi webhook đư
 copy = "Sao chép"
 done = "Xong"
 secret = "Signing secret"
-secretHelp = "Ký raw body của mỗi lần gửi bằng khóa này (HMAC-SHA256) và gửi dưới dạng header X-Stirling-Signature."
+secretHelp = "Ký raw body của mỗi lần gửi bằng khóa này (HMAC-SHA256) và gửi dưới dạng header X-PDF Viewer-Signature."
 secretWarning = "Sao chép signing secret ngay bây giờ. Vì bảo mật của bạn, nó chỉ được hiển thị một lần và không thể truy xuất sau."
 title = "Webhook đã được tạo"
 url = "Delivery URL"
@@ -11618,15 +11618,15 @@ adminOnly = "Tín dụng hằng tháng của máy chủ này được chia sẻ 
 barAria = "Tín dụng miễn phí còn lại"
 capSuffix_one = "trong số {{allowance}} tín dụng miễn phí còn lại trong tháng này"
 capSuffix_other = "trong số {{allowance}} tín dụng miễn phí còn lại trong tháng này"
-connect = "Kết nối tài khoản Stirling"
+connect = "Kết nối tài khoản PDF Viewer"
 connectBody = "Kết nối sẽ thêm hạn mức hằng tháng thứ hai, tăng số người dùng mà máy chủ này có thể có và bật Bộ xử lý."
-connectTitle = "Máy chủ này chưa có tài khoản Stirling"
+connectTitle = "Máy chủ này chưa có tài khoản PDF Viewer"
 loadError = "Không thể đọc mức sử dụng tín dụng của máy chủ này. Hãy thử lại sau giây lát."
 loadErrorTitle = "Không thể tải mức sử dụng tín dụng"
 resets = "Đặt lại {{date}}"
 
 [portal.usage.sessionExpired]
-body = "Phiên tài khoản Stirling của bạn đã hết hạn. Đăng nhập lại để xem thanh toán — phiên bản của bạn vẫn được liên kết."
+body = "Phiên tài khoản PDF Viewer của bạn đã hết hạn. Đăng nhập lại để xem thanh toán — phiên bản của bạn vẫn được liên kết."
 
 [portal.users]
 title = "Người dùng"
@@ -11741,7 +11741,7 @@ name = "Google Drive"
 scope = "Nhập tệp"
 
 [provider.googledrive.accountScope]
-description = "drive truy cập mọi tệp (Google phải xác minh ứng dụng công khai cho việc này); drive.file chỉ các tệp người dùng chọn hoặc Stirling tạo"
+description = "drive truy cập mọi tệp (Google phải xác minh ứng dụng công khai cho việc này); drive.file chỉ các tệp người dùng chọn hoặc PDF Viewer tạo"
 label = "Quyền truy cập Drive"
 
 [provider.googledrive.allowAccountConnections]
@@ -11786,7 +11786,7 @@ description = "Một lần đăng nhập cho người chỉnh sửa và các pip
 label = "Cho phép mọi người kết nối tài khoản của riêng họ"
 
 [provider.microsoft.allowEditorSaves]
-description = "Tắt để giữ các chỉnh sửa trong Stirling: các tệp mở từ OneDrive sau đó sẽ được tải xuống thay vì lưu, và máy chủ sẽ từ chối việc lưu vào OneDrive."
+description = "Tắt để giữ các chỉnh sửa trong PDF Viewer: các tệp mở từ OneDrive sau đó sẽ được tải xuống thay vì lưu, và máy chủ sẽ từ chối việc lưu vào OneDrive."
 label = "Cho phép trình chỉnh sửa lưu lại vào OneDrive"
 
 [provider.microsoft.clientId]
@@ -11931,7 +11931,7 @@ notConfigured = "OneDrive chưa được cấu hình"
 pickerFailed = "Không mở được OneDrive"
 popupBlocked = "Trình duyệt của bạn đã chặn cửa sổ đăng nhập Microsoft. Hãy cho phép cửa sổ bật lên cho trang này rồi thử lại."
 reconnect = "Tài khoản Microsoft của bạn cần đăng nhập lại. Kết nối lại trong Cài đặt > Tài khoản đã kết nối."
-serverError = "OneDrive hoặc máy chủ Stirling gặp sự cố. Hãy thử lại, hoặc hỏi quản trị viên nếu vấn đề tiếp diễn."
+serverError = "OneDrive hoặc máy chủ PDF Viewer gặp sự cố. Hãy thử lại, hoặc hỏi quản trị viên nếu vấn đề tiếp diễn."
 unreachable = "Không thể truy cập OneDrive. Kiểm tra kết nối của bạn và thử lại."
 
 [provider.saml2]
@@ -12024,7 +12024,7 @@ files = "Tệp"
 account = "Tài khoản"
 docs = "Tài liệu"
 editor = "Trình chỉnh sửa"
-home = "Stirling"
+home = "PDF Viewer"
 invite = "Mời"
 landmark = "Điều hướng nhanh"
 noProcessorAccess = "Yêu cầu quản trị viên cấp quyền truy cập Bộ xử lý"
@@ -12456,7 +12456,7 @@ yd = "Yards (yd)"
 back = "Quay lại"
 continue = "Tiếp tục"
 subtitle = "Chọn nơi chạy."
-title = "Bạn muốn chạy Stirling ở đâu?"
+title = "Bạn muốn chạy PDF Viewer ở đâu?"
 
 [runLocation.choice.browser]
 description = "Ứng dụng web."
@@ -12655,8 +12655,8 @@ hideTools = "Ẩn các công cụ không khả dụng ▴"
 messageNoFallback = "Các công cụ sẽ không khả dụng cho đến khi máy chủ của bạn trực tuyến trở lại."
 messageWithFallback = "Một số công cụ cần kết nối máy chủ."
 showTools = "Xem các công cụ không khả dụng ▾"
-title = "Máy chủ Stirling-PDF của bạn không thể truy cập"
-toolNotAvailableLocally = "Máy chủ Stirling-PDF của bạn đang ngoại tuyến và \"{{endpoint}}\" không có sẵn trên backend cục bộ."
+title = "Máy chủ PDF Viewer của bạn không thể truy cập"
+toolNotAvailableLocally = "Máy chủ PDF Viewer của bạn đang ngoại tuyến và \"{{endpoint}}\" không có sẵn trên backend cục bộ."
 
 [serverSetup]
 back = "Quay lại"
@@ -12691,7 +12691,7 @@ usernameHelp = "Thứ bạn sẽ dùng để đăng nhập. Có thể dùng đ�
 backendUrl = "Địa chỉ máy chủ"
 backendUrlHelp = "Nơi nhà cung cấp đăng nhập chuyển người dùng quay lại. Thường trùng với địa chỉ web."
 frontendUrl = "Địa chỉ web"
-frontendUrlHelp = "Nơi người dùng mở Stirling PDF. Dùng trong email, liên kết chia sẻ và mã QR."
+frontendUrlHelp = "Nơi người dùng mở PDF Viewer. Dùng trong email, liên kết chia sẻ và mã QR."
 subtitle = "Cách người dùng và nhà cung cấp đăng nhập truy cập máy chủ này."
 title = "Địa chỉ"
 
@@ -12705,7 +12705,7 @@ label = "AI tự triển khai"
 provider = "Nhà cung cấp mô hình"
 providerCustom = "Tương thích OpenAI"
 smartModel = "Mô hình đầy đủ"
-stirling = "Stirling AI"
+stirling = "PDF Viewer AI"
 subtitle = "Hỏi đáp tài liệu, chỉnh sửa tự động và tác nhân AI."
 title = "AI"
 
@@ -12716,7 +12716,7 @@ changeLater = "Bạn có thể thay đổi bất kỳ lúc nào trong {{path}}."
 decline = "Từ chối và tiếp tục"
 declineFinish = "Từ chối và hoàn tất"
 learnMore = "Những gì chúng tôi thu thập"
-note = "Chia sẻ dữ liệu sử dụng từ máy chủ này với chúng tôi để giúp cải thiện Stirling PDF. Chúng tôi không bao giờ thu thập tệp hoặc nội dung của chúng."
+note = "Chia sẻ dữ liệu sử dụng từ máy chủ này với chúng tôi để giúp cải thiện PDF Viewer. Chúng tôi không bao giờ thu thập tệp hoặc nội dung của chúng."
 title = "Phân tích máy chủ"
 
 [serverSetup.documents]
@@ -12854,7 +12854,7 @@ description = "OneDrive, SharePoint và Google Drive của riêng bạn cho các
 title = "Tài khoản đã kết nối"
 
 [settings.connectedInstances]
-confirmBody = "Thao tác này thu hồi quyền truy cập của instance vào nhóm của bạn trong Stirling Cloud. Nó không xóa tệp cục bộ hoặc xóa mức sử dụng đã được ghi nhận. Để kết nối lại, hãy làm theo các bước kết nối ban đầu trên instance."
+confirmBody = "Thao tác này thu hồi quyền truy cập của instance vào nhóm của bạn trong PDF Viewer Cloud. Nó không xóa tệp cục bộ hoặc xóa mức sử dụng đã được ghi nhận. Để kết nối lại, hãy làm theo các bước kết nối ban đầu trên instance."
 confirmTitle = "Xóa {{name}}?"
 connectedAt = "Đã kết nối: {{date}}"
 connectedDate = "Đã kết nối"
@@ -12888,7 +12888,7 @@ unknown = "Không khả dụng"
 yourTeam = "Nhóm của bạn"
 
 [settings.connection]
-description = "Làm việc cục bộ trên máy này hoặc kết nối ứng dụng với một máy chủ Stirling."
+description = "Làm việc cục bộ trên máy này hoặc kết nối ứng dụng với một máy chủ PDF Viewer."
 localDescription = "Bạn đang sử dụng backend cục bộ mà không có tài khoản. Một số công cụ cần xử lý trên đám mây hoặc máy chủ tự lưu trữ sẽ không khả dụng."
 logout = "Đăng xuất"
 server = "Máy chủ"
@@ -12898,19 +12898,19 @@ user = "Đăng nhập với tư cách"
 
 [settings.connection.mode]
 local = "Chỉ cục bộ"
-saas = "Stirling Cloud"
+saas = "PDF Viewer Cloud"
 selfhosted = "Tự lưu trữ"
 
 [settings.developer]
 apiKeys = "Khóa API"
-apiKeysDescription = "Khóa cá nhân để gọi Stirling API từ script và tích hợp."
+apiKeysDescription = "Khóa cá nhân để gọi PDF Viewer API từ script và tích hợp."
 title = "Nhà phát triển"
 
 [settings.feedback]
 label = "Phản hồi"
 
 [settings.feedback.send]
-description = "Báo lỗi hoặc đề xuất cải tiến cho nhóm Stirling."
+description = "Báo lỗi hoặc đề xuất cải tiến cho nhóm PDF Viewer."
 label = "Gửi phản hồi"
 
 [settings.general]
@@ -12919,7 +12919,7 @@ autoUnzipFileLimit = "Giới hạn tệp tự động giải nén"
 autoUnzipFileLimitTooltip = "Chỉ giải nén nếu ZIP chứa số tệp bằng hoặc ít hơn giá trị này. Tăng lên để giải nén ZIP lớn hơn."
 autoUnzipTooltip = "Tự động giải nén các tệp ZIP trả về từ thao tác API. Tắt để giữ nguyên tệp ZIP. Điều này không ảnh hưởng đến các quy trình tự động."
 defaultPdfEditor = "Trình chỉnh sửa PDF mặc định"
-defaultPdfEditorActive = "Stirling PDF là trình chỉnh sửa PDF mặc định của bạn"
+defaultPdfEditorActive = "PDF Viewer là trình chỉnh sửa PDF mặc định của bạn"
 defaultPdfEditorChecking = "Đang kiểm tra..."
 defaultPdfEditorInactive = "Ứng dụng khác đang được đặt mặc định"
 defaultPdfEditorSet = "Đã là mặc định"
@@ -12990,7 +12990,7 @@ updateBehavior = "Hành vi cập nhật"
 updateBehaviorDescription = "Chọn xem có hỏi trước khi cài đặt, tự động cài đặt, hoặc bỏ qua kiểm tra cập nhật."
 updateBehaviorError = "Không thể thay đổi hành vi cập nhật"
 updateBehaviorErrorLocked = "Thiết lập này bị khóa bởi quản trị viên của bạn."
-updateBehaviorLockedDescription = "Quản trị viên đã cấu hình cách Stirling-PDF xử lý cập nhật trên máy này. Liên hệ họ để thay đổi."
+updateBehaviorLockedDescription = "Quản trị viên đã cấu hình cách PDF Viewer xử lý cập nhật trên máy này. Liên hệ họ để thay đổi."
 updateBehaviorSaved = "Đã lưu hành vi cập nhật."
 versionMismatch = "Ứng dụng desktop và máy chủ của bạn đang chạy các phiên bản khác nhau. Cập nhật cả hai lên cùng một phiên bản để tránh sự cố tương thích."
 viewDetails = "Xem chi tiết"
@@ -13091,7 +13091,7 @@ title = "Giám sát"
 [settings.planBilling]
 currentPlan = "Gói hiện tại"
 loading = "Đang tải thông tin thanh toán..."
-notAvailable = "Gói & Thanh toán chỉ khả dụng khi kết nối với Stirling Cloud (chế độ SaaS)."
+notAvailable = "Gói & Thanh toán chỉ khả dụng khi kết nối với PDF Viewer Cloud (chế độ SaaS)."
 title = "Gói & Thanh toán"
 
 [settings.planBilling.billing]
@@ -13226,7 +13226,7 @@ oauthFailed = "Đăng nhập OAuth thất bại. Vui lòng thử lại."
 openResetFailed = "Không thể mở trình duyệt của bạn để đặt lại mật khẩu."
 
 [setup.saas]
-title = "Đăng nhập vào Stirling"
+title = "Đăng nhập vào PDF Viewer"
 
 [setup.selfhosted]
 changeServerLocked = "Tổ chức của bạn đã giới hạn ứng dụng này vào một máy chủ cụ thể"
@@ -13272,7 +13272,7 @@ step3 = "Khởi động lại máy chủ"
 title = "Chưa bật đăng nhập"
 
 [setup.server.url]
-description = "Nhập URL đầy đủ của server Stirling PDF tự lưu trữ"
+description = "Nhập URL đầy đủ của server PDF Viewer tự lưu trữ"
 label = "URL server"
 
 [sharedSign]
@@ -13731,7 +13731,7 @@ pleaseFillAllFields = "Vui lòng điền đầy đủ tất cả các trường"
 signUp = "Đăng ký"
 signUpWith = "Đăng ký bằng"
 skip = "Bỏ qua"
-subtitle = "Tham gia Stirling PDF để bắt đầu"
+subtitle = "Tham gia PDF Viewer để bắt đầu"
 title = "Tạo tài khoản"
 unableToAccessTool = "Không thể truy cập công cụ: {{error}}"
 unexpectedError = "Lỗi không mong muốn: {{message}}"
@@ -14013,7 +14013,7 @@ download = "Tải xuống"
 downloaded = "Đã tải xuống"
 downloadFailed = "Không thể tải xuống tệp này."
 downloadsCount = "Lượt tải xuống: {{count}}"
-emailWarningBody = "Có vẻ đây là một địa chỉ email. Nếu người này chưa là người dùng Stirling PDF, họ sẽ không thể truy cập tệp."
+emailWarningBody = "Có vẻ đây là một địa chỉ email. Nếu người này chưa là người dùng PDF Viewer, họ sẽ không thể truy cập tệp."
 emailWarningConfirm = "Vẫn chia sẻ"
 emailWarningTitle = "Địa chỉ email"
 errorTitle = "Chia sẻ thất bại"
@@ -14044,7 +14044,7 @@ manageTitle = "Quản lý chia sẻ"
 noActivity = "Chưa có hoạt động."
 noLinks = "Chưa có liên kết chia sẻ đang hoạt động."
 noSharedUsers = "Chưa có người dùng nào có quyền truy cập."
-openInApp = "Mở trong Stirling PDF"
+openInApp = "Mở trong PDF Viewer"
 ownerLabel = "Chủ sở hữu"
 removeLink = "Xóa liên kết"
 removeUser = "Xóa"
@@ -14101,7 +14101,7 @@ all = "Tất cả"
 ariaLabel = "Tìm kiếm siêu tốc"
 filtersAriaLabel = "Bộ lọc tìm kiếm"
 hint = "Nhập để tìm kiếm"
-placeholder = "Tìm kiếm Stirling"
+placeholder = "Tìm kiếm PDF Viewer"
 placeholderShort = "Tìm kiếm"
 showLess = "Hiển thị ít hơn"
 showMore = "Hiển thị thêm {{count}}"
@@ -14115,7 +14115,7 @@ settings = "Cài đặt"
 tools = "Công cụ"
 
 [survey]
-title = "Khảo sát Stirling-PDF"
+title = "Khảo sát PDF Viewer"
 
 [swagger]
 clickHere = "nhấp vào đây"
@@ -14237,7 +14237,7 @@ noFiles = "Thêm tệp để bắt đầu."
 scopeFiles = "tệp"
 scopeThisFile = "tệp này"
 selectFilesHint = "Chọn tệp trong Tệp đang hoạt động để chạy công cụ này"
-signInRequired = "Tính năng này cần tài khoản Stirling. Đăng nhập để tiếp tục."
+signInRequired = "Tính năng này cần tài khoản PDF Viewer. Đăng nhập để tiếp tục."
 signInToUse = "Đăng nhập để sử dụng"
 singleFileScope = "Chỉ áp dụng cho: {{fileName}}"
 viewerMode = "Chuyển sang trình chỉnh sửa tệp để thêm nhiều tệp."
@@ -14290,7 +14290,7 @@ favorites = "Mục yêu thích"
 heading = "Tất cả công cụ (chế độ toàn màn hình)"
 noResults = "Hãy thử điều chỉnh tìm kiếm hoặc chuyển đổi mô tả để tìm thứ bạn cần."
 recommended = "Đề xuất"
-selfHostedOffline = "Cần máy chủ Stirling-PDF của bạn (hiện đang ngoại tuyến):"
+selfHostedOffline = "Cần máy chủ PDF Viewer của bạn (hiện đang ngoại tuyến):"
 showDetails = "Hiển thị chi tiết"
 unavailable = "Bị quản trị viên server vô hiệu hóa:"
 unavailableDependency = "Không khả dụng - thiếu công cụ cần thiết trên server:"
@@ -14299,7 +14299,7 @@ unfavorite = "Xóa khỏi Mục yêu thích"
 [toolPanel.modePrompt]
 chooseFullscreen = "Dùng chế độ toàn màn hình"
 chooseSidebar = "Dùng chế độ thanh bên"
-description = "Xem trước cả hai bố cục và quyết định cách bạn muốn khám phá các công cụ của Stirling PDF."
+description = "Xem trước cả hai bố cục và quyết định cách bạn muốn khám phá các công cụ của PDF Viewer."
 dismiss = "Để sau"
 fullscreenDescription = "Duyệt mọi công cụ trong một danh mục che khu vực làm việc cho đến khi bạn chọn một công cụ."
 fullscreenTitle = "Chế độ toàn màn hình - (cũ)"
@@ -14366,7 +14366,7 @@ loadingDetailedInfo = "Đang tải thông tin chi tiết..."
 migrationGuide = "Hướng dẫn chuyển đổi"
 migrationGuides = "Hướng dẫn chuyển đổi"
 migrationGuidesDesc = "Xem lại những thay đổi quan trọng trước khi cập nhật."
-modalSubtitle = "Một phiên bản mới của Stirling PDF đã sẵn sàng để cài đặt."
+modalSubtitle = "Một phiên bản mới của PDF Viewer đã sẵn sàng để cài đặt."
 modalTitle = "Có bản cập nhật"
 notes = "Ghi chú"
 releaseNotes = "Ghi chú phát hành"
@@ -14392,7 +14392,7 @@ urgent = "Khẩn cấp"
 attentionBody = "Admin của bạn cần đăng nhập để xem thêm thông tin. Vui lòng liên hệ ngay."
 attentionBodyAdmin = "Xem lại yêu cầu giấy phép để giữ server tuân thủ."
 attentionTitle = "Server này cần sự chú ý của admin"
-message = "Tận dụng tối đa Stirling PDF với 100 người dùng, chỉnh sửa văn bản PDF và các tính năng nâng cao"
+message = "Tận dụng tối đa PDF Viewer với 100 người dùng, chỉnh sửa văn bản PDF và các tính năng nâng cao"
 seeInfo = "Xem thông tin"
 title = "Nâng cấp lên gói Team"
 upgradeButton = "Nâng cấp ngay"
@@ -14530,7 +14530,7 @@ authWeb = "Mật khẩu"
 create = "Tạo tài khoản"
 createSubtitle = "Tạo tài khoản tự host bằng mật khẩu hoặc SSO."
 createTitle = "Tạo tài khoản"
-editorDesc = "Chỉnh sửa PDF trong Stirling PDF Editor. Mọi người đều có quyền này."
+editorDesc = "Chỉnh sửa PDF trong PDF Viewer Editor. Mọi người đều có quyền này."
 email = "Địa chỉ email"
 emailError = "Nhập địa chỉ email hợp lệ"
 emailPlaceholder2 = "name@company.com"
@@ -14545,7 +14545,7 @@ processorDeferred = "Đã gửi lời mời, nhưng chưa thể cấp quyền tr
 processorDesc = "Bề mặt quản trị, chạy pipeline, agent và API."
 role = "Vai trò"
 send2 = "Gửi lời mời"
-subtitle2 = "Họ sẽ nhận được email để tham gia không gian làm việc Stirling của bạn."
+subtitle2 = "Họ sẽ nhận được email để tham gia không gian làm việc PDF Viewer của bạn."
 team = "Nhóm"
 title = "Mời mọi người"
 username = "Tên người dùng"
@@ -14687,7 +14687,7 @@ downloads = "Tải xuống"
 entryLabel = "Tóm tắt chữ ký"
 filesEvaluated_one = "{{count}} tệp đã được đánh giá"
 filesEvaluated_other = "{{count}} tệp đã được đánh giá"
-footer = "Xác thực qua Stirling PDF"
+footer = "Xác thực qua PDF Viewer"
 generatedAt = "Đã tạo"
 noPdf = "Báo cáo PDF sẽ khả dụng sau khi xác thực thành công."
 page = "Trang"
@@ -14896,7 +14896,7 @@ text = "Văn bản"
 addFile = "Thêm tệp"
 count_one = "{{count}} tệp trong Portfolio này"
 count_other = "{{count}} tệp trong Portfolio này"
-import = "Nhập vào Stirling"
+import = "Nhập vào PDF Viewer"
 importFailed = "Không thể thêm tệp này vào không gian làm việc của bạn."
 memberUnavailable = "Không thể đọc tệp này từ Portfolio."
 preview = "Xem trước"

@@ -56,7 +56,7 @@ loading = "འཇུག་བཞིན་པ།"
 loginAgreementAccept = "དང་ལེན"
 loginAgreementDecline = "དང་ལེན་མེད"
 loginAgreementLoadFailed = "Login གྲོས་མཐུན་འཇུག་མ་ཐུབ།"
-loginAgreementProvider = "བརྡ་འཕྲིན་འདི་ནི་ཁྱེད་ཀྱི་དོ་དམ་པས་སྤྲོད་པ་ཡིན་པ་ལས Stirling PDF Inc. མིན།"
+loginAgreementProvider = "བརྡ་འཕྲིན་འདི་ནི་ཁྱེད་ཀྱི་དོ་དམ་པས་སྤྲོད་པ་ཡིན་པ་ལས PDF Viewer Inc. མིན།"
 loginAgreementRetry = "ཡང་བསྐྱར་ཚོད་ལྟ།"
 loginAgreementTitle = "ཐོ་འགོད་གྲོས་ཆིངས"
 logOut = "ཕྱིར་ཐོན།"
@@ -726,9 +726,9 @@ permissionNotice = "tessdata འགྲུལ་ལམ་འུར་བྱེད
 
 [admin.settings.ai]
 customProvider = "སྲོལ་སྒྲིག (OpenAI-compatible)"
-description = "Stirling དེ Python AI engine ལ་མཐུད། model འདེམས། དེ་འགྲོ་སྐྱོད་བྱེད་པའི་སྲུང་མཚམས་སྒྲིག"
-managedByCloud = "རྣམ་པ་འདིར Stirling Cloud གིས་དོ་དམ་བྱེད།"
-managedByCloudShort = "Stirling Cloud གིས་དོ་དམ་བྱས།"
+description = "PDF Viewer དེ Python AI engine ལ་མཐུད། model འདེམས། དེ་འགྲོ་སྐྱོད་བྱེད་པའི་སྲུང་མཚམས་སྒྲིག"
+managedByCloud = "རྣམ་པ་འདིར PDF Viewer Cloud གིས་དོ་དམ་བྱེད།"
+managedByCloudShort = "PDF Viewer Cloud གིས་དོ་དམ་བྱས།"
 
 [admin.settings.ai.documents]
 description = "ཡིག་ཆའི་ཐོག་དྲི་བར་ལན་འདེབས་པར་སྤྱོད་པའི embedding model དང retrieval སྒྲིག་འགོད་སྒྲིག་སྦྱོར་བྱོས། ཉར་ཚགས་བྱས་རྗེས AI engine ལ་སྤྱོད་འཐུས།"
@@ -779,16 +779,16 @@ description = "AI ཁྱད་ནུས་རེ་རེ་སྒོ་ཕྱ�
 title = "ནུས་པ"
 
 [admin.settings.ai.general.cloud]
-note = "Models དང provider keys རྣམས Stirling Cloud གིས་དོ་དམ་བྱེད་པས། རྣམ་པ་འདིར་སྒྲིག་འགོད་དེ་དག་མི་འཇུག"
+note = "Models དང provider keys རྣམས PDF Viewer Cloud གིས་དོ་དམ་བྱེད་པས། རྣམ་པ་འདིར་སྒྲིག་འགོད་དེ་དག་མི་འཇུག"
 
 [admin.settings.ai.general.cloud.indexing]
-description = "AI ལག་ཆ་རེ་རེས་ལན་འདེབས་ཆེད་དགོས་པའི་ཤོག་ངོས་ཡི་གེ་སྐུར། འདིས Stirling Cloud གིས་ཡི་གེ་དེ་སྟོན་བྱང་བཟོས་ནས་ཉར་ཆོག་མིན་ཐག་གཅོད་བྱེད། དེས་རྗེས་སུ་དྲི་བས་ཡིག་ཆ་ཁྱོན་ལ་འཚོལ་ཐུབ།"
+description = "AI ལག་ཆ་རེ་རེས་ལན་འདེབས་ཆེད་དགོས་པའི་ཤོག་ངོས་ཡི་གེ་སྐུར། འདིས PDF Viewer Cloud གིས་ཡི་གེ་དེ་སྟོན་བྱང་བཟོས་ནས་ཉར་ཆོག་མིན་ཐག་གཅོད་བྱེད། དེས་རྗེས་སུ་དྲི་བས་ཡིག་ཆ་ཁྱོན་ལ་འཚོལ་ཐུབ།"
 help = "ཁ་བརྒྱབ་ན་ཡིག་ཆའི་དྲི་བ་སྤྱོད་མི་ཐུབ། དེས་ཡི་གེ་སྐུར་བ་འགོག་མི་བྱེད - ཉར་བ་ཁོ་ན་འགོག"
-label = "Stirling Cloud ལ་སྟོན་བྱང་བཟོས་པའི་ཡིག་ཆ་ཉར་དུ་ཆུག"
+label = "PDF Viewer Cloud ལ་སྟོན་བྱང་བཟོས་པའི་ཡིག་ཆ་ཉར་དུ་ཆུག"
 
 [admin.settings.ai.general.cloudNote]
-body = "རྒྱུ་མཚན་དཔྱད་པ་ནི Stirling གི་རྨང་གཞི་སྟེང་འགྲོ་སྐྱོད་བྱེད་ཅིང་། ཞབས་ཞུ་ཆས་འདི་འབྲེལ་ཡོད་པའི་རྩིས་ཁྲ་ལ་རིན་རྩིས་བྱེད། འདིར་འགྲོ་སྐྱོད་བྱ་དགོས་པའི container མེད་ལ provider key ཉར་དགོས་པའང་མེད། AI གང་ཀློག་པ་ཚང་མ་རང་གི hardware སྟེང་མ་ཡིན་པར Stirling Cloud གིས་བཅོས་སྒྲིག་བྱེད།"
-title = "Stirling Cloud AI སྐོར།"
+body = "རྒྱུ་མཚན་དཔྱད་པ་ནི PDF Viewer གི་རྨང་གཞི་སྟེང་འགྲོ་སྐྱོད་བྱེད་ཅིང་། ཞབས་ཞུ་ཆས་འདི་འབྲེལ་ཡོད་པའི་རྩིས་ཁྲ་ལ་རིན་རྩིས་བྱེད། འདིར་འགྲོ་སྐྱོད་བྱ་དགོས་པའི container མེད་ལ provider key ཉར་དགོས་པའང་མེད། AI གང་ཀློག་པ་ཚང་མ་རང་གི hardware སྟེང་མ་ཡིན་པར PDF Viewer Cloud གིས་བཅོས་སྒྲིག་བྱེད།"
+title = "PDF Viewer Cloud AI སྐོར།"
 
 [admin.settings.ai.general.enabled]
 description = "སྤྱིའི་སྒོ་འབྱེད། སྒོ་བརྒྱབ་སྐབས AI tools, agents, ཡང་ན engine calls གང་ཡང་མི་རུང་།"
@@ -826,11 +826,11 @@ label = "དུས་ཡུན་རིང་བའི timeout (སྐར་ཆ)
 label = "AI གང་དུ་འགྲོ་སྐྱོད།"
 
 [admin.settings.ai.general.mode.cloud]
-description = "container མེད། provider key མེད། model འདེམས་མེད - ལས་ཀ Stirling Cloud སྟེང་འགྲོ་སྐྱོད་བྱས་ནས་ཞབས་ཞུ་ཆས་འདི་འབྲེལ་ཡོད་པའི་རྩིས་ཁྲ་ལ་རིན་རྩིས་བྱེད།"
-linkCta = "ཞབས་ཞུ་ཆས་འདི Stirling རྩིས་ཁྲ་ལ་མཐུད།"
+description = "container མེད། provider key མེད། model འདེམས་མེད - ལས་ཀ PDF Viewer Cloud སྟེང་འགྲོ་སྐྱོད་བྱས་ནས་ཞབས་ཞུ་ཆས་འདི་འབྲེལ་ཡོད་པའི་རྩིས་ཁྲ་ལ་རིན་རྩིས་བྱེད།"
+linkCta = "ཞབས་ཞུ་ཆས་འདི PDF Viewer རྩིས་ཁྲ་ལ་མཐུད།"
 notLinked = "སྔོན་ལ་རྩིས་ཁྲ་ཞིག་མཐུད།"
-ownerOnly = "ཚོགས་པའི་བདག་པོ་ཁོ་ནས་ཞབས་ཞུ་ཆས་འདི Stirling རྩིས་ཁྲ་ལ་མཐུད་ཐུབ།"
-title = "Stirling Cloud AI སྤྱོད།"
+ownerOnly = "ཚོགས་པའི་བདག་པོ་ཁོ་ནས་ཞབས་ཞུ་ཆས་འདི PDF Viewer རྩིས་ཁྲ་ལ་མཐུད་ཐུབ།"
+title = "PDF Viewer Cloud AI སྤྱོད།"
 
 [admin.settings.ai.general.mode.off]
 description = "ཉེར་སྤྱོད་གང་དུའང AI ལག་ཆ་མེད། འདི་ནས་གང་ཡང་ཕྱིར་མི་འགྲོ"
@@ -842,7 +842,7 @@ title = "རང་གི engine འགྲོ་སྐྱོད་བྱོས།
 
 [admin.settings.ai.general.note]
 docs = "སྒྲིག་འཛུགས་ལམ་སྟོན།"
-intro = "Stirling གི་འགྲམ་དུ་ཁྱེད་ཀྱིས་འགྲོ་སྐྱོད་བྱེད་པའི container ལོགས་ཤིག དེས་རྒྱུ་མཚན་དཔྱད་པ་བྱེད། Stirling གིས་ད་དུང་ཤོག་ངོས་བཀོལ་སྤྱོད་ཚང་མ་རང་གིས་བྱེད། དེར་གཉིས་ཀྱི container སྟེང་གཅིག་པའི"
+intro = "PDF Viewer གི་འགྲམ་དུ་ཁྱེད་ཀྱིས་འགྲོ་སྐྱོད་བྱེད་པའི container ལོགས་ཤིག དེས་རྒྱུ་མཚན་དཔྱད་པ་བྱེད། PDF Viewer གིས་ད་དུང་ཤོག་ངོས་བཀོལ་སྤྱོད་ཚང་མ་རང་གིས་བྱེད། དེར་གཉིས་ཀྱི container སྟེང་གཅིག་པའི"
 outro = "དང model provider key དགོས། AI གང་ཀློག་པ་དེ་ཁྱེད་ཀྱིས་འདེམས་པའི provider ལ་སྐུར་ངེས - ཁྱེད་ཀྱིས་གནས་སྤྲོད་བྱེད་པའི Ollama ཡིས་ཤོག་ངོས་ཚང་མ་ནང་ཁུལ་དུ་ཉར།"
 title = "AI engine སྐོར"
 
@@ -944,24 +944,24 @@ url = "འཕྲུལ་ཆས URL"
 
 [admin.settings.ai.status.cloud]
 hostDown = "མར་ལྷུང་།"
-hostLabel = "Stirling.com"
+hostLabel = "PDF Viewer.com"
 hostUp = "ཡར་ལངས།"
-name = "Stirling Cloud"
+name = "PDF Viewer Cloud"
 sharingLabel = "AI མཉམ་སྤྱོད།"
 sharingOff = "སྤྱོད་མེད།"
 sharingOn = "སྤྱོད་བཞིན།"
 
 [admin.settings.ai.status.cloud.degraded]
-body = "Stirling Cloud གིས་ལན་བཏབ་ཀྱང་ཞབས་ཞུ་ཆས་འདི་དང་ལེན་མ་བྱས། རྩིས་ཁྲའི་འབྲེལ་མཐུད་ཕྱིར་འཐེན་བྱས་ཡོད་སྲིད།"
-title = "Stirling Cloud གིས་ཞབས་ཞུ་ཆས་འདི་དང་ལེན་མི་བྱེད།"
+body = "PDF Viewer Cloud གིས་ལན་བཏབ་ཀྱང་ཞབས་ཞུ་ཆས་འདི་དང་ལེན་མ་བྱས། རྩིས་ཁྲའི་འབྲེལ་མཐུད་ཕྱིར་འཐེན་བྱས་ཡོད་སྲིད།"
+title = "PDF Viewer Cloud གིས་ཞབས་ཞུ་ཆས་འདི་དང་ལེན་མི་བྱེད།"
 
 [admin.settings.ai.status.cloud.down]
-body = "ཞབས་ཞུ་ཆས་འདིས Stirling Cloud ལ་འབྲེལ་མ་ཐུབ། རྩིས་ཁྲའི་འབྲེལ་མཐུད་དང་ཞབས་ཞུ་ཆས་འདིས་དྲ་རྒྱ་ལ་འབྲེལ་ཐུབ་མིན་ཞིབ་བཤེར་བྱོས།"
-title = "Stirling Cloud ལ་འབྲེལ་མི་ཐུབ།"
+body = "ཞབས་ཞུ་ཆས་འདིས PDF Viewer Cloud ལ་འབྲེལ་མ་ཐུབ། རྩིས་ཁྲའི་འབྲེལ་མཐུད་དང་ཞབས་ཞུ་ཆས་འདིས་དྲ་རྒྱ་ལ་འབྲེལ་ཐུབ་མིན་ཞིབ་བཤེར་བྱོས།"
+title = "PDF Viewer Cloud ལ་འབྲེལ་མི་ཐུབ།"
 
 [admin.settings.ai.status.cloud.ok]
-body = "Stirling Cloud གིས་ཞབས་ཞུ་ཆས་འདི་དང་ལེན་བྱས། འདིར་འགྲོ་སྐྱོད་ཡང་ན patch བྱ་དགོས་པ་མེད།"
-title = "Stirling Cloud སྟེང་འགྲོ་སྐྱོད་བྱེད་བཞིན།"
+body = "PDF Viewer Cloud གིས་ཞབས་ཞུ་ཆས་འདི་དང་ལེན་བྱས། འདིར་འགྲོ་སྐྱོད་ཡང་ན patch བྱ་དགོས་པ་མེད།"
+title = "PDF Viewer Cloud སྟེང་འགྲོ་སྐྱོད་བྱེད་བཞིན།"
 
 [admin.settings.ai.status.degraded]
 body = "དེས་བདེ་ཐང་ཞིབ་བཤེར་ལ་ལན་བཏབ་ཀྱང་དངོས་ཀྱི་རེ་ཞུ་ཞིག་དང་ལེན་མ་བྱས། ཕྱོགས་གཉིས་ཀྱིས་མཉམ་སྤྱོད་གསང་བ་མི་འདྲ་བ་སྤྱོད་བཞིན་ཡོད།"
@@ -1114,7 +1114,7 @@ confirmCodeLabel = "མུ་མཐུད་བྱེད་པར་གཏན་
 confirmImport = "ནང་འཇུག་གཏན་འཁེལ"
 confirmImportTitle = "གཞི་གྲངས་མཛོད་ནང་འཇུག་གཏན་འཁེལ།"
 connection = "འབྲེལ་མཐུད།"
-connectionDescription = "ནང་འཇུག database ཚབ་ཏུ Stirling ཕྱིའི database ཞིག་ལ་དམིགས།"
+connectionDescription = "ནང་འཇུག database ཚབ་ཏུ PDF Viewer ཕྱིའི database ཞིག་ལ་དམིགས།"
 createBackup = "གྲབས་ཉར་བཟོ"
 created = "བཟོས་པ།"
 delete = "སུབ།"
@@ -1215,11 +1215,11 @@ description = "གདམ་གའི་ཁྱད་ཆོས་དང་བྱ�
 title = "ཁྱད་ཆོས"
 
 [admin.settings.features.serverCertificate]
-description = "\"Sign with Stirling-PDF\" མཚན་རྟགས་ཁྱད་ཆོས་རྒྱབ་སྐྱོར་བྱེད་པའི certificate བསྐྲུན།"
+description = "\"Sign with PDF Viewer\" མཚན་རྟགས་ཁྱད་ཆོས་རྒྱབ་སྐྱོར་བྱེད་པའི certificate བསྐྲུན།"
 label = "དཔང་ཡིག་མིང་རྟགས་འགོད་པ"
 
 [admin.settings.features.serverCertificate.enabled]
-description = "ཞབས་ཞུ་ཆས་འདིས་བསྐྲུན་པའི certificate སྤྱད་ནས \"Sign with Stirling-PDF\" འདོན།"
+description = "ཞབས་ཞུ་ཆས་འདིས་བསྐྲུན་པའི certificate སྤྱད་ནས \"Sign with PDF Viewer\" འདོན།"
 label = "Certificate Signing སྤྱོད་འགོ་འཛུགས།"
 
 [admin.settings.features.serverCertificate.organizationName]
@@ -1236,7 +1236,7 @@ label = "ལག་འཁྱེར་ནུས་ལྡན་(ཉིན་མོ�
 
 [admin.settings.folderAccess]
 description = "folder sources དང folder outputs ཀྱིས་ཀློག་པ་དང་འབྲི་བ་ཆོག་པའི་དཀར་ཆག འདི་ནི་བདེ་འཇགས་མཚམས་ཤིག་ཡིན: automations ནམ་ཡང་ཐོ་གཞུང་འདིའི་ཕྱི་ཡི server path ལ་སྟོན་མི་ཐུབ།"
-securityNote = "folder sources དང outputs རྣམས་ཡོངས་སུ་སྒོ་རྒྱག་དགོས་ན་འདི་སྟོང་པར་བཞག Stirling རང་གི་སྒྲིག་འགོད་དཀར་ཆག་ནམ་ཡང་འགྲོ་མི་ཆོག་པ་ཡིན།"
+securityNote = "folder sources དང outputs རྣམས་ཡོངས་སུ་སྒོ་རྒྱག་དགོས་ན་འདི་སྟོང་པར་བཞག PDF Viewer རང་གི་སྒྲིག་འགོད་དཀར་ཆག་ནམ་ཡང་འགྲོ་མི་ཆོག་པ་ཡིན།"
 title = "དཀར་ཆག་འཛུལ་སྤྱོད།"
 
 [admin.settings.folderAccess.roots]
@@ -1314,7 +1314,7 @@ description = "བེད་སྤྱོད་པ་གསར་པའི་ཆ�
 label = "སྔོན་སྒྲིག ས་ཁུལ།"
 
 [admin.settings.general.enableFeedback]
-description = "བཀོལ་མཁན་ཚོས Stirling རུ་ཚོགས་ལ་བསམ་འཆར་གཏོང་བ་ལྟེར་བྱེད"
+description = "བཀོལ་མཁན་ཚོས PDF Viewer རུ་ཚོགས་ལ་བསམ་འཆར་གཏོང་བ་ལྟེར་བྱེད"
 label = "བསམ་འཆར་ལེན་པ་ལྕོགས་ཅན"
 
 [admin.settings.general.fileUploadLimit]
@@ -1456,8 +1456,8 @@ description = "SMTP བདེན་དཔང་ཆེད་དུ་སྤྱོ
 label = "SMTP བེད་སྤྱོད་མིང་།"
 
 [admin.settings.mcp]
-apikeyNote = "Clients གིས X-API-KEY header ནང Stirling API key སྐུར (ཡང་ན Authorization: Bearer <key>)། key དེ་དབང་ཡོད Stirling སྤྱོད་མཁན་ལ་སྦྱོར - སྔོན་ནས་སྒྲིག་པའི་རྩིས་ཁྲ་ཁོ་ན་འཛུལ་ཐུབ། བྱ་སྤྱོད་རྣམས་སྤྱོད་མཁན་དེའི་མིང་ཐོག་ཞིབ་བཤེར་ཐོ་འགོད་བྱེད། key དོ་དམ་ནི Account > API Keys འོག་ཡོད།"
-description = "Stirling གི PDF ལག་ཆ་དང AI agents རྣམས OAuth སྲུང་སྐྱོབ་ཡོད་པའི endpoint བརྒྱུད MCP clients ལ་འདོན།"
+apikeyNote = "Clients གིས X-API-KEY header ནང PDF Viewer API key སྐུར (ཡང་ན Authorization: Bearer <key>)། key དེ་དབང་ཡོད PDF Viewer སྤྱོད་མཁན་ལ་སྦྱོར - སྔོན་ནས་སྒྲིག་པའི་རྩིས་ཁྲ་ཁོ་ན་འཛུལ་ཐུབ། བྱ་སྤྱོད་རྣམས་སྤྱོད་མཁན་དེའི་མིང་ཐོག་ཞིབ་བཤེར་ཐོ་འགོད་བྱེད། key དོ་དམ་ནི Account > API Keys འོག་ཡོད།"
+description = "PDF Viewer གི PDF ལག་ཆ་དང AI agents རྣམས OAuth སྲུང་སྐྱོབ་ཡོད་པའི endpoint བརྒྱུད MCP clients ལ་འདོན།"
 title = "MCP Server"
 
 [admin.settings.mcp.acceptedAudiences]
@@ -1487,7 +1487,7 @@ step3ApiKeyb = "header ནང་སྐུར (ཡང་ན Authorization: Bearer
 step4 = "ཐོ་འཇུག་ལ་ཆོག་མཆན་སྤྲོད། client གིས token དང་བཅས་ཡང་བསྐྱར་ཚོད་ལྟ་བྱེད། ལག་ཆ་རྣམས་སྡེ་ཚན་དུ་མངོན། convert, pages, misc, security, ai།"
 step4ApiKey = "ལག་ཆ་རྣམས་སྡེ་ཚན་དུ་མངོན། convert, pages, misc, security, ai - དང་འབོད་ཐེངས་རེ་རེ key བདག་པོའི་མིང་ཐོག་ཞིབ་བཤེར་ཐོ་འགོད་བྱེད།"
 tip = "གསལ་འདེབས། resource ID དེ IdP ནང་ཆོག་པའི audience ལ་ཐོ་འགོད་བྱོས། MCP Inspector དང Claude Desktop སྤྱད་ནས་ཚོད་ལྟ་ཟིན།"
-tipApiKey = "གསལ་འདེབས། API-key རྣམ་པར་ཕྱིའི IdP མི་དགོས - self-host ལ་ཆེས་སླ། key དེ་དབང་ཡོད Stirling སྤྱོད་མཁན་ལ་སྦྱོར།"
+tipApiKey = "གསལ་འདེབས། API-key རྣམ་པར་ཕྱིའི IdP མི་དགོས - self-host ལ་ཆེས་སླ། key དེ་དབང་ཡོད PDF Viewer སྤྱོད་མཁན་ལ་སྦྱོར།"
 title = "MCP client ཞིག་མཐུད།"
 
 [admin.settings.mcp.issuerUri]
@@ -1500,14 +1500,14 @@ label = "JWKS URL (འདེམས་རུང)"
 placeholder = "issuer ནས་རང་འགུལ་རྙེད།"
 
 [admin.settings.mcp.mode]
-apikey = "API ལྡེ་མིག (Stirling སྤྱོད་མཁན་རེ་རེའི་ལྡེ་མིག)"
-description = "OAuth ལ་ཕྱིའི IdP དགོས། API key ཡིས Stirling per-user API key (X-API-KEY) སྤྱོད - self-host ལ་ཆེས་སླ།"
+apikey = "API ལྡེ་མིག (PDF Viewer སྤྱོད་མཁན་རེ་རེའི་ལྡེ་མིག)"
+description = "OAuth ལ་ཕྱིའི IdP དགོས། API key ཡིས PDF Viewer per-user API key (X-API-KEY) སྤྱོད - self-host ལ་ཆེས་སླ།"
 label = "ཐོབ་ཐང་ར་སྤྲོད་རྣམ་པ"
 oauth = "OAuth 2.1 (ཕྱིའི IdP)"
 
 [admin.settings.mcp.requireAccount]
-description = "subject དེ་སྔོན་ནས་སྒྲིག་པ་དང་སྤྱོད་ཡོད་པའི Stirling སྤྱོད་མཁན་ལ་སྦྱོར་ཐུབ་ན་ཁོ་ན token འགྲོ་དུ་འཇུག"
-label = "ད་ཡོད Stirling རྩིས་ཁྲ་དགོས།"
+description = "subject དེ་སྔོན་ནས་སྒྲིག་པ་དང་སྤྱོད་ཡོད་པའི PDF Viewer སྤྱོད་མཁན་ལ་སྦྱོར་ཐུབ་ན་ཁོ་ན token འགྲོ་དུ་འཇུག"
+label = "ད་ཡོད PDF Viewer རྩིས་ཁྲ་དགོས།"
 
 [admin.settings.mcp.resourceId]
 description = "ཞབས་ཞུ་ཆས་འདིའི་སྤྱི་སྤྱོད /mcp URL། Tokens གི audience ནང་དེ་འཁོད་དགོས (RFC 8707) མེད་ན་དང་ལེན་མི་བྱེད།"
@@ -1518,7 +1518,7 @@ description = "read ops ལ mcp.tools.read དང write/AI ops ལ mcp.tools.wri
 label = "OAuth scopes བཙན་སྒྲུབ།"
 
 [admin.settings.mcp.usernameClaim]
-description = "Stirling username དང་མཐུན་སྦྱོར་བྱེད་པའི JWT claim (དཔེར་ན sub, email, preferred_username)།"
+description = "PDF Viewer username དང་མཐུན་སྦྱོར་བྱེད་པའི JWT claim (དཔེར་ན sub, email, preferred_username)།"
 label = "སྤྱོད་མཁན་མིང་གི claim"
 
 [admin.settings.plan.noData]
@@ -1847,7 +1847,7 @@ description = "འགོ་སློངས་ན་ ཐོ་ཡིག་དུ�
 label = "སྤྱོད་མཁན ID དམིགས་བསལ་ཆོག"
 
 [admin.settings.telegram.enabled]
-description = "ཁྱེད་ཀྱིས་སྒྲིག་འགོད་བྱས་ Telegram bot བརྒྱུད་པར་སྤྱོད་མཁན་ཚོས Stirling PDF དང་འབྲེལ་བ་བྱེད་ཆོག"
+description = "ཁྱེད་ཀྱིས་སྒྲིག་འགོད་བྱས་ Telegram bot བརྒྱུད་པར་སྤྱོད་མཁན་ཚོས PDF Viewer དང་འབྲེལ་བ་བྱེད་ཆོག"
 label = "Telegram Bot འགོ་སློང"
 
 [admin.settings.telegram.feedback]
@@ -1920,7 +1920,7 @@ settingsOverview = "འདི་<strong>སྒྲིག་བཀོད་སྒ�
 systemCustomization = "ང་ཚོ་ལ་UI བསྒྱུར་བཅོས་བྱེད་པའི་ཐབས་ལམ་རྒྱ་ཆེ་བ་ཡོད། མ་ལག་སྒྲིག་སྟངས་</strong> མཉེན་ཆས་མིང་དང་སྐད་ཡིག་བསྒྱུར་ཐུབ།"
 teamsAndUsers = "འཛིན་སྐྱོང་ <strong>རུ་ཁག་</strong> དང་སྤྱོད་མཁན་རེ་རེ་འདིར་ཡོད། ཁྱེད་ཀྱིས་སྤྱོད་མཁན་གསར་པ་རྣམས་གློག་འཕྲིན་བརྒྱུད་ནས་མགྲོན་འབོད་བྱེད་ཐུབ།"
 welcome = "<strong>འཛིན་སྐྱོང་སྐོར་སྐྱོད་</strong>ལ་ཕེབས་པར་དགའ་བསུ་ཞུ། མ་ལག་འཛིན་སྐྱོང་པ་ལ་ཡོད་པའི་ཁེ་ལས་ཀྱི་ཁྱད་ཆོས་དང་སྒྲིག་བཀོད་ཤུགས་ལྡན་དེ་ཚོ་འཚོལ་ཞིབ་བྱེད།"
-wrapUp = "འདི་ནི admin སྐོར་སྐྱོད་ཡིན། Stirling PDF དེ་ཚོགས་པར་ནུས་ལྡན་དང་སྲོལ་སྒྲིག་ཐུབ་པའི་ཐབས་ཤེས་བཟོ་བའི་ཁེ་ལས་ཁྱད་ཆོས་ཁྱེད་ཀྱིས་མཐོང་ཟིན། དུས་གང་རུང་ཡང་བསྐྱར་སྟོན་ཆོག - <strong>སྒྲིག་འགོད</strong> ཁ་ཕྱེ་ནས Help འོག་གི <strong>སྐོར་སྐྱོད</strong> སྡེ་ཚན་ནང་འདི་རྙེད།"
+wrapUp = "འདི་ནི admin སྐོར་སྐྱོད་ཡིན། PDF Viewer དེ་ཚོགས་པར་ནུས་ལྡན་དང་སྲོལ་སྒྲིག་ཐུབ་པའི་ཐབས་ཤེས་བཟོ་བའི་ཁེ་ལས་ཁྱད་ཆོས་ཁྱེད་ཀྱིས་མཐོང་ཟིན། དུས་གང་རུང་ཡང་བསྐྱར་སྟོན་ཆོག - <strong>སྒྲིག་འགོད</strong> ཁ་ཕྱེ་ནས Help འོག་གི <strong>སྐོར་སྐྱོད</strong> སྡེ་ཚན་ནང་འདི་རྙེད།"
 
 [adminUserSettings]
 admin = "འཛིན་སྐྱོང་།"
@@ -2887,9 +2887,9 @@ typeSignature = "ཁྱེད་ཀྱི་མིང་འཇུག་ནས་
 uploadCert = "དཔང་ཡིག་ཡར་སྤྲོད"
 uploadCertDesc = "རང་གི PKCS12, PFX, PEM ཡང་ན JKS དཔང་ཡིག་སྤྱོད།"
 uploadSignature = "ཁྱེད་ཀྱི་མཛུབ་འགན་པར་ཡར་འཇུག"
-usePersonalCert = "Stirling Sign · སྒེར"
+usePersonalCert = "PDF Viewer Sign · སྒེར"
 usePersonalCertDesc = "ཁྱེད་ཀྱི་རྩིས་ཁྲའི་ཆེད་དུ་བཟོས་པའི་དཔང་ཡིག་གིས་མིང་རྟགས་འགོད།"
-useServerCert = "Stirling Sign · ཚོགས་སྡེ"
+useServerCert = "PDF Viewer Sign · ཚོགས་སྡེ"
 useServerCertDesc = "server འདིའི་མཉམ་སྤྱོད་ཚོགས་སྡེའི་དཔང་ཡིག་གིས་མིང་རྟགས་འགོད།"
 useSignature = "མིང་རྟགས་སྤྱོད"
 
@@ -3208,8 +3208,8 @@ copy = "འཕྲིན་དོན་འདྲ་བཤུས"
 
 [chat.dock]
 collapse = "Chat སྐུང་།"
-placeholder = "Stirling Agent ལ་དྲིས།"
-title = "Stirling Agent"
+placeholder = "PDF Viewer Agent ལ་དྲིས།"
+title = "PDF Viewer Agent"
 
 [chat.header]
 clearChat = "གླེང་མོལ་བཤོལ"
@@ -3363,7 +3363,7 @@ translatedMetadata = "སྐད་བསྒྱུར་ཡོད་པའི་�
 
 [checkAccessibility.pdf]
 continued = "{{name}} (འཕྲོ་མཐུད)"
-footer = "Stirling PDF ཡིས་ཞིབ་བཤེར་བྱས"
+footer = "PDF Viewer ཡིས་ཞིབ་བཤེར་བྱས"
 page = "ཤོག་ངོས {{n}}"
 title = "འཇུག་སྤྱོད་སླ་བའི་སྙན་ཞུ"
 
@@ -3804,9 +3804,9 @@ label = "རིགས་ལྟར་ཡིག་ཆ། {{summary}}"
 noTypes = "ཡིག་ཆ་འདི་དག་རིགས་ཤེས་ཟིན་པ་ཞིག་དང་མ་མཐུན།"
 
 [classificationDemo.defaultApp]
-body = "Stirling ཁྱེད་ཀྱི་སྔོན་འཇོག PDF app ཏུ་སྒྲིགས། Email དང་ browser ཡང་ན་མདུན་ངོས་ནས་ཁྱེད་ཀྱིས་ཁ་ཕྱེ་བའི PDF ཚང་མ་འདིར་འབྱོར་ཞིང་། ཀློག་པའམ་རྩོམ་སྒྲིག་ལ་གྲ་སྒྲིག་ཡོད། Settings ནང་དུས་ནམ་ཡང་འདི་བསྒྱུར་ཆོག"
-cta = "Stirling ངའི་སྔོན་འཇོག་ཏུ་སྒྲིག"
-title = "PDF ཚང་མ Stirling ནང་ཁ་ཕྱེ"
+body = "PDF Viewer ཁྱེད་ཀྱི་སྔོན་འཇོག PDF app ཏུ་སྒྲིགས། Email དང་ browser ཡང་ན་མདུན་ངོས་ནས་ཁྱེད་ཀྱིས་ཁ་ཕྱེ་བའི PDF ཚང་མ་འདིར་འབྱོར་ཞིང་། ཀློག་པའམ་རྩོམ་སྒྲིག་ལ་གྲ་སྒྲིག་ཡོད། Settings ནང་དུས་ནམ་ཡང་འདི་བསྒྱུར་ཆོག"
+cta = "PDF Viewer ངའི་སྔོན་འཇོག་ཏུ་སྒྲིག"
+title = "PDF ཚང་མ PDF Viewer ནང་ཁ་ཕྱེ"
 
 [classificationDemo.followUp]
 background = "འདི་རྒྱབ་ལྗོངས་སུ་འཁོར་བཞིན་ཡོད། གཡོན་གྱི་ཨ་ལོང་གིས་འཕེལ་རིམ་སྟོན།"
@@ -3821,7 +3821,7 @@ other = "གཞན"
 body = "Downloads ཡིག་སྣོད་ནང་གི་ཉེ་ཆར་གྱི PDF {{count}} རིགས་ལྟར་དབྱེ་སྒྲིག་དང་གོ་སྒྲིག་བྱེད།"
 cta = "ངའི Downloads ཡིག་སྣོད་སྒྲིག་སྦྱོར་བྱེད"
 privacy = "ཁྱེད་ཀྱི PDFs འདི་སྒྲིག་ཆས་འདིར་གནས། ཁྱེད་ཀྱི་མཐུད་ཟིན་པའི server གིས་སྒྲིག་སྦྱོར་བེད་སྤྱོད་ཟིན་ཐོར་འགོད།"
-title = "ཡིག་སྣོད་ཆ་ཚང་ཞིག་ལ་བརྟེན་ནས Stirling གིས་ཅི་བྱེད་ཐུབ་མཐོང་།"
+title = "ཡིག་སྣོད་ཆ་ཚང་ཞིག་ལ་བརྟེན་ནས PDF Viewer གིས་ཅི་བྱེད་ཐུབ་མཐོང་།"
 
 [classificationDemo.phase]
 finishing = "མཇུག་བསྡུ་བཞིན་པ..."
@@ -3835,10 +3835,10 @@ counts = "PDF བསྡོམས {{total}} ལས་སྒྲིག་སྦྱ�
 [classificationDemo.results]
 documentCount_one = "PDF {{count}}"
 documentCount_other = "PDFs {{count}}"
-failedBody = "Stirling གིས་ཁྱེད་ཀྱི Downloads ཡིག་སྣོད་ཀློག་མ་ཐུབ། ཁྱེད་ཀྱི་རྩིས་འཁོར་ཐོག་ཅི་ཡང་བསྒྱུར་མེད།"
+failedBody = "PDF Viewer གིས་ཁྱེད་ཀྱི Downloads ཡིག་སྣོད་ཀློག་མ་ཐུབ། ཁྱེད་ཀྱི་རྩིས་འཁོར་ཐོག་ཅི་ཡང་བསྒྱུར་མེད།"
 failedTitle = "འདི་ཚར་མ་སོང་།"
 heading = "ཁྱེད་ཀྱི Downloads སྒྲིག་ཟིན།"
-summary = "Stirling གིས {{documents}} ཀློག་ནས {{types}} ནང་དབྱེ་སྒྲིག་བྱས།"
+summary = "PDF Viewer གིས {{documents}} ཀློག་ནས {{types}} ནང་དབྱེ་སྒྲིག་བྱས།"
 typeCount_one = "རིགས {{count}}"
 typeCount_other = "རིགས {{count}}"
 
@@ -4207,10 +4207,10 @@ title = "གསར་བརྗེའི་APIལྡེ་མིག"
 warning = "⚠️ ཉེན་བརྡ། བྱ་སྤྱོད་འདིས་API ལྡེ་མིག་གསར་པ་བཟོས་ནས་ཁྱེད་ཀྱི་སྔོན་གྱི་ལྡེ་མིག་དེ་ནུས་མེད་བཟོ་ཐུབ།"
 
 [config.mcp]
-description = "Model Context Protocol (MCP) གིས Claude ལྟ་བུའི AI ལས་རོགས་ལ་ཁྱེད་ཀྱི Stirling PDF ལག་ཆ་ཐད་ཀར་སྤྱོད་དུ་འཇུག ཐེངས་གཅིག client མཐུད་ནས་ཁྱེད་ཀྱི་ཚབ་ཏུ་ཡིག་ཆ་སྒྱུར་བ། རྩོམ་སྒྲིག བདེ་འཇགས་དང་སྒྲིག་སྦྱོར་བྱེད་དུ་འཇུག"
-guestInfo = "མགྲོན་པོའི་སྤྱོད་མཁན་གྱིས MCP clients མཐུད་མི་ཐུབ། MCP server སྤྱོད་པར་རྩིས་ཐོ་ཞིག་གསར་བཟོ་བྱས་ནས AI ལས་རོགས་ལ་ཁྱེད་ཀྱི་ཚབ་ཏུ Stirling PDF ལག་ཆ་འཁོར་སྤྱོད་བྱེད་དུ་འཇུག"
+description = "Model Context Protocol (MCP) གིས Claude ལྟ་བུའི AI ལས་རོགས་ལ་ཁྱེད་ཀྱི PDF Viewer ལག་ཆ་ཐད་ཀར་སྤྱོད་དུ་འཇུག ཐེངས་གཅིག client མཐུད་ནས་ཁྱེད་ཀྱི་ཚབ་ཏུ་ཡིག་ཆ་སྒྱུར་བ། རྩོམ་སྒྲིག བདེ་འཇགས་དང་སྒྲིག་སྦྱོར་བྱེད་དུ་འཇུག"
+guestInfo = "མགྲོན་པོའི་སྤྱོད་མཁན་གྱིས MCP clients མཐུད་མི་ཐུབ། MCP server སྤྱོད་པར་རྩིས་ཐོ་ཞིག་གསར་བཟོ་བྱས་ནས AI ལས་རོགས་ལ་ཁྱེད་ཀྱི་ཚབ་ཏུ PDF Viewer ལག་ཆ་འཁོར་སྤྱོད་བྱེད་དུ་འཇུག"
 navLabel = "MCP Server"
-tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using Stirling PDF directly."
+tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using PDF Viewer directly."
 viewApiKeys = "API keys ལྟ"
 
 [config.mcp.copy]
@@ -4226,7 +4226,7 @@ label = "ཁྱེད་ཀྱི MCP endpoint"
 
 [config.mcp.setup]
 addTo = "ནང་སྣོན"
-hint = "ཁྱེད་ཀྱི client འདེམས། snippet དེ་སྟོན་པའི་ཡིག་ཆའི་ནང་སྦྱར། དེ་ནས་བསྐྱར་འགོ་འཛུགས། ཐོག་མར་སྤྱོད་སྐབས་ཁྱེད་ཀྱི Stirling རྩིས་ཐོས་ནང་འཛུལ་བྱེད། keys འདྲ་བཤུས་དགོས་མེད།"
+hint = "ཁྱེད་ཀྱི client འདེམས། snippet དེ་སྟོན་པའི་ཡིག་ཆའི་ནང་སྦྱར། དེ་ནས་བསྐྱར་འགོ་འཛུགས། ཐོག་མར་སྤྱོད་སྐབས་ཁྱེད་ཀྱི PDF Viewer རྩིས་ཐོས་ནང་འཛུལ་བྱེད། keys འདྲ་བཤུས་དགོས་མེད།"
 title = "ཁྱེད་ཀྱི AI ལས་རོགས་མཐུད"
 
 [config.overview]
@@ -4250,10 +4250,10 @@ step = "གོམ་པ {{current}} / {{total}}"
 [connect.confirm]
 acknowledge = "ངས་ཁ་བྱང་འདི་ངོ་ཤེས་ཤིང་ངའི་ཚོགས་པ་དང་མཐུད་འདོད།"
 approve = "Server མཐུད"
-cannotDecide = "ཚོགས་པའི་བདག་པོ་ཁོ་ནས་མཐུད་འདི་ཆོག་མཆན་ནམ་དང་ལེན་མི་བྱེད་པ་ཐག་གཅོད་ཐུབ། རྩིས་ཐོ་གཞན་སྤྱོད་པའམ་བརྡ་སྐུལ་འདི་སྒོ་རྒྱག་ནས Stirling མུ་མཐུད་སྤྱོད།"
+cannotDecide = "ཚོགས་པའི་བདག་པོ་ཁོ་ནས་མཐུད་འདི་ཆོག་མཆན་ནམ་དང་ལེན་མི་བྱེད་པ་ཐག་གཅོད་ཐུབ། རྩིས་ཐོ་གཞན་སྤྱོད་པའམ་བརྡ་སྐུལ་འདི་སྒོ་རྒྱག་ནས PDF Viewer མུ་མཐུད་སྤྱོད།"
 deny = "དང་ལེན་མི་བྱེད"
 dismiss = "སྒོ་རྒྱག"
-lead = "Stirling server ཞིག་གིས་ཁྱེད་ཀྱི་ཚོགས་པ་དང་མཐུད་རེ་འདུན་བྱེད་ཀྱི་འདུག ཆོག་མཆན་སྤྲོད་སྔོན་གཤམ་གྱི་ཁ་བྱང་དེ་ཁྱེད་རང་གི་ཡིན་མིན་ཞིབ་བཤེར་བྱེད།"
+lead = "PDF Viewer server ཞིག་གིས་ཁྱེད་ཀྱི་ཚོགས་པ་དང་མཐུད་རེ་འདུན་བྱེད་ཀྱི་འདུག ཆོག་མཆན་སྤྲོད་སྔོན་གཤམ་གྱི་ཁ་བྱང་དེ་ཁྱེད་རང་གི་ཡིན་མིན་ཞིབ་བཤེར་བྱེད།"
 originLabel = "ཁ་བྱང"
 signedInAs = "ནང་འཛུལ་ཟིན་པ"
 switchAccount = "རྩིས་ཐོ་གཞན་སྤྱོད"
@@ -4293,7 +4293,7 @@ disconnect = "བཅད"
 google = "Google Drive"
 intro = "རང་ཉིད་ཀྱི་རྩིས་ཐོ་ཚུད་ནས་ཐེངས་གཅིག་འབྲེལ། ཞུན་དག་ཆས་ཀྱིས་དེ་ཚོ་ནས་ཡིག་ཆ་ཁ་ཕྱེ་ཐུབ་པ་དང་ ཡང་བསྐྱར་ཐོ་འགོད་མི་དགོས། པའིፕ་ལ་ཡིནས་ཀྱང་ཁྱེད་ཀྱི་རྩིས་ཐོ་ལྟར་ཀློག་དང་ཉར་ཚགས་བྱེད།"
 microsoft = "Microsoft (OneDrive & SharePoint)"
-needsReconnect = "Stirling གྱིས་རྩིས་ཐོ་འདི་ལ་མི་འབྱུང་པས་ དེ་བརྟེན་པའི་ pipeline ཚུལ་འདི་ཚུར་འགོག་ཡོད།"
+needsReconnect = "PDF Viewer གྱིས་རྩིས་ཐོ་འདི་ལ་མི་འབྱུང་པས་ དེ་བརྟེན་པའི་ pipeline ཚུལ་འདི་ཚུར་འགོག་ཡོད།"
 none = "ཁྱེད་ཀྱི་དོ་དམ་པས་འབྲེལ་བའི་རྩིས་ཐོ་མ་སྒོ་འབྱེད།"
 personal = "མི་སྒེར་རྩིས་ཐོ"
 popupBlocked = "ཡིག་ཚང་གིས་ཐོ་འགོད་སྒེའུ་ཁུང་འགགས་ཡོད། འདྲེན་ལམ་འདིའི་ས་ཁོངས་ལ་ pop-up གཏོང་ཆོག་བཟོས་ནས་ཡང་བསྐྱར་ཚོད་ལྟ།"
@@ -4438,7 +4438,7 @@ showPreferencesBtn = "འདོད་མོས་དོ་དམ་བྱེད�
 title = "ང་ཚོས་ཀུ་ཀིས་ཇི་ལྟར་སྤྱོད་སྟངས།"
 
 [cookieBanner.popUp.description]
-1 = "Stirling PDF ཁྱེད་ལ་ལེགས་པར་འཁོར་སྤྱོད་ཡོང་ཕྱིར་ང་ཚོས cookies དང་ལག་རྩལ་གཞན་སྤྱོད། དེས་ང་ཚོའི་ལག་ཆ་ལེགས་བཅོས་དང་ཁྱེད་ཀྱིས་དགའ་བའི་ནུས་པ་མུ་མཐུད་བཟོ་བར་རོགས་བྱེད།"
+1 = "PDF Viewer ཁྱེད་ལ་ལེགས་པར་འཁོར་སྤྱོད་ཡོང་ཕྱིར་ང་ཚོས cookies དང་ལག་རྩལ་གཞན་སྤྱོད། དེས་ང་ཚོའི་ལག་ཆ་ལེགས་བཅོས་དང་ཁྱེད་ཀྱིས་དགའ་བའི་ནུས་པ་མུ་མཐུད་བཟོ་བར་རོགས་བྱེད།"
 2 = "གལ་ཏེ་ཁྱེད་རང་གིས་མ་འདོད་ན། 'No the the the the the the the the the the the the the the the the the the the the secokies དེ་དག་ལ་སྟབས་བདེ་པོའི་ངང་ལས་ཀ་བྱེད་ཐུབ་པ་རེད།"
 
 [cookieBanner.preferencesModal]
@@ -4451,12 +4451,12 @@ subtitle = "ཀུ་ཀི་བེད་སྤྱོད།"
 title = "མོས་མཐུན་འདོད་མོས་ལྟེ་གནས།"
 
 [cookieBanner.preferencesModal.analytics]
-description = "Cookies འདི་དག་གིས་ང་ཚོའི་ལག་ཆ་ཇི་ལྟར་སྤྱོད་ཀྱི་ཡོད་པ་ཤེས་རོགས་བྱེད་པས། ང་ཚོས་སྤྱི་ཚོགས་ཀྱིས་རིན་ཐང་ཆེན་པོར་བརྩི་བའི་ནུས་པ་བཟོ་བར་གཙོ་བོ་དམིགས་ཐུབ། སེམས་བདེ་བར་གནས། Stirling PDF གིས་ཁྱེད་ཀྱིས་ལས་ཀ་བྱེད་པའི་ཡིག་ཆའི་ནང་དོན་རྗེས་འདེད་བྱེད་མི་ཐུབ་ལ་ནམ་ཡང་བྱེད་མི་སྲིད།"
+description = "Cookies འདི་དག་གིས་ང་ཚོའི་ལག་ཆ་ཇི་ལྟར་སྤྱོད་ཀྱི་ཡོད་པ་ཤེས་རོགས་བྱེད་པས། ང་ཚོས་སྤྱི་ཚོགས་ཀྱིས་རིན་ཐང་ཆེན་པོར་བརྩི་བའི་ནུས་པ་བཟོ་བར་གཙོ་བོ་དམིགས་ཐུབ། སེམས་བདེ་བར་གནས། PDF Viewer གིས་ཁྱེད་ཀྱིས་ལས་ཀ་བྱེད་པའི་ཡིག་ཆའི་ནང་དོན་རྗེས་འདེད་བྱེད་མི་ཐུབ་ལ་ནམ་ཡང་བྱེད་མི་སྲིད།"
 title = "དབྱེ་ཞིབ།"
 
 [cookieBanner.preferencesModal.description]
 1 = "ཁྱེད་ཀྱི་ཉམས་མྱོང་འཕེལ་རྒྱས་གཏོང་བ་དང་ང་ཚོའི་ལག་ཆ་ཇི་ལྟར་བེད་སྤྱོད་གཏོང་དགོས་མིན་ཤེས་པར་བྱེད་པར་PDFཡིས་ཀུ་ཀི་དང་འཕྲུལ་རིག་འདྲ་མཚུངས་བེད་སྤྱོད་བྱེད་ཀྱི་ཡོད། འདི་ལ་བརྟེན་ནས་ང་ཚོས་ལས་ཀའི་སྤུས་ཚད་ཡར་རྒྱས་གཏོང་བ་དང་། ཁྱེད་རང་གིས་བརྩི་བཀུར་བྱེད་པའི་ཁྱད་ཆོས་འཕེལ་རྒྱས་གཏོང་བ། ང་ཚོའི་སྤྱོད་མཁན་ལ་མུ་མཐུད་ནས་རྒྱབ་སྐྱོར་བྱེད་ཀྱི་ཡོད།"
-2 = "Stirling PDF གིས་ཁྱེད་ཀྱིས་སྤྱོད་པའི་ཡིག་ཆའི་ནང་དོན་རྗེས་འདེད་དམ་འཛུལ་སྤྱོད་བྱེད་མི་ཐུབ་ལ་ནམ་ཡང་བྱེད་མི་སྲིད།"
+2 = "PDF Viewer གིས་ཁྱེད་ཀྱིས་སྤྱོད་པའི་ཡིག་ཆའི་ནང་དོན་རྗེས་འདེད་དམ་འཛུལ་སྤྱོད་བྱེད་མི་ཐུབ་ལ་ནམ་ཡང་བྱེད་མི་སྲིད།"
 3 = "ཁྱེད་ཀྱི་སྒེར་གྱི་གནས་ཚུལ་དང་ཡིད་ཆེས་དེ་ང་ཚོས་བྱེད་པའི་ལས་ཀ་དེའི་ལྟེ་བ་ཡིན།"
 
 [cookieBanner.preferencesModal.necessary]
@@ -4586,7 +4586,7 @@ minimize = "ཆུང་ཤོས་བཟོ"
 restore = "སླར་གསོ"
 
 [desktopBilling]
-description = "browser ནང་བེད་སྤྱོད་དང་འཛིན་ཤོག་དོ་དམ་བྱེད། འདིར་སྤྱོད་པའི Stirling རྩིས་ཐོ་དེ་ག་རང་གིས་ནང་འཛུལ་བྱེད།"
+description = "browser ནང་བེད་སྤྱོད་དང་འཛིན་ཤོག་དོ་དམ་བྱེད། འདིར་སྤྱོད་པའི PDF Viewer རྩིས་ཐོ་དེ་ག་རང་གིས་ནང་འཛུལ་བྱེད།"
 open = "Usage & Billing browser ནང་ཁ་ཕྱེ"
 openFailed = "Usage & Billing ཁ་ཕྱེ་མ་ཐུབ། ཁྱེད་ཀྱི་མཐུད་ལམ་ཞིབ་བཤེར་བྱས་ནས་ཡང་བསྐྱར་ཚོད་ལྟ་བྱེད།"
 selfHostedDescription = "ཁྱེད་ཀྱི་མཐུད་ཟིན་པའི server ཐོག་གི་བེད་སྤྱོད་དང་འཛིན་ཤོག browser ནང་དོ་དམ་བྱེད། ཁྱེད་ཀྱི server བདག་པོའི་རྩིས་ཐོས་ནང་འཛུལ་བྱེད།"
@@ -4638,7 +4638,7 @@ updateFailedMessage = "གསར་སྒྱུར་ཕབ་ལེན་ཡང
 
 [desktopUpdate.blocked]
 docsLink = "འཇུག་ཐབས་ཡིག་ཆ་ལྟ"
-message = "Stirling-PDF ལ་འཕྲུལ་ཆས་འདིའི་སྟེང་རང་ཉིད་ལ་གསར་སྒྱུར་བྱེད་པའི་དབང་ཆ་མེད།"
+message = "PDF Viewer ལ་འཕྲུལ་ཆས་འདིའི་སྟེང་རང་ཉིད་ལ་གསར་སྒྱུར་བྱེད་པའི་དབང་ཆ་མེད།"
 title = "དོ་དམ་པའི་དབང་ཆ་དགོས།"
 
 [devAirgapped]
@@ -4912,7 +4912,7 @@ description = "འདེམས་སྒྲུག་བྱས་པའི་ཤ�
 open = "བསམ་འཆར་གཏོང"
 sendMore = "བསམ་འཆར་གཞན་ཡང་གཏོང"
 sent = "བསམ་འཆར་ལ་ཐུགས་རྗེ་ཆེ།"
-title = "Stirling ཡར་འཕེལ་ལ་རོགས་རམ་བྱོས"
+title = "PDF Viewer ཡར་འཕེལ་ལ་རོགས་རམ་བྱོས"
 unavailable = "བསམ་འཆར་མི་འཐོབ"
 
 [feedback.tag]
@@ -5117,13 +5117,13 @@ save = "མིང་བསྐྱར་འདོགས"
 title = "ཡིག་ཆའི་མིང་བསྐྱར་འདོགས"
 
 [filesPage]
-addedToLibrary = "Stirling མཛོད་ལ་ཁ་སྣོན་བྱས"
-addingToLibrary = "Stirling མཛོད་ལ་ཁ་སྣོན་བྱེད་བཞིན…"
-addToLibrary = "Stirling མཛོད་ལ་ཁ་སྣོན…"
+addedToLibrary = "PDF Viewer མཛོད་ལ་ཁ་སྣོན་བྱས"
+addingToLibrary = "PDF Viewer མཛོད་ལ་ཁ་སྣོན་བྱེད་བཞིན…"
+addToLibrary = "PDF Viewer མཛོད་ལ་ཁ་སྣོན…"
 addToLibraryFailed = "ཡིག་ཆ་ཁ་ཤས་ཁ་སྣོན་མ་ཐུབ"
 addToWorkspace = "ལས་གནས་ལ་ཁ་སྣོན"
 addToWorkspaceCount = "{{count}} ལས་གནས་ལ་ཁ་སྣོན"
-allFiles = "Stirling མཛོད"
+allFiles = "PDF Viewer མཛོད"
 back = "ཕྱིར་ལོག"
 backToFolder = "{{folder}} ལ་ཕྱིར་ལོག"
 backToMyFiles = "ཡིག་ཆའི་མཛོད་ལ་ཕྱིར་ལོག"
@@ -5151,7 +5151,7 @@ deleteFolderContents_one = "ཡིག་ཁུག་ནང་གི་ཡིག�
 deleteFolderContents_other = "ཡིག་ཁུག་ནང་གི་ཡིག་ཆ {{count}} ཡང་སུབ"
 deleteFolderContentsWarning = "ཡིག་ཆ་ཚང་མ་རྟག་པར་སུབ་བྱས་ནས་སླར་ཐོན་མི་སློང་ཐུབ།"
 deleteFolderError = "སྣོད་འགེངས་སུབ་མ་ཐུབ། བསྐྱར་འདོད།"
-deleteFolderKeepHint = "ནང་གི་ཡིག་ཆ་རྣམས Stirling མཛོད་ལ་སྤོ་རྒྱུ་ཡིན།"
+deleteFolderKeepHint = "ནང་གི་ཡིག་ཆ་རྣམས PDF Viewer མཛོད་ལ་སྤོ་རྒྱུ་ཡིན།"
 deleteFolderTitle = "སྣོད་འགེངས་སུབ་དགོས་སམ?"
 deselectAll = "འདེམས་བཤོལ"
 details = "ཞིབ་ཕྲ"
@@ -5189,7 +5189,7 @@ moveSkippedRemote_other = "server ཐོག་ཡིག་ཆ {{count}} སྤ�
 moveTo = "སྤོ་བསྒྱུར…"
 newFolder = "སྣོད་འགེངས་གསར་པ"
 newFolderStorageDisabled = "server ཡིག་ཁུག་ཉར་སྣོད་སྤར་མེད།"
-newFolderTabUnavailable = "ཡིག་ཁུག་གསར་བཟོ་བྱེད་པར Stirling མཛོད་ལ་བརྗེ།"
+newFolderTabUnavailable = "ཡིག་ཁུག་གསར་བཟོ་བྱེད་པར PDF Viewer མཛོད་ལ་བརྗེ།"
 offlineNoFolderEdits = "སར་བར་སྣོད་འགེངས་མཉམ་འགྲིག་མེད་པས—སྣོད་འགེངས་བཟོ་བཅོས་མི་ཆོག ནང་འཛུལ་དང་ཉར་གསོག་སྒྲིག་འགོད་ཞིབ་བཤེར།"
 open = "ཁ་ཕྱེ"
 openVersionInWorkspace = "ལས་གནས་ནང་ཁ་ཕྱེ"
@@ -5198,7 +5198,7 @@ recentFiles = "ཉེ་ཆར"
 refresh = "གསར་སྒྱུར"
 refreshNeedsConnection = "server ནས་གསར་སྒྱུར་བྱེད་པར་ནང་འཛུལ་གནང་།"
 remove = "སུབ"
-removeLocalFolder = "Stirling ནས་བཏོན"
+removeLocalFolder = "PDF Viewer ནས་བཏོན"
 removeVersion = "པར་གཞི་སུབ"
 rename = "མིང་བསྐྱར་བཏགས"
 renamed = "མིང་བསྐྱར་བཏགས"
@@ -5210,7 +5210,7 @@ selectAll = "སྤྱིར་འདེམས"
 selectedCount = "{{count}} འདེམས་ཟིན"
 selectedFile = "{{name}}, བདམས་ཟིན"
 selectFile = "ཡིག་ཆ {{name}} འདེམས"
-serverFolderNeedsConnection = "server ཡིག་ཁུག་སྤྱོད་པར Stirling Cloud ལ་ནང་འཛུལ་ལམ་རང་འགན་གྱི server ཞིག་མཐུད།"
+serverFolderNeedsConnection = "server ཡིག་ཁུག་སྤྱོད་པར PDF Viewer Cloud ལ་ནང་འཛུལ་ལམ་རང་འགན་གྱི server ཞིག་མཐུད།"
 shareDisabledHint = "ཡིག་ཆ་མཉམ་སྤྱོད་སྤྱོད་མེད། དོ་དམ་པ་ལ་དབང་སྤྲོད་རོགས།"
 shareManage = "མཉམ་སྤྱོད་དོ་དམ"
 showDetails = "ཞིབ་ཕྲ་མངོན"
@@ -5220,7 +5220,7 @@ summary_other = "རྣམ་གྲངས {{count}}"
 tree = "སྣོད་འགེངས"
 unmount = "Unmount"
 unmountFolderBody = "\"{{name}}\" Unmount བྱེད་དམ། ཡིག་ཁུག་དང་དེའི་ཡིག་ཆ་རྣམས་ཁྱེད་ཀྱི་སྡུད་སྡེར་ཐོག་ལྷག་རྒྱུ་ཡིན།"
-unmountFolderTitle = "Stirling ནས Unmount བྱེད་དམ།"
+unmountFolderTitle = "PDF Viewer ནས Unmount བྱེད་དམ།"
 upload = "ཡར་འཇུག"
 uploadFromMobile = "སྒུལ་ཁུངས་ནས་ཡར་འཇུག"
 versionActions = "པར་གཞི་བྱ་བ"
@@ -5263,7 +5263,7 @@ orphaned = "སྡུད་སྡེར་ཐོག་མེད"
 orphanedHint = "{{path}} ནས་སྔ་མ་དེ་མེད་སོང་། འདྲ་བཤུས་འདི་འདིར་ཁོ་ན་ཡོད - ཉར་སྐབས་གནས་ས་གསར་པ་འདྲི་རྒྱུ་ཡིན།"
 unavailable = "སྤྱོད་མི་ཐུབ"
 unavailableHintOffline = "ཡིག་ཆ་འདི་གནས་པའི་སྡུད་སྡེར་རམ་མཉམ་སྤྱོད་མཐུད་མེད། འགྱུར་བ་ཡང་བསྐྱར་ལེན་པར་བསྐྱར་མཐུད་གནང་།"
-unavailableHintPermission = "Stirling ལ་གནས་ས་འདི་ཀློག་ཆོག་མཆན་མེད། System Settings ནང་ཆོག་མཆན་སྤྲད་ནས་འགྱུར་བ་ཡང་བསྐྱར་ལེན།"
+unavailableHintPermission = "PDF Viewer ལ་གནས་ས་འདི་ཀློག་ཆོག་མཆན་མེད། System Settings ནང་ཆོག་མཆན་སྤྲད་ནས་འགྱུར་བ་ཡང་བསྐྱར་ལེན།"
 unavailableHintUnknown = "ད་ལྟ་ཡིག་ཆ་འདིར་སླེབས་མི་ཐུབ། འདིའི་འདྲ་བཤུས་ལ་འགྱུར་བ་མེད།"
 
 [filesPage.diskState]
@@ -5378,7 +5378,7 @@ placeholder = "སྣོད་འགེངས་མིང"
 
 [filesPage.folderOrigin]
 diskHint = "ཁྱེད་ཀྱི་སྡུད་སྡེར་ཐོག་གི་དཀར་ཆག་ནས mount བྱས་པའི་ཡིག་ཁུག"
-serverHint = "Stirling server ཐོག་ཉར་བའི་ཡིག་ཁུག"
+serverHint = "PDF Viewer server ཐོག་ཉར་བའི་ཡིག་ཁུག"
 virtualHint = "བཤེར་ཆས་འདི་ཁོ་ནའི་ནང་གནས་པའི་ཡིག་ཁུག"
 
 [filesPage.moveDialog]
@@ -5402,7 +5402,7 @@ serverHint = "ཁྱེད་ཀྱི་རྩིས་ཐོ་དང་མཉ
 [filesPage.origin]
 all = "ཁུངས་ཡོངས"
 cloud = "སྤྲིན"
-cloudHint = "Stirling སར་བར་ནང་ཉར"
+cloudHint = "PDF Viewer སར་བར་ནང་ཉར"
 diskFileHint = "ཁྱེད་ཀྱི་གློག་ཀླད་ཐོག་ཉར་ཡོད"
 diskHint = "ཁྱེད་ཀྱི་སྡུད་སྡེར་ཐོག mount བྱས་པའི་ཡིག་ཁུག་ནང་གི་ཡིག་ཆ"
 local = "རང་ས"
@@ -5413,7 +5413,7 @@ sharedHint = "འབྲེལ་མཐུད་བརྒྱུད་ནས་མ
 
 [filesPage.processing]
 active = "ཡིག་ཁུག་སྒྲིག་གཅོད"
-blockedNeedsConnection = "ཡིག་ཁུག་སྒྲིག་གཅོད་པར Stirling Cloud ལ་ནང་འཛུལ་ལམ་རང་འགན་གྱི server ཞིག་མཐུད།"
+blockedNeedsConnection = "ཡིག་ཁུག་སྒྲིག་གཅོད་པར PDF Viewer Cloud ལ་ནང་འཛུལ་ལམ་རང་འགན་གྱི server ཞིག་མཐུད།"
 edit = "སྒྲིག་གཅོད་རྩོམ་སྒྲིག..."
 nothingToRestore = "སོར་ཆུད་བྱ་རྒྱུའི་མ་ཡིག་མེད - ཡིག་ཆ་འདི་དག་སྔར་ནས་མ་ཡིག་ཡིན།"
 paused = "སྒྲིག་གཅོད་སྐབས་འཇོག"
@@ -5815,7 +5815,7 @@ invisible = "མཐོང་མི་རུང (metadata ཙམ)"
 location = "གནས་ཡུལ:"
 logo = "ལས་རྟགས:"
 logoHidden = "ལས་རྟགས་མེད"
-logoShown = "Stirling PDF ལས་རྟགས་མངོན"
+logoShown = "PDF Viewer ལས་རྟགས་མངོན"
 participantCount_one = "ཞུགས་མཁན {{count}} གོ་རིམ་བཞིན་མིང་རྟགས་འགོད"
 participantCount_other = "ཞུགས་མཁན {{count}} གོ་རིམ་བཞིན་མིང་རྟགས་འགོད"
 participants = "ཞུགས་མཁན"
@@ -6309,8 +6309,8 @@ terms = "ཆ་རྐྱེན་དང་ཆ་རྐྱེན།"
 title = "གསུམ་པའི་ཕྱོགས་ནས་ཆོག་མཆན།"
 
 [localMode]
-automationUnavailable = "སྒྲིག་གཅོད་ཡིག་ཁུག་དང pipelines སྤྱོད་པར Stirling Cloud ལམ་རང་འགན་ server ལ་ནང་འཛུལ་གནང་།"
-toolUnavailable = "ལག་ཆ་འདི་ལ་རྩིས་ཁྲོད་དགོས། Stirling Cloud ལ་ནང་འཇུག ཡང་ན་རང་དབང་ཞབས་ཞུ་ལ་མཐུད་ནས་སྤྱོད།"
+automationUnavailable = "སྒྲིག་གཅོད་ཡིག་ཁུག་དང pipelines སྤྱོད་པར PDF Viewer Cloud ལམ་རང་འགན་ server ལ་ནང་འཛུལ་གནང་།"
+toolUnavailable = "ལག་ཆ་འདི་ལ་རྩིས་ཁྲོད་དགོས། PDF Viewer Cloud ལ་ནང་འཇུག ཡང་ན་རང་དབང་ཞབས་ཞུ་ལ་མཐུད་ནས་སྤྱོད།"
 
 [localMode.toolPicker]
 message = "ལག་ཆ་ཡོངས་འབྱེད་པར་ནང་འཇུག་བྱོས།"
@@ -6563,17 +6563,17 @@ loadFailed = "This authorisation request is invalid or has expired. Close this t
 loading = "Loading authorisation request..."
 missingId = "Missing authorisation request. Start the connection from your app and try again."
 redirecting = "app ལ་ཁྱེད་ཕྱིར་སྐྱེལ་བཞིན..."
-requesting = "{{app}} ཡིས་ཁྱེད་ཀྱི Stirling PDF རྩིས་ཐོ་ལ་འཛུལ་སྤྱོད་འདོད"
+requesting = "{{app}} ཡིས་ཁྱེད་ཀྱི PDF Viewer རྩིས་ཐོ་ལ་འཛུལ་སྤྱོད་འདོད"
 scopesIntro = "འདིས {{app}} ལ་འདི་དག་བྱ་ཆོག་པར་བྱེད།"
 signedInAs = "{{name}} ལྟར་ནང་འཛུལ"
 signInButton = "མུ་མཐུད་པར་ནང་འཛུལ"
-signInPrompt = "app མཐུད་པ་མུ་མཐུད་པར་ཁྱེད་ཀྱི Stirling PDF རྩིས་ཐོ་ལ་ནང་འཛུལ་གནང་།"
+signInPrompt = "app མཐུད་པ་མུ་མཐུད་པར་ཁྱེད་ཀྱི PDF Viewer རྩིས་ཐོ་ལ་ནང་འཛུལ་གནང་།"
 title = "Authorise access"
 unknownApp = "ཕྱི་རོལ་གྱི application ཞིག"
 
 [oauthConsent.access]
 actAsYou = "ཁྱེད་ལྟར་བྱེད - {{app}} ཡིས་བྱས་པ་ཚང་མ་ཁྱེད་ཀྱི་རྩིས་ཐོ་འོག་འགྲོ་ཞིང་ཁྱེད་ཀྱི་སྤྱོད་ཚད་ལ་རྩིས་འཇུག་བྱེད"
-tools = "ཁྱེད་ཀྱི་ཚབ་ཏུ Stirling PDF ལག་ཆས་སྤྱོད - ཡིག་ཆ་སྒྱུར། རྩོམ་སྒྲིག མིང་རྟགས། བདེ་འཇགས། སྒྲིག་གཅོད"
+tools = "ཁྱེད་ཀྱི་ཚབ་ཏུ PDF Viewer ལག་ཆས་སྤྱོད - ཡིག་ཆ་སྒྱུར། རྩོམ་སྒྲིག མིང་རྟགས། བདེ་འཇགས། སྒྲིག་གཅོད"
 
 [oauthConsent.scope]
 email = "ཁྱེད་ཀྱི email ཁ་བྱང་ལྟ"
@@ -6703,22 +6703,22 @@ skipTheTour = "སྐོར་སྐྱོད་ལ་བསྐྱོད་པ�
 
 [onboarding.checklist]
 dismiss = "སེལ"
-title = "Stirling PDF སྒྲིག"
+title = "PDF Viewer སྒྲིག"
 
 [onboarding.checklist.downloadDesktop]
-description = "Stirling ཁྱེད་ཀྱི་འཕྲུལ་ཆས་ཐོག་ཐད་ཀར་སྤེལ"
-title = "Desktop ལ་སྤྱོད་པའི Stirling ཕབ་ལེན"
+description = "PDF Viewer ཁྱེད་ཀྱི་འཕྲུལ་ཆས་ཐོག་ཐད་ཀར་སྤེལ"
+title = "Desktop ལ་སྤྱོད་པའི PDF Viewer ཕབ་ལེན"
 
 [onboarding.checklist.inviteTeam]
 description = "ཁྱེད་ཀྱི་ཚོགས་ཆུང་དང་མཉམ་ལས་བྱེད"
 title = "ཚོགས་ཆུང་ཁོངས་མི་གདན་འདྲེན"
 
 [onboarding.checklist.setDefaultApp]
-description = "PDF ཡིག་ཆ Stirling PDF ནང་ཁ་འབྱེད"
-title = "Stirling ཁྱེད་ཀྱི་སྔོན་སྒྲིག་བཟོ"
+description = "PDF ཡིག་ཆ PDF Viewer ནང་ཁ་འབྱེད"
+title = "PDF Viewer ཁྱེད་ཀྱི་སྔོན་སྒྲིག་བཟོ"
 
 [onboarding.checklist.takeTour]
-description = "མགྱོགས་པོའི་སྟོན་སྐོར་ནང Stirling ཇི་ལྟར་ལས་ཀ་བྱེད་པ་ལྟ"
+description = "མགྱོགས་པོའི་སྟོན་སྐོར་ནང PDF Viewer ཇི་ལྟར་ལས་ཀ་བྱེད་པ་ལྟ"
 title = "སྟོན་སྐོར་ལ་ཞུགས"
 
 [onboarding.desktopInstall]
@@ -6730,7 +6730,7 @@ titleWithOs = "{{osLabel}} ལ་ཕབ་ལེན།"
 [onboarding.desktopWelcome]
 body = "ཞིབ་བཤེར་བྱ་རྒྱུའི་འགྱུར་བ་གསར་པ་མང་པོ་ཡོད། <strong>Agent Chat</strong>, ཡིག་ཆ་རང་འགུལ <strong>classification</strong> དང་གཞན་མང་པོ་ཚུད།"
 freeLine = "རྩོམ་སྒྲིག་ཆས་ད་ལྟ <free>རིན་མེད་ཡོངས་རྫོགས</free> ཡིན།"
-title = "Stirling <product>Desktop</product> ལ་དགའ་བསུ"
+title = "PDF Viewer <product>Desktop</product> ལ་དགའ་བསུ"
 
 [onboarding.mfa]
 authenticationCode = "ར་སྤྲོད་ཨང་རྟགས"
@@ -6758,14 +6758,14 @@ userBody = "རུ་མི་གདན་འདྲེན་ཞུ་བ་ད�
 userTitle = "འཆར་གཞིའི་སྤྱི་བསྡོམས།"
 
 [onboarding.processorIntro]
-body = "Stirling ད་ལྟ <strong>སྲིད་ཇུས</strong> སྤེལ་བཞིན་ཡོད — ཡིག་ཆ་རེ་རེ་འབྱོར་སྐབས་དེ་དག་རིགས་དབྱེ། བདེ་འཇགས་སྲུང་སྐྱོབ། དང་ལས་སྣོན་བྱེད་པའི་རང་འགུལ་སྒྲིག་སྲོལ་ཡིན། དེ་དག་སྒྲིག་ནས <strong>ལས་སྣོན་ཆས</strong> ནང་སྤེལ་བ་ལྟ་ཞིབ་བྱེད།"
+body = "PDF Viewer ད་ལྟ <strong>སྲིད་ཇུས</strong> སྤེལ་བཞིན་ཡོད — ཡིག་ཆ་རེ་རེ་འབྱོར་སྐབས་དེ་དག་རིགས་དབྱེ། བདེ་འཇགས་སྲུང་སྐྱོབ། དང་ལས་སྣོན་བྱེད་པའི་རང་འགུལ་སྒྲིག་སྲོལ་ཡིན། དེ་དག་སྒྲིག་ནས <strong>ལས་སྣོན་ཆས</strong> ནང་སྤེལ་བ་ལྟ་ཞིབ་བྱེད།"
 cta = "ལས་སྣོན་ཆས་ལ་ལྟ"
-title = "Stirling Processor ལ་ལྟ"
+title = "PDF Viewer Processor ལ་ལྟ"
 
 [onboarding.saas.freeEditor]
 freeLine = "རྩོམ་སྒྲིག་ཆས་ད་ལྟ <free>རིན་མེད་ཡོངས་རྫོགས</free> ཡིན།"
 premium = "ང་ཚོས་ཁྱད་ཆོས་གསར་པ་མང་པོ་ཁ་སྣོན་བྱས་ཡོད། <strong>Policies</strong> དང <strong>Agent Chat</strong> ཚུད།"
-title = "Stirling ལ་དགའ་བསུ"
+title = "PDF Viewer ལ་དགའ་བསུ"
 
 [onboarding.saas.team]
 addButton = "ཁ་སྣོན"
@@ -6786,9 +6786,9 @@ roleUser = "སྤྱོད་མཁན"
 title = "བདེ་འཇགས་ཞིབ་བཤེར"
 
 [onboarding.serverLicense]
-freeBody = "ང་ཚོའི <strong>Open-Core</strong> ཆོག་མཆན་ནང་ <strong>OAuth SSO</strong> དང་སྤྱོད་མཁན་<strong>{{freeTierLimit}}</strong> བར་རིན་མེད་དུ་ཚུད་ཡོད། བར་ཆད་མེད་པར་རྒྱ་སྐྱེད་བྱ་ཆེད། ང་ཚོས་ཟླ་རེར་ཨ་སྒོར་99 ཡིས་<strong>སྤྱོད་མཁན་100</strong> ལ་ཞབས་ཞུ་སྤྲོད་པའི་Stirling Team འཆར་གཞི་འོས་སྦྱོར་བྱེད།"
+freeBody = "ང་ཚོའི <strong>Open-Core</strong> ཆོག་མཆན་ནང་ <strong>OAuth SSO</strong> དང་སྤྱོད་མཁན་<strong>{{freeTierLimit}}</strong> བར་རིན་མེད་དུ་ཚུད་ཡོད། བར་ཆད་མེད་པར་རྒྱ་སྐྱེད་བྱ་ཆེད། ང་ཚོས་ཟླ་རེར་ཨ་སྒོར་99 ཡིས་<strong>སྤྱོད་མཁན་100</strong> ལ་ཞབས་ཞུ་སྤྲོད་པའི་PDF Viewer Team འཆར་གཞི་འོས་སྦྱོར་བྱེད།"
 freeTitle = "ཚོགས་པའི་འཆར་གཞི"
-overLimitBody = "ང་ཚོའི་ཆོག་མཆན་གྱིས་སྤྱོད་མཁན <strong>{{freeTierLimit}}</strong> བར་རིན་མེད་ཆོག ཁྱེད་ལ <strong>{{overLimitUserCopy}}</strong> Stirling སྤྱོད་མཁན་ཡོད། བར་མ་ཆད་པར་མུ་མཐུད་པར Stirling Team plan ལ་སྤར། - <strong>སྤྱོད་མཁན 100</strong>, PDF ཡི་གེ་རྩོམ་སྒྲིག, དང $99/mo ལ་དོ་དམ་ཆ་ཚང་ཚད་འཛིན།"
+overLimitBody = "ང་ཚོའི་ཆོག་མཆན་གྱིས་སྤྱོད་མཁན <strong>{{freeTierLimit}}</strong> བར་རིན་མེད་ཆོག ཁྱེད་ལ <strong>{{overLimitUserCopy}}</strong> PDF Viewer སྤྱོད་མཁན་ཡོད། བར་མ་ཆད་པར་མུ་མཐུད་པར PDF Viewer Team plan ལ་སྤར། - <strong>སྤྱོད་མཁན 100</strong>, PDF ཡི་གེ་རྩོམ་སྒྲིག, དང $99/mo ལ་དོ་དམ་ཆ་ཚང་ཚད་འཛིན།"
 overLimitTitle = "Team plan དགོས"
 seePlans = "འཆར་གཞི་ལ་གཟིགས།"
 upgrade = "ད་ལྟ་རིམ་སྤོར་ →"
@@ -6912,7 +6912,7 @@ check = "ཡང་བསྐྱར་ཞིབ་བཤེར"
 checkAccount = "རྩིས་ཐོ་ཞིབ་བཤེར"
 chooseEmail = "{{team}} ནང་ཁོང་ཚོའི་རྩིས་ཐོ་འདེམས་པའམ། གདན་འདྲེན་བྱེད་པར email ཞིག་འཇུག་རོགས།"
 close = "སྤོ་སྒྱུར་གླེང་སྒྲོམ་ཁ་རྒྱག"
-cloudAccount = "Stirling རྩིས་ཐོ"
+cloudAccount = "PDF Viewer རྩིས་ཐོ"
 cloudScopeStyled = "<user>{{name}}</user> ཡིས་ {{team}} དང་། དེའི་ཚོགས་མི། རྩིས་སྤྲོད་བཅས་དོ་དམ་བྱེད།"
 cloudTargetChanged = "སྤྲིན་ཚོགས་མི་གཞན་ཞིག་འདེམས་རོགས། རྩིས་ཐོ་འདི་ད་ལྟ་སྤོ་སྒྱུར་ལ་འོས་འཚམ་མིན།"
 confirm = "ངས་འཛུལ་སྤྱོད་དང་བདག་དབང་གི་འགྱུར་བ་རྟོགས་ཡོད།"
@@ -6927,7 +6927,7 @@ inviteAddress = "<account>{{email}}</account> དེ་ {{team}} ལ་གདན
 inviteBlocked = "གདན་འདྲེན་བསྐུར་མ་ཐུབ། ཚོགས་ཆུང་གི་ས་ཆ་ཡོད་མེད་དང་ལེན་མཁན་ལ་སྔོན་ནས་རིན་སྤྲད་མངགས་ཉོ་ཡོད་མེད་ཞིབ་བཤེར་བྱེད།"
 linkChanged = "ཞབས་ཞུ་ཆས་ཀྱི་སྤྲིན་མཐུད་སྦྲེལ་འགྱུར་འདུག མུ་མཐུད་མ་བྱས་གོང་ཞབས་ཞུ་ཆས་སྤྱོད་མཁན་ལ་མ་གཞིའི་མཐུད་སྦྲེལ་སླར་གསོ་བྱེད་རོགས་ཞུ།"
 linkedServerCount = "མཐུད་ཡོད་པའི་ཞབས་ཞུ་ཆས་ {{count}}"
-linkRevoked = "ཞབས་ཞུ་ཆས་འདིའི་སྤྲིན་མཐུད་སྦྲེལ་ད་ལྟ་ནུས་མེད་རེད། སྤོ་སྒྱུར་དོར་ནས། སྒྲིག་འགོད་ནང་ཁྱེད་ཀྱི་ Stirling རྩིས་ཐོ་ཡང་བསྐྱར་མཐུད། བདག་དབང་མི་འགྱུར།"
+linkRevoked = "ཞབས་ཞུ་ཆས་འདིའི་སྤྲིན་མཐུད་སྦྲེལ་ད་ལྟ་ནུས་མེད་རེད། སྤོ་སྒྱུར་དོར་ནས། སྒྲིག་འགོད་ནང་ཁྱེད་ཀྱི་ PDF Viewer རྩིས་ཐོ་ཡང་བསྐྱར་མཐུད། བདག་དབང་མི་འགྱུར།"
 localScope = "ཁོང་ཚོས་ཞབས་ཞུ་ཆས་འདི་བདག་ཏུ་འཛིན་ཞིང་། རྩིས་སྤྲོད་དང་སྤྲིན་མཐུད་སྦྲེལ་དོ་དམ་བྱེད། ཁྱེད་ལ་དོ་དམ་པའི་འཛུལ་སྤྱོད་མུ་མཐུད་ཡོད་ཀྱང་། སྒྲིག་འགོད་དེ་ཚོར་འཛུལ་སྤྱོད་བាត់་འགྲོ།"
 membershipDetails = "ཚོགས་ཆུང་ཚོགས་མིའི་ཞིབ་ཕྲ"
 membershipFirst = "སྤོ་སྒྱུར་གཏན་འཁེལ་མ་བྱས་གོང་ཁོང་ཚོ་ཚོགས་ཆུང་ལ་ཞུགས་དགོས།"
@@ -7255,7 +7255,7 @@ benefit1Body = "ལག་ཆ་མུ་སྦྲེལ། དུས་ཚོད
 benefit1Title = "རང་འགུལ་རྒྱུན་རིམ"
 benefit2Body = "summarise, classify, redact, AI-OCR"
 benefit2Title = "AI ལག་ཆ"
-benefit3Body = "Stirling endpoint གང་རུང་ལ programmatically འབོད"
+benefit3Body = "PDF Viewer endpoint གང་རུང་ལ programmatically འབོད"
 benefit3Title = "API འཛུལ་སྤྱོད"
 button = "Processor སྒོ་ཕྱེ →"
 reassurance = "ཉུང་མཐའ་མེད · ཚོད་ལྟར $0 ཚད་གོང་སྒྲིག · དུས་ནམ་ཡང་དོར་ཆོག"
@@ -7345,7 +7345,7 @@ editorLabel = "PDF རྩོམ་སྒྲིག་ཆས"
 login = "ནང་འཛུལ"
 manualToolsPromo = "ཚད་མེད་རིན་མེད་ལག་སྒྲུབ་ PDF ལག་ཆ"
 processorLabel = "PDF སྒྲིག་གཅོད་ཆས"
-processorTitle = "Stirling གི་ལེགས་ཤོས་སྒོ་ཕྱེ་བར་རྩིས་ཐོ་གསར་བཟོ"
+processorTitle = "PDF Viewer གི་ལེགས་ཤོས་སྒོ་ཕྱེ་བར་རྩིས་ཐོ་གསར་བཟོ"
 readerLabel = "PDF Reader"
 
 [payg.spendCapMeter]
@@ -7385,7 +7385,7 @@ usdNote = "USD ནང་སྔོན་རྩིས། མངགས་ཉོ་�
 [payg.upgrade.checkout]
 capValue = "{{symbol}}{{amount}} / ཟླ་རེ"
 edit = "རྩོམ་སྒྲིག"
-help = "Stripe ཡིས་ཁྱེད་ཀྱི card ཞིབ་ཕྲ་སྒྲིག་གི་རེད། Stirling གིས་དེ་ཚོ་ནམ་ཡང་མི་མཐོང་།"
+help = "Stripe ཡིས་ཁྱེད་ཀྱི card ཞིབ་ཕྲ་སྒྲིག་གི་རེད། PDF Viewer གིས་དེ་ཚོ་ནམ་ཡང་མི་མཐོང་།"
 loading = "checkout འཇུག་བཞིན…"
 noCap = "ཚད་གོང་མེད"
 title = "ཁྱེད་ཀྱི་སྤྲོད་ཐབས་སྣོན"
@@ -7393,7 +7393,7 @@ title = "ཁྱེད་ཀྱི་སྤྲོད་ཐབས་སྣོན"
 [payg.upgrade.help]
 aiBody = "summarise, classify, redact, AI-OCR"
 aiTitle = "AI ལག་ཆ"
-apiBody = "Stirling endpoint གང་རུང་ལ programmatic འཛུལ་སྤྱོད"
+apiBody = "PDF Viewer endpoint གང་རུང་ལ programmatic འཛུལ་སྤྱོད"
 apiTitle = "API འབོད་སྤྱོད"
 automationBody = "མནན་མི་དགོས་པའི་མུ་སྦྲེལ་ལག་ཆ་འམ་དུས་ཚོད་ལྟར་གཡོག་སྐོར"
 automationTitle = "རང་འགུལ་རྒྱུན་རིམ"
@@ -7492,7 +7492,7 @@ overCapacityConsequence = "ད་ཡོད་རྩིས་ཐོ་དེ་�
 overCapacityTitle = "ཁྱེད་ཀྱི་ཞབས་ཞུ་ཆས་ལ་འཆར་གཞིས་ཁེབས་པ་ལས་མང་བའི་སྤྱོད་མཁན་ཡོད"
 perMonth = "/ཟླ"
 perYear = "/ལོ"
-planName = "Stirling Team"
+planName = "PDF Viewer Team"
 reductionNote = "ཤོང་ཚད་དམའ་བ་དེ་ཁྱེད་ཀྱི་བསྐྱར་གསོ་རྗེས་མར་འགོ་ཚུགས། དེ་བར་ཁྱེད་ཀྱི་ད་ལྟའི་ཆོག་ཚད་སྤྱོད་ཆོག ད་ཡོད་སྤྱོད་མཁན་གནས། འགྱུར་བ་ནུས་སྐབས་ཁྱེད་ཤོང་ཚད་ལས་བརྒལ་ན་སྤྱོད་མཁན་གསར་པ་བཀག་ཡོད།"
 renewalNote = "{{total}}{{period}} ལ་བསྐྱར་གསོ། Usage & Billing ནང་དུས་ནམ་ཡང་དོར་ཆོག"
 reviewChange = "Stripe ནང་འགྱུར་བ་ཞིབ་ལྟ"
@@ -8437,35 +8437,35 @@ pdfa-3b = "PDF/A-3b"
 ownerRequired = "ཚོགས་པའི་བདག་པོ་ཁོ་ནས server འདི་སྦྲེལ་བའམ་སྦྲེལ་བ་གཅོད་ཐུབ།"
 
 [portal.accountLink.card]
-billingNote = "server འདིས Stirling Cloud ནང་ཁྱེད་ཚོའི་ཚོགས་པའི་བཟོ་སྒྲིག་ཆོག་ཚད་མཉམ་སྤྱོད་བྱེད།"
-connectDescription = "Stirling Cloud ནང་ཁྱེད་ཚོའི་ཚོགས་པའི་བཟོ་སྒྲིག་ཆོག་ཚད་སྤྱོད་ཆེད་ server འདི་སྦྲེལ།"
-disconnectBody = "server འདིས Stirling Cloud ནང་ཁྱེད་ཚོའི་ཚོགས་པའི་བཟོ་སྒྲིག་ཆོག་ཚད་སྤྱོད་པ་མཚམས་འཇོག་བྱེད། ཁྱེད་ཀྱི་ས་གནས་ཡིག་ཆ་རྣམས་ server འདིའི་སྟེང་ཉར་ཚགས་ཡོད། ཡང་བསྐྱར་སྦྲེལ་དགོས་ན། ཐོག་མའི་སྦྲེལ་བའི་གོམ་རིམ་ལ་བསྟུན།"
+billingNote = "server འདིས PDF Viewer Cloud ནང་ཁྱེད་ཚོའི་ཚོགས་པའི་བཟོ་སྒྲིག་ཆོག་ཚད་མཉམ་སྤྱོད་བྱེད།"
+connectDescription = "PDF Viewer Cloud ནང་ཁྱེད་ཚོའི་ཚོགས་པའི་བཟོ་སྒྲིག་ཆོག་ཚད་སྤྱོད་ཆེད་ server འདི་སྦྲེལ།"
+disconnectBody = "server འདིས PDF Viewer Cloud ནང་ཁྱེད་ཚོའི་ཚོགས་པའི་བཟོ་སྒྲིག་ཆོག་ཚད་སྤྱོད་པ་མཚམས་འཇོག་བྱེད། ཁྱེད་ཀྱི་ས་གནས་ཡིག་ཆ་རྣམས་ server འདིའི་སྟེང་ཉར་ཚགས་ཡོད། ཡང་བསྐྱར་སྦྲེལ་དགོས་ན། ཐོག་མའི་སྦྲེལ་བའི་གོམ་རིམ་ལ་བསྟུན།"
 disconnectTitle = "instance འདི་སྦྲེལ་བ་གཅོད་དམ།"
 eyebrow = "instance འདི"
-linkButton = "ཁྱེད་ཀྱི Stirling རྩིས་ཐོ་སྦྲེལ་པ"
+linkButton = "ཁྱེད་ཀྱི PDF Viewer རྩིས་ཐོ་སྦྲེལ་པ"
 loading = "རྩིས་ཐོའི་སྦྲེལ་མཐུད་ཞིབ་བཤེར་བྱེད་བཞིན"
 notLinked = "སྦྲེལ་མཐུད་མེད"
-signedInAs = "Stirling Cloud ལ་ནང་འཛུལ་བྱས་པ"
+signedInAs = "PDF Viewer Cloud ལ་ནང་འཛུལ་བྱས་པ"
 statusError = "རྩིས་ཐོའི་སྦྲེལ་མཐུད་ཞིབ་བཤེར་བྱ་མ་ཐུབ"
-title = "Stirling Cloud"
+title = "PDF Viewer Cloud"
 unlink = "instance འདི་སྦྲེལ་བ་གཅོད་པ"
 
 [portal.accountLink.card.error]
 title = "སྦྲེལ་མཐུད་གསར་སྒྱུར་བྱ་མ་ཐུབ"
 
 [portal.accountLink.card.loginNotConfigured]
-description = "Stirling Cloud ལ་སྦྲེལ་བ་སྤྱོད་ཐུབ་པར་ཁྱེད་ཀྱི server དོ་དམ་པར་ཞུ།"
+description = "PDF Viewer Cloud ལ་སྦྲེལ་བ་སྤྱོད་ཐུབ་པར་ཁྱེད་ཀྱི server དོ་དམ་པར་ཞུ།"
 title = "རྩིས་ཐོའི་སྦྲེལ་མཐུད་སྤྱོད་མི་ཐུབ"
 
 [portal.accountLink.connect]
-adminRequired = "ཟླ་རེའི credits མང་བར་ཐོབ་ཆེད་ Usage & billing ཁ་ཕྱེ་ནས Stirling རྩིས་ཐོ་སྦྲེལ་བར་ཁྱེད་ཀྱི server དོ་དམ་པར་ཞུ། ལག་དེབ PDF ལག་ཆ་ད་དུང་སྤྱོད་ཐུབ།"
+adminRequired = "ཟླ་རེའི credits མང་བར་ཐོབ་ཆེད་ Usage & billing ཁ་ཕྱེ་ནས PDF Viewer རྩིས་ཐོ་སྦྲེལ་བར་ཁྱེད་ཀྱི server དོ་དམ་པར་ཞུ། ལག་དེབ PDF ལག་ཆ་ད་དུང་སྤྱོད་ཐུབ།"
 adminTitle = "ཁྱེད་ཀྱི server དོ་དམ་པར་ཞུ"
 close = "ཁ་རྒྱག་པ"
 copied = "འདྲ་བཤུས་བྱས་ཟིན"
 copyAdminMessage = "དོ་དམ་པར་བསྐུར་རྒྱུའི་འཕྲིན་ཐུང་འདྲ་བཤུས"
-exhaustedLede = "server འདིས་ཟླ་འདིའི་རིན་མེད credits སྤྱད་ཚར་འདུག ཁྱེད་ཚོའི་ཚོགས་པའི་ཟླ་རེའི་ཆོག་ཚད་ལ་འཛུལ་ཆེད་ Stirling རྩིས་ཐོ་གསར་པའམ་ཡོད་པ་ཞིག་སྦྲེལ།"
+exhaustedLede = "server འདིས་ཟླ་འདིའི་རིན་མེད credits སྤྱད་ཚར་འདུག ཁྱེད་ཚོའི་ཚོགས་པའི་ཟླ་རེའི་ཆོག་ཚད་ལ་འཛུལ་ཆེད་ PDF Viewer རྩིས་ཐོ་གསར་པའམ་ཡོད་པ་ཞིག་སྦྲེལ།"
 notNow = "ད་ལྟ་མིན"
-start = "Stirling རྩིས་ཐོ་སྦྲེལ་པ"
+start = "PDF Viewer རྩིས་ཐོ་སྦྲེལ་པ"
 step = "གོམ་རིམ་ {{current}} / {{total}}"
 
 [portal.accountLink.connect.benefits]
@@ -8479,9 +8479,9 @@ teamsDetail = "རིན་སྤྲད་པའི Team plan དང་སྦྲ
 teamsLabel = "ཚོགས་པ་ཆེ་བ"
 
 [portal.accountLink.connect.callback]
-linkedNotSignedIn = "browser འདིའི་ནང་ཁྱེད་རང Stirling ལ་ནང་འཛུལ་བྱས་མི་འདུག་པས། སྤྱོད་ཚད་དང་རྩིས་སྤྲོད་ཀྱིས་ཁྱེད་ལ་ནང་འཛུལ་བྱེད་དུ་འཇུག་པར་འདྲི་ཡོང་།"
+linkedNotSignedIn = "browser འདིའི་ནང་ཁྱེད་རང PDF Viewer ལ་ནང་འཛུལ་བྱས་མི་འདུག་པས། སྤྱོད་ཚད་དང་རྩིས་སྤྲོད་ཀྱིས་ཁྱེད་ལ་ནང་འཛུལ་བྱེད་དུ་འཇུག་པར་འདྲི་ཡོང་།"
 retry = "ཡང་བསྐྱར་ཚོད་ལྟ"
-signedInAnyway = "ཁྱེད་རང Stirling ལ་ནང་འཛུལ་བྱས་འདུག་པས། རྩིས་སྤྲོད་དང་སྤྱོད་ཚད་འགེལ་ཐུབ། server སྦྲེལ་མཐུད་ཁོ་ན་ཆ་ཚང་མིན།"
+signedInAnyway = "ཁྱེད་རང PDF Viewer ལ་ནང་འཛུལ་བྱས་འདུག་པས། རྩིས་སྤྲོད་དང་སྤྱོད་ཚད་འགེལ་ཐུབ། server སྦྲེལ་མཐུད་ཁོ་ན་ཆ་ཚང་མིན།"
 working = "སྦྲེལ་མཐུད་མཇུག་སྒྲིལ་བཞིན།"
 
 [portal.accountLink.connect.callback.expired]
@@ -8497,7 +8497,7 @@ body = "རེ་ཞུ་འདི་ངོས་ལེན་མ་བྱས་
 title = "སྦྲེལ་མཐུད་མཇུག་སྒྲིལ་མ་ཐུབ"
 
 [portal.accountLink.connect.callback.unfinished]
-body = "Stirling གིས་སྦྲེལ་མཐུད་ངེས་གཏན་མ་བྱས། འདི་སྤྱིར་བཏང་གནས་སྐབས་ཙམ་ཡིན།"
+body = "PDF Viewer གིས་སྦྲེལ་མཐུད་ངེས་གཏན་མ་བྱས། འདི་སྤྱིར་བཏང་གནས་སྐབས་ཙམ་ཡིན།"
 title = "ད་དུང་མཇུག་སྒྲིལ་མེད"
 
 [portal.accountLink.connect.done]
@@ -8508,23 +8508,23 @@ creditsBarLabel = "ལྷག་ཡོད་རིན་མེད credits"
 creditsSuffix = "རིན་མེད credits {{allowance}} ནས་ལྷག་པ"
 cta = "ཚར་སོང་"
 inviteTeam = "ཁྱེད་ཀྱི་ཚོགས་པ་གདན་འདྲེན"
-lede = "server འདི་ད་ལྟ་ཁྱེད་ཀྱི Stirling རྩིས་ཐོ་ལ་བརྟེན་ནས་འཁོར་སྐྱོད་བྱེད།"
+lede = "server འདི་ད་ལྟ་ཁྱེད་ཀྱི PDF Viewer རྩིས་ཐོ་ལ་བརྟེན་ནས་འཁོར་སྐྱོད་བྱེད།"
 pendingTitle = "ཕལ་ཆེར་ཚར་འདུག"
 switchOnProcessor = "Processor སྤོར་བ"
 title = "སྦྲེལ་ཟིན"
 
 [portal.accountLink.connect.handoff]
-opening = "Stirling ནང་འཛུལ་ཁ་ཕྱེ་བཞིན..."
-reauthLede = "ཁྱེད་ཀྱི Stirling session དུས་ཚོད་ཡོལ་སོང་། ཡང་བསྐྱར་ནང་འཛུལ་བྱས་ན་སྤྱོད་ཚད་དང་རྩིས་སྤྲོད་མཐོང་ཐུབ། གང་ལྟར་ཡང server འདི་སྦྲེལ་ནས་སྡོད།"
+opening = "PDF Viewer ནང་འཛུལ་ཁ་ཕྱེ་བཞིན..."
+reauthLede = "ཁྱེད་ཀྱི PDF Viewer session དུས་ཚོད་ཡོལ་སོང་། ཡང་བསྐྱར་ནང་འཛུལ་བྱས་ན་སྤྱོད་ཚད་དང་རྩིས་སྤྲོད་མཐོང་ཐུབ། གང་ལྟར་ཡང server འདི་སྦྲེལ་ནས་སྡོད།"
 title = "སྦྲེལ་མཐུད་བྱེད་བཞིན"
 
 [portal.accountLink.connectionNotice]
-expiredBody = "server འདི་དྲ་མེད་ཆོག་ཚད་ནང Stirling Cloud ལ་འབྱོར་མ་ཐུབ། Cloud རྒྱབ་སྐྱོར་ཡོད་པའི Team ཁྱད་ཆོས་དང Processor ལས་ཀ་གནས་སྐབས་མཚམས་བཞག་ཡོད། ད་ཡོད་གཞི་གྲངས་དང་སྒྲིག་ཟིན་པའི licence ཐོབ་ཐང་ཉར་ཚགས་ཡོད། སྦྲེལ་མཐུད་ལེགས་གྲུབ་ཀྱིས་ཁྱེད་ཀྱི་འཆར་གཞི་ངེས་གཏན་བྱས་རྗེས་འཛུལ་ཐོབ་རང་འགུལ་གྱིས་ཕྱིར་ལོག"
+expiredBody = "server འདི་དྲ་མེད་ཆོག་ཚད་ནང PDF Viewer Cloud ལ་འབྱོར་མ་ཐུབ། Cloud རྒྱབ་སྐྱོར་ཡོད་པའི Team ཁྱད་ཆོས་དང Processor ལས་ཀ་གནས་སྐབས་མཚམས་བཞག་ཡོད། ད་ཡོད་གཞི་གྲངས་དང་སྒྲིག་ཟིན་པའི licence ཐོབ་ཐང་ཉར་ཚགས་ཡོད། སྦྲེལ་མཐུད་ལེགས་གྲུབ་ཀྱིས་ཁྱེད་ཀྱི་འཆར་གཞི་ངེས་གཏན་བྱས་རྗེས་འཛུལ་ཐོབ་རང་འགུལ་གྱིས་ཕྱིར་ལོག"
 expiredTitle = "Cloud འཛུལ་ཐོབ་གནས་སྐབས་མཚམས་བཞག"
 offlineBody = "ཁྱེད་ཀྱི་མཐའ་མར་ངེས་གཏན་བྱས་པའི་འཆར་གཞི་ {{deadline}} བར་སྤྱོད་ཐུབ། དེའི་སྔོན་ལ་ server འདིའི་སྦྲེལ་མཐུད་སླར་གསོ་བྱས་ནས cloud རྒྱབ་སྐྱོར་ཁྱད་ཆོས་དང་བཟོ་སྒྲིག་མཚམས་འཇོག་མི་དགོས་པར་བྱོས།"
-offlineTitle = "Stirling Cloud ལ་འབྲེལ་མི་ཐུབ"
+offlineTitle = "PDF Viewer Cloud ལ་འབྲེལ་མི་ཐུབ"
 retry = "སྦྲེལ་མཐུད་ཞིབ་བཤེར"
-revokedBody = "Stirling Cloud གིས་རྩིས་ཐོའི་སྦྲེལ་མཐུད་འདི་དང་ལེན་མ་བྱས། འོས་འཚམ་གྱི cloud རྒྱབ་སྐྱོར་ཁྱད་ཆོས་སླར་གསོ་ཆེད་སྒྲིག་འགོད་ནང་རྩིས་ཐོ་ཡང་བསྐྱར་སྦྲེལ།"
+revokedBody = "PDF Viewer Cloud གིས་རྩིས་ཐོའི་སྦྲེལ་མཐུད་འདི་དང་ལེན་མ་བྱས། འོས་འཚམ་གྱི cloud རྒྱབ་སྐྱོར་ཁྱད་ཆོས་སླར་གསོ་ཆེད་སྒྲིག་འགོད་ནང་རྩིས་ཐོ་ཡང་བསྐྱར་སྦྲེལ།"
 revokedTitle = "རྩིས་ཐོའི་སྦྲེལ་མཐུད་ཕྱིར་འཐེན་བྱས"
 
 [portal.accountLink.failure]
@@ -8553,17 +8553,17 @@ callbackMismatch = "server འདིའི་སྒྲིག་ཟིན་པ�
 cancel = "མེད་པར་བཟོ"
 continueReauth = "ཡང་བསྐྱར་ནང་འཛུལ"
 exhaustedTitle = "ཁྱེད་ཀྱི workflows འཁོར་སྐྱོད་མུ་མཐུད་བྱེད་དུ་འཇུག"
-identity = "Stirling རྩིས་ཐོ"
-linkTitle = "ཁྱེད་ཀྱི Stirling རྩིས་ཐོ་སྦྲེལ་པ"
-noAuthorizeUrl = "Stirling གིས་མུ་མཐུད་བྱ་ས་ཞིག་ཕྱིར་མ་སྤྲད། ཅུང་ཙམ་རྗེས་སུ་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།"
-startFailed = "སྦྲེལ་མཐུད་འགོ་འཛུགས་ཆེད Stirling ལ་འབྲེལ་མ་ཐུབ། server འདིའི་ཕྱིར་སྐྱོད་དྲ་རྒྱའི་འཛུལ་ཐོབ་ཞིབ་བཤེར་བྱས་ནས་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།"
+identity = "PDF Viewer རྩིས་ཐོ"
+linkTitle = "ཁྱེད་ཀྱི PDF Viewer རྩིས་ཐོ་སྦྲེལ་པ"
+noAuthorizeUrl = "PDF Viewer གིས་མུ་མཐུད་བྱ་ས་ཞིག་ཕྱིར་མ་སྤྲད། ཅུང་ཙམ་རྗེས་སུ་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།"
+startFailed = "སྦྲེལ་མཐུད་འགོ་འཛུགས་ཆེད PDF Viewer ལ་འབྲེལ་མ་ཐུབ། server འདིའི་ཕྱིར་སྐྱོད་དྲ་རྒྱའི་འཛུལ་ཐོབ་ཞིབ་བཤེར་བྱས་ནས་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།"
 transferPending = "བདག་དབང་སྤོ་སྒྱུར་ཞིག་སྒུག་བསྡད་ཡོད། དེ་མཇུག་སྒྲིལ་བའམ་མེད་པར་བཟོ་ཆེད Settings → Users ལ་སོང་། དེ་ནས་ཡང་བསྐྱར་སྦྲེལ་ཚོད་ལྟ་བྱོས།"
 
 [portal.accountLink.modal.loginNotConfigured]
 after = "ཁྱེད་ཕྱིར་ཡོང་སྐབས server འདིས་སྦྲེལ་མཐུད་མཇུག་སྒྲིལ་ཐུབ་པའི་ཆེད།"
 and = "དང"
 before = "སྒྲིག"
-title = "Stirling སྦྲེལ་མཐུད་སྒྲིག་མེད"
+title = "PDF Viewer སྦྲེལ་མཐུད་སྒྲིག་མེད"
 
 [portal.accountLink.notice]
 loadFailed = "རྩིས་ཐོ་སྦྲེལ་བའི་གླེང་སྒྲོམ་འཇུག་མ་ཐུབ།"
@@ -8573,11 +8573,11 @@ openFailed = "ཁྱེད་ཀྱི browser ཁ་ཕྱེ་མ་ཐུབ
 instancesSub = "ཚོགས་པ་གཅིག་པར་སྦྲེལ་ཡོད་ self-hosted servers།"
 instancesTitle = "སྦྲེལ་ཡོད instances"
 manageCloud = "stirling.com སྟེང་དོ་དམ"
-otherInstancesSub = "Stirling Cloud ནང་ཚོགས་པ་གཅིག་པར་སྦྲེལ་ཡོད་ self-hosted servers གཞན།"
+otherInstancesSub = "PDF Viewer Cloud ནང་ཚོགས་པ་གཅིག་པར་སྦྲེལ་ཡོད་ self-hosted servers གཞན།"
 otherInstancesTitle = "སྦྲེལ་ཡོད instances གཞན"
 revokeError = "དཔེ་མཚོན་ཕྱིར་འཐེན་མ་ཐུབ"
 sessionRequired = "ཁྱེད་ཀྱིས་རྩིས་སྤྲོད་འཛུལ་ཐོབ་གསར་སྒྱུར་བྱས་རྗེས་སྦྲེལ་ཡོད instances མངོན་ཡོང་།"
-sub = "server འདི་ཁྱེད་ཀྱི Stirling Cloud རྩིས་ཐོ་ལ་སྦྲེལ་བ་དོ་དམ་བྱེད།"
+sub = "server འདི་ཁྱེད་ཀྱི PDF Viewer Cloud རྩིས་ཐོ་ལ་སྦྲེལ་བ་དོ་དམ་བྱེད།"
 
 [portal.accountLink.panel.loadError]
 forbidden = "སྦྲེལ་ཡོད instances དོ་དམ་བྱེད་ཐུབ་པ་ཚོགས་པའི་བདག་པོ་ཁོ་ན་ཡིན།"
@@ -8600,7 +8600,7 @@ viewAll = "pipeline ཚང་མ་ལྟ"
 
 [portal.accountLink.rail]
 adminCta = "credits མང་བ་ཇི་ལྟར་ཐོབ"
-adminSub = "སར་བར་དོ་དམ་པར credits མང་བ་ཐོབ་ཆེད Stirling རྩིས་ཐོ་ཞིག་སྦྲེལ་རོགས་ཞུས། ལག་བཟོས PDF ལག་ཆ་ད་དུང་སྤྱོད་ཆོག"
+adminSub = "སར་བར་དོ་དམ་པར credits མང་བ་ཐོབ་ཆེད PDF Viewer རྩིས་ཐོ་ཞིག་སྦྲེལ་རོགས་ཞུས། ལག་བཟོས PDF ལག་ཆ་ད་དུང་སྤྱོད་ཆོག"
 exhaustedCta = "credits མང་བའི་ཆེད་རྩིས་ཐོ་སྦྲེལ"
 exhaustedSub = "ཟླ་རེའི credits, མཉམ་སྤྱོད་རྩིས་ཐོ་དང Team འཆར་གཞིས་རྒྱ་བསྐྱེད་གདམ་གའི་ཆེད་སྦྲེལ།"
 exhaustedTitle = "སར་བར་འདིའི་རིན་མེད credits སྤྱད་ཚར་འདུག"
@@ -8614,9 +8614,9 @@ malformed = "ནང་འཛུལ་ལན་འདི་ང་ཚོས་ར�
 malformedTitle = "ནང་འཛུལ་ར་སྤྲོད་བྱ་མ་ཐུབ"
 rejected = "ནང་འཛུལ་རེ་ཞུ་འདི་དང་ལེན་བྱས་མེད་པའམ་སྔོན་ནས་སྤྱད་ཟིན། རྩིས་ཐོ་འཛུལ་སྤྱོད་བསྐྱར་གསོའི་ཆེད་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།"
 rejectedTitle = "ནང་འཛུལ་ལེགས་གྲུབ་མ་བྱུང"
-retry = "Stirling གིས་རྩིས་ཐོ་འཛུལ་སྤྱོད་བསྐྱར་གསོ་མཇུག་སྒྲིལ་མ་ཐུབ། སྐད་ཅིག་རྗེས་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས། ཁྱེད་ཀྱི་སར་བར་ད་དུང་སྦྲེལ་ཡོད།"
+retry = "PDF Viewer གིས་རྩིས་ཐོ་འཛུལ་སྤྱོད་བསྐྱར་གསོ་མཇུག་སྒྲིལ་མ་ཐུབ། སྐད་ཅིག་རྗེས་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས། ཁྱེད་ཀྱི་སར་བར་ད་དུང་སྦྲེལ་ཡོད།"
 retryTitle = "རྩིས་ཐོ་འཛུལ་སྤྱོད་སླར་གསོ་མ་བྱུང"
-success = "ཁྱེད་ཀྱི་རྩིས་ཐོ་འཛུལ་སྤྱོད་བསྐྱར་གསོ་བྱས་ཟིན། སར་བར་འདི་ད་དུང Stirling རྩིས་ཐོ་དེ་རང་ལ་སྦྲེལ་ཡོད།"
+success = "ཁྱེད་ཀྱི་རྩིས་ཐོ་འཛུལ་སྤྱོད་བསྐྱར་གསོ་བྱས་ཟིན། སར་བར་འདི་ད་དུང PDF Viewer རྩིས་ཐོ་དེ་རང་ལ་སྦྲེལ་ཡོད།"
 title = "རྩིས་ཐོ་འཛུལ་སྤྱོད་བསྐྱར་གསོ"
 working = "རྩིས་ཐོ་འཛུལ་སྤྱོད་སླར་གསོ་བྱེད་བཞིན་ཡོད།"
 
@@ -8630,7 +8630,7 @@ close = "Assistant ཁ་རྒྱག"
 error = "Assistant ལ་འབྲེལ་མ་ཐུབ།"
 errorWithDetail = "Assistant ལ་འབྲེལ་མ་ཐུབ། {{detail}}"
 inputAriaLabel = "Assistant ལ་དྲིས"
-inputPlaceholder = "Stirling སྐོར་དྲིས…"
+inputPlaceholder = "PDF Viewer སྐོར་དྲིས…"
 open = "Assistant ཁ་འབྱེད"
 send = "སྐུར"
 title = "རོགས་རམ་པ"
@@ -8675,7 +8675,7 @@ title = "ཁྱེད་ཀྱི་སྤྱོད་འགྲོ་ཚད་�
 [portal.billing.checkout.card]
 fields = "གཱ་ཨང་ · MM / YY · CVC · ZIP"
 label = "གཱ་ཞིབ་ཆ"
-note = "གཱ་ཞིབ་ཆ་ Stripe ཡིས་བསྡུ་ལེན་བྱེད། Stirling གིས PAN ཡང་ན CVC ནམ་ཡང་ཉར་མི་བྱེད།"
+note = "གཱ་ཞིབ་ཆ་ Stripe ཡིས་བསྡུ་ལེན་བྱེད། PDF Viewer གིས PAN ཡང་ན CVC ནམ་ཡང་ཉར་མི་བྱེད།"
 
 [portal.billing.checkout.error]
 title = "checkout འགོ་འཛུགས་མ་ཐུབ"
@@ -8759,7 +8759,7 @@ pdfsUsed_one = "PDF {{count}} སྒྲུབ་སྦྱོར་བྱས་�
 pdfsUsed_other = "{{count}} PDFs ལས་སྣོན་བྱས་པ"
 period = "གྲོས་མཐུན་དུས་ཡུན། {{start}} – {{end}}"
 sub = "Air-gapped སྤེལ་འཇོག, SCIM, གཞི་གྲངས་གནས་ཡུལ, uptime SLAs དང་མཐུན་པའི་གྲོས་མཐུན།"
-title = "སྒྲིག་སྲོལ་ཡོད་པའི་ཁོར་ཡུག་ནང Stirling སྒྲུབ་བཞིན་ཡོད་དམ།"
+title = "སྒྲིག་སྲོལ་ཡོད་པའི་ཁོར་ཡུག་ནང PDF Viewer སྒྲུབ་བཞིན་ཡོད་དམ།"
 trial = "ཉིན་{{days}} ཚོད་ལྟ · {{date}} ལ་མཇུག་སྒྲིལ"
 usersAgreed = "{{used}} / {{agreed}} གྲོས་མཐུན་སྤྱོད་མཁན"
 usersOver_one = "{{count}} སྤྱོད་མཁན་གྲོས་མཐུན་གྲངས་ཚད་ལས་བརྒལ"
@@ -8909,7 +8909,7 @@ spendAgainstLimit = "འཁོར་ཡུན་འདིར {{cap}} ནས {{sp
 [portal.billing.seats]
 awaitingSync = "ཉིན་རེའི་མཉམ་སྒྲིག་ལ་སྒུག་བཞིན་ཡོད། ད་དུང་སྤྱི་བསྡོམས་ནང་ཚུད་མེད།"
 breakdown = "སྤྱོད་མཁན་གྲངས་རྩིས་སའི་གནས"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 deployment = "མཐུད་ཟིན་པའི server"
 lastReported = "{{date}} ལ་སྙན་ཞུ་བྱས"
 live = "དངོས་དུས་སྤྱོད་མཁན་གྲངས"
@@ -9041,7 +9041,7 @@ description = "སྒྲིག་གཅོད་བྱས་པའི་ཡི�
 label = "ཡིག་ཆ་དང་ཟུར་སྦྱར་"
 
 [portal.connections.commonFields.accessToken]
-helperText = "Stirling གིས་འདི་གསང་སྡོམ་བྱས་ནས་ཉར་བ་དང་སླར་ཡང་མི་སྟོན།"
+helperText = "PDF Viewer གིས་འདི་གསང་སྡོམ་བྱས་ནས་ཉར་བ་དང་སླར་ཡང་མི་སྟོན།"
 label = "འཛུལ་སྤྱོད token"
 
 [portal.connections.commonFields.apiKey]
@@ -9630,8 +9630,8 @@ brandTag = "Enterprise"
 callInfo = "སྐར་མ 15 ཀྱི་གླེང་མོལ། གླ་ཆའི་གནས་ཚུལ་དང་ འགེལ་འདྲེན་དང་ བདེ་འཇགས། ཡང་ན་ཡོ་བྱད་ཕྱོགས་སྒྲིག་སྐོར་བྱ་རྒྱུ་ལྟར་དྲི་བ་འབྲི་འོས།"
 callTitle = "Solutions engineer དང་གླེང་མོལ་བྱོས"
 deployment = "འགེལ་འདྲེན"
-footer = "Stirling Enterprise སྐོར་དྲི་བ་ཡོད་དམ།"
-home = "Stirling ལ་འགྲོ"
+footer = "PDF Viewer Enterprise སྐོར་དྲི་བ་ཡོད་དམ།"
+home = "PDF Viewer ལ་འགྲོ"
 member = "ཁྱེད་ཀྱི་སྡེ་ཚན་འདིས Enterprise གནད་དོན་འདི་སྤྱོད། མགོ་རིམ་འགོ་བསྐྱེད་བྱས་རྗེས་ འགྲོ་རྒྱུ་ནཱ་ལ་ལྟ་ཐུབ།"
 memberDeal = "སྡེ་ཚན་འདིས་དཔང་ཡིག་འདི་སྤྱོད། འགྲོ་རྒྱུ་ནཱ་ལ་ལྟ་ཐུབ།"
 quotePanel = "ཁྱེད་ཀྱི་ཐོག་འདེབས"
@@ -9644,8 +9644,8 @@ stagesLabel = "རྒྱུན་སྒྲིག"
 lede = "མར་འདེབས་མེད་པར་ 14 ཉིན་སོང་མ་སྒྲིག་ཚོད་ལེན་བྱེད། དེའི་རྗེས་ཁྱེད་ཀྱི་ཐོག་འདེབས་བཟོ་ནས་གན་འཛིན་འཇུག"
 tickAgreement = "MSA, order form, EULA, DPA ཡོངས་ཁྱབ་གཅིག་པའི་གན་འཛིན་གཅིག"
 tickCompliance = "SCIM དང་ གནས་སར་གྱི་གཞི་གྲངས་དང་ uptime SLAs"
-tickDeploy = "Stirling Cloud ཡང་ན་ཁྱེད་རང་གི་སར་བར། ཡང་ན་དྲ་ལམ་མེད་པའི་སྐབས་སུ་སྤྱོད"
-title = "Stirling Enterprise"
+tickDeploy = "PDF Viewer Cloud ཡང་ན་ཁྱེད་རང་གི་སར་བར། ཡང་ན་དྲ་ལམ་མེད་པའི་སྐབས་སུ་སྤྱོད"
+title = "PDF Viewer Enterprise"
 
 [portal.enterprise.options.airgap]
 more = "དྲ་ལམ་མེད་མི་ཆོག་ཡིག་ཚགས་ཡིག"
@@ -9655,7 +9655,7 @@ point3 = "ཐོ་འགོད་ནི་ཁྱེད་ཀྱི་དྲ་�
 tagline = "དྲ་ལམ་མེད་པའི་སྐབས་སུ་རང་སྒྲིག་སར་བར་སྒྲིག"
 
 [portal.enterprise.options.cloud]
-more = "Stirling Cloud ཡི་ཡིག་ཚགས"
+more = "PDF Viewer Cloud ཡི་ཡིག་ཚགས"
 point1 = "ཁྱེད་ཀྱི་སྡེ་ཚན་ནི stirling.com/app ནས་ཐོ་འགོད།"
 point2 = "AWS སྟེང་དུ་སྒྲིག ཡིག་ཆ་ཉར་ཚགས་དེར་གསང་སྡོམ་ཡོད།"
 point3 = "ཁྱེད་རང་གི identity provider ཡི single sign-on དགོས་ན་ self-hosting དགོས།"
@@ -9697,11 +9697,11 @@ title = "ཡིག་ཆ་དང་པོ་གཡར"
 
 [portal.enterprise.setup.getApp]
 body = "Windows, Mac ཡང་ན་ Linux ཡི་མ་ལག་ཕབ་ལེན་བྱས་ནས་ ད་ལྟའི་རྩིས་ཐོ་དང་མཉམ་པར་ཐོ་འགོད་བྱོས ཡང་ན་ དྲ་ཚིགས་ནས་ཐོག་མ་སྤྱོད།"
-title = "Stirling ཐོབ"
+title = "PDF Viewer ཐོབ"
 
 [portal.enterprise.setup.install]
-body = "སར་བར་ཁྱེད་ལ་འདི་སྒྲིག འདིས་ Stirling དང་ཁྱེད་ཀྱི་ལིསིནསི་བཀོལ་སྤྱོད་ཀྱིས་འགོ་བསྐྱེད། དེབ་གཞི་ལ་ OCR དང་ office conversion ཡོད། ཚོགས་པ་ཆེ་བ་ལ་ Kubernetes སྤྱོད།"
-title = "Stirling སྒྲིག་འགོ་བསྐྱེད"
+body = "སར་བར་ཁྱེད་ལ་འདི་སྒྲིག འདིས་ PDF Viewer དང་ཁྱེད་ཀྱི་ལིསིནསི་བཀོལ་སྤྱོད་ཀྱིས་འགོ་བསྐྱེད། དེབ་གཞི་ལ་ OCR དང་ office conversion ཡོད། ཚོགས་པ་ཆེ་བ་ལ་ Kubernetes སྤྱོད།"
+title = "PDF Viewer སྒྲིག་འགོ་བསྐྱེད"
 
 [portal.enterprise.setup.invite]
 body = "སྤྱོད་མཁན་ཚོ་འདུ་འཇུག་བྱས་ནས་ ཚོད་ལེན་དེ་དང་བཅས་ལས་ཀ་དང་མཐུན་པ་བྱེད།"
@@ -9722,21 +9722,21 @@ invite = "མཉམ་ལས་པ་འདུས"
 kubernetes = "Kubernetes ལམ་སྟོན"
 licence = "ཆོག་མཆན་འགོ་འཛུགས"
 ocr = "OCR སྐད་ཡིག"
-openApp = "Stirling ཁ་ཕྱེ"
+openApp = "PDF Viewer ཁ་ཕྱེ"
 samlGuide = "SAML ལམ་སྟོན"
 ssoGuide = "SSO ལམ་སྟོན"
 
 [portal.enterprise.setup.offlineInstall]
 body = "དྲ་ལམ་ཡོད་པའི་འཁྲུལ་ཆས་ཞིག་ལ full image འདྲེན་ནས་ དེ་དང་ཆོག་མཆན་ཡིག་ཆ་སྤོ་བཤུད་བྱས་རྗེས་ ཕབ་འཇུག་བྱས་ནས་འགོ་འཛུགས། full image ནི་དྲ་ལམ་མེད་པའི་སར་བར་གིས་ཕབ་ལེན་མི་ཐུབ་པའི་ཡིག་གཟུགས་ཁ་སྣོན་བྱེད་དོ།"
-title = "Stirling འདྲེན་ནས་འགོ་འཛུགས"
+title = "PDF Viewer འདྲེན་ནས་འགོ་འཛུགས"
 
 [portal.enterprise.setup.offlineLicence]
 body = "དྲ་ལམ་ལས་བྲལ་བའི་སར་བར་གྱིས་ང་ཚོའི་ཆོག་མཆན་ཞབས་ཞུ་ལ་མཐུད་མི་ཐུབ་པས་ ཚབ་ཏུ་མིང་རྟགས་བཀོད་པའི་ཡིག་ཆ་འདི་ཞིབ་བཤེར་བྱེད། ཁྱེད་ཀྱིས་འདྲེན་པའི image དང་མཉམ་དུ་བཞག"
 title = "དྲ་ལམ་མེད་པའི་ཆོག་མཆན་ཕབ་ལེན"
 
 [portal.enterprise.setup.people]
-bodyAirgap = "<code>/settings/people</code> ནས་རྩིས་ཐོ་གསར་བཟོ་ ཡང་ན་ ནང་ཁུལ་གྱི་ངོས་འཛིན་བྱེད་མཁན་ལ Stirling སྟོན་ནས་ ནང་འཛུལ་གྱི་ལས་འགན་ནི་དྲ་ལམ་ལས་མ་ཐོན་བཞིན་བཟོ"
-bodySelfHosted = "<code>/settings/people</code> ནས་རྩིས་ཐོ་གསར་བཟོ་ ཡང་ན་ ངོས་འཛིན་བྱེད་མཁན་མཐུད་ནས་ཚོགས་མི་ཚོས་ལས་ཀྱི་རྩིས་ཐོས་ནང་འཛུལ་ཐུབ། ཁོང་ཚོས་སྣེ་མོ་ནས་ཁྱེད་ཀྱི་སར་བར་གྱི་ཁ་བྱང་ལ Stirling སྤྱོད་པ་དང་ ཡང་ན་དེ་ལ་མགོ་བཙུགས་པའི desktop app ནས་སྤྱོད་པ།"
+bodyAirgap = "<code>/settings/people</code> ནས་རྩིས་ཐོ་གསར་བཟོ་ ཡང་ན་ ནང་ཁུལ་གྱི་ངོས་འཛིན་བྱེད་མཁན་ལ PDF Viewer སྟོན་ནས་ ནང་འཛུལ་གྱི་ལས་འགན་ནི་དྲ་ལམ་ལས་མ་ཐོན་བཞིན་བཟོ"
+bodySelfHosted = "<code>/settings/people</code> ནས་རྩིས་ཐོ་གསར་བཟོ་ ཡང་ན་ ངོས་འཛིན་བྱེད་མཁན་མཐུད་ནས་ཚོགས་མི་ཚོས་ལས་ཀྱི་རྩིས་ཐོས་ནང་འཛུལ་ཐུབ། ཁོང་ཚོས་སྣེ་མོ་ནས་ཁྱེད་ཀྱི་སར་བར་གྱི་ཁ་བྱང་ལ PDF Viewer སྤྱོད་པ་དང་ ཡང་ན་དེ་ལ་མགོ་བཙུགས་པའི desktop app ནས་སྤྱོད་པ།"
 title = "ཁྱེད་ཀྱི་མི་ཚོ་ཁ་སྣོན"
 
 [portal.enterprise.setup.signIn]
@@ -9750,7 +9750,7 @@ retry = "ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས"
 title = "ཤོག་ངོས་འདིར་གནད་དོན་ཞིག་བྱུང་།"
 
 [portal.failures]
-closedBySystem = "Stirling"
+closedBySystem = "PDF Viewer"
 noMatches = "མིག་སྔའི་འཚག་ཆས་དང་མཐུན་པ་མེད།"
 occurrences = "{{count}} ཐོན་ཐེངས"
 searchPlaceholder = "གནད་དོན། སྤྱོད་མཁན། ནོར་འཁྲུལ་འཚོལ"
@@ -9862,7 +9862,7 @@ description = "Server འདིར་གོམ་སྟབས་དགོས་�
 title = "མཉེན་ཆས་སྒྲིག་འཇུག་མ་བྱས"
 
 [portal.failures.kind.unknown]
-description = "Stirling གིས་ད་དུང་ངོས་མི་འཛིན་པའི་གནད་དོན་ཞིག་བྱུང་།"
+description = "PDF Viewer གིས་ད་དུང་ངོས་མི་འཛིན་པའི་གནད་དོན་ཞིག་བྱུང་།"
 title = "ངོས་མ་ཟིན་པའི་གནད་དོན"
 
 [portal.failures.log]
@@ -9895,13 +9895,13 @@ title = "བསྐྱར་ཞིབ་བྱ་རྒྱུ་མེད།"
 [portal.home.download]
 back = "ཕྱིར་ལོག"
 body = "ཅོག་ངོས་ཉེར་སྤྱོད་ཕབ་ལེན་བྱོས། ཡང་ན server རང་གིས་གནས་སྡོད་བྱོས།"
-bodyDesktop = "desktop app ཕབ་ལེན་བྱས་ནས་ ཁྱེད་ཀྱི Stirling རྩིས་ཐོས་ནང་འཛུལ།"
+bodyDesktop = "desktop app ཕབ་ལེན་བྱས་ནས་ ཁྱེད་ཀྱི PDF Viewer རྩིས་ཐོས་ནང་འཛུལ།"
 done = "ལེགས་གྲུབ"
 guide = "{{name}} ལམ་སྟོན་ཁ་ཕྱེ"
 openInBrowser = "དེའི་ཚབ་ཏུ་བཤེར་ཆས་ནང་ཁ་ཕྱེ"
 sectionDesktop = "ཅོག་ངོས་ཉེར་སྤྱོད"
 sectionSelfHosted = "རང་གིས་གནས་སྡོད"
-title = "Stirling PDF Editor སྒྲིག་འཇུག"
+title = "PDF Viewer Editor སྒྲིག་འཇུག"
 
 [portal.home.download.docker]
 detailBody = "ཁྱེད་ཀྱི server ཐོག་དངོས་སུ་འགྲེམས་པའི image འཁོར་སྐྱོད་བྱོས།"
@@ -9983,7 +9983,7 @@ usageMonth = "ཟླ་འདིའི་སྤྱོད་ཚད"
 usageToday = "དེ་རིང་གི་སྤྱོད་ཚད"
 
 [portal.infrastructure.apiKeys.empty]
-description = "Stirling API འབོད་འགོ་འཛུགས་པར་ལྡེ་མིག་ཅིག་གསར་བཟོ་བྱོས།"
+description = "PDF Viewer API འབོད་འགོ་འཛུགས་པར་ལྡེ་མིག་ཅིག་གསར་བཟོ་བྱོས།"
 title = "ད་དུང API ལྡེ་མིག་མེད"
 
 [portal.infrastructure.apiKeys.error]
@@ -10073,7 +10073,7 @@ done = "ལེགས་གྲུབ"
 keyNameLabel = "ལྡེ་མིག་གི་མིང་"
 keyNamePlaceholder = "དཔེར་ན། ཐོན་སྐྱེད་ནང་འཇུག"
 secretKeyCaption = "གསང་བའི་ལྡེ་མིག"
-secretWarning = "འདི་གསང་བའི་དོ་དམ་ཆས་ནང་ཉར་ཚགས་བྱོས། Stirling གིས་ནམ་ཡང་ཧེ་ཤ་ཁོ་ན་ཉར་བས། རྗེས་སུ་དེ་སླར་གསོ་བྱེད་ཐབས་མེད།"
+secretWarning = "འདི་གསང་བའི་དོ་དམ་ཆས་ནང་ཉར་ཚགས་བྱོས། PDF Viewer གིས་ནམ་ཡང་ཧེ་ཤ་ཁོ་ན་ཉར་བས། རྗེས་སུ་དེ་སླར་གསོ་བྱེད་ཐབས་མེད།"
 subtitle = "རྗེས་སུ་ངོས་འཛིན་ཐུབ་པའི་ཆེད་ལྡེ་མིག་ལ་མིང་ཞིག་སྤྲོད། ཁྱེད་ཀྱིས་དུས་ནམ་ཡང་དེ་ཕྱིར་འཐེན་བྱེད་ཆོག"
 subtitleCreated = "ད་ལྟ་གསང་བ་འདི་འདྲ་བཤུས་བྱོས — འདི་ཡང་བསྐྱར་མི་སྟོན།"
 title = "API ལྡེ་མིག་གསར་སྐྲུན"
@@ -10257,7 +10257,7 @@ connectionCount_one = "{{count}} འབྲེལ་མཐུད"
 connectionCount_other = "{{count}} འབྲེལ་མཐུད"
 customApi = "རང་སྒྲིག API"
 searchPlaceholder = "མཉམ་འདྲེས་འཚོལ"
-subtitle = "Stirling གིས་འབྲེལ་བ་བྱེད་ཐུབ་པ་ཚང་མ། དཔང་ཡིག་འདིར་ཐེངས་གཅིག་བཟོས་རྗེས། ཁུངས། སྲིད་ཇུས། ལས་རིམ་རྒྱུན་བཅས་ཀྱིས་དེ་ལ་གཞི་འཛིན་བྱེད།"
+subtitle = "PDF Viewer གིས་འབྲེལ་བ་བྱེད་ཐུབ་པ་ཚང་མ། དཔང་ཡིག་འདིར་ཐེངས་གཅིག་བཟོས་རྗེས། ཁུངས། སྲིད་ཇུས། ལས་རིམ་རྒྱུན་བཅས་ཀྱིས་དེ་ལ་གཞི་འཛིན་བྱེད།"
 title = "མཉམ་འདྲེས"
 typedName = "{{tool}} མིང"
 
@@ -10942,8 +10942,8 @@ saveFailed = "Pipeline ཉར་མ་ཐུབ། ཡང་བསྐྱར་�
 
 [portal.policies.wizard.locations]
 aiSettings = "AI settings ཁ་ཕྱེ"
-builtin = "Stirling ཤེས་བྱ་གཞི་མཛོད"
-builtinHelp = "Stirling ནང་འཚོལ་ཐུབ་པའི chunks index བྱེད་ཅིང་ལས་སྣོན་བྱས་པའི PDF གཤམ་གྱི་དམིགས་ཡུལ་ལ་ཕྱིར་སྤྲོད། Embedding provider ཞིག AI settings ནང་སྒྲིག་འགོད་དགོས།"
+builtin = "PDF Viewer ཤེས་བྱ་གཞི་མཛོད"
+builtinHelp = "PDF Viewer ནང་འཚོལ་ཐུབ་པའི chunks index བྱེད་ཅིང་ལས་སྣོན་བྱས་པའི PDF གཤམ་གྱི་དམིགས་ཡུལ་ལ་ཕྱིར་སྤྲོད། Embedding provider ཞིག AI settings ནང་སྒྲིག་འགོད་དགོས།"
 checking = "ingestion སྤྱོད་ཐུབ་མིན་ཞིབ་བཤེར་བཞིན..."
 chooseOutput = "ཉར་མ་བྱས་གོང་སྤར་ཡོད་པའི output དམིགས་ཡུལ་འདེམས།"
 chooseSource = "ཡིག་ཚགས་གང་ནས་ཡོང་བ་འདེམས"
@@ -11035,7 +11035,7 @@ title = "ད་དུང་རྒྱུན་རིམ་མེད"
 
 [portal.processorFlow.sources]
 comingSoonTag = "མཐུད"
-editor = "Stirling PDF རྩོམ་སྒྲིག་ཆས"
+editor = "PDF Viewer རྩོམ་སྒྲིག་ཆས"
 heading = "ཁུངས"
 perDay = "{{n}} / 24h"
 
@@ -11051,7 +11051,7 @@ title = "ཉོ་སྒྲུབ"
 agreeCta = "གྲོས་མཐུན་ལ་མིང་རྟགས་འགོད"
 confidential = "གསང་བ"
 confirm = "ངས་གྲོས་མཐུན་འདི་ཀློག་ཟིན་ཞིང་མོས་མཐུན་ཡོད། དེ་མ་ཟད་གོང་དུ་མིང་འཁོད་པའི་ཚོགས་པའི་ཚབ་ཏུ་མིང་རྟགས་འགོད་དབང་ཡོད་པར་ངས་མཚོན།"
-docName = "Stirling Enterprise Agreement"
+docName = "PDF Viewer Enterprise Agreement"
 docSub = "MSA, Order Form, EULA དང DPA བཅས་མིང་རྟགས་གཅིག་ཏུ་མཉམ་སྒྲིལ།"
 download = "ཕབ་ལེན"
 downloadDraftError = "གྲོས་མཐུན PDF བཟོ་མ་ཐུབ - ཡིག་ཆ་མངོན་འགྱུར་ཆས་སྤྱོད་མི་ཐུབ། ཏོག་ཙམ་རྗེས་སླར་ཚོད་ལྟ་གནང་བའམ་རྒྱབ་སྐྱོར་ལ་འབྲེལ་བ་གནང་རོགས།"
@@ -11091,7 +11091,7 @@ contactNamePlaceholder = "Jane Doe"
 continue = "མུ་མཐུད"
 done = "ལེགས་གྲུབ"
 editUsage = "བེད་སྤྱོད་ཞུན་དག"
-eula = "ངས Stirling Enterprise EULA ཀློག་ཟིན་ཞིང་དེར་མོས་མཐུན་བྱེད། དེས་རིན་གོང་འདྲེན་ཡིག་འདི་ནས་བཟོས་པའི་གྲོས་མཐུན་ལ་སྟངས་འཛིན་བྱེད།"
+eula = "ངས PDF Viewer Enterprise EULA ཀློག་ཟིན་ཞིང་དེར་མོས་མཐུན་བྱེད། དེས་རིན་གོང་འདྲེན་ཡིག་འདི་ནས་བཟོས་པའི་གྲོས་མཐུན་ལ་སྟངས་འཛིན་བྱེད།"
 generate = "རིན་གོང་འདྲེན་ཡིག་བཟོ"
 indemnification = "IP སྲུང་སྐྱོབ་ཇེ་ལེགས"
 indemnificationSub = "ང་ཚོའི IP སྲུང་སྐྱོབ་དེ་པེ་ཊེན་ཊི་རེ་འདུན་བར་རྒྱ་བསྐྱེད་བྱེད། པར་དབང་། ཚོང་རྟགས། ཚོང་ལས་གསང་བའི་རྩ་བའི་གུན་གསབ་ནི་རིན་མེད་དུ་ཚུད་ཡོད།"
@@ -11099,7 +11099,7 @@ minimum = "Enterprise ལ་ལོ་རེར་ཉུང་མཐའ་སྤ�
 minimumBelow = "རིན་གོང་འདོན་པ་འདི་ལོ་རེར {{annual}} ཡིན། མང་བར་བེད་སྤྱོད་བསམ་བློ་ཡོད་ན་ ཐུན་མོང་བསྒྲིགས་པའི་བེད་སྤྱོད་མཐོར་འཕེལ་བྱོས། དེ་མིན་ན་ Team plan ཡང་ལྡན་འགྲོ་བཟང་འདུག"
 minimumNear = "Enterprise ལ་ལོ་རེར་ཉུང་མཐའ་སྤྲོད་དངུལ {{min}} དགོས། དེ་ལྷག་སྙོམས་བྱེད་པར་ཐུན་མོང་བསྒྲིགས་པའི་བེད་སྤྱོད་མཐོར་འཕེལ་བྱོས ཡང་ན་ང་ཚོ་དང་གྲོས་མོལ་བྱོས།"
 minimumNearTitle = "ཁྱེད་ཚོ་ Enterprise ཉུང་མཐའ་ལས ལོ་རེར {{gap}} ཉུངས་ཡོད།"
-paperBrand = "Stirling PDF"
+paperBrand = "PDF Viewer"
 paperEyebrow = "ཁེ་ལས་རིམ་པའི་རིན་གོང་འདྲེན་ཡིག"
 paperFor = "གྲ་སྒྲིག་བྱས་ཡུལ"
 pdfSize = "PDF ཆེ་ཆུང"
@@ -11210,7 +11210,7 @@ eyebrow = "ཁེ་ལས་རིམ་པ"
 eyebrowCompany = "{{company}} ཁེ་ལས"
 inviteTeammates = "ཚོགས་གྲོགས་གདན་འདྲེན"
 liveSub = "ཁྱེད་ཀྱི་ཚོགས་སྡེ་མཁོ་སྤྲོད་ཟིན་ཞིང་ཆོག་མཆན་ནུས་ལྡན་ཡིན།"
-liveTitle = "ཁྱེད་ Stirling Enterprise ཐོག་དངོས་སུ་སྤྱོད་བཞིན་ཡོད"
+liveTitle = "ཁྱེད་ PDF Viewer Enterprise ཐོག་དངོས་སུ་སྤྱོད་བཞིན་ཡོད"
 next = "རྗེས་མ། {{stage}}"
 open = "ཉོ་སྒྲུབ་ཁ་ཕྱེ"
 scheduleCall = "ཁ་པར་གྲོས་མོལ་དུས་བཀག"
@@ -11246,7 +11246,7 @@ gatingAction = "ཁྱེད་ཀྱི་རིན་གོང་འདྲེ�
 label = "རིན་གོང་འདྲེན་ཡིག"
 
 [portal.procurement.journeySteps.trial]
-blurb = "ཁྱེད་ཀྱི་ཡིག་ཆ་དང་ལས་རིམ་ཐོག Stirling ཚོད་དཔག་བྱེད།"
+blurb = "ཁྱེད་ཀྱི་ཡིག་ཆ་དང་ལས་རིམ་ཐོག PDF Viewer ཚོད་དཔག་བྱེད།"
 gatingAction = "ཁྱེད་ཀྱི་རིན་གོང་འདྲེན་ཡིག་བཟོ"
 label = "ཚོད་ལྟ"
 
@@ -11261,7 +11261,7 @@ trialFileHint = "འདི་ནི་ཁྱེད་ཀྱི་ཚོད་ས
 
 [portal.procurement.live]
 description = "ཁྱེད་ཀྱི་མངགས་ཉོ་འགུལ་སྤྱོད་ནང་ཡོད་ཅིང་ཆོག་མཆན་སྤྲད་ཟིན། ཁྱེད་ཀྱི་ཚོགས་པ་སྤྲོད་སྒྲིག་བྱས་ཟིན་ཞིང་རྩིས་བསྡུ་འགོ་ཚུགས་ཟིན།"
-title = "ཁྱེད་རང Stirling Enterprise ཐོག་དངོས་སྤྱོད་ལ་ཞུགས་ཟིན"
+title = "ཁྱེད་རང PDF Viewer Enterprise ཐོག་དངོས་སྤྱོད་ལ་ཞུགས་ཟིན"
 
 [portal.procurement.milestone]
 downloadError = "ད་ལྟ་གོང་འབོལ PDF ཕབ་ལེན་མ་ཐུབ — སྐད་ཅིག་རྗེས་སླར་ཚོད་ལྟ་བྱོས།"
@@ -11294,11 +11294,11 @@ airgapSub = "བཀག་སྡོམ་བྱས་པ། ཕྱིར་འབ
 back = "ཕྱིར"
 businessName = "ཚོང་ལས་མིང"
 businessNamePlaceholder = "Acme Corp"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 cloudSub = "དོ་དམ་བྱས་པ། འགོ་འཛུགས་མགྱོགས་ཤོས"
 continue = "མུ་མཐུད"
 deployment = "གང་དུ་འགྲེམས་སྤེལ་བྱ་དགོས།"
-eula = "ངས Stirling EULA & Commercial Terms ལ་མོས་མཐུན་བྱེད།"
+eula = "ངས PDF Viewer EULA & Commercial Terms ལ་མོས་མཐུན་བྱེད།"
 fullName = "མིང་ཆ་ཚང"
 fullNamePlaceholder = "ཁྱེད་ཀྱི་མིང"
 invites = "ཚོགས་གཏོགས་གདན་འདྲེན · འདེམས་རུང"
@@ -11344,7 +11344,7 @@ account-link = "རྩིས་ཐོ་སྦྲེལ་མཐུད"
 [portal.shell.sidebar]
 appEditor = "རྩོམ་སྒྲིག་ཆས"
 appProcessor = "ལས་སྒྲུབ་ཆས"
-linkAccount = "Stirling རྩིས་ཐོ་འབྲེལ་མཐུད"
+linkAccount = "PDF Viewer རྩིས་ཐོ་འབྲེལ་མཐུད"
 primaryNav = "གཙོ་བོའི་ཁ་ཕྱོགས་འདྲེན"
 
 [portal.shell.topbar]
@@ -11354,7 +11354,7 @@ search = "འཚོལ"
 
 [portal.sources]
 processingModeHelp = "Track ཡིས་མ་ཡིག་ཉར་ཞིང་ཐོན་རིམ་རེ་རེ་ཐེངས་གཅིག་ལས་སྣོན་བྱེད། Snapshot ཡིས་མ་ཡིག་ཉར་ཞིང་འཁོར་སྐྱོད་རེ་རེར་དེ་དག་ལས་སྣོན་བྱེད། Consume ཡིས་ལེགས་གྲུབ་སྐྱེལ་རྗེས་མ་ཡིག་སུབ།"
-subtitle = "ཡིག་ཆ་རྣམས Stirling ནང་འཇུག་པའི་བསྐྱར་སྤྱོད་ཆོག་པའི་ནང་འཇུག་འབྲེལ་མཐུད། ཁུངས་ཞིག་ཐེངས་གཅིག་སྒྲིག་རྗེས། ལས་རིམ་རྒྱུན་གྲངས་མང་ནས་དེ་ལ་གཞི་བཅོལ་བྱེད་ཆོག"
+subtitle = "ཡིག་ཆ་རྣམས PDF Viewer ནང་འཇུག་པའི་བསྐྱར་སྤྱོད་ཆོག་པའི་ནང་འཇུག་འབྲེལ་མཐུད། ཁུངས་ཞིག་ཐེངས་གཅིག་སྒྲིག་རྗེས། ལས་རིམ་རྒྱུན་གྲངས་མང་ནས་དེ་ལ་གཞི་བཅོལ་བྱེད་ཆོག"
 title = "ཁུངས"
 
 [portal.sources.actions]
@@ -11590,7 +11590,7 @@ secretNote = "webhook བង្កើត་སྐབས་ signing secret ཐེ
 copy = "འདྲ་བཤུས"
 done = "ཚར"
 secret = "མིང་རྟགས་གསང་གནད"
-secretHelp = "ལྡེ་མིག་འདིས་སྐྱེལ་སྤྲོད་རེ་རེའི raw body ལ་མིང་རྟགས་རྒྱོབ (HMAC-SHA256) ཏེ X-Stirling-Signature header ལྟར་སྐུར།"
+secretHelp = "ལྡེ་མིག་འདིས་སྐྱེལ་སྤྲོད་རེ་རེའི raw body ལ་མིང་རྟགས་རྒྱོབ (HMAC-SHA256) ཏེ X-PDF Viewer-Signature header ལྟར་སྐུར།"
 secretWarning = "ད་ལྟ་ signing secret འདྲ་བཤུས་བྱེད། ཁྱེད་ཀྱི་བདེ་འཇགས་ཆེད་དེ་ཐེངས་གཅིག་ཁོ་ན་སྟོན་པ་དང་རྗེས་སུ་ཕྱིར་ལེན་མི་ཐུབ།"
 title = "Webhook བង្កើត་ཟིན"
 url = "Delivery URL"
@@ -11618,15 +11618,15 @@ adminOnly = "server འདིའི་ཟླ་རེའི credits ནི་ད
 barAria = "ལྷག་ཡོད་པའི་རིན་མེད credits"
 capSuffix_one = "ཟླ་འདིར {{allowance}} ནས་རིན་མེད credit ལྷག་ཡོད"
 capSuffix_other = "ཟླ་འདིར {{allowance}} ནས་རིན་མེད credits ལྷག་ཡོད"
-connect = "Stirling རྩིས་ཐོ་མཐུད་པ"
+connect = "PDF Viewer རྩིས་ཐོ་མཐུད་པ"
 connectBody = "མཐུད་པས་ཟླ་རེའི་ཐོབ་སྐལ་གཉིས་པ་ཞིག་སྣོན་པ། server འདིར་ཡོད་ཆོག་པའི་སྤྱོད་མཁན་གྲངས་འཕར་བ། དང Processor ཁ་ཕྱེ་བ་བྱེད།"
-connectTitle = "server འདིར Stirling རྩིས་ཐོ་མེད"
+connectTitle = "server འདིར PDF Viewer རྩིས་ཐོ་མེད"
 loadError = "server འདིའི credit སྤྱོད་ཚད་ཀློག་མ་ཐུབ། ཅུང་ཙམ་རྗེས་སུ་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།"
 loadErrorTitle = "credit སྤྱོད་ཚད་འགེལ་མ་ཐུབ"
 resets = "{{date}} ལ་བསྐྱར་སྒྲིག"
 
 [portal.usage.sessionExpired]
-body = "ཁྱེད་ཀྱི Stirling རྩིས་ཁྲའི session དུས་ཡོལ་ཟིན། རིན་བསྡུ་ལྟ་བར་ཡང་བསྐྱར་ནང་འཛུལ་བྱེད — ཁྱེད་ཀྱི instance འབྲེལ་མཐུད་རང་སོར་གནས།"
+body = "ཁྱེད་ཀྱི PDF Viewer རྩིས་ཁྲའི session དུས་ཡོལ་ཟིན། རིན་བསྡུ་ལྟ་བར་ཡང་བསྐྱར་ནང་འཛུལ་བྱེད — ཁྱེད་ཀྱི instance འབྲེལ་མཐུད་རང་སོར་གནས།"
 
 [portal.users]
 title = "སྤྱོད་མཁན"
@@ -11741,7 +11741,7 @@ name = "Google Drive"
 scope = "ཡིག་ཆ་འདྲེན་འཇུག"
 
 [provider.googledrive.accountScope]
-description = "drive ཡིས་ཡིག་ཆ་ཡོངས་ལ་འཛུལ་ཆོག (དེའི་དོན་ལ Google ཡིས་སྤྱི་བཏང་ app ཞིག་བདེན་བཤད་དགོས); drive.file ནི་མི་ཚོས་འདེམས་པ་དང་ Stirling ཡིས་བཟོས་པའི་ཡིག་ཆ་ཙམ"
+description = "drive ཡིས་ཡིག་ཆ་ཡོངས་ལ་འཛུལ་ཆོག (དེའི་དོན་ལ Google ཡིས་སྤྱི་བཏང་ app ཞིག་བདེན་བཤད་དགོས); drive.file ནི་མི་ཚོས་འདེམས་པ་དང་ PDF Viewer ཡིས་བཟོས་པའི་ཡིག་ཆ་ཙམ"
 label = "Drive ལ་འཛུལ་བ"
 
 [provider.googledrive.allowAccountConnections]
@@ -11786,7 +11786,7 @@ description = "ཞུན་དག་པ་དང་ཁོང་ཚོའི pipe
 label = "མི་ཚོས་རང་ཉིད་ཀྱི་རྩིས་ཐོ་མཐུད་ཆོག"
 
 [provider.microsoft.allowEditorSaves]
-description = "སྒོ་རྒྱག་ནས་ཞུན་དག་དེ Stirling ནང་དུ་བཞག་ཐུབ། OneDrive ནས་ཕྱེས་པའི་ཡིག་ཆ་ཚང་བ་དེ་ཚབ་ཏུ་ཕབ་ལེན་བྱེད་དེ་ སར་བར་གྱིས OneDrive ལ་སྲུང་བཞག་གི་འབྲས་བུ་ཁོང་དུ་མ་འཇུག"
+description = "སྒོ་རྒྱག་ནས་ཞུན་དག་དེ PDF Viewer ནང་དུ་བཞག་ཐུབ། OneDrive ནས་ཕྱེས་པའི་ཡིག་ཆ་ཚང་བ་དེ་ཚབ་ཏུ་ཕབ་ལེན་བྱེད་དེ་ སར་བར་གྱིས OneDrive ལ་སྲུང་བཞག་གི་འབྲས་བུ་ཁོང་དུ་མ་འཇུག"
 label = "ཞུན་དག་པས OneDrive ལ་ལོག་སྲུང་བཅུག"
 
 [provider.microsoft.clientId]
@@ -11931,7 +11931,7 @@ notConfigured = "OneDrive སྒྲིག་འགོད་མེད"
 pickerFailed = "OneDrive ཁ་ཕྱེ་མ་ཐུབ།"
 popupBlocked = "ཁྱེད་ཀྱི browser ཡིས Microsoft ནང་འཛུལ་སྒོ་འགེབས་ཟིན། དྲ་ཚིགས་འདིའི pop-ups ཆོག་ནས་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།"
 reconnect = "ཁྱེད་ཀྱི Microsoft རྩིས་ཐོས་ཡང་བསྐྱར་ནང་འཛུལ་དགོས། Settings > Connected accounts ནས་ཡང་མཐུད།"
-serverError = "OneDrive ཡང་ན Stirling སར་བར་ལ་དཀའ་ངལ་བྱུང་བ། ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས ཡང་ན་ བསྐྱར་བརྒྱབ་རྒྱུ་བརྒྱུད་དུ་ཡོད་ན་དོ་དམ་པ་ལ་ཞུ་བྱོས།"
+serverError = "OneDrive ཡང་ན PDF Viewer སར་བར་ལ་དཀའ་ངལ་བྱུང་བ། ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས ཡང་ན་ བསྐྱར་བརྒྱབ་རྒྱུ་བརྒྱུད་དུ་ཡོད་ན་དོ་དམ་པ་ལ་ཞུ་བྱོས།"
 unreachable = "OneDrive ལ་མཐུད་མ་ཐུབ། མཐུད་ལམ་ཞིབ་བཤེར་བྱས་ནས་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།"
 
 [provider.saml2]
@@ -12024,7 +12024,7 @@ files = "ཡིག་ཆ།"
 account = "རྩིས་ཐོ"
 docs = "ཡིག་ཚགས"
 editor = "རྩོམ་སྒྲིག་ཆས"
-home = "Stirling"
+home = "PDF Viewer"
 invite = "གདན་འདྲེན"
 landmark = "མྱུར་འགྲོ་ཕྱོགས་སྟོན"
 noProcessorAccess = "Processor སྤྱོད་དབང་ལ admin ལ་ཞུ་རོགས"
@@ -12456,7 +12456,7 @@ yd = "ཡཱརཌ (yd)"
 back = "ཕྱིར་ལོག"
 continue = "མུ་མཐུད"
 subtitle = "དེ་གང་དུ་འཁོར་སྐྱོད་བྱེད་པ་འདེམས།"
-title = "ཁྱེད་ཀྱིས Stirling གང་དུ་འཁོར་སྐྱོད་བྱ་འདོད་དམ།"
+title = "ཁྱེད་ཀྱིས PDF Viewer གང་དུ་འཁོར་སྐྱོད་བྱ་འདོད་དམ།"
 
 [runLocation.choice.browser]
 description = "དྲ་ངོས་ཉེར་སྤྱོད།"
@@ -12655,8 +12655,8 @@ hideTools = "མི་འཐོབ་ལག་ཆ་སྦེད་ ▴"
 messageNoFallback = "ཁྱེད་ཀྱི་ཞབས་ཞུ་དྲྭ་ཐོག་ལ་ཕྱིར་འབྱོར་མ་བྱས་བར་ལག་ཆ་མི་འཐོབ།"
 messageWithFallback = "ལག་ཆ་ཁ་ཤས་ལ་ཞབས་ཞུ་མཐུད་དགོས།"
 showTools = "མི་འཐོབ་ལག་ཆ་ལྟ་ ▾"
-title = "ཁྱེད་ཀྱི Stirling-PDF ཞབས་ཞུ་ལ་མཐུད་མི་ཐུབ"
-toolNotAvailableLocally = "ཁྱེད་ཀྱི Stirling-PDF ཞབས་ཞུ་ཨོླཕ་ལ་ཡིན་པས \"{{endpoint}}\" རང་གནས་རྒྱབ་སྟེགས་ནང་མི་འཐོབ།"
+title = "ཁྱེད་ཀྱི PDF Viewer ཞབས་ཞུ་ལ་མཐུད་མི་ཐུབ"
+toolNotAvailableLocally = "ཁྱེད་ཀྱི PDF Viewer ཞབས་ཞུ་ཨོླཕ་ལ་ཡིན་པས \"{{endpoint}}\" རང་གནས་རྒྱབ་སྟེགས་ནང་མི་འཐོབ།"
 
 [serverSetup]
 back = "རྒྱབ"
@@ -12691,7 +12691,7 @@ usernameHelp = "ཐོ་འགོད་སྐབས་བེད་སྤྱོ�
 backendUrl = "སར་བར་ཁ་བྱང་"
 backendUrlHelp = "ཐོ་འགོད་ provider ཚོས་མི་ཚོར་ཕྱིར་གཏོང་ས་ཡིན། སྤྱིར་བཏང་ཝེབ་ཁ་བྱང་དང་འདྲ།"
 frontendUrl = "ཝེབ་ཁ་བྱང་"
-frontendUrlHelp = "མི་ཚོས Stirling PDF ཁ་ཕྱེ་ས་ཡིན། གློག་ཡིག། མཉམ་སྤྱོད་འབྲེལ་མཐུད་དང QR code ནས་བེད་སྤྱོད།"
+frontendUrlHelp = "མི་ཚོས PDF Viewer ཁ་ཕྱེ་ས་ཡིན། གློག་ཡིག། མཉམ་སྤྱོད་འབྲེལ་མཐུད་དང QR code ནས་བེད་སྤྱོད།"
 subtitle = "མི་ཚོ་དང་ཐོ་འགོད་ provider ཚོས་སར་བར་འདིར་འཛུལ་ཐབས།"
 title = "ཁ་བྱང་"
 
@@ -12705,7 +12705,7 @@ label = "རང་ས་མངའ་འཛིན AI"
 provider = "དཔེ་གཞི provider"
 providerCustom = "OpenAI མཐུན་སྒྲིག"
 smartModel = "ཆ་ཚང་གི་དཔེ་གཞི"
-stirling = "Stirling AI"
+stirling = "PDF Viewer AI"
 subtitle = "ཡིག་ཆ་དྲི་བ། རང་འགུལ་ཞུན་དག་དང AI agents།"
 title = "AI"
 
@@ -12716,7 +12716,7 @@ changeLater = "{{path}} ནང་དུ་དུས་ཚོད་གང་ར�
 decline = "ཟུར་འདོར་ནས་མདུན་སྐྱོད"
 declineFinish = "ཟུར་འདོར་ནས་མཇུག་བསྒྲིལ"
 learnMore = "ང་ཚོས་མཛོད་བསྡུས་ག་རེ"
-note = "སར་བར་འདིའི་བེད་སྤྱོད་གཞི་གྲངས་ང་ཚོས་མཉམ་སྤྱོད་བྱས་ན Stirling PDF ལེགས་སྒྲུབ་ལ་རོགས་རམ་བྱེད། ང་ཚོས་ཡིག་ཆ་དང་ནང་དོན་མཛོད་བསྡུས་མི་བྱེད།"
+note = "སར་བར་འདིའི་བེད་སྤྱོད་གཞི་གྲངས་ང་ཚོས་མཉམ་སྤྱོད་བྱས་ན PDF Viewer ལེགས་སྒྲུབ་ལ་རོགས་རམ་བྱེད། ང་ཚོས་ཡིག་ཆ་དང་ནང་དོན་མཛོད་བསྡུས་མི་བྱེད།"
 title = "སར་བར་དཔྱད་ཞིབ"
 
 [serverSetup.documents]
@@ -12854,7 +12854,7 @@ description = "ཁྱེད་རང་གི OneDrive, SharePoint དང Google
 title = "མཐུད་ཟིན་པའི་རྩིས་ཐོ"
 
 [settings.connectedInstances]
-confirmBody = "འདིས instance དེའི Stirling Cloud ནང་ཁྱེད་ཀྱི་ཚོགས་པར་འཛུལ་དབང་ཕྱིར་འཐེན་བྱེད། འདིས་རང་སའི་ཡིག་ཆ་སུབ་པའམ་ཟིན་ཐོ་བྱས་ཟིན་པའི་སྤྱོད་ཚད་ཕྱིར་འདོན་མི་བྱེད། ཡང་བསྐྱར་མཐུད་པར། instance ཐོག་གི་ཐོག་མའི་མཐུད་སྦྲེལ་གོམ་རིམ་ལྟར་བྱོས།"
+confirmBody = "འདིས instance དེའི PDF Viewer Cloud ནང་ཁྱེད་ཀྱི་ཚོགས་པར་འཛུལ་དབང་ཕྱིར་འཐེན་བྱེད། འདིས་རང་སའི་ཡིག་ཆ་སུབ་པའམ་ཟིན་ཐོ་བྱས་ཟིན་པའི་སྤྱོད་ཚད་ཕྱིར་འདོན་མི་བྱེད། ཡང་བསྐྱར་མཐུད་པར། instance ཐོག་གི་ཐོག་མའི་མཐུད་སྦྲེལ་གོམ་རིམ་ལྟར་བྱོས།"
 confirmTitle = "{{name}} ཕྱིར་འདོན་ནམ?"
 connectedAt = "མཐུད་ཟིན: {{date}}"
 connectedDate = "མཐུད་ཟིན"
@@ -12888,7 +12888,7 @@ unknown = "སྤྱོད་མི་ཐུབ"
 yourTeam = "ཁྱེད་ཀྱི་ཚོགས་པ"
 
 [settings.connection]
-description = "འཕྲུལ་ཆས་འདིའི་ཐོག་རང་སར་ལས་ཀ་བྱེད་པའམ app དེ Stirling server ཞིག་ལ་མཐུད།"
+description = "འཕྲུལ་ཆས་འདིའི་ཐོག་རང་སར་ལས་ཀ་བྱེད་པའམ app དེ PDF Viewer server ཞིག་ལ་མཐུད།"
 localDescription = "ཁྱེད་ཀྱིས་རྩིས་ཁྲོད་མེད་པར་རང་གནས་རྒྱབ་སྟེགས་སྤྱོད་བཞིན། སྤྱི་དྲ་སྔོན་འགྲོའི་ལས་སྦྱོར་དམ་རང་དབང་ཞབས་ཞུ་དགོས་པའི་ལག་ཆ་ཁ་ཤས་མི་འཐོབ།"
 logout = "དྲན་ཐོ།"
 server = "སར་བར།"
@@ -12903,14 +12903,14 @@ selfhosted = "རང་གིས་རང་ལ་མགྲོན་ཁང་།
 
 [settings.developer]
 apiKeys = "APIལྡེ་མིག"
-apiKeysDescription = "scripts དང integrations ནས Stirling API འབོད་པའི་མི་སྒེར keys།"
+apiKeysDescription = "scripts དང integrations ནས PDF Viewer API འབོད་པའི་མི་སྒེར keys།"
 title = "གོང་འཕེལ་གཏོང་མཁན།"
 
 [settings.feedback]
 label = "བསམ་འཆར"
 
 [settings.feedback.send]
-description = "Stirling ཚོགས་ཆུང་ལ་དཀའ་ངལ་སྙན་ཞུ་ཡང་ན་ལེགས་སྒྲུབ་བསམ་འཆར་གསུངས།"
+description = "PDF Viewer ཚོགས་ཆུང་ལ་དཀའ་ངལ་སྙན་ཞུ་ཡང་ན་ལེགས་སྒྲུབ་བསམ་འཆར་གསུངས།"
 label = "བསམ་འཆར་གཏོང"
 
 [settings.general]
@@ -12990,7 +12990,7 @@ updateBehavior = "གསར་སྒྱུར་སྤྱོད་སྟངས"
 updateBehaviorDescription = "གསར་སྒྱུར་འཇུག་སྔོན་ལ་དྲིས་པ། ཡང་ན་རང་འགུལ་འཇུག་ཡང་ན་གསར་སྒྱུར་ཞིབ་བཤེར་ཡོད་མེད་བརྗེ་བ།"
 updateBehaviorError = "གསར་སྒྱུར་སྤྱོད་སྟངས་བཟོ་མ་ཐུབ"
 updateBehaviorErrorLocked = "སྒྲིག་འགོད་འདི་དོ་དམ་པས་བཀག་སྡོམ་བྱས་ཡོད།"
-updateBehaviorLockedDescription = "ཁྱེད་ཀྱི་འཕྲུལ་ཆས་འདི་སྟེང་གསར་སྒྱུར་གཙོ་འཁོར་གྱི་སྟངས་ལ་ Stirling-PDF ཡིས་འགོ་འཛུགས་བྱས་ཡོད། བཅོས་དག་བྱེད་པར་དོ་དམ་པ་ལ་འབྲེལ་བ།"
+updateBehaviorLockedDescription = "ཁྱེད་ཀྱི་འཕྲུལ་ཆས་འདི་སྟེང་གསར་སྒྱུར་གཙོ་འཁོར་གྱི་སྟངས་ལ་ PDF Viewer ཡིས་འགོ་འཛུགས་བྱས་ཡོད། བཅོས་དག་བྱེད་པར་དོ་དམ་པ་ལ་འབྲེལ་བ།"
 updateBehaviorSaved = "གསར་སྒྱུར་སྤྱོད་སྟངས་སྲུངས་ཟིན།"
 versionMismatch = "ཁྱེད་ཀྱི desktop application དང server ནི versions མི་འདྲ་བ་སྤྱོད་བཞིན་ཡོད། མཐུན་འགྲིག་གི་དཀའ་ངལ་སྔོན་འགོག་ཆེད་གཉིས་ཀ་དེ་མཚུངས version ལ་གསར་སྒྱུར་བྱོས།"
 viewDetails = "ཞིབ་ཕྲའི་གནས་ཚུལ་ལ་ལྟོས།"
@@ -13091,7 +13091,7 @@ title = "ལྟ་ཞིབ"
 [settings.planBilling]
 currentPlan = "མིག་སྔའི་གྲལ་གཞི"
 loading = "ཐོ་རྩིས་སྤྲོད་ཆ་འཕྲིན་ཕབ་ལེན་བརྒྱབ་བཞིན..."
-notAvailable = "གྲལ་གཞི་དང་ཐོ་རྩིས་སྤྲོད་ནི་ Stirling Cloud (SaaS mode) ལ་མཐུད་ཡོད་དུས་ཙམ་སྤྱོད་ཆོག"
+notAvailable = "གྲལ་གཞི་དང་ཐོ་རྩིས་སྤྲོད་ནི་ PDF Viewer Cloud (SaaS mode) ལ་མཐུད་ཡོད་དུས་ཙམ་སྤྱོད་ཆོག"
 title = "གྲལ་གཞི་དང་ཐོ་རྩིས་སྤྲོད"
 
 [settings.planBilling.billing]
@@ -14013,7 +14013,7 @@ download = "ཕབ་ལེན"
 downloaded = "ཕབ་ལེན་བྱས་ཟིན།"
 downloadFailed = "ཡིག་ཆ་འདི་ཕབ་ལེན་མི་ཐུབ།"
 downloadsCount = "ཕབ་ལེན: {{count}}"
-emailWarningBody = "འདི་གློག་འཕྲིན་གྲངས་འཛིན་ལྟར་མཐོང་བ་ཡིན། མི་འདི་ནི Stirling PDF སྤྱོད་མཁན་མ་རེད་ན་ཡིག་ཆ་ལ་འཛུལ་མི་ཐུབ།"
+emailWarningBody = "འདི་གློག་འཕྲིན་གྲངས་འཛིན་ལྟར་མཐོང་བ་ཡིན། མི་འདི་ནི PDF Viewer སྤྱོད་མཁན་མ་རེད་ན་ཡིག་ཆ་ལ་འཛུལ་མི་ཐུབ།"
 emailWarningConfirm = "མཉམ་སྤྱོད་གང་རེད་ཀྱང་"
 emailWarningTitle = "གློག་འཕྲིན་གྲངས་འཛིན"
 errorTitle = "མཉམ་སྤྱོད་ཕམ་པ"
@@ -14044,7 +14044,7 @@ manageTitle = "མཉམ་སྤྱོད་དོ་དམ"
 noActivity = "ལཱ་འགུལ་མེད།"
 noLinks = "མཉམ་སྤྱོད་འབྲེལ་ཐག་མ་འདུག"
 noSharedUsers = "འཛུལ་ས་ཡོད་པའི་མི་མེད།"
-openInApp = "Stirling PDF ནང་ཁ་ཕྱེ"
+openInApp = "PDF Viewer ནང་ཁ་ཕྱེ"
 ownerLabel = "བདག་པོ"
 removeLink = "འབྲེལ་ཐག་བསུབ"
 removeUser = "བསུབ"
@@ -14101,7 +14101,7 @@ all = "ཚང་མ"
 ariaLabel = "སྤྱི་ཡོངས་འཚོལ་བ"
 filtersAriaLabel = "འཚོལ་ཞིབ་འཚག་ཆས"
 hint = "འཚོལ་བར་ཡི་གེ་འཇུག"
-placeholder = "Stirling འཚོལ"
+placeholder = "PDF Viewer འཚོལ"
 placeholderShort = "འཚོལ།"
 showLess = "ཉུང་ཙམ་སྟོན"
 showMore = "ད་དུང {{count}} སྟོན"
@@ -14115,7 +14115,7 @@ settings = "སྒྲིག་འགོད"
 tools = "ལག་ཆ"
 
 [survey]
-title = "Stirling-PDF བསམ་འཆར་ཞིབ་འཇུག"
+title = "PDF Viewer བསམ་འཆར་ཞིབ་འཇུག"
 
 [swagger]
 clickHere = "འདིར་གནོན"
@@ -14237,7 +14237,7 @@ noFiles = "འགོ་འཛུགས་བྱ་ཆེད་ཡིག་ཆ་
 scopeFiles = "ཡིག་ཆ་ཚོ"
 scopeThisFile = "ཡིག་ཆ་འདི་"
 selectFilesHint = "ལག་ཆ་འདི་སྒྲུབ་བར Active Files ནས་ཡིག་ཆ་སེལ།"
-signInRequired = "འདི་ལ་ Stirling རྩིས་ཐོ་དགོས། མུ་མཐུད་བྱེད་པར་ནང་འཛུལ།"
+signInRequired = "འདི་ལ་ PDF Viewer རྩིས་ཐོ་དགོས། མུ་མཐུད་བྱེད་པར་ནང་འཛུལ།"
 signInToUse = "ལག་ལེན་བྱེད་པར་ནང་འཛུལ།"
 singleFileScope = "འཇུག་སྤྱོད་: {{fileName}} ཁོ་ན"
 viewerMode = "ཡིག་ཆ་མང་པོ་སྣོན་པར་ཡིག་ཆ editor ལ་བརྗེ།"
@@ -14290,7 +14290,7 @@ favorites = "དགའ་ཤོས།"
 heading = "ལག་ཆ་ཚང་མ།(གློག་བརྙན་ཆ་ཚང་གི་ལྟ་ཚུལ།)"
 noResults = "ཁྱེད་ལ་དགོས་མཁོ་ཡོད་པའི་དངོས་པོ་འཚོལ་བར་འཚོལ་ཞིབ་ཡང་ན་འགྲེལ་བཤད་བསྒྱུར་ཐབས་བྱོས།"
 recommended = "འོས་སྦྱོར་བྱས་པའི"
-selfHostedOffline = "ཁྱེད་ཀྱི Stirling-PDF ཞབས་ཞུ་དགོས (དེང་སླར་ཨོླཕ་ལ་ཡིན):"
+selfHostedOffline = "ཁྱེད་ཀྱི PDF Viewer ཞབས་ཞུ་དགོས (དེང་སླར་ཨོླཕ་ལ་ཡིན):"
 showDetails = "ཞིབ་ཕྲ།"
 unavailable = "སར་བར་གྱི་དོ་དམ་པས་ལྕོགས་མིན་བཟོས།"
 unavailableDependency = "མེད་པ། ཞབས་ཞུའི་སྟེང་དགོས་མཁོའི་ལག་ཆ་མེད་པ་"
@@ -14366,7 +14366,7 @@ loadingDetailedInfo = "ཞིབ་ཕྲའི་གནས་ཚུལ་མང
 migrationGuide = "གནས་སྤོའི་ལམ་སྟོན།"
 migrationGuides = "གནས་སྤོའི་ལམ་སྟོན།"
 migrationGuidesDesc = "གསར་སྒྱུར་སྔོན་ལ་གནས་འགྱུར་གལ་ཆེའི་གཏོགས་མཐུད་ལྟ་བ།"
-modalSubtitle = "Stirling PDF ཐོན་རྟགས་གསར་པ་འཇུག་གྲ་སྒྲིག་ཡོད།"
+modalSubtitle = "PDF Viewer ཐོན་རྟགས་གསར་པ་འཇུག་གྲ་སྒྲིག་ཡོད།"
 modalTitle = "གསར་བརྗེ།"
 notes = "མཆན"
 releaseNotes = "གློད་བཀྲོལ་དྲན་ཐོ།"
@@ -14392,7 +14392,7 @@ urgent = "ཛ་དྲག་གི"
 attentionBody = "ཁྱེད་ཀྱི་འཛིན་སྐྱོང་པས་གནས་ཚུལ་མང་བ་མཐོང་ཆེད་ནང་དུ་འཛུལ་དགོས། དེ་མ་ཐག་ཁོང་ཚོར་འབྲེལ་གཏུག་གནང་རོགས།"
 attentionBodyAdmin = "གསབ་ལེན་འདི་ལག་བསྟར་བྱེད་པར་ཆོག་མཆན་གྱི་དགོས་མཁོ་ལ་ཞིབ་བཤེར་བྱོས།"
 attentionTitle = "སར་བར་འདི་ལ་འཛིན་སྐྱོང་དོ་སྣང་དགོས།"
-message = "སྤྱོད་མཁན་100 དང་PDF ཡིག་གེ་རྩོམ་སྒྲིག མཐོ་རིམ་གྱི་བྱེད་ནུས་བཅས་ཀྱིས་Stirling PDF ལས་ཕན་ཐོགས་ཆེ་ཤོས་ལེན་རོགས།"
+message = "སྤྱོད་མཁན་100 དང་PDF ཡིག་གེ་རྩོམ་སྒྲིག མཐོ་རིམ་གྱི་བྱེད་ནུས་བཅས་ཀྱིས་PDF Viewer ལས་ཕན་ཐོགས་ཆེ་ཤོས་ལེན་རོགས།"
 seeInfo = "གནས་ཚུལ་ལ་གཟིགས།"
 title = "Team plan ལ་རིམ་སྤར"
 upgradeButton = "ད་ལྟ་ཡར་རྒྱས་གཏོང་བ།"
@@ -14530,7 +14530,7 @@ authWeb = "གསང་ཨང་།"
 create = "རྩིས་ཁྲ་བཟོ།"
 createSubtitle = "གསང་ཨང་ངམ SSO སྤྱད་ནས་རང་གིས་སྐྱོང་བའི་རྩིས་ཁྲ་བཟོ།"
 createTitle = "རྩིས་ཁྲ་བཟོ།"
-editorDesc = "Stirling PDF Editor ནང PDF རྩོམ་སྒྲིག་བྱོས། མི་ཚང་མར་འདི་ཐོབ།"
+editorDesc = "PDF Viewer Editor ནང PDF རྩོམ་སྒྲིག་བྱོས། མི་ཚང་མར་འདི་ཐོབ།"
 email = "གློག་ཡིག་ཁ་བྱང་།"
 emailError = "ནུས་ལྡན་གློག་ཡིག་ཁ་བྱང་ཞིག་འཇུག་རོགས།"
 emailPlaceholder2 = "name@company.com"
@@ -14545,7 +14545,7 @@ processorDeferred = "གདན་ཞུ་བསྐུར་ཟིན། འོ�
 processorDesc = "སྐྱོང་སྡོམ་ངོས། pipelines འཁོར་སྐྱོད། agents དང API།"
 role = "འགན་འཁྲི།"
 send2 = "གདན་ཞུ་བསྐུར།"
-subtitle2 = "ཁོང་ཚོས་ཁྱེད་ཀྱི Stirling ལས་ཁུལ་ལ་ཞུགས་ཆེད་གློག་ཡིག་ཞིག་འཐོབ།"
+subtitle2 = "ཁོང་ཚོས་ཁྱེད་ཀྱི PDF Viewer ལས་ཁུལ་ལ་ཞུགས་ཆེད་གློག་ཡིག་ཞིག་འཐོབ།"
 team = "ཚོགས་ཆུང་།"
 title = "མི་སྣ་གདན་ཞུ།"
 username = "སྤྱོད་མིང་།"
@@ -14896,7 +14896,7 @@ text = "ཡིག་རྐྱང་།"
 addFile = "ཡིག་ཆ་སྣོན།"
 count_one = "Portfolio འདིའི་ནང་ཡིག་ཆ་ {{count}}"
 count_other = "Portfolio འདིའི་ནང་ཡིག་ཆ་ {{count}}"
-import = "Stirling ནང་འདྲེན།"
+import = "PDF Viewer ནང་འདྲེན།"
 importFailed = "ཡིག་ཆ་འདི་ཁྱེད་ཀྱི workspace ལ་སྣོན་མ་ཐུབ།"
 memberUnavailable = "ཡིག་ཆ་འདི portfolio ནས་ཀློག་མ་ཐུབ།"
 preview = "སྔོན་ལྟ།"

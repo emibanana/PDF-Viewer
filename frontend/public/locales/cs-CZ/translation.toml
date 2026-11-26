@@ -56,7 +56,7 @@ loading = "Načítání..."
 loginAgreementAccept = "Přijmout"
 loginAgreementDecline = "Odmítnout"
 loginAgreementLoadFailed = "Souhlas s přihlášením se nepodařilo načíst."
-loginAgreementProvider = "Toto upozornění poskytl váš správce, ne společnost Stirling PDF Inc."
+loginAgreementProvider = "Toto upozornění poskytl váš správce, ne společnost PDF Viewer Inc."
 loginAgreementRetry = "Opakovat"
 loginAgreementTitle = "Přihlašovací ujednání"
 logOut = "Odhlásit se"
@@ -726,9 +726,9 @@ permissionNotice = "Cesta k tessdata není zapisovatelná. Stažení se otevře 
 
 [admin.settings.ai]
 customProvider = "Vlastní (kompatibilní s OpenAI)"
-description = "Připojte Stirling k Python AI enginu, vyberte jeho modely a nastavte omezení, podle kterých poběží."
-managedByCloud = "V tomto režimu spravuje Stirling Cloud."
-managedByCloudShort = "Spravováno službou Stirling Cloud"
+description = "Připojte PDF Viewer k Python AI enginu, vyberte jeho modely a nastavte omezení, podle kterých poběží."
+managedByCloud = "V tomto režimu spravuje PDF Viewer Cloud."
+managedByCloudShort = "Spravováno službou PDF Viewer Cloud"
 
 [admin.settings.ai.documents]
 description = "Nakonfigurujte embedding model a nastavení vyhledávání používané k odpovídání na otázky nad dokumenty. Po uložení se použije pro AI engine."
@@ -779,16 +779,16 @@ description = "Zapněte nebo vypněte jednotlivé AI funkce. Vypnuté funkce jso
 title = "Schopnosti"
 
 [admin.settings.ai.general.cloud]
-note = "Modely a klíče poskytovatelů spravuje Stirling Cloud, takže tato nastavení se v tomto režimu nepoužijí."
+note = "Modely a klíče poskytovatelů spravuje PDF Viewer Cloud, takže tato nastavení se v tomto režimu nepoužijí."
 
 [admin.settings.ai.general.cloud.indexing]
-description = "Každý nástroj AI odesílá text stránky, který potřebuje k odpovědi. Toto určuje, zda může Stirling Cloud tento text také uchovávat indexovaný, aby pozdější dotazy mohly vyhledávat v celém dokumentu."
+description = "Každý nástroj AI odesílá text stránky, který potřebuje k odpovědi. Toto určuje, zda může PDF Viewer Cloud tento text také uchovávat indexovaný, aby pozdější dotazy mohly vyhledávat v celém dokumentu."
 help = "Vypnuto znamená, že otázky k dokumentům nejsou dostupné. Nezastaví to odesílání textu – pouze jeho ukládání."
-label = "Povolit Stirling Cloud uchovávat indexované dokumenty"
+label = "Povolit PDF Viewer Cloud uchovávat indexované dokumenty"
 
 [admin.settings.ai.general.cloudNote]
-body = "Vyhodnocování běží na infrastruktuře Stirling a účtuje se účtu, se kterým je tento server propojen. Není zde žádný kontejner ke spuštění ani klíč poskytovatele k uložení. Cokoli AI čte, zpracovává Stirling Cloud místo vašeho vlastního hardwaru."
-title = "O Stirling Cloud AI"
+body = "Vyhodnocování běží na infrastruktuře PDF Viewer a účtuje se účtu, se kterým je tento server propojen. Není zde žádný kontejner ke spuštění ani klíč poskytovatele k uložení. Cokoli AI čte, zpracovává PDF Viewer Cloud místo vašeho vlastního hardwaru."
+title = "O PDF Viewer Cloud AI"
 
 [admin.settings.ai.general.enabled]
 description = "Hlavní přepínač. Když je vypnutý, nejsou dostupné žádné AI nástroje, agenti ani volání enginu."
@@ -826,11 +826,11 @@ label = "Časový limit dlouhých operací (sekundy)"
 label = "Kde běží AI"
 
 [admin.settings.ai.general.mode.cloud]
-description = "Žádný kontejner, žádný klíč poskytovatele, žádná volba modelu – práce běží ve Stirling Cloud a účtuje se účtu, se kterým je tento server propojen."
-linkCta = "Propojit tento server s účtem Stirling"
+description = "Žádný kontejner, žádný klíč poskytovatele, žádná volba modelu – práce běží ve PDF Viewer Cloud a účtuje se účtu, se kterým je tento server propojen."
+linkCta = "Propojit tento server s účtem PDF Viewer"
 notLinked = "Nejprve propojte účet"
-ownerOnly = "Pouze vlastník organizace může propojit tento server s účtem Stirling."
-title = "Použít Stirling Cloud AI"
+ownerOnly = "Pouze vlastník organizace může propojit tento server s účtem PDF Viewer."
+title = "Použít PDF Viewer Cloud AI"
 
 [admin.settings.ai.general.mode.off]
 description = "Žádné nástroje AI nikde v aplikaci a nic neopouští tento server."
@@ -842,7 +842,7 @@ title = "Spustit vlastní engine"
 
 [admin.settings.ai.general.note]
 docs = "Průvodce nastavením"
-intro = "Samostatný kontejner, který spustíte vedle Stirling. Provádí vyhodnocování; Stirling stále provádí každou operaci se stránkami sám. Potřebuje stejný"
+intro = "Samostatný kontejner, který spustíte vedle PDF Viewer. Provádí vyhodnocování; PDF Viewer stále provádí každou operaci se stránkami sám. Potřebuje stejný"
 outro = "na obou kontejnerech a klíč poskytovatele modelu. Cokoli AI čte, je odesláno poskytovateli, kterého vyberete – vámi hostovaná Ollama udrží každou stránku interně."
 title = "O AI enginu"
 
@@ -944,24 +944,24 @@ url = "URL enginu"
 
 [admin.settings.ai.status.cloud]
 hostDown = "Nedostupné"
-hostLabel = "Stirling.com"
+hostLabel = "PDF Viewer.com"
 hostUp = "Dostupné"
-name = "Stirling Cloud"
+name = "PDF Viewer Cloud"
 sharingLabel = "Sdílení AI"
 sharingOff = "Zakázáno"
 sharingOn = "Povoleno"
 
 [admin.settings.ai.status.cloud.degraded]
-body = "Stirling Cloud odpověděl, ale odmítl tento server. Propojení účtu mohlo být odvoláno."
-title = "Stirling Cloud odmítá tento server"
+body = "PDF Viewer Cloud odpověděl, ale odmítl tento server. Propojení účtu mohlo být odvoláno."
+title = "PDF Viewer Cloud odmítá tento server"
 
 [admin.settings.ai.status.cloud.down]
-body = "Tento server se nemohl spojit se Stirling Cloud. Zkontrolujte propojení účtu a zda se tento server může připojit k internetu."
-title = "Stirling Cloud je nedostupný"
+body = "Tento server se nemohl spojit se PDF Viewer Cloud. Zkontrolujte propojení účtu a zda se tento server může připojit k internetu."
+title = "PDF Viewer Cloud je nedostupný"
 
 [admin.settings.ai.status.cloud.ok]
-body = "Stirling Cloud přijal tento server. Zde není třeba nic spouštět ani aktualizovat."
-title = "Běží ve Stirling Cloud"
+body = "PDF Viewer Cloud přijal tento server. Zde není třeba nic spouštět ani aktualizovat."
+title = "Běží ve PDF Viewer Cloud"
 
 [admin.settings.ai.status.degraded]
 body = "Odpověděl na kontrolu stavu, ale odmítl skutečný požadavek. Obě strany používají odlišná sdílená tajemství."
@@ -1114,7 +1114,7 @@ confirmCodeLabel = "Pro pokračování zadejte potvrzovací kód"
 confirmImport = "Potvrdit import"
 confirmImportTitle = "Potvrdit import databáze"
 connection = "Připojení"
-connectionDescription = "Nasměrujte Stirling na externí databázi místo vestavěné."
+connectionDescription = "Nasměrujte PDF Viewer na externí databázi místo vestavěné."
 createBackup = "Vytvořit zálohu"
 created = "Vytvořeno"
 delete = "Smazat"
@@ -1215,11 +1215,11 @@ description = "Nakonfigurujte volitelné funkce a funkcionalitu."
 title = "Funkce"
 
 [admin.settings.features.serverCertificate]
-description = "Vygenerujte certifikát, který podporuje funkci podepisování \"Podepsat pomocí Stirling-PDF\"."
+description = "Vygenerujte certifikát, který podporuje funkci podepisování \"Podepsat pomocí PDF Viewer\"."
 label = "Podepisování certifikátem"
 
 [admin.settings.features.serverCertificate.enabled]
-description = "Nabídnout \"Podepsat pomocí Stirling-PDF\" pomocí certifikátu vygenerovaného tímto serverem"
+description = "Nabídnout \"Podepsat pomocí PDF Viewer\" pomocí certifikátu vygenerovaného tímto serverem"
 label = "Povolit podepisování certifikátem"
 
 [admin.settings.features.serverCertificate.organizationName]
@@ -1236,7 +1236,7 @@ label = "Platnost certifikátu (dny)"
 
 [admin.settings.folderAccess]
 description = "Adresáře, ze kterých mohou zdroje složek a výstupy složek číst a do kterých mohou zapisovat. Toto je bezpečnostní hranice: automatizace nikdy nelze nasměrovat na cestu na serveru mimo tento seznam."
-securityNote = "Ponechte prázdné, chcete-li zdroje složek a výstupy úplně zakázat. Vlastní konfigurační adresář Stirling je vždy nepřístupný."
+securityNote = "Ponechte prázdné, chcete-li zdroje složek a výstupy úplně zakázat. Vlastní konfigurační adresář PDF Viewer je vždy nepřístupný."
 title = "Přístup ke složkám"
 
 [admin.settings.folderAccess.roots]
@@ -1314,7 +1314,7 @@ description = "Výchozí jazyk pro nové uživatele (např. en_US, es_ES)"
 label = "Výchozí jazyk"
 
 [admin.settings.general.enableFeedback]
-description = "Umožní uživatelům posílat zpětnou vazbu týmu Stirling"
+description = "Umožní uživatelům posílat zpětnou vazbu týmu PDF Viewer"
 label = "Povolit zpětnou vazbu"
 
 [admin.settings.general.fileUploadLimit]
@@ -1368,7 +1368,7 @@ description = "URL nebo název souboru se zásadami používání souborů cooki
 label = "Zásady používání souborů cookie"
 
 [admin.settings.legal.disclaimer]
-message = "Úpravou těchto právních dokumentů přebíráte plnou odpovědnost za zajištění souladu se všemi platnými zákony a předpisy, včetně, ale nejen GDPR a dalších požadavků EU na ochranu dat. Tyto hodnoty upravujte pouze pokud: (1) provozujete osobní/soukromou instanci, (2) nacházíte se mimo jurisdikci EU a rozumíte svým místním právním povinnostem, nebo (3) máte zajištěné odpovídající právní poradenství a přijímáte plnou odpovědnost za veškerá uživatelská data a právní soulad. Stirling-PDF a jeho vývojáři nenesou žádnou odpovědnost za vaše právní povinnosti."
+message = "Úpravou těchto právních dokumentů přebíráte plnou odpovědnost za zajištění souladu se všemi platnými zákony a předpisy, včetně, ale nejen GDPR a dalších požadavků EU na ochranu dat. Tyto hodnoty upravujte pouze pokud: (1) provozujete osobní/soukromou instanci, (2) nacházíte se mimo jurisdikci EU a rozumíte svým místním právním povinnostem, nebo (3) máte zajištěné odpovídající právní poradenství a přijímáte plnou odpovědnost za veškerá uživatelská data a právní soulad. PDF Viewer a jeho vývojáři nenesou žádnou odpovědnost za vaše právní povinnosti."
 title = "Upozornění na právní odpovědnost"
 
 [admin.settings.legal.impressum]
@@ -1456,8 +1456,8 @@ description = "Uživatelské jméno pro autentizaci SMTP"
 label = "Uživatelské jméno SMTP"
 
 [admin.settings.mcp]
-apikeyNote = "Klienti odesílají Stirling API key v hlavičce X-API-KEY (nebo Authorization: Bearer <key>). Klíč je přiřazen svému vlastníkovi, uživateli Stirling - přístup mají pouze zřízené účty a akce se auditují jako tento uživatel. Klíče spravujte v Účet > API Keys."
-description = "Zpřístupněte nástroje PDF a AI agenty Stirling klientům MCP přes koncový bod chráněný OAuth."
+apikeyNote = "Klienti odesílají PDF Viewer API key v hlavičce X-API-KEY (nebo Authorization: Bearer <key>). Klíč je přiřazen svému vlastníkovi, uživateli PDF Viewer - přístup mají pouze zřízené účty a akce se auditují jako tento uživatel. Klíče spravujte v Účet > API Keys."
+description = "Zpřístupněte nástroje PDF a AI agenty PDF Viewer klientům MCP přes koncový bod chráněný OAuth."
 title = "MCP Server"
 
 [admin.settings.mcp.acceptedAudiences]
@@ -1487,7 +1487,7 @@ step3ApiKeyb = "(nebo Authorization: Bearer <key>). Nepoužívá se žádné OAu
 step4 = "Schvalte přihlášení; klient to zkusí znovu s tokenem. Nástroje se zobrazí seskupené: convert, pages, misc, security, ai."
 step4ApiKey = "Nástroje se zobrazí seskupené: convert, pages, misc, security, ai - a každé volání se audituje jako vlastník klíče."
 tip = "Tip: zaregistrujte resource ID jako povolenou audience ve svém IdP. Testováno s MCP Inspector a Claude Desktop."
-tipApiKey = "Tip: režim API-key nepotřebuje externí IdP - nejjednodušší pro self-host. Klíč je přiřazen svému vlastníkovi, uživateli Stirling."
+tipApiKey = "Tip: režim API-key nepotřebuje externí IdP - nejjednodušší pro self-host. Klíč je přiřazen svému vlastníkovi, uživateli PDF Viewer."
 title = "Připojit MCP klienta"
 
 [admin.settings.mcp.issuerUri]
@@ -1500,14 +1500,14 @@ label = "JWKS URL (volitelné)"
 placeholder = "Automaticky zjištěno od vydavatele"
 
 [admin.settings.mcp.mode]
-apikey = "API klíč (klíč Stirling pro jednotlivé uživatele)"
-description = "OAuth vyžaduje externí IdP. API key používá uživatelský Stirling API key (X-API-KEY) - nejjednodušší pro self-host."
+apikey = "API klíč (klíč PDF Viewer pro jednotlivé uživatele)"
+description = "OAuth vyžaduje externí IdP. API key používá uživatelský PDF Viewer API key (X-API-KEY) - nejjednodušší pro self-host."
 label = "Režim ověřování"
 oauth = "OAuth 2.1 (externí IdP)"
 
 [admin.settings.mcp.requireAccount]
-description = "Propustit tokeny pouze tehdy, když se jejich subject mapuje na zřízeného a povoleného uživatele Stirling."
-label = "Vyžadovat existující účet Stirling"
+description = "Propustit tokeny pouze tehdy, když se jejich subject mapuje na zřízeného a povoleného uživatele PDF Viewer."
+label = "Vyžadovat existující účet PDF Viewer"
 
 [admin.settings.mcp.resourceId]
 description = "Veřejná /mcp URL tohoto serveru. Tokeny ji musí uvádět ve své audience (RFC 8707), jinak budou odmítnuty."
@@ -1518,7 +1518,7 @@ description = "Vyžadovat mcp.tools.read pro čtecí operace a mcp.tools.write p
 label = "Vynutit OAuth scopes"
 
 [admin.settings.mcp.usernameClaim]
-description = "JWT claim porovnávaný s uživatelským jménem Stirling (např. sub, email, preferred_username)."
+description = "JWT claim porovnávaný s uživatelským jménem PDF Viewer (např. sub, email, preferred_username)."
 label = "Claim uživatelského jména"
 
 [admin.settings.plan.noData]
@@ -1847,7 +1847,7 @@ description = "Pokud je zapnuto, bota mohou používat pouze uvedená ID uživat
 label = "Povolit konkrétní ID uživatelů"
 
 [admin.settings.telegram.enabled]
-description = "Umožněte uživatelům pracovat se Stirling PDF prostřednictvím vámi nastaveného Telegram bota."
+description = "Umožněte uživatelům pracovat se PDF Viewer prostřednictvím vámi nastaveného Telegram bota."
 label = "Povolit Telegram bota"
 
 [admin.settings.telegram.feedback]
@@ -1920,7 +1920,7 @@ settingsOverview = "Toto je <strong>Panel nastavení</strong>. Administrátorsk�
 systemCustomization = "Nabízíme rozsáhlé možnosti přizpůsobení UI: <strong>Systémová nastavení</strong> umožňují změnit název aplikace a jazyky, <strong>Funkce</strong> umožňují správu serverových certifikátů a <strong>Koncové body</strong> umožňují povolit či zakázat konkrétní nástroje pro vaše uživatele."
 teamsAndUsers = "Zde spravujte <strong>Týmy</strong> a jednotlivé uživatele. Můžete zvát nové uživatele e‑mailem, sdílenými odkazy nebo jim sami vytvářet vlastní účty."
 welcome = "Vítejte v <strong>Prohlídce pro administrátory</strong>! Prozkoumejme výkonné podnikové funkce a nastavení dostupné správcům systému."
-wrapUp = "To je vše z prohlídky pro správce! Viděli jste enterprise funkce, díky nimž je Stirling PDF výkonným a přizpůsobitelným řešením pro organizace. Můžete si ji kdykoli přehrát znovu - stačí otevřít <strong>Nastavení</strong> a najít ji zde v sekci <strong>Prohlídky</strong> v nápovědě."
+wrapUp = "To je vše z prohlídky pro správce! Viděli jste enterprise funkce, díky nimž je PDF Viewer výkonným a přizpůsobitelným řešením pro organizace. Můžete si ji kdykoli přehrát znovu - stačí otevřít <strong>Nastavení</strong> a najít ji zde v sekci <strong>Prohlídky</strong> v nápovědě."
 
 [adminUserSettings]
 admin = "Správce"
@@ -1936,9 +1936,9 @@ thai = "Thajština"
 
 [analytics]
 learnMore = "Zjistit více o naší analytice"
-paragraph1 = "Stirling PDF má volitelnou analytiku, která nám pomáhá zlepšovat produkt. Nesledujeme žádné osobní údaje ani obsah souborů."
-paragraph2 = "Zvažte prosím povolení analytiky, abyste pomohli růstu Stirling-PDF a umožnili nám lépe porozumět našim uživatelům."
-title = "Chcete pomoci zlepšit Stirling PDF?"
+paragraph1 = "PDF Viewer má volitelnou analytiku, která nám pomáhá zlepšovat produkt. Nesledujeme žádné osobní údaje ani obsah souborů."
+paragraph2 = "Zvažte prosím povolení analytiky, abyste pomohli růstu PDF Viewer a umožnili nám lépe porozumět našim uživatelům."
+title = "Chcete pomoci zlepšit PDF Viewer?"
 
 [annotate]
 tags = "anotovat,zvýraznit,kreslit,značení,komentář,poznámky,kontrola,redline,zpětná vazba,nástroje značení,lepicí poznámky,tvary,šipky,textové pole,od ruky"
@@ -2887,9 +2887,9 @@ typeSignature = "Zadejte své jméno pro vytvoření podpisu"
 uploadCert = "Nahrát certifikát"
 uploadCertDesc = "Použijte vlastní certifikát PKCS12, PFX, PEM nebo JKS."
 uploadSignature = "Nahrajte obrázek svého podpisu"
-usePersonalCert = "Stirling Sign · Osobní"
+usePersonalCert = "PDF Viewer Sign · Osobní"
 usePersonalCertDesc = "Podepsat certifikátem vytvořeným pro váš účet."
-useServerCert = "Stirling Sign · Organizace"
+useServerCert = "PDF Viewer Sign · Organizace"
 useServerCertDesc = "Podepsat sdíleným organizačním certifikátem tohoto serveru."
 useSignature = "Použít podpis"
 
@@ -3208,8 +3208,8 @@ copy = "Kopírovat zprávu"
 
 [chat.dock]
 collapse = "Sbalit chat"
-placeholder = "Zeptejte se Stirling Agent"
-title = "Stirling Agent"
+placeholder = "Zeptejte se PDF Viewer Agent"
+title = "PDF Viewer Agent"
 
 [chat.header]
 clearChat = "Vymazat chat"
@@ -3363,7 +3363,7 @@ translatedMetadata = "Položka metadat s překlady"
 
 [checkAccessibility.pdf]
 continued = "{{name}} (pokračování)"
-footer = "Zkontrolováno pomocí Stirling PDF"
+footer = "Zkontrolováno pomocí PDF Viewer"
 page = "Strana {{n}}"
 title = "Zpráva o přístupnosti"
 
@@ -3804,9 +3804,9 @@ label = "Dokumenty podle typu: {{summary}}"
 noTypes = "Tyto dokumenty neodpovídaly žádnému známému typu."
 
 [classificationDemo.defaultApp]
-body = "Nastavte Stirling jako výchozí aplikaci pro PDF. Každé PDF, které otevřete z e-mailu, prohlížeče nebo plochy, se otevře zde, připravené ke čtení nebo úpravám. Kdykoli to můžete změnit v Nastavení."
-cta = "Nastavit Stirling jako výchozí"
-title = "Otevírat každé PDF ve Stirling"
+body = "Nastavte PDF Viewer jako výchozí aplikaci pro PDF. Každé PDF, které otevřete z e-mailu, prohlížeče nebo plochy, se otevře zde, připravené ke čtení nebo úpravám. Kdykoli to můžete změnit v Nastavení."
+cta = "Nastavit PDF Viewer jako výchozí"
+title = "Otevírat každé PDF ve PDF Viewer"
 
 [classificationDemo.followUp]
 background = "Toto běží na pozadí. Kroužek vlevo ukazuje průběh."
@@ -3821,7 +3821,7 @@ other = "Ostatní"
 body = "Klasifikujte a uspořádejte {{count}} nejnovějších PDF ve složce Stažené soubory podle typu."
 cta = "Zpracovat moji složku Stažené soubory"
 privacy = "Vaše PDF zůstávají na tomto zařízení. Váš připojený server zaznamenává využití zpracování."
-title = "Podívejte se, co Stirling dokáže s celou složkou"
+title = "Podívejte se, co PDF Viewer dokáže s celou složkou"
 
 [classificationDemo.phase]
 finishing = "Dokončuje se..."
@@ -3835,10 +3835,10 @@ counts = "z {{total}} PDF zpracováno"
 [classificationDemo.results]
 documentCount_one = "{{count}} PDF"
 documentCount_other = "{{count}} PDF"
-failedBody = "Stirling nemohl přečíst vaši složku Stažené soubory. Na vašem počítači se nic nezměnilo."
+failedBody = "PDF Viewer nemohl přečíst vaši složku Stažené soubory. Na vašem počítači se nic nezměnilo."
 failedTitle = "To se nedokončilo"
 heading = "Vaše Stažené soubory, seřazené"
-summary = "Stirling přečetl {{documents}} a roztřídil je do {{types}}."
+summary = "PDF Viewer přečetl {{documents}} a roztřídil je do {{types}}."
 typeCount_one = "{{count}} typ"
 typeCount_other = "{{count}} typů"
 
@@ -4177,13 +4177,13 @@ upgradeButton = "Vylepšit účet"
 [config.apiKeys]
 copyKeyAriaLabel = "Kopírovat API klíč"
 description = "Váš API klíč pro přístup k sadě PDF nástrojů Stirlingu. Zkopírujte si ho do projektu nebo obnovte pro vygenerování nového."
-docsDescription = "Zjistěte více o integraci se Stirling PDF:"
+docsDescription = "Zjistěte více o integraci se PDF Viewer:"
 docsLink = "API dokumentace"
 docsTitle = "API dokumentace"
 generateError = "Nepodařilo se vygenerovat váš API klíč."
 goToAccount = "Přejít do účtu"
 guestInfo = "Hosté nedostávají API klíče. Vytvořte si účet a získejte API klíč, který můžete používat ve svých aplikacích."
-intro = "Pomocí svého API klíče můžete programově využívat zpracování Stirling PDF."
+intro = "Pomocí svého API klíče můžete programově využívat zpracování PDF Viewer."
 label = "API klíč"
 publicKeyAriaLabel = "Veřejný API klíč"
 refreshAriaLabel = "Obnovit API klíč"
@@ -4207,10 +4207,10 @@ title = "Obnovit API klíče"
 warning = "⚠️ Varování: Tato akce vygeneruje nové API klíče a zneplatní vaše předchozí klíče."
 
 [config.mcp]
-description = "Model Context Protocol (MCP) umožňuje AI asistentům, jako je Claude, používat vaše nástroje Stirling PDF přímo. Připojte klienta jednou a váš asistent může vaším jménem převádět, upravovat, zabezpečovat a zpracovávat dokumenty."
-guestInfo = "Hosté nemohou připojit MCP klienty. Vytvořte účet, abyste mohli používat MCP server a nechat svého AI asistenta spouštět nástroje Stirling PDF vaším jménem."
+description = "Model Context Protocol (MCP) umožňuje AI asistentům, jako je Claude, používat vaše nástroje PDF Viewer přímo. Připojte klienta jednou a váš asistent může vaším jménem převádět, upravovat, zabezpečovat a zpracovávat dokumenty."
+guestInfo = "Hosté nemohou připojit MCP klienty. Vytvořte účet, abyste mohli používat MCP server a nechat svého AI asistenta spouštět nástroje PDF Viewer vaším jménem."
 navLabel = "MCP Server"
-tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using Stirling PDF directly."
+tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using PDF Viewer directly."
 viewApiKeys = "Zobrazit API keys"
 
 [config.mcp.copy]
@@ -4226,7 +4226,7 @@ label = "Váš MCP endpoint"
 
 [config.mcp.setup]
 addTo = "Přidat do"
-hint = "Vyberte svého klienta, vložte úryvek do zobrazeného souboru a poté jej restartujte. Při prvním použití se přihlásíte pomocí svého účtu Stirling - žádné klíče ke kopírování."
+hint = "Vyberte svého klienta, vložte úryvek do zobrazeného souboru a poté jej restartujte. Při prvním použití se přihlásíte pomocí svého účtu PDF Viewer - žádné klíče ke kopírování."
 title = "Připojte svého AI asistenta"
 
 [config.overview]
@@ -4250,10 +4250,10 @@ step = "Krok {{current}} z {{total}}"
 [connect.confirm]
 acknowledge = "Tuto adresu poznávám a chci ji připojit ke svému týmu"
 approve = "Připojit server"
-cannotDecide = "Toto připojení může schválit nebo odmítnout pouze vlastník týmu. Použijte jiný účet nebo zavřete tuto výzvu a pokračujte v používání Stirling."
+cannotDecide = "Toto připojení může schválit nebo odmítnout pouze vlastník týmu. Použijte jiný účet nebo zavřete tuto výzvu a pokračujte v používání PDF Viewer."
 deny = "Odmítnout"
 dismiss = "Zavřít"
-lead = "Server Stirling žádá o připojení k vašemu týmu. Než ho schválíte, zkontrolujte, že níže uvedená adresa je vaše."
+lead = "Server PDF Viewer žádá o připojení k vašemu týmu. Než ho schválíte, zkontrolujte, že níže uvedená adresa je vaše."
 originLabel = "Adresa"
 signedInAs = "Přihlášeni jako"
 switchAccount = "Použít jiný účet"
@@ -4293,7 +4293,7 @@ disconnect = "Odpojit"
 google = "Google Drive"
 intro = "Připojte si jednou své vlastní účty. Vaše pipeline pak mohou číst a ukládat do nich jako vy."
 microsoft = "Microsoft (OneDrive & SharePoint)"
-needsReconnect = "Stirling už se k tomuto účtu nedostane, proto jsou pipeline, které jej používají, pozastaveny."
+needsReconnect = "PDF Viewer už se k tomuto účtu nedostane, proto jsou pipeline, které jej používají, pozastaveny."
 none = "Váš správce nezapnul připojené účty."
 personal = "Osobní účet"
 popupBlocked = "Váš prohlížeč zablokoval přihlašovací okno. Povolte vyskakovací okna pro tento web a zkuste to znovu."
@@ -4438,7 +4438,7 @@ showPreferencesBtn = "Spravovat předvolby"
 title = "Jak používáme soubory cookie"
 
 [cookieBanner.popUp.description]
-1 = "Používáme cookies a další technologie, aby pro vás Stirling PDF fungoval lépe - pomáhají nám zlepšovat naše nástroje a dál vytvářet funkce, které si oblíbíte."
+1 = "Používáme cookies a další technologie, aby pro vás PDF Viewer fungoval lépe - pomáhají nám zlepšovat naše nástroje a dál vytvářet funkce, které si oblíbíte."
 2 = "Pokud nechcete, kliknutím na „Ne, děkuji“ povolíte pouze nezbytné cookies potřebné pro hladký chod."
 
 [cookieBanner.preferencesModal]
@@ -4451,12 +4451,12 @@ subtitle = "Použití cookies"
 title = "Centrum správy souhlasu"
 
 [cookieBanner.preferencesModal.analytics]
-description = "Tyto cookies nám pomáhají pochopit, jak se naše nástroje používají, abychom se mohli soustředit na vytváření funkcí, kterých si naše komunita nejvíce cení. Buďte si jisti - Stirling PDF nemůže a nikdy nebude sledovat obsah dokumentů, se kterými pracujete."
+description = "Tyto cookies nám pomáhají pochopit, jak se naše nástroje používají, abychom se mohli soustředit na vytváření funkcí, kterých si naše komunita nejvíce cení. Buďte si jisti - PDF Viewer nemůže a nikdy nebude sledovat obsah dokumentů, se kterými pracujete."
 title = "Analytika"
 
 [cookieBanner.preferencesModal.description]
-1 = "Stirling PDF používá soubory cookie a podobné technologie ke zlepšení vašeho prostředí a pochopení, jak jsou naše nástroje používány. To nám pomáhá zlepšovat výkon, vyvíjet funkce, na kterých vám záleží, a poskytovat našim uživatelům průběžnou podporu."
-2 = "Stirling PDF nemůže - a nikdy nebude - sledovat ani přistupovat k obsahu dokumentů, které používáte."
+1 = "PDF Viewer používá soubory cookie a podobné technologie ke zlepšení vašeho prostředí a pochopení, jak jsou naše nástroje používány. To nám pomáhá zlepšovat výkon, vyvíjet funkce, na kterých vám záleží, a poskytovat našim uživatelům průběžnou podporu."
+2 = "PDF Viewer nemůže - a nikdy nebude - sledovat ani přistupovat k obsahu dokumentů, které používáte."
 3 = "Vaše soukromí a důvěra jsou středobodem toho, co děláme."
 
 [cookieBanner.preferencesModal.necessary]
@@ -4565,11 +4565,11 @@ message = "Nepodařilo se nastavit výchozí aplikaci pro PDF"
 title = "Chyba"
 
 [defaultApp.settingsOpened]
-message = "V Nastavení Windows vyhledejte „PDF“ a vyberte Stirling PDF jako výchozí aplikaci"
+message = "V Nastavení Windows vyhledejte „PDF“ a vyberte PDF Viewer jako výchozí aplikaci"
 title = "Otevřeno nastavení"
 
 [defaultApp.success]
-message = "Stirling PDF je nyní váš výchozí editor PDF"
+message = "PDF Viewer je nyní váš výchozí editor PDF"
 title = "Výchozí aplikace nastavena"
 
 [desktop.fileSave]
@@ -4586,7 +4586,7 @@ minimize = "Minimalizovat"
 restore = "Obnovit"
 
 [desktopBilling]
-description = "Spravujte využití a fakturaci v prohlížeči. Přihlaste se stejným účtem Stirling, který používáte zde."
+description = "Spravujte využití a fakturaci v prohlížeči. Přihlaste se stejným účtem PDF Viewer, který používáte zde."
 open = "Otevřít Využití a fakturaci v prohlížeči"
 openFailed = "Nepodařilo se otevřít Využití a fakturaci. Zkontrolujte připojení a zkuste to znovu."
 selfHostedDescription = "Spravujte využití a fakturaci na připojeném serveru v prohlížeči. Přihlaste se účtem vlastníka serveru."
@@ -4638,7 +4638,7 @@ updateFailedMessage = "Nepodařilo se stáhnout nebo nainstalovat aktualizaci."
 
 [desktopUpdate.blocked]
 docsLink = "Zobrazit dokumentaci k instalaci"
-message = "Stirling-PDF nemá oprávnění k samoaktualizaci na tomto zařízení."
+message = "PDF Viewer nemá oprávnění k samoaktualizaci na tomto zařízení."
 title = "Vyžadována oprávnění správce"
 
 [devAirgapped]
@@ -4912,7 +4912,7 @@ description = "Extrahuje vybrané stránky do nového PDF se zachováním pořad
 open = "Odeslat zpětnou vazbu"
 sendMore = "Odeslat další zpětnou vazbu"
 sent = "Děkujeme za vaši zpětnou vazbu"
-title = "Pomozte vylepšit Stirling"
+title = "Pomozte vylepšit PDF Viewer"
 unavailable = "Zpětná vazba není k dispozici"
 
 [feedback.tag]
@@ -5117,13 +5117,13 @@ save = "Přejmenovat"
 title = "Přejmenovat soubor"
 
 [filesPage]
-addedToLibrary = "Přidáno do knihovny Stirling"
-addingToLibrary = "Přidávání do knihovny Stirling…"
-addToLibrary = "Přidat do knihovny Stirling…"
+addedToLibrary = "Přidáno do knihovny PDF Viewer"
+addingToLibrary = "Přidávání do knihovny PDF Viewer…"
+addToLibrary = "Přidat do knihovny PDF Viewer…"
 addToLibraryFailed = "Některé soubory se nepodařilo přidat"
 addToWorkspace = "Přidat do pracovního prostoru"
 addToWorkspaceCount = "Přidat {{count}} do pracovního prostoru"
-allFiles = "Knihovna Stirling"
+allFiles = "Knihovna PDF Viewer"
 back = "Zpět"
 backToFolder = "Zpět do {{folder}}"
 backToMyFiles = "Zpět do knihovny souborů"
@@ -5151,7 +5151,7 @@ deleteFolderContents_one = "Odstranit také {{count}} soubor ve složce"
 deleteFolderContents_other = "Odstranit také {{count}} souborů ve složce"
 deleteFolderContentsWarning = "Soubory budou trvale odstraněny a nelze je obnovit."
 deleteFolderError = "Složku se nepodařilo smazat. Zkuste to znovu."
-deleteFolderKeepHint = "Soubory uvnitř budou přesunuty do knihovny Stirling."
+deleteFolderKeepHint = "Soubory uvnitř budou přesunuty do knihovny PDF Viewer."
 deleteFolderTitle = "Smazat složku?"
 deselectAll = "Zrušit výběr"
 details = "Podrobnosti"
@@ -5189,7 +5189,7 @@ moveSkippedRemote_other = "{{count}} souborů se nepodařilo přesunout na serve
 moveTo = "Přesunout do…"
 newFolder = "Nová složka"
 newFolderStorageDisabled = "Ukládání složek na serveru není povoleno."
-newFolderTabUnavailable = "Pro vytvoření složek přepněte do knihovny Stirling."
+newFolderTabUnavailable = "Pro vytvoření složek přepněte do knihovny PDF Viewer."
 offlineNoFolderEdits = "Synchronizace složek se serverem není dostupná – změny složek jsou zakázány. Zkontrolujte přihlášení a nastavení úložiště."
 open = "Otevřít"
 openVersionInWorkspace = "Otevřít v pracovním prostoru"
@@ -5198,7 +5198,7 @@ recentFiles = "Nedávné"
 refresh = "Obnovit"
 refreshNeedsConnection = "Pro obnovení ze serveru se přihlaste."
 remove = "Smazat"
-removeLocalFolder = "Odpojit ze Stirling"
+removeLocalFolder = "Odpojit ze PDF Viewer"
 removeVersion = "Odebrat tuto verzi"
 rename = "Přejmenovat"
 renamed = "Přejmenováno"
@@ -5210,7 +5210,7 @@ selectAll = "Vybrat vše"
 selectedCount = "Vybráno: {{count}}"
 selectedFile = "{{name}}, vybráno"
 selectFile = "Vybrat soubor {{name}}"
-serverFolderNeedsConnection = "Pro použití serverových složek se přihlaste ke Stirling Cloud nebo připojte vlastní server."
+serverFolderNeedsConnection = "Pro použití serverových složek se přihlaste ke PDF Viewer Cloud nebo připojte vlastní server."
 shareDisabledHint = "Sdílení souborů není na tomto serveru povoleno. Požádejte správce o povolení."
 shareManage = "Spravovat sdílení"
 showDetails = "Zobrazit podrobnosti"
@@ -5220,7 +5220,7 @@ summary_other = "{{count}} položek"
 tree = "Složky"
 unmount = "Odpojit"
 unmountFolderBody = "Odpojit „{{name}}“? Složka a její soubory zůstanou na vašem disku."
-unmountFolderTitle = "Odpojit ze Stirling?"
+unmountFolderTitle = "Odpojit ze PDF Viewer?"
 upload = "Nahrát"
 uploadFromMobile = "Nahrát z mobilu"
 versionActions = "Akce verze"
@@ -5263,7 +5263,7 @@ orphaned = "Není na disku"
 orphanedHint = "Původní soubor v {{path}} zmizel. Tato kopie je pouze zde – při ukládání budete požádáni o nové umístění."
 unavailable = "Nedostupné"
 unavailableHintOffline = "Disk nebo sdílená složka, kde je tento soubor uložen, není připojena. Znovu ji připojte, aby bylo možné znovu načíst změny."
-unavailableHintPermission = "Stirling nemá povoleno číst toto umístění. Udělte přístup v Nastavení systému, aby bylo možné znovu načíst změny."
+unavailableHintPermission = "PDF Viewer nemá povoleno číst toto umístění. Udělte přístup v Nastavení systému, aby bylo možné znovu načíst změny."
 unavailableHintUnknown = "Tento soubor nyní nelze načíst. Kopie zde je beze změny."
 
 [filesPage.diskState]
@@ -5378,7 +5378,7 @@ placeholder = "Název složky"
 
 [filesPage.folderOrigin]
 diskHint = "Složka připojená z adresáře na vašem disku"
-serverHint = "Složka uložená na serveru Stirling"
+serverHint = "Složka uložená na serveru PDF Viewer"
 virtualHint = "Složka, která existuje pouze v tomto prohlížeči"
 
 [filesPage.moveDialog]
@@ -5402,7 +5402,7 @@ serverHint = "Synchronizováno s vaším účtem, dostupné odkudkoli se přihl�
 [filesPage.origin]
 all = "Všechny zdroje"
 cloud = "Cloud"
-cloudHint = "Uloženo na serveru Stirling"
+cloudHint = "Uloženo na serveru PDF Viewer"
 diskFileHint = "Uloženo ve vašem počítači"
 diskHint = "Soubor v připojené složce na vašem disku"
 local = "Místní"
@@ -5413,7 +5413,7 @@ sharedHint = "Sdíleno s vámi přes odkaz"
 
 [filesPage.processing]
 active = "Složka se zpracovává"
-blockedNeedsConnection = "Pro zpracování složek se přihlaste ke Stirling Cloud nebo připojte vlastní server."
+blockedNeedsConnection = "Pro zpracování složek se přihlaste ke PDF Viewer Cloud nebo připojte vlastní server."
 edit = "Upravit zpracování..."
 nothingToRestore = "Žádné původní soubory k obnovení – tyto soubory už jsou původní."
 paused = "Zpracování pozastaveno"
@@ -5815,7 +5815,7 @@ invisible = "Neviditelné (pouze metadata)"
 location = "Místo:"
 logo = "Logo:"
 logoHidden = "Bez loga"
-logoShown = "Zobrazeno logo Stirling PDF"
+logoShown = "Zobrazeno logo PDF Viewer"
 participantCount_one = "{{count}} vybraný účastník"
 participantCount_other = "{{count}} vybraných účastníků"
 participants = "Účastníci"
@@ -5866,7 +5866,7 @@ title = "Podepisování v libovolném pořadí"
 dismiss = "Skrýt banner"
 message = "Vytvořte si bezplatný účet, ukládejte svou práci, získejte více funkcí a podpořte projekt."
 signUp = "Zaregistrovat se zdarma"
-title = "Používáte Stirling PDF jako host!"
+title = "Používáte PDF Viewer jako host!"
 
 [home.addAttachments]
 desc = "Zobrazte, přidejte, extrahujte, přejmenujte nebo odstraňte vložené přílohy PDF"
@@ -6050,7 +6050,7 @@ tags = "kombinovat,spojit,sloučit,merge,sloučit PDFs,kombinovat PDFs,spojit PD
 title = "Sloučit"
 
 [home.mobile]
-brandAlt = "Logo Stirling PDF"
+brandAlt = "Logo PDF Viewer"
 openFiles = "Otevřít soubory"
 swipeHint = "Přejeďte doleva nebo doprava pro přepnutí zobrazení"
 tools = "Nástroje"
@@ -6084,7 +6084,7 @@ tags = "organizovat,přeuspořádat,změnit pořadí,uspořádat stránky,seřad
 title = "Uspořádat"
 
 [home.pdfTextEditor]
-desc = "Prohlížejte a upravujte exporty JSON ze Stirling PDF se skupinovými úpravami textu a regenerací PDF"
+desc = "Prohlížejte a upravujte exporty JSON ze PDF Viewer se skupinovými úpravami textu a regenerací PDF"
 tags = "upravit text,změnit text,upravit text,upravit obsah,aktualizovat text,přepsat,opravit,doplnit,redline,revidovat,textový editor,editor obsahu"
 title = "Editor textu PDF"
 
@@ -6262,7 +6262,7 @@ passwordRequired = "Heslo je povinné"
 signIn = "Přihlásit se"
 validating = "Ověřování pozvánky..."
 validationError = "Nepodařilo se ověřit pozvánkový odkaz"
-welcome = "Vítejte ve Stirling PDF"
+welcome = "Vítejte ve PDF Viewer"
 welcomeSubtitle = "Dokončete nastavení účtu a začněte"
 welcomeTitle = "Byli jste pozváni!"
 
@@ -6309,8 +6309,8 @@ terms = "Podmínky použití"
 title = "Licence třetích stran"
 
 [localMode]
-automationUnavailable = "Pro použití složek pro zpracování a pipeline se přihlaste ke Stirling Cloud nebo k vlastnímu serveru."
-toolUnavailable = "Tento nástroj vyžaduje účet. Přihlaste se ke Stirling Cloud nebo se připojte k samostatně hostovanému serveru, abyste jej mohli použít."
+automationUnavailable = "Pro použití složek pro zpracování a pipeline se přihlaste ke PDF Viewer Cloud nebo k vlastnímu serveru."
+toolUnavailable = "Tento nástroj vyžaduje účet. Přihlaste se ke PDF Viewer Cloud nebo se připojte k samostatně hostovanému serveru, abyste jej mohli použít."
 
 [localMode.toolPicker]
 message = "Přihlaste se a odemkněte všechny nástroje."
@@ -6550,7 +6550,7 @@ message = "Ověření nebylo úspěšné. Toto okno můžete zavřít a zkusit t
 title = "Ověření selhalo"
 
 [oauth.success]
-message = "Toto okno můžete zavřít a vrátit se do Stirling PDF."
+message = "Toto okno můžete zavřít a vrátit se do PDF Viewer."
 title = "Ověření úspěšné"
 
 [oauthConsent]
@@ -6563,17 +6563,17 @@ loadFailed = "This authorisation request is invalid or has expired. Close this t
 loading = "Loading authorisation request..."
 missingId = "Missing authorisation request. Start the connection from your app and try again."
 redirecting = "Vracíme vás do aplikace..."
-requesting = "{{app}} chce získat přístup k vašemu účtu Stirling PDF"
+requesting = "{{app}} chce získat přístup k vašemu účtu PDF Viewer"
 scopesIntro = "To umožní aplikaci {{app}}:"
 signedInAs = "Přihlášeni jako {{name}}"
 signInButton = "Přihlásit se a pokračovat"
-signInPrompt = "Přihlaste se ke svému účtu Stirling PDF a pokračujte v připojování aplikace."
+signInPrompt = "Přihlaste se ke svému účtu PDF Viewer a pokračujte v připojování aplikace."
 title = "Authorise access"
 unknownApp = "Aplikace třetí strany"
 
 [oauthConsent.access]
 actAsYou = "Jednat jako vy – vše, co {{app}} udělá, proběhne pod vaším účtem a započítá se do vašeho využití"
-tools = "Používat vaše nástroje Stirling PDF vaším jménem – převádět, upravovat, podepisovat, zabezpečovat a zpracovávat vaše dokumenty"
+tools = "Používat vaše nástroje PDF Viewer vaším jménem – převádět, upravovat, podepisovat, zabezpečovat a zpracovávat vaše dokumenty"
 
 [oauthConsent.scope]
 email = "Zobrazit vaši emailovou adresu"
@@ -6703,26 +6703,26 @@ skipTheTour = "Přeskočit průvodce"
 
 [onboarding.checklist]
 dismiss = "Zavřít"
-title = "Nastavte Stirling PDF"
+title = "Nastavte PDF Viewer"
 
 [onboarding.checklist.downloadDesktop]
-description = "Spusťte Stirling nativně na svém počítači"
-title = "Stáhnout Stirling pro Desktop"
+description = "Spusťte PDF Viewer nativně na svém počítači"
+title = "Stáhnout PDF Viewer pro Desktop"
 
 [onboarding.checklist.inviteTeam]
 description = "Spolupracujte se svým týmem"
 title = "Pozvat členy týmu"
 
 [onboarding.checklist.setDefaultApp]
-description = "Otevírat PDF soubory v Stirling PDF"
-title = "Nastavit Stirling jako výchozí"
+description = "Otevírat PDF soubory v PDF Viewer"
+title = "Nastavit PDF Viewer jako výchozí"
 
 [onboarding.checklist.takeTour]
-description = "Podívejte se v krátké prohlídce, jak Stirling funguje"
+description = "Podívejte se v krátké prohlídce, jak PDF Viewer funguje"
 title = "Spustit prohlídku"
 
 [onboarding.desktopInstall]
-body = "Stirling nejlépe funguje jako desktopová aplikace. Můžete ji používat offline, rychleji přistupovat k dokumentům a provádět úpravy lokálně ve svém počítači."
+body = "PDF Viewer nejlépe funguje jako desktopová aplikace. Můžete ji používat offline, rychleji přistupovat k dokumentům a provádět úpravy lokálně ve svém počítači."
 selectOs = "Vyberte operační systém"
 title = "Stáhnout"
 titleWithOs = "Stáhnout pro {{osLabel}}"
@@ -6730,7 +6730,7 @@ titleWithOs = "Stáhnout pro {{osLabel}}"
 [onboarding.desktopWelcome]
 body = "Čeká na vás spousta nových změn k prozkoumání, včetně <strong>Agent Chat</strong>, automatické <strong>klasifikace</strong> dokumentů a dalších funkcí."
 freeLine = "Editor je nyní <free>zcela zdarma</free>."
-title = "Vítejte ve Stirling <product>Desktop</product>"
+title = "Vítejte ve PDF Viewer <product>Desktop</product>"
 
 [onboarding.mfa]
 authenticationCode = "Ověřovací kód"
@@ -6751,21 +6751,21 @@ success = "MFA bylo povoleno. Nyní můžete pokračovat."
 title = "Nastavení vícefaktorového ověření"
 
 [onboarding.planOverview]
-adminBodyLoginDisabled = "Po povolení režimu přihlášení můžete spravovat uživatele, konfigurovat nastavení a sledovat stav serveru. Prvních <strong>{{freeTierLimit}}</strong> uživatelů na vašem serveru může Stirling používat zdarma."
-adminBodyLoginEnabled = "Jako správce můžete spravovat uživatele, konfigurovat nastavení a sledovat stav serveru. Prvních <strong>{{freeTierLimit}}</strong> uživatelů na vašem serveru může Stirling používat zdarma."
+adminBodyLoginDisabled = "Po povolení režimu přihlášení můžete spravovat uživatele, konfigurovat nastavení a sledovat stav serveru. Prvních <strong>{{freeTierLimit}}</strong> uživatelů na vašem serveru může PDF Viewer používat zdarma."
+adminBodyLoginEnabled = "Jako správce můžete spravovat uživatele, konfigurovat nastavení a sledovat stav serveru. Prvních <strong>{{freeTierLimit}}</strong> uživatelů na vašem serveru může PDF Viewer používat zdarma."
 adminTitle = "Přehled pro správce"
 userBody = "Pozvěte kolegy, přiřazujte role a udržujte dokumenty uspořádané v jednom zabezpečeném prostoru. Režim přihlášení zapněte, jakmile budete chtít růst nad rámec sólo použití."
 userTitle = "Přehled plánu"
 
 [onboarding.processorIntro]
-body = "Stirling nyní spouští <strong>Zásady</strong> — automatizovaná pravidla, která klasifikují, zabezpečují a zpracovávají každý dokument při jeho příchodu. Nastavte je a sledujte běhy v <strong>Processoru</strong>."
+body = "PDF Viewer nyní spouští <strong>Zásady</strong> — automatizovaná pravidla, která klasifikují, zabezpečují a zpracovávají každý dokument při jeho příchodu. Nastavte je a sledujte běhy v <strong>Processoru</strong>."
 cta = "Podívat se na Processor"
-title = "Podívejte se na Stirling Processor"
+title = "Podívejte se na PDF Viewer Processor"
 
 [onboarding.saas.freeEditor]
 freeLine = "Editor je nyní <free>zcela zdarma</free>."
 premium = "Přidali jsme spoustu nových funkcí, včetně <strong>Zásad</strong> a <strong>Agent Chat</strong>."
-title = "Vítejte ve Stirling"
+title = "Vítejte ve PDF Viewer"
 
 [onboarding.saas.team]
 addButton = "Přidat"
@@ -6786,20 +6786,20 @@ roleUser = "Uživatel"
 title = "Kontrola zabezpečení"
 
 [onboarding.serverLicense]
-freeBody = "Naše licence <strong>Open-Core</strong> zahrnuje <strong>OAuth SSO</strong> a až <strong>{{freeTierLimit}}</strong> uživatelů zdarma. Pro růst bez přerušení doporučujeme plán Stirling Team — <strong>100 uživatelů</strong> za 99 $/měsíc."
+freeBody = "Naše licence <strong>Open-Core</strong> zahrnuje <strong>OAuth SSO</strong> a až <strong>{{freeTierLimit}}</strong> uživatelů zdarma. Pro růst bez přerušení doporučujeme plán PDF Viewer Team — <strong>100 uživatelů</strong> za 99 $/měsíc."
 freeTitle = "Plán Team"
-overLimitBody = "Naše licence umožňuje zdarma až <strong>{{freeTierLimit}}</strong> uživatelů. Máte <strong>{{overLimitUserCopy}}</strong> uživatelů Stirling. Chcete-li pokračovat bez přerušení, upgradujte na plán Stirling Team – <strong>100 uživatelů</strong>, úpravy textu PDF a plná administrátorská kontrola za $99/mo."
+overLimitBody = "Naše licence umožňuje zdarma až <strong>{{freeTierLimit}}</strong> uživatelů. Máte <strong>{{overLimitUserCopy}}</strong> uživatelů PDF Viewer. Chcete-li pokračovat bez přerušení, upgradujte na plán PDF Viewer Team – <strong>100 uživatelů</strong>, úpravy textu PDF a plná administrátorská kontrola za $99/mo."
 overLimitTitle = "Je potřeba plán Team"
 seePlans = "Zobrazit plány →"
 upgrade = "Upgradovat nyní →"
 
 [onboarding.tourOverview]
-body = "Stirling PDF V2 přináší desítky nástrojů a obnovené rozvržení. Projděte si krátkou prohlídku, abyste viděli, co se změnilo a kde najdete funkce, které potřebujete."
+body = "PDF Viewer V2 přináší desítky nástrojů a obnovené rozvržení. Projděte si krátkou prohlídku, abyste viděli, co se změnilo a kde najdete funkce, které potřebujete."
 title = "Přehled prohlídky"
 
 [onboarding.welcomeSlide]
-body = "Stirling PDF je nyní připraven pro týmy všech velikostí. Tato aktualizace přináší nové rozvržení, výkonné nové funkce pro správce a naši nejžádanější funkci – <strong>Úpravy textu</strong>."
-title = "Vítejte ve Stirling"
+body = "PDF Viewer je nyní připraven pro týmy všech velikostí. Tato aktualizace přináší nové rozvržení, výkonné nové funkce pro správce a naši nejžádanější funkci – <strong>Úpravy textu</strong>."
+title = "Vítejte ve PDF Viewer"
 
 [onboarding.whatsNew]
 activeFilesView = "Použijte Aktivní soubory, abyste viděli vše, co máte otevřené, a vybrali, s čím chcete pracovat."
@@ -6912,7 +6912,7 @@ check = "Zkontrolovat znovu"
 checkAccount = "Zkontrolovat účet"
 chooseEmail = "Vyberte jejich účet v {{team}} nebo zadejte e-mail pro pozvánku."
 close = "Zavřít dialog převodu"
-cloudAccount = "Účet Stirling"
+cloudAccount = "Účet PDF Viewer"
 cloudScopeStyled = "<user>{{name}}</user> bude spravovat {{team}}, jeho členy a fakturaci."
 cloudTargetChanged = "Vyberte jiného člena cloudu. Tento účet již není způsobilý k předání."
 confirm = "Rozumím změnám přístupu a vlastnictví."
@@ -6927,7 +6927,7 @@ inviteAddress = "Pozvat <account>{{email}}</account> do {{team}}."
 inviteBlocked = "Pozvánku se nepodařilo odeslat. Zkontrolujte dostupná místa v týmu a zda příjemce již nemá placené předplatné."
 linkChanged = "Cloudové propojení serveru se změnilo. Požádejte provozovatele serveru, aby před pokračováním obnovil původní propojení."
 linkedServerCount = "{{count}} propojených serverů"
-linkRevoked = "Cloudové propojení tohoto serveru již není platné. Zrušte převod a poté znovu připojte svůj účet Stirling v nastavení. Vlastnictví se nezmění."
+linkRevoked = "Cloudové propojení tohoto serveru již není platné. Zrušte převod a poté znovu připojte svůj účet PDF Viewer v nastavení. Vlastnictví se nezmění."
 localScope = "Budou vlastnit tento server a spravovat fakturaci a cloudová připojení. Vy si ponecháte přístup správce, ale ztratíte přístup k těmto nastavením."
 membershipDetails = "Podrobnosti členství v týmu"
 membershipFirst = "Než budete moci potvrdit převod, musí se připojit k týmu."
@@ -7255,7 +7255,7 @@ benefit1Body = "řetězte nástroje, plánujte běhy, dávkově zpracovávejte"
 benefit1Title = "Automatizační pipeline"
 benefit2Body = "summarise, classify, redact, AI-OCR"
 benefit2Title = "AI nástroje"
-benefit3Body = "programově volejte libovolný endpoint Stirling"
+benefit3Body = "programově volejte libovolný endpoint PDF Viewer"
 benefit3Title = "Přístup k API"
 button = "Zapnout Processor →"
 reassurance = "Žádné minimum · Nastavte limit $0 pro testování · Zrušení kdykoli"
@@ -7345,7 +7345,7 @@ editorLabel = "Editor PDF"
 login = "Přihlásit se"
 manualToolsPromo = "Neomezené bezplatné ruční nástroje PDF"
 processorLabel = "Procesor PDF"
-processorTitle = "Vytvořte si účet a odemkněte to nejlepší ze Stirling"
+processorTitle = "Vytvořte si účet a odemkněte to nejlepší ze PDF Viewer"
 readerLabel = "Čtečka PDF"
 
 [payg.spendCapMeter]
@@ -7385,7 +7385,7 @@ usdNote = "Odhad v USD. Limit můžete kdykoli po předplatném upravit ve vlast
 [payg.upgrade.checkout]
 capValue = "{{symbol}}{{amount}} / měsíc"
 edit = "Upravit"
-help = "Stripe zpracovává údaje o vaší kartě. Stirling je nikdy nevidí."
+help = "Stripe zpracovává údaje o vaší kartě. PDF Viewer je nikdy nevidí."
 loading = "Načítání checkout…"
 noCap = "Bez limitu"
 title = "Přidejte platební metodu"
@@ -7393,7 +7393,7 @@ title = "Přidejte platební metodu"
 [payg.upgrade.help]
 aiBody = "summarise, classify, redact, AI-OCR"
 aiTitle = "AI nástroje"
-apiBody = "programový přístup k libovolnému endpointu Stirling"
+apiBody = "programový přístup k libovolnému endpointu PDF Viewer"
 apiTitle = "API volání"
 automationBody = "řetězené nástroje nebo plánované běhy, které nevyžadují klikání"
 automationTitle = "Automatizační pipeline"
@@ -7492,7 +7492,7 @@ overCapacityConsequence = "Stávající účty zůstanou na místě. Přidáván
 overCapacityTitle = "Váš server má více uživatelů, než váš plán pokrývá"
 perMonth = "/měs."
 perYear = "/rok"
-planName = "Stirling Team"
+planName = "PDF Viewer Team"
 reductionNote = "Nižší kapacita začne platit při dalším obnovení. Do té doby můžete používat aktuální limit. Stávající uživatelé zůstanou; noví uživatelé budou blokováni, pokud při vstupu změny v platnost překročíte kapacitu."
 renewalNote = "Obnovuje se za {{total}}{{period}}. Zrušit můžete kdykoli v části Použití a fakturace."
 reviewChange = "Zkontrolovat změnu ve Stripe"
@@ -8437,35 +8437,35 @@ pdfa-3b = "PDF/A-3b"
 ownerRequired = "Tento server může propojit nebo odpojit pouze vlastník organizace."
 
 [portal.accountLink.card]
-billingNote = "Tento server sdílí limit zpracování vašeho týmu ve Stirling Cloud."
-connectDescription = "Připojte tento server, aby mohl používat limit zpracování vašeho týmu ve Stirling Cloud."
-disconnectBody = "Tento server přestane používat limit zpracování vašeho týmu ve Stirling Cloud. Vaše místní soubory zůstanou na tomto serveru. Chcete-li se znovu připojit, postupujte podle původních kroků připojení."
+billingNote = "Tento server sdílí limit zpracování vašeho týmu ve PDF Viewer Cloud."
+connectDescription = "Připojte tento server, aby mohl používat limit zpracování vašeho týmu ve PDF Viewer Cloud."
+disconnectBody = "Tento server přestane používat limit zpracování vašeho týmu ve PDF Viewer Cloud. Vaše místní soubory zůstanou na tomto serveru. Chcete-li se znovu připojit, postupujte podle původních kroků připojení."
 disconnectTitle = "Odpojit tuto instanci?"
 eyebrow = "Tato instance"
-linkButton = "Připojit váš účet Stirling"
+linkButton = "Připojit váš účet PDF Viewer"
 loading = "Kontrola připojení účtu"
 notLinked = "Nepřipojeno"
-signedInAs = "Přihlášeni ke Stirling Cloud jako"
+signedInAs = "Přihlášeni ke PDF Viewer Cloud jako"
 statusError = "Nepodařilo se zkontrolovat připojení účtu"
-title = "Stirling Cloud"
+title = "PDF Viewer Cloud"
 unlink = "Odpojit tuto instanci"
 
 [portal.accountLink.card.error]
 title = "Připojení se nepodařilo aktualizovat"
 
 [portal.accountLink.card.loginNotConfigured]
-description = "Požádejte správce serveru, aby povolil připojení ke Stirling Cloud."
+description = "Požádejte správce serveru, aby povolil připojení ke PDF Viewer Cloud."
 title = "Připojení účtu není dostupné"
 
 [portal.accountLink.connect]
-adminRequired = "Požádejte správce serveru, aby otevřel Použití a fakturaci a propojil účet Stirling pro více měsíčních kreditů. Ruční nástroje PDF jsou stále dostupné."
+adminRequired = "Požádejte správce serveru, aby otevřel Použití a fakturaci a propojil účet PDF Viewer pro více měsíčních kreditů. Ruční nástroje PDF jsou stále dostupné."
 adminTitle = "Požádejte správce serveru"
 close = "Zavřít"
 copied = "Zkopírováno"
 copyAdminMessage = "Zkopírovat zprávu pro správce"
-exhaustedLede = "Tento server využil své bezplatné kredity pro tento měsíc. Propojte nový nebo stávající účet Stirling a získejte přístup k měsíčnímu limitu svého týmu."
+exhaustedLede = "Tento server využil své bezplatné kredity pro tento měsíc. Propojte nový nebo stávající účet PDF Viewer a získejte přístup k měsíčnímu limitu svého týmu."
 notNow = "Teď ne"
-start = "Připojit účet Stirling"
+start = "Připojit účet PDF Viewer"
 step = "Krok {{current}} z {{total}}"
 
 [portal.accountLink.connect.benefits]
@@ -8479,9 +8479,9 @@ teamsDetail = "Přidejte více uživatelů s placeným plánem Team"
 teamsLabel = "Větší týmy"
 
 [portal.accountLink.connect.callback]
-linkedNotSignedIn = "V tomto prohlížeči nejste přihlášeni ke Stirling, takže vás použití a fakturace vyzvou k přihlášení."
+linkedNotSignedIn = "V tomto prohlížeči nejste přihlášeni ke PDF Viewer, takže vás použití a fakturace vyzvou k přihlášení."
 retry = "Zkusit znovu"
-signedInAnyway = "Jste přihlášeni ke Stirling, takže fakturace a použití se načtou. Pouze propojení serveru není dokončeno."
+signedInAnyway = "Jste přihlášeni ke PDF Viewer, takže fakturace a použití se načtou. Pouze propojení serveru není dokončeno."
 working = "Dokončování připojení."
 
 [portal.accountLink.connect.callback.expired]
@@ -8497,7 +8497,7 @@ body = "Tato žádost byla odmítnuta nebo již byla použita. Zahajte další, 
 title = "Připojení nebylo dokončeno"
 
 [portal.accountLink.connect.callback.unfinished]
-body = "Stirling nepotvrdil připojení. Obvykle je to dočasné."
+body = "PDF Viewer nepotvrdil připojení. Obvykle je to dočasné."
 title = "Zatím nedokončeno"
 
 [portal.accountLink.connect.done]
@@ -8508,23 +8508,23 @@ creditsBarLabel = "Zbývající bezplatné kredity"
 creditsSuffix = "z {{allowance}} bezplatných kreditů zbývá"
 cta = "Hotovo"
 inviteTeam = "Pozvat tým"
-lede = "Tento server nyní běží pod vaším účtem Stirling."
+lede = "Tento server nyní běží pod vaším účtem PDF Viewer."
 pendingTitle = "Už jen kousek"
 switchOnProcessor = "Zapnout Processor"
 title = "Připojeno"
 
 [portal.accountLink.connect.handoff]
-opening = "Otevírá se přihlášení ke Stirling..."
-reauthLede = "Vaše relace Stirling vypršela. Opětovné přihlášení zachová viditelnost využití a fakturace. Tento server zůstane připojený v každém případě."
+opening = "Otevírá se přihlášení ke PDF Viewer..."
+reauthLede = "Vaše relace PDF Viewer vypršela. Opětovné přihlášení zachová viditelnost využití a fakturace. Tento server zůstane připojený v každém případě."
 title = "Připojování"
 
 [portal.accountLink.connectionNotice]
-expiredBody = "Tento server se v rámci svého offline limitu nepřipojil ke Stirling Cloud. Týmové funkce podporované cloudem a práce Processor jsou pozastaveny. Stávající data a nainstalovaná licenční oprávnění jsou zachována. Přístup se automaticky obnoví po úspěšném připojení, které potvrdí váš plán."
+expiredBody = "Tento server se v rámci svého offline limitu nepřipojil ke PDF Viewer Cloud. Týmové funkce podporované cloudem a práce Processor jsou pozastaveny. Stávající data a nainstalovaná licenční oprávnění jsou zachována. Přístup se automaticky obnoví po úspěšném připojení, které potvrdí váš plán."
 expiredTitle = "Cloudový přístup pozastaven"
 offlineBody = "Váš poslední potvrzený plán zůstává dostupný do {{deadline}}. Do té doby obnovte připojení tohoto serveru, abyste předešli pozastavení funkcí a zpracování podporovaných cloudem."
-offlineTitle = "Stirling Cloud je nedostupný"
+offlineTitle = "PDF Viewer Cloud je nedostupný"
 retry = "Zkontrolovat připojení"
-revokedBody = "Stirling Cloud odmítl připojení tohoto účtu. Chcete-li obnovit způsobilé funkce podporované cloudem, znovu připojte účet v Nastavení."
+revokedBody = "PDF Viewer Cloud odmítl připojení tohoto účtu. Chcete-li obnovit způsobilé funkce podporované cloudem, znovu připojte účet v Nastavení."
 revokedTitle = "Připojení účtu zrušeno"
 
 [portal.accountLink.failure]
@@ -8553,17 +8553,17 @@ callbackMismatch = "Nakonfigurovaná adresa frontendu tohoto serveru neodpovíd�
 cancel = "Zrušit"
 continueReauth = "Přihlásit se znovu"
 exhaustedTitle = "Udržte své pracovní postupy v chodu"
-identity = "Účet Stirling"
-linkTitle = "Připojte svůj účet Stirling"
-noAuthorizeUrl = "Stirling nevrátil místo, kde pokračovat. Zkuste to za chvíli znovu."
-startFailed = "Nepodařilo se spojit se Stirling pro zahájení připojení. Zkontrolujte odchozí síťový přístup tohoto serveru a zkuste to znovu."
+identity = "Účet PDF Viewer"
+linkTitle = "Připojte svůj účet PDF Viewer"
+noAuthorizeUrl = "PDF Viewer nevrátil místo, kde pokračovat. Zkuste to za chvíli znovu."
+startFailed = "Nepodařilo se spojit se PDF Viewer pro zahájení připojení. Zkontrolujte odchozí síťový přístup tohoto serveru a zkuste to znovu."
 transferPending = "Čeká převod vlastnictví. Přejděte do Nastavení → Uživatelé a dokončete ho nebo zrušte, poté zkuste propojení znovu."
 
 [portal.accountLink.modal.loginNotConfigured]
 after = "aby tento server mohl dokončit připojení, až se vrátíte."
 and = "a"
 before = "Nastavte"
-title = "Připojení Stirling není nakonfigurováno"
+title = "Připojení PDF Viewer není nakonfigurováno"
 
 [portal.accountLink.notice]
 loadFailed = "Dialog pro propojení účtu se nepodařilo načíst."
@@ -8573,11 +8573,11 @@ openFailed = "Nepodařilo se otevřít prohlížeč. Chcete-li propojit účet, 
 instancesSub = "Self-hosted servery připojené ke stejnému týmu."
 instancesTitle = "Připojené instance"
 manageCloud = "Spravovat na stirling.com"
-otherInstancesSub = "Další samostatně hostované servery připojené ke stejnému týmu ve Stirling Cloud."
+otherInstancesSub = "Další samostatně hostované servery připojené ke stejnému týmu ve PDF Viewer Cloud."
 otherInstancesTitle = "Další připojené instance"
 revokeError = "Instanci se nepodařilo odvolat"
 sessionRequired = "Připojené instance se zobrazí po obnovení přístupu k fakturaci."
-sub = "Spravujte připojení tohoto serveru k účtu Stirling Cloud."
+sub = "Spravujte připojení tohoto serveru k účtu PDF Viewer Cloud."
 
 [portal.accountLink.panel.loadError]
 forbidden = "Připojené instance může spravovat pouze vlastník týmu."
@@ -8600,7 +8600,7 @@ viewAll = "Zobrazit všechny pipeline"
 
 [portal.accountLink.rail]
 adminCta = "Jak získat více kreditů"
-adminSub = "Požádejte správce serveru, aby pro více kreditů propojil účet Stirling. Ruční nástroje PDF jsou stále dostupné."
+adminSub = "Požádejte správce serveru, aby pro více kreditů propojil účet PDF Viewer. Ruční nástroje PDF jsou stále dostupné."
 exhaustedCta = "Propojit účet pro více kreditů"
 exhaustedSub = "Propojte účet pro měsíční kredity, sdílenou fakturaci a možnost růstu s plánem Team."
 exhaustedTitle = "Bezplatné kredity tohoto serveru byly vyčerpány"
@@ -8614,9 +8614,9 @@ malformed = "Tuto odpověď přihlášení se nepodařilo ověřit. Začněte zn
 malformedTitle = "Přihlášení se nepodařilo ověřit"
 rejected = "Tento požadavek na přihlášení byl odmítnut nebo již byl použit. Zkuste znovu obnovit přístup k fakturaci."
 rejectedTitle = "Přihlášení nebylo dokončeno"
-retry = "Stirling nemohl dokončit obnovení přístupu k fakturaci. Zkuste to za chvíli znovu; váš server je stále připojený."
+retry = "PDF Viewer nemohl dokončit obnovení přístupu k fakturaci. Zkuste to za chvíli znovu; váš server je stále připojený."
 retryTitle = "Přístup k fakturaci nebyl obnoven"
-success = "Váš přístup k fakturaci byl obnoven. Tento server je stále připojený ke stejnému účtu Stirling."
+success = "Váš přístup k fakturaci byl obnoven. Tento server je stále připojený ke stejnému účtu PDF Viewer."
 title = "Obnovit přístup k fakturaci"
 working = "Obnovuje se přístup k fakturaci."
 
@@ -8630,7 +8630,7 @@ close = "Zavřít asistenta"
 error = "Asistenta se nepodařilo kontaktovat."
 errorWithDetail = "Asistenta se nepodařilo kontaktovat: {{detail}}"
 inputAriaLabel = "Zeptejte se asistenta"
-inputPlaceholder = "Zeptejte se na Stirling…"
+inputPlaceholder = "Zeptejte se na PDF Viewer…"
 open = "Otevřít asistenta"
 send = "Odeslat"
 title = "Asistent"
@@ -8675,7 +8675,7 @@ title = "Nastavte svůj limit výdajů"
 [portal.billing.checkout.card]
 fields = "Číslo karty · MM / RR · CVC · ZIP"
 label = "Údaje o kartě"
-note = "Údaje o kartě shromažďuje Stripe. Stirling nikdy neukládá PAN ani CVC."
+note = "Údaje o kartě shromažďuje Stripe. PDF Viewer nikdy neukládá PAN ani CVC."
 
 [portal.billing.checkout.error]
 title = "Nepodařilo se spustit checkout"
@@ -8759,7 +8759,7 @@ pdfsUsed_one = "Zpracováno {{count}} PDF"
 pdfsUsed_other = "{{count}} zpracovaných PDF"
 period = "Období smlouvy: {{start}} – {{end}}"
 sub = "Nasazení bez připojení k síti, SCIM, rezidence dat, SLA dostupnosti a odpovídající smlouva."
-title = "Provozujete Stirling v regulovaném prostředí?"
+title = "Provozujete PDF Viewer v regulovaném prostředí?"
 trial = "{{days}}denní zkušební verze · končí {{date}}"
 usersAgreed = "{{used}} / {{agreed}} sjednaných uživatelů"
 usersOver_one = "{{count}} uživatel nad sjednané množství"
@@ -8909,7 +8909,7 @@ spendAgainstLimit = "{{spend}} z {{cap}} měřeno v tomto cyklu"
 [portal.billing.seats]
 awaitingSync = "Čeká na svou denní synchronizaci; zatím není zahrnuto do celkového počtu flotily."
 breakdown = "Kde se počítají uživatelé"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 deployment = "Propojený server"
 lastReported = "Nahlášeno {{date}}"
 live = "Aktuální počet uživatelů"
@@ -9041,7 +9041,7 @@ description = "Kam zpracované dokumenty skončí – bucket, disk, tiket nebo s
 label = "Soubor a příloha"
 
 [portal.connections.commonFields.accessToken]
-helperText = "Stirling to ukládá šifrovaně a už to nikdy nezobrazí."
+helperText = "PDF Viewer to ukládá šifrovaně a už to nikdy nezobrazí."
 label = "Přístupový token"
 
 [portal.connections.commonFields.apiKey]
@@ -9630,8 +9630,8 @@ brandTag = "Enterprise"
 callInfo = "15minutový hovor. Přineste své dotazy k cenám, nasazení nebo zabezpečení, nebo společně naplánujte rollout."
 callTitle = "Promluvte si s inženýrem řešení"
 deployment = "Nasazení"
-footer = "Otázky ke Stirling Enterprise?"
-home = "Přejít na Stirling"
+footer = "Otázky ke PDF Viewer Enterprise?"
+home = "Přejít na PDF Viewer"
 member = "Vedoucí vašeho týmu spravuje dohodu Enterprise. Jakmile začne, můžete zde sledovat její průběh."
 memberDeal = "Vedoucí vašeho týmu spravuje tuto dohodu. Její průběh můžete sledovat zde."
 quotePanel = "Vaše nabídka"
@@ -9644,8 +9644,8 @@ stagesLabel = "Postup"
 lede = "Vyzkoušejte zdarma na 14 dní, pak si zde sestavte nabídku a podepište dohodu. Není potřeba karta."
 tickAgreement = "Jedna smlouva pokrývající MSA, objednávkový formulář, EULA a DPA"
 tickCompliance = "SCIM, umístění dat a SLA dostupnosti"
-tickDeploy = "Provoz na Stirling Cloud, na vlastních serverech nebo zcela bez internetu"
-title = "Stirling Enterprise"
+tickDeploy = "Provoz na PDF Viewer Cloud, na vlastních serverech nebo zcela bez internetu"
+title = "PDF Viewer Enterprise"
 
 [portal.enterprise.options.airgap]
 more = "Dokumentace k offline licenci"
@@ -9655,7 +9655,7 @@ point3 = "Přihlášení zůstává uvnitř vaší sítě"
 tagline = "Self-hosted v síti bez přístupu k internetu."
 
 [portal.enterprise.options.cloud]
-more = "Dokumentace ke Stirling Cloud"
+more = "Dokumentace ke PDF Viewer Cloud"
 point1 = "Váš tým se přihlašuje na stirling.com/app"
 point2 = "Běží na AWS, uložené soubory jsou šifrované při uložení"
 point3 = "Jednotné přihlášení přes vašeho poskytovatele identity vyžaduje self-hosting"
@@ -9697,11 +9697,11 @@ title = "Zpracujte svůj první dokument"
 
 [portal.enterprise.setup.getApp]
 body = "Nainstalujte desktopovou aplikaci pro Windows, Mac nebo Linux a přihlaste se účtem, který jste právě vytvořili, nebo ji používejte přímo v prohlížeči."
-title = "Získat Stirling"
+title = "Získat PDF Viewer"
 
 [portal.enterprise.setup.install]
-body = "Spusťte to na svém serveru. Spustí Stirling s aplikovanou licencí a image obsahuje OCR i konverzi office dokumentů. Pro větší týmy použijte Kubernetes."
-title = "Nainstalovat a spustit Stirling"
+body = "Spusťte to na svém serveru. Spustí PDF Viewer s aplikovanou licencí a image obsahuje OCR i konverzi office dokumentů. Pro větší týmy použijte Kubernetes."
+title = "Nainstalovat a spustit PDF Viewer"
 
 [portal.enterprise.setup.invite]
 body = "Pozvěte lidi, kteří jej budou používat, aby zkušební verze odrážela reálnou práci."
@@ -9722,21 +9722,21 @@ invite = "Pozvat kolegy"
 kubernetes = "Průvodce Kubernetes"
 licence = "Aktivace licence"
 ocr = "OCR jazyky"
-openApp = "Otevřít Stirling"
+openApp = "Otevřít PDF Viewer"
 samlGuide = "Průvodce SAML"
 ssoGuide = "Průvodce SSO"
 
 [portal.enterprise.setup.offlineInstall]
 body = "Stáhněte plný image na připojeném stroji, přeneste jej i licenční soubor, poté jej načtěte a spusťte. Plný image přidává písma, která si offline server nemůže stáhnout."
-title = "Přeneste Stirling a spusťte jej"
+title = "Přeneste PDF Viewer a spusťte jej"
 
 [portal.enterprise.setup.offlineLicence]
 body = "Server bez přístupu k internetu se nedostane k naší licenční službě, proto místo toho ověřuje tento podepsaný soubor. Uchovejte jej spolu s image, kterou přenášíte."
 title = "Stáhněte si svou offline licenci"
 
 [portal.enterprise.setup.people]
-bodyAirgap = "Vytvořte účty na <code>/settings/people</code>, nebo nasměrujte Stirling na svého interního poskytovatele identity, aby přihlášení nikdy neopustilo vaši síť."
-bodySelfHosted = "Vytvořte účty na <code>/settings/people</code>, nebo připojte svého poskytovatele identity, aby se tým přihlašoval svými pracovními účty. Stirling budou používat v prohlížeči na adrese vašeho serveru, nebo v desktopové aplikaci nasměrované na něj."
+bodyAirgap = "Vytvořte účty na <code>/settings/people</code>, nebo nasměrujte PDF Viewer na svého interního poskytovatele identity, aby přihlášení nikdy neopustilo vaši síť."
+bodySelfHosted = "Vytvořte účty na <code>/settings/people</code>, nebo připojte svého poskytovatele identity, aby se tým přihlašoval svými pracovními účty. PDF Viewer budou používat v prohlížeči na adrese vašeho serveru, nebo v desktopové aplikaci nasměrované na něj."
 title = "Přidejte své lidi"
 
 [portal.enterprise.setup.signIn]
@@ -9750,7 +9750,7 @@ retry = "Zkusit znovu"
 title = "Na této stránce se něco pokazilo"
 
 [portal.failures]
-closedBySystem = "Stirling"
+closedBySystem = "PDF Viewer"
 noMatches = "Aktuálním filtrům nic neodpovídá"
 occurrences = "{{count}} výskytů"
 searchPlaceholder = "Hledat problémy, uživatele a chyby"
@@ -9862,7 +9862,7 @@ description = "Na tomto serveru chybí software, který krok potřebuje, takže 
 title = "Software není nainstalován"
 
 [portal.failures.kind.unknown]
-description = "Něco se pokazilo a Stirling to zatím nerozpoznává."
+description = "Něco se pokazilo a PDF Viewer to zatím nerozpoznává."
 title = "Nerozpoznaný problém"
 
 [portal.failures.log]
@@ -9895,13 +9895,13 @@ title = "Nic ke kontrole"
 [portal.home.download]
 back = "Zpět"
 body = "Stáhněte si desktopovou aplikaci nebo provozujte server self-hosted."
-bodyDesktop = "Stáhněte desktopovou aplikaci a poté se přihlaste svým Stirling účtem."
+bodyDesktop = "Stáhněte desktopovou aplikaci a poté se přihlaste svým PDF Viewer účtem."
 done = "Hotovo"
 guide = "Otevřít průvodce {{name}}"
 openInBrowser = "Místo toho otevřít v prohlížeči"
 sectionDesktop = "Desktopová aplikace"
 sectionSelfHosted = "Vlastní hostování"
-title = "Nainstalovat Stirling PDF Editor"
+title = "Nainstalovat PDF Viewer Editor"
 
 [portal.home.download.docker]
 detailBody = "Spusťte oficiální image na svém serveru."
@@ -9983,7 +9983,7 @@ usageMonth = "Využití tento měsíc"
 usageToday = "Využití dnes"
 
 [portal.infrastructure.apiKeys.empty]
-description = "Vytvořte key a začněte volat Stirling API."
+description = "Vytvořte key a začněte volat PDF Viewer API."
 title = "Zatím žádné API klíče"
 
 [portal.infrastructure.apiKeys.error]
@@ -10073,7 +10073,7 @@ done = "Hotovo"
 keyNameLabel = "Název klíče"
 keyNamePlaceholder = "např. Production ingest"
 secretKeyCaption = "Tajný klíč"
-secretWarning = "Uložte jej do správce tajných údajů. Stirling vždy ukládá pouze hash, takže jej později nelze obnovit."
+secretWarning = "Uložte jej do správce tajných údajů. PDF Viewer vždy ukládá pouze hash, takže jej později nelze obnovit."
 subtitle = "Pojmenujte key tak, abyste jej později poznali. Kdykoli jej můžete odvolat."
 subtitleCreated = "Zkopírujte si toto tajemství nyní — znovu se nezobrazí."
 title = "Vytvořit API klíč"
@@ -10257,7 +10257,7 @@ connectionCount_one = "{{count}} připojení"
 connectionCount_other = "{{count}} připojení"
 customApi = "Vlastní API"
 searchPlaceholder = "Hledat integrace"
-subtitle = "Vše, s čím může Stirling komunikovat. Přihlašovací údaje se vytvoří jednou zde a poté se na ně odkazuje ve zdrojích, zásadách a pipeline."
+subtitle = "Vše, s čím může PDF Viewer komunikovat. Přihlašovací údaje se vytvoří jednou zde a poté se na ně odkazuje ve zdrojích, zásadách a pipeline."
 title = "Integrace"
 typedName = "Název {{tool}}"
 
@@ -10942,8 +10942,8 @@ saveFailed = "Pipeline se nepodařilo uložit. Zkuste to prosím znovu."
 
 [portal.policies.wizard.locations]
 aiSettings = "Otevřít nastavení AI"
-builtin = "Znalostní báze Stirling"
-builtinHelp = "Indexuje prohledávatelné části ve Stirling a vrací zpracované PDF do cíle níže. V nastavení AI musí být nakonfigurován poskytovatel embeddingu."
+builtin = "Znalostní báze PDF Viewer"
+builtinHelp = "Indexuje prohledávatelné části ve PDF Viewer a vrací zpracované PDF do cíle níže. V nastavení AI musí být nakonfigurován poskytovatel embeddingu."
 checking = "Kontrola dostupnosti ingestu..."
 chooseOutput = "Před uložením vyberte povolený výstupní cíl."
 chooseSource = "Vyberte, odkud dokumenty pocházejí"
@@ -11035,7 +11035,7 @@ title = "Zatím žádný tok"
 
 [portal.processorFlow.sources]
 comingSoonTag = "Připojit"
-editor = "Stirling PDF Editor"
+editor = "PDF Viewer Editor"
 heading = "Zdroje"
 perDay = "{{n}} / 24 h"
 
@@ -11051,7 +11051,7 @@ title = "Pořízení"
 agreeCta = "Podepsat smlouvu"
 confidential = "Důvěrné"
 confirm = "Přečetl(a) jsem si tuto smlouvu a souhlasím s ní a prohlašuji, že jsem oprávněn(a) ji podepsat jménem výše uvedené organizace."
-docName = "Smlouva Stirling Enterprise"
+docName = "Smlouva PDF Viewer Enterprise"
 docSub = "MSA, Order Form, EULA a DPA, sloučené do jednoho podpisu."
 download = "Stáhnout"
 downloadDraftError = "Nepodařilo se vygenerovat PDF dohody – renderer dokumentů není dostupný. Zkuste to prosím brzy znovu nebo kontaktujte podporu."
@@ -11091,7 +11091,7 @@ contactNamePlaceholder = "Jane Doe"
 continue = "Pokračovat"
 done = "Hotovo"
 editUsage = "Upravit použití"
-eula = "Přečetl(a) jsem si Stirling Enterprise EULA a souhlasím s ní. Řídí smlouvu vygenerovanou z této nabídky."
+eula = "Přečetl(a) jsem si PDF Viewer Enterprise EULA a souhlasím s ní. Řídí smlouvu vygenerovanou z této nabídky."
 generate = "Vygenerovat nabídku"
 indemnification = "Rozšířená ochrana IP"
 indemnificationSub = "Rozšiřuje naši obranu IP na patentové nároky. Základní odškodnění za autorská práva, ochranné známky a obchodní tajemství je zahrnuto zdarma."
@@ -11099,7 +11099,7 @@ minimum = "Enterprise vyžaduje minimální roční útratu {{min}}."
 minimumBelow = "Tato nabídka dělá {{annual}} ročně. Pokud očekáváte vyšší využití, zvyšte odhadované použití; jinak je pro vás pravděpodobně lepší plán Team."
 minimumNear = "Enterprise vyžaduje minimální roční útratu {{min}}. Zvyšte odhadované použití, abyste jí dosáhli, nebo to s námi proberte."
 minimumNearTitle = "Chybí vám {{gap}} ročně do Enterprise."
-paperBrand = "Stirling PDF"
+paperBrand = "PDF Viewer"
 paperEyebrow = "Enterprise nabídka"
 paperFor = "Připraveno pro"
 pdfSize = "Velikost PDF"
@@ -11210,7 +11210,7 @@ eyebrow = "Enterprise"
 eyebrowCompany = "{{company}} Enterprise"
 inviteTeammates = "Pozvat členy týmu"
 liveSub = "Vaše organizace je zprovozněna a vaše licence je aktivní."
-liveTitle = "Jste živě na Stirling Enterprise"
+liveTitle = "Jste živě na PDF Viewer Enterprise"
 next = "Další: {{stage}}"
 open = "Otevřít pořízení"
 scheduleCall = "Naplánovat hovor"
@@ -11246,7 +11246,7 @@ gatingAction = "Přijměte svou nabídku"
 label = "Nabídka"
 
 [portal.procurement.journeySteps.trial]
-blurb = "Vyhodnoťte Stirling na svých dokumentech a workflow."
+blurb = "Vyhodnoťte PDF Viewer na svých dokumentech a workflow."
 gatingAction = "Sestavte svou nabídku"
 label = "Zkušební verze"
 
@@ -11261,7 +11261,7 @@ trialFileHint = "Toto je váš soubor zkušební licence. Jakmile bude vaše doh
 
 [portal.procurement.live]
 description = "Vaše předplatné je aktivní a licence byla vydána. Váš tým je zřízen a fakturace začala."
-title = "Jste live na Stirling Enterprise"
+title = "Jste live na PDF Viewer Enterprise"
 
 [portal.procurement.milestone]
 downloadError = "PDF nabídky zatím nešlo stáhnout — zkuste to prosím za chvíli znovu."
@@ -11294,11 +11294,11 @@ airgapSub = "Uzavřené, bez odchozí komunikace"
 back = "Zpět"
 businessName = "Název firmy"
 businessNamePlaceholder = "Acme Corp"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 cloudSub = "Spravované, nejrychlejší start"
 continue = "Pokračovat"
 deployment = "Kam se má nasadit?"
-eula = "Souhlasím se Stirling EULA a obchodními podmínkami."
+eula = "Souhlasím se PDF Viewer EULA a obchodními podmínkami."
 fullName = "Celé jméno"
 fullNamePlaceholder = "Vaše jméno"
 invites = "Pozvat spolupracovníky · volitelné"
@@ -11344,7 +11344,7 @@ account-link = "Připojení účtu"
 [portal.shell.sidebar]
 appEditor = "Editor"
 appProcessor = "Procesor"
-linkAccount = "Propojit účet Stirling"
+linkAccount = "Propojit účet PDF Viewer"
 primaryNav = "Primární navigace"
 
 [portal.shell.topbar]
@@ -11354,7 +11354,7 @@ search = "Hledat"
 
 [portal.sources]
 processingModeHelp = "Režim sledování ponechává originály a zpracuje každou verzi jednou. Snímek ponechává originály a zpracuje je při každém spuštění. Spotřebování smaže originály po úspěšném doručení."
-subtitle = "Opakovaně použitelná vstupní připojení, která předávají dokumenty do Stirling. Nakonfigurujte zdroj jednou a poté na něj odkazujte z libovolného počtu pipeline."
+subtitle = "Opakovaně použitelná vstupní připojení, která předávají dokumenty do PDF Viewer. Nakonfigurujte zdroj jednou a poté na něj odkazujte z libovolného počtu pipeline."
 title = "Zdroje"
 
 [portal.sources.actions]
@@ -11590,7 +11590,7 @@ secretNote = "Podpisový tajný klíč se zobrazí jednou, při vytvoření webh
 copy = "Kopírovat"
 done = "Hotovo"
 secret = "Podpisový tajný klíč"
-secretHelp = "Podepište nezpracované tělo každého doručení tímto klíčem (HMAC-SHA256) a odešlete jej jako hlavičku X-Stirling-Signature."
+secretHelp = "Podepište nezpracované tělo každého doručení tímto klíčem (HMAC-SHA256) a odešlete jej jako hlavičku X-PDF Viewer-Signature."
 secretWarning = "Zkopírujte podpisový tajný klíč nyní. Kvůli vaší bezpečnosti se zobrazí pouze jednou a později jej nelze získat."
 title = "Webhook vytvořen"
 url = "URL pro doručení"
@@ -11618,15 +11618,15 @@ adminOnly = "Měsíční kredity tohoto serveru sdílí všichni na něm, takže
 barAria = "Zbývající bezplatné kredity"
 capSuffix_one = "z {{allowance}} bezplatného kreditu zbývá tento měsíc"
 capSuffix_other = "z {{allowance}} bezplatných kreditů zbývá tento měsíc"
-connect = "Připojit účet Stirling"
+connect = "Připojit účet PDF Viewer"
 connectBody = "Připojení přidá druhý měsíční limit, zvýší počet uživatelů, které tento server může mít, a zapne Processor."
-connectTitle = "Tento server nemá účet Stirling"
+connectTitle = "Tento server nemá účet PDF Viewer"
 loadError = "Nepodařilo se načíst využití kreditů tohoto serveru. Zkuste to za chvíli znovu."
 loadErrorTitle = "Nepodařilo se načíst využití kreditů"
 resets = "Obnoví se {{date}}"
 
 [portal.usage.sessionExpired]
-body = "Relace vašeho účtu Stirling vypršela. Přihlaste se znovu, abyste zobrazili fakturaci — vaše instance zůstává propojená."
+body = "Relace vašeho účtu PDF Viewer vypršela. Přihlaste se znovu, abyste zobrazili fakturaci — vaše instance zůstává propojená."
 
 [portal.users]
 title = "Uživatelé"
@@ -11741,7 +11741,7 @@ name = "Google Drive"
 scope = "Import souborů"
 
 [provider.googledrive.accountScope]
-description = "drive dosáhne na každý soubor (Google musí pro to ověřit veřejnou aplikaci); drive.file pouze na soubory, které lidé vyberou, nebo které Stirling vytvoří"
+description = "drive dosáhne na každý soubor (Google musí pro to ověřit veřejnou aplikaci); drive.file pouze na soubory, které lidé vyberou, nebo které PDF Viewer vytvoří"
 label = "Přístup k Google Drive"
 
 [provider.googledrive.allowAccountConnections]
@@ -11786,7 +11786,7 @@ description = "Jedno přihlášení pro editor a jeho pracovní postupy. Vypnět
 label = "Umožnit lidem připojit vlastní účet"
 
 [provider.microsoft.allowEditorSaves]
-description = "Vypněte, chcete-li ponechat úpravy ve Stirling: soubory otevřené z OneDrive se pak místo toho stáhnou a server odmítne ukládání na OneDrive."
+description = "Vypněte, chcete-li ponechat úpravy ve PDF Viewer: soubory otevřené z OneDrive se pak místo toho stáhnou a server odmítne ukládání na OneDrive."
 label = "Povolit editoru ukládat zpět na OneDrive"
 
 [provider.microsoft.clientId]
@@ -11931,7 +11931,7 @@ notConfigured = "OneDrive není nakonfigurován"
 pickerFailed = "Nepodařilo se otevřít OneDrive"
 popupBlocked = "Váš prohlížeč zablokoval přihlašovací okno Microsoftu. Povolte vyskakovací okna pro tento web a zkuste to znovu."
 reconnect = "Váš účet Microsoft se musí znovu přihlásit. Znovu jej připojte v Nastavení > Propojené účty."
-serverError = "Na OneDrive nebo na serveru Stirling došlo k problému. Zkuste to znovu, nebo se obraťte na správce, pokud potíže přetrvávají."
+serverError = "Na OneDrive nebo na serveru PDF Viewer došlo k problému. Zkuste to znovu, nebo se obraťte na správce, pokud potíže přetrvávají."
 unreachable = "Nelze se připojit k OneDrive. Zkontrolujte připojení a zkuste to znovu."
 
 [provider.saml2]
@@ -12024,7 +12024,7 @@ files = "Soubory"
 account = "Účet"
 docs = "Dokumentace"
 editor = "Editor"
-home = "Stirling"
+home = "PDF Viewer"
 invite = "Pozvat"
 landmark = "Rychlá navigace"
 noProcessorAccess = "Požádejte administrátora o přístup k procesoru"
@@ -12456,7 +12456,7 @@ yd = "Yardy (yd)"
 back = "Zpět"
 continue = "Pokračovat"
 subtitle = "Vyberte, kde se má spustit."
-title = "Kde chcete Stirling spustit?"
+title = "Kde chcete PDF Viewer spustit?"
 
 [runLocation.choice.browser]
 description = "Webová aplikace."
@@ -12655,8 +12655,8 @@ hideTools = "Skrýt nedostupné nástroje ▴"
 messageNoFallback = "Nástroje nebudou dostupné, dokud se váš server znovu nepřipojí."
 messageWithFallback = "Některé nástroje vyžadují připojení k serveru."
 showTools = "Zobrazit nedostupné nástroje ▾"
-title = "Váš server Stirling-PDF je nedostupný"
-toolNotAvailableLocally = "Váš server Stirling-PDF je offline a \"{{endpoint}}\" není dostupný v místním backendu."
+title = "Váš server PDF Viewer je nedostupný"
+toolNotAvailableLocally = "Váš server PDF Viewer je offline a \"{{endpoint}}\" není dostupný v místním backendu."
 
 [serverSetup]
 back = "Zpět"
@@ -12691,7 +12691,7 @@ usernameHelp = "Čím se budete přihlašovat. Funguje i e-mailová adresa."
 backendUrl = "Adresa serveru"
 backendUrlHelp = "Kam poskytovatelé přihlášení posílají lidi zpět. Obvykle stejné jako webová adresa."
 frontendUrl = "Webová adresa"
-frontendUrlHelp = "Kde lidé otevírají Stirling PDF. Používá se v e-mailech, odkazech ke sdílení a QR kódech."
+frontendUrlHelp = "Kde lidé otevírají PDF Viewer. Používá se v e-mailech, odkazech ke sdílení a QR kódech."
 subtitle = "Jak se k tomuto serveru dostanou lidé a poskytovatelé přihlášení."
 title = "Adresy"
 
@@ -12705,7 +12705,7 @@ label = "Vlastní hostovaná AI"
 provider = "Poskytovatel modelu"
 providerCustom = "Kompatibilní s OpenAI"
 smartModel = "Plný model"
-stirling = "Stirling AI"
+stirling = "PDF Viewer AI"
 subtitle = "Dotazy k dokumentům, automatické úpravy a AI agenti."
 title = "AI"
 
@@ -12716,7 +12716,7 @@ changeLater = "Toto můžete kdykoli změnit v {{path}}."
 decline = "Odmítnout a pokračovat"
 declineFinish = "Odmítnout a dokončit"
 learnMore = "Co sbíráme"
-note = "Sdílejte s námi data o používání tohoto serveru, abychom mohli vylepšovat Stirling PDF. Nikdy neshromažďujeme soubory ani jejich obsah."
+note = "Sdílejte s námi data o používání tohoto serveru, abychom mohli vylepšovat PDF Viewer. Nikdy neshromažďujeme soubory ani jejich obsah."
 title = "Analytika serveru"
 
 [serverSetup.documents]
@@ -12854,7 +12854,7 @@ description = "Vaše vlastní OneDrive, SharePoint a Google Drive pro vaše prac
 title = "Propojené účty"
 
 [settings.connectedInstances]
-confirmBody = "Tím se zruší přístup instance k vašemu týmu ve Stirling Cloud. Nesmaže to místní soubory ani neodstraní již zaznamenané využití. Chcete-li se znovu připojit, postupujte podle původních kroků připojení na instanci."
+confirmBody = "Tím se zruší přístup instance k vašemu týmu ve PDF Viewer Cloud. Nesmaže to místní soubory ani neodstraní již zaznamenané využití. Chcete-li se znovu připojit, postupujte podle původních kroků připojení na instanci."
 confirmTitle = "Odebrat {{name}}?"
 connectedAt = "Připojeno: {{date}}"
 connectedDate = "Připojeno"
@@ -12888,7 +12888,7 @@ unknown = "Není k dispozici"
 yourTeam = "Váš tým"
 
 [settings.connection]
-description = "Pracujte lokálně na tomto počítači nebo připojte aplikaci k serveru Stirling."
+description = "Pracujte lokálně na tomto počítači nebo připojte aplikaci k serveru PDF Viewer."
 localDescription = "Používáte místní backend bez účtu. Některé nástroje vyžadující cloudové zpracování nebo samostatně hostovaný server nejsou dostupné."
 logout = "Odhlásit se"
 server = "Server"
@@ -12898,19 +12898,19 @@ user = "Přihlášen jako"
 
 [settings.connection.mode]
 local = "Pouze místní"
-saas = "Stirling Cloud"
+saas = "PDF Viewer Cloud"
 selfhosted = "Vlastní hosting"
 
 [settings.developer]
 apiKeys = "API klíče"
-apiKeysDescription = "Osobní klíče pro volání Stirling API ze skriptů a integrací."
+apiKeysDescription = "Osobní klíče pro volání PDF Viewer API ze skriptů a integrací."
 title = "Vývojář"
 
 [settings.feedback]
 label = "Zpětná vazba"
 
 [settings.feedback.send]
-description = "Nahlaste problém nebo navrhněte zlepšení týmu Stirling."
+description = "Nahlaste problém nebo navrhněte zlepšení týmu PDF Viewer."
 label = "Odeslat zpětnou vazbu"
 
 [settings.general]
@@ -12919,7 +12919,7 @@ autoUnzipFileLimit = "Limit pro automatické rozbalení"
 autoUnzipFileLimitTooltip = "Rozbalit pouze, pokud ZIP obsahuje tolik nebo méně souborů. Nastavte vyšší hodnotu pro rozbalení větších ZIP archivů."
 autoUnzipTooltip = "Automaticky extrahuje ZIP soubory vrácené z operací API. Vypněte pro zachování ZIP souborů. Toto neovlivňuje automatizační workflow."
 defaultPdfEditor = "Výchozí editor PDF"
-defaultPdfEditorActive = "Stirling PDF je váš výchozí editor PDF"
+defaultPdfEditorActive = "PDF Viewer je váš výchozí editor PDF"
 defaultPdfEditorChecking = "Kontrola..."
 defaultPdfEditorInactive = "Jiná aplikace je nastavena jako výchozí"
 defaultPdfEditorSet = "Již výchozí"
@@ -12990,7 +12990,7 @@ updateBehavior = "Chování aktualizací"
 updateBehaviorDescription = "Zvolte, zda se má před instalací aktualizací ptát, instalovat je automaticky, nebo kontroly aktualizací úplně přeskočit."
 updateBehaviorError = "Nepodařilo se změnit chování aktualizací"
 updateBehaviorErrorLocked = "Toto nastavení je uzamčeno vaším správcem."
-updateBehaviorLockedDescription = "Váš správce nastavil, jak Stirling-PDF na tomto počítači zachází s aktualizacemi. Kontaktujte ho pro změnu."
+updateBehaviorLockedDescription = "Váš správce nastavil, jak PDF Viewer na tomto počítači zachází s aktualizacemi. Kontaktujte ho pro změnu."
 updateBehaviorSaved = "Chování aktualizací uloženo."
 versionMismatch = "Vaše desktopová aplikace a server používají různé verze. Aktualizujte obě na stejnou verzi, abyste předešli problémům s kompatibilitou."
 viewDetails = "Zobrazit podrobnosti"
@@ -13091,7 +13091,7 @@ title = "Monitorování"
 [settings.planBilling]
 currentPlan = "Aktuální tarif"
 loading = "Načítání fakturačních informací..."
-notAvailable = "Plán a fakturace jsou dostupné pouze při připojení ke Stirling Cloud (režim SaaS)."
+notAvailable = "Plán a fakturace jsou dostupné pouze při připojení ke PDF Viewer Cloud (režim SaaS)."
 title = "Plán a fakturace"
 
 [settings.planBilling.billing]
@@ -13226,7 +13226,7 @@ oauthFailed = "Přihlášení přes OAuth selhalo. Zkuste to znovu."
 openResetFailed = "Nepodařilo se otevřít váš prohlížeč pro obnovení hesla."
 
 [setup.saas]
-title = "Přihlásit se do Stirling"
+title = "Přihlásit se do PDF Viewer"
 
 [setup.selfhosted]
 changeServerLocked = "Vaše organizace omezila tuto aplikaci na konkrétní server"
@@ -13272,7 +13272,7 @@ step3 = "Restartujte server"
 title = "Přihlášení není povoleno"
 
 [setup.server.url]
-description = "Zadejte úplnou URL vašeho samohostovaného serveru Stirling PDF"
+description = "Zadejte úplnou URL vašeho samohostovaného serveru PDF Viewer"
 label = "URL serveru"
 
 [sharedSign]
@@ -13731,7 +13731,7 @@ pleaseFillAllFields = "Vyplňte prosím všechna pole"
 signUp = "Zaregistrovat se"
 signUpWith = "Zaregistrovat se pomocí"
 skip = "Přeskočit"
-subtitle = "Připojte se ke Stirling PDF a začněte"
+subtitle = "Připojte se ke PDF Viewer a začněte"
 title = "Vytvořit účet"
 unableToAccessTool = "Nelze získat přístup k nástroji: {{error}}"
 unexpectedError = "Neočekávaná chyba: {{message}}"
@@ -14013,7 +14013,7 @@ download = "Stáhnout"
 downloaded = "Staženo"
 downloadFailed = "Tento soubor nelze stáhnout."
 downloadsCount = "Stažení: {{count}}"
-emailWarningBody = "Vypadá to jako e-mailová adresa. Pokud tato osoba ještě není uživatelem Stirling PDF, k souboru se nedostane."
+emailWarningBody = "Vypadá to jako e-mailová adresa. Pokud tato osoba ještě není uživatelem PDF Viewer, k souboru se nedostane."
 emailWarningConfirm = "Sdílet i tak"
 emailWarningTitle = "E-mailová adresa"
 errorTitle = "Sdílení se nezdařilo"
@@ -14044,7 +14044,7 @@ manageTitle = "Správa sdílení"
 noActivity = "Zatím žádná aktivita."
 noLinks = "Zatím nejsou žádné aktivní odkazy ke sdílení."
 noSharedUsers = "Zatím nemá přístup žádný uživatel."
-openInApp = "Otevřít ve Stirling PDF"
+openInApp = "Otevřít ve PDF Viewer"
 ownerLabel = "Vlastník"
 removeLink = "Odebrat odkaz"
 removeUser = "Odebrat"
@@ -14101,7 +14101,7 @@ all = "Vše"
 ariaLabel = "Super vyhledávání"
 filtersAriaLabel = "Filtry vyhledávání"
 hint = "Začněte psát pro vyhledávání"
-placeholder = "Hledat ve Stirling"
+placeholder = "Hledat ve PDF Viewer"
 placeholderShort = "Hledat"
 showLess = "Zobrazit méně"
 showMore = "Zobrazit dalších {{count}}"
@@ -14115,7 +14115,7 @@ settings = "Nastavení"
 tools = "Nástroje"
 
 [survey]
-title = "Průzkum Stirling-PDF"
+title = "Průzkum PDF Viewer"
 
 [swagger]
 clickHere = "klikněte sem"
@@ -14237,7 +14237,7 @@ noFiles = "Přidejte soubor pro začátek."
 scopeFiles = "soubory"
 scopeThisFile = "tento soubor"
 selectFilesHint = "Vyberte soubory v Aktivních souborech pro spuštění tohoto nástroje"
-signInRequired = "Toto vyžaduje účet Stirling. Přihlaste se pro pokračování."
+signInRequired = "Toto vyžaduje účet PDF Viewer. Přihlaste se pro pokračování."
 signInToUse = "Přihlaste se pro použití"
 singleFileScope = "Použije se pouze pro: {{fileName}}"
 viewerMode = "Chcete-li přidat více souborů, přepněte do editoru souborů."
@@ -14290,7 +14290,7 @@ favorites = "Oblíbené"
 heading = "Všechny nástroje (zobrazení na celou obrazovku)"
 noResults = "Zkuste upravit hledání nebo přepnout popisy, abyste našli, co potřebujete."
 recommended = "Doporučeno"
-selfHostedOffline = "Vyžaduje váš server Stirling-PDF (aktuálně offline):"
+selfHostedOffline = "Vyžaduje váš server PDF Viewer (aktuálně offline):"
 showDetails = "Zobrazit podrobnosti"
 unavailable = "Zakázáno správcem serveru:"
 unavailableDependency = "Nedostupné – na serveru chybí požadovaný nástroj:"
@@ -14299,7 +14299,7 @@ unfavorite = "Odebrat z oblíbených"
 [toolPanel.modePrompt]
 chooseFullscreen = "Použít režim na celou obrazovku"
 chooseSidebar = "Použít režim postranního panelu"
-description = "Prohlédněte si obě rozložení a rozhodněte, jak chcete prozkoumávat nástroje Stirling PDF."
+description = "Prohlédněte si obě rozložení a rozhodněte, jak chcete prozkoumávat nástroje PDF Viewer."
 dismiss = "Možná později"
 fullscreenDescription = "Procházejte všechny nástroje v katalogu, který překryje pracovní prostor, dokud si nevyberete."
 fullscreenTitle = "Režim na celou obrazovku – (zastaralé)"
@@ -14366,7 +14366,7 @@ loadingDetailedInfo = "Načítání podrobných informací..."
 migrationGuide = "Migrační průvodce"
 migrationGuides = "Migrační průvodci"
 migrationGuidesDesc = "Před aktualizací si projděte důležité změny."
-modalSubtitle = "Nová verze Stirling PDF je připravena k instalaci."
+modalSubtitle = "Nová verze PDF Viewer je připravena k instalaci."
 modalTitle = "Dostupná aktualizace"
 notes = "Poznámky"
 releaseNotes = "Poznámky k vydání"
@@ -14392,7 +14392,7 @@ urgent = "Naléhavá"
 attentionBody = "Váš správce se musí přihlásit, aby zobrazil další informace. Kontaktujte jej prosím co nejdříve."
 attentionBodyAdmin = "Zkontrolujte licenční požadavky, aby byl tento server v souladu."
 attentionTitle = "Tento server vyžaduje zásah správce"
-message = "Využijte Stirling PDF naplno se 100 uživateli, úpravami textu v PDF a pokročilými funkcemi"
+message = "Využijte PDF Viewer naplno se 100 uživateli, úpravami textu v PDF a pokročilými funkcemi"
 seeInfo = "Zobrazit informace"
 title = "Upgradujte na tarif Team"
 upgradeButton = "Upgradovat nyní"
@@ -14530,7 +14530,7 @@ authWeb = "Heslo"
 create = "Vytvořit účet"
 createSubtitle = "Vytvořte self-hosted účet s heslem nebo SSO."
 createTitle = "Vytvořit účet"
-editorDesc = "Upravujte PDFs v editoru Stirling PDF. Toto má každý."
+editorDesc = "Upravujte PDFs v editoru PDF Viewer. Toto má každý."
 email = "E-mailová adresa"
 emailError = "Zadejte platnou e-mailovou adresu"
 emailPlaceholder2 = "name@company.com"
@@ -14545,7 +14545,7 @@ processorDeferred = "Pozvánka odeslána, ale přístup k Processor zatím nešl
 processorDesc = "Plocha pro governance, spouštění pipeline, agentů a API."
 role = "Role"
 send2 = "Odeslat pozvánku"
-subtitle2 = "Obdrží e-mail, aby se připojili k vašemu pracovnímu prostoru Stirling."
+subtitle2 = "Obdrží e-mail, aby se připojili k vašemu pracovnímu prostoru PDF Viewer."
 team = "Tým"
 title = "Pozvat osoby"
 username = "Uživatelské jméno"
@@ -14687,7 +14687,7 @@ downloads = "Ke stažení"
 entryLabel = "Souhrn podpisu"
 filesEvaluated_one = "Vyhodnocen {{count}} soubor"
 filesEvaluated_other = "Vyhodnoceno {{count}} souborů"
-footer = "Ověřeno pomocí Stirling PDF"
+footer = "Ověřeno pomocí PDF Viewer"
 generatedAt = "Vygenerováno"
 noPdf = "PDF zpráva bude k dispozici po úspěšném ověření."
 page = "Stránka"
@@ -14896,7 +14896,7 @@ text = "Text"
 addFile = "Přidat soubor"
 count_one = "{{count}} soubor v tomto portfoliu"
 count_other = "{{count}} souborů v tomto portfoliu"
-import = "Importovat do Stirling"
+import = "Importovat do PDF Viewer"
 importFailed = "Tento soubor se nepodařilo přidat do vašeho pracovního prostoru."
 memberUnavailable = "Tento soubor se nepodařilo přečíst z portfolia."
 preview = "Náhled"

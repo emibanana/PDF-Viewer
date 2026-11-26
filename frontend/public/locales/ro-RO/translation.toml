@@ -56,7 +56,7 @@ loading = "Se încarcă..."
 loginAgreementAccept = "Acceptați"
 loginAgreementDecline = "Refuzați"
 loginAgreementLoadFailed = "Acordul de autentificare nu a putut fi încărcat."
-loginAgreementProvider = "Această notificare este furnizată de administratorul dvs., nu de Stirling PDF Inc."
+loginAgreementProvider = "Această notificare este furnizată de administratorul dvs., nu de PDF Viewer Inc."
 loginAgreementRetry = "Reîncercați"
 loginAgreementTitle = "Acord de autentificare"
 logOut = "Deconectare"
@@ -726,9 +726,9 @@ permissionNotice = "Calea tessdata nu are permisiuni de scriere. Descărcările 
 
 [admin.settings.ai]
 customProvider = "Personalizat (compatibil OpenAI)"
-description = "Conectați Stirling la motorul Python AI, alegeți-i modelele și setați limitele sub care rulează."
-managedByCloud = "Gestionat de Stirling Cloud în acest mod."
-managedByCloudShort = "Gestionat de Stirling Cloud"
+description = "Conectați PDF Viewer la motorul Python AI, alegeți-i modelele și setați limitele sub care rulează."
+managedByCloud = "Gestionat de PDF Viewer Cloud în acest mod."
+managedByCloudShort = "Gestionat de PDF Viewer Cloud"
 
 [admin.settings.ai.documents]
 description = "Configurați modelul de embedding și setările de recuperare folosite pentru a răspunde la întrebări despre documente. Se aplică motorului AI la salvare."
@@ -779,16 +779,16 @@ description = "Activați sau dezactivați funcții AI individuale. Funcțiile de
 title = "Capabilități"
 
 [admin.settings.ai.general.cloud]
-note = "Modelele și cheile furnizorilor sunt gestionate de Stirling Cloud, deci aceste setări nu se aplică în acest mod."
+note = "Modelele și cheile furnizorilor sunt gestionate de PDF Viewer Cloud, deci aceste setări nu se aplică în acest mod."
 
 [admin.settings.ai.general.cloud.indexing]
-description = "Fiecare instrument AI trimite textul paginii de care are nevoie pentru a răspunde. Aceasta decide dacă Stirling Cloud poate păstra și acel text, indexat, astfel încât întrebările ulterioare să poată căuta în document."
+description = "Fiecare instrument AI trimite textul paginii de care are nevoie pentru a răspunde. Aceasta decide dacă PDF Viewer Cloud poate păstra și acel text, indexat, astfel încât întrebările ulterioare să poată căuta în document."
 help = "Oprit înseamnă că întrebările despre document nu sunt disponibile. Nu oprește trimiterea textului - doar stocarea acestuia."
-label = "Permiteți Stirling Cloud să păstreze documente indexate"
+label = "Permiteți PDF Viewer Cloud să păstreze documente indexate"
 
 [admin.settings.ai.general.cloudNote]
-body = "Raționamentul rulează pe infrastructura Stirling, facturat în contul la care este legat acest server. Nu există niciun container de rulat și nicio cheie de furnizor de păstrat aici. Orice citește AI este procesat de Stirling Cloud, nu pe propriul dvs. hardware."
-title = "Despre Stirling Cloud AI"
+body = "Raționamentul rulează pe infrastructura PDF Viewer, facturat în contul la care este legat acest server. Nu există niciun container de rulat și nicio cheie de furnizor de păstrat aici. Orice citește AI este procesat de PDF Viewer Cloud, nu pe propriul dvs. hardware."
+title = "Despre PDF Viewer Cloud AI"
 
 [admin.settings.ai.general.enabled]
 description = "Comutator principal. Când este dezactivat, nu sunt disponibile instrumente AI, agenți sau apeluri către motor."
@@ -826,11 +826,11 @@ label = "Timeout pentru rulări lungi (secunde)"
 label = "Unde rulează AI"
 
 [admin.settings.ai.general.mode.cloud]
-description = "Fără container, fără cheie de furnizor, fără alegere de model - lucrarea rulează pe Stirling Cloud și este facturată în contul la care este legat acest server."
-linkCta = "Conectați acest server la un cont Stirling"
+description = "Fără container, fără cheie de furnizor, fără alegere de model - lucrarea rulează pe PDF Viewer Cloud și este facturată în contul la care este legat acest server."
+linkCta = "Conectați acest server la un cont PDF Viewer"
 notLinked = "Legați mai întâi un cont"
-ownerOnly = "Doar proprietarul organizației poate lega acest server la un cont Stirling."
-title = "Utilizați Stirling Cloud AI"
+ownerOnly = "Doar proprietarul organizației poate lega acest server la un cont PDF Viewer."
+title = "Utilizați PDF Viewer Cloud AI"
 
 [admin.settings.ai.general.mode.off]
 description = "Niciun instrument AI nicăieri în aplicație și nimic nu părăsește acest server."
@@ -842,7 +842,7 @@ title = "Rulați propriul motor"
 
 [admin.settings.ai.general.note]
 docs = "Ghid de configurare"
-intro = "Un container separat pe care îl rulați lângă Stirling. Acesta face raționamentul; Stirling face în continuare singur fiecare operațiune pe pagină. Are nevoie de același"
+intro = "Un container separat pe care îl rulați lângă PDF Viewer. Acesta face raționamentul; PDF Viewer face în continuare singur fiecare operațiune pe pagină. Are nevoie de același"
 outro = "pe ambele containere și de o cheie de furnizor de modele. Orice citește AI este trimis furnizorului pe care îl alegeți - un Ollama găzduit de dvs. păstrează fiecare pagină intern."
 title = "Despre motorul AI"
 
@@ -944,24 +944,24 @@ url = "URL motor"
 
 [admin.settings.ai.status.cloud]
 hostDown = "Indisponibil"
-hostLabel = "Stirling.com"
+hostLabel = "PDF Viewer.com"
 hostUp = "Disponibil"
-name = "Stirling Cloud"
+name = "PDF Viewer Cloud"
 sharingLabel = "Partajare AI"
 sharingOff = "Dezactivată"
 sharingOn = "Activată"
 
 [admin.settings.ai.status.cloud.degraded]
-body = "Stirling Cloud a răspuns, dar a refuzat acest server. Legătura contului poate fi fost revocată."
-title = "Stirling Cloud refuză acest server"
+body = "PDF Viewer Cloud a răspuns, dar a refuzat acest server. Legătura contului poate fi fost revocată."
+title = "PDF Viewer Cloud refuză acest server"
 
 [admin.settings.ai.status.cloud.down]
-body = "Acest server nu a putut contacta Stirling Cloud. Verificați legătura contului și că acest server poate accesa internetul."
-title = "Stirling Cloud inaccesibil"
+body = "Acest server nu a putut contacta PDF Viewer Cloud. Verificați legătura contului și că acest server poate accesa internetul."
+title = "PDF Viewer Cloud inaccesibil"
 
 [admin.settings.ai.status.cloud.ok]
-body = "Stirling Cloud a acceptat acest server. Nu este nimic de rulat sau de corectat aici."
-title = "Rulează pe Stirling Cloud"
+body = "PDF Viewer Cloud a acceptat acest server. Nu este nimic de rulat sau de corectat aici."
+title = "Rulează pe PDF Viewer Cloud"
 
 [admin.settings.ai.status.degraded]
 body = "A răspuns la verificarea stării, dar a respins o cerere reală. Cele două părți folosesc secrete partajate diferite."
@@ -1114,7 +1114,7 @@ confirmCodeLabel = "Introduceți codul de confirmare pentru a continua"
 confirmImport = "Confirmă importul"
 confirmImportTitle = "Confirmă importul bazei de date"
 connection = "Conexiune"
-connectionDescription = "Direcționați Stirling către o bază de date externă în locul celei încorporate."
+connectionDescription = "Direcționați PDF Viewer către o bază de date externă în locul celei încorporate."
 createBackup = "Creează backup"
 created = "Creat"
 delete = "Șterge"
@@ -1215,11 +1215,11 @@ description = "Configurați funcții opționale și funcționalități."
 title = "Funcții"
 
 [admin.settings.features.serverCertificate]
-description = "Generează certificatul care susține funcția de semnare „Sign with Stirling-PDF”."
+description = "Generează certificatul care susține funcția de semnare „Sign with PDF Viewer”."
 label = "Semnare cu certificat"
 
 [admin.settings.features.serverCertificate.enabled]
-description = "Oferă „Sign with Stirling-PDF” folosind un certificat generat de acest server"
+description = "Oferă „Sign with PDF Viewer” folosind un certificat generat de acest server"
 label = "Activează semnarea cu certificat"
 
 [admin.settings.features.serverCertificate.organizationName]
@@ -1236,7 +1236,7 @@ label = "Valabilitate certificat (zile)"
 
 [admin.settings.folderAccess]
 description = "Directoare din care sursele de folder și ieșirile de folder au permisiunea să citească și în care să scrie. Aceasta este o limită de securitate: automatizările nu pot fi niciodată direcționate către o cale de server din afara acestei liste."
-securityNote = "Lăsați necompletat pentru a dezactiva complet sursele și ieșirile de folder. Directorul de configurare propriu al Stirling este întotdeauna interzis."
+securityNote = "Lăsați necompletat pentru a dezactiva complet sursele și ieșirile de folder. Directorul de configurare propriu al PDF Viewer este întotdeauna interzis."
 title = "Acces la foldere"
 
 [admin.settings.folderAccess.roots]
@@ -1314,7 +1314,7 @@ description = "Limba implicită pentru utilizatorii noi (de ex., en_US, es_ES)"
 label = "Limba implicită"
 
 [admin.settings.general.enableFeedback]
-description = "Permiteți utilizatorilor să trimită feedback echipei Stirling"
+description = "Permiteți utilizatorilor să trimită feedback echipei PDF Viewer"
 label = "Activați feedbackul"
 
 [admin.settings.general.fileUploadLimit]
@@ -1368,7 +1368,7 @@ description = "URL sau nume de fișier către politica de cookie-uri"
 label = "Politică cookie"
 
 [admin.settings.legal.disclaimer]
-message = "Prin personalizarea acestor documente legale, vă asumați întreaga responsabilitate pentru asigurarea conformității cu toate legile și reglementările aplicabile, inclusiv, dar fără a se limita la GDPR și alte cerințe de protecție a datelor din UE. Modificați aceste setări doar dacă: (1) operați o instanță personală/privată, (2) vă aflați în afara jurisdicției UE și înțelegeți obligațiile legale locale sau (3) ați obținut consultanță juridică adecvată și acceptați responsabilitatea exclusivă pentru toate datele utilizatorilor și conformitatea legală. Stirling-PDF și dezvoltatorii săi nu își asumă nicio răspundere pentru obligațiile dvs. legale."
+message = "Prin personalizarea acestor documente legale, vă asumați întreaga responsabilitate pentru asigurarea conformității cu toate legile și reglementările aplicabile, inclusiv, dar fără a se limita la GDPR și alte cerințe de protecție a datelor din UE. Modificați aceste setări doar dacă: (1) operați o instanță personală/privată, (2) vă aflați în afara jurisdicției UE și înțelegeți obligațiile legale locale sau (3) ați obținut consultanță juridică adecvată și acceptați responsabilitatea exclusivă pentru toate datele utilizatorilor și conformitatea legală. PDF Viewer și dezvoltatorii săi nu își asumă nicio răspundere pentru obligațiile dvs. legale."
 title = "Avertisment privind responsabilitatea legală"
 
 [admin.settings.legal.impressum]
@@ -1456,8 +1456,8 @@ description = "Numele de utilizator pentru autentificarea SMTP"
 label = "Utilizator SMTP"
 
 [admin.settings.mcp]
-apikeyNote = "Clienții trimit o cheie API Stirling în antetul X-API-KEY (sau Authorization: Bearer <key>). Cheia este asociată utilizatorului Stirling care o deține - doar conturile provisionate au acces, iar acțiunile sunt auditate ca acel utilizator. Gestionați cheile în Cont > Chei API."
-description = "Expuneți instrumentele PDF și agenții AI Stirling către clienți MCP printr-un endpoint protejat cu OAuth."
+apikeyNote = "Clienții trimit o cheie API PDF Viewer în antetul X-API-KEY (sau Authorization: Bearer <key>). Cheia este asociată utilizatorului PDF Viewer care o deține - doar conturile provisionate au acces, iar acțiunile sunt auditate ca acel utilizator. Gestionați cheile în Cont > Chei API."
+description = "Expuneți instrumentele PDF și agenții AI PDF Viewer către clienți MCP printr-un endpoint protejat cu OAuth."
 title = "Server MCP"
 
 [admin.settings.mcp.acceptedAudiences]
@@ -1487,7 +1487,7 @@ step3ApiKeyb = "antet (sau Authorization: Bearer <key>). Nu se folosește OAuth 
 step4 = "Aprobați autentificarea; clientul reîncearcă folosind un token. Instrumentele apar grupate: convert, pages, misc, security, ai."
 step4ApiKey = "Instrumentele apar grupate: convert, pages, misc, security, ai - și fiecare apel este auditat ca proprietarul cheii."
 tip = "Sfat: înregistrați resource ID ca audience permis în IdP. Testat cu MCP Inspector și Claude Desktop."
-tipApiKey = "Sfat: modul cu cheie API nu necesită IdP extern - cel mai simplu pentru self-host. Cheia este asociată utilizatorului Stirling care o deține."
+tipApiKey = "Sfat: modul cu cheie API nu necesită IdP extern - cel mai simplu pentru self-host. Cheia este asociată utilizatorului PDF Viewer care o deține."
 title = "Conectați un client MCP"
 
 [admin.settings.mcp.issuerUri]
@@ -1500,14 +1500,14 @@ label = "URL JWKS (opțional)"
 placeholder = "Descoperit automat din issuer"
 
 [admin.settings.mcp.mode]
-apikey = "Cheie API (cheie Stirling per utilizator)"
-description = "OAuth necesită un IdP extern. Cheia API folosește o cheie API Stirling per utilizator (X-API-KEY) - cel mai simplu pentru self-host."
+apikey = "Cheie API (cheie PDF Viewer per utilizator)"
+description = "OAuth necesită un IdP extern. Cheia API folosește o cheie API PDF Viewer per utilizator (X-API-KEY) - cel mai simplu pentru self-host."
 label = "Mod de autentificare"
 oauth = "OAuth 2.1 (IdP extern)"
 
 [admin.settings.mcp.requireAccount]
-description = "Permiteți trecerea tokenurilor doar dacă subiectul lor corespunde unui utilizator Stirling provisionat și activat."
-label = "Necesită un cont Stirling existent"
+description = "Permiteți trecerea tokenurilor doar dacă subiectul lor corespunde unui utilizator PDF Viewer provisionat și activat."
+label = "Necesită un cont PDF Viewer existent"
 
 [admin.settings.mcp.resourceId]
 description = "URL-ul public /mcp al acestui server. Tokenurile trebuie să îl includă în audience (RFC 8707), altfel sunt respinse."
@@ -1518,7 +1518,7 @@ description = "Necesită mcp.tools.read pentru operații de citire și mcp.tools
 label = "Aplică scope-uri OAuth"
 
 [admin.settings.mcp.usernameClaim]
-description = "JWT claim comparat cu un nume de utilizator Stirling (de ex. sub, email, preferred_username)."
+description = "JWT claim comparat cu un nume de utilizator PDF Viewer (de ex. sub, email, preferred_username)."
 label = "Claim nume de utilizator"
 
 [admin.settings.plan.noData]
@@ -1847,7 +1847,7 @@ description = "Când este activat, doar ID-urile de utilizator listate pot folos
 label = "Permite ID-uri specifice de utilizator"
 
 [admin.settings.telegram.enabled]
-description = "Permite utilizatorilor să interacționeze cu Stirling PDF prin botul Telegram configurat."
+description = "Permite utilizatorilor să interacționeze cu PDF Viewer prin botul Telegram configurat."
 label = "Activează botul Telegram"
 
 [admin.settings.telegram.feedback]
@@ -1920,7 +1920,7 @@ settingsOverview = "Acesta este <strong>Panoul de setări</strong>. Setările de
 systemCustomization = "Avem modalități extinse de a personaliza UI: <strong>Setările sistemului</strong> vă permit să schimbați numele aplicației și limbile, <strong>Funcții</strong> permite gestionarea certificatelor serverului, iar <strong>Puncte finale</strong> vă permite să activați sau să dezactivați instrumente specifice pentru utilizatorii dvs."
 teamsAndUsers = "Gestionați aici <strong>Echipe</strong> și utilizatori individuali. Puteți invita utilizatori noi prin email, linkuri partajabile sau le puteți crea conturi personalizate."
 welcome = "Bun venit la <strong>Turul Admin</strong>! Haideți să explorăm funcțiile enterprise și setările puternice disponibile administratorilor de sistem."
-wrapUp = "Acesta a fost turul de administrare! Ați văzut funcțiile enterprise care fac din Stirling PDF o soluție puternică și personalizabilă pentru organizații. Îl puteți relua oricând - deschideți <strong>Setări</strong> și găsiți-l aici, în secțiunea <strong>Tururi</strong> de sub Ajutor."
+wrapUp = "Acesta a fost turul de administrare! Ați văzut funcțiile enterprise care fac din PDF Viewer o soluție puternică și personalizabilă pentru organizații. Îl puteți relua oricând - deschideți <strong>Setări</strong> și găsiți-l aici, în secțiunea <strong>Tururi</strong> de sub Ajutor."
 
 [adminUserSettings]
 admin = "Administrator"
@@ -1936,9 +1936,9 @@ thai = "Thailandeză"
 
 [analytics]
 learnMore = "Aflați mai multe despre analytics"
-paragraph1 = "Stirling PDF are analytics opțional pentru a ne ajuta să îmbunătățim produsul. Nu urmărim informații personale sau conținutul fișierelor."
-paragraph2 = "Vă rugăm să luați în considerare activarea analizelor pentru a ajuta Stirling-PDF să crească și pentru a ne permite să ne înțelegem mai bine utilizatorii."
-title = "Doriți să ajutați la îmbunătățirea Stirling PDF?"
+paragraph1 = "PDF Viewer are analytics opțional pentru a ne ajuta să îmbunătățim produsul. Nu urmărim informații personale sau conținutul fișierelor."
+paragraph2 = "Vă rugăm să luați în considerare activarea analizelor pentru a ajuta PDF Viewer să crească și pentru a ne permite să ne înțelegem mai bine utilizatorii."
+title = "Doriți să ajutați la îmbunătățirea PDF Viewer?"
 
 [annotate]
 tags = "adnotează,evidențiază,desenează,marcaj,comentariu,notițe,revizuire,redline,feedback,instrumente marcaj,notițe lipicioase,forme,săgeți,casetă text,mână liberă"
@@ -2887,9 +2887,9 @@ typeSignature = "Tastați-vă numele pentru a crea o semnătură"
 uploadCert = "Încărcați un certificat"
 uploadCertDesc = "Utilizați propriul certificat PKCS12, PFX, PEM sau JKS."
 uploadSignature = "Încărcați imaginea semnăturii"
-usePersonalCert = "Stirling Sign · Personal"
+usePersonalCert = "PDF Viewer Sign · Personal"
 usePersonalCertDesc = "Semnați cu certificatul creat pentru contul dvs."
-useServerCert = "Stirling Sign · Organizație"
+useServerCert = "PDF Viewer Sign · Organizație"
 useServerCertDesc = "Semnați cu certificatul de organizație partajat al acestui server."
 useSignature = "Folosește semnătura"
 
@@ -3208,8 +3208,8 @@ copy = "Copiați mesajul"
 
 [chat.dock]
 collapse = "Restrângeți chatul"
-placeholder = "Întrebați Stirling Agent"
-title = "Stirling Agent"
+placeholder = "Întrebați PDF Viewer Agent"
+title = "PDF Viewer Agent"
 
 [chat.header]
 clearChat = "Goliți chatul"
@@ -3363,7 +3363,7 @@ translatedMetadata = "O intrare de metadate cu traduceri"
 
 [checkAccessibility.pdf]
 continued = "{{name}} (continuare)"
-footer = "Verificat cu Stirling PDF"
+footer = "Verificat cu PDF Viewer"
 page = "Pagina {{n}}"
 title = "Raport de accesibilitate"
 
@@ -3804,9 +3804,9 @@ label = "Documente după tip: {{summary}}"
 noTypes = "Aceste documente nu s-au potrivit cu un tip cunoscut."
 
 [classificationDemo.defaultApp]
-body = "Setați Stirling ca aplicația PDF implicită. Fiecare PDF pe care îl deschideți, din email, browser sau desktop, ajunge aici, gata de citit sau editat. Puteți schimba acest lucru oricând din Setări."
-cta = "Setează Stirling ca implicit"
-title = "Deschideți fiecare PDF în Stirling"
+body = "Setați PDF Viewer ca aplicația PDF implicită. Fiecare PDF pe care îl deschideți, din email, browser sau desktop, ajunge aici, gata de citit sau editat. Puteți schimba acest lucru oricând din Setări."
+cta = "Setează PDF Viewer ca implicit"
+title = "Deschideți fiecare PDF în PDF Viewer"
 
 [classificationDemo.followUp]
 background = "Acest lucru rulează în fundal. Inelul din stânga arată progresul."
@@ -3821,7 +3821,7 @@ other = "Altele"
 body = "Clasificați și organizați după tip cele mai recente {{count}} PDF-uri din folderul Downloads."
 cta = "Procesează folderul Downloads"
 privacy = "PDF-urile dvs. rămân pe acest dispozitiv. Serverul conectat înregistrează utilizarea procesării."
-title = "Vedeți ce poate face Stirling cu un folder întreg"
+title = "Vedeți ce poate face PDF Viewer cu un folder întreg"
 
 [classificationDemo.phase]
 finishing = "Se finalizează..."
@@ -3835,10 +3835,10 @@ counts = "din {{total}} PDF-uri procesate"
 [classificationDemo.results]
 documentCount_one = "{{count}} PDF"
 documentCount_other = "{{count}} PDF-uri"
-failedBody = "Stirling nu a putut citi folderul Downloads. Nimic de pe computerul dvs. nu a fost modificat."
+failedBody = "PDF Viewer nu a putut citi folderul Downloads. Nimic de pe computerul dvs. nu a fost modificat."
 failedTitle = "Nu s-a finalizat"
 heading = "Descărcările dvs., sortate"
-summary = "Stirling a citit {{documents}} și le-a sortat în {{types}}."
+summary = "PDF Viewer a citit {{documents}} și le-a sortat în {{types}}."
 typeCount_one = "{{count}} tip"
 typeCount_other = "{{count}} tipuri"
 
@@ -4176,14 +4176,14 @@ upgradeButton = "Actualizați contul"
 
 [config.apiKeys]
 copyKeyAriaLabel = "Copiați cheia API"
-description = "Cheia dvs. API pentru accesarea suitei de instrumente PDF Stirling. Copiați-o în proiectul dvs. sau reîmprospătați pentru a genera una nouă."
-docsDescription = "Aflați mai multe despre integrarea cu Stirling PDF:"
+description = "Cheia dvs. API pentru accesarea suitei de instrumente PDF PDF Viewer. Copiați-o în proiectul dvs. sau reîmprospătați pentru a genera una nouă."
+docsDescription = "Aflați mai multe despre integrarea cu PDF Viewer:"
 docsLink = "Documentație API"
 docsTitle = "Documentație API"
 generateError = "Nu am putut genera cheia API."
 goToAccount = "Mergeți la Cont"
 guestInfo = "Utilizatorii invitați nu primesc chei API. Creați un cont pentru a obține o cheie API pe care o puteți folosi în aplicațiile dvs."
-intro = "Folosiți cheia API pentru a accesa programatic capabilitățile de procesare ale Stirling PDF."
+intro = "Folosiți cheia API pentru a accesa programatic capabilitățile de procesare ale PDF Viewer."
 label = "Cheie API"
 publicKeyAriaLabel = "Cheie API publică"
 refreshAriaLabel = "Reîmprospătați cheia API"
@@ -4207,10 +4207,10 @@ title = "Reîmprospătați cheile API"
 warning = "⚠️ Avertisment: Această acțiune va genera chei API noi și va face cheile anterioare invalide."
 
 [config.mcp]
-description = "Model Context Protocol (MCP) permite asistenților AI precum Claude să folosească direct instrumentele dvs. Stirling PDF. Conectați un client o singură dată, iar asistentul dvs. poate converti, edita, securiza și procesa documente în numele dvs."
-guestInfo = "Utilizatorii invitați nu pot conecta clienți MCP. Creați un cont pentru a folosi serverul MCP și pentru a permite asistentului AI să ruleze instrumente Stirling PDF în numele dvs."
+description = "Model Context Protocol (MCP) permite asistenților AI precum Claude să folosească direct instrumentele dvs. PDF Viewer. Conectați un client o singură dată, iar asistentul dvs. poate converti, edita, securiza și procesa documente în numele dvs."
+guestInfo = "Utilizatorii invitați nu pot conecta clienți MCP. Creați un cont pentru a folosi serverul MCP și pentru a permite asistentului AI să ruleze instrumente PDF Viewer în numele dvs."
 navLabel = "Server MCP"
-tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using Stirling PDF directly."
+tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using PDF Viewer directly."
 viewApiKeys = "Vizualizează cheile API"
 
 [config.mcp.copy]
@@ -4226,7 +4226,7 @@ label = "Endpointul dvs. MCP"
 
 [config.mcp.setup]
 addTo = "Adaugă la"
-hint = "Alegeți clientul, lipiți fragmentul în fișierul indicat, apoi reporniți-l. Vă veți autentifica cu contul Stirling la prima utilizare - fără chei de copiat."
+hint = "Alegeți clientul, lipiți fragmentul în fișierul indicat, apoi reporniți-l. Vă veți autentifica cu contul PDF Viewer la prima utilizare - fără chei de copiat."
 title = "Conectați asistentul AI"
 
 [config.overview]
@@ -4250,10 +4250,10 @@ step = "Pasul {{current}} din {{total}}"
 [connect.confirm]
 acknowledge = "Recunosc această adresă și vreau să o conectez la echipa mea"
 approve = "Conectează serverul"
-cannotDecide = "Doar un proprietar de echipă poate aproba sau respinge această conexiune. Utilizați un alt cont sau închideți această solicitare pentru a continua să utilizați Stirling."
+cannotDecide = "Doar un proprietar de echipă poate aproba sau respinge această conexiune. Utilizați un alt cont sau închideți această solicitare pentru a continua să utilizați PDF Viewer."
 deny = "Respinge"
 dismiss = "Închide"
-lead = "Un server Stirling solicită conectarea la echipa dvs. Verificați că adresa de mai jos este a dvs. înainte de a aproba."
+lead = "Un server PDF Viewer solicită conectarea la echipa dvs. Verificați că adresa de mai jos este a dvs. înainte de a aproba."
 originLabel = "Adresă"
 signedInAs = "Autentificat ca"
 switchAccount = "Utilizați un alt cont"
@@ -4293,7 +4293,7 @@ disconnect = "Deconectați"
 google = "Google Drive"
 intro = "Conectați-vă o singură dată la conturile proprii. Apoi fluxurile dvs. pot citi din ele și salva în ele ca și dvs."
 microsoft = "Microsoft (OneDrive & SharePoint)"
-needsReconnect = "Stirling nu mai poate accesa acest cont, astfel că fluxurile care îl folosesc sunt puse pe pauză."
+needsReconnect = "PDF Viewer nu mai poate accesa acest cont, astfel că fluxurile care îl folosesc sunt puse pe pauză."
 none = "Administratorul dvs. nu a activat conturile conectate."
 personal = "Cont personal"
 popupBlocked = "Browserul dvs. a blocat fereastra de autentificare. Permiteți ferestrele pop-up pentru acest site și încercați din nou."
@@ -4438,7 +4438,7 @@ showPreferencesBtn = "Gestionați preferințele"
 title = "Cum folosim cookie-urile"
 
 [cookieBanner.popUp.description]
-1 = "Folosim cookie-uri și alte tehnologii pentru ca Stirling PDF să funcționeze mai bine pentru dvs. - ajutându-ne să ne îmbunătățim instrumentele și să continuăm să construim funcții care vă vor plăcea."
+1 = "Folosim cookie-uri și alte tehnologii pentru ca PDF Viewer să funcționeze mai bine pentru dvs. - ajutându-ne să ne îmbunătățim instrumentele și să continuăm să construim funcții care vă vor plăcea."
 2 = "Dacă preferați să nu, făcând clic pe „Nu, mulțumesc” vor fi activate doar cookie-urile esențiale necesare pentru funcționarea fără probleme."
 
 [cookieBanner.preferencesModal]
@@ -4451,12 +4451,12 @@ subtitle = "Utilizarea cookie-urilor"
 title = "Centrul preferințelor de consimțământ"
 
 [cookieBanner.preferencesModal.analytics]
-description = "Aceste cookie-uri ne ajută să înțelegem cum sunt folosite instrumentele noastre, pentru a ne concentra pe construirea funcțiilor pe care comunitatea noastră le apreciază cel mai mult. Fiți sigur - Stirling PDF nu poate și nu va urmări niciodată conținutul documentelor cu care lucrați."
+description = "Aceste cookie-uri ne ajută să înțelegem cum sunt folosite instrumentele noastre, pentru a ne concentra pe construirea funcțiilor pe care comunitatea noastră le apreciază cel mai mult. Fiți sigur - PDF Viewer nu poate și nu va urmări niciodată conținutul documentelor cu care lucrați."
 title = "Analiză"
 
 [cookieBanner.preferencesModal.description]
-1 = "Stirling PDF folosește cookie-uri și tehnologii similare pentru a vă îmbunătăți experiența și a înțelege cum sunt folosite instrumentele noastre. Aceasta ne ajută să îmbunătățim performanța, să dezvoltăm funcțiile care vă interesează și să oferim suport constant utilizatorilor noștri."
-2 = "Stirling PDF nu poate - și nu va putea niciodată - să urmărească sau să acceseze conținutul documentelor pe care le folosiți."
+1 = "PDF Viewer folosește cookie-uri și tehnologii similare pentru a vă îmbunătăți experiența și a înțelege cum sunt folosite instrumentele noastre. Aceasta ne ajută să îmbunătățim performanța, să dezvoltăm funcțiile care vă interesează și să oferim suport constant utilizatorilor noștri."
+2 = "PDF Viewer nu poate - și nu va putea niciodată - să urmărească sau să acceseze conținutul documentelor pe care le folosiți."
 3 = "Confidențialitatea și încrederea dvs. sunt în centrul a tot ceea ce facem."
 
 [cookieBanner.preferencesModal.necessary]
@@ -4565,11 +4565,11 @@ message = "Nu s-a putut seta gestionarul PDF implicit"
 title = "Eroare"
 
 [defaultApp.settingsOpened]
-message = "În Setările Windows, căutați „PDF” și selectați Stirling PDF ca aplicație implicită"
+message = "În Setările Windows, căutați „PDF” și selectați PDF Viewer ca aplicație implicită"
 title = "Setări deschise"
 
 [defaultApp.success]
-message = "Stirling PDF este acum editorul tău PDF implicit"
+message = "PDF Viewer este acum editorul tău PDF implicit"
 title = "Aplicație implicită setată"
 
 [desktop.fileSave]
@@ -4586,7 +4586,7 @@ minimize = "Minimizează"
 restore = "Restaurează"
 
 [desktopBilling]
-description = "Gestionați utilizarea și facturarea în browser. Autentificați-vă cu același cont Stirling pe care îl folosiți aici."
+description = "Gestionați utilizarea și facturarea în browser. Autentificați-vă cu același cont PDF Viewer pe care îl folosiți aici."
 open = "Deschide Utilizare și facturare în browser"
 openFailed = "Nu s-a putut deschide Utilizare și facturare. Verificați conexiunea și încercați din nou."
 selfHostedDescription = "Gestionați utilizarea și facturarea pe serverul conectat în browser. Autentificați-vă cu contul de proprietar al serverului."
@@ -4638,7 +4638,7 @@ updateFailedMessage = "Nu s-a putut descărca sau instala actualizarea."
 
 [desktopUpdate.blocked]
 docsLink = "Vizualizați documentația de instalare"
-message = "Stirling-PDF nu are permisiunea de a se actualiza singur pe această mașină."
+message = "PDF Viewer nu are permisiunea de a se actualiza singur pe această mașină."
 title = "Sunt necesare permisiuni de administrator"
 
 [devAirgapped]
@@ -4912,7 +4912,7 @@ description = "Extrage paginile selectate într-un nou PDF, păstrând ordinea."
 open = "Trimiteți feedback"
 sendMore = "Trimiteți mai mult feedback"
 sent = "Vă mulțumim pentru feedback"
-title = "Ajutați-ne să îmbunătățim Stirling"
+title = "Ajutați-ne să îmbunătățim PDF Viewer"
 unavailable = "Feedback indisponibil"
 
 [feedback.tag]
@@ -5117,13 +5117,13 @@ save = "Redenumește"
 title = "Redenumește fișierul"
 
 [filesPage]
-addedToLibrary = "Adăugat în biblioteca Stirling"
-addingToLibrary = "Se adaugă în biblioteca Stirling…"
-addToLibrary = "Adaugă în biblioteca Stirling…"
+addedToLibrary = "Adăugat în biblioteca PDF Viewer"
+addingToLibrary = "Se adaugă în biblioteca PDF Viewer…"
+addToLibrary = "Adaugă în biblioteca PDF Viewer…"
 addToLibraryFailed = "Unele fișiere nu au putut fi adăugate"
 addToWorkspace = "Adăugați la spațiul de lucru"
 addToWorkspaceCount = "Adăugați {{count}} la spațiul de lucru"
-allFiles = "Biblioteca Stirling"
+allFiles = "Biblioteca PDF Viewer"
 back = "Înapoi"
 backToFolder = "Înapoi la {{folder}}"
 backToMyFiles = "Înapoi la biblioteca de fișiere"
@@ -5151,7 +5151,7 @@ deleteFolderContents_one = "Ștergeți și {{count}} fișier din dosar"
 deleteFolderContents_other = "Ștergeți și {{count}} fișiere din dosar"
 deleteFolderContentsWarning = "Fișierele vor fi eliminate definitiv și nu pot fi recuperate."
 deleteFolderError = "Nu s-a putut șterge folderul. Încercați din nou."
-deleteFolderKeepHint = "Fișierele din interior vor fi mutate în biblioteca Stirling."
+deleteFolderKeepHint = "Fișierele din interior vor fi mutate în biblioteca PDF Viewer."
 deleteFolderTitle = "Ștergeți folderul?"
 deselectAll = "Goliți selecția"
 details = "Detalii"
@@ -5189,7 +5189,7 @@ moveSkippedRemote_other = "{{count}} fișiere nu au putut fi mutate pe server (f
 moveTo = "Mută în…"
 newFolder = "Folder nou"
 newFolderStorageDisabled = "Stocarea dosarelor pe server nu este activată."
-newFolderTabUnavailable = "Comutați la biblioteca Stirling pentru a crea dosare."
+newFolderTabUnavailable = "Comutați la biblioteca PDF Viewer pentru a crea dosare."
 offlineNoFolderEdits = "Sincronizarea folderelor cu serverul nu este disponibilă - modificările folderelor sunt dezactivate. Verificați autentificarea și configurația stocării."
 open = "Deschideți"
 openVersionInWorkspace = "Deschideți în spațiul de lucru"
@@ -5198,7 +5198,7 @@ recentFiles = "Recente"
 refresh = "Reîmprospătează"
 refreshNeedsConnection = "Autentifică-te pentru a reîmprospăta de pe server."
 remove = "Ștergeți"
-removeLocalFolder = "Demontează din Stirling"
+removeLocalFolder = "Demontează din PDF Viewer"
 removeVersion = "Eliminați această versiune"
 rename = "Redenumiți"
 renamed = "Redenumit"
@@ -5210,7 +5210,7 @@ selectAll = "Selectați tot"
 selectedCount = "{{count}} selectate"
 selectedFile = "{{name}}, selectat"
 selectFile = "Selectați fișierul {{name}}"
-serverFolderNeedsConnection = "Autentifică-te în Stirling Cloud sau conectează un server auto-găzduit pentru a folosi foldere de server."
+serverFolderNeedsConnection = "Autentifică-te în PDF Viewer Cloud sau conectează un server auto-găzduit pentru a folosi foldere de server."
 shareDisabledHint = "Partajarea fișierelor nu este activată pe acest server. Rugați administratorul să o activeze."
 shareManage = "Gestionați partajarea"
 showDetails = "Afișați detaliile"
@@ -5220,7 +5220,7 @@ summary_other = "{{count}} elemente"
 tree = "Foldere"
 unmount = "Demontează"
 unmountFolderBody = "Demontezi „{{name}}”? Folderul și fișierele sale rămân pe discul tău."
-unmountFolderTitle = "Demontezi din Stirling?"
+unmountFolderTitle = "Demontezi din PDF Viewer?"
 upload = "Încărcați"
 uploadFromMobile = "Încărcați de pe mobil"
 versionActions = "Acțiuni versiune"
@@ -5263,7 +5263,7 @@ orphaned = "Nu este pe disc"
 orphanedHint = "Originalul de la {{path}} a dispărut. Această copie este doar aici - salvarea ei va cere o locație nouă."
 unavailable = "Indisponibil"
 unavailableHintOffline = "Unitatea sau partajarea pe care se află acest fișier nu este conectată. Reconecteaz-o pentru a prelua din nou modificările."
-unavailableHintPermission = "Stirling nu are permisiunea de a citi această locație. Acordă acces în Setările sistemului pentru a prelua din nou modificările."
+unavailableHintPermission = "PDF Viewer nu are permisiunea de a citi această locație. Acordă acces în Setările sistemului pentru a prelua din nou modificările."
 unavailableHintUnknown = "Acest fișier nu poate fi accesat acum. Copia de aici este neschimbată."
 
 [filesPage.diskState]
@@ -5378,7 +5378,7 @@ placeholder = "Numele folderului"
 
 [filesPage.folderOrigin]
 diskHint = "Un folder montat dintr-un director de pe discul tău"
-serverHint = "Un folder stocat pe serverul Stirling"
+serverHint = "Un folder stocat pe serverul PDF Viewer"
 virtualHint = "Un folder care există doar în acest browser"
 
 [filesPage.moveDialog]
@@ -5402,7 +5402,7 @@ serverHint = "Sincronizat cu contul tău, disponibil oriunde te autentifici."
 [filesPage.origin]
 all = "Toate sursele"
 cloud = "Cloud"
-cloudHint = "Stocat pe serverul Stirling"
+cloudHint = "Stocat pe serverul PDF Viewer"
 diskFileHint = "Stocat pe computerul tău"
 diskHint = "Un fișier din folderul montat de pe discul tău"
 local = "Local"
@@ -5413,7 +5413,7 @@ sharedHint = "Partajat cu dvs. prin link"
 
 [filesPage.processing]
 active = "Folder de procesare"
-blockedNeedsConnection = "Autentifică-te în Stirling Cloud sau conectează un server auto-găzduit pentru a procesa foldere."
+blockedNeedsConnection = "Autentifică-te în PDF Viewer Cloud sau conectează un server auto-găzduit pentru a procesa foldere."
 edit = "Editează procesarea..."
 nothingToRestore = "Nu există originale de restaurat - aceste fișiere sunt deja originalele lor."
 paused = "Procesare întreruptă"
@@ -5815,7 +5815,7 @@ invisible = "Invizibil (doar metadata)"
 location = "Locație:"
 logo = "Logo:"
 logoHidden = "Fără logo"
-logoShown = "Logo Stirling PDF afișat"
+logoShown = "Logo PDF Viewer afișat"
 participantCount_one = "{{count}} participant selectat"
 participantCount_other = "{{count}} participanți selectați"
 participants = "Participanți"
@@ -5866,7 +5866,7 @@ title = "Semnare în orice ordine"
 dismiss = "Închideți bannerul"
 message = "Creați un cont gratuit pentru a vă salva munca, a accesa mai multe funcții și a sprijini proiectul."
 signUp = "Înscriere gratuită"
-title = "Folosiți Stirling PDF ca invitat!"
+title = "Folosiți PDF Viewer ca invitat!"
 
 [home.addAttachments]
 desc = "Vizualizează, adaugă, extrage, redenumește sau șterge atașamente PDF încorporate"
@@ -6050,7 +6050,7 @@ tags = "combinare,alăturare,unire,îmbinare,îmbinare PDF-uri,combinare PDF-uri
 title = "Unifică"
 
 [home.mobile]
-brandAlt = "Logo Stirling PDF"
+brandAlt = "Logo PDF Viewer"
 openFiles = "Deschideți fișiere"
 swipeHint = "Glisați la stânga sau la dreapta pentru a schimba vizualizările"
 tools = "Instrumente"
@@ -6084,7 +6084,7 @@ tags = "organizare,rearanjare,reordonare,aranjare pagini,sortare,mutare pagini,�
 title = "Organizează"
 
 [home.pdfTextEditor]
-desc = "Revizuiește și editează exporturile JSON Stirling PDF cu editare de text grupată și regenerare PDF"
+desc = "Revizuiește și editează exporturile JSON PDF Viewer cu editare de text grupată și regenerare PDF"
 tags = "editează text,modifică text,schimbă text,editează conținut,actualizează text,rescrie,corectează,amendează,redline,revizuiește,editor text,editor conținut"
 title = "Editor text PDF"
 
@@ -6262,7 +6262,7 @@ passwordRequired = "Parola este obligatorie"
 signIn = "Autentificare"
 validating = "Se validează invitația..."
 validationError = "Validarea linkului de invitație a eșuat"
-welcome = "Bun venit la Stirling PDF"
+welcome = "Bun venit la PDF Viewer"
 welcomeSubtitle = "Finalizați configurarea contului pentru a începe"
 welcomeTitle = "Ați fost invitat!"
 
@@ -6309,8 +6309,8 @@ terms = "Termeni și condiții"
 title = "Licențe Terțe Părți"
 
 [localMode]
-automationUnavailable = "Autentifică-te în Stirling Cloud sau pe un server auto-găzduit pentru a folosi foldere de procesare și pipeline-uri."
-toolUnavailable = "Acest instrument necesită un cont. Autentificați-vă în Stirling Cloud sau conectați-vă la un server self-hosted pentru a-l utiliza."
+automationUnavailable = "Autentifică-te în PDF Viewer Cloud sau pe un server auto-găzduit pentru a folosi foldere de procesare și pipeline-uri."
+toolUnavailable = "Acest instrument necesită un cont. Autentificați-vă în PDF Viewer Cloud sau conectați-vă la un server self-hosted pentru a-l utiliza."
 
 [localMode.toolPicker]
 message = "Autentificați-vă pentru a debloca toate instrumentele."
@@ -6550,7 +6550,7 @@ message = "Autentificarea nu a reușit. Puteți închide această fereastră și
 title = "Autentificare eșuată"
 
 [oauth.success]
-message = "Puteți închide această fereastră și reveni la Stirling PDF."
+message = "Puteți închide această fereastră și reveni la PDF Viewer."
 title = "Autentificare reușită"
 
 [oauthConsent]
@@ -6563,17 +6563,17 @@ loadFailed = "This authorisation request is invalid or has expired. Close this t
 loading = "Loading authorisation request..."
 missingId = "Missing authorisation request. Start the connection from your app and try again."
 redirecting = "Te întoarcem la aplicație..."
-requesting = "{{app}} dorește să acceseze contul tău Stirling PDF"
+requesting = "{{app}} dorește să acceseze contul tău PDF Viewer"
 scopesIntro = "Aceasta va permite {{app}} să:"
 signedInAs = "Autentificat ca {{name}}"
 signInButton = "Autentifică-te pentru a continua"
-signInPrompt = "Autentifică-te în contul tău Stirling PDF pentru a continua conectarea aplicației."
+signInPrompt = "Autentifică-te în contul tău PDF Viewer pentru a continua conectarea aplicației."
 title = "Authorise access"
 unknownApp = "O aplicație terță"
 
 [oauthConsent.access]
 actAsYou = "Acționeze în numele tău - tot ce face {{app}} rulează sub contul tău și se contorizează în utilizarea ta"
-tools = "Folosească instrumentele tale Stirling PDF în numele tău - să convertească, editeze, semneze, securizeze și proceseze documentele tale"
+tools = "Folosească instrumentele tale PDF Viewer în numele tău - să convertească, editeze, semneze, securizeze și proceseze documentele tale"
 
 [oauthConsent.scope]
 email = "Vadă adresa ta de email"
@@ -6703,26 +6703,26 @@ skipTheTour = "Sari peste tur"
 
 [onboarding.checklist]
 dismiss = "Închideți"
-title = "Configurați Stirling PDF"
+title = "Configurați PDF Viewer"
 
 [onboarding.checklist.downloadDesktop]
-description = "Rulați Stirling nativ pe computerul dvs."
-title = "Descărcați Stirling pentru Desktop"
+description = "Rulați PDF Viewer nativ pe computerul dvs."
+title = "Descărcați PDF Viewer pentru Desktop"
 
 [onboarding.checklist.inviteTeam]
 description = "Colaborați cu echipa dvs."
 title = "Invitați membri ai echipei"
 
 [onboarding.checklist.setDefaultApp]
-description = "Deschideți fișiere PDF în Stirling PDF"
-title = "Setați Stirling ca implicit"
+description = "Deschideți fișiere PDF în PDF Viewer"
+title = "Setați PDF Viewer ca implicit"
 
 [onboarding.checklist.takeTour]
-description = "Vedeți cum funcționează Stirling într-un tur rapid"
+description = "Vedeți cum funcționează PDF Viewer într-un tur rapid"
 title = "Faceți turul"
 
 [onboarding.desktopInstall]
-body = "Stirling funcționează cel mai bine ca aplicație desktop. O poți folosi offline, accesezi documentele mai rapid și faci editări local pe computer."
+body = "PDF Viewer funcționează cel mai bine ca aplicație desktop. O poți folosi offline, accesezi documentele mai rapid și faci editări local pe computer."
 selectOs = "Selectează sistemul de operare"
 title = "Descărcare"
 titleWithOs = "Descărcare pentru {{osLabel}}"
@@ -6730,7 +6730,7 @@ titleWithOs = "Descărcare pentru {{osLabel}}"
 [onboarding.desktopWelcome]
 body = "Există o mulțime de modificări noi de explorat, inclusiv <strong>Agent Chat</strong>, <strong>clasificarea</strong> automată a documentelor și altele."
 freeLine = "Editorul este acum <free>complet gratuit</free>."
-title = "Bun venit la Stirling <product>Desktop</product>"
+title = "Bun venit la PDF Viewer <product>Desktop</product>"
 
 [onboarding.mfa]
 authenticationCode = "Cod de autentificare"
@@ -6751,21 +6751,21 @@ success = "MFA a fost activat. Acum puteți continua."
 title = "Configurare autentificare multi-factor"
 
 [onboarding.planOverview]
-adminBodyLoginDisabled = "După ce activezi modul de autentificare, poți gestiona utilizatori, configura setări și monitoriza starea serverului. Primele <strong>{{freeTierLimit}}</strong> persoane de pe serverul tău folosesc Stirling gratuit."
-adminBodyLoginEnabled = "Ca admin, poți gestiona utilizatori, configura setări și monitoriza starea serverului. Primele <strong>{{freeTierLimit}}</strong> persoane de pe serverul tău folosesc Stirling gratuit."
+adminBodyLoginDisabled = "După ce activezi modul de autentificare, poți gestiona utilizatori, configura setări și monitoriza starea serverului. Primele <strong>{{freeTierLimit}}</strong> persoane de pe serverul tău folosesc PDF Viewer gratuit."
+adminBodyLoginEnabled = "Ca admin, poți gestiona utilizatori, configura setări și monitoriza starea serverului. Primele <strong>{{freeTierLimit}}</strong> persoane de pe serverul tău folosesc PDF Viewer gratuit."
 adminTitle = "Prezentare admin"
 userBody = "Invite colegi, atribuie roluri și ține documentele organizate într-un spațiu de lucru sigur. Activează modul de autentificare când ești pregătit să treci dincolo de utilizarea solo."
 userTitle = "Prezentare plan"
 
 [onboarding.processorIntro]
-body = "Stirling rulează acum <strong>Politici</strong> — reguli automate care clasifică, securizează și procesează fiecare document pe măsură ce sosește. Configurați-le și monitorizați rulările în <strong>Processor</strong>."
+body = "PDF Viewer rulează acum <strong>Politici</strong> — reguli automate care clasifică, securizează și procesează fiecare document pe măsură ce sosește. Configurați-le și monitorizați rulările în <strong>Processor</strong>."
 cta = "Consultați Processor"
-title = "Consultați Stirling Processor"
+title = "Consultați PDF Viewer Processor"
 
 [onboarding.saas.freeEditor]
 freeLine = "Editorul este acum <free>complet gratuit</free>."
 premium = "Am adăugat multe funcționalități noi, inclusiv <strong>Politici</strong> și <strong>Agent Chat</strong>."
-title = "Bun venit la Stirling"
+title = "Bun venit la PDF Viewer"
 
 [onboarding.saas.team]
 addButton = "Adaugă"
@@ -6786,20 +6786,20 @@ roleUser = "Utilizator"
 title = "Verificare de securitate"
 
 [onboarding.serverLicense]
-freeBody = "Licența noastră <strong>Open-Core</strong> include <strong>OAuth SSO</strong> și până la <strong>{{freeTierLimit}}</strong> utilizatori gratuit. Pentru a crește fără întreruperi, recomandăm planul Stirling Team — <strong>100 de utilizatori</strong> pentru 99 USD/lună."
+freeBody = "Licența noastră <strong>Open-Core</strong> include <strong>OAuth SSO</strong> și până la <strong>{{freeTierLimit}}</strong> utilizatori gratuit. Pentru a crește fără întreruperi, recomandăm planul PDF Viewer Team — <strong>100 de utilizatori</strong> pentru 99 USD/lună."
 freeTitle = "Plan Team"
-overLimitBody = "Licențierea noastră permite până la <strong>{{freeTierLimit}}</strong> utilizatori gratuit. Ai <strong>{{overLimitUserCopy}}</strong> utilizatori Stirling. Pentru a continua fără întreruperi, fă upgrade la planul Stirling Team - <strong>100 de utilizatori</strong>, editare text PDF și control complet de administrator pentru $99/lună."
+overLimitBody = "Licențierea noastră permite până la <strong>{{freeTierLimit}}</strong> utilizatori gratuit. Ai <strong>{{overLimitUserCopy}}</strong> utilizatori PDF Viewer. Pentru a continua fără întreruperi, fă upgrade la planul PDF Viewer Team - <strong>100 de utilizatori</strong>, editare text PDF și control complet de administrator pentru $99/lună."
 overLimitTitle = "Este necesar planul Team"
 seePlans = "Vezi planuri →"
 upgrade = "Fă upgrade acum →"
 
 [onboarding.tourOverview]
-body = "Stirling PDF V2 vine cu zeci de instrumente și un layout reîmprospătat. Faceți un tur rapid pentru a vedea ce s-a schimbat și unde găsiți funcțiile de care aveți nevoie."
+body = "PDF Viewer V2 vine cu zeci de instrumente și un layout reîmprospătat. Faceți un tur rapid pentru a vedea ce s-a schimbat și unde găsiți funcțiile de care aveți nevoie."
 title = "Prezentarea turului"
 
 [onboarding.welcomeSlide]
-body = "Stirling PDF este acum pregătit pentru echipe de orice dimensiune. Această actualizare include un nou aspect, capabilități puternice pentru admin și cea mai solicitată funcție - <strong>Edit Text</strong>."
-title = "Bun venit la Stirling"
+body = "PDF Viewer este acum pregătit pentru echipe de orice dimensiune. Această actualizare include un nou aspect, capabilități puternice pentru admin și cea mai solicitată funcție - <strong>Edit Text</strong>."
+title = "Bun venit la PDF Viewer"
 
 [onboarding.whatsNew]
 activeFilesView = "Folosiți Fișiere active pentru a vedea tot ce aveți deschis și a alege la ce să lucrați."
@@ -6912,7 +6912,7 @@ check = "Verifică din nou"
 checkAccount = "Verifică contul"
 chooseEmail = "Alegeți contul lor din {{team}} sau introduceți un e-mail pentru a-i invita."
 close = "Închide dialogul de transfer"
-cloudAccount = "Cont Stirling"
+cloudAccount = "Cont PDF Viewer"
 cloudScopeStyled = "<user>{{name}}</user> va gestiona {{team}}, membrii și facturarea acesteia."
 cloudTargetChanged = "Alegeți un alt membru cloud. Acest cont nu mai este eligibil pentru predare."
 confirm = "Înțeleg modificările de acces și proprietate."
@@ -6927,7 +6927,7 @@ inviteAddress = "Invitați <account>{{email}}</account> în {{team}}."
 inviteBlocked = "Invitația nu a putut fi trimisă. Verificați locurile disponibile în echipă și dacă destinatarul are deja un abonament plătit."
 linkChanged = "Legătura cloud a serverului s-a schimbat. Cereți operatorului serverului să restaureze legătura originală înainte de a relua."
 linkedServerCount = "{{count}} servere asociate"
-linkRevoked = "Legătura cloud a acestui server nu mai este validă. Anulați transferul, apoi reconectați contul Stirling în setări. Proprietatea nu se va schimba."
+linkRevoked = "Legătura cloud a acestui server nu mai este validă. Anulați transferul, apoi reconectați contul PDF Viewer în setări. Proprietatea nu se va schimba."
 localScope = "Aceștia vor deține acest server și vor gestiona facturarea și conexiunile cloud. Veți păstra accesul de administrator, dar veți pierde accesul la acele setări."
 membershipDetails = "Detalii despre apartenența la echipă"
 membershipFirst = "Aceștia trebuie să se alăture echipei înainte de a putea confirma transferul."
@@ -7255,7 +7255,7 @@ benefit1Body = "înlănțuie instrumente, programează rulări, procesează în 
 benefit1Title = "Pipeline-uri de automatizare"
 benefit2Body = "summarise, classify, redact, AI-OCR"
 benefit2Title = "Instrumente AI"
-benefit3Body = "apelează programatic orice endpoint Stirling"
+benefit3Body = "apelează programatic orice endpoint PDF Viewer"
 benefit3Title = "Acces API"
 button = "Activează Processor →"
 reassurance = "Fără minim · Setează un plafon de $0 pentru testare · Anulează oricând"
@@ -7345,7 +7345,7 @@ editorLabel = "Editor PDF"
 login = "Autentifică-te"
 manualToolsPromo = "Instrumente PDF manuale gratuite nelimitate"
 processorLabel = "Procesor PDF"
-processorTitle = "Creează un cont pentru a debloca ce e mai bun din Stirling"
+processorTitle = "Creează un cont pentru a debloca ce e mai bun din PDF Viewer"
 readerLabel = "Cititor PDF"
 
 [payg.spendCapMeter]
@@ -7385,7 +7385,7 @@ usdNote = "Estimat în USD. Îți poți ajusta plafonul oricând după abonare, 
 [payg.upgrade.checkout]
 capValue = "{{symbol}}{{amount}} / lună"
 edit = "Editează"
-help = "Stripe gestionează detaliile cardului tău. Stirling nu le vede niciodată."
+help = "Stripe gestionează detaliile cardului tău. PDF Viewer nu le vede niciodată."
 loading = "Se încarcă checkout-ul…"
 noCap = "Fără plafon"
 title = "Adaugă metoda de plată"
@@ -7393,7 +7393,7 @@ title = "Adaugă metoda de plată"
 [payg.upgrade.help]
 aiBody = "summarise, classify, redact, AI-OCR"
 aiTitle = "Instrumente AI"
-apiBody = "acces programatic la orice endpoint Stirling"
+apiBody = "acces programatic la orice endpoint PDF Viewer"
 apiTitle = "Apeluri API"
 automationBody = "instrumente înlănțuite sau rulări programate care nu necesită clicuri"
 automationTitle = "Pipeline-uri de automatizare"
@@ -7492,7 +7492,7 @@ overCapacityConsequence = "Conturile existente rămân pe loc. Adăugarea sau in
 overCapacityTitle = "Serverul tău are mai mulți utilizatori decât acoperă planul"
 perMonth = "/lună"
 perYear = "/an"
-planName = "Stirling Team"
+planName = "PDF Viewer Team"
 reductionNote = "Capacitatea mai mică începe la următoarea reînnoire. Până atunci, poți folosi alocația curentă. Utilizatorii existenți rămân; utilizatorii noi sunt blocați dacă depășești capacitatea când modificarea intră în vigoare."
 renewalNote = "Se reînnoiește la {{total}}{{period}}. Anulează oricând din Utilizare și facturare."
 reviewChange = "Revizuiește modificarea în Stripe"
@@ -8437,35 +8437,35 @@ pdfa-3b = "PDF/A-3b"
 ownerRequired = "Numai proprietarul organizației poate asocia sau dezasocia acest server."
 
 [portal.accountLink.card]
-billingNote = "Acest server partajează alocația de procesare a echipei tale în Stirling Cloud."
-connectDescription = "Conectează acest server pentru a folosi alocația de procesare a echipei tale în Stirling Cloud."
-disconnectBody = "Acest server nu va mai folosi alocația de procesare a echipei tale în Stirling Cloud. Fișierele tale locale rămân pe acest server. Pentru a te conecta din nou, urmează pașii inițiali de conectare."
+billingNote = "Acest server partajează alocația de procesare a echipei tale în PDF Viewer Cloud."
+connectDescription = "Conectează acest server pentru a folosi alocația de procesare a echipei tale în PDF Viewer Cloud."
+disconnectBody = "Acest server nu va mai folosi alocația de procesare a echipei tale în PDF Viewer Cloud. Fișierele tale locale rămân pe acest server. Pentru a te conecta din nou, urmează pașii inițiali de conectare."
 disconnectTitle = "Deconectezi această instanță?"
 eyebrow = "Această instanță"
-linkButton = "Conectează-ți contul Stirling"
+linkButton = "Conectează-ți contul PDF Viewer"
 loading = "Se verifică conexiunea contului"
 notLinked = "Neconectat"
-signedInAs = "Autentificat în Stirling Cloud ca"
+signedInAs = "Autentificat în PDF Viewer Cloud ca"
 statusError = "Conexiunea contului nu a putut fi verificată"
-title = "Stirling Cloud"
+title = "PDF Viewer Cloud"
 unlink = "Deconectează această instanță"
 
 [portal.accountLink.card.error]
 title = "Nu s-a putut actualiza conexiunea"
 
 [portal.accountLink.card.loginNotConfigured]
-description = "Cere administratorului serverului să activeze conexiunea la Stirling Cloud."
+description = "Cere administratorului serverului să activeze conexiunea la PDF Viewer Cloud."
 title = "Conexiunea contului nu este disponibilă"
 
 [portal.accountLink.connect]
-adminRequired = "Cere administratorului serverului să deschidă Utilizare și facturare și să conecteze un cont Stirling pentru mai multe credite lunare. Instrumentele PDF manuale sunt încă disponibile."
+adminRequired = "Cere administratorului serverului să deschidă Utilizare și facturare și să conecteze un cont PDF Viewer pentru mai multe credite lunare. Instrumentele PDF manuale sunt încă disponibile."
 adminTitle = "Cere administratorului serverului"
 close = "Închide"
 copied = "Copiat"
 copyAdminMessage = "Copiază mesajul pentru administrator"
-exhaustedLede = "Acest server și-a folosit creditele gratuite pentru luna curentă. Conectează un cont Stirling nou sau existent pentru a accesa alocația lunară a echipei tale."
+exhaustedLede = "Acest server și-a folosit creditele gratuite pentru luna curentă. Conectează un cont PDF Viewer nou sau existent pentru a accesa alocația lunară a echipei tale."
 notNow = "Nu acum"
-start = "Conectează contul Stirling"
+start = "Conectează contul PDF Viewer"
 step = "Pasul {{current}} din {{total}}"
 
 [portal.accountLink.connect.benefits]
@@ -8479,9 +8479,9 @@ teamsDetail = "Adaugă mai mulți utilizatori cu un plan Team plătit"
 teamsLabel = "Echipe mai mari"
 
 [portal.accountLink.connect.callback]
-linkedNotSignedIn = "Nu ești autentificat în Stirling în acest browser, așa că utilizarea și facturarea îți vor cere să te autentifici."
+linkedNotSignedIn = "Nu ești autentificat în PDF Viewer în acest browser, așa că utilizarea și facturarea îți vor cere să te autentifici."
 retry = "Încearcă din nou"
-signedInAnyway = "Ești autentificat în Stirling, așa că facturarea și utilizarea se vor încărca. Doar legătura cu serverul este incompletă."
+signedInAnyway = "Ești autentificat în PDF Viewer, așa că facturarea și utilizarea se vor încărca. Doar legătura cu serverul este incompletă."
 working = "Se finalizează conexiunea."
 
 [portal.accountLink.connect.callback.expired]
@@ -8497,7 +8497,7 @@ body = "Această cerere a fost refuzată sau a fost deja folosită. Pornește al
 title = "Conexiunea nu a fost finalizată"
 
 [portal.accountLink.connect.callback.unfinished]
-body = "Stirling nu a confirmat conexiunea. De obicei, acest lucru este temporar."
+body = "PDF Viewer nu a confirmat conexiunea. De obicei, acest lucru este temporar."
 title = "Încă nu s-a finalizat"
 
 [portal.accountLink.connect.done]
@@ -8508,23 +8508,23 @@ creditsBarLabel = "Credite gratuite rămase"
 creditsSuffix = "din {{allowance}} credite gratuite rămase"
 cta = "Gata"
 inviteTeam = "Invitați-vă echipa"
-lede = "Acest server rulează acum cu contul dvs. Stirling."
+lede = "Acest server rulează acum cu contul dvs. PDF Viewer."
 pendingTitle = "Aproape gata"
 switchOnProcessor = "Activați Processor"
 title = "Conectat"
 
 [portal.accountLink.connect.handoff]
-opening = "Se deschide autentificarea Stirling..."
-reauthLede = "Sesiunea dvs. Stirling a expirat. Autentificarea din nou păstrează vizibile utilizarea și facturarea. Acest server rămâne conectat în orice caz."
+opening = "Se deschide autentificarea PDF Viewer..."
+reauthLede = "Sesiunea dvs. PDF Viewer a expirat. Autentificarea din nou păstrează vizibile utilizarea și facturarea. Acest server rămâne conectat în orice caz."
 title = "Se conectează"
 
 [portal.accountLink.connectionNotice]
-expiredBody = "Acest server nu a contactat Stirling Cloud în limita permisă offline. Funcțiile Team bazate pe cloud și activitatea Processor sunt suspendate. Datele existente și drepturile licenței instalate sunt păstrate. Accesul revine automat după ce o conexiune reușită vă confirmă planul."
+expiredBody = "Acest server nu a contactat PDF Viewer Cloud în limita permisă offline. Funcțiile Team bazate pe cloud și activitatea Processor sunt suspendate. Datele existente și drepturile licenței instalate sunt păstrate. Accesul revine automat după ce o conexiune reușită vă confirmă planul."
 expiredTitle = "Accesul cloud este suspendat"
 offlineBody = "Ultimul plan confirmat rămâne disponibil până la {{deadline}}. Restabiliți conexiunea acestui server înainte de atunci pentru a evita suspendarea funcțiilor și procesării bazate pe cloud."
-offlineTitle = "Stirling Cloud nu poate fi accesat"
+offlineTitle = "PDF Viewer Cloud nu poate fi accesat"
 retry = "Verificați conexiunea"
-revokedBody = "Stirling Cloud a respins această conexiune de cont. Reconectați contul în Setări pentru a restabili funcțiile eligibile bazate pe cloud."
+revokedBody = "PDF Viewer Cloud a respins această conexiune de cont. Reconectați contul în Setări pentru a restabili funcțiile eligibile bazate pe cloud."
 revokedTitle = "Conexiunea contului a fost revocată"
 
 [portal.accountLink.failure]
@@ -8553,17 +8553,17 @@ callbackMismatch = "Adresa frontend configurată a acestui server nu se potrive�
 cancel = "Anulați"
 continueReauth = "Autentificați-vă din nou"
 exhaustedTitle = "Mențineți fluxurile de lucru în funcțiune"
-identity = "Cont Stirling"
-linkTitle = "Conectează-ți contul Stirling"
-noAuthorizeUrl = "Stirling nu a returnat o destinație pentru a continua. Încercați din nou peste puțin timp."
-startFailed = "Nu s-a putut contacta Stirling pentru a începe conexiunea. Verificați accesul de rețea outbound al acestui server, apoi încercați din nou."
+identity = "Cont PDF Viewer"
+linkTitle = "Conectează-ți contul PDF Viewer"
+noAuthorizeUrl = "PDF Viewer nu a returnat o destinație pentru a continua. Încercați din nou peste puțin timp."
+startFailed = "Nu s-a putut contacta PDF Viewer pentru a începe conexiunea. Verificați accesul de rețea outbound al acestui server, apoi încercați din nou."
 transferPending = "Un transfer de proprietate este în așteptare. Accesați Setări → Utilizatori pentru a-l finaliza sau anula, apoi încercați din nou asocierea."
 
 [portal.accountLink.modal.loginNotConfigured]
 after = "astfel încât acest server să poată finaliza conexiunea când revii."
 and = "și"
 before = "Setează"
-title = "Conexiunea Stirling nu este configurată"
+title = "Conexiunea PDF Viewer nu este configurată"
 
 [portal.accountLink.notice]
 loadFailed = "Dialogul de conectare a contului nu a putut fi încărcat."
@@ -8573,11 +8573,11 @@ openFailed = "Nu s-a putut deschide browserul. Deschideți Utilizare și factura
 instancesSub = "Servere self-hosted conectate la aceeași echipă."
 instancesTitle = "Instanțe conectate"
 manageCloud = "Gestionați pe stirling.com"
-otherInstancesSub = "Alte servere self-hosted conectate la aceeași echipă în Stirling Cloud."
+otherInstancesSub = "Alte servere self-hosted conectate la aceeași echipă în PDF Viewer Cloud."
 otherInstancesTitle = "Alte instanțe conectate"
 revokeError = "Nu s-a putut revoca instanța"
 sessionRequired = "Instanțele conectate vor apărea după ce reînnoiți accesul la facturare."
-sub = "Gestionează conexiunea acestui server la contul tău Stirling Cloud."
+sub = "Gestionează conexiunea acestui server la contul tău PDF Viewer Cloud."
 
 [portal.accountLink.panel.loadError]
 forbidden = "Doar proprietarul echipei poate gestiona instanțele conectate."
@@ -8600,7 +8600,7 @@ viewAll = "Vedeți toate pipeline-urile"
 
 [portal.accountLink.rail]
 adminCta = "Cum obțineți mai multe credite"
-adminSub = "Rugați administratorul serverului să asocieze un cont Stirling pentru mai multe credite. Instrumentele PDF manuale sunt încă disponibile."
+adminSub = "Rugați administratorul serverului să asocieze un cont PDF Viewer pentru mai multe credite. Instrumentele PDF manuale sunt încă disponibile."
 exhaustedCta = "Asociați contul pentru mai multe credite"
 exhaustedSub = "Asociați pentru credite lunare, facturare partajată și opțiunea de a crește cu un plan Team."
 exhaustedTitle = "Creditele gratuite ale acestui server au fost epuizate"
@@ -8614,9 +8614,9 @@ malformed = "Nu am putut verifica acest răspuns de autentificare. Porniți din 
 malformedTitle = "Nu s-a putut verifica autentificarea"
 rejected = "Această solicitare de autentificare a fost refuzată sau a fost deja utilizată. Încercați din nou pentru a reînnoi accesul la facturare."
 rejectedTitle = "Autentificarea nu a fost finalizată"
-retry = "Stirling nu a putut finaliza reînnoirea accesului la facturare. Încercați din nou peste puțin timp; serverul dvs. este încă conectat."
+retry = "PDF Viewer nu a putut finaliza reînnoirea accesului la facturare. Încercați din nou peste puțin timp; serverul dvs. este încă conectat."
 retryTitle = "Accesul la facturare nu a fost restabilit"
-success = "Accesul dvs. la facturare a fost reînnoit. Acest server este încă conectat la același cont Stirling."
+success = "Accesul dvs. la facturare a fost reînnoit. Acest server este încă conectat la același cont PDF Viewer."
 title = "Reînnoiți accesul la facturare"
 working = "Se restabilește accesul la facturare."
 
@@ -8630,7 +8630,7 @@ close = "Închide asistentul"
 error = "Nu s-a putut contacta asistentul."
 errorWithDetail = "Nu s-a putut contacta asistentul: {{detail}}"
 inputAriaLabel = "Întreabă asistentul"
-inputPlaceholder = "Întreabă despre Stirling…"
+inputPlaceholder = "Întreabă despre PDF Viewer…"
 open = "Deschide asistentul"
 send = "Trimite"
 title = "Asistent"
@@ -8675,7 +8675,7 @@ title = "Setați limita de cheltuieli"
 [portal.billing.checkout.card]
 fields = "Număr card · LL / AA · CVC · ZIP"
 label = "Detalii card"
-note = "Detaliile cardului sunt colectate de Stripe. Stirling nu stochează niciodată PAN sau CVC."
+note = "Detaliile cardului sunt colectate de Stripe. PDF Viewer nu stochează niciodată PAN sau CVC."
 
 [portal.billing.checkout.error]
 title = "Nu s-a putut porni checkout-ul"
@@ -8759,7 +8759,7 @@ pdfsUsed_one = "{{count}} PDF procesat"
 pdfsUsed_other = "{{count}} PDF-uri procesate"
 period = "Perioada acordului: {{start}} – {{end}}"
 sub = "Implementare air-gapped, SCIM, rezidența datelor, SLA-uri de uptime și un acord pe măsură."
-title = "Rulați Stirling într-un mediu reglementat?"
+title = "Rulați PDF Viewer într-un mediu reglementat?"
 trial = "Perioadă de probă de {{days}} zile · se încheie la {{date}}"
 usersAgreed = "{{used}} / {{agreed}} utilizatori agreați"
 usersOver_one = "{{count}} utilizator peste cantitatea agreată"
@@ -8909,7 +8909,7 @@ spendAgainstLimit = "{{spend}} din {{cap}} contorizat în acest ciclu"
 [portal.billing.seats]
 awaitingSync = "Se așteaptă sincronizarea zilnică; nu este încă inclus în totalul flotei."
 breakdown = "Unde sunt numărați utilizatorii"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 deployment = "Server asociat"
 lastReported = "Raportat {{date}}"
 live = "Număr de utilizatori live"
@@ -9041,7 +9041,7 @@ description = "Unde ajung documentele procesate - un bucket, un drive, un tichet
 label = "Fișier și atașare"
 
 [portal.connections.commonFields.accessToken]
-helperText = "Stirling stochează acest lucru criptat și nu îl mai afișează niciodată."
+helperText = "PDF Viewer stochează acest lucru criptat și nu îl mai afișează niciodată."
 label = "Token de acces"
 
 [portal.connections.commonFields.apiKey]
@@ -9630,8 +9630,8 @@ brandTag = "Enterprise"
 callInfo = "Un apel de 15 minute. Aduceți întrebările despre prețuri, implementare sau securitate, sau planificați împreună lansarea."
 callTitle = "Discutați cu un inginer de soluții"
 deployment = "Implementare"
-footer = "Întrebări despre Stirling Enterprise?"
-home = "Mergeți la Stirling"
+footer = "Întrebări despre PDF Viewer Enterprise?"
+home = "Mergeți la PDF Viewer"
 member = "Liderul echipei dvs. gestionează acordul Enterprise. După ce începe, puteți urmări progresul aici."
 memberDeal = "Liderul echipei dvs. gestionează acest acord. Puteți urmări progresul aici."
 quotePanel = "Oferta dvs."
@@ -9644,8 +9644,8 @@ stagesLabel = "Progres"
 lede = "Încercați gratuit timp de 14 zile, apoi construiți-vă oferta și semnați acordul aici. Nu este necesar card."
 tickAgreement = "Un singur acord care acoperă MSA, ordinul, EULA și DPA"
 tickCompliance = "SCIM, rezidența datelor și SLA-uri de disponibilitate"
-tickDeploy = "Rulați pe Stirling Cloud, pe serverele proprii sau complet air-gapped"
-title = "Stirling Enterprise"
+tickDeploy = "Rulați pe PDF Viewer Cloud, pe serverele proprii sau complet air-gapped"
+title = "PDF Viewer Enterprise"
 
 [portal.enterprise.options.airgap]
 more = "Documentație licență offline"
@@ -9655,7 +9655,7 @@ point3 = "Autentificarea rămâne în interiorul rețelei dvs."
 tagline = "Autogăzduit într-o rețea fără acces la internet."
 
 [portal.enterprise.options.cloud]
-more = "Documentație Stirling Cloud"
+more = "Documentație PDF Viewer Cloud"
 point1 = "Echipa dvs. se autentifică la stirling.com/app"
 point2 = "Rulează pe AWS, cu fișierele stocate criptate la repaus"
 point3 = "Single sign-on prin propriul furnizor de identitate necesită autogăzduire"
@@ -9697,11 +9697,11 @@ title = "Rulați primul document"
 
 [portal.enterprise.setup.getApp]
 body = "Instalați aplicația desktop pentru Windows, Mac sau Linux și autentificați-vă cu contul pe care tocmai l-ați creat sau folosiți-o direct din browser."
-title = "Obțineți Stirling"
+title = "Obțineți PDF Viewer"
 
 [portal.enterprise.setup.install]
-body = "Rulați acest lucru pe serverul dvs. Pornește Stirling cu licența aplicată, iar imaginea include OCR și conversie de office. Pentru echipe mai mari, folosiți Kubernetes."
-title = "Instalați și porniți Stirling"
+body = "Rulați acest lucru pe serverul dvs. Pornește PDF Viewer cu licența aplicată, iar imaginea include OCR și conversie de office. Pentru echipe mai mari, folosiți Kubernetes."
+title = "Instalați și porniți PDF Viewer"
 
 [portal.enterprise.setup.invite]
 body = "Aduceți persoanele care îl vor folosi, astfel încât proba să reflecte munca reală."
@@ -9722,21 +9722,21 @@ invite = "Invitați colegi"
 kubernetes = "Ghid Kubernetes"
 licence = "Activarea licenței"
 ocr = "Limbi OCR"
-openApp = "Deschideți Stirling"
+openApp = "Deschideți PDF Viewer"
 samlGuide = "Ghid SAML"
 ssoGuide = "Ghid SSO"
 
 [portal.enterprise.setup.offlineInstall]
 body = "Trageți imaginea completă pe o mașină conectată, transferați-o împreună cu fișierul de licență, apoi încărcați-o și porniți-o. Imaginea completă adaugă fonturile pe care un server offline nu le poate descărca."
-title = "Aduceți Stirling și porniți-l"
+title = "Aduceți PDF Viewer și porniți-l"
 
 [portal.enterprise.setup.offlineLicence]
 body = "Un server izolat nu poate accesa serviciul nostru de licențe, așa că verifică acest fișier semnat. Păstrați-l împreună cu imaginea pe care o transferați."
 title = "Descărcați licența offline"
 
 [portal.enterprise.setup.people]
-bodyAirgap = "Creați conturi la <code>/settings/people</code> sau indicați Stirling către furnizorul intern de identitate, astfel încât autentificarea să nu părăsească rețeaua dvs."
-bodySelfHosted = "Creați conturi la <code>/settings/people</code> sau conectați furnizorul de identitate astfel încât echipa să se autentifice cu conturile de lucru. Folosesc Stirling în browser la adresa serverului dvs. sau în aplicația desktop configurată către el."
+bodyAirgap = "Creați conturi la <code>/settings/people</code> sau indicați PDF Viewer către furnizorul intern de identitate, astfel încât autentificarea să nu părăsească rețeaua dvs."
+bodySelfHosted = "Creați conturi la <code>/settings/people</code> sau conectați furnizorul de identitate astfel încât echipa să se autentifice cu conturile de lucru. Folosesc PDF Viewer în browser la adresa serverului dvs. sau în aplicația desktop configurată către el."
 title = "Adăugați-vă oamenii"
 
 [portal.enterprise.setup.signIn]
@@ -9750,7 +9750,7 @@ retry = "Încercați din nou"
 title = "Ceva nu a mers bine pe această pagină"
 
 [portal.failures]
-closedBySystem = "Stirling"
+closedBySystem = "PDF Viewer"
 noMatches = "Nimic nu corespunde filtrelor curente"
 occurrences = "{{count}} apariții"
 searchPlaceholder = "Căutați probleme, utilizatori și erori"
@@ -9862,7 +9862,7 @@ description = "Acestui server îi lipsește software-ul necesar pasului, deci ru
 title = "Software neinstalat"
 
 [portal.failures.kind.unknown]
-description = "Ceva nu a mers bine și Stirling nu recunoaște încă problema."
+description = "Ceva nu a mers bine și PDF Viewer nu recunoaște încă problema."
 title = "Problemă nerecunoscută"
 
 [portal.failures.log]
@@ -9895,13 +9895,13 @@ title = "Nimic de revizuit"
 [portal.home.download]
 back = "Înapoi"
 body = "Descărcați aplicația desktop sau găzduiți serverul self-hosted."
-bodyDesktop = "Descărcați aplicația desktop, apoi autentificați-vă cu contul Stirling."
+bodyDesktop = "Descărcați aplicația desktop, apoi autentificați-vă cu contul PDF Viewer."
 done = "Gata"
 guide = "Deschideți ghidul {{name}}"
 openInBrowser = "Deschideți în browser în schimb"
 sectionDesktop = "Aplicație desktop"
 sectionSelfHosted = "Self-hosted"
-title = "Instalați Stirling PDF Editor"
+title = "Instalați PDF Viewer Editor"
 
 [portal.home.download.docker]
 detailBody = "Rulați imaginea oficială pe serverul dvs."
@@ -9983,7 +9983,7 @@ usageMonth = "Utilizare luna aceasta"
 usageToday = "Utilizare astăzi"
 
 [portal.infrastructure.apiKeys.empty]
-description = "Creează o cheie pentru a începe să apelezi Stirling API."
+description = "Creează o cheie pentru a începe să apelezi PDF Viewer API."
 title = "Nu există încă chei API"
 
 [portal.infrastructure.apiKeys.error]
@@ -10073,7 +10073,7 @@ done = "Gata"
 keyNameLabel = "Nume cheie"
 keyNamePlaceholder = "de ex. Ingestie producție"
 secretKeyCaption = "Cheie secretă"
-secretWarning = "Stochează acest lucru într-un manager de secrete. Stirling stochează doar un hash, deci nu există nicio modalitate de a-l recupera ulterior."
+secretWarning = "Stochează acest lucru într-un manager de secrete. PDF Viewer stochează doar un hash, deci nu există nicio modalitate de a-l recupera ulterior."
 subtitle = "Dă-i cheii un nume ca să o poți recunoaște mai târziu. O poți revoca oricând."
 subtitleCreated = "Copiați acest secret acum — nu va mai fi afișat."
 title = "Creați cheie API"
@@ -10257,7 +10257,7 @@ connectionCount_one = "{{count}} conexiune"
 connectionCount_other = "{{count}} conexiuni"
 customApi = "API personalizat"
 searchPlaceholder = "Căutați integrări"
-subtitle = "Tot cu ce poate comunica Stirling. Credențialele sunt create o singură dată aici, apoi referențiate de surse, politici și pipeline-uri."
+subtitle = "Tot cu ce poate comunica PDF Viewer. Credențialele sunt create o singură dată aici, apoi referențiate de surse, politici și pipeline-uri."
 title = "Integrări"
 typedName = "Nume {{tool}}"
 
@@ -10942,8 +10942,8 @@ saveFailed = "Nu s-a putut salva pipeline-ul. Te rugăm să încerci din nou."
 
 [portal.policies.wizard.locations]
 aiSettings = "Deschideți setările AI"
-builtin = "Baza de cunoștințe Stirling"
-builtinHelp = "Indexează fragmente căutabile în Stirling și returnează PDF-ul procesat la destinația de mai jos. Un furnizor de embedding trebuie configurat în setările AI."
+builtin = "Baza de cunoștințe PDF Viewer"
+builtinHelp = "Indexează fragmente căutabile în PDF Viewer și returnează PDF-ul procesat la destinația de mai jos. Un furnizor de embedding trebuie configurat în setările AI."
 checking = "Se verifică disponibilitatea ingestiei..."
 chooseOutput = "Alegeți o destinație de ieșire activată înainte de salvare."
 chooseSource = "Alegeți de unde provin documentele"
@@ -11035,7 +11035,7 @@ title = "Încă nu există flux"
 
 [portal.processorFlow.sources]
 comingSoonTag = "Conectați"
-editor = "Editor Stirling PDF"
+editor = "Editor PDF Viewer"
 heading = "Surse"
 perDay = "{{n}} / 24h"
 
@@ -11051,7 +11051,7 @@ title = "Achiziții"
 agreeCta = "Semnează acordul"
 confidential = "Confidențial"
 confirm = "Am citit și sunt de acord cu acest Acord și declar că sunt autorizat să îl semnez în numele organizației numite mai sus."
-docName = "Acord Stirling Enterprise"
+docName = "Acord PDF Viewer Enterprise"
 docSub = "MSA, Formular de comandă, EULA și DPA, combinate într-o singură semnătură."
 download = "Descărcați"
 downloadDraftError = "Nu s-a putut genera acordul PDF - rendererul de documente nu este disponibil. Încercați din nou în scurt timp sau contactați suportul."
@@ -11091,7 +11091,7 @@ contactNamePlaceholder = "Jane Doe"
 continue = "Continuă"
 done = "Gata"
 editUsage = "Editați utilizarea"
-eula = "Am citit și sunt de acord cu Stirling Enterprise EULA. Aceasta guvernează acordul generat din această ofertă."
+eula = "Am citit și sunt de acord cu PDF Viewer Enterprise EULA. Aceasta guvernează acordul generat din această ofertă."
 generate = "Generează oferta"
 indemnification = "Protecție IP extinsă"
 indemnificationSub = "Extinde apărarea noastră IP la revendicări de brevet. Despăgubirea de bază pentru drepturi de autor, mărci comerciale și secrete comerciale este inclusă gratuit."
@@ -11099,7 +11099,7 @@ minimum = "Enterprise necesită o cheltuială anuală minimă de {{min}}."
 minimumBelow = "Această ofertă ajunge la {{annual}} pe an. Dacă vă așteptați să folosiți mai mult, măriți utilizarea estimată; altfel planul Team este probabil mai potrivit."
 minimumNear = "Enterprise necesită o cheltuială anuală minimă de {{min}}. Măriți utilizarea estimată pentru a o atinge sau discutați cu noi."
 minimumNearTitle = "Vă lipsesc {{gap}} pe an față de Enterprise."
-paperBrand = "Stirling PDF"
+paperBrand = "PDF Viewer"
 paperEyebrow = "Ofertă Enterprise"
 paperFor = "Pregătită pentru"
 pdfSize = "Dimensiune PDF"
@@ -11210,7 +11210,7 @@ eyebrow = "Enterprise"
 eyebrowCompany = "{{company}} Enterprise"
 inviteTeammates = "Invită coechipieri"
 liveSub = "Organizația dvs. este provisionată și licența dvs. este activă."
-liveTitle = "Sunteți live pe Stirling Enterprise"
+liveTitle = "Sunteți live pe PDF Viewer Enterprise"
 next = "Următorul: {{stage}}"
 open = "Deschide achizițiile"
 scheduleCall = "Programează un apel"
@@ -11246,7 +11246,7 @@ gatingAction = "Acceptă oferta"
 label = "Ofertă"
 
 [portal.procurement.journeySteps.trial]
-blurb = "Evaluează Stirling cu documentele și fluxurile tale de lucru."
+blurb = "Evaluează PDF Viewer cu documentele și fluxurile tale de lucru."
 gatingAction = "Construiește oferta"
 label = "Probă"
 
@@ -11261,7 +11261,7 @@ trialFileHint = "Acesta este fișierul dvs. de licență de probă. După ce aco
 
 [portal.procurement.live]
 description = "Abonamentul tău este activ și licența ta a fost emisă. Echipa ta este provisionată și facturarea a început."
-title = "Ești activ pe Stirling Enterprise"
+title = "Ești activ pe PDF Viewer Enterprise"
 
 [portal.procurement.milestone]
 downloadError = "Oferta PDF nu a putut fi descărcată încă — încearcă din nou peste câteva momente."
@@ -11294,11 +11294,11 @@ airgapSub = "Sigilat, fără ieșire"
 back = "Înapoi"
 businessName = "Nume companie"
 businessNamePlaceholder = "Acme Corp"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 cloudSub = "Gestionat, cel mai rapid start"
 continue = "Continuați"
 deployment = "Unde ar trebui implementat?"
-eula = "Sunt de acord cu Stirling EULA și Termenii comerciali."
+eula = "Sunt de acord cu PDF Viewer EULA și Termenii comerciali."
 fullName = "Nume complet"
 fullNamePlaceholder = "Numele dvs."
 invites = "Invitați colegi · opțional"
@@ -11344,7 +11344,7 @@ account-link = "Conexiune cont"
 [portal.shell.sidebar]
 appEditor = "Editor"
 appProcessor = "Procesor"
-linkAccount = "Conectează contul Stirling"
+linkAccount = "Conectează contul PDF Viewer"
 primaryNav = "Navigare principală"
 
 [portal.shell.topbar]
@@ -11354,7 +11354,7 @@ search = "Căutați"
 
 [portal.sources]
 processingModeHelp = "Track păstrează originalele și procesează fiecare versiune o singură dată. Snapshot păstrează originalele și le procesează la fiecare rulare. Consume șterge originalele după livrarea reușită."
-subtitle = "Conexiuni de intrare reutilizabile care alimentează documente în Stirling. Configurează o sursă o singură dată, apoi referențiaz-o din oricâte pipeline-uri."
+subtitle = "Conexiuni de intrare reutilizabile care alimentează documente în PDF Viewer. Configurează o sursă o singură dată, apoi referențiaz-o din oricâte pipeline-uri."
 title = "Surse"
 
 [portal.sources.actions]
@@ -11590,7 +11590,7 @@ secretNote = "Secretul de semnare este afișat o singură dată, când webhook-u
 copy = "Copiați"
 done = "Gata"
 secret = "Secret de semnare"
-secretHelp = "Semnați corpul brut al fiecărei livrări cu această cheie (HMAC-SHA256) și trimiteți-l ca header X-Stirling-Signature."
+secretHelp = "Semnați corpul brut al fiecărei livrări cu această cheie (HMAC-SHA256) și trimiteți-l ca header X-PDF Viewer-Signature."
 secretWarning = "Copiați acum secretul de semnare. Pentru securitatea dvs., este afișat o singură dată și nu poate fi recuperat ulterior."
 title = "Webhook creat"
 url = "URL de livrare"
@@ -11618,15 +11618,15 @@ adminOnly = "Creditele lunare ale acestui server sunt partajate de toți cei de 
 barAria = "Credite gratuite rămase"
 capSuffix_one = "din {{allowance}} credit gratuit rămas luna aceasta"
 capSuffix_other = "din {{allowance}} credite gratuite rămase luna aceasta"
-connect = "Conectați un cont Stirling"
+connect = "Conectați un cont PDF Viewer"
 connectBody = "Conectarea adaugă o a doua alocare lunară, crește numărul de utilizatori pe care îl poate avea acest server și activează Procesorul."
-connectTitle = "Acest server nu are niciun cont Stirling"
+connectTitle = "Acest server nu are niciun cont PDF Viewer"
 loadError = "Nu s-a putut citi utilizarea creditelor acestui server. Încercați din nou peste câteva momente."
 loadErrorTitle = "Nu s-a putut încărca utilizarea creditelor"
 resets = "Se resetează {{date}}"
 
 [portal.usage.sessionExpired]
-body = "Sesiunea contului tău Stirling a expirat. Autentifică-te din nou pentru a vedea facturarea — instanța ta rămâne conectată."
+body = "Sesiunea contului tău PDF Viewer a expirat. Autentifică-te din nou pentru a vedea facturarea — instanța ta rămâne conectată."
 
 [portal.users]
 title = "Utilizatori"
@@ -11741,7 +11741,7 @@ name = "Google Drive"
 scope = "Import fișiere"
 
 [provider.googledrive.accountScope]
-description = "drive are acces la fiecare fișier (Google trebuie să verifice o aplicație publică pentru asta); drive.file doar fișierele pe care utilizatorii le aleg sau pe care le creează Stirling"
+description = "drive are acces la fiecare fișier (Google trebuie să verifice o aplicație publică pentru asta); drive.file doar fișierele pe care utilizatorii le aleg sau pe care le creează PDF Viewer"
 label = "Acces Drive"
 
 [provider.googledrive.allowAccountConnections]
@@ -11786,7 +11786,7 @@ description = "O singură autentificare pentru editor și pipeline-urile sale. D
 label = "Permite utilizatorilor să își conecteze propriul cont"
 
 [provider.microsoft.allowEditorSaves]
-description = "Dezactivați pentru a păstra editările în Stirling: fișierele deschise din OneDrive vor fi apoi descărcate, iar serverul va refuza salvările în OneDrive."
+description = "Dezactivați pentru a păstra editările în PDF Viewer: fișierele deschise din OneDrive vor fi apoi descărcate, iar serverul va refuza salvările în OneDrive."
 label = "Permiteți editorului să salveze înapoi în OneDrive"
 
 [provider.microsoft.clientId]
@@ -11931,7 +11931,7 @@ notConfigured = "OneDrive nu este configurat"
 pickerFailed = "Nu s-a putut deschide OneDrive"
 popupBlocked = "Browserul a blocat fereastra de autentificare Microsoft. Permiteți pop-up-uri pentru acest site și încercați din nou."
 reconnect = "Contul Microsoft trebuie să se autentifice din nou. Reconectați-l în Setări > Conturi conectate."
-serverError = "OneDrive sau serverul Stirling a avut o problemă. Încercați din nou sau întrebați administratorul dacă problema persistă."
+serverError = "OneDrive sau serverul PDF Viewer a avut o problemă. Încercați din nou sau întrebați administratorul dacă problema persistă."
 unreachable = "Nu s-a putut accesa OneDrive. Verificați conexiunea și încercați din nou."
 
 [provider.saml2]
@@ -12024,7 +12024,7 @@ files = "Fișiere"
 account = "Cont"
 docs = "Documentație"
 editor = "Editor"
-home = "Stirling"
+home = "PDF Viewer"
 invite = "Invitați"
 landmark = "Navigare rapidă"
 noProcessorAccess = "Cereți unui admin acces la procesor"
@@ -12456,7 +12456,7 @@ yd = "Yarzi (yd)"
 back = "Înapoi"
 continue = "Continuă"
 subtitle = "Alegeți unde rulează."
-title = "Unde doriți să rulați Stirling?"
+title = "Unde doriți să rulați PDF Viewer?"
 
 [runLocation.choice.browser]
 description = "Aplicația web."
@@ -12655,8 +12655,8 @@ hideTools = "Ascunde instrumentele indisponibile ▴"
 messageNoFallback = "Instrumentele sunt indisponibile până când serverul revine online."
 messageWithFallback = "Unele instrumente necesită o conexiune la server."
 showTools = "Afișează instrumentele indisponibile ▾"
-title = "Serverul dvs. Stirling-PDF este inaccesibil"
-toolNotAvailableLocally = "Serverul dvs. Stirling-PDF este offline, iar \"{{endpoint}}\" nu este disponibil pe backendul local."
+title = "Serverul dvs. PDF Viewer este inaccesibil"
+toolNotAvailableLocally = "Serverul dvs. PDF Viewer este offline, iar \"{{endpoint}}\" nu este disponibil pe backendul local."
 
 [serverSetup]
 back = "Înapoi"
@@ -12691,7 +12691,7 @@ usernameHelp = "Ce veți folosi la autentificare. Poate fi și o adresă de emai
 backendUrl = "Adresă server"
 backendUrlHelp = "Unde furnizorii de autentificare trimit utilizatorii înapoi. De obicei aceeași cu adresa web."
 frontendUrl = "Adresă web"
-frontendUrlHelp = "Unde utilizatorii deschid Stirling PDF. Folosită în emailuri, linkuri de partajare și coduri QR."
+frontendUrlHelp = "Unde utilizatorii deschid PDF Viewer. Folosită în emailuri, linkuri de partajare și coduri QR."
 subtitle = "Cum ajung utilizatorii și furnizorii de autentificare la acest server."
 title = "Adrese"
 
@@ -12705,7 +12705,7 @@ label = "AI găzduit local"
 provider = "Furnizor de model"
 providerCustom = "Compatibil OpenAI"
 smartModel = "Model complet"
-stirling = "Stirling AI"
+stirling = "PDF Viewer AI"
 subtitle = "Întrebări despre documente, editări automate și agenți AI."
 title = "AI"
 
@@ -12716,7 +12716,7 @@ changeLater = "Puteți schimba oricând în {{path}}."
 decline = "Refuză și continuă"
 declineFinish = "Refuză și finalizează"
 learnMore = "Ce colectăm"
-note = "Partajați date de utilizare de pe acest server cu noi pentru a ne ajuta să îmbunătățim Stirling PDF. Nu colectăm niciodată fișiere sau conținutul lor."
+note = "Partajați date de utilizare de pe acest server cu noi pentru a ne ajuta să îmbunătățim PDF Viewer. Nu colectăm niciodată fișiere sau conținutul lor."
 title = "Analitice server"
 
 [serverSetup.documents]
@@ -12854,7 +12854,7 @@ description = "OneDrive, SharePoint și Google Drive proprii, pentru pipeline-ur
 title = "Conturi conectate"
 
 [settings.connectedInstances]
-confirmBody = "Aceasta revocă accesul instanței la echipa dvs. din Stirling Cloud. Nu șterge fișiere locale și nu elimină utilizarea deja înregistrată. Pentru a vă conecta din nou, urmați pașii originali de conectare pe instanță."
+confirmBody = "Aceasta revocă accesul instanței la echipa dvs. din PDF Viewer Cloud. Nu șterge fișiere locale și nu elimină utilizarea deja înregistrată. Pentru a vă conecta din nou, urmați pașii originali de conectare pe instanță."
 confirmTitle = "Eliminați {{name}}?"
 connectedAt = "Conectat: {{date}}"
 connectedDate = "Conectat"
@@ -12888,7 +12888,7 @@ unknown = "Indisponibil"
 yourTeam = "Echipa dvs."
 
 [settings.connection]
-description = "Lucrați local pe această mașină sau conectați aplicația la un server Stirling."
+description = "Lucrați local pe această mașină sau conectați aplicația la un server PDF Viewer."
 localDescription = "Folosiți backendul local fără un cont. Unele instrumente care necesită procesare în cloud sau un server self-hosted nu sunt disponibile."
 logout = "Deconectare"
 server = "Server"
@@ -12898,19 +12898,19 @@ user = "Conectat ca"
 
 [settings.connection.mode]
 local = "Doar local"
-saas = "Stirling Cloud"
+saas = "PDF Viewer Cloud"
 selfhosted = "Găzduit local"
 
 [settings.developer]
 apiKeys = "Chei API"
-apiKeysDescription = "Chei personale pentru apelarea Stirling API din scripturi și integrări."
+apiKeysDescription = "Chei personale pentru apelarea PDF Viewer API din scripturi și integrări."
 title = "Dezvoltator"
 
 [settings.feedback]
 label = "Feedback"
 
 [settings.feedback.send]
-description = "Raportați o problemă sau sugerați o îmbunătățire echipei Stirling."
+description = "Raportați o problemă sau sugerați o îmbunătățire echipei PDF Viewer."
 label = "Trimite feedback"
 
 [settings.general]
@@ -12919,7 +12919,7 @@ autoUnzipFileLimit = "Limită fișiere pentru dezarhivare automată"
 autoUnzipFileLimitTooltip = "Dezarhivați doar dacă ZIP-ul conține atâtea fișiere sau mai puține. Setați mai mare pentru a extrage ZIP-uri mai mari."
 autoUnzipTooltip = "Extrage automat fișierele ZIP returnate de operațiile API. Dezactivați pentru a păstra fișierele ZIP intacte. Aceasta nu afectează fluxurile de automatizare."
 defaultPdfEditor = "Editor PDF implicit"
-defaultPdfEditorActive = "Stirling PDF este editorul tău PDF implicit"
+defaultPdfEditorActive = "PDF Viewer este editorul tău PDF implicit"
 defaultPdfEditorChecking = "Se verifică..."
 defaultPdfEditorInactive = "O altă aplicație este setată ca implicită"
 defaultPdfEditorSet = "Deja implicit"
@@ -12990,7 +12990,7 @@ updateBehavior = "Comportament actualizare"
 updateBehaviorDescription = "Alegeți dacă să fiți întrebat înainte de instalarea actualizărilor, să le instalați automat sau să omiteți complet verificările de actualizare."
 updateBehaviorError = "Nu s-a putut schimba comportamentul de actualizare"
 updateBehaviorErrorLocked = "Această setare este blocată de administratorul dvs."
-updateBehaviorLockedDescription = "Administratorul a configurat modul în care Stirling-PDF gestionează actualizările pe această mașină. Contactați-l pentru modificări."
+updateBehaviorLockedDescription = "Administratorul a configurat modul în care PDF Viewer gestionează actualizările pe această mașină. Contactați-l pentru modificări."
 updateBehaviorSaved = "Comportamentul de actualizare a fost salvat."
 versionMismatch = "Aplicația desktop și serverul rulează versiuni diferite. Actualizează-le pe ambele la aceeași versiune pentru a evita problemele de compatibilitate."
 viewDetails = "Vezi detalii"
@@ -13091,7 +13091,7 @@ title = "Monitorizare"
 [settings.planBilling]
 currentPlan = "Plan curent"
 loading = "Se încarcă informațiile de facturare..."
-notAvailable = "Planul și facturarea sunt disponibile doar când sunteți conectat la Stirling Cloud (mod SaaS)."
+notAvailable = "Planul și facturarea sunt disponibile doar când sunteți conectat la PDF Viewer Cloud (mod SaaS)."
 title = "Plan și facturare"
 
 [settings.planBilling.billing]
@@ -13226,7 +13226,7 @@ oauthFailed = "Autentificarea OAuth a eșuat. Încearcă din nou."
 openResetFailed = "Nu s-a putut deschide browserul pentru a vă reseta parola."
 
 [setup.saas]
-title = "Autentifică-te în Stirling"
+title = "Autentifică-te în PDF Viewer"
 
 [setup.selfhosted]
 changeServerLocked = "Organizația dvs. a restricționat această aplicație la un anumit server"
@@ -13272,7 +13272,7 @@ step3 = "Reporniți serverul"
 title = "Autentificarea nu este activată"
 
 [setup.server.url]
-description = "Introdu URL-ul complet al serverului tău Stirling PDF găzduit local"
+description = "Introdu URL-ul complet al serverului tău PDF Viewer găzduit local"
 label = "URL server"
 
 [sharedSign]
@@ -13731,7 +13731,7 @@ pleaseFillAllFields = "Vă rugăm să completați toate câmpurile"
 signUp = "Înregistrare"
 signUpWith = "Înregistrează-te cu"
 skip = "Omite"
-subtitle = "Alăturați-vă Stirling PDF pentru a începe"
+subtitle = "Alăturați-vă PDF Viewer pentru a începe"
 title = "Creați un cont"
 unableToAccessTool = "Nu se poate accesa instrumentul: {{error}}"
 unexpectedError = "Eroare neașteptată: {{message}}"
@@ -14013,7 +14013,7 @@ download = "Descărcați"
 downloaded = "Descărcat"
 downloadFailed = "Nu se poate descărca acest fișier."
 downloadsCount = "Descărcări: {{count}}"
-emailWarningBody = "Aceasta pare a fi o adresă de e-mail. Dacă această persoană nu este deja utilizator Stirling PDF, nu va putea accesa fișierul."
+emailWarningBody = "Aceasta pare a fi o adresă de e-mail. Dacă această persoană nu este deja utilizator PDF Viewer, nu va putea accesa fișierul."
 emailWarningConfirm = "Partajați oricum"
 emailWarningTitle = "Adresă de e-mail"
 errorTitle = "Partajarea a eșuat"
@@ -14044,7 +14044,7 @@ manageTitle = "Gestionați partajarea"
 noActivity = "Nicio activitate încă."
 noLinks = "Încă nu există linkuri de partajare active."
 noSharedUsers = "Încă nu au acces utilizatori."
-openInApp = "Deschide în Stirling PDF"
+openInApp = "Deschide în PDF Viewer"
 ownerLabel = "Proprietar"
 removeLink = "Eliminați linkul"
 removeUser = "Eliminați"
@@ -14101,7 +14101,7 @@ all = "Toate"
 ariaLabel = "Super căutare"
 filtersAriaLabel = "Filtre de căutare"
 hint = "Tastează pentru a căuta"
-placeholder = "Caută în Stirling"
+placeholder = "Caută în PDF Viewer"
 placeholderShort = "Caută"
 showLess = "Arată mai puțin"
 showMore = "Arată încă {{count}}"
@@ -14115,7 +14115,7 @@ settings = "Setări"
 tools = "Instrumente"
 
 [survey]
-title = "Sondaj Stirling-PDF"
+title = "Sondaj PDF Viewer"
 
 [swagger]
 clickHere = "faceți clic aici"
@@ -14237,7 +14237,7 @@ noFiles = "Adăugați un fișier pentru a începe."
 scopeFiles = "fișiere"
 scopeThisFile = "acest fișier"
 selectFilesHint = "Selectați fișiere din Fișiere active pentru a rula acest instrument"
-signInRequired = "Este necesar un cont Stirling. Autentificați-vă pentru a continua."
+signInRequired = "Este necesar un cont PDF Viewer. Autentificați-vă pentru a continua."
 signInToUse = "Autentificați-vă pentru a utiliza"
 singleFileScope = "Se aplică numai pentru: {{fileName}}"
 viewerMode = "Comută la editorul de fișiere pentru a adăuga mai multe fișiere."
@@ -14290,7 +14290,7 @@ favorites = "Favorite"
 heading = "Toate instrumentele (vizualizare pe tot ecranul)"
 noResults = "Încercați să ajustați căutarea sau comutați descrierile pentru a găsi ce aveți nevoie."
 recommended = "Recomandat"
-selfHostedOffline = "Necesită serverul dvs. Stirling-PDF (în prezent offline):"
+selfHostedOffline = "Necesită serverul dvs. PDF Viewer (în prezent offline):"
 showDetails = "Afișați detalii"
 unavailable = "Dezactivat de administratorul serverului:"
 unavailableDependency = "Indisponibil – lipsește un instrument necesar pe server:"
@@ -14299,7 +14299,7 @@ unfavorite = "Eliminați din favorite"
 [toolPanel.modePrompt]
 chooseFullscreen = "Utilizați modul ecran complet"
 chooseSidebar = "Utilizați modul bară laterală"
-description = "Previzualizați ambele layout-uri și decideți cum doriți să explorați instrumentele Stirling PDF."
+description = "Previzualizați ambele layout-uri și decideți cum doriți să explorați instrumentele PDF Viewer."
 dismiss = "Poate mai târziu"
 fullscreenDescription = "Răsfoiți fiecare instrument într-un catalog care acoperă spațiul de lucru până când alegeți unul."
 fullscreenTitle = "Mod ecran complet - (învechit)"
@@ -14366,7 +14366,7 @@ loadingDetailedInfo = "Se încarcă informațiile detaliate..."
 migrationGuide = "Ghid de migrare"
 migrationGuides = "Ghiduri de migrare"
 migrationGuidesDesc = "Revizuiți schimbările importante înainte de actualizare."
-modalSubtitle = "O nouă versiune a Stirling PDF este gata de instalare."
+modalSubtitle = "O nouă versiune a PDF Viewer este gata de instalare."
 modalTitle = "Actualizare disponibilă"
 notes = "Note"
 releaseNotes = "Note de versiune"
@@ -14392,7 +14392,7 @@ urgent = "Urgentă"
 attentionBody = "Adminul tău trebuie să se conecteze pentru mai multe informații. Contactează-l imediat."
 attentionBodyAdmin = "Revizuiește cerințele de licențiere pentru a menține conformitatea acestui server."
 attentionTitle = "Acest server necesită atenția adminului"
-message = "Profită la maximum de Stirling PDF cu 100 de utilizatori, editarea textului PDF și funcții avansate"
+message = "Profită la maximum de PDF Viewer cu 100 de utilizatori, editarea textului PDF și funcții avansate"
 seeInfo = "Vezi info"
 title = "Fă upgrade la planul Team"
 upgradeButton = "Fă upgrade acum"
@@ -14530,7 +14530,7 @@ authWeb = "Parolă"
 create = "Creează cont"
 createSubtitle = "Creează un cont self-hosted cu parolă sau SSO."
 createTitle = "Creează cont"
-editorDesc = "Editează PDF-uri în Stirling PDF Editor. Toată lumea primește acest lucru."
+editorDesc = "Editează PDF-uri în PDF Viewer Editor. Toată lumea primește acest lucru."
 email = "Adresă de email"
 emailError = "Introdu o adresă de email validă"
 emailPlaceholder2 = "name@company.com"
@@ -14545,7 +14545,7 @@ processorDeferred = "Invitația a fost trimisă, dar accesul Processor nu a putu
 processorDesc = "Suprafața de guvernanță, rularea pipeline-urilor, agenții și API."
 role = "Rol"
 send2 = "Trimite invitația"
-subtitle2 = "Vor primi un email pentru a se alătura spațiului dvs. de lucru Stirling."
+subtitle2 = "Vor primi un email pentru a se alătura spațiului dvs. de lucru PDF Viewer."
 team = "Echipă"
 title = "Invită persoane"
 username = "Nume de utilizator"
@@ -14687,7 +14687,7 @@ downloads = "Descărcări"
 entryLabel = "Rezumat semnătură"
 filesEvaluated_one = "{{count}} fișier evaluat"
 filesEvaluated_other = "{{count}} fișiere evaluate"
-footer = "Validat prin Stirling PDF"
+footer = "Validat prin PDF Viewer"
 generatedAt = "Generat"
 noPdf = "Raportul PDF va fi disponibil după o validare reușită."
 page = "Pagină"
@@ -14896,7 +14896,7 @@ text = "Text"
 addFile = "Adaugă fișier"
 count_one = "{{count}} fișier în acest portofoliu"
 count_other = "{{count}} fișiere în acest portofoliu"
-import = "Importă în Stirling"
+import = "Importă în PDF Viewer"
 importFailed = "Acest fișier nu a putut fi adăugat în spațiul dvs. de lucru."
 memberUnavailable = "Acest fișier nu a putut fi citit din portofoliu."
 preview = "Previzualizare"

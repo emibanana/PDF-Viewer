@@ -1,6 +1,6 @@
 {
-  "short_name": "Stirling PDF",
-  "name": "Stirling PDF",
+  "short_name": "PDF Viewer",
+  "name": "PDF Viewer",
   "icons": [
     {
       "src": "modern-logo/favicon.ico",

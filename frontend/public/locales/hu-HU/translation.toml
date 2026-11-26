@@ -56,7 +56,7 @@ loading = "Betöltés..."
 loginAgreementAccept = "Elfogadom"
 loginAgreementDecline = "Elutasítom"
 loginAgreementLoadFailed = "A bejelentkezési megállapodás nem tölthető be."
-loginAgreementProvider = "Ezt a közleményt az Ön rendszergazdája biztosítja, nem a Stirling PDF Inc."
+loginAgreementProvider = "Ezt a közleményt az Ön rendszergazdája biztosítja, nem a PDF Viewer Inc."
 loginAgreementRetry = "Újrapróbálkozás"
 loginAgreementTitle = "Bejelentkezési megállapodás"
 logOut = "Kijelentkezés"
@@ -727,8 +727,8 @@ permissionNotice = "A tessdata elérési út nem írható. A letöltések a bön
 [admin.settings.ai]
 customProvider = "Egyéni (OpenAI-kompatibilis)"
 description = "Csatlakoztassa a Stirlinget a Python AI motorhoz, válassza ki a modelljeit, és állítsa be a működési korlátokat."
-managedByCloud = "Ebben a módban a Stirling Cloud kezeli."
-managedByCloudShort = "Stirling Cloud által kezelve"
+managedByCloud = "Ebben a módban a PDF Viewer Cloud kezeli."
+managedByCloudShort = "PDF Viewer Cloud által kezelve"
 
 [admin.settings.ai.documents]
 description = "Konfigurálja a dokumentumokkal kapcsolatos kérdések megválaszolásához használt beágyazási modellt és visszakeresési beállításokat. Mentéskor az AI-motorra lesz alkalmazva."
@@ -779,16 +779,16 @@ description = "Kapcsolja be vagy ki az egyes AI-funkciókat. A letiltott funkci�
 title = "Képességek"
 
 [admin.settings.ai.general.cloud]
-note = "A modelleket és a szolgáltatói kulcsokat a Stirling Cloud kezeli, ezért ezek a beállítások ebben a módban nem érvényesek."
+note = "A modelleket és a szolgáltatói kulcsokat a PDF Viewer Cloud kezeli, ezért ezek a beállítások ebben a módban nem érvényesek."
 
 [admin.settings.ai.general.cloud.indexing]
-description = "Minden AI eszköz elküldi azt az oldalszöveget, amelyre a válaszadáshoz szüksége van. Ez dönti el, hogy a Stirling Cloud megtarthatja-e ezt a szöveget indexelve, hogy a későbbi kérdések a dokumentumban kereshessenek."
+description = "Minden AI eszköz elküldi azt az oldalszöveget, amelyre a válaszadáshoz szüksége van. Ez dönti el, hogy a PDF Viewer Cloud megtarthatja-e ezt a szöveget indexelve, hogy a későbbi kérdések a dokumentumban kereshessenek."
 help = "Kikapcsolva a dokumentumkérdések nem érhetők el. Ez nem akadályozza meg a szöveg elküldését – csak a tárolását."
-label = "A Stirling Cloud megtarthatja az indexelt dokumentumokat"
+label = "A PDF Viewer Cloud megtarthatja az indexelt dokumentumokat"
 
 [admin.settings.ai.general.cloudNote]
-body = "Az érvelés a Stirling infrastruktúráján fut, és annak a fióknak kerül kiszámlázásra, amelyhez ez a szerver kapcsolódik. Itt nincs futtatandó konténer és nincs tárolandó szolgáltatói kulcs. Amit az AI olvas, azt a Stirling Cloud dolgozza fel, nem a saját hardvere."
-title = "A Stirling Cloud AI-ról"
+body = "Az érvelés a PDF Viewer infrastruktúráján fut, és annak a fióknak kerül kiszámlázásra, amelyhez ez a szerver kapcsolódik. Itt nincs futtatandó konténer és nincs tárolandó szolgáltatói kulcs. Amit az AI olvas, azt a PDF Viewer Cloud dolgozza fel, nem a saját hardvere."
+title = "A PDF Viewer Cloud AI-ról"
 
 [admin.settings.ai.general.enabled]
 description = "Főkapcsoló. Kikapcsolt állapotban nem érhetők el AI-eszközök, ügynökök vagy motorhívások."
@@ -826,11 +826,11 @@ label = "Hosszú futású időtúllépés (másodperc)"
 label = "Hol fut az AI"
 
 [admin.settings.ai.general.mode.cloud]
-description = "Nincs konténer, nincs szolgáltatói kulcs, nincs modellválasztás – a munka a Stirling Cloudban fut, és annak a fióknak kerül kiszámlázásra, amelyhez ez a szerver kapcsolódik."
-linkCta = "Szerver csatlakoztatása egy Stirling-fiókhoz"
+description = "Nincs konténer, nincs szolgáltatói kulcs, nincs modellválasztás – a munka a PDF Viewer Cloudban fut, és annak a fióknak kerül kiszámlázásra, amelyhez ez a szerver kapcsolódik."
+linkCta = "Szerver csatlakoztatása egy PDF Viewer-fiókhoz"
 notLinked = "Először kapcsoljon egy fiókot"
-ownerOnly = "Csak a szervezet tulajdonosa kapcsolhatja ezt a szervert egy Stirling-fiókhoz."
-title = "Stirling Cloud AI használata"
+ownerOnly = "Csak a szervezet tulajdonosa kapcsolhatja ezt a szervert egy PDF Viewer-fiókhoz."
+title = "PDF Viewer Cloud AI használata"
 
 [admin.settings.ai.general.mode.off]
 description = "Nincsenek AI eszközök az alkalmazásban, és semmi sem hagyja el ezt a szervert."
@@ -842,7 +842,7 @@ title = "Saját motor futtatása"
 
 [admin.settings.ai.general.note]
 docs = "Beállítási útmutató"
-intro = "Egy külön konténer, amelyet a Stirling mellett futtat. Ez végzi az érvelést; a Stirling továbbra is maga végez minden oldalműveletet. Ugyanarra van szüksége"
+intro = "Egy külön konténer, amelyet a PDF Viewer mellett futtat. Ez végzi az érvelést; a PDF Viewer továbbra is maga végez minden oldalműveletet. Ugyanarra van szüksége"
 outro = "mindkét konténeren és egy modellszolgáltatói kulcsra. Amit az AI olvas, az elküldésre kerül az Ön által választott szolgáltatónak – egy Ön által üzemeltetett Ollama minden oldalt házon belül tart."
 title = "Az AI-motorról"
 
@@ -944,24 +944,24 @@ url = "Motor URL"
 
 [admin.settings.ai.status.cloud]
 hostDown = "Nem elérhető"
-hostLabel = "Stirling.com"
+hostLabel = "PDF Viewer.com"
 hostUp = "Elérhető"
-name = "Stirling Cloud"
+name = "PDF Viewer Cloud"
 sharingLabel = "AI megosztás"
 sharingOff = "Letiltva"
 sharingOn = "Engedélyezve"
 
 [admin.settings.ai.status.cloud.degraded]
-body = "A Stirling Cloud válaszolt, de elutasította ezt a szervert. Lehet, hogy a fiókkapcsolat vissza lett vonva."
-title = "A Stirling Cloud elutasítja ezt a szervert"
+body = "A PDF Viewer Cloud válaszolt, de elutasította ezt a szervert. Lehet, hogy a fiókkapcsolat vissza lett vonva."
+title = "A PDF Viewer Cloud elutasítja ezt a szervert"
 
 [admin.settings.ai.status.cloud.down]
-body = "Ez a szerver nem tudta elérni a Stirling Cloudot. Ellenőrizze a fiókkapcsolatot, és hogy ez a szerver eléri-e az internetet."
-title = "A Stirling Cloud nem érhető el"
+body = "Ez a szerver nem tudta elérni a PDF Viewer Cloudot. Ellenőrizze a fiókkapcsolatot, és hogy ez a szerver eléri-e az internetet."
+title = "A PDF Viewer Cloud nem érhető el"
 
 [admin.settings.ai.status.cloud.ok]
-body = "A Stirling Cloud elfogadta ezt a szervert. Itt nincs mit futtatni vagy javítani."
-title = "Stirling Cloudon fut"
+body = "A PDF Viewer Cloud elfogadta ezt a szervert. Itt nincs mit futtatni vagy javítani."
+title = "PDF Viewer Cloudon fut"
 
 [admin.settings.ai.status.degraded]
 body = "Válaszolt az állapotellenőrzésre, de elutasított egy valódi kérést. A két oldal eltérő megosztott titkokat használ."
@@ -1215,11 +1215,11 @@ description = "Választható funkciók és képességek konfigurálása."
 title = "Funkciók"
 
 [admin.settings.features.serverCertificate]
-description = "Generálja a tanúsítványt, amely a \"Sign with Stirling-PDF\" aláírási funkciót támogatja."
+description = "Generálja a tanúsítványt, amely a \"Sign with PDF Viewer\" aláírási funkciót támogatja."
 label = "Tanúsítványos aláírás"
 
 [admin.settings.features.serverCertificate.enabled]
-description = "A \"Sign with Stirling-PDF\" biztosítása a szerver által generált tanúsítvánnyal"
+description = "A \"Sign with PDF Viewer\" biztosítása a szerver által generált tanúsítvánnyal"
 label = "Tanúsítványos aláírás engedélyezése"
 
 [admin.settings.features.serverCertificate.organizationName]
@@ -1236,7 +1236,7 @@ label = "Tanúsítvány érvényessége (nap)"
 
 [admin.settings.folderAccess]
 description = "Könyvtárak, amelyekből a mappaforrások és mappakimenetek olvashatnak, illetve amelyekbe írhatnak. Ez biztonsági határ: az automatizálások soha nem mutathatnak a listán kívüli szerverútvonalra."
-securityNote = "Hagyja üresen a mappaforrások és -kimenetek teljes letiltásához. A Stirling saját konfigurációs könyvtára mindig tiltott."
+securityNote = "Hagyja üresen a mappaforrások és -kimenetek teljes letiltásához. A PDF Viewer saját konfigurációs könyvtára mindig tiltott."
 title = "Mappahozzáférés"
 
 [admin.settings.folderAccess.roots]
@@ -1314,7 +1314,7 @@ description = "Az új felhasználók alapértelmezett nyelve (pl. en_US, es_ES)"
 label = "Alapértelmezett területi beállítás"
 
 [admin.settings.general.enableFeedback]
-description = "Engedje, hogy a felhasználók visszajelzést küldjenek a Stirling csapatának"
+description = "Engedje, hogy a felhasználók visszajelzést küldjenek a PDF Viewer csapatának"
 label = "Visszajelzés engedélyezése"
 
 [admin.settings.general.fileUploadLimit]
@@ -1368,7 +1368,7 @@ description = "URL vagy fájlnév a cookie-szabályzathoz"
 label = "Cookie-szabályzat"
 
 [admin.settings.legal.disclaimer]
-message = "Ezen jogi dokumentumok testreszabásával teljes felelősséget vállal a vonatkozó jogszabályoknak és előírásoknak való megfelelés biztosításáért, beleértve, de nem kizárólag a GDPR-t és más EU-s adatvédelmi követelményeket. Csak akkor módosítsa ezeket a beállításokat, ha: (1) személyes/privát példányt üzemeltet, (2) az EU joghatóságán kívül van és tisztában van helyi jogi kötelezettségeivel, vagy (3) megfelelő jogi tanácsot szerzett, és elfogadja az egyedüli felelősséget minden felhasználói adatért és a jogszabályoknak való megfelelésért. A Stirling-PDF és fejlesztői nem vállalnak felelősséget az Ön jogi kötelezettségeiért."
+message = "Ezen jogi dokumentumok testreszabásával teljes felelősséget vállal a vonatkozó jogszabályoknak és előírásoknak való megfelelés biztosításáért, beleértve, de nem kizárólag a GDPR-t és más EU-s adatvédelmi követelményeket. Csak akkor módosítsa ezeket a beállításokat, ha: (1) személyes/privát példányt üzemeltet, (2) az EU joghatóságán kívül van és tisztában van helyi jogi kötelezettségeivel, vagy (3) megfelelő jogi tanácsot szerzett, és elfogadja az egyedüli felelősséget minden felhasználói adatért és a jogszabályoknak való megfelelésért. A PDF Viewer és fejlesztői nem vállalnak felelősséget az Ön jogi kötelezettségeiért."
 title = "Jogi felelősségi figyelmeztetés"
 
 [admin.settings.legal.impressum]
@@ -1456,8 +1456,8 @@ description = "Felhasználónév az SMTP hitelesítéshez"
 label = "SMTP felhasználónév"
 
 [admin.settings.mcp]
-apikeyNote = "Az ügyfelek egy Stirling API key-t küldenek az X-API-KEY fejlécben (vagy Authorization: Bearer <key>). A kulcs a tulajdonos Stirling felhasználójához van rendelve – csak előre létrehozott fiókok kapnak hozzáférést, és a műveletek az adott felhasználóként kerülnek naplózásra. A kulcsok kezelése: Fiók > API Keys."
-description = "Tegye elérhetővé a Stirling PDF-eszközeit és AI-ügynökeit MCP kliensek számára egy OAuth-védett végponton keresztül."
+apikeyNote = "Az ügyfelek egy PDF Viewer API key-t küldenek az X-API-KEY fejlécben (vagy Authorization: Bearer <key>). A kulcs a tulajdonos PDF Viewer felhasználójához van rendelve – csak előre létrehozott fiókok kapnak hozzáférést, és a műveletek az adott felhasználóként kerülnek naplózásra. A kulcsok kezelése: Fiók > API Keys."
+description = "Tegye elérhetővé a PDF Viewer-eszközeit és AI-ügynökeit MCP kliensek számára egy OAuth-védett végponton keresztül."
 title = "MCP szerver"
 
 [admin.settings.mcp.acceptedAudiences]
@@ -1487,7 +1487,7 @@ step3ApiKeyb = "fejlécben (vagy Authorization: Bearer <key>). OAuth vagy metada
 step4 = "Hagyja jóvá a bejelentkezést; a kliens tokennel újrapróbálkozik. Az eszközök csoportosítva jelennek meg: convert, pages, misc, security, ai."
 step4ApiKey = "Az eszközök csoportosítva jelennek meg: convert, pages, misc, security, ai – és minden hívás a kulcs tulajdonosaként kerül naplózásra."
 tip = "Tipp: regisztrálja a Resource ID-t engedélyezett audience-ként az IdP-ben. MCP Inspectorral és Claude Desktop-pal tesztelve."
-tipApiKey = "Tipp: az API-key módhoz nincs szükség külső IdP-re – ez a legegyszerűbb saját üzemeltetéshez. A kulcs a tulajdonos Stirling felhasználójához van rendelve."
+tipApiKey = "Tipp: az API-key módhoz nincs szükség külső IdP-re – ez a legegyszerűbb saját üzemeltetéshez. A kulcs a tulajdonos PDF Viewer felhasználójához van rendelve."
 title = "MCP kliens csatlakoztatása"
 
 [admin.settings.mcp.issuerUri]
@@ -1500,14 +1500,14 @@ label = "JWKS URL (opcionális)"
 placeholder = "Automatikusan felderítve a kibocsátótól"
 
 [admin.settings.mcp.mode]
-apikey = "API key (Stirling felhasználónkénti kulcs)"
-description = "Az OAuth külső IdP-t igényel. Az API key egy felhasználónkénti Stirling API key-t használ (X-API-KEY) – ez a legegyszerűbb saját üzemeltetéshez."
+apikey = "API key (PDF Viewer felhasználónkénti kulcs)"
+description = "Az OAuth külső IdP-t igényel. Az API key egy felhasználónkénti PDF Viewer API key-t használ (X-API-KEY) – ez a legegyszerűbb saját üzemeltetéshez."
 label = "Hitelesítési mód"
 oauth = "OAuth 2.1 (külső IdP)"
 
 [admin.settings.mcp.requireAccount]
-description = "Csak akkor engedje át a tokeneket, ha az alanyuk egy előre létrehozott, engedélyezett Stirling felhasználóhoz van rendelve."
-label = "Meglévő Stirling fiók megkövetelése"
+description = "Csak akkor engedje át a tokeneket, ha az alanyuk egy előre létrehozott, engedélyezett PDF Viewer felhasználóhoz van rendelve."
+label = "Meglévő PDF Viewer fiók megkövetelése"
 
 [admin.settings.mcp.resourceId]
 description = "A szerver nyilvános /mcp URL-je. A tokenek audience mezőjében szerepelnie kell (RFC 8707), különben elutasításra kerülnek."
@@ -1518,7 +1518,7 @@ description = "mcp.tools.read megkövetelése olvasási műveletekhez, és mcp.t
 label = "OAuth scope-ok kikényszerítése"
 
 [admin.settings.mcp.usernameClaim]
-description = "JWT claim, amelyet egy Stirling felhasználónévhez illeszt (pl. sub, email, preferred_username)."
+description = "JWT claim, amelyet egy PDF Viewer felhasználónévhez illeszt (pl. sub, email, preferred_username)."
 label = "Felhasználónév claim"
 
 [admin.settings.plan.noData]
@@ -1847,7 +1847,7 @@ description = "Bekapcsolva csak a listában szereplő felhasználóazonosítók 
 label = "Csak megadott felhasználóazonosítók engedélyezése"
 
 [admin.settings.telegram.enabled]
-description = "Lehetővé teszi a felhasználóknak a Stirling PDF használatát a beállított Telegram botján keresztül."
+description = "Lehetővé teszi a felhasználóknak a PDF Viewer használatát a beállított Telegram botján keresztül."
 label = "Telegram bot engedélyezése"
 
 [admin.settings.telegram.feedback]
@@ -1920,7 +1920,7 @@ settingsOverview = "Ez a <strong>Beállítások panel</strong>. Az adminisztrát
 systemCustomization = "Számos módon testre szabhatja a felületet: a <strong>Rendszerbeállítások</strong> lehetővé teszik az alkalmazás nevének és nyelveinek módosítását, a <strong>Funkciók</strong> a kiszolgáló tanúsítványainak kezelését, a <strong>Végpontok</strong> pedig az egyes eszközök engedélyezését vagy letiltását a felhasználói számára."
 teamsAndUsers = "Itt kezelheti a <strong>csapatokat</strong> és az egyes felhasználókat. Meghívhat új felhasználókat e-mailben, megosztható hivatkozásokkal, vagy saját maga hozhat létre egyéni fiókokat számukra."
 welcome = "Üdvözöljük az <strong>Admin túrában</strong>! Fedezzük fel a rendszeradminisztrátorok számára elérhető, hatékony vállalati funkciókat és beállításokat."
-wrapUp = "Ezzel véget ért az admin bemutató! Látta az enterprise funkciókat, amelyek a Stirling PDF-et hatékony, testreszabható megoldássá teszik szervezetek számára. Bármikor újrajátszhatja – csak nyissa meg a <strong>Beállítások</strong> menüt, és keresse meg itt a Súgó <strong>Bemutatók</strong> szakaszában."
+wrapUp = "Ezzel véget ért az admin bemutató! Látta az enterprise funkciókat, amelyek a PDF Viewer-et hatékony, testreszabható megoldássá teszik szervezetek számára. Bármikor újrajátszhatja – csak nyissa meg a <strong>Beállítások</strong> menüt, és keresse meg itt a Súgó <strong>Bemutatók</strong> szakaszában."
 
 [adminUserSettings]
 admin = "Rendszergazda"
@@ -1936,9 +1936,9 @@ thai = "thai"
 
 [analytics]
 learnMore = "További információ az analitikánkról"
-paragraph1 = "A Stirling PDF választható analitikát használ, hogy segítsen javítani a terméket. Nem követünk semmilyen személyes információt vagy fájltartalmat."
-paragraph2 = "Kérjük, fontolja meg az analitika engedélyezését, hogy segítse a Stirling-PDF növekedését és jobban megérthessük felhasználóink igényeit."
-title = "Szeretne segíteni a Stirling PDF fejlesztésében?"
+paragraph1 = "A PDF Viewer választható analitikát használ, hogy segítsen javítani a terméket. Nem követünk semmilyen személyes információt vagy fájltartalmat."
+paragraph2 = "Kérjük, fontolja meg az analitika engedélyezését, hogy segítse a PDF Viewer növekedését és jobban megérthessük felhasználóink igényeit."
+title = "Szeretne segíteni a PDF Viewer fejlesztésében?"
 
 [annotate]
 tags = "jegyzetelés,kiemelés,rajzolás,jelölés,megjegyzés,jegyzetek,áttekintés,korrektúra,visszajelzés,jelölő eszközök,öntapadós jegyzetek,alakzatok,nyilak,szövegdoboz,szabadkézi"
@@ -2887,9 +2887,9 @@ typeSignature = "Írja be a nevét az aláírás létrehozásához"
 uploadCert = "Tanúsítvány feltöltése"
 uploadCertDesc = "Használja saját PKCS12, PFX, PEM vagy JKS tanúsítványát."
 uploadSignature = "Töltse fel az aláírás képfájlját"
-usePersonalCert = "Stirling Sign · Személyes"
+usePersonalCert = "PDF Viewer Sign · Személyes"
 usePersonalCertDesc = "Aláírás a fiókjához létrehozott tanúsítvánnyal."
-useServerCert = "Stirling Sign · Szervezet"
+useServerCert = "PDF Viewer Sign · Szervezet"
 useServerCertDesc = "Aláírás a szerver megosztott szervezeti tanúsítványával."
 useSignature = "Aláírás használata"
 
@@ -3208,8 +3208,8 @@ copy = "Üzenet másolása"
 
 [chat.dock]
 collapse = "Csevegés összecsukása"
-placeholder = "Kérdezze a Stirling Agentet"
-title = "Stirling Agent"
+placeholder = "Kérdezze a PDF Viewer Agentet"
+title = "PDF Viewer Agent"
 
 [chat.header]
 clearChat = "Csevegés törlése"
@@ -3363,7 +3363,7 @@ translatedMetadata = "Fordított metaadat-bejegyzés"
 
 [checkAccessibility.pdf]
 continued = "{{name}} (folytatva)"
-footer = "Ellenőrizve a Stirling PDF-fel"
+footer = "Ellenőrizve a PDF Viewer-fel"
 page = "{{n}}. oldal"
 title = "Akadálymentességi jelentés"
 
@@ -3805,7 +3805,7 @@ noTypes = "Ezek a dokumentumok nem egyeztek ismert típussal."
 
 [classificationDemo.defaultApp]
 body = "Tegye a Stirlinget alapértelmezett PDF alkalmazássá. Minden PDF, amelyet emailből, böngészőből vagy az asztalról megnyit, ide kerül, készen olvasásra vagy szerkesztésre. Ezt bármikor módosíthatja a Beállításokban."
-cta = "Legyen a Stirling az alapértelmezett"
+cta = "Legyen a PDF Viewer az alapértelmezett"
 title = "Minden PDF megnyitása a Stirlingben"
 
 [classificationDemo.followUp]
@@ -3821,7 +3821,7 @@ other = "Egyéb"
 body = "Osztályozza és rendezze típus szerint a Letöltések mappában található {{count}} legutóbbi PDF-et."
 cta = "Letöltések mappám feldolgozása"
 privacy = "A PDF-ek ezen az eszközön maradnak. A csatlakoztatott szerver rögzíti a feldolgozási használatot."
-title = "Nézze meg, mire képes a Stirling egy teljes mappával"
+title = "Nézze meg, mire képes a PDF Viewer egy teljes mappával"
 
 [classificationDemo.phase]
 finishing = "Befejezés..."
@@ -3835,10 +3835,10 @@ counts = "{{total}} PDF-ből feldolgozva"
 [classificationDemo.results]
 documentCount_one = "{{count}} PDF"
 documentCount_other = "{{count}} PDF"
-failedBody = "A Stirling nem tudta olvasni a Letöltések mappát. A számítógépén semmi sem változott."
+failedBody = "A PDF Viewer nem tudta olvasni a Letöltések mappát. A számítógépén semmi sem változott."
 failedTitle = "Ez nem fejeződött be"
 heading = "Letöltései rendezve"
-summary = "A Stirling beolvasott {{documents}} elemet, és {{types}} típusba rendezte őket."
+summary = "A PDF Viewer beolvasott {{documents}} elemet, és {{types}} típusba rendezte őket."
 typeCount_one = "{{count}} típus"
 typeCount_other = "{{count}} típus"
 
@@ -4176,14 +4176,14 @@ upgradeButton = "Fiók frissítése"
 
 [config.apiKeys]
 copyKeyAriaLabel = "API-kulcs másolása"
-description = "Az API-kulcsa a Stirling PDF eszközkészletének eléréséhez. Másolja a projektjébe, vagy frissítse, hogy újat generáljon."
-docsDescription = "További információ a Stirling PDF integrálásáról:"
+description = "Az API-kulcsa a PDF Viewer eszközkészletének eléréséhez. Másolja a projektjébe, vagy frissítse, hogy újat generáljon."
+docsDescription = "További információ a PDF Viewer integrálásáról:"
 docsLink = "API-dokumentáció"
 docsTitle = "API-dokumentáció"
 generateError = "Nem sikerült API-kulcsot létrehozni."
 goToAccount = "Ugrás a fiókhoz"
 guestInfo = "A vendégek nem kapnak API-kulcsot. Hozzon létre egy fiókot, hogy API-kulcsot kapjon az alkalmazásaihoz."
-intro = "API-kulcsát használhatja a Stirling PDF feldolgozási képességeinek programozott eléréséhez."
+intro = "API-kulcsát használhatja a PDF Viewer feldolgozási képességeinek programozott eléréséhez."
 label = "API-kulcs"
 publicKeyAriaLabel = "Nyilvános API-kulcs"
 refreshAriaLabel = "API-kulcs frissítése"
@@ -4207,10 +4207,10 @@ title = "API-kulcsok frissítése"
 warning = "⚠️ Figyelmeztetés: Ez a művelet új API-kulcsokat hoz létre, és a korábbi kulcsokat érvényteleníti."
 
 [config.mcp]
-description = "A Model Context Protocol (MCP) lehetővé teszi, hogy az olyan AI asszisztensek, mint a Claude, közvetlenül használják a Stirling PDF eszközeit. Csatlakoztasson egyszer egy klienst, és az asszisztense az Ön nevében konvertálhat, szerkeszthet, biztosíthat és feldolgozhat dokumentumokat."
-guestInfo = "A vendégfelhasználók nem csatlakoztathatnak MCP klienseket. Hozzon létre fiókot az MCP szerver használatához, és engedje, hogy AI asszisztense az Ön nevében futtassa a Stirling PDF eszközeit."
+description = "A Model Context Protocol (MCP) lehetővé teszi, hogy az olyan AI asszisztensek, mint a Claude, közvetlenül használják a PDF Viewer eszközeit. Csatlakoztasson egyszer egy klienst, és az asszisztense az Ön nevében konvertálhat, szerkeszthet, biztosíthat és feldolgozhat dokumentumokat."
+guestInfo = "A vendégfelhasználók nem csatlakoztathatnak MCP klienseket. Hozzon létre fiókot az MCP szerver használatához, és engedje, hogy AI asszisztense az Ön nevében futtassa a PDF Viewer eszközeit."
 navLabel = "MCP szerver"
-tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using Stirling PDF directly."
+tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using PDF Viewer directly."
 viewApiKeys = "API keys megtekintése"
 
 [config.mcp.copy]
@@ -4226,7 +4226,7 @@ label = "Az Ön MCP végpontja"
 
 [config.mcp.setup]
 addTo = "Hozzáadás ehhez:"
-hint = "Válassza ki a kliensét, illessze be a részletet a megadott fájlba, majd indítsa újra. Az első használatkor Stirling fiókjával jelentkezik be – nincs másolandó kulcs."
+hint = "Válassza ki a kliensét, illessze be a részletet a megadott fájlba, majd indítsa újra. Az első használatkor PDF Viewer fiókjával jelentkezik be – nincs másolandó kulcs."
 title = "AI asszisztens csatlakoztatása"
 
 [config.overview]
@@ -4250,10 +4250,10 @@ step = "{{current}}. lépés / {{total}}"
 [connect.confirm]
 acknowledge = "Felismerem ezt a címet, és szeretném csatlakoztatni a csapatomhoz"
 approve = "Szerver csatlakoztatása"
-cannotDecide = "Csak a csapattulajdonos hagyhatja jóvá vagy utasíthatja el ezt a kapcsolatot. Használjon másik fiókot, vagy zárja be ezt az üzenetet a Stirling használatának folytatásához."
+cannotDecide = "Csak a csapattulajdonos hagyhatja jóvá vagy utasíthatja el ezt a kapcsolatot. Használjon másik fiókot, vagy zárja be ezt az üzenetet a PDF Viewer használatának folytatásához."
 deny = "Elutasítás"
 dismiss = "Bezárás"
-lead = "Egy Stirling szerver csatlakozni szeretne a csapatához. Jóváhagyás előtt ellenőrizze, hogy az alábbi cím az Öné-e."
+lead = "Egy PDF Viewer szerver csatlakozni szeretne a csapatához. Jóváhagyás előtt ellenőrizze, hogy az alábbi cím az Öné-e."
 originLabel = "Cím"
 signedInAs = "Bejelentkezve mint"
 switchAccount = "Másik fiók használata"
@@ -4293,7 +4293,7 @@ disconnect = "Leválasztás"
 google = "Google Drive"
 intro = "Egyszer csatlakoztassa a saját fiókjait. A folyamatai ezután az Ön nevében olvashatnak és menthetnek ide."
 microsoft = "Microsoft (OneDrive és SharePoint)"
-needsReconnect = "A Stirling már nem éri el ezt a fiókot, ezért az azt használó folyamatok szünetelnek."
+needsReconnect = "A PDF Viewer már nem éri el ezt a fiókot, ezért az azt használó folyamatok szünetelnek."
 none = "A rendszergazdája nem engedélyezte a csatlakoztatott fiókokat."
 personal = "Személyes fiók"
 popupBlocked = "A böngészője letiltotta a bejelentkezési ablakot. Engedélyezze a felugrókat ezen az oldalon, majd próbálja újra."
@@ -4438,7 +4438,7 @@ showPreferencesBtn = "Preferenciák kezelése"
 title = "Hogy használjuk a sütiket"
 
 [cookieBanner.popUp.description]
-1 = "Cookie-kat és más technológiákat használunk, hogy a Stirling PDF jobban működjön Önnek – segítve eszközeink fejlesztését és olyan funkciók építését, amelyeket szeretni fog."
+1 = "Cookie-kat és más technológiákat használunk, hogy a PDF Viewer jobban működjön Önnek – segítve eszközeink fejlesztését és olyan funkciók építését, amelyeket szeretni fog."
 2 = "Ha inkább nem szeretné, a „Nem, köszönöm” gombra kattintva csak a zökkenőmentes működéshez szükséges alapvető cookie-k lesznek engedélyezve."
 
 [cookieBanner.preferencesModal]
@@ -4451,12 +4451,12 @@ subtitle = "Süti használat"
 title = "Beleegyezési preferenciák központja"
 
 [cookieBanner.preferencesModal.analytics]
-description = "Ezek a cookie-k segítenek megérteni, hogyan használják eszközeinket, így azokra a funkciókra összpontosíthatunk, amelyeket közösségünk a legtöbbre értékel. Biztos lehet benne – a Stirling PDF nem tudja és soha nem fogja követni az Ön által kezelt dokumentumok tartalmát."
+description = "Ezek a cookie-k segítenek megérteni, hogyan használják eszközeinket, így azokra a funkciókra összpontosíthatunk, amelyeket közösségünk a legtöbbre értékel. Biztos lehet benne – a PDF Viewer nem tudja és soha nem fogja követni az Ön által kezelt dokumentumok tartalmát."
 title = "Adatelemzések"
 
 [cookieBanner.preferencesModal.description]
-1 = "A Stirling PDF sütiket és hasonló technológiákat használ az Ön élményének javítása, valamint eszközeink használatának megértése érdekében. Ez segít nekünk abban, hogy javítsuk a teljesítményt, fejlesszük az Ön számára fontos funkciókat, és folyamatos támogatást nyújtsunk felhasználóinknak."
-2 = "A Stirling PDF nem tudja – és soha nem fogja – követni vagy elérni az Ön által használt dokumentumok tartalmát."
+1 = "A PDF Viewer sütiket és hasonló technológiákat használ az Ön élményének javítása, valamint eszközeink használatának megértése érdekében. Ez segít nekünk abban, hogy javítsuk a teljesítményt, fejlesszük az Ön számára fontos funkciókat, és folyamatos támogatást nyújtsunk felhasználóinknak."
+2 = "A PDF Viewer nem tudja – és soha nem fogja – követni vagy elérni az Ön által használt dokumentumok tartalmát."
 3 = "Az Ön bizalma és adatainak védelme a tevékenységünk középpontjában áll."
 
 [cookieBanner.preferencesModal.necessary]
@@ -4565,11 +4565,11 @@ message = "Nem sikerült beállítani az alapértelmezett PDF-kezelőt"
 title = "Hiba"
 
 [defaultApp.settingsOpened]
-message = "A Windows Beállításokban keressen rá a „PDF” kifejezésre, és válassza a Stirling PDF-et alapértelmezett alkalmazásként"
+message = "A Windows Beállításokban keressen rá a „PDF” kifejezésre, és válassza a PDF Viewer-et alapértelmezett alkalmazásként"
 title = "Beállítások megnyitva"
 
 [defaultApp.success]
-message = "A Stirling PDF mostantól az alapértelmezett PDF-szerkesztő"
+message = "A PDF Viewer mostantól az alapértelmezett PDF-szerkesztő"
 title = "Alapértelmezett alkalmazás beállítva"
 
 [desktop.fileSave]
@@ -4586,7 +4586,7 @@ minimize = "Minimalizálás"
 restore = "Visszaállítás"
 
 [desktopBilling]
-description = "Kezelje a használatot és a számlázást a böngészőben. Jelentkezzen be ugyanazzal a Stirling-fiókkal, amelyet itt használ."
+description = "Kezelje a használatot és a számlázást a böngészőben. Jelentkezzen be ugyanazzal a PDF Viewer-fiókkal, amelyet itt használ."
 open = "Használat és számlázás megnyitása a böngészőben"
 openFailed = "Nem sikerült megnyitni a Használat és számlázás oldalt. Ellenőrizze a kapcsolatot, és próbálja újra."
 selfHostedDescription = "Kezelje a használatot és a számlázást a kapcsolt szerveren a böngészőben. Jelentkezzen be a szervertulajdonosi fiókjával."
@@ -4638,7 +4638,7 @@ updateFailedMessage = "A frissítés letöltése vagy telepítése nem sikerült
 
 [desktopUpdate.blocked]
 docsLink = "Telepítési dokumentáció megtekintése"
-message = "A Stirling-PDF-nek nincs jogosultsága saját magát frissíteni ezen a gépen."
+message = "A PDF Viewer-nek nincs jogosultsága saját magát frissíteni ezen a gépen."
 title = "Rendszergazdai jogosultság szükséges"
 
 [devAirgapped]
@@ -5117,13 +5117,13 @@ save = "Átnevezés"
 title = "Fájl átnevezése"
 
 [filesPage]
-addedToLibrary = "Hozzáadva a Stirling-könyvtárhoz"
-addingToLibrary = "Hozzáadás a Stirling-könyvtárhoz…"
-addToLibrary = "Hozzáadás a Stirling-könyvtárhoz…"
+addedToLibrary = "Hozzáadva a PDF Viewer-könyvtárhoz"
+addingToLibrary = "Hozzáadás a PDF Viewer-könyvtárhoz…"
+addToLibrary = "Hozzáadás a PDF Viewer-könyvtárhoz…"
 addToLibraryFailed = "Néhány fájlt nem sikerült hozzáadni"
 addToWorkspace = "Hozzáadás a munkaterülethez"
 addToWorkspaceCount = "{{count}} hozzáadása a munkaterülethez"
-allFiles = "Stirling könyvtár"
+allFiles = "PDF Viewer könyvtár"
 back = "Vissza"
 backToFolder = "Vissza ide: {{folder}}"
 backToMyFiles = "Vissza a Fájlkönyvtárhoz"
@@ -5151,7 +5151,7 @@ deleteFolderContents_one = "A mappában lévő {{count}} fájl törlése is"
 deleteFolderContents_other = "A mappában lévő {{count}} fájl törlése is"
 deleteFolderContentsWarning = "A fájlok véglegesen törlődnek, nem állíthatók vissza."
 deleteFolderError = "A mappát nem sikerült törölni. Próbálja újra."
-deleteFolderKeepHint = "A benne lévő fájlok a Stirling könyvtárba kerülnek."
+deleteFolderKeepHint = "A benne lévő fájlok a PDF Viewer könyvtárba kerülnek."
 deleteFolderTitle = "Mappa törlése?"
 deselectAll = "Kijelölés törlése"
 details = "Részletek"
@@ -5189,7 +5189,7 @@ moveSkippedRemote_other = "{{count}} fájlt nem sikerült áthelyezni a szervere
 moveTo = "Áthelyezés…"
 newFolder = "Új mappa"
 newFolderStorageDisabled = "A szerver mappatárolása nincs engedélyezve."
-newFolderTabUnavailable = "Váltson a Stirling könyvtárra mappák létrehozásához."
+newFolderTabUnavailable = "Váltson a PDF Viewer könyvtárra mappák létrehozásához."
 offlineNoFolderEdits = "A szerver mappaszinkronja nem érhető el – mappamódosítások letiltva. Ellenőrizze a bejelentkezést és a tárhely beállításait."
 open = "Megnyitás"
 openVersionInWorkspace = "Megnyitás a munkaterületen"
@@ -5210,7 +5210,7 @@ selectAll = "Összes kijelölése"
 selectedCount = "{{count}} kijelölve"
 selectedFile = "{{name}}, kiválasztva"
 selectFile = "Fájl kijelölése: {{name}}"
-serverFolderNeedsConnection = "Szervermappák használatához jelentkezz be a Stirling Cloudba, vagy csatlakoztass egy saját üzemeltetésű szervert."
+serverFolderNeedsConnection = "Szervermappák használatához jelentkezz be a PDF Viewer Cloudba, vagy csatlakoztass egy saját üzemeltetésű szervert."
 shareDisabledHint = "A fájlmegosztás ezen a szerveren nincs engedélyezve. Kérje meg az adminisztrátort, hogy engedélyezze."
 shareManage = "Megosztás kezelése"
 showDetails = "Részletek megjelenítése"
@@ -5263,7 +5263,7 @@ orphaned = "Nincs a lemezen"
 orphanedHint = "Az eredeti itt: {{path}} eltűnt. Ez a másolat csak itt van – mentéskor új helyet kell megadnod."
 unavailable = "Nem érhető el"
 unavailableHintOffline = "A meghajtó vagy megosztás, amelyen ez a fájl található, nincs csatlakoztatva. Csatlakoztasd újra a módosítások ismételt átvételéhez."
-unavailableHintPermission = "A Stirling nem olvashatja ezt a helyet. Adj hozzáférést a Rendszerbeállításokban a módosítások ismételt átvételéhez."
+unavailableHintPermission = "A PDF Viewer nem olvashatja ezt a helyet. Adj hozzáférést a Rendszerbeállításokban a módosítások ismételt átvételéhez."
 unavailableHintUnknown = "Ez a fájl jelenleg nem érhető el. Az itt lévő másolat változatlan."
 
 [filesPage.diskState]
@@ -5378,7 +5378,7 @@ placeholder = "Mappanév"
 
 [filesPage.folderOrigin]
 diskHint = "A lemezeden lévő könyvtárból csatolt mappa"
-serverHint = "A Stirling szerveren tárolt mappa"
+serverHint = "A PDF Viewer szerveren tárolt mappa"
 virtualHint = "Csak ebben a böngészőben létező mappa"
 
 [filesPage.moveDialog]
@@ -5402,7 +5402,7 @@ serverHint = "Szinkronizálva a fiókoddal, bárhol elérhető, ahol bejelentkez
 [filesPage.origin]
 all = "Összes forrás"
 cloud = "Felhő"
-cloudHint = "A Stirling szerveren tárolva"
+cloudHint = "A PDF Viewer szerveren tárolva"
 diskFileHint = "A számítógépeden tárolva"
 diskHint = "Fájl a lemezeden lévő csatolt mappában"
 local = "Helyi"
@@ -5413,7 +5413,7 @@ sharedHint = "Önnel linken keresztül megosztva"
 
 [filesPage.processing]
 active = "Mappa feldolgozása"
-blockedNeedsConnection = "Mappák feldolgozásához jelentkezz be a Stirling Cloudba, vagy csatlakoztass egy saját üzemeltetésű szervert."
+blockedNeedsConnection = "Mappák feldolgozásához jelentkezz be a PDF Viewer Cloudba, vagy csatlakoztass egy saját üzemeltetésű szervert."
 edit = "Feldolgozás szerkesztése..."
 nothingToRestore = "Nincsenek visszaállítandó eredetik – ezek a fájlok már az eredetiek."
 paused = "Feldolgozás szüneteltetve"
@@ -5815,7 +5815,7 @@ invisible = "Láthatatlan (csak metaadat)"
 location = "Hely:"
 logo = "Logó:"
 logoHidden = "Nincs logó"
-logoShown = "Stirling PDF logó megjelenítve"
+logoShown = "PDF Viewer logó megjelenítve"
 participantCount_one = "{{count}} résztvevő kiválasztva"
 participantCount_other = "{{count}} résztvevő kiválasztva"
 participants = "Résztvevők"
@@ -5866,7 +5866,7 @@ title = "Aláírás tetszőleges sorrendben"
 dismiss = "Banner elrejtése"
 message = "Hozzon létre ingyenes fiókot, hogy menthesse munkáját, több funkcióhoz férjen hozzá és támogassa a projektet."
 signUp = "Ingyenes regisztráció"
-title = "A Stirling PDF-et vendégként használja!"
+title = "A PDF Viewer-et vendégként használja!"
 
 [home.addAttachments]
 desc = "Beágyazott PDF-mellékletek megtekintése, hozzáadása, kinyerése, átnevezése vagy törlése"
@@ -6050,7 +6050,7 @@ tags = "egyesítés,összekapcsolás,összevonás,egyesítés,PDF-ek egyesítés
 title = "Egyesítés"
 
 [home.mobile]
-brandAlt = "Stirling PDF logó"
+brandAlt = "PDF Viewer logó"
 openFiles = "Fájlok megnyitása"
 swipeHint = "Húzza balra vagy jobbra a nézetek váltásához"
 tools = "Eszközök"
@@ -6084,7 +6084,7 @@ tags = "rendezés,átrendezés,újrasorrendezés,oldalak rendezése,sorrendezés
 title = "Rendszerezés"
 
 [home.pdfTextEditor]
-desc = "Nézze át és szerkessze a Stirling PDF JSON exportokat csoportosított szövegszerkesztéssel és PDF-újragenerálással"
+desc = "Nézze át és szerkessze a PDF Viewer JSON exportokat csoportosított szövegszerkesztéssel és PDF-újragenerálással"
 tags = "szöveg szerkesztése,szöveg módosítása,szöveg megváltoztatása,tartalom szerkesztése,szöveg frissítése,újraírás,javítás,módosítás,korrektúra,átdolgozás,szövegszerkesztő,tartalomszerkesztő"
 title = "PDF szövegszerkesztő"
 
@@ -6262,7 +6262,7 @@ passwordRequired = "A jelszó megadása kötelező"
 signIn = "Bejelentkezés"
 validating = "Meghívó ellenőrzése..."
 validationError = "Nem sikerült ellenőrizni a meghívó linket"
-welcome = "Üdvözli a Stirling PDF"
+welcome = "Üdvözli a PDF Viewer"
 welcomeSubtitle = "Fejezze be a fiók beállítását a kezdéshez"
 welcomeTitle = "Meghívták!"
 
@@ -6309,8 +6309,8 @@ terms = "Felhasználási feltételek"
 title = "Külső licencek"
 
 [localMode]
-automationUnavailable = "Feldolgozási mappák és pipeline-ok használatához jelentkezz be a Stirling Cloudba vagy egy saját üzemeltetésű szerverre."
-toolUnavailable = "Ehhez az eszközhöz fiók szükséges. Jelentkezzen be a Stirling Cloudba, vagy csatlakozzon egy önhosztolt szerverhez a használatához."
+automationUnavailable = "Feldolgozási mappák és pipeline-ok használatához jelentkezz be a PDF Viewer Cloudba vagy egy saját üzemeltetésű szerverre."
+toolUnavailable = "Ehhez az eszközhöz fiók szükséges. Jelentkezzen be a PDF Viewer Cloudba, vagy csatlakozzon egy önhosztolt szerverhez a használatához."
 
 [localMode.toolPicker]
 message = "Jelentkezzen be az összes eszköz feloldásához."
@@ -6550,7 +6550,7 @@ message = "A hitelesítés nem volt sikeres. Bezárhatja ezt az ablakot, és meg
 title = "Sikertelen hitelesítés"
 
 [oauth.success]
-message = "Bezárhatja ezt az ablakot, és visszatérhet a Stirling PDF-hez."
+message = "Bezárhatja ezt az ablakot, és visszatérhet a PDF Viewer-hez."
 title = "Sikeres hitelesítés"
 
 [oauthConsent]
@@ -6563,17 +6563,17 @@ loadFailed = "This authorisation request is invalid or has expired. Close this t
 loading = "Loading authorisation request..."
 missingId = "Missing authorisation request. Start the connection from your app and try again."
 redirecting = "Visszairányítunk az alkalmazásba..."
-requesting = "{{app}} hozzá szeretne férni a Stirling PDF-fiókodhoz"
+requesting = "{{app}} hozzá szeretne férni a PDF Viewer-fiókodhoz"
 scopesIntro = "Ez lehetővé teszi {{app}} számára, hogy:"
 signedInAs = "Bejelentkezve mint {{name}}"
 signInButton = "Jelentkezz be a folytatáshoz"
-signInPrompt = "Jelentkezz be a Stirling PDF-fiókodba az alkalmazás csatlakoztatásának folytatásához."
+signInPrompt = "Jelentkezz be a PDF Viewer-fiókodba az alkalmazás csatlakoztatásának folytatásához."
 title = "Authorise access"
 unknownApp = "Egy harmadik féltől származó alkalmazás"
 
 [oauthConsent.access]
 actAsYou = "A nevedben járjon el – minden, amit {{app}} tesz, a fiókod alatt fut, és beleszámít a használatodba"
-tools = "A nevedben használja a Stirling PDF-eszközeidet – dokumentumaid konvertálása, szerkesztése, aláírása, védelme és feldolgozása"
+tools = "A nevedben használja a PDF Viewer-eszközeidet – dokumentumaid konvertálása, szerkesztése, aláírása, védelme és feldolgozása"
 
 [oauthConsent.scope]
 email = "Megtekintse az email-címedet"
@@ -6703,26 +6703,26 @@ skipTheTour = "Körbevezetés kihagyása"
 
 [onboarding.checklist]
 dismiss = "Elvetés"
-title = "Stirling PDF beállítása"
+title = "PDF Viewer beállítása"
 
 [onboarding.checklist.downloadDesktop]
 description = "Futtassa a Stirlinget natívan a gépén"
-title = "Stirling letöltése asztali gépre"
+title = "PDF Viewer letöltése asztali gépre"
 
 [onboarding.checklist.inviteTeam]
 description = "Működjön együtt a csapatával"
 title = "Csapattagok meghívása"
 
 [onboarding.checklist.setDefaultApp]
-description = "PDF-fájlok megnyitása a Stirling PDF-ben"
-title = "Legyen a Stirling az alapértelmezett"
+description = "PDF-fájlok megnyitása a PDF Viewer-ben"
+title = "Legyen a PDF Viewer az alapértelmezett"
 
 [onboarding.checklist.takeTour]
-description = "Nézze meg egy gyors bemutatóban, hogyan működik a Stirling"
+description = "Nézze meg egy gyors bemutatóban, hogyan működik a PDF Viewer"
 title = "Bemutató megtekintése"
 
 [onboarding.desktopInstall]
-body = "A Stirling asztali alkalmazásként működik a legjobban. Használhatja offline, gyorsabban érheti el a dokumentumokat, és helyben szerkeszthet a gépén."
+body = "A PDF Viewer asztali alkalmazásként működik a legjobban. Használhatja offline, gyorsabban érheti el a dokumentumokat, és helyben szerkeszthet a gépén."
 selectOs = "Operációs rendszer kiválasztása"
 title = "Letöltés"
 titleWithOs = "Letöltés: {{osLabel}}"
@@ -6730,7 +6730,7 @@ titleWithOs = "Letöltés: {{osLabel}}"
 [onboarding.desktopWelcome]
 body = "Rengeteg új változás fedezhető fel, köztük az <strong>Agent Chat</strong>, az automatikus dokumentum-<strong>osztályozás</strong> és még sok más."
 freeLine = "A szerkesztő mostantól <free>teljesen ingyenes</free>."
-title = "Üdvözlünk a Stirling <product>Desktop</product> alkalmazásban"
+title = "Üdvözlünk a PDF Viewer <product>Desktop</product> alkalmazásban"
 
 [onboarding.mfa]
 authenticationCode = "Hitelesítési kód"
@@ -6758,9 +6758,9 @@ userBody = "Hívja meg a csapattagokat, rendeljen szerepköröket, és tartsa re
 userTitle = "Csomag áttekintése"
 
 [onboarding.processorIntro]
-body = "A Stirling mostantól <strong>Szabályokat</strong> futtat — automatizált szabályokat, amelyek érkezéskor minden dokumentumot osztályoznak, védenek és feldolgoznak. Állítsa be őket, és kövesse a futásokat a <strong>Processor</strong> felületén."
+body = "A PDF Viewer mostantól <strong>Szabályokat</strong> futtat — automatizált szabályokat, amelyek érkezéskor minden dokumentumot osztályoznak, védenek és feldolgoznak. Állítsa be őket, és kövesse a futásokat a <strong>Processor</strong> felületén."
 cta = "A Processor megtekintése"
-title = "Ismerje meg a Stirling Processort"
+title = "Ismerje meg a PDF Viewer Processort"
 
 [onboarding.saas.freeEditor]
 freeLine = "A szerkesztő mostantól <free>teljesen ingyenes</free>."
@@ -6786,19 +6786,19 @@ roleUser = "Felhasználó"
 title = "Biztonsági ellenőrzés"
 
 [onboarding.serverLicense]
-freeBody = "Az <strong>Open-Core</strong> licencünk ingyenesen tartalmazza az <strong>OAuth SSO</strong> funkciót és legfeljebb <strong>{{freeTierLimit}}</strong> felhasználót. A zavartalan bővüléshez a Stirling Team csomagot ajánljuk — <strong>100 felhasználó</strong> havi 99 dollárért."
+freeBody = "Az <strong>Open-Core</strong> licencünk ingyenesen tartalmazza az <strong>OAuth SSO</strong> funkciót és legfeljebb <strong>{{freeTierLimit}}</strong> felhasználót. A zavartalan bővüléshez a PDF Viewer Team csomagot ajánljuk — <strong>100 felhasználó</strong> havi 99 dollárért."
 freeTitle = "Team csomag"
-overLimitBody = "Licencelésünk legfeljebb <strong>{{freeTierLimit}}</strong> felhasználót engedélyez ingyenesen. Neked <strong>{{overLimitUserCopy}}</strong> Stirling-felhasználód van. A megszakítás nélküli folytatáshoz válts a Stirling Team csomagra – <strong>100 felhasználó</strong>, PDF-szövegszerkesztés és teljes adminisztrátori vezérlés $99/hó áron."
+overLimitBody = "Licencelésünk legfeljebb <strong>{{freeTierLimit}}</strong> felhasználót engedélyez ingyenesen. Neked <strong>{{overLimitUserCopy}}</strong> PDF Viewer-felhasználód van. A megszakítás nélküli folytatáshoz válts a PDF Viewer Team csomagra – <strong>100 felhasználó</strong>, PDF-szövegszerkesztés és teljes adminisztrátori vezérlés $99/hó áron."
 overLimitTitle = "Team csomag szükséges"
 seePlans = "Csomagok megtekintése →"
 upgrade = "Frissítés most →"
 
 [onboarding.tourOverview]
-body = "A Stirling PDF V2 tucatnyi eszközzel és megújult elrendezéssel érkezik. Tegyen egy gyors túrát, hogy lássa, mi változott és hol találja a szükséges funkciókat."
+body = "A PDF Viewer V2 tucatnyi eszközzel és megújult elrendezéssel érkezik. Tegyen egy gyors túrát, hogy lássa, mi változott és hol találja a szükséges funkciókat."
 title = "Bemutató áttekintése"
 
 [onboarding.welcomeSlide]
-body = "A Stirling PDF mostantól minden méretű csapat számára készen áll. Ez a frissítés új elrendezést, erőteljes új adminisztrátori képességeket és a leggyakrabban kért funkciónkat – a <strong>Szöveg szerkesztése</strong>-t tartalmazza."
+body = "A PDF Viewer mostantól minden méretű csapat számára készen áll. Ez a frissítés új elrendezést, erőteljes új adminisztrátori képességeket és a leggyakrabban kért funkciónkat – a <strong>Szöveg szerkesztése</strong>-t tartalmazza."
 title = "Üdvözöljük a Stirlingben"
 
 [onboarding.whatsNew]
@@ -6912,7 +6912,7 @@ check = "Újraellenőrzés"
 checkAccount = "Fiók ellenőrzése"
 chooseEmail = "Válassza ki a fiókjukat itt: {{team}}, vagy adjon meg egy e-mail-címet a meghíváshoz."
 close = "Átruházási párbeszédpanel bezárása"
-cloudAccount = "Stirling-fiók"
+cloudAccount = "PDF Viewer-fiók"
 cloudScopeStyled = "<user>{{name}}</user> fogja kezelni ezt: {{team}}, valamint a tagokat és a számlázást."
 cloudTargetChanged = "Válasszon másik felhőtagot. Ez a fiók már nem jogosult az átadásra."
 confirm = "Megértem a hozzáférési és tulajdonjogi változásokat."
@@ -6927,7 +6927,7 @@ inviteAddress = "<account>{{email}}</account> meghívása ide: {{team}}."
 inviteBlocked = "A meghívót nem sikerült elküldeni. Ellenőrizze az elérhető csapathelyeket, és hogy a címzettnek van-e már fizetős előfizetése."
 linkChanged = "A szerver felhőkapcsolata megváltozott. Kérje meg a szerver üzemeltetőjét, hogy állítsa vissza az eredeti kapcsolatot a folytatás előtt."
 linkedServerCount = "{{count}} kapcsolt szerver"
-linkRevoked = "A szerver felhőkapcsolata már nem érvényes. Szakítsa meg az átruházást, majd csatlakoztassa újra a Stirling-fiókját a beállításokban. A tulajdonjog nem változik."
+linkRevoked = "A szerver felhőkapcsolata már nem érvényes. Szakítsa meg az átruházást, majd csatlakoztassa újra a PDF Viewer-fiókját a beállításokban. A tulajdonjog nem változik."
 localScope = "Ők lesznek a szerver tulajdonosai, és kezelik a számlázást és a felhőkapcsolatokat. Ön megtartja a rendszergazdai hozzáférést, de elveszíti a hozzáférést ezekhez a beállításokhoz."
 membershipDetails = "Csapattagsági adatok"
 membershipFirst = "Csatlakozniuk kell a csapathoz, mielőtt megerősítheti az átruházást."
@@ -7255,7 +7255,7 @@ benefit1Body = "eszközök láncolása, futtatások ütemezése, kötegelt feldo
 benefit1Title = "Automatizálási pipeline-ok"
 benefit2Body = "summarise, classify, redact, AI-OCR"
 benefit2Title = "AI-eszközök"
-benefit3Body = "bármely Stirling endpoint programozott meghívása"
+benefit3Body = "bármely PDF Viewer endpoint programozott meghívása"
 benefit3Title = "API-hozzáférés"
 button = "Processor bekapcsolása →"
 reassurance = "Nincs minimum · Teszteléshez állíts be $0 limitet · Bármikor lemondható"
@@ -7345,7 +7345,7 @@ editorLabel = "PDF-szerkesztő"
 login = "Bejelentkezés"
 manualToolsPromo = "Korlátlan ingyenes manuális PDF-eszközök"
 processorLabel = "PDF-feldolgozó"
-processorTitle = "Hozz létre fiókot a Stirling legjobb funkcióinak feloldásához"
+processorTitle = "Hozz létre fiókot a PDF Viewer legjobb funkcióinak feloldásához"
 readerLabel = "PDF-olvasó"
 
 [payg.spendCapMeter]
@@ -7385,7 +7385,7 @@ usdNote = "USD-ben becsülve. Az előfizetés után bármikor módosíthatod a l
 [payg.upgrade.checkout]
 capValue = "{{symbol}}{{amount}} / hónap"
 edit = "Szerkesztés"
-help = "A kártyaadataidat a Stripe kezeli. A Stirling soha nem látja őket."
+help = "A kártyaadataidat a Stripe kezeli. A PDF Viewer soha nem látja őket."
 loading = "Checkout betöltése…"
 noCap = "Nincs limit"
 title = "Fizetési mód hozzáadása"
@@ -7393,7 +7393,7 @@ title = "Fizetési mód hozzáadása"
 [payg.upgrade.help]
 aiBody = "summarise, classify, redact, AI-OCR"
 aiTitle = "AI-eszközök"
-apiBody = "programozott hozzáférés bármely Stirling endpointhoz"
+apiBody = "programozott hozzáférés bármely PDF Viewer endpointhoz"
 apiTitle = "API-hívások"
 automationBody = "láncolt eszközök vagy ütemezett futtatások, amelyekhez nincs szükség kattintásra"
 automationTitle = "Automatizálási pipeline-ok"
@@ -7492,7 +7492,7 @@ overCapacityConsequence = "A meglévő fiókok megmaradnak. Felhasználók hozz�
 overCapacityTitle = "A szervereden több felhasználó van, mint amennyit a csomagod lefed"
 perMonth = "/hó"
 perYear = "/év"
-planName = "Stirling Team"
+planName = "PDF Viewer Team"
 reductionNote = "Az alacsonyabb kapacitás a következő megújításkor lép életbe. Addig használhatod a jelenlegi keretedet. A meglévő felhasználók megmaradnak; az új felhasználók le lesznek tiltva, ha a változás életbe lépésekor túlléped a kapacitást."
 renewalNote = "Megújul ezen az áron: {{total}}{{period}}. Bármikor lemondható a Használat és számlázás alatt."
 reviewChange = "Módosítás áttekintése a Stripe-ban"
@@ -8437,35 +8437,35 @@ pdfa-3b = "PDF/A-3b"
 ownerRequired = "Csak a szervezet tulajdonosa kapcsolhatja össze vagy választhatja le ezt a szervert."
 
 [portal.accountLink.card]
-billingNote = "Ez a szerver megosztja a csapatod feldolgozási keretét a Stirling Cloudban."
-connectDescription = "Csatlakoztasd ezt a szervert, hogy a csapatod feldolgozási keretét használd a Stirling Cloudban."
-disconnectBody = "Ez a szerver nem fogja tovább használni a csapatod feldolgozási keretét a Stirling Cloudban. A helyi fájljaid ezen a szerveren maradnak. Az újbóli csatlakozáshoz kövesd az eredeti csatlakozási lépéseket."
+billingNote = "Ez a szerver megosztja a csapatod feldolgozási keretét a PDF Viewer Cloudban."
+connectDescription = "Csatlakoztasd ezt a szervert, hogy a csapatod feldolgozási keretét használd a PDF Viewer Cloudban."
+disconnectBody = "Ez a szerver nem fogja tovább használni a csapatod feldolgozási keretét a PDF Viewer Cloudban. A helyi fájljaid ezen a szerveren maradnak. Az újbóli csatlakozáshoz kövesd az eredeti csatlakozási lépéseket."
 disconnectTitle = "Leválasztod ezt a példányt?"
 eyebrow = "Ez a példány"
-linkButton = "Stirling-fiókod csatlakoztatása"
+linkButton = "PDF Viewer-fiókod csatlakoztatása"
 loading = "Fiókkapcsolat ellenőrzése"
 notLinked = "Nincs csatlakoztatva"
-signedInAs = "Bejelentkezve a Stirling Cloudba mint"
+signedInAs = "Bejelentkezve a PDF Viewer Cloudba mint"
 statusError = "Nem sikerült ellenőrizni a fiókkapcsolatot"
-title = "Stirling Cloud"
+title = "PDF Viewer Cloud"
 unlink = "Példány leválasztása"
 
 [portal.accountLink.card.error]
 title = "Nem sikerült frissíteni a kapcsolatot"
 
 [portal.accountLink.card.loginNotConfigured]
-description = "Kérd meg a szerver rendszergazdáját, hogy engedélyezze a kapcsolatot a Stirling Cloudhoz."
+description = "Kérd meg a szerver rendszergazdáját, hogy engedélyezze a kapcsolatot a PDF Viewer Cloudhoz."
 title = "A fiókcsatlakozás nem érhető el"
 
 [portal.accountLink.connect]
-adminRequired = "Kérd meg a szerver rendszergazdáját, hogy nyissa meg a Használat és számlázás részt, és kapcsoljon össze egy Stirling-fiókot több havi kreditért. A manuális PDF-eszközök továbbra is elérhetők."
+adminRequired = "Kérd meg a szerver rendszergazdáját, hogy nyissa meg a Használat és számlázás részt, és kapcsoljon össze egy PDF Viewer-fiókot több havi kreditért. A manuális PDF-eszközök továbbra is elérhetők."
 adminTitle = "Kérd meg a szerver rendszergazdáját"
 close = "Bezárás"
 copied = "Másolva"
 copyAdminMessage = "Üzenet másolása a rendszergazdának"
-exhaustedLede = "Ez a szerver felhasználta a hónapra járó ingyenes kreditjeit. Kapcsolj össze egy új vagy meglévő Stirling-fiókot, hogy hozzáférj a csapatod havi keretéhez."
+exhaustedLede = "Ez a szerver felhasználta a hónapra járó ingyenes kreditjeit. Kapcsolj össze egy új vagy meglévő PDF Viewer-fiókot, hogy hozzáférj a csapatod havi keretéhez."
 notNow = "Most nem"
-start = "Stirling-fiók csatlakoztatása"
+start = "PDF Viewer-fiók csatlakoztatása"
 step = "{{current}}. lépés / {{total}}"
 
 [portal.accountLink.connect.benefits]
@@ -8497,7 +8497,7 @@ body = "Ezt a kérelmet elutasították, vagy már felhasználták. Indíts egy 
 title = "A csatlakozás nem fejeződött be"
 
 [portal.accountLink.connect.callback.unfinished]
-body = "A Stirling nem erősítette meg a kapcsolatot. Ez általában átmeneti."
+body = "A PDF Viewer nem erősítette meg a kapcsolatot. Ez általában átmeneti."
 title = "Még nincs befejezve"
 
 [portal.accountLink.connect.done]
@@ -8508,23 +8508,23 @@ creditsBarLabel = "Hátralévő ingyenes kreditek"
 creditsSuffix = "{{allowance}} ingyenes kreditből maradt"
 cta = "Kész"
 inviteTeam = "Csapat meghívása"
-lede = "Ez a szerver mostantól a Stirling-fiókjával működik."
+lede = "Ez a szerver mostantól a PDF Viewer-fiókjával működik."
 pendingTitle = "Már majdnem kész"
 switchOnProcessor = "Processor bekapcsolása"
 title = "Csatlakoztatva"
 
 [portal.accountLink.connect.handoff]
-opening = "Stirling bejelentkezés megnyitása..."
-reauthLede = "A Stirling-munkamenete lejárt. Az újbóli bejelentkezés láthatóvá teszi a használatot és a számlázást. Ez a szerver ettől függetlenül csatlakoztatva marad."
+opening = "PDF Viewer bejelentkezés megnyitása..."
+reauthLede = "A PDF Viewer-munkamenete lejárt. Az újbóli bejelentkezés láthatóvá teszi a használatot és a számlázást. Ez a szerver ettől függetlenül csatlakoztatva marad."
 title = "Csatlakozás"
 
 [portal.accountLink.connectionNotice]
-expiredBody = "Ez a szerver nem érte el a Stirling Cloudot az offline keretén belül. A felhőalapú csapatfunkciók és a Processor feladatai szünetelnek. A meglévő adatok és a telepített licencjogok megmaradnak. A hozzáférés automatikusan visszatér, miután egy sikeres kapcsolat megerősíti a csomagját."
+expiredBody = "Ez a szerver nem érte el a PDF Viewer Cloudot az offline keretén belül. A felhőalapú csapatfunkciók és a Processor feladatai szünetelnek. A meglévő adatok és a telepített licencjogok megmaradnak. A hozzáférés automatikusan visszatér, miután egy sikeres kapcsolat megerősíti a csomagját."
 expiredTitle = "Felhőhozzáférés szüneteltetve"
 offlineBody = "Az utoljára megerősített csomagja {{deadline}} időpontig elérhető marad. Állítsa vissza a szerver kapcsolatát addig, hogy elkerülje a felhőalapú funkciók és feldolgozás szüneteltetését."
-offlineTitle = "A Stirling Cloud nem érhető el"
+offlineTitle = "A PDF Viewer Cloud nem érhető el"
 retry = "Kapcsolat ellenőrzése"
-revokedBody = "A Stirling Cloud elutasította ezt a fiókkapcsolatot. Csatlakoztassa újra a fiókot a Beállításokban a jogosult felhőalapú funkciók visszaállításához."
+revokedBody = "A PDF Viewer Cloud elutasította ezt a fiókkapcsolatot. Csatlakoztassa újra a fiókot a Beállításokban a jogosult felhőalapú funkciók visszaállításához."
 revokedTitle = "Fiókkapcsolat visszavonva"
 
 [portal.accountLink.failure]
@@ -8553,9 +8553,9 @@ callbackMismatch = "A szerver beállított frontend címe nem egyezik a megnyito
 cancel = "Mégse"
 continueReauth = "Bejelentkezés újra"
 exhaustedTitle = "Tartsa működésben a munkafolyamatait"
-identity = "Stirling-fiók"
-linkTitle = "Stirling-fiókod csatlakoztatása"
-noAuthorizeUrl = "A Stirling nem adott vissza folytatási helyet. Próbálja újra később."
+identity = "PDF Viewer-fiók"
+linkTitle = "PDF Viewer-fiókod csatlakoztatása"
+noAuthorizeUrl = "A PDF Viewer nem adott vissza folytatási helyet. Próbálja újra később."
 startFailed = "Nem sikerült elérni a Stirlinget a kapcsolat indításához. Ellenőrizze a szerver kimenő hálózati hozzáférését, majd próbálja újra."
 transferPending = "Egy tulajdonjog-átruházás függőben van. Lépjen a Beállítások → Felhasználók részre a befejezéshez vagy megszakításhoz, majd próbálja újra az összekapcsolást."
 
@@ -8563,7 +8563,7 @@ transferPending = "Egy tulajdonjog-átruházás függőben van. Lépjen a Beáll
 after = "hogy ez a szerver befejezhesse a csatlakozást, amikor visszatérsz."
 and = "és"
 before = "Állítsa be:"
-title = "A Stirling-kapcsolat nincs konfigurálva"
+title = "A PDF Viewer-kapcsolat nincs konfigurálva"
 
 [portal.accountLink.notice]
 loadFailed = "A fiók összekapcsolására szolgáló párbeszédpanel nem tölthető be."
@@ -8573,11 +8573,11 @@ openFailed = "Nem sikerült megnyitni a böngészőt. Nyissa meg a Használat é
 instancesSub = "Ugyanahhoz a csapathoz csatlakoztatott saját üzemeltetésű szerverek."
 instancesTitle = "Csatlakoztatott példányok"
 manageCloud = "Kezelés a stirling.com oldalon"
-otherInstancesSub = "Ugyanahhoz a csapathoz csatlakoztatott más saját üzemeltetésű szerverek a Stirling Cloudban."
+otherInstancesSub = "Ugyanahhoz a csapathoz csatlakoztatott más saját üzemeltetésű szerverek a PDF Viewer Cloudban."
 otherInstancesTitle = "Más csatlakoztatott példányok"
 revokeError = "Nem sikerült visszavonni a példányt"
 sessionRequired = "A csatlakoztatott példányok a számlázási hozzáférés megújítása után jelennek meg."
-sub = "A szerver Stirling Cloud-fiókodhoz való kapcsolatának kezelése."
+sub = "A szerver PDF Viewer Cloud-fiókodhoz való kapcsolatának kezelése."
 
 [portal.accountLink.panel.loadError]
 forbidden = "Csak a csapattulajdonos kezelheti a csatlakoztatott példányokat."
@@ -8600,7 +8600,7 @@ viewAll = "Összes folyamat megtekintése"
 
 [portal.accountLink.rail]
 adminCta = "Hogyan szerezhet több kreditet"
-adminSub = "Kérje meg a szerver rendszergazdáját, hogy kapcsoljon össze egy Stirling-fiókot több kreditért. A kézi PDF-eszközök továbbra is elérhetők."
+adminSub = "Kérje meg a szerver rendszergazdáját, hogy kapcsoljon össze egy PDF Viewer-fiókot több kreditért. A kézi PDF-eszközök továbbra is elérhetők."
 exhaustedCta = "Fiók összekapcsolása több kreditért"
 exhaustedSub = "Kapcsolja össze havi kreditekért, közös számlázásért és a Team csomaggal való bővítés lehetőségéért."
 exhaustedTitle = "Ennek a szervernek elfogytak az ingyenes kreditjei"
@@ -8614,9 +8614,9 @@ malformed = "Nem sikerült ellenőrizni ezt a bejelentkezési választ. Indítsa
 malformedTitle = "Nem sikerült ellenőrizni a bejelentkezést"
 rejected = "Ezt a bejelentkezési kérést elutasították, vagy már felhasználták. Próbálja újra a számlázási hozzáférés megújításához."
 rejectedTitle = "A bejelentkezés nem fejeződött be"
-retry = "A Stirling nem tudta befejezni a számlázási hozzáférés megújítását. Próbálja újra később; a szervere továbbra is csatlakoztatva van."
+retry = "A PDF Viewer nem tudta befejezni a számlázási hozzáférés megújítását. Próbálja újra később; a szervere továbbra is csatlakoztatva van."
 retryTitle = "A számlázási hozzáférés nem állt vissza"
-success = "A számlázási hozzáférése megújult. Ez a szerver továbbra is ugyanahhoz a Stirling-fiókhoz csatlakozik."
+success = "A számlázási hozzáférése megújult. Ez a szerver továbbra is ugyanahhoz a PDF Viewer-fiókhoz csatlakozik."
 title = "Számlázási hozzáférés megújítása"
 working = "Számlázási hozzáférés visszaállítása."
 
@@ -8675,7 +8675,7 @@ title = "Költési korlát beállítása"
 [portal.billing.checkout.card]
 fields = "Kártyaszám · HH / ÉÉ · CVC · ZIP"
 label = "Kártyaadatok"
-note = "A kártyaadatokat a Stripe gyűjti. A Stirling soha nem tárol PAN-t vagy CVC-t."
+note = "A kártyaadatokat a Stripe gyűjti. A PDF Viewer soha nem tárol PAN-t vagy CVC-t."
 
 [portal.billing.checkout.error]
 title = "Nem sikerült elindítani a fizetést"
@@ -8909,7 +8909,7 @@ spendAgainstLimit = "{{cap}} összegből {{spend}} mért ebben a ciklusban"
 [portal.billing.seats]
 awaitingSync = "Várakozás a napi szinkronizálásra; még nem szerepel a flotta összesítésében."
 breakdown = "Hol számítanak a felhasználók"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 deployment = "Összekapcsolt szerver"
 lastReported = "Jelentve: {{date}}"
 live = "Élő felhasználószám"
@@ -9041,7 +9041,7 @@ description = "Ahova a feldolgozott dokumentumok kerülnek – bucket, meghajtó
 label = "Fájl és csatolás"
 
 [portal.connections.commonFields.accessToken]
-helperText = "A Stirling ezt titkosítva tárolja, és többé nem jeleníti meg."
+helperText = "A PDF Viewer ezt titkosítva tárolja, és többé nem jeleníti meg."
 label = "Hozzáférési token"
 
 [portal.connections.commonFields.apiKey]
@@ -9630,7 +9630,7 @@ brandTag = "Enterprise"
 callInfo = "Egy 15 perces hívás. Hozza a kérdéseit az árazással, telepítéssel vagy biztonsággal kapcsolatban, vagy tervezzük meg együtt a bevezetést."
 callTitle = "Beszéljen egy megoldásmérnökkel"
 deployment = "Telepítés"
-footer = "Kérdése van a Stirling Enterprise-ról?"
+footer = "Kérdése van a PDF Viewer Enterprise-ról?"
 home = "Ugrás a Stirlinghez"
 member = "A csapatvezetője intézi az Enterprise megállapodást. Amint elindul, itt követheti a folyamatát."
 memberDeal = "A csapatvezetője intézi ezt a megállapodást. Itt követheti az előrehaladást."
@@ -9644,8 +9644,8 @@ stagesLabel = "Előrehaladás"
 lede = "Próbálja ki 14 napig ingyen, majd itt állítsa össze az ajánlatát és írja alá a megállapodást. Nincs szükség kártyára."
 tickAgreement = "Egyetlen megállapodás fedi az MSA-t, rendeléslapot, EULA-t és DPA-t"
 tickCompliance = "SCIM, adatlokáció és rendelkezésre állási SLA-k"
-tickDeploy = "Futtatható a Stirling Cloudon, saját szervereken vagy teljesen leválasztott hálózaton"
-title = "Stirling Enterprise"
+tickDeploy = "Futtatható a PDF Viewer Cloudon, saját szervereken vagy teljesen leválasztott hálózaton"
+title = "PDF Viewer Enterprise"
 
 [portal.enterprise.options.airgap]
 more = "Offline licencdokumentáció"
@@ -9655,7 +9655,7 @@ point3 = "A bejelentkezés a hálózatán belül marad"
 tagline = "Önálló hosztolás internetkapcsolat nélküli hálózaton."
 
 [portal.enterprise.options.cloud]
-more = "Stirling Cloud dokumentáció"
+more = "PDF Viewer Cloud dokumentáció"
 point1 = "A csapata a stirling.com/app címen jelentkezik be"
 point2 = "AWS-en fut, a tárolt fájlok titkosítva vannak nyugalmi állapotban"
 point3 = "A saját identitásszolgáltatón át történő single sign-on önálló hosztolást igényel"
@@ -9701,7 +9701,7 @@ title = "Szerezze be a Stirlinget"
 
 [portal.enterprise.setup.install]
 body = "Futtassa ezt a szerverén. Elindítja a Stirlinget az alkalmazott licenccel, és az image tartalmazza az OCR-t és az irodai konverziót. Nagyobb csapatoknál használjon Kubernetes-t."
-title = "A Stirling telepítése és indítása"
+title = "A PDF Viewer telepítése és indítása"
 
 [portal.enterprise.setup.invite]
 body = "Hívja meg a felhasználókat, hogy a próba a valós munkát tükrözze."
@@ -9722,7 +9722,7 @@ invite = "Csapattagok meghívása"
 kubernetes = "Kubernetes útmutató"
 licence = "Licenc aktiválása"
 ocr = "OCR nyelvek"
-openApp = "Stirling megnyitása"
+openApp = "PDF Viewer megnyitása"
 samlGuide = "SAML útmutató"
 ssoGuide = "SSO útmutató"
 
@@ -9735,7 +9735,7 @@ body = "Egy leválasztott (air-gapped) szerver nem éri el a licencszolgáltatá
 title = "Töltse le az offline licencét"
 
 [portal.enterprise.setup.people]
-bodyAirgap = "Hozzon létre fiókokat a <code>/settings/people</code> oldalon, vagy állítsa be, hogy a Stirling a belső identitásszolgáltatóját használja, így a bejelentkezés nem hagyja el a hálózatát."
+bodyAirgap = "Hozzon létre fiókokat a <code>/settings/people</code> oldalon, vagy állítsa be, hogy a PDF Viewer a belső identitásszolgáltatóját használja, így a bejelentkezés nem hagyja el a hálózatát."
 bodySelfHosted = "Hozzon létre fiókokat a <code>/settings/people</code> oldalon, vagy csatlakoztassa az identitásszolgáltatóját, hogy a csapata a munkahelyi fiókokkal jelentkezzen be. A Stirlinget a böngészőben, a szerver címén érik el, vagy az asztali appban, amely erre a szerverre mutat."
 title = "Emberek hozzáadása"
 
@@ -9750,7 +9750,7 @@ retry = "Próbálja újra"
 title = "Valami hiba történt ezen az oldalon"
 
 [portal.failures]
-closedBySystem = "Stirling"
+closedBySystem = "PDF Viewer"
 noMatches = "Semmi sem felel meg az aktuális szűrőknek"
 occurrences = "{{count}} előfordulás"
 searchPlaceholder = "Problémák, felhasználók és hibák keresése"
@@ -9862,7 +9862,7 @@ description = "A szerverről hiányzik a lépéshez szükséges szoftver, ezért
 title = "A szoftver nincs telepítve"
 
 [portal.failures.kind.unknown]
-description = "Valami olyan hiba történt, amelyet a Stirling még nem ismer fel."
+description = "Valami olyan hiba történt, amelyet a PDF Viewer még nem ismer fel."
 title = "Ismeretlen probléma"
 
 [portal.failures.log]
@@ -9895,13 +9895,13 @@ title = "Nincs áttekintendő elem"
 [portal.home.download]
 back = "Vissza"
 body = "Töltse le az asztali alkalmazást, vagy üzemeltesse saját maga a szervert."
-bodyDesktop = "Töltse le az asztali alkalmazást, majd jelentkezzen be a Stirling-fiókjával."
+bodyDesktop = "Töltse le az asztali alkalmazást, majd jelentkezzen be a PDF Viewer-fiókjával."
 done = "Kész"
 guide = "A(z) {{name}} útmutató megnyitása"
 openInBrowser = "Megnyitás inkább böngészőben"
 sectionDesktop = "Asztali alkalmazás"
 sectionSelfHosted = "Saját üzemeltetésű"
-title = "A Stirling PDF Editor telepítése"
+title = "A PDF Viewer Editor telepítése"
 
 [portal.home.download.docker]
 detailBody = "Futtassa a hivatalos image-et a szerverén."
@@ -9983,7 +9983,7 @@ usageMonth = "E havi használat"
 usageToday = "Mai használat"
 
 [portal.infrastructure.apiKeys.empty]
-description = "Hozz létre egy kulcsot a Stirling API hívásainak megkezdéséhez."
+description = "Hozz létre egy kulcsot a PDF Viewer API hívásainak megkezdéséhez."
 title = "Még nincsenek API kulcsok"
 
 [portal.infrastructure.apiKeys.error]
@@ -10073,7 +10073,7 @@ done = "Kész"
 keyNameLabel = "Kulcs neve"
 keyNamePlaceholder = "pl. Éles beolvasás"
 secretKeyCaption = "Titkos kulcs"
-secretWarning = "Tárold ezt egy titokkezelőben. A Stirling csak hash-t tárol, ezért később nincs mód a visszaállítására."
+secretWarning = "Tárold ezt egy titokkezelőben. A PDF Viewer csak hash-t tárol, ezért később nincs mód a visszaállítására."
 subtitle = "Adj nevet a kulcsnak, hogy később felismerd. Bármikor visszavonhatod."
 subtitleCreated = "Másolja ki most ezt a titkot — többé nem jelenik meg."
 title = "API kulcs létrehozása"
@@ -10257,7 +10257,7 @@ connectionCount_one = "{{count}} kapcsolat"
 connectionCount_other = "{{count}} kapcsolat"
 customApi = "Egyéni API"
 searchPlaceholder = "Integrációk keresése"
-subtitle = "Minden, amellyel a Stirling kommunikálni tud. A hitelesítő adatok itt egyszer jönnek létre, majd források, házirendek és folyamatok hivatkoznak rájuk."
+subtitle = "Minden, amellyel a PDF Viewer kommunikálni tud. A hitelesítő adatok itt egyszer jönnek létre, majd források, házirendek és folyamatok hivatkoznak rájuk."
 title = "Integrációk"
 typedName = "{{tool}} neve"
 
@@ -10942,7 +10942,7 @@ saveFailed = "Nem sikerült menteni a pipeline-t. Próbáld újra."
 
 [portal.policies.wizard.locations]
 aiSettings = "AI-beállítások megnyitása"
-builtin = "Stirling tudásbázis"
+builtin = "PDF Viewer tudásbázis"
 builtinHelp = "Indexeli a kereshető darabokat a Stirlingben, és visszaküldi a feldolgozott PDF-et az alábbi célhelyre. Egy beágyazási szolgáltatót be kell állítani az AI-beállításokban."
 checking = "Betöltési elérhetőség ellenőrzése..."
 chooseOutput = "Mentés előtt válasszon egy engedélyezett kimeneti célhelyet."
@@ -11035,7 +11035,7 @@ title = "Még nincs folyamat"
 
 [portal.processorFlow.sources]
 comingSoonTag = "Csatlakoztatás"
-editor = "Stirling PDF-szerkesztő"
+editor = "PDF Viewer-szerkesztő"
 heading = "Források"
 perDay = "{{n}} / 24 óra"
 
@@ -11051,7 +11051,7 @@ title = "Beszerzés"
 agreeCta = "Megállapodás aláírása"
 confidential = "Bizalmas"
 confirm = "Elolvastam és elfogadom ezt a Megállapodást, és kijelentem, hogy jogosult vagyok azt a fent megnevezett szervezet nevében aláírni."
-docName = "Stirling Enterprise-megállapodás"
+docName = "PDF Viewer Enterprise-megállapodás"
 docSub = "MSA, Order Form, EULA és DPA egyetlen aláírásban egyesítve."
 download = "Letöltés"
 downloadDraftError = "Nem sikerült létrehozni a megállapodás PDF-jét – a dokumentumrenderelő nem érhető el. Kérjük, próbálja újra rövidesen, vagy lépjen kapcsolatba a támogatással."
@@ -11091,7 +11091,7 @@ contactNamePlaceholder = "Jane Doe"
 continue = "Folytatás"
 done = "Kész"
 editUsage = "Használat szerkesztése"
-eula = "Elolvastam és elfogadom a Stirling Enterprise EULA feltételeit. Ez szabályozza az ajánlatból létrehozott megállapodást."
+eula = "Elolvastam és elfogadom a PDF Viewer Enterprise EULA feltételeit. Ez szabályozza az ajánlatból létrehozott megállapodást."
 generate = "Ajánlat generálása"
 indemnification = "Fokozott szellemitulajdon-védelem"
 indemnificationSub = "Kiterjeszti IP-védelmünket a szabadalmi igényekre. Az alap szerzői jogi, védjegy- és üzletititok-kártalanítás ingyenesen benne van."
@@ -11099,7 +11099,7 @@ minimum = "Az Enterprise minimum éves költése: {{min}}."
 minimumBelow = "Ez az ajánlat évente {{annual}}. Ha többet vár, emelje a becsült használatot; egyébként valószínűleg a Team csomag jobb választás."
 minimumNear = "Az Enterprise minimum éves költése: {{min}}. Emelje a becsült használatot a szint eléréséhez, vagy beszélje át velünk."
 minimumNearTitle = "Évente {{gap}} hiányzik az Enterprise-hoz."
-paperBrand = "Stirling PDF"
+paperBrand = "PDF Viewer"
 paperEyebrow = "Enterprise ajánlat"
 paperFor = "Készült számára"
 pdfSize = "PDF mérete"
@@ -11210,7 +11210,7 @@ eyebrow = "Enterprise"
 eyebrowCompany = "{{company}} Enterprise"
 inviteTeammates = "Csapattársak meghívása"
 liveSub = "Szervezete kiépítve, licence aktív."
-liveTitle = "Élőben van a Stirling Enterprise-on"
+liveTitle = "Élőben van a PDF Viewer Enterprise-on"
 next = "Következő: {{stage}}"
 open = "Beszerzés megnyitása"
 scheduleCall = "Hívás ütemezése"
@@ -11261,7 +11261,7 @@ trialFileHint = "Ez az Ön próba licencfájlja. Miután a megállapodás létre
 
 [portal.procurement.live]
 description = "Az előfizetése aktív, és a licence ki lett állítva. A csapata létrehozva, és a számlázás elindult."
-title = "Élőben van a Stirling Enterprise-on"
+title = "Élőben van a PDF Viewer Enterprise-on"
 
 [portal.procurement.milestone]
 downloadError = "Még nem sikerült letölteni az ajánlat PDF-et — kérjük, próbálja újra egy pillanat múlva."
@@ -11294,11 +11294,11 @@ airgapSub = "Zárt, nincs kimenő kapcsolat"
 back = "Vissza"
 businessName = "Vállalkozás neve"
 businessNamePlaceholder = "Acme Corp"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 cloudSub = "Felügyelt, leggyorsabb kezdés"
 continue = "Folytatás"
 deployment = "Hová legyen telepítve?"
-eula = "Elfogadom a Stirling EULA-t és a kereskedelmi feltételeket."
+eula = "Elfogadom a PDF Viewer EULA-t és a kereskedelmi feltételeket."
 fullName = "Teljes név"
 fullNamePlaceholder = "Az Ön neve"
 invites = "Csapattagok meghívása · opcionális"
@@ -11344,7 +11344,7 @@ account-link = "Fiókkapcsolat"
 [portal.shell.sidebar]
 appEditor = "Szerkesztő"
 appProcessor = "Feldolgozó"
-linkAccount = "Stirling-fiók összekapcsolása"
+linkAccount = "PDF Viewer-fiók összekapcsolása"
 primaryNav = "Elsődleges navigáció"
 
 [portal.shell.topbar]
@@ -11590,7 +11590,7 @@ secretNote = "Az aláírási titok egyszer jelenik meg, a webhook létrehozásak
 copy = "Másolás"
 done = "Kész"
 secret = "Aláírási titok"
-secretHelp = "Írja alá minden kézbesítés nyers törzsét ezzel a kulccsal (HMAC-SHA256), és küldje el X-Stirling-Signature headerként."
+secretHelp = "Írja alá minden kézbesítés nyers törzsét ezzel a kulccsal (HMAC-SHA256), és küldje el X-PDF Viewer-Signature headerként."
 secretWarning = "Másolja ki most az aláírási titkot. Biztonsága érdekében csak egyszer jelenik meg, és később nem kérhető le."
 title = "Webhook létrehozva"
 url = "Kézbesítési URL"
@@ -11618,15 +11618,15 @@ adminOnly = "A szerver havi kreditjeit mindenki közösen használja, ezért csa
 barAria = "Fennmaradó ingyenes kreditek"
 capSuffix_one = "a havi {{allowance}} ingyenes kreditből maradt"
 capSuffix_other = "a havi {{allowance}} ingyenes kreditből maradt"
-connect = "Stirling fiók csatlakoztatása"
+connect = "PDF Viewer fiók csatlakoztatása"
 connectBody = "A csatlakoztatás egy második havi keretet ad hozzá, növeli a szerveren engedélyezett felhasználók számát, és bekapcsolja a Processort."
-connectTitle = "Ehhez a szerverhez nincs Stirling fiók"
+connectTitle = "Ehhez a szerverhez nincs PDF Viewer fiók"
 loadError = "Nem sikerült beolvasni a szerver kredithasználatát. Próbálja újra néhány pillanat múlva."
 loadErrorTitle = "Nem sikerült betölteni a kredithasználatot"
 resets = "Visszaállítás: {{date}}"
 
 [portal.usage.sessionExpired]
-body = "A Stirling-fiók munkamenete lejárt. Jelentkezzen be újra a számlázás megtekintéséhez — a példánya összekapcsolva marad."
+body = "A PDF Viewer-fiók munkamenete lejárt. Jelentkezzen be újra a számlázás megtekintéséhez — a példánya összekapcsolva marad."
 
 [portal.users]
 title = "Felhasználók"
@@ -11741,7 +11741,7 @@ name = "Google Drive"
 scope = "Fájlimport"
 
 [provider.googledrive.accountScope]
-description = "drive eléri az összes fájlt (ehhez a Google-nek jóvá kell hagynia a nyilvános alkalmazást); drive.file csak az emberek által kiválasztott vagy a Stirling által létrehozott fájlokhoz"
+description = "drive eléri az összes fájlt (ehhez a Google-nek jóvá kell hagynia a nyilvános alkalmazást); drive.file csak az emberek által kiválasztott vagy a PDF Viewer által létrehozott fájlokhoz"
 label = "Drive-hozzáférés"
 
 [provider.googledrive.allowAccountConnections]
@@ -11931,7 +11931,7 @@ notConfigured = "A OneDrive nincs beállítva"
 pickerFailed = "Nem sikerült megnyitni a OneDrive-ot"
 popupBlocked = "A böngésző blokkolta a Microsoft bejelentkezési ablakát. Engedélyezze az előugró ablakokat ezen az oldalon, majd próbálja újra."
 reconnect = "A Microsoft-fiókjának újra be kell jelentkeznie. Csatlakoztassa újra a Beállítások > Összekapcsolt fiókok menüpontban."
-serverError = "A OneDrive-nál vagy a Stirling szerverén hiba történt. Próbálja újra, vagy ha továbbra is fennáll, forduljon a rendszergazdához."
+serverError = "A OneDrive-nál vagy a PDF Viewer szerverén hiba történt. Próbálja újra, vagy ha továbbra is fennáll, forduljon a rendszergazdához."
 unreachable = "Nem érhető el a OneDrive. Ellenőrizze a kapcsolatot, majd próbálja újra."
 
 [provider.saml2]
@@ -12024,7 +12024,7 @@ files = "Fájlok"
 account = "Fiók"
 docs = "Dokumentáció"
 editor = "Szerkesztő"
-home = "Stirling"
+home = "PDF Viewer"
 invite = "Meghívás"
 landmark = "Gyors navigáció"
 noProcessorAccess = "Kérjen Processor-hozzáférést egy rendszergazdától"
@@ -12655,8 +12655,8 @@ hideTools = "Nem elérhető eszközök elrejtése ▴"
 messageNoFallback = "Az eszközök csak akkor lesznek elérhetők, ha a szervere újra online."
 messageWithFallback = "Néhány eszközhöz szerverkapcsolat szükséges."
 showTools = "Nem elérhető eszközök megtekintése ▾"
-title = "A Stirling-PDF szervere nem érhető el"
-toolNotAvailableLocally = "A Stirling-PDF szervere offline, és a(z) \"{{endpoint}}\" nem érhető el a helyi backenden."
+title = "A PDF Viewer szervere nem érhető el"
+toolNotAvailableLocally = "A PDF Viewer szervere offline, és a(z) \"{{endpoint}}\" nem érhető el a helyi backenden."
 
 [serverSetup]
 back = "Vissza"
@@ -12691,7 +12691,7 @@ usernameHelp = "Amellyel be fog jelentkezni. Egy e-mail-cím is megfelel."
 backendUrl = "Szerver címe"
 backendUrlHelp = "Ahová a bejelentkezési szolgáltatók visszairányítanak. Általában megegyezik a webcímmel."
 frontendUrl = "Webcím"
-frontendUrlHelp = "Ahol megnyitják a Stirling PDF-et. E-mailekben, megosztási hivatkozásokban és QR-kódokban használjuk."
+frontendUrlHelp = "Ahol megnyitják a PDF Viewer-et. E-mailekben, megosztási hivatkozásokban és QR-kódokban használjuk."
 subtitle = "Hogyan érik el az emberek és a bejelentkezési szolgáltatók ezt a szervert."
 title = "Címek"
 
@@ -12705,7 +12705,7 @@ label = "Önhosztolt AI"
 provider = "Modellszolgáltató"
 providerCustom = "OpenAI-kompatibilis"
 smartModel = "Teljes modell"
-stirling = "Stirling AI"
+stirling = "PDF Viewer AI"
 subtitle = "Dokumentumkérdések, automatizált szerkesztések és AI ügynökök."
 title = "AI"
 
@@ -12716,7 +12716,7 @@ changeLater = "Ezt bármikor megváltoztathatja itt: {{path}}."
 decline = "Elutasítás és folytatás"
 declineFinish = "Elutasítás és befejezés"
 learnMore = "Mit gyűjtünk"
-note = "Ossza meg velünk ennek a szervernek a használati adatait, hogy javíthassuk a Stirling PDF-et. Soha nem gyűjtünk fájlokat vagy azok tartalmát."
+note = "Ossza meg velünk ennek a szervernek a használati adatait, hogy javíthassuk a PDF Viewer-et. Soha nem gyűjtünk fájlokat vagy azok tartalmát."
 title = "Szerveranalitika"
 
 [serverSetup.documents]
@@ -12854,7 +12854,7 @@ description = "Saját OneDrive, SharePoint és Google Drive fiókja a folyamatai
 title = "Összekapcsolt fiókok"
 
 [settings.connectedInstances]
-confirmBody = "Ez visszavonja a példány hozzáférését a csapatához a Stirling Cloudban. Nem törli a helyi fájlokat, és nem távolítja el a már rögzített használatot. Az újbóli csatlakoztatáshoz kövesse az eredeti csatlakoztatási lépéseket a példányon."
+confirmBody = "Ez visszavonja a példány hozzáférését a csapatához a PDF Viewer Cloudban. Nem törli a helyi fájlokat, és nem távolítja el a már rögzített használatot. Az újbóli csatlakoztatáshoz kövesse az eredeti csatlakoztatási lépéseket a példányon."
 confirmTitle = "Eltávolítja ezt: {{name}}?"
 connectedAt = "Csatlakoztatva: {{date}}"
 connectedDate = "Csatlakoztatva"
@@ -12888,7 +12888,7 @@ unknown = "Nem elérhető"
 yourTeam = "Az Ön csapata"
 
 [settings.connection]
-description = "Dolgozzon helyben ezen a gépen, vagy csatlakoztassa az alkalmazást egy Stirling szerverhez."
+description = "Dolgozzon helyben ezen a gépen, vagy csatlakoztassa az alkalmazást egy PDF Viewer szerverhez."
 localDescription = "A helyi backendet használja fiók nélkül. Egyes eszközök, amelyek felhőalapú feldolgozást vagy önhosztolt szervert igényelnek, nem érhetők el."
 logout = "Kijelentkezés"
 server = "Szerver"
@@ -12898,19 +12898,19 @@ user = "Bejelentkezve mint"
 
 [settings.connection.mode]
 local = "Csak helyi"
-saas = "Stirling Cloud"
+saas = "PDF Viewer Cloud"
 selfhosted = "Önhostolt"
 
 [settings.developer]
 apiKeys = "API-kulcsok"
-apiKeysDescription = "Személyes kulcsok a Stirling API szkriptekből és integrációkból történő hívásához."
+apiKeysDescription = "Személyes kulcsok a PDF Viewer API szkriptekből és integrációkból történő hívásához."
 title = "Fejlesztő"
 
 [settings.feedback]
 label = "Visszajelzés"
 
 [settings.feedback.send]
-description = "Jelentsen problémát vagy javasoljon fejlesztést a Stirling csapatának."
+description = "Jelentsen problémát vagy javasoljon fejlesztést a PDF Viewer csapatának."
 label = "Visszajelzés küldése"
 
 [settings.general]
@@ -12919,7 +12919,7 @@ autoUnzipFileLimit = "Automatikus kicsomagolás fájlkorlátja"
 autoUnzipFileLimitTooltip = "Csak akkor bontsa ki, ha a ZIP legfeljebb ennyi fájlt tartalmaz. Állítsa magasabbra nagyobb ZIP-ek kibontásához."
 autoUnzipTooltip = "Az API műveletek által visszaadott ZIP fájlok automatikus kibontása. Tiltsa le, ha a ZIP fájlokat érintetlenül akarja hagyni. Ez nem érinti az automatizálási munkafolyamatokat."
 defaultPdfEditor = "Alapértelmezett PDF-szerkesztő"
-defaultPdfEditorActive = "A Stirling PDF az alapértelmezett PDF-szerkesztő"
+defaultPdfEditorActive = "A PDF Viewer az alapértelmezett PDF-szerkesztő"
 defaultPdfEditorChecking = "Ellenőrzés..."
 defaultPdfEditorInactive = "Más alkalmazás van alapértelmezettként beállítva"
 defaultPdfEditorSet = "Már alapértelmezett"
@@ -12990,7 +12990,7 @@ updateBehavior = "Frissítési viselkedés"
 updateBehaviorDescription = "Válassza ki, hogy telepítés előtt rákérdezzen, automatikusan telepítsen, vagy teljesen kihagyja a frissítésellenőrzést."
 updateBehaviorError = "Nem sikerült módosítani a frissítési viselkedést"
 updateBehaviorErrorLocked = "Ezt a beállítást az adminisztrátor zárolta."
-updateBehaviorLockedDescription = "Az adminisztrátor beállította, hogyan kezeli a Stirling-PDF a frissítéseket ezen a gépen. Változtatáshoz lépjen kapcsolatba vele."
+updateBehaviorLockedDescription = "Az adminisztrátor beállította, hogyan kezeli a PDF Viewer a frissítéseket ezen a gépen. Változtatáshoz lépjen kapcsolatba vele."
 updateBehaviorSaved = "Frissítési viselkedés elmentve."
 versionMismatch = "Az asztali alkalmazásod és a szerver különböző verziókat futtat. Frissítsd mindkettőt ugyanarra a verzióra a kompatibilitási problémák elkerüléséhez."
 viewDetails = "Részletek megtekintése"
@@ -13091,7 +13091,7 @@ title = "Monitorozás"
 [settings.planBilling]
 currentPlan = "Jelenlegi csomag"
 loading = "Számlázási információk betöltése..."
-notAvailable = "A Csomag és számlázás csak Stirling Cloud kapcsolattal érhető el (SaaS mód)."
+notAvailable = "A Csomag és számlázás csak PDF Viewer Cloud kapcsolattal érhető el (SaaS mód)."
 title = "Csomag és számlázás"
 
 [settings.planBilling.billing]
@@ -13272,7 +13272,7 @@ step3 = "Indítsa újra a szervert"
 title = "A bejelentkezés nincs engedélyezve"
 
 [setup.server.url]
-description = "Adja meg az önhostolt Stirling PDF szerver teljes URL-jét"
+description = "Adja meg az önhostolt PDF Viewer szerver teljes URL-jét"
 label = "Szerver URL"
 
 [sharedSign]
@@ -13731,7 +13731,7 @@ pleaseFillAllFields = "Kérjük, töltsön ki minden mezőt"
 signUp = "Regisztráció"
 signUpWith = "Regisztráció ezzel:"
 skip = "Kihagyás"
-subtitle = "Csatlakozzon a Stirling PDF-hez a kezdéshez"
+subtitle = "Csatlakozzon a PDF Viewer-hez a kezdéshez"
 title = "Fiók létrehozása"
 unableToAccessTool = "Nem lehet hozzáférni az eszközhöz: {{error}}"
 unexpectedError = "Váratlan hiba: {{message}}"
@@ -14013,7 +14013,7 @@ download = "Letöltés"
 downloaded = "Letöltve"
 downloadFailed = "A fájl nem tölthető le."
 downloadsCount = "Letöltések: {{count}}"
-emailWarningBody = "Ez e-mail-címnek tűnik. Ha ez a személy nem Stirling PDF felhasználó, nem fogja tudni elérni a fájlt."
+emailWarningBody = "Ez e-mail-címnek tűnik. Ha ez a személy nem PDF Viewer felhasználó, nem fogja tudni elérni a fájlt."
 emailWarningConfirm = "Megosztás mindenképp"
 emailWarningTitle = "E-mail-cím"
 errorTitle = "A megosztás sikertelen"
@@ -14044,7 +14044,7 @@ manageTitle = "Megosztás kezelése"
 noActivity = "Még nincs aktivitás."
 noLinks = "Még nincsenek aktív megosztási hivatkozások."
 noSharedUsers = "Még nincs felhasználó, aki hozzáfér."
-openInApp = "Megnyitás a Stirling PDF-ben"
+openInApp = "Megnyitás a PDF Viewer-ben"
 ownerLabel = "Tulajdonos"
 removeLink = "Hivatkozás eltávolítása"
 removeUser = "Eltávolítás"
@@ -14115,7 +14115,7 @@ settings = "Beállítások"
 tools = "Eszközök"
 
 [survey]
-title = "Stirling-PDF felmérés"
+title = "PDF Viewer felmérés"
 
 [swagger]
 clickHere = "kattintson ide"
@@ -14237,7 +14237,7 @@ noFiles = "Adjon hozzá egy fájlt a kezdéshez."
 scopeFiles = "fájlok"
 scopeThisFile = "ez a fájl"
 selectFilesHint = "Válasszon fájlokat az Aktív fájlok között az eszköz futtatásához"
-signInRequired = "Ehhez Stirling-fiók szükséges. Jelentkezz be a folytatáshoz."
+signInRequired = "Ehhez PDF Viewer-fiók szükséges. Jelentkezz be a folytatáshoz."
 signInToUse = "Jelentkezz be a használathoz"
 singleFileScope = "Csak erre alkalmazva: {{fileName}}"
 viewerMode = "Válts a fájlszerkesztőre több fájl hozzáadásához."
@@ -14290,7 +14290,7 @@ favorites = "Kedvencek"
 heading = "Minden eszköz (teljes képernyős nézet)"
 noResults = "Próbálja módosítani a keresést vagy kapcsolja be a leírásokat, hogy megtalálja, amit keres."
 recommended = "Ajánlott"
-selfHostedOffline = "A saját Stirling-PDF szerverére van szükség (jelenleg offline):"
+selfHostedOffline = "A saját PDF Viewer szerverére van szükség (jelenleg offline):"
 showDetails = "Részletek megjelenítése"
 unavailable = "Szerveradminisztrátor letiltotta:"
 unavailableDependency = "Nem érhető el – szükséges eszköz hiányzik a szerveren:"
@@ -14299,7 +14299,7 @@ unfavorite = "Eltávolítás a kedvencekből"
 [toolPanel.modePrompt]
 chooseFullscreen = "Teljes képernyős mód használata"
 chooseSidebar = "Oldalsáv mód használata"
-description = "Tekintse meg mindkét elrendezést, és döntse el, hogyan szeretné felfedezni a Stirling PDF eszközeit."
+description = "Tekintse meg mindkét elrendezést, és döntse el, hogyan szeretné felfedezni a PDF Viewer eszközeit."
 dismiss = "Talán később"
 fullscreenDescription = "Böngéssze az összes eszközt egy katalógusban, amely lefedi a munkaterületet, amíg választ egyet."
 fullscreenTitle = "Teljes képernyős mód - (örökölt)"
@@ -14366,7 +14366,7 @@ loadingDetailedInfo = "Részletes információk betöltése..."
 migrationGuide = "Átállási útmutató"
 migrationGuides = "Átállási útmutatók"
 migrationGuidesDesc = "Frissítés előtt tekintse át a fontos változásokat."
-modalSubtitle = "A Stirling PDF új verziója készen áll a telepítésre."
+modalSubtitle = "A PDF Viewer új verziója készen áll a telepítésre."
 modalTitle = "Frissítés elérhető"
 notes = "Megjegyzések"
 releaseNotes = "Kiadási megjegyzések"
@@ -14392,7 +14392,7 @@ urgent = "Sürgős"
 attentionBody = "Az adminnak be kell jelentkeznie a részletek megtekintéséhez. Kérjük, lépjen vele azonnal kapcsolatba."
 attentionBodyAdmin = "Tekintse át a licenckövetelményeket a megfelelőség fenntartásához."
 attentionTitle = "Ez a szerver adminisztrátori figyelmet igényel"
-message = "Hozza ki a legtöbbet a Stirling PDF-ből 100 felhasználóval, PDF-szövegszerkesztéssel és fejlett funkciókkal"
+message = "Hozza ki a legtöbbet a PDF Viewer-ből 100 felhasználóval, PDF-szövegszerkesztéssel és fejlett funkciókkal"
 seeInfo = "Infó megtekintése"
 title = "Frissítés Team csomagra"
 upgradeButton = "Frissítés most"
@@ -14530,7 +14530,7 @@ authWeb = "Jelszó"
 create = "Fiók létrehozása"
 createSubtitle = "Hozzon létre self-hosted fiókot jelszóval vagy SSO-val."
 createTitle = "Fiók létrehozása"
-editorDesc = "PDF-ek szerkesztése a Stirling PDF Editorban. Ezt mindenki megkapja."
+editorDesc = "PDF-ek szerkesztése a PDF Viewer Editorban. Ezt mindenki megkapja."
 email = "Email-cím"
 emailError = "Adjon meg érvényes email-címet"
 emailPlaceholder2 = "name@company.com"
@@ -14545,7 +14545,7 @@ processorDeferred = "A meghívó elküldve, de a Processor hozzáférést még n
 processorDesc = "Az irányítási felület, pipeline-ok, agentek és az API futtatása."
 role = "Szerepkör"
 send2 = "Meghívó küldése"
-subtitle2 = "E-mailt kapnak, amellyel csatlakozhatnak a Stirling PDF-munkaterületedhez."
+subtitle2 = "E-mailt kapnak, amellyel csatlakozhatnak a PDF Viewer-munkaterületedhez."
 team = "Csapat"
 title = "Személyek meghívása"
 username = "Felhasználónév"
@@ -14687,7 +14687,7 @@ downloads = "Letöltések"
 entryLabel = "Aláírási összegzés"
 filesEvaluated_one = "{{count}} fájl kiértékelve"
 filesEvaluated_other = "{{count}} fájl kiértékelve"
-footer = "Ellenőrizve a Stirling PDF segítségével"
+footer = "Ellenőrizve a PDF Viewer segítségével"
 generatedAt = "Létrehozva"
 noPdf = "A PDF jelentés sikeres ellenőrzés után lesz elérhető."
 page = "Oldal"

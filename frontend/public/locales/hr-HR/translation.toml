@@ -56,7 +56,7 @@ loading = "Učitavanje..."
 loginAgreementAccept = "Prihvati"
 loginAgreementDecline = "Odbij"
 loginAgreementLoadFailed = "Nije moguće učitati sporazum za prijavu."
-loginAgreementProvider = "Ovu obavijest pruža vaš administrator, a ne Stirling PDF Inc."
+loginAgreementProvider = "Ovu obavijest pruža vaš administrator, a ne PDF Viewer Inc."
 loginAgreementRetry = "Pokušaj ponovno"
 loginAgreementTitle = "Ugovor o prijavi"
 logOut = "Odjava"
@@ -726,9 +726,9 @@ permissionNotice = "Putanja do tessdata nije zapisiva. Preuzimanja će se otvori
 
 [admin.settings.ai]
 customProvider = "Prilagođeno (kompatibilno s OpenAI)"
-description = "Povežite Stirling s Python AI mehanizmom, odaberite njegove modele i postavite zaštitna pravila pod kojima radi."
-managedByCloud = "U ovom načinu rada upravlja Stirling Cloud."
-managedByCloudShort = "Upravlja Stirling Cloud"
+description = "Povežite PDF Viewer s Python AI mehanizmom, odaberite njegove modele i postavite zaštitna pravila pod kojima radi."
+managedByCloud = "U ovom načinu rada upravlja PDF Viewer Cloud."
+managedByCloudShort = "Upravlja PDF Viewer Cloud"
 
 [admin.settings.ai.documents]
 description = "Konfigurirajte model ugradnje i postavke dohvaćanja koje se koriste za odgovaranje na pitanja o dokumentima. Primjenjuje se na AI engine nakon spremanja."
@@ -779,16 +779,16 @@ description = "Uključite ili isključite pojedinačne AI značajke. Onemogućen
 title = "Mogućnosti"
 
 [admin.settings.ai.general.cloud]
-note = "Modelima i ključevima pružatelja upravlja Stirling Cloud, pa se te postavke ne primjenjuju u ovom načinu rada."
+note = "Modelima i ključevima pružatelja upravlja PDF Viewer Cloud, pa se te postavke ne primjenjuju u ovom načinu rada."
 
 [admin.settings.ai.general.cloud.indexing]
-description = "Svaki AI alat šalje tekst stranice koji mu je potreban za odgovor. Time se određuje smije li Stirling Cloud također zadržati taj tekst, indeksiran, kako bi kasnija pitanja mogla pretraživati dokument."
+description = "Svaki AI alat šalje tekst stranice koji mu je potreban za odgovor. Time se određuje smije li PDF Viewer Cloud također zadržati taj tekst, indeksiran, kako bi kasnija pitanja mogla pretraživati dokument."
 help = "Isključeno znači da pitanja o dokumentu nisu dostupna. To ne zaustavlja slanje teksta - samo pohranu."
-label = "Dopusti da Stirling Cloud zadrži indeksirane dokumente"
+label = "Dopusti da PDF Viewer Cloud zadrži indeksirane dokumente"
 
 [admin.settings.ai.general.cloudNote]
-body = "Zaključivanje se izvodi na Stirlingovoj infrastrukturi i naplaćuje se računu s kojim je ovaj poslužitelj povezan. Ovdje nema kontejnera za pokretanje ni ključa pružatelja za čuvanje. Sve što AI čita obrađuje Stirling Cloud, a ne vaš vlastiti hardver."
-title = "O Stirling Cloud AI"
+body = "Zaključivanje se izvodi na Stirlingovoj infrastrukturi i naplaćuje se računu s kojim je ovaj poslužitelj povezan. Ovdje nema kontejnera za pokretanje ni ključa pružatelja za čuvanje. Sve što AI čita obrađuje PDF Viewer Cloud, a ne vaš vlastiti hardver."
+title = "O PDF Viewer Cloud AI"
 
 [admin.settings.ai.general.enabled]
 description = "Glavni prekidač. Kada je isključen, nisu dostupni AI alati, agenti ni pozivi enginea."
@@ -826,11 +826,11 @@ label = "Istek vremena za dugotrajne zadatke (sekunde)"
 label = "Gdje se AI izvodi"
 
 [admin.settings.ai.general.mode.cloud]
-description = "Nema kontejnera, nema ključa pružatelja, nema odabira modela - posao se izvodi na Stirling Cloud i naplaćuje se računu s kojim je ovaj poslužitelj povezan."
-linkCta = "Poveži ovaj poslužitelj sa Stirling računom"
+description = "Nema kontejnera, nema ključa pružatelja, nema odabira modela - posao se izvodi na PDF Viewer Cloud i naplaćuje se računu s kojim je ovaj poslužitelj povezan."
+linkCta = "Poveži ovaj poslužitelj sa PDF Viewer računom"
 notLinked = "Najprije povežite račun"
-ownerOnly = "Samo vlasnik organizacije može povezati ovaj poslužitelj sa Stirling računom."
-title = "Koristi Stirling Cloud AI"
+ownerOnly = "Samo vlasnik organizacije može povezati ovaj poslužitelj sa PDF Viewer računom."
+title = "Koristi PDF Viewer Cloud AI"
 
 [admin.settings.ai.general.mode.off]
 description = "Nema AI alata nigdje u aplikaciji i ništa ne napušta ovaj poslužitelj."
@@ -842,7 +842,7 @@ title = "Pokrenite vlastiti mehanizam"
 
 [admin.settings.ai.general.note]
 docs = "Vodič za postavljanje"
-intro = "Zaseban kontejner koji pokrećete uz Stirling. On obavlja zaključivanje; Stirling i dalje sam obavlja svaku operaciju sa stranicama. Potreban mu je isti"
+intro = "Zaseban kontejner koji pokrećete uz PDF Viewer. On obavlja zaključivanje; PDF Viewer i dalje sam obavlja svaku operaciju sa stranicama. Potreban mu je isti"
 outro = "na oba kontejnera i ključ pružatelja modela. Sve što AI čita šalje se pružatelju kojeg odaberete - Ollama koju hostate zadržava svaku stranicu interno."
 title = "O AI engineu"
 
@@ -944,24 +944,24 @@ url = "URL mehanizma"
 
 [admin.settings.ai.status.cloud]
 hostDown = "Nedostupno"
-hostLabel = "Stirling.com"
+hostLabel = "PDF Viewer.com"
 hostUp = "Dostupno"
-name = "Stirling Cloud"
+name = "PDF Viewer Cloud"
 sharingLabel = "AI dijeljenje"
 sharingOff = "Onemogućeno"
 sharingOn = "Omogućeno"
 
 [admin.settings.ai.status.cloud.degraded]
-body = "Stirling Cloud je odgovorio, ali je odbio ovaj poslužitelj. Veza računa možda je opozvana."
-title = "Stirling Cloud odbija ovaj poslužitelj"
+body = "PDF Viewer Cloud je odgovorio, ali je odbio ovaj poslužitelj. Veza računa možda je opozvana."
+title = "PDF Viewer Cloud odbija ovaj poslužitelj"
 
 [admin.settings.ai.status.cloud.down]
-body = "Ovaj poslužitelj nije mogao pristupiti Stirling Cloud. Provjerite vezu računa i može li ovaj poslužitelj pristupiti internetu."
-title = "Stirling Cloud nije dostupan"
+body = "Ovaj poslužitelj nije mogao pristupiti PDF Viewer Cloud. Provjerite vezu računa i može li ovaj poslužitelj pristupiti internetu."
+title = "PDF Viewer Cloud nije dostupan"
 
 [admin.settings.ai.status.cloud.ok]
-body = "Stirling Cloud je prihvatio ovaj poslužitelj. Ovdje nema ničega za pokretanje ili zakrpanje."
-title = "Izvodi se na Stirling Cloud"
+body = "PDF Viewer Cloud je prihvatio ovaj poslužitelj. Ovdje nema ničega za pokretanje ili zakrpanje."
+title = "Izvodi se na PDF Viewer Cloud"
 
 [admin.settings.ai.status.degraded]
 body = "Odgovorio je na provjeru stanja, ali je odbio stvarni zahtjev. Dvije strane koriste različite dijeljene tajne."
@@ -1114,7 +1114,7 @@ confirmCodeLabel = "Unesite potvrdni kod za nastavak"
 confirmImport = "Potvrdi uvoz"
 confirmImportTitle = "Potvrdite uvoz baze podataka"
 connection = "Veza"
-connectionDescription = "Usmjerite Stirling na vanjsku bazu podataka umjesto ugrađene."
+connectionDescription = "Usmjerite PDF Viewer na vanjsku bazu podataka umjesto ugrađene."
 createBackup = "Izradi sigurnosnu kopiju"
 created = "Stvoreno"
 delete = "Izbriši"
@@ -1215,11 +1215,11 @@ description = "Konfigurirajte opcionalne značajke i funkcionalnosti."
 title = "Značajke"
 
 [admin.settings.features.serverCertificate]
-description = "Generirajte certifikat koji podržava značajku potpisivanja „Sign with Stirling-PDF”."
+description = "Generirajte certifikat koji podržava značajku potpisivanja „Sign with PDF Viewer”."
 label = "Potpisivanje certifikatom"
 
 [admin.settings.features.serverCertificate.enabled]
-description = "Ponudi „Sign with Stirling-PDF” koristeći certifikat koji ovaj poslužitelj generira"
+description = "Ponudi „Sign with PDF Viewer” koristeći certifikat koji ovaj poslužitelj generira"
 label = "Omogući potpisivanje certifikatom"
 
 [admin.settings.features.serverCertificate.organizationName]
@@ -1314,7 +1314,7 @@ description = "Zadani jezik za nove korisnike (npr. en_US, es_ES)"
 label = "Zadani jezik"
 
 [admin.settings.general.enableFeedback]
-description = "Dopustite korisnicima slati povratne informacije timu Stirling"
+description = "Dopustite korisnicima slati povratne informacije timu PDF Viewer"
 label = "Omogući povratne informacije"
 
 [admin.settings.general.fileUploadLimit]
@@ -1368,7 +1368,7 @@ description = "URL ili naziv datoteke za pravila o kolačićima"
 label = "Pravila o kolačićima"
 
 [admin.settings.legal.disclaimer]
-message = "Prilagođavanjem ovih pravnih dokumenata preuzimate punu odgovornost za osiguranje usklađenosti sa svim primjenjivim zakonima i propisima, uključujući, ali ne ograničavajući se na GDPR i druge zahtjeve EU zaštite podataka. Mijenjajte ove postavke samo ako: (1) upravljate osobnom/privatnom instancom, (2) izvan ste nadležnosti EU-a i razumijete svoje lokalne pravne obveze, ili (3) ste pribavili odgovarajući pravni savjet i prihvaćate isključivu odgovornost za sve korisničke podatke i pravnu usklađenost. Stirling-PDF i njegovi razvojni programeri ne preuzimaju nikakvu odgovornost za vaše pravne obveze."
+message = "Prilagođavanjem ovih pravnih dokumenata preuzimate punu odgovornost za osiguranje usklađenosti sa svim primjenjivim zakonima i propisima, uključujući, ali ne ograničavajući se na GDPR i druge zahtjeve EU zaštite podataka. Mijenjajte ove postavke samo ako: (1) upravljate osobnom/privatnom instancom, (2) izvan ste nadležnosti EU-a i razumijete svoje lokalne pravne obveze, ili (3) ste pribavili odgovarajući pravni savjet i prihvaćate isključivu odgovornost za sve korisničke podatke i pravnu usklađenost. PDF Viewer i njegovi razvojni programeri ne preuzimaju nikakvu odgovornost za vaše pravne obveze."
 title = "Upozorenje o pravnoj odgovornosti"
 
 [admin.settings.legal.impressum]
@@ -1456,7 +1456,7 @@ description = "Korisničko ime za SMTP autentikaciju"
 label = "SMTP korisničko ime"
 
 [admin.settings.mcp]
-apikeyNote = "Klijenti šalju Stirling API ključ u zaglavlju X-API-KEY (ili Authorization: Bearer <key>). Ključ se mapira na svog vlasnika, Stirling korisnika - pristup dobivaju samo pripremljeni računi, a radnje se bilježe kao taj korisnik. Ključevima upravljajte pod Račun > API ključevi."
+apikeyNote = "Klijenti šalju PDF Viewer API ključ u zaglavlju X-API-KEY (ili Authorization: Bearer <key>). Ključ se mapira na svog vlasnika, PDF Viewer korisnika - pristup dobivaju samo pripremljeni računi, a radnje se bilježe kao taj korisnik. Ključevima upravljajte pod Račun > API ključevi."
 description = "Izložite Stirlingove PDF alate i AI agente MCP klijentima preko endpointa zaštićenog OAuthom."
 title = "MCP poslužitelj"
 
@@ -1487,7 +1487,7 @@ step3ApiKeyb = "zaglavlju (ili Authorization: Bearer <key>). Ne koristi se OAuth
 step4 = "Odobrite prijavu; klijent ponovno pokušava s tokenom. Alati se prikazuju grupirani: convert, pages, misc, security, ai."
 step4ApiKey = "Alati se prikazuju grupirani: convert, pages, misc, security, ai - i svaki poziv bilježi se kao vlasnik ključa."
 tip = "Savjet: registrirajte resource ID kao dopuštenu publiku u svom IdP-u. Testirano s MCP Inspector i Claude Desktop."
-tipApiKey = "Savjet: način s API ključem ne treba vanjski IdP - najjednostavnije za self-host. Ključ se mapira na svog vlasnika, Stirling korisnika."
+tipApiKey = "Savjet: način s API ključem ne treba vanjski IdP - najjednostavnije za self-host. Ključ se mapira na svog vlasnika, PDF Viewer korisnika."
 title = "Povežite MCP klijent"
 
 [admin.settings.mcp.issuerUri]
@@ -1500,14 +1500,14 @@ label = "JWKS URL (neobavezno)"
 placeholder = "Automatski otkriveno od izdavatelja"
 
 [admin.settings.mcp.mode]
-apikey = "API ključ (Stirling ključ po korisniku)"
-description = "OAuth treba vanjski IdP. API ključ koristi Stirling API ključ po korisniku (X-API-KEY) - najjednostavnije za self-host."
+apikey = "API ključ (PDF Viewer ključ po korisniku)"
+description = "OAuth treba vanjski IdP. API ključ koristi PDF Viewer API ključ po korisniku (X-API-KEY) - najjednostavnije za self-host."
 label = "Način autentikacije"
 oauth = "OAuth 2.1 (vanjski IdP)"
 
 [admin.settings.mcp.requireAccount]
-description = "Propusti tokene samo ako se njihov subjekt mapira na pripremljenog, omogućenog Stirling korisnika."
-label = "Zahtijevaj postojeći Stirling račun"
+description = "Propusti tokene samo ako se njihov subjekt mapira na pripremljenog, omogućenog PDF Viewer korisnika."
+label = "Zahtijevaj postojeći PDF Viewer račun"
 
 [admin.settings.mcp.resourceId]
 description = "Javni /mcp URL ovog poslužitelja. Tokeni ga moraju navesti u svojoj publici (RFC 8707) ili će biti odbijeni."
@@ -1518,7 +1518,7 @@ description = "Zahtijevaj mcp.tools.read za operacije čitanja i mcp.tools.write
 label = "Provedi OAuth opsege"
 
 [admin.settings.mcp.usernameClaim]
-description = "JWT claim koji se podudara sa Stirling korisničkim imenom (npr. sub, email, preferred_username)."
+description = "JWT claim koji se podudara sa PDF Viewer korisničkim imenom (npr. sub, email, preferred_username)."
 label = "Claim korisničkog imena"
 
 [admin.settings.plan.noData]
@@ -1847,7 +1847,7 @@ description = "Kad je omogućeno, samo navedeni korisnički ID-jevi mogu koristi
 label = "Dopusti određene korisničke ID-jeve"
 
 [admin.settings.telegram.enabled]
-description = "Dopustite korisnicima interakciju sa Stirling PDF-om putem konfiguriranog Telegram bota."
+description = "Dopustite korisnicima interakciju sa PDF Viewer-om putem konfiguriranog Telegram bota."
 label = "Omogući Telegram bot"
 
 [admin.settings.telegram.feedback]
@@ -1920,7 +1920,7 @@ settingsOverview = "Ovo je <strong>Panel postavki</strong>. Administratorske pos
 systemCustomization = "Imamo opsežne načine za prilagodbu sučelja: <strong>Postavke sustava</strong> omogućuju promjenu naziva aplikacije i jezika, <strong>Značajke</strong> omogućuju upravljanje certifikatima poslužitelja, a <strong>Krajnje točke</strong> omogućuju uključivanje ili isključivanje pojedinih alata za vaše korisnike."
 teamsAndUsers = "Ovdje upravljajte <strong>timovima</strong> i pojedinačnim korisnicima. Možete pozvati nove korisnike putem e-pošte, dijeljivih poveznica ili im sami stvoriti prilagođene račune."
 welcome = "Dobrodošli u <strong>Administratorski obilazak</strong>! Istražimo moćne korporativne značajke i postavke dostupne administratorima sustava."
-wrapUp = "To je kraj administratorskog obilaska! Vidjeli ste enterprise značajke koje Stirling PDF čine snažnim, prilagodljivim rješenjem za organizacije. Možete ga ponoviti bilo kada - samo otvorite <strong>Postavke</strong> i pronađite ga ovdje u odjeljku <strong>Obilasci</strong> pod Pomoć."
+wrapUp = "To je kraj administratorskog obilaska! Vidjeli ste enterprise značajke koje PDF Viewer čine snažnim, prilagodljivim rješenjem za organizacije. Možete ga ponoviti bilo kada - samo otvorite <strong>Postavke</strong> i pronađite ga ovdje u odjeljku <strong>Obilasci</strong> pod Pomoć."
 
 [adminUserSettings]
 admin = "Administrator"
@@ -1936,9 +1936,9 @@ thai = "Tajlandski"
 
 [analytics]
 learnMore = "Saznajte više o našoj analitici"
-paragraph1 = "Stirling PDF ima opt-in analitiku koja nam pomaže poboljšati proizvod. Ne pratimo nikakve osobne podatke ni sadržaj datoteka."
-paragraph2 = "Razmotrite omogućivanje analitičkih podataka kako biste stvorili Stirling-PDF veće i da bismo bolje razumeli naših korisnika."
-title = "Želite li pomoći da Stirling PDF bude bolji?"
+paragraph1 = "PDF Viewer ima opt-in analitiku koja nam pomaže poboljšati proizvod. Ne pratimo nikakve osobne podatke ni sadržaj datoteka."
+paragraph2 = "Razmotrite omogućivanje analitičkih podataka kako biste stvorili PDF Viewer veće i da bismo bolje razumeli naših korisnika."
+title = "Želite li pomoći da PDF Viewer bude bolji?"
 
 [annotate]
 tags = "komentiraj,istakni,crtaj,označavanje,komentar,bilješke,pregled,redline,povratne informacije,alati za označavanje,ljepljive bilješke,oblici,strelice,tekstni okvir,slobodno crtanje"
@@ -2887,9 +2887,9 @@ typeSignature = "Upišite svoje ime da biste izradili potpis"
 uploadCert = "Učitaj certifikat"
 uploadCertDesc = "Upotrijebite vlastiti PKCS12, PFX, PEM ili JKS certifikat."
 uploadSignature = "Prenesite sliku svog potpisa"
-usePersonalCert = "Stirling Sign · Osobno"
+usePersonalCert = "PDF Viewer Sign · Osobno"
 usePersonalCertDesc = "Potpišite certifikatom izrađenim za vaš račun."
-useServerCert = "Stirling Sign · Organizacija"
+useServerCert = "PDF Viewer Sign · Organizacija"
 useServerCertDesc = "Potpišite zajedničkim organizacijskim certifikatom ovog servera."
 useSignature = "Upotrijebi potpis"
 
@@ -3208,8 +3208,8 @@ copy = "Kopiraj poruku"
 
 [chat.dock]
 collapse = "Sažmi chat"
-placeholder = "Pitaj Stirling Agent"
-title = "Stirling Agent"
+placeholder = "Pitaj PDF Viewer Agent"
+title = "PDF Viewer Agent"
 
 [chat.header]
 clearChat = "Obriši chat"
@@ -3363,7 +3363,7 @@ translatedMetadata = "Stavka metapodataka s prijevodima"
 
 [checkAccessibility.pdf]
 continued = "{{name}} (nastavak)"
-footer = "Provjereno pomoću Stirling PDF"
+footer = "Provjereno pomoću PDF Viewer"
 page = "Stranica {{n}}"
 title = "Izvješće o pristupačnosti"
 
@@ -3804,8 +3804,8 @@ label = "Dokumenti prema vrsti: {{summary}}"
 noTypes = "Ovi dokumenti ne odgovaraju poznatoj vrsti."
 
 [classificationDemo.defaultApp]
-body = "Postavite Stirling kao zadanu PDF aplikaciju. Svaki PDF koji otvorite, iz e-pošte, preglednika ili radne površine, stiže ovdje, spreman za čitanje ili uređivanje. To možete promijeniti bilo kada u Postavkama."
-cta = "Postavi Stirling kao zadani"
+body = "Postavite PDF Viewer kao zadanu PDF aplikaciju. Svaki PDF koji otvorite, iz e-pošte, preglednika ili radne površine, stiže ovdje, spreman za čitanje ili uređivanje. To možete promijeniti bilo kada u Postavkama."
+cta = "Postavi PDF Viewer kao zadani"
 title = "Otvorite svaki PDF u Stirlingu"
 
 [classificationDemo.followUp]
@@ -3821,7 +3821,7 @@ other = "Ostalo"
 body = "Klasificirajte i organizirajte {{count}} najnovijih PDF datoteka u mapi Preuzimanja prema vrsti."
 cta = "Obradi moju mapu Preuzimanja"
 privacy = "Vaše PDF datoteke ostaju na ovom uređaju. Vaš povezani poslužitelj bilježi upotrebu obrade."
-title = "Pogledajte što Stirling može učiniti s cijelom mapom"
+title = "Pogledajte što PDF Viewer može učiniti s cijelom mapom"
 
 [classificationDemo.phase]
 finishing = "Završavanje..."
@@ -3835,10 +3835,10 @@ counts = "od {{total}} PDF datoteka obrađeno"
 [classificationDemo.results]
 documentCount_one = "{{count}} PDF"
 documentCount_other = "{{count}} PDF datoteka"
-failedBody = "Stirling nije mogao pročitati vašu mapu Preuzimanja. Ništa na vašem računalu nije promijenjeno."
+failedBody = "PDF Viewer nije mogao pročitati vašu mapu Preuzimanja. Ništa na vašem računalu nije promijenjeno."
 failedTitle = "To nije dovršeno"
 heading = "Vaša Preuzimanja, sortirana"
-summary = "Stirling je pročitao {{documents}} i sortirao ih u {{types}}."
+summary = "PDF Viewer je pročitao {{documents}} i sortirao ih u {{types}}."
 typeCount_one = "{{count}} vrsta"
 typeCount_other = "{{count}} vrsta"
 
@@ -4177,13 +4177,13 @@ upgradeButton = "Nadogradi račun"
 [config.apiKeys]
 copyKeyAriaLabel = "Kopiraj API ključ"
 description = "Vaš API ključ za pristup Stirlingovom paketu PDF alata. Kopirajte ga u svoj projekt ili osvježite za generiranje novog."
-docsDescription = "Saznajte više o integraciji sa Stirling PDF:"
+docsDescription = "Saznajte više o integraciji sa PDF Viewer:"
 docsLink = "API dokumentacija"
 docsTitle = "API dokumentacija"
 generateError = "Nismo mogli generirati vaš API ključ."
 goToAccount = "Idi na račun"
 guestInfo = "Gostujući korisnici ne dobivaju API ključeve. Izradite račun kako biste dobili API ključ koji možete koristiti u svojim aplikacijama."
-intro = "Upotrijebite svoj API ključ za programatski pristup Stirling PDF mogućnostima obrade."
+intro = "Upotrijebite svoj API ključ za programatski pristup PDF Viewer mogućnostima obrade."
 label = "API ključ"
 publicKeyAriaLabel = "Javni API ključ"
 refreshAriaLabel = "Osvježi API ključ"
@@ -4207,10 +4207,10 @@ title = "Osvježi API ključeve"
 warning = "⚠️ Upozorenje: Ova radnja generirat će nove API ključeve i učiniti vaše prethodne ključeve nevažećima."
 
 [config.mcp]
-description = "Model Context Protocol (MCP) omogućuje AI asistentima poput Claudea da izravno koriste vaše Stirling PDF alate. Povežite klijenta jednom i vaš asistent može u vaše ime pretvarati, uređivati, osiguravati i obrađivati dokumente."
-guestInfo = "Gosti ne mogu povezati MCP klijente. Izradite račun za korištenje MCP poslužitelja i omogućite svom AI asistentu pokretanje Stirling PDF alata u vaše ime."
+description = "Model Context Protocol (MCP) omogućuje AI asistentima poput Claudea da izravno koriste vaše PDF Viewer alate. Povežite klijenta jednom i vaš asistent može u vaše ime pretvarati, uređivati, osiguravati i obrađivati dokumente."
+guestInfo = "Gosti ne mogu povezati MCP klijente. Izradite račun za korištenje MCP poslužitelja i omogućite svom AI asistentu pokretanje PDF Viewer alata u vaše ime."
 navLabel = "MCP poslužitelj"
-tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using Stirling PDF directly."
+tip = "Every action your assistant runs is performed as your account and counts towards your usage, just like using PDF Viewer directly."
 viewApiKeys = "Prikaži API ključeve"
 
 [config.mcp.copy]
@@ -4226,7 +4226,7 @@ label = "Vaš MCP endpoint"
 
 [config.mcp.setup]
 addTo = "Dodaj u"
-hint = "Odaberite svoj klijent, zalijepite isječak u prikazanu datoteku, a zatim ga ponovno pokrenite. Pri prvoj upotrebi prijavit ćete se svojim Stirling računom - nema ključeva za kopiranje."
+hint = "Odaberite svoj klijent, zalijepite isječak u prikazanu datoteku, a zatim ga ponovno pokrenite. Pri prvoj upotrebi prijavit ćete se svojim PDF Viewer računom - nema ključeva za kopiranje."
 title = "Povežite svog AI asistenta"
 
 [config.overview]
@@ -4250,10 +4250,10 @@ step = "Korak {{current}} od {{total}}"
 [connect.confirm]
 acknowledge = "Prepoznajem ovu adresu i želim je povezati sa svojim timom"
 approve = "Poveži poslužitelj"
-cannotDecide = "Samo vlasnik tima može odobriti ili odbiti ovu vezu. Upotrijebite drugi račun ili odbacite ovaj upit da biste nastavili koristiti Stirling."
+cannotDecide = "Samo vlasnik tima može odobriti ili odbiti ovu vezu. Upotrijebite drugi račun ili odbacite ovaj upit da biste nastavili koristiti PDF Viewer."
 deny = "Odbij"
 dismiss = "Odbaci"
-lead = "Stirling poslužitelj traži povezivanje s vašim timom. Prije odobrenja provjerite je li adresa u nastavku vaša."
+lead = "PDF Viewer poslužitelj traži povezivanje s vašim timom. Prije odobrenja provjerite je li adresa u nastavku vaša."
 originLabel = "Adresa"
 signedInAs = "Prijavljeni kao"
 switchAccount = "Upotrijebi drugi račun"
@@ -4293,7 +4293,7 @@ disconnect = "Odspoji"
 google = "Google Drive"
 intro = "Jednom povežite vlastite račune. Vaši pipelini tada mogu čitati iz njih i spremati u njih kao vi."
 microsoft = "Microsoft (OneDrive i SharePoint)"
-needsReconnect = "Stirling više ne može doći do ovog računa, pa su pipelini koji ga koriste pauzirani."
+needsReconnect = "PDF Viewer više ne može doći do ovog računa, pa su pipelini koji ga koriste pauzirani."
 none = "Vaš administrator nije uključio povezane račune."
 personal = "Osobni račun"
 popupBlocked = "Vaš preglednik blokirao je prozor za prijavu. Dopustite skočne prozore za ovu stranicu i pokušajte ponovno."
@@ -4438,7 +4438,7 @@ showPreferencesBtn = "Upravljajte preferencijama"
 title = "Kako koristimo kolačiće"
 
 [cookieBanner.popUp.description]
-1 = "Koristimo kolačiće i druge tehnologije kako bi Stirling PDF bolje radio za vas - pomažu nam poboljšati alate i nastaviti graditi značajke koje ćete voljeti."
+1 = "Koristimo kolačiće i druge tehnologije kako bi PDF Viewer bolje radio za vas - pomažu nam poboljšati alate i nastaviti graditi značajke koje ćete voljeti."
 2 = "Ako to radije ne želite, klik na „Ne hvala” omogućit će samo nužne kolačiće potrebne da sve radi glatko."
 
 [cookieBanner.preferencesModal]
@@ -4451,12 +4451,12 @@ subtitle = "Upotreba kolačića"
 title = "Centar preferencija privole"
 
 [cookieBanner.preferencesModal.analytics]
-description = "Ovi kolačići pomažu nam razumjeti kako se naši alati koriste, kako bismo se mogli usredotočiti na izradu značajki koje naša zajednica najviše cijeni. Budite sigurni - Stirling PDF ne može i nikada neće pratiti sadržaj dokumenata s kojima radite."
+description = "Ovi kolačići pomažu nam razumjeti kako se naši alati koriste, kako bismo se mogli usredotočiti na izradu značajki koje naša zajednica najviše cijeni. Budite sigurni - PDF Viewer ne može i nikada neće pratiti sadržaj dokumenata s kojima radite."
 title = "Analitika"
 
 [cookieBanner.preferencesModal.description]
-1 = "Stirling PDF koristi kolačiće i slične tehnologije za poboljšanje vašeg iskustva i razumijevanje kako se naši alati koriste. To nam pomaže poboljšati performanse, razviti značajke do kojih vam je stalo i pružati stalnu podršku našim korisnicima."
-2 = "Stirling PDF ne može - i nikada neće - pratiti niti pristupiti sadržaju dokumenata koje koristite."
+1 = "PDF Viewer koristi kolačiće i slične tehnologije za poboljšanje vašeg iskustva i razumijevanje kako se naši alati koriste. To nam pomaže poboljšati performanse, razviti značajke do kojih vam je stalo i pružati stalnu podršku našim korisnicima."
+2 = "PDF Viewer ne može - i nikada neće - pratiti niti pristupiti sadržaju dokumenata koje koristite."
 3 = "Vaša privatnost i povjerenje u središtu su svega što radimo."
 
 [cookieBanner.preferencesModal.necessary]
@@ -4565,11 +4565,11 @@ message = "Nije uspjelo postaviti zadanu aplikaciju za PDF"
 title = "Pogreška"
 
 [defaultApp.settingsOpened]
-message = "U postavkama sustava Windows potražite 'PDF' i odaberite Stirling PDF kao zadanu aplikaciju"
+message = "U postavkama sustava Windows potražite 'PDF' i odaberite PDF Viewer kao zadanu aplikaciju"
 title = "Otvorene postavke"
 
 [defaultApp.success]
-message = "Stirling PDF je sada vaš zadani PDF uređivač"
+message = "PDF Viewer je sada vaš zadani PDF uređivač"
 title = "Zadana aplikacija postavljena"
 
 [desktop.fileSave]
@@ -4586,7 +4586,7 @@ minimize = "Minimiziraj"
 restore = "Vrati"
 
 [desktopBilling]
-description = "Upravljajte upotrebom i naplatom u pregledniku. Prijavite se istim Stirling računom koji koristite ovdje."
+description = "Upravljajte upotrebom i naplatom u pregledniku. Prijavite se istim PDF Viewer računom koji koristite ovdje."
 open = "Otvori upotrebu i naplatu u pregledniku"
 openFailed = "Nije moguće otvoriti upotrebu i naplatu. Provjerite vezu i pokušajte ponovno."
 selfHostedDescription = "Upravljajte upotrebom i naplatom na povezanom poslužitelju u pregledniku. Prijavite se računom vlasnika poslužitelja."
@@ -4638,7 +4638,7 @@ updateFailedMessage = "Nije uspjelo preuzimanje ili instalacija ažuriranja."
 
 [desktopUpdate.blocked]
 docsLink = "Pogledaj dokumentaciju za instalaciju"
-message = "Stirling-PDF nema dopuštenje za samostalno ažuriranje na ovom računalu."
+message = "PDF Viewer nema dopuštenje za samostalno ažuriranje na ovom računalu."
 title = "Potrebna su administratorska dopuštenja"
 
 [devAirgapped]
@@ -4912,7 +4912,7 @@ description = "Izdvaja odabrane stranice u novi PDF, zadržavajući redoslijed."
 open = "Pošaljite povratne informacije"
 sendMore = "Pošaljite još povratnih informacija"
 sent = "Hvala na povratnim informacijama"
-title = "Pomozite nam poboljšati Stirling"
+title = "Pomozite nam poboljšati PDF Viewer"
 unavailable = "Povratne informacije nisu dostupne"
 
 [feedback.tag]
@@ -5117,13 +5117,13 @@ save = "Preimenuj"
 title = "Preimenuj datoteku"
 
 [filesPage]
-addedToLibrary = "Dodano u Stirling biblioteku"
-addingToLibrary = "Dodavanje u Stirling biblioteku…"
-addToLibrary = "Dodaj u Stirling biblioteku…"
+addedToLibrary = "Dodano u PDF Viewer biblioteku"
+addingToLibrary = "Dodavanje u PDF Viewer biblioteku…"
+addToLibrary = "Dodaj u PDF Viewer biblioteku…"
 addToLibraryFailed = "Neke datoteke nije moguće dodati"
 addToWorkspace = "Dodaj u radni prostor"
 addToWorkspaceCount = "Dodaj {{count}} u radni prostor"
-allFiles = "Stirling biblioteka"
+allFiles = "PDF Viewer biblioteka"
 back = "Natrag"
 backToFolder = "Natrag na {{folder}}"
 backToMyFiles = "Natrag na Biblioteku datoteka"
@@ -5151,7 +5151,7 @@ deleteFolderContents_one = "Izbriši i {{count}} datoteku unutar mape"
 deleteFolderContents_other = "Izbriši i {{count}} datoteka unutar mape"
 deleteFolderContentsWarning = "Datoteke će biti trajno uklonjene i nije ih moguće oporaviti."
 deleteFolderError = "Nije moguće izbrisati mapu. Pokušajte ponovno."
-deleteFolderKeepHint = "Datoteke unutra bit će premještene u Stirling biblioteku."
+deleteFolderKeepHint = "Datoteke unutra bit će premještene u PDF Viewer biblioteku."
 deleteFolderTitle = "Izbrisati mapu?"
 deselectAll = "Poništi odabir"
 details = "Detalji"
@@ -5189,7 +5189,7 @@ moveSkippedRemote_other = "{{count}} datoteka nije bilo moguće premjestiti na p
 moveTo = "Premjesti u…"
 newFolder = "Nova mapa"
 newFolderStorageDisabled = "Pohrana mapa na poslužitelju nije omogućena."
-newFolderTabUnavailable = "Prebacite se na Stirling biblioteku za izradu mapa."
+newFolderTabUnavailable = "Prebacite se na PDF Viewer biblioteku za izradu mapa."
 offlineNoFolderEdits = "Sinkronizacija mapa s poslužiteljem nije dostupna – promjene mapa su onemogućene. Provjerite prijavu i konfiguraciju pohrane."
 open = "Otvori"
 openVersionInWorkspace = "Otvori u radnom prostoru"
@@ -5210,7 +5210,7 @@ selectAll = "Odaberi sve"
 selectedCount = "{{count}} odabrano"
 selectedFile = "{{name}}, odabrano"
 selectFile = "Odaberi datoteku {{name}}"
-serverFolderNeedsConnection = "Prijavite se u Stirling Cloud ili povežite vlastiti poslužitelj za korištenje mapa poslužitelja."
+serverFolderNeedsConnection = "Prijavite se u PDF Viewer Cloud ili povežite vlastiti poslužitelj za korištenje mapa poslužitelja."
 shareDisabledHint = "Dijeljenje datoteka nije omogućeno na ovom poslužitelju. Zamolite administratora da to omogući."
 shareManage = "Upravljaj dijeljenjem"
 showDetails = "Prikaži detalje"
@@ -5263,7 +5263,7 @@ orphaned = "Nije na disku"
 orphanedHint = "Izvornik na {{path}} više ne postoji. Ova kopija je samo ovdje - pri spremanju će se tražiti nova lokacija."
 unavailable = "Nedostupno"
 unavailableHintOffline = "Pogon ili dijeljena lokacija na kojoj se ova datoteka nalazi nije povezana. Ponovno je povežite kako biste ponovno preuzeli promjene."
-unavailableHintPermission = "Stirling nema dopuštenje za čitanje ove lokacije. Odobrite pristup u postavkama sustava kako biste ponovno preuzeli promjene."
+unavailableHintPermission = "PDF Viewer nema dopuštenje za čitanje ove lokacije. Odobrite pristup u postavkama sustava kako biste ponovno preuzeli promjene."
 unavailableHintUnknown = "Trenutačno nije moguće pristupiti ovoj datoteci. Kopija ovdje nije promijenjena."
 
 [filesPage.diskState]
@@ -5378,7 +5378,7 @@ placeholder = "Naziv mape"
 
 [filesPage.folderOrigin]
 diskHint = "Mapa montirana iz direktorija na vašem disku"
-serverHint = "Mapa pohranjena na Stirling poslužitelju"
+serverHint = "Mapa pohranjena na PDF Viewer poslužitelju"
 virtualHint = "Mapa koja postoji samo u ovom pregledniku"
 
 [filesPage.moveDialog]
@@ -5402,7 +5402,7 @@ serverHint = "Sinkronizirano s vašim računom, dostupno gdje god se prijavite."
 [filesPage.origin]
 all = "Svi izvori"
 cloud = "Oblak"
-cloudHint = "Pohranjeno na Stirling poslužitelju"
+cloudHint = "Pohranjeno na PDF Viewer poslužitelju"
 diskFileHint = "Pohranjeno na vašem računalu"
 diskHint = "Datoteka u montiranoj mapi na vašem disku"
 local = "Lokalno"
@@ -5413,7 +5413,7 @@ sharedHint = "Podijeljeno s vama putem veze"
 
 [filesPage.processing]
 active = "Obrada mape"
-blockedNeedsConnection = "Prijavite se u Stirling Cloud ili povežite vlastiti poslužitelj za obradu mapa."
+blockedNeedsConnection = "Prijavite se u PDF Viewer Cloud ili povežite vlastiti poslužitelj za obradu mapa."
 edit = "Uredi obradu..."
 nothingToRestore = "Nema izvornika za vraćanje - ove datoteke već jesu svoje izvorne verzije."
 paused = "Obrada je pauzirana"
@@ -5815,7 +5815,7 @@ invisible = "Nevidljivo (samo metapodaci)"
 location = "Lokacija:"
 logo = "Logo:"
 logoHidden = "Bez logotipa"
-logoShown = "Prikazan Stirling PDF logotip"
+logoShown = "Prikazan PDF Viewer logotip"
 participantCount_one = "Odabran je {{count}} sudionik"
 participantCount_other = "Odabrano je {{count}} sudionika"
 participants = "Sudionici"
@@ -5866,7 +5866,7 @@ title = "Potpisivanje bilo kojim redoslijedom"
 dismiss = "Odbaci baner"
 message = "Izradite besplatan račun kako biste spremili svoj rad, pristupili više značajki i podržali projekt."
 signUp = "Registrirajte se besplatno"
-title = "Koristite Stirling PDF kao gost!"
+title = "Koristite PDF Viewer kao gost!"
 
 [home.addAttachments]
 desc = "Pregledajte, dodajte, izdvojite, preimenujte ili izbrišite ugrađene PDF privitke"
@@ -6050,7 +6050,7 @@ tags = "kombiniraj,spoji,ujedini,merge,spoji PDF-ove,kombiniraj PDF-ove,pridruž
 title = "Spajanje"
 
 [home.mobile]
-brandAlt = "Stirling PDF logotip"
+brandAlt = "PDF Viewer logotip"
 openFiles = "Otvori datoteke"
 swipeHint = "Povucite lijevo ili desno za promjenu prikaza"
 tools = "Alati"
@@ -6084,7 +6084,7 @@ tags = "organiziraj,presloži,promijeni redoslijed,rasporedi stranice,sortiraj,p
 title = "Organiziranje"
 
 [home.pdfTextEditor]
-desc = "Pregledajte i uredite Stirling PDF JSON izvoze s grupnim uređivanjem teksta i ponovnim generiranjem PDF-a"
+desc = "Pregledajte i uredite PDF Viewer JSON izvoze s grupnim uređivanjem teksta i ponovnim generiranjem PDF-a"
 tags = "uredi tekst,izmijeni tekst,promijeni tekst,uredi sadržaj,ažuriraj tekst,prepiši,ispravi,dopuni,redline,revidiraj,uređivač teksta,uređivač sadržaja"
 title = "PDF uređivač teksta"
 
@@ -6262,7 +6262,7 @@ passwordRequired = "Lozinka je obvezna"
 signIn = "Prijavite se"
 validating = "Provjera poziva..."
 validationError = "Provjera poveznice za poziv nije uspjela"
-welcome = "Dobrodošli u Stirling PDF"
+welcome = "Dobrodošli u PDF Viewer"
 welcomeSubtitle = "Dovršite postavljanje računa kako biste započeli"
 welcomeTitle = "Pozvani ste!"
 
@@ -6309,8 +6309,8 @@ terms = "Uspe sodržine"
 title = "Licence treće strane"
 
 [localMode]
-automationUnavailable = "Prijavite se u Stirling Cloud ili na vlastiti poslužitelj za korištenje mapa za obradu i procesnih tijekova."
-toolUnavailable = "Ovaj alat zahtijeva račun. Prijavite se u Stirling Cloud ili se povežite na samohostani poslužitelj da biste ga koristili."
+automationUnavailable = "Prijavite se u PDF Viewer Cloud ili na vlastiti poslužitelj za korištenje mapa za obradu i procesnih tijekova."
+toolUnavailable = "Ovaj alat zahtijeva račun. Prijavite se u PDF Viewer Cloud ili se povežite na samohostani poslužitelj da biste ga koristili."
 
 [localMode.toolPicker]
 message = "Prijavite se za otključavanje svih alata."
@@ -6550,7 +6550,7 @@ message = "Autentikacija nije bila uspješna. Možete zatvoriti ovaj prozor i po
 title = "Autentikacija nije uspjela"
 
 [oauth.success]
-message = "Možete zatvoriti ovaj prozor i vratiti se u Stirling PDF."
+message = "Možete zatvoriti ovaj prozor i vratiti se u PDF Viewer."
 title = "Autentikacija uspješna"
 
 [oauthConsent]
@@ -6563,17 +6563,17 @@ loadFailed = "This authorisation request is invalid or has expired. Close this t
 loading = "Loading authorisation request..."
 missingId = "Missing authorisation request. Start the connection from your app and try again."
 redirecting = "Vraćamo vas u aplikaciju..."
-requesting = "{{app}} želi pristupiti vašem Stirling PDF računu"
+requesting = "{{app}} želi pristupiti vašem PDF Viewer računu"
 scopesIntro = "To će aplikaciji {{app}} omogućiti:"
 signedInAs = "Prijavljeni ste kao {{name}}"
 signInButton = "Prijavite se za nastavak"
-signInPrompt = "Prijavite se na svoj Stirling PDF račun za nastavak povezivanja aplikacije."
+signInPrompt = "Prijavite se na svoj PDF Viewer račun za nastavak povezivanja aplikacije."
 title = "Authorise access"
 unknownApp = "Aplikacija treće strane"
 
 [oauthConsent.access]
 actAsYou = "Djelovanje u vaše ime - sve što {{app}} radi izvodi se pod vašim računom i računa se u vašu upotrebu"
-tools = "Upotreba vaših Stirling PDF alata u vaše ime - pretvaranje, uređivanje, potpisivanje, zaštita i obrada vaših dokumenata"
+tools = "Upotreba vaših PDF Viewer alata u vaše ime - pretvaranje, uređivanje, potpisivanje, zaštita i obrada vaših dokumenata"
 
 [oauthConsent.scope]
 email = "Prikaz vaše email adrese"
@@ -6703,26 +6703,26 @@ skipTheTour = "Preskoči obilazak"
 
 [onboarding.checklist]
 dismiss = "Odbaci"
-title = "Postavite Stirling PDF"
+title = "Postavite PDF Viewer"
 
 [onboarding.checklist.downloadDesktop]
-description = "Pokrenite Stirling izvorno na svojem računalu"
-title = "Preuzmi Stirling za Desktop"
+description = "Pokrenite PDF Viewer izvorno na svojem računalu"
+title = "Preuzmi PDF Viewer za Desktop"
 
 [onboarding.checklist.inviteTeam]
 description = "Surađujte sa svojim timom"
 title = "Pozovite članove tima"
 
 [onboarding.checklist.setDefaultApp]
-description = "Otvarajte PDF datoteke u Stirling PDF"
-title = "Postavite Stirling kao zadano"
+description = "Otvarajte PDF datoteke u PDF Viewer"
+title = "Postavite PDF Viewer kao zadano"
 
 [onboarding.checklist.takeTour]
-description = "Pogledajte kako Stirling radi u kratkom obilasku"
+description = "Pogledajte kako PDF Viewer radi u kratkom obilasku"
 title = "Kreni u obilazak"
 
 [onboarding.desktopInstall]
-body = "Stirling najbolje radi kao desktop aplikacija. Možete ga koristiti izvan mreže, brže pristupati dokumentima i uređivati lokalno na računalu."
+body = "PDF Viewer najbolje radi kao desktop aplikacija. Možete ga koristiti izvan mreže, brže pristupati dokumentima i uređivati lokalno na računalu."
 selectOs = "Odaberite operacijski sustav"
 title = "Preuzimanje"
 titleWithOs = "Preuzmi za {{osLabel}}"
@@ -6730,7 +6730,7 @@ titleWithOs = "Preuzmi za {{osLabel}}"
 [onboarding.desktopWelcome]
 body = "Postoji mnoštvo novih promjena za istraživanje, uključujući <strong>Agent Chat</strong>, automatsku <strong>klasifikaciju</strong> dokumenata i još mnogo toga."
 freeLine = "Uređivač je sada <free>potpuno besplatan</free>."
-title = "Dobro došli u Stirling <product>Desktop</product>"
+title = "Dobro došli u PDF Viewer <product>Desktop</product>"
 
 [onboarding.mfa]
 authenticationCode = "Autentifikacijski kod"
@@ -6751,21 +6751,21 @@ success = "MFA je omogućen. Sada možete nastaviti."
 title = "Postavljanje višefaktorske autentifikacije"
 
 [onboarding.planOverview]
-adminBodyLoginDisabled = "Kad omogućite način prijave, moći ćete upravljati korisnicima, konfigurirati postavke i nadzirati zdravlje poslužitelja. Prvih <strong>{{freeTierLimit}}</strong> osoba na vašem poslužitelju koristi Stirling besplatno."
-adminBodyLoginEnabled = "Kao administrator možete upravljati korisnicima, konfigurirati postavke i nadzirati zdravlje poslužitelja. Prvih <strong>{{freeTierLimit}}</strong> osoba na vašem poslužitelju koristi Stirling besplatno."
+adminBodyLoginDisabled = "Kad omogućite način prijave, moći ćete upravljati korisnicima, konfigurirati postavke i nadzirati zdravlje poslužitelja. Prvih <strong>{{freeTierLimit}}</strong> osoba na vašem poslužitelju koristi PDF Viewer besplatno."
+adminBodyLoginEnabled = "Kao administrator možete upravljati korisnicima, konfigurirati postavke i nadzirati zdravlje poslužitelja. Prvih <strong>{{freeTierLimit}}</strong> osoba na vašem poslužitelju koristi PDF Viewer besplatno."
 adminTitle = "Pregled za administratore"
 userBody = "Pozovite suradnike, dodijelite uloge i držite dokumente organiziranima u jednom sigurnom radnom prostoru. Omogućite način prijave kad budete spremni prerasti samostalnu upotrebu."
 userTitle = "Pregled plana"
 
 [onboarding.processorIntro]
-body = "Stirling sada pokreće <strong>Pravila</strong> — automatizirana pravila koja klasificiraju, štite i obrađuju svaki dokument čim stigne. Postavite ih i pratite izvođenja u <strong>Processoru</strong>."
+body = "PDF Viewer sada pokreće <strong>Pravila</strong> — automatizirana pravila koja klasificiraju, štite i obrađuju svaki dokument čim stigne. Postavite ih i pratite izvođenja u <strong>Processoru</strong>."
 cta = "Pogledajte Processor"
-title = "Pogledajte Stirling Processor"
+title = "Pogledajte PDF Viewer Processor"
 
 [onboarding.saas.freeEditor]
 freeLine = "Uređivač je sada <free>potpuno besplatan</free>."
 premium = "Dodali smo mnoštvo novih značajki, uključujući <strong>Pravila</strong> i <strong>Agent Chat</strong>."
-title = "Dobro došli u Stirling"
+title = "Dobro došli u PDF Viewer"
 
 [onboarding.saas.team]
 addButton = "Dodaj"
@@ -6786,20 +6786,20 @@ roleUser = "Korisnik"
 title = "Sigurnosna provjera"
 
 [onboarding.serverLicense]
-freeBody = "Naša licenca <strong>Open-Core</strong> uključuje <strong>OAuth SSO</strong> i do <strong>{{freeTierLimit}}</strong> korisnika besplatno. Za rast bez prekida preporučujemo plan Stirling Team — <strong>100 korisnika</strong> za 99 USD mjesečno."
+freeBody = "Naša licenca <strong>Open-Core</strong> uključuje <strong>OAuth SSO</strong> i do <strong>{{freeTierLimit}}</strong> korisnika besplatno. Za rast bez prekida preporučujemo plan PDF Viewer Team — <strong>100 korisnika</strong> za 99 USD mjesečno."
 freeTitle = "Team plan"
-overLimitBody = "Naša licenca dopušta do <strong>{{freeTierLimit}}</strong> korisnika besplatno. Imate <strong>{{overLimitUserCopy}}</strong> Stirling korisnika. Za nastavak bez prekida nadogradite na Stirling Team plan - <strong>100 korisnika</strong>, uređivanje PDF teksta i potpunu administratorsku kontrolu za $99 mjesečno."
+overLimitBody = "Naša licenca dopušta do <strong>{{freeTierLimit}}</strong> korisnika besplatno. Imate <strong>{{overLimitUserCopy}}</strong> PDF Viewer korisnika. Za nastavak bez prekida nadogradite na PDF Viewer Team plan - <strong>100 korisnika</strong>, uređivanje PDF teksta i potpunu administratorsku kontrolu za $99 mjesečno."
 overLimitTitle = "Potreban je Team plan"
 seePlans = "Pogledaj planove →"
 upgrade = "Nadogradi odmah →"
 
 [onboarding.tourOverview]
-body = "Stirling PDF V2 dolazi s desecima alata i osvježenim izgledom. Uzmite kratki obilazak da vidite što se promijenilo i gdje pronaći potrebne značajke."
+body = "PDF Viewer V2 dolazi s desecima alata i osvježenim izgledom. Uzmite kratki obilazak da vidite što se promijenilo i gdje pronaći potrebne značajke."
 title = "Pregled obilaska"
 
 [onboarding.welcomeSlide]
-body = "Stirling PDF je sada spreman za timove svih veličina. Ovo ažuriranje donosi novi izgled, moćne nove administratorske mogućnosti i našu najtraženiju značajku - <strong>Uredi tekst</strong>."
-title = "Dobrodošli u Stirling"
+body = "PDF Viewer je sada spreman za timove svih veličina. Ovo ažuriranje donosi novi izgled, moćne nove administratorske mogućnosti i našu najtraženiju značajku - <strong>Uredi tekst</strong>."
+title = "Dobrodošli u PDF Viewer"
 
 [onboarding.whatsNew]
 activeFilesView = "Koristite Aktivne datoteke da vidite sve što je otvoreno i odaberete na čemu raditi."
@@ -6912,7 +6912,7 @@ check = "Provjeri ponovno"
 checkAccount = "Provjeri račun"
 chooseEmail = "Odaberite njihov račun u {{team}} ili unesite e-poštu kako biste ih pozvali."
 close = "Zatvori dijaloški okvir za prijenos"
-cloudAccount = "Stirling račun"
+cloudAccount = "PDF Viewer račun"
 cloudScopeStyled = "<user>{{name}}</user> će upravljati timom {{team}}, njegovim članovima i naplatom."
 cloudTargetChanged = "Odaberite drugog člana clouda. Ovaj račun više ne ispunjava uvjete za predaju."
 confirm = "Razumijem promjene pristupa i vlasništva."
@@ -6927,7 +6927,7 @@ inviteAddress = "Pozovite <account>{{email}}</account> u {{team}}."
 inviteBlocked = "Pozivnicu nije moguće poslati. Provjerite dostupna mjesta u timu i ima li primatelj već plaćenu pretplatu."
 linkChanged = "Cloud veza poslužitelja se promijenila. Zatražite od operatora poslužitelja da vrati izvornu vezu prije nastavka."
 linkedServerCount = "{{count}} povezanih poslužitelja"
-linkRevoked = "Cloud veza ovog poslužitelja više nije valjana. Otkažite prijenos, zatim ponovno povežite svoj Stirling račun u postavkama. Vlasništvo se neće promijeniti."
+linkRevoked = "Cloud veza ovog poslužitelja više nije valjana. Otkažite prijenos, zatim ponovno povežite svoj PDF Viewer račun u postavkama. Vlasništvo se neće promijeniti."
 localScope = "Oni će biti vlasnici ovog poslužitelja i upravljati naplatom i cloud vezama. Zadržavate administratorski pristup, ali gubite pristup tim postavkama."
 membershipDetails = "Pojedinosti članstva u timu"
 membershipFirst = "Moraju se pridružiti timu prije nego što možete potvrditi prijenos."
@@ -7255,7 +7255,7 @@ benefit1Body = "lančajte alate, zakažite pokretanja, obrađujte skupno"
 benefit1Title = "Automatizacijski pipelineovi"
 benefit2Body = "summarise, classify, redact, AI-OCR"
 benefit2Title = "AI alati"
-benefit3Body = "programski pozovite bilo koji Stirling endpoint"
+benefit3Body = "programski pozovite bilo koji PDF Viewer endpoint"
 benefit3Title = "API pristup"
 button = "Uključi Processor →"
 reassurance = "Bez minimuma · Postavite ograničenje od $0 za testiranje · Otkažite bilo kada"
@@ -7385,7 +7385,7 @@ usdNote = "Procijenjeno u USD. Nakon pretplate možete bilo kada prilagoditi ogr
 [payg.upgrade.checkout]
 capValue = "{{symbol}}{{amount}} / mjesec"
 edit = "Uredi"
-help = "Stripe obrađuje podatke vaše kartice. Stirling ih nikada ne vidi."
+help = "Stripe obrađuje podatke vaše kartice. PDF Viewer ih nikada ne vidi."
 loading = "Učitavanje checkouta…"
 noCap = "Bez ograničenja"
 title = "Dodajte način plaćanja"
@@ -7393,7 +7393,7 @@ title = "Dodajte način plaćanja"
 [payg.upgrade.help]
 aiBody = "summarise, classify, redact, AI-OCR"
 aiTitle = "AI alati"
-apiBody = "programski pristup bilo kojem Stirling endpointu"
+apiBody = "programski pristup bilo kojem PDF Viewer endpointu"
 apiTitle = "API pozivi"
 automationBody = "lančani alati ili zakazana pokretanja koja ne trebaju klikove"
 automationTitle = "Automatizacijski pipelineovi"
@@ -7492,7 +7492,7 @@ overCapacityConsequence = "Postojeći računi ostaju na mjestu. Dodavanje ili po
 overCapacityTitle = "Vaš poslužitelj ima više korisnika nego što vaš plan pokriva"
 perMonth = "/mj"
 perYear = "/god"
-planName = "Stirling Team"
+planName = "PDF Viewer Team"
 reductionNote = "Niži kapacitet počinje pri sljedećoj obnovi. Do tada možete koristiti trenutačnu kvotu. Postojeći korisnici ostaju; novi korisnici su blokirani ako ste iznad kapaciteta kada promjena stupi na snagu."
 renewalNote = "Obnavlja se po {{total}}{{period}}. Otkažite bilo kada u Upotreba i naplata."
 reviewChange = "Pregledaj promjenu u Stripeu"
@@ -8437,35 +8437,35 @@ pdfa-3b = "PDF/A-3b"
 ownerRequired = "Samo vlasnik organizacije može povezati ili prekinuti vezu ovog poslužitelja."
 
 [portal.accountLink.card]
-billingNote = "Ovaj poslužitelj dijeli kvotu obrade vašeg tima u Stirling Cloudu."
-connectDescription = "Povežite ovaj poslužitelj za korištenje kvote obrade vašeg tima u Stirling Cloud."
-disconnectBody = "Ovaj poslužitelj prestat će koristiti kvotu obrade vašeg tima u Stirling Cloud. Vaše lokalne datoteke ostaju na ovom poslužitelju. Za ponovno povezivanje slijedite izvorne korake povezivanja."
+billingNote = "Ovaj poslužitelj dijeli kvotu obrade vašeg tima u PDF Viewer Cloudu."
+connectDescription = "Povežite ovaj poslužitelj za korištenje kvote obrade vašeg tima u PDF Viewer Cloud."
+disconnectBody = "Ovaj poslužitelj prestat će koristiti kvotu obrade vašeg tima u PDF Viewer Cloud. Vaše lokalne datoteke ostaju na ovom poslužitelju. Za ponovno povezivanje slijedite izvorne korake povezivanja."
 disconnectTitle = "Odspojiti ovu instancu?"
 eyebrow = "Ova instanca"
-linkButton = "Povežite svoj Stirling račun"
+linkButton = "Povežite svoj PDF Viewer račun"
 loading = "Provjera veze računa"
 notLinked = "Nije povezano"
-signedInAs = "Prijavljeni ste u Stirling Cloud kao"
+signedInAs = "Prijavljeni ste u PDF Viewer Cloud kao"
 statusError = "Nije moguće provjeriti vezu računa"
-title = "Stirling Cloud"
+title = "PDF Viewer Cloud"
 unlink = "Odspoji ovu instancu"
 
 [portal.accountLink.card.error]
 title = "Nije moguće ažurirati vezu"
 
 [portal.accountLink.card.loginNotConfigured]
-description = "Zatražite od administratora poslužitelja da omogući povezivanje sa Stirling Cloud."
+description = "Zatražite od administratora poslužitelja da omogući povezivanje sa PDF Viewer Cloud."
 title = "Povezivanje računa nije dostupno"
 
 [portal.accountLink.connect]
-adminRequired = "Zatražite od administratora poslužitelja da otvori Upotreba i naplata i poveže Stirling račun za više mjesečnih kredita. Ručni PDF alati i dalje su dostupni."
+adminRequired = "Zatražite od administratora poslužitelja da otvori Upotreba i naplata i poveže PDF Viewer račun za više mjesečnih kredita. Ručni PDF alati i dalje su dostupni."
 adminTitle = "Zatražite od administratora poslužitelja"
 close = "Zatvori"
 copied = "Kopirano"
 copyAdminMessage = "Kopiraj poruku za administratora"
-exhaustedLede = "Ovaj poslužitelj iskoristio je svoje besplatne kredite za ovaj mjesec. Povežite novi ili postojeći Stirling račun za pristup mjesečnoj kvoti vašeg tima."
+exhaustedLede = "Ovaj poslužitelj iskoristio je svoje besplatne kredite za ovaj mjesec. Povežite novi ili postojeći PDF Viewer račun za pristup mjesečnoj kvoti vašeg tima."
 notNow = "Ne sada"
-start = "Poveži Stirling račun"
+start = "Poveži PDF Viewer račun"
 step = "Korak {{current}} od {{total}}"
 
 [portal.accountLink.connect.benefits]
@@ -8479,9 +8479,9 @@ teamsDetail = "Dodajte više korisnika s plaćenim Team planom"
 teamsLabel = "Veći timovi"
 
 [portal.accountLink.connect.callback]
-linkedNotSignedIn = "Niste prijavljeni u Stirling u ovom pregledniku, pa će upotreba i naplata zatražiti prijavu."
+linkedNotSignedIn = "Niste prijavljeni u PDF Viewer u ovom pregledniku, pa će upotreba i naplata zatražiti prijavu."
 retry = "Pokušaj ponovno"
-signedInAnyway = "Prijavljeni ste u Stirling, pa će se naplata i upotreba učitati. Samo veza s poslužiteljem nije dovršena."
+signedInAnyway = "Prijavljeni ste u PDF Viewer, pa će se naplata i upotreba učitati. Samo veza s poslužiteljem nije dovršena."
 working = "Dovršavanje veze."
 
 [portal.accountLink.connect.callback.expired]
@@ -8497,7 +8497,7 @@ body = "Ovaj je zahtjev odbijen ili je već iskorišten. Pokrenite drugi ako to 
 title = "Povezivanje nije dovršeno"
 
 [portal.accountLink.connect.callback.unfinished]
-body = "Stirling nije potvrdio vezu. To je obično privremeno."
+body = "PDF Viewer nije potvrdio vezu. To je obično privremeno."
 title = "Još nije dovršeno"
 
 [portal.accountLink.connect.done]
@@ -8508,23 +8508,23 @@ creditsBarLabel = "Preostali besplatni krediti"
 creditsSuffix = "od {{allowance}} besplatnih kredita preostalo"
 cta = "Gotovo"
 inviteTeam = "Pozovite svoj tim"
-lede = "Ovaj se server sada izvodi putem vašeg Stirling računa."
+lede = "Ovaj se server sada izvodi putem vašeg PDF Viewer računa."
 pendingTitle = "Još malo"
 switchOnProcessor = "Uključite Processor"
 title = "Povezano"
 
 [portal.accountLink.connect.handoff]
-opening = "Otvara se Stirling prijava..."
-reauthLede = "Vaša Stirling sesija je istekla. Ponovna prijava omogućuje vidljivost korištenja i naplate. Ovaj server ostaje povezan u svakom slučaju."
+opening = "Otvara se PDF Viewer prijava..."
+reauthLede = "Vaša PDF Viewer sesija je istekla. Ponovna prijava omogućuje vidljivost korištenja i naplate. Ovaj server ostaje povezan u svakom slučaju."
 title = "Povezivanje"
 
 [portal.accountLink.connectionNotice]
-expiredBody = "Ovaj server nije dosegnuo Stirling Cloud unutar dopuštenog razdoblja izvanmrežnog rada. Značajke Team podržane oblakom i rad Processora pauzirani su. Postojeći podaci i instalirana licencna prava su očuvani. Pristup se automatski vraća nakon što uspješna veza potvrdi vaš plan."
+expiredBody = "Ovaj server nije dosegnuo PDF Viewer Cloud unutar dopuštenog razdoblja izvanmrežnog rada. Značajke Team podržane oblakom i rad Processora pauzirani su. Postojeći podaci i instalirana licencna prava su očuvani. Pristup se automatski vraća nakon što uspješna veza potvrdi vaš plan."
 expiredTitle = "Pristup oblaku pauziran"
 offlineBody = "Vaš posljednji potvrđeni plan ostaje dostupan do {{deadline}}. Obnovite vezu ovog servera prije toga kako biste izbjegli pauziranje značajki i obrade podržanih oblakom."
-offlineTitle = "Stirling Cloud nije dostupan"
+offlineTitle = "PDF Viewer Cloud nije dostupan"
 retry = "Provjeri vezu"
-revokedBody = "Stirling Cloud je odbio ovu vezu računa. Ponovno povežite račun u Postavkama kako biste vratili dostupne značajke podržane oblakom."
+revokedBody = "PDF Viewer Cloud je odbio ovu vezu računa. Ponovno povežite račun u Postavkama kako biste vratili dostupne značajke podržane oblakom."
 revokedTitle = "Veza računa opozvana"
 
 [portal.accountLink.failure]
@@ -8553,17 +8553,17 @@ callbackMismatch = "Konfigurirana adresa sučelja ovog servera ne podudara se s 
 cancel = "Odustani"
 continueReauth = "Prijavite se ponovno"
 exhaustedTitle = "Neka vaši radni tijekovi nastave raditi"
-identity = "Stirling račun"
-linkTitle = "Povežite svoj Stirling račun"
-noAuthorizeUrl = "Stirling nije vratio mjesto za nastavak. Pokušajte ponovno za trenutak."
-startFailed = "Nije moguće dosegnuti Stirling za pokretanje veze. Provjerite odlazni mrežni pristup ovog servera, zatim pokušajte ponovno."
+identity = "PDF Viewer račun"
+linkTitle = "Povežite svoj PDF Viewer račun"
+noAuthorizeUrl = "PDF Viewer nije vratio mjesto za nastavak. Pokušajte ponovno za trenutak."
+startFailed = "Nije moguće dosegnuti PDF Viewer za pokretanje veze. Provjerite odlazni mrežni pristup ovog servera, zatim pokušajte ponovno."
 transferPending = "Prijenos vlasništva je na čekanju. Idite na Postavke → Korisnici da biste ga dovršili ili otkazali, zatim ponovno pokušajte povezivanje."
 
 [portal.accountLink.modal.loginNotConfigured]
 after = "kako bi ovaj poslužitelj mogao dovršiti vezu kada se vratite."
 and = "i"
 before = "Postavite"
-title = "Stirling veza nije konfigurirana"
+title = "PDF Viewer veza nije konfigurirana"
 
 [portal.accountLink.notice]
 loadFailed = "Dijalog za povezivanje računa nije moguće učitati."
@@ -8573,11 +8573,11 @@ openFailed = "Nije moguće otvoriti vaš preglednik. Otvorite Korištenje i napl
 instancesSub = "Self-hosted poslužitelji povezani s istim timom."
 instancesTitle = "Povezane instance"
 manageCloud = "Upravljaj na stirling.com"
-otherInstancesSub = "Drugi samostalno hostani serveri povezani s istim timom u Stirling Cloud."
+otherInstancesSub = "Drugi samostalno hostani serveri povezani s istim timom u PDF Viewer Cloud."
 otherInstancesTitle = "Druge povezane instance"
 revokeError = "Nije moguće opozvati instancu"
 sessionRequired = "Povezane instance pojavit će se nakon što obnovite pristup naplati."
-sub = "Upravljajte vezom ovog poslužitelja s vašim Stirling Cloud računom."
+sub = "Upravljajte vezom ovog poslužitelja s vašim PDF Viewer Cloud računom."
 
 [portal.accountLink.panel.loadError]
 forbidden = "Samo vlasnik tima može upravljati povezanim instancama."
@@ -8600,7 +8600,7 @@ viewAll = "Prikaži sve pipelinee"
 
 [portal.accountLink.rail]
 adminCta = "Kako dobiti više kredita"
-adminSub = "Zamolite administratora servera da poveže Stirling račun za više kredita. Ručni PDF alati i dalje su dostupni."
+adminSub = "Zamolite administratora servera da poveže PDF Viewer račun za više kredita. Ručni PDF alati i dalje su dostupni."
 exhaustedCta = "Poveži račun za više kredita"
 exhaustedSub = "Povežite za mjesečne kredite, zajedničku naplatu i mogućnost rasta uz Team plan."
 exhaustedTitle = "Besplatni krediti ovog servera su potrošeni"
@@ -8614,9 +8614,9 @@ malformed = "Nismo mogli potvrditi ovaj odgovor prijave. Započnite ponovno iz K
 malformedTitle = "Nije moguće potvrditi prijavu"
 rejected = "Ovaj zahtjev za prijavu je odbijen ili je već upotrijebljen. Pokušajte ponovno obnoviti pristup naplati."
 rejectedTitle = "Prijava nije dovršena"
-retry = "Stirling nije mogao dovršiti obnovu pristupa naplati. Pokušajte ponovno za trenutak; vaš server je još uvijek povezan."
+retry = "PDF Viewer nije mogao dovršiti obnovu pristupa naplati. Pokušajte ponovno za trenutak; vaš server je još uvijek povezan."
 retryTitle = "Pristup naplati nije vraćen"
-success = "Vaš pristup naplati je obnovljen. Ovaj server je još uvijek povezan s istim Stirling računom."
+success = "Vaš pristup naplati je obnovljen. Ovaj server je još uvijek povezan s istim PDF Viewer računom."
 title = "Obnovi pristup naplati"
 working = "Vraćanje pristupa naplati."
 
@@ -8675,7 +8675,7 @@ title = "Postavite ograničenje potrošnje"
 [portal.billing.checkout.card]
 fields = "Broj kartice · MM / GG · CVC · ZIP"
 label = "Podaci o kartici"
-note = "Podatke o kartici prikuplja Stripe. Stirling nikada ne pohranjuje PAN ili CVC."
+note = "Podatke o kartici prikuplja Stripe. PDF Viewer nikada ne pohranjuje PAN ili CVC."
 
 [portal.billing.checkout.error]
 title = "Nije moguće pokrenuti checkout"
@@ -8759,7 +8759,7 @@ pdfsUsed_one = "{{count}} PDF obrađen"
 pdfsUsed_other = "Obrađeno {{count}} PDF-ova"
 period = "Razdoblje ugovora: {{start}} – {{end}}"
 sub = "Air-gapped implementacija, SCIM, rezidencija podataka, SLA-ovi za dostupnost i odgovarajući ugovor."
-title = "Pokrećete Stirling u reguliranom okruženju?"
+title = "Pokrećete PDF Viewer u reguliranom okruženju?"
 trial = "Probno razdoblje od {{days}} dana · završava {{date}}"
 usersAgreed = "{{used}} / {{agreed}} ugovorenih korisnika"
 usersOver_one = "{{count}} korisnik iznad ugovorene količine"
@@ -8909,7 +8909,7 @@ spendAgainstLimit = "{{spend}} od {{cap}} po mjeraču u ovom ciklusu"
 [portal.billing.seats]
 awaitingSync = "Čeka se dnevna sinkronizacija; još nije uključeno u ukupni broj flote."
 breakdown = "Gdje se korisnici broje"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 deployment = "Povezani server"
 lastReported = "Prijavljeno {{date}}"
 live = "Broj aktivnih korisnika"
@@ -9041,7 +9041,7 @@ description = "Gdje obrađeni dokumenti završavaju - bucket, drive, tiket ili s
 label = "Datoteke i privitci"
 
 [portal.connections.commonFields.accessToken]
-helperText = "Stirling ovo pohranjuje šifrirano i nikada ga više ne prikazuje."
+helperText = "PDF Viewer ovo pohranjuje šifrirano i nikada ga više ne prikazuje."
 label = "Pristupni token"
 
 [portal.connections.commonFields.apiKey]
@@ -9630,8 +9630,8 @@ brandTag = "Enterprise"
 callInfo = "Poziv od 15 minuta. Ponesite pitanja o cijenama, implementaciji ili sigurnosti ili zajedno isplanirajte uvođenje."
 callTitle = "Razgovarajte s inženjerom rješenja"
 deployment = "Implementacija"
-footer = "Imate pitanja o Stirling Enterpriseu?"
-home = "Idi na Stirling"
+footer = "Imate pitanja o PDF Viewer Enterpriseu?"
+home = "Idi na PDF Viewer"
 member = "Voditelj vašeg tima vodi Enterprise ugovor. Kad započne, ovdje možete pratiti njegov napredak."
 memberDeal = "Voditelj vašeg tima vodi ovaj ugovor. Ovdje možete pratiti njegov napredak."
 quotePanel = "Vaša ponuda"
@@ -9644,8 +9644,8 @@ stagesLabel = "Napredak"
 lede = "Isprobajte besplatno 14 dana, zatim ovdje izradite svoju ponudu i potpišite ugovor. Kartica nije potrebna."
 tickAgreement = "Jedan ugovor koji pokriva MSA, narudžbenicu, EULA-u i DPA"
 tickCompliance = "SCIM, prebivalište podataka i SLA-ovi za dostupnost"
-tickDeploy = "Pokrenite ga na Stirling Cloudu, na vlastitim poslužiteljima ili potpuno air-gapped"
-title = "Stirling Enterprise"
+tickDeploy = "Pokrenite ga na PDF Viewer Cloudu, na vlastitim poslužiteljima ili potpuno air-gapped"
+title = "PDF Viewer Enterprise"
 
 [portal.enterprise.options.airgap]
 more = "Dokumentacija za izvanmrežnu licencu"
@@ -9655,7 +9655,7 @@ point3 = "Prijava ostaje unutar vaše mreže"
 tagline = "Samohostirano u mreži bez pristupa internetu."
 
 [portal.enterprise.options.cloud]
-more = "Dokumentacija za Stirling Cloud"
+more = "Dokumentacija za PDF Viewer Cloud"
 point1 = "Vaš se tim prijavljuje na stirling.com/app"
 point2 = "Radi na AWS-u, s pohranjenim datotekama šifriranima u mirovanju"
 point3 = "Jedinstvena prijava preko vašeg davatelja identiteta zahtijeva samohostiranje"
@@ -9697,11 +9697,11 @@ title = "Obradite svoj prvi dokument"
 
 [portal.enterprise.setup.getApp]
 body = "Instalirajte desktop aplikaciju za Windows, Mac ili Linux i prijavite se računom koji ste upravo izradili ili je koristite izravno iz preglednika."
-title = "Nabavite Stirling"
+title = "Nabavite PDF Viewer"
 
 [portal.enterprise.setup.install]
-body = "Pokrenite ovo na svom poslužitelju. Pokreće Stirling s primijenjenom licencom, a slika uključuje OCR i pretvorbu uredskih dokumenata. Za veće timove koristite Kubernetes."
-title = "Instalirajte i pokrenite Stirling"
+body = "Pokrenite ovo na svom poslužitelju. Pokreće PDF Viewer s primijenjenom licencom, a slika uključuje OCR i pretvorbu uredskih dokumenata. Za veće timove koristite Kubernetes."
+title = "Instalirajte i pokrenite PDF Viewer"
 
 [portal.enterprise.setup.invite]
 body = "Dovedite ljude koji će ga koristiti kako bi proba odražavala stvarni rad."
@@ -9722,21 +9722,21 @@ invite = "Pozovi članove tima"
 kubernetes = "Vodič za Kubernetes"
 licence = "Aktivacija licence"
 ocr = "OCR jezici"
-openApp = "Otvori Stirling"
+openApp = "Otvori PDF Viewer"
 samlGuide = "Vodič za SAML"
 ssoGuide = "Vodič za SSO"
 
 [portal.enterprise.setup.offlineInstall]
 body = "Povucite punu sliku na povezanom računalu, prenesite je i licencnu datoteku, zatim je učitajte i pokrenite. Puna slika dodaje fontove koje izvanmrežni poslužitelj ne može preuzeti."
-title = "Prenesite Stirling i pokrenite ga"
+title = "Prenesite PDF Viewer i pokrenite ga"
 
 [portal.enterprise.setup.offlineLicence]
 body = "Poslužitelj bez pristupa internetu ne može doći do naše licencne usluge, pa umjesto toga provjerava ovu potpisanu datoteku. Držite je uz sliku koju prenosite."
 title = "Preuzmite svoju izvanmrežnu licencu"
 
 [portal.enterprise.setup.people]
-bodyAirgap = "Kreirajte račune na <code>/settings/people</code> ili usmjerite Stirling na vaš interni davatelj identiteta kako prijava nikada ne bi izlazila iz vaše mreže."
-bodySelfHosted = "Kreirajte račune na <code>/settings/people</code> ili povežite davatelja identiteta kako bi se vaš tim prijavljivao svojim poslovnim računima. Stirling koriste u pregledniku na adresi vašeg poslužitelja ili u desktop aplikaciji usmjerenoj na njega."
+bodyAirgap = "Kreirajte račune na <code>/settings/people</code> ili usmjerite PDF Viewer na vaš interni davatelj identiteta kako prijava nikada ne bi izlazila iz vaše mreže."
+bodySelfHosted = "Kreirajte račune na <code>/settings/people</code> ili povežite davatelja identiteta kako bi se vaš tim prijavljivao svojim poslovnim računima. PDF Viewer koriste u pregledniku na adresi vašeg poslužitelja ili u desktop aplikaciji usmjerenoj na njega."
 title = "Dodajte svoje ljude"
 
 [portal.enterprise.setup.signIn]
@@ -9750,7 +9750,7 @@ retry = "Pokušaj ponovno"
 title = "Nešto je pošlo po zlu na ovoj stranici"
 
 [portal.failures]
-closedBySystem = "Stirling"
+closedBySystem = "PDF Viewer"
 noMatches = "Ništa ne odgovara trenutačnim filtrima"
 occurrences = "{{count}} pojavljivanja"
 searchPlaceholder = "Pretražite probleme, korisnike i pogreške"
@@ -9862,7 +9862,7 @@ description = "Na ovom serveru nedostaje softver koji korak treba, pa ga pokreta
 title = "Softver nije instaliran"
 
 [portal.failures.kind.unknown]
-description = "Nešto je pošlo po zlu što Stirling još ne prepoznaje."
+description = "Nešto je pošlo po zlu što PDF Viewer još ne prepoznaje."
 title = "Neprepoznat problem"
 
 [portal.failures.log]
@@ -9895,13 +9895,13 @@ title = "Ništa za pregled"
 [portal.home.download]
 back = "Natrag"
 body = "Preuzmite desktop aplikaciju ili samostalno hostirajte poslužitelj."
-bodyDesktop = "Preuzmite desktop aplikaciju, zatim se prijavite svojim Stirling računom."
+bodyDesktop = "Preuzmite desktop aplikaciju, zatim se prijavite svojim PDF Viewer računom."
 done = "Gotovo"
 guide = "Otvori vodič {{name}}"
 openInBrowser = "Umjesto toga otvori u pregledniku"
 sectionDesktop = "Desktop aplikacija"
 sectionSelfHosted = "Samostalno hostirano"
-title = "Instalirajte Stirling PDF Editor"
+title = "Instalirajte PDF Viewer Editor"
 
 [portal.home.download.docker]
 detailBody = "Pokrenite službenu sliku na svojem poslužitelju."
@@ -9983,7 +9983,7 @@ usageMonth = "Korištenje ovog mjeseca"
 usageToday = "Korištenje danas"
 
 [portal.infrastructure.apiKeys.empty]
-description = "Izradite ključ za početak pozivanja Stirling API-ja."
+description = "Izradite ključ za početak pozivanja PDF Viewer API-ja."
 title = "Još nema API ključeva"
 
 [portal.infrastructure.apiKeys.error]
@@ -10073,7 +10073,7 @@ done = "Gotovo"
 keyNameLabel = "Naziv ključa"
 keyNamePlaceholder = "npr. Produkcijski unos"
 secretKeyCaption = "Tajni ključ"
-secretWarning = "Spremite ovo u upravitelj tajni. Stirling uvijek pohranjuje samo hash, pa ga kasnije nije moguće oporaviti."
+secretWarning = "Spremite ovo u upravitelj tajni. PDF Viewer uvijek pohranjuje samo hash, pa ga kasnije nije moguće oporaviti."
 subtitle = "Dajte ključu naziv kako biste ga kasnije mogli prepoznati. Možete ga opozvati u bilo kojem trenutku."
 subtitleCreated = "Kopirajte ovu tajnu sada — neće se ponovno prikazati."
 title = "Izradi API ključ"
@@ -10257,7 +10257,7 @@ connectionCount_one = "{{count}} veza"
 connectionCount_other = "{{count}} veza"
 customApi = "Prilagođeni API"
 searchPlaceholder = "Pretraži integracije"
-subtitle = "Sve s čime Stirling može komunicirati. Vjerodajnice se ovdje stvaraju jednom, a zatim ih koriste izvori, pravila i tijekovi obrade."
+subtitle = "Sve s čime PDF Viewer može komunicirati. Vjerodajnice se ovdje stvaraju jednom, a zatim ih koriste izvori, pravila i tijekovi obrade."
 title = "Integracije"
 typedName = "Naziv za {{tool}}"
 
@@ -10942,7 +10942,7 @@ saveFailed = "Nije moguće spremiti pipeline. Pokušajte ponovno."
 
 [portal.policies.wizard.locations]
 aiSettings = "Otvori AI postavke"
-builtin = "Stirling baza znanja"
+builtin = "PDF Viewer baza znanja"
 builtinHelp = "Indeksira pretražive dijelove u Stirlingu i vraća obrađeni PDF na odredište u nastavku. Pružatelj embeddinga mora biti konfiguriran u AI postavkama."
 checking = "Provjera dostupnosti unosa..."
 chooseOutput = "Odaberite omogućeno izlazno odredište prije spremanja."
@@ -11035,7 +11035,7 @@ title = "Još nema toka"
 
 [portal.processorFlow.sources]
 comingSoonTag = "Poveži"
-editor = "Stirling PDF uređivač"
+editor = "PDF Viewer uređivač"
 heading = "Izvori"
 perDay = "{{n}} / 24h"
 
@@ -11051,7 +11051,7 @@ title = "Nabava"
 agreeCta = "Potpiši ugovor"
 confidential = "Povjerljivo"
 confirm = "Pročitao/la sam i prihvaćam ovaj Ugovor te izjavljujem da sam ovlašten/a potpisati ga u ime gore navedene organizacije."
-docName = "Stirling Enterprise ugovor"
+docName = "PDF Viewer Enterprise ugovor"
 docSub = "MSA, narudžbenica, EULA i DPA, spojeni u jedan potpis."
 download = "Preuzmi"
 downloadDraftError = "Nije moguće generirati PDF ugovora - renderer dokumenta nije dostupan. Pokušajte ponovno uskoro ili kontaktirajte podršku."
@@ -11091,7 +11091,7 @@ contactNamePlaceholder = "Jane Doe"
 continue = "Nastavi"
 done = "Gotovo"
 editUsage = "Uredi korištenje"
-eula = "Pročitao/la sam i prihvaćam Stirling Enterprise EULA. Njime se uređuje ugovor generiran iz ove ponude."
+eula = "Pročitao/la sam i prihvaćam PDF Viewer Enterprise EULA. Njime se uređuje ugovor generiran iz ove ponude."
 generate = "Generiraj ponudu"
 indemnification = "Poboljšana zaštita IP-a"
 indemnificationSub = "Proširuje našu IP obranu na patentne zahtjeve. Osnovna odšteta za autorska prava, žigove i poslovne tajne uključena je besplatno."
@@ -11099,7 +11099,7 @@ minimum = "Enterprise zahtijeva minimalnu godišnju potrošnju od {{min}}."
 minimumBelow = "Ova ponuda iznosi {{annual}} godišnje. Ako očekujete veću upotrebu, povećajte procijenjeno korištenje; u suprotnom je vjerojatno bolji plan Team."
 minimumNear = "Enterprise zahtijeva minimalnu godišnju potrošnju od {{min}}. Povećajte procijenjeno korištenje da biste je postigli ili to razmotrite s nama."
 minimumNearTitle = "Nedostaje vam {{gap}} godišnje za Enterprise."
-paperBrand = "Stirling PDF"
+paperBrand = "PDF Viewer"
 paperEyebrow = "Enterprise ponuda"
 paperFor = "Pripremljeno za"
 pdfSize = "Veličina PDF"
@@ -11210,7 +11210,7 @@ eyebrow = "Enterprise"
 eyebrowCompany = "{{company}} Enterprise"
 inviteTeammates = "Pozovi članove tima"
 liveSub = "Vaša je organizacija opskrbljena i vaša je licenca aktivna."
-liveTitle = "Aktivni ste na Stirling Enterprise"
+liveTitle = "Aktivni ste na PDF Viewer Enterprise"
 next = "Sljedeće: {{stage}}"
 open = "Otvori nabavu"
 scheduleCall = "Zakaži poziv"
@@ -11246,7 +11246,7 @@ gatingAction = "Prihvatite svoju ponudu"
 label = "Ponuda"
 
 [portal.procurement.journeySteps.trial]
-blurb = "Procijenite Stirling prema svojim dokumentima i tijekovima rada."
+blurb = "Procijenite PDF Viewer prema svojim dokumentima i tijekovima rada."
 gatingAction = "Izradite svoju ponudu"
 label = "Probno razdoblje"
 
@@ -11261,7 +11261,7 @@ trialFileHint = "Ovo je vaša datoteka probne licence. Nakon što vaš ugovor bu
 
 [portal.procurement.live]
 description = "Vaša je pretplata aktivna i licencija je izdana. Vaš je tim postavljen i naplata je započela."
-title = "Aktivni ste na Stirling Enterprise"
+title = "Aktivni ste na PDF Viewer Enterprise"
 
 [portal.procurement.milestone]
 downloadError = "Još nije moguće preuzeti PDF ponude — pokušajte ponovno za trenutak."
@@ -11294,11 +11294,11 @@ airgapSub = "Zapečaćeno, bez izlazne veze"
 back = "Natrag"
 businessName = "Naziv tvrtke"
 businessNamePlaceholder = "Acme Corp"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 cloudSub = "Upravljano, najbrži početak"
 continue = "Nastavi"
 deployment = "Gdje ga treba implementirati?"
-eula = "Prihvaćam Stirling EULA i komercijalne uvjete."
+eula = "Prihvaćam PDF Viewer EULA i komercijalne uvjete."
 fullName = "Puno ime"
 fullNamePlaceholder = "Vaše ime"
 invites = "Pozovite članove tima · neobavezno"
@@ -11344,7 +11344,7 @@ account-link = "Povezivanje računa"
 [portal.shell.sidebar]
 appEditor = "Uređivač"
 appProcessor = "Procesor"
-linkAccount = "Poveži Stirling račun"
+linkAccount = "Poveži PDF Viewer račun"
 primaryNav = "Primarna navigacija"
 
 [portal.shell.topbar]
@@ -11354,7 +11354,7 @@ search = "Pretraži"
 
 [portal.sources]
 processingModeHelp = "Praćenje zadržava originale i obrađuje svaku verziju jednom. Snimka zadržava originale i obrađuje ih pri svakom pokretanju. Potrošnja briše originale nakon uspješne isporuke."
-subtitle = "Ponovno upotrebljive ulazne veze koje dovode dokumente u Stirling. Konfigurirajte izvor jednom, a zatim ga referencirajte iz bilo kojeg broja pipelinea."
+subtitle = "Ponovno upotrebljive ulazne veze koje dovode dokumente u PDF Viewer. Konfigurirajte izvor jednom, a zatim ga referencirajte iz bilo kojeg broja pipelinea."
 title = "Izvori"
 
 [portal.sources.actions]
@@ -11590,7 +11590,7 @@ secretNote = "Tajna za potpisivanje prikazuje se jednom, kada se webhook izradi.
 copy = "Kopiraj"
 done = "Gotovo"
 secret = "Tajna za potpisivanje"
-secretHelp = "Potpišite neobrađeno tijelo svake isporuke ovim ključem (HMAC-SHA256) i pošaljite ga kao X-Stirling-Signature zaglavlje."
+secretHelp = "Potpišite neobrađeno tijelo svake isporuke ovim ključem (HMAC-SHA256) i pošaljite ga kao X-PDF Viewer-Signature zaglavlje."
 secretWarning = "Kopirajte tajnu za potpisivanje sada. Radi vaše sigurnosti prikazuje se samo jednom i ne može se dohvatiti kasnije."
 title = "Webhook izrađen"
 url = "URL za isporuku"
@@ -11618,15 +11618,15 @@ adminOnly = "Mjesečni krediti ovog poslužitelja dijele se među svima na njemu
 barAria = "Preostali besplatni krediti"
 capSuffix_one = "od {{allowance}} besplatnog kredita preostalo ovog mjeseca"
 capSuffix_other = "od {{allowance}} besplatnih kredita preostalo ovog mjeseca"
-connect = "Povežite Stirling račun"
+connect = "Povežite PDF Viewer račun"
 connectBody = "Povezivanje dodaje drugu mjesečnu kvotu, povećava broj korisnika koje ovaj poslužitelj može imati i uključuje Processor."
-connectTitle = "Ovaj poslužitelj nema Stirling račun"
+connectTitle = "Ovaj poslužitelj nema PDF Viewer račun"
 loadError = "Nije moguće pročitati potrošnju kredita ovog poslužitelja. Pokušajte ponovno za trenutak."
 loadErrorTitle = "Nije moguće učitati potrošnju kredita"
 resets = "Ponovno se postavlja {{date}}"
 
 [portal.usage.sessionExpired]
-body = "Sesija vašeg Stirling računa je istekla. Ponovno se prijavite za prikaz naplate — vaša instanca ostaje povezana."
+body = "Sesija vašeg PDF Viewer računa je istekla. Ponovno se prijavite za prikaz naplate — vaša instanca ostaje povezana."
 
 [portal.users]
 title = "Korisnici"
@@ -11741,7 +11741,7 @@ name = "Google Drive"
 scope = "Uvoz datoteka"
 
 [provider.googledrive.accountScope]
-description = "drive ima pristup svakoj datoteci (Google mora verificirati javnu aplikaciju za to); drive.file samo datotekama koje ljudi odaberu ili koje Stirling kreira"
+description = "drive ima pristup svakoj datoteci (Google mora verificirati javnu aplikaciju za to); drive.file samo datotekama koje ljudi odaberu ili koje PDF Viewer kreira"
 label = "Pristup Driveu"
 
 [provider.googledrive.allowAccountConnections]
@@ -12024,7 +12024,7 @@ files = "Datoteke"
 account = "Račun"
 docs = "Dokumentacija"
 editor = "Uređivač"
-home = "Stirling"
+home = "PDF Viewer"
 invite = "Pozovi"
 landmark = "Brza navigacija"
 noProcessorAccess = "Zatražite pristup procesoru od administratora"
@@ -12456,7 +12456,7 @@ yd = "Jardi (yd)"
 back = "Natrag"
 continue = "Nastavi"
 subtitle = "Odaberite gdje će se pokretati."
-title = "Gdje želite pokrenuti Stirling?"
+title = "Gdje želite pokrenuti PDF Viewer?"
 
 [runLocation.choice.browser]
 description = "Web aplikacija."
@@ -12655,8 +12655,8 @@ hideTools = "Sakrij nedostupne alate ▴"
 messageNoFallback = "Alati neće biti dostupni dok se vaš poslužitelj ne vrati na mrežu."
 messageWithFallback = "Neki alati zahtijevaju vezu s poslužiteljem."
 showTools = "Prikaži nedostupne alate ▾"
-title = "Vaš Stirling-PDF poslužitelj je nedostupan"
-toolNotAvailableLocally = "Vaš Stirling-PDF poslužitelj je izvan mreže i \"{{endpoint}}\" nije dostupan na lokalnom pozadinskom sustavu."
+title = "Vaš PDF Viewer poslužitelj je nedostupan"
+toolNotAvailableLocally = "Vaš PDF Viewer poslužitelj je izvan mreže i \"{{endpoint}}\" nije dostupan na lokalnom pozadinskom sustavu."
 
 [serverSetup]
 back = "Natrag"
@@ -12691,7 +12691,7 @@ usernameHelp = "Čime ćete se prijavljivati. Može i adresa e-pošte."
 backendUrl = "Adresa poslužitelja"
 backendUrlHelp = "Gdje pružatelji prijave vraćaju korisnike. Obično isto kao web adresa."
 frontendUrl = "Web adresa"
-frontendUrlHelp = "Gdje korisnici otvaraju Stirling PDF. Koristi se u e-pošti, poveznicama za dijeljenje i QR kodovima."
+frontendUrlHelp = "Gdje korisnici otvaraju PDF Viewer. Koristi se u e-pošti, poveznicama za dijeljenje i QR kodovima."
 subtitle = "Kako korisnici i pružatelji prijave dosežu ovaj poslužitelj."
 title = "Adrese"
 
@@ -12705,7 +12705,7 @@ label = "Samohostani AI"
 provider = "Pružatelj modela"
 providerCustom = "OpenAI-compatible"
 smartModel = "Puni model"
-stirling = "Stirling AI"
+stirling = "PDF Viewer AI"
 subtitle = "Pitanja o dokumentu, automatizirana uređivanja i AI agenti."
 title = "AI"
 
@@ -12716,7 +12716,7 @@ changeLater = "Možete to promijeniti u bilo kojem trenutku u {{path}}."
 decline = "Odbij i nastavi"
 declineFinish = "Odbij i dovrši"
 learnMore = "Što prikupljamo"
-note = "Dijelite podatke o korištenju s ovog poslužitelja s nama kako bismo poboljšali Stirling PDF. Nikada ne prikupljamo datoteke ni njihov sadržaj."
+note = "Dijelite podatke o korištenju s ovog poslužitelja s nama kako bismo poboljšali PDF Viewer. Nikada ne prikupljamo datoteke ni njihov sadržaj."
 title = "Analitika poslužitelja"
 
 [serverSetup.documents]
@@ -12854,7 +12854,7 @@ description = "Vaš OneDrive, SharePoint i Google Drive, za vaše tijekove."
 title = "Povezani računi"
 
 [settings.connectedInstances]
-confirmBody = "Time se opoziva pristup instance vašem timu u Stirling Cloud. Ne brišu se lokalne datoteke niti se uklanja već zabilježena upotreba. Za ponovno povezivanje slijedite izvorne korake povezivanja na instanci."
+confirmBody = "Time se opoziva pristup instance vašem timu u PDF Viewer Cloud. Ne brišu se lokalne datoteke niti se uklanja već zabilježena upotreba. Za ponovno povezivanje slijedite izvorne korake povezivanja na instanci."
 confirmTitle = "Ukloniti {{name}}?"
 connectedAt = "Povezano: {{date}}"
 connectedDate = "Povezano"
@@ -12888,7 +12888,7 @@ unknown = "Nije dostupno"
 yourTeam = "Vaš tim"
 
 [settings.connection]
-description = "Radite lokalno na ovom računalu ili povežite aplikaciju sa Stirling poslužiteljem."
+description = "Radite lokalno na ovom računalu ili povežite aplikaciju sa PDF Viewer poslužiteljem."
 localDescription = "Koristite lokalni pozadinski sustav bez računa. Neki alati koji zahtijevaju obradu u oblaku ili samohostani poslužitelj nisu dostupni."
 logout = "Odjava"
 server = "Poslužitelj"
@@ -12898,19 +12898,19 @@ user = "Prijavljeni kao"
 
 [settings.connection.mode]
 local = "Samo lokalno"
-saas = "Stirling Cloud"
+saas = "PDF Viewer Cloud"
 selfhosted = "Self-hosted"
 
 [settings.developer]
 apiKeys = "API ključevi"
-apiKeysDescription = "Osobni ključevi za pozivanje Stirling API-ja iz skripti i integracija."
+apiKeysDescription = "Osobni ključevi za pozivanje PDF Viewer API-ja iz skripti i integracija."
 title = "Razvoj"
 
 [settings.feedback]
 label = "Povratne informacije"
 
 [settings.feedback.send]
-description = "Prijavite problem ili predložite poboljšanje Stirling timu."
+description = "Prijavite problem ili predložite poboljšanje PDF Viewer timu."
 label = "Pošaljite povratne informacije"
 
 [settings.general]
@@ -12919,7 +12919,7 @@ autoUnzipFileLimit = "Ograničenje automatskog raspakiravanja"
 autoUnzipFileLimitTooltip = "Raspakiraj samo ako ZIP sadrži ovoliko ili manje datoteka. Postavite više za izdvajanje većih ZIP-ova."
 autoUnzipTooltip = "Automatski izdvoji ZIP datoteke vraćene iz API operacija. Isključite da biste zadržali ZIP datoteke netaknute. Ovo ne utječe na automatizirane tijekove rada."
 defaultPdfEditor = "Zadani PDF uređivač"
-defaultPdfEditorActive = "Stirling PDF je vaš zadani PDF uređivač"
+defaultPdfEditorActive = "PDF Viewer je vaš zadani PDF uređivač"
 defaultPdfEditorChecking = "Provjera..."
 defaultPdfEditorInactive = "Druga je aplikacija postavljena kao zadana"
 defaultPdfEditorSet = "Već je zadano"
@@ -12990,7 +12990,7 @@ updateBehavior = "Način ažuriranja"
 updateBehaviorDescription = "Odaberite želite li upit prije instalacije ažuriranja, automatsku instalaciju ili potpuno preskočiti provjere ažuriranja."
 updateBehaviorError = "Nije moguće promijeniti način ažuriranja"
 updateBehaviorErrorLocked = "Ovu je postavku zaključao vaš administrator."
-updateBehaviorLockedDescription = "Vaš je administrator konfigurirao kako Stirling-PDF obrađuje ažuriranja na ovom računalu. Obratite im se za promjenu."
+updateBehaviorLockedDescription = "Vaš je administrator konfigurirao kako PDF Viewer obrađuje ažuriranja na ovom računalu. Obratite im se za promjenu."
 updateBehaviorSaved = "Način ažuriranja spremljen."
 versionMismatch = "Vaša desktop aplikacija i poslužitelj koriste različite verzije. Ažurirajte oboje na istu verziju kako biste izbjegli probleme s kompatibilnošću."
 viewDetails = "Prikaži detalje"
@@ -13091,7 +13091,7 @@ title = "Nadzor"
 [settings.planBilling]
 currentPlan = "Trenutni plan"
 loading = "Učitavanje podataka o naplati..."
-notAvailable = "Plan i naplata dostupni su samo kada ste povezani sa Stirling Cloudom (SaaS način rada)."
+notAvailable = "Plan i naplata dostupni su samo kada ste povezani sa PDF Viewer Cloudom (SaaS način rada)."
 title = "Plan i naplata"
 
 [settings.planBilling.billing]
@@ -13226,7 +13226,7 @@ oauthFailed = "OAuth prijava nije uspjela. Pokušajte ponovno."
 openResetFailed = "Nije bilo moguće otvoriti vaš preglednik za ponovno postavljanje lozinke."
 
 [setup.saas]
-title = "Prijavite se u Stirling"
+title = "Prijavite se u PDF Viewer"
 
 [setup.selfhosted]
 changeServerLocked = "Vaša organizacija je ograničila ovu aplikaciju na određeni poslužitelj"
@@ -13243,7 +13243,7 @@ retry = "Pokušaj ponovno"
 title = "Nije moguće povezati se s poslužiteljem"
 
 [setup.server]
-subtitle = "Unesite URL svog self-hosted Stirling PDF poslužitelja"
+subtitle = "Unesite URL svog self-hosted PDF Viewer poslužitelja"
 testing = "Testiranje veze..."
 title = "Povežite se s poslužiteljem"
 useLast = "Zadnji korišteni poslužitelj: {{serverUrl}}"
@@ -13272,7 +13272,7 @@ step3 = "Ponovno pokrenite poslužitelj"
 title = "Prijava nije omogućena"
 
 [setup.server.url]
-description = "Unesite puni URL svog self-hosted Stirling PDF poslužitelja"
+description = "Unesite puni URL svog self-hosted PDF Viewer poslužitelja"
 label = "URL poslužitelja"
 
 [sharedSign]
@@ -13731,7 +13731,7 @@ pleaseFillAllFields = "Ispunite sva polja"
 signUp = "Registrirajte se"
 signUpWith = "Registrirajte se s"
 skip = "Preskoči"
-subtitle = "Pridružite se Stirling PDF-u kako biste započeli"
+subtitle = "Pridružite se PDF Viewer-u kako biste započeli"
 title = "Stvorite račun"
 unableToAccessTool = "Nije moguće pristupiti alatu: {{error}}"
 unexpectedError = "Neočekivana pogreška: {{message}}"
@@ -14013,7 +14013,7 @@ download = "Preuzmi"
 downloaded = "Preuzeto"
 downloadFailed = "Nije moguće preuzeti ovu datoteku."
 downloadsCount = "Preuzimanja: {{count}}"
-emailWarningBody = "Ovo izgleda kao adresa e-pošte. Ako ova osoba još nije korisnik Stirling PDF-a, neće moći pristupiti datoteci."
+emailWarningBody = "Ovo izgleda kao adresa e-pošte. Ako ova osoba još nije korisnik PDF Viewer-a, neće moći pristupiti datoteci."
 emailWarningConfirm = "Ipak podijeli"
 emailWarningTitle = "Adresa e-pošte"
 errorTitle = "Dijeljenje nije uspjelo"
@@ -14044,7 +14044,7 @@ manageTitle = "Upravljanje dijeljenjem"
 noActivity = "Još nema aktivnosti."
 noLinks = "Još nema aktivnih poveznica za dijeljenje."
 noSharedUsers = "Još nitko nema pristup."
-openInApp = "Otvori u Stirling PDF"
+openInApp = "Otvori u PDF Viewer"
 ownerLabel = "Vlasnik"
 removeLink = "Ukloni poveznicu"
 removeUser = "Ukloni"
@@ -14101,7 +14101,7 @@ all = "Sve"
 ariaLabel = "Super pretraživanje"
 filtersAriaLabel = "Filtri pretraživanja"
 hint = "Upišite za pretraživanje"
-placeholder = "Pretraži Stirling"
+placeholder = "Pretraži PDF Viewer"
 placeholderShort = "Pretraži"
 showLess = "Prikaži manje"
 showMore = "Prikaži još {{count}}"
@@ -14115,7 +14115,7 @@ settings = "Postavke"
 tools = "Alati"
 
 [survey]
-title = "Stirling-PDF anketa"
+title = "PDF Viewer anketa"
 
 [swagger]
 clickHere = "kliknite ovdje"
@@ -14237,7 +14237,7 @@ noFiles = "Dodajte datoteku za početak."
 scopeFiles = "datoteke"
 scopeThisFile = "ova datoteka"
 selectFilesHint = "Odaberite datoteke u Aktivnim datotekama za pokretanje ovog alata"
-signInRequired = "Za ovo je potreban Stirling račun. Prijavite se za nastavak."
+signInRequired = "Za ovo je potreban PDF Viewer račun. Prijavite se za nastavak."
 signInToUse = "Prijavite se za korištenje"
 singleFileScope = "Primjenjuje se samo na: {{fileName}}"
 viewerMode = "Prebacite se na uređivač datoteka za dodavanje više datoteka."
@@ -14290,7 +14290,7 @@ favorites = "Omiljene"
 heading = "Svi alati (prikaz cijelog zaslona)"
 noResults = "Pokušajte prilagoditi pretragu ili prebacite prikaz opisa kako biste našli što trebate."
 recommended = "Preporučeno"
-selfHostedOffline = "Zahtijeva vaš Stirling-PDF poslužitelj (trenutno izvan mreže):"
+selfHostedOffline = "Zahtijeva vaš PDF Viewer poslužitelj (trenutno izvan mreže):"
 showDetails = "Prikaži detalje"
 unavailable = "Onemogućio administrator poslužitelja:"
 unavailableDependency = "Nedostupno - potreban alat nedostaje na poslužitelju:"
@@ -14299,7 +14299,7 @@ unfavorite = "Ukloni iz omiljenih"
 [toolPanel.modePrompt]
 chooseFullscreen = "Koristi način cijelog zaslona"
 chooseSidebar = "Koristi način bočne trake"
-description = "Pregledajte oba izgleda i odlučite kako želite istraživati Stirling PDF alate."
+description = "Pregledajte oba izgleda i odlučite kako želite istraživati PDF Viewer alate."
 dismiss = "Možda kasnije"
 fullscreenDescription = "Pregledajte svaki alat u katalogu koji prekriva radni prostor dok ne odaberete jedan."
 fullscreenTitle = "Način cijelog zaslona - (zastarjelo)"
@@ -14366,7 +14366,7 @@ loadingDetailedInfo = "Učitavanje detaljnih informacija..."
 migrationGuide = "Vodič za migraciju"
 migrationGuides = "Vodiči za migraciju"
 migrationGuidesDesc = "Pregledajte važne promjene prije ažuriranja."
-modalSubtitle = "Nova verzija Stirling PDF-a spremna je za instalaciju."
+modalSubtitle = "Nova verzija PDF Viewer-a spremna je za instalaciju."
 modalTitle = "Dostupno ažuriranje"
 notes = "Bilješke"
 releaseNotes = "Napomene uz izdanje"
@@ -14392,7 +14392,7 @@ urgent = "Hitno"
 attentionBody = "Vaš se administrator treba prijaviti za više informacija. Odmah ih kontaktirajte."
 attentionBodyAdmin = "Pregledajte zahtjeve licence kako bi ovaj poslužitelj bio usklađen."
 attentionTitle = "Ovom poslužitelju treba pažnja administratora"
-message = "Iskoristite Stirling PDF uz 100 korisnika, uređivanje teksta u PDF-u i napredne značajke"
+message = "Iskoristite PDF Viewer uz 100 korisnika, uređivanje teksta u PDF-u i napredne značajke"
 seeInfo = "Prikaži informacije"
 title = "Nadogradite na Team plan"
 upgradeButton = "Nadogradi odmah"
@@ -14530,7 +14530,7 @@ authWeb = "Lozinka"
 create = "Stvori račun"
 createSubtitle = "Stvorite self-hosted račun s lozinkom ili SSO."
 createTitle = "Stvori račun"
-editorDesc = "Uređujte PDF-ove u Stirling PDF Editoru. Svi to dobivaju."
+editorDesc = "Uređujte PDF-ove u PDF Viewer Editoru. Svi to dobivaju."
 email = "Email adresa"
 emailError = "Unesite valjanu email adresu"
 emailPlaceholder2 = "ime@tvrtka.com"
@@ -14545,7 +14545,7 @@ processorDeferred = "Pozivnica je poslana, ali Processor pristup još nije mogao
 processorDesc = "Površina za upravljanje, pokretanje pipelinea, agenata i API."
 role = "Uloga"
 send2 = "Pošalji pozivnicu"
-subtitle2 = "Dobit će e-poruku za pridruživanje vašem Stirling radnom prostoru."
+subtitle2 = "Dobit će e-poruku za pridruživanje vašem PDF Viewer radnom prostoru."
 team = "Tim"
 title = "Pozovi osobe"
 username = "Korisničko ime"
@@ -14687,7 +14687,7 @@ downloads = "Preuzimanja"
 entryLabel = "Sažetak potpisa"
 filesEvaluated_one = "{{count}} datoteka je analizirana"
 filesEvaluated_other = "{{count}} datoteka je analizirano"
-footer = "Provjereno putem Stirling PDF"
+footer = "Provjereno putem PDF Viewer"
 generatedAt = "Generirano"
 noPdf = "PDF izvješće bit će dostupno nakon uspješne provjere."
 page = "Stranica"
@@ -14896,7 +14896,7 @@ text = "Tekst"
 addFile = "Dodaj datoteku"
 count_one = "{{count}} datoteka u ovom portfelju"
 count_other = "{{count}} datoteka u ovom portfelju"
-import = "Uvezi u Stirling"
+import = "Uvezi u PDF Viewer"
 importFailed = "Ovu datoteku nije bilo moguće dodati u vaš radni prostor."
 memberUnavailable = "Ovu datoteku nije bilo moguće pročitati iz portfelja."
 preview = "Pretpregled"

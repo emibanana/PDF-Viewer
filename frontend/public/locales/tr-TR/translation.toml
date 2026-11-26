@@ -56,7 +56,7 @@ loading = "Yükleniyor..."
 loginAgreementAccept = "Kabul et"
 loginAgreementDecline = "Reddet"
 loginAgreementLoadFailed = "Giriş sözleşmesi yüklenemedi."
-loginAgreementProvider = "Bu bildirim Stirling PDF Inc. tarafından değil, yöneticiniz tarafından sağlanmıştır."
+loginAgreementProvider = "Bu bildirim PDF Viewer Inc. tarafından değil, yöneticiniz tarafından sağlanmıştır."
 loginAgreementRetry = "Yeniden dene"
 loginAgreementTitle = "Giriş Sözleşmesi"
 logOut = "Oturumu kapat"
@@ -726,9 +726,9 @@ permissionNotice = "tessdata yolu yazılabilir değil. İndirmeler tarayıcıda 
 
 [admin.settings.ai]
 customProvider = "Özel (OpenAI uyumlu)"
-description = "Stirling'i Python AI motoruna bağlayın, modellerini seçin ve altında çalışacağı koruma kurallarını ayarlayın."
-managedByCloud = "Bu modda Stirling Cloud tarafından yönetilir."
-managedByCloudShort = "Stirling Cloud tarafından yönetilir"
+description = "PDF Viewer'i Python AI motoruna bağlayın, modellerini seçin ve altında çalışacağı koruma kurallarını ayarlayın."
+managedByCloud = "Bu modda PDF Viewer Cloud tarafından yönetilir."
+managedByCloudShort = "PDF Viewer Cloud tarafından yönetilir"
 
 [admin.settings.ai.documents]
 description = "Belgeler üzerinden soruları yanıtlamak için kullanılan embedding modelini ve getirme ayarlarını yapılandırın. Kaydedildiğinde AI engine'e uygulanır."
@@ -779,16 +779,16 @@ description = "Tek tek AI özelliklerini açın veya kapatın. Devre dışı bı
 title = "Yetenekler"
 
 [admin.settings.ai.general.cloud]
-note = "Modeller ve sağlayıcı anahtarları Stirling Cloud tarafından yönetilir, bu nedenle bu ayarlar bu modda geçerli değildir."
+note = "Modeller ve sağlayıcı anahtarları PDF Viewer Cloud tarafından yönetilir, bu nedenle bu ayarlar bu modda geçerli değildir."
 
 [admin.settings.ai.general.cloud.indexing]
-description = "Her AI aracı, yanıtlamak için ihtiyaç duyduğu sayfa metnini gönderir. Bu, Stirling Cloud'un bu metni daha sonraki soruların belgede arama yapabilmesi için dizine eklenmiş olarak saklayıp saklayamayacağını belirler."
+description = "Her AI aracı, yanıtlamak için ihtiyaç duyduğu sayfa metnini gönderir. Bu, PDF Viewer Cloud'un bu metni daha sonraki soruların belgede arama yapabilmesi için dizine eklenmiş olarak saklayıp saklayamayacağını belirler."
 help = "Kapalı, belge sorularının kullanılamayacağı anlamına gelir. Metnin gönderilmesini durdurmaz - yalnızca saklanmasını durdurur."
-label = "Stirling Cloud'un dizine eklenmiş belgeleri saklamasına izin ver"
+label = "PDF Viewer Cloud'un dizine eklenmiş belgeleri saklamasına izin ver"
 
 [admin.settings.ai.general.cloudNote]
-body = "Akıl yürütme Stirling'in altyapısında çalışır ve bu sunucunun bağlı olduğu hesaba ücretlendirilir. Burada çalıştırılacak konteyner veya tutulacak sağlayıcı anahtarı yoktur. AI'ın okuduğu her şey kendi donanımınız yerine Stirling Cloud tarafından işlenir."
-title = "Stirling Cloud AI hakkında"
+body = "Akıl yürütme PDF Viewer'in altyapısında çalışır ve bu sunucunun bağlı olduğu hesaba ücretlendirilir. Burada çalıştırılacak konteyner veya tutulacak sağlayıcı anahtarı yoktur. AI'ın okuduğu her şey kendi donanımınız yerine PDF Viewer Cloud tarafından işlenir."
+title = "PDF Viewer Cloud AI hakkında"
 
 [admin.settings.ai.general.enabled]
 description = "Ana anahtar. Kapalıyken hiçbir AI aracı, agent veya engine çağrısı kullanılamaz."
@@ -826,11 +826,11 @@ label = "Uzun süreli zaman aşımı (saniye)"
 label = "AI nerede çalışır"
 
 [admin.settings.ai.general.mode.cloud]
-description = "Konteyner yok, sağlayıcı anahtarı yok, model seçimi yok - iş Stirling Cloud üzerinde çalışır ve bu sunucunun bağlı olduğu hesaba ücretlendirilir."
-linkCta = "Bu sunucuyu bir Stirling hesabına bağla"
+description = "Konteyner yok, sağlayıcı anahtarı yok, model seçimi yok - iş PDF Viewer Cloud üzerinde çalışır ve bu sunucunun bağlı olduğu hesaba ücretlendirilir."
+linkCta = "Bu sunucuyu bir PDF Viewer hesabına bağla"
 notLinked = "Önce bir hesap bağlayın"
-ownerOnly = "Yalnızca kuruluş sahibi bu sunucuyu bir Stirling hesabına bağlayabilir."
-title = "Stirling Cloud AI kullan"
+ownerOnly = "Yalnızca kuruluş sahibi bu sunucuyu bir PDF Viewer hesabına bağlayabilir."
+title = "PDF Viewer Cloud AI kullan"
 
 [admin.settings.ai.general.mode.off]
 description = "Uygulamanın hiçbir yerinde AI aracı yoktur ve hiçbir şey bu sunucudan ayrılmaz."
@@ -842,7 +842,7 @@ title = "Kendi motorunuzu çalıştırın"
 
 [admin.settings.ai.general.note]
 docs = "Kurulum kılavuzu"
-intro = "Stirling'in yanında çalıştırdığınız ayrı bir konteyner. Akıl yürütmeyi o yapar; Stirling tüm sayfa işlemlerini yine kendisi yapar. Aynısını gerektirir"
+intro = "PDF Viewer'in yanında çalıştırdığınız ayrı bir konteyner. Akıl yürütmeyi o yapar; PDF Viewer tüm sayfa işlemlerini yine kendisi yapar. Aynısını gerektirir"
 outro = "her iki konteynerde ve bir model sağlayıcı anahtarında. AI'ın okuduğu her şey seçtiğiniz sağlayıcıya gönderilir - barındırdığınız bir Ollama her sayfayı kurum içinde tutar."
 title = "AI engine hakkında"
 
@@ -944,24 +944,24 @@ url = "Motor URL"
 
 [admin.settings.ai.status.cloud]
 hostDown = "Kapalı"
-hostLabel = "Stirling.com"
+hostLabel = "PDF Viewer.com"
 hostUp = "Açık"
-name = "Stirling Cloud"
+name = "PDF Viewer Cloud"
 sharingLabel = "AI paylaşımı"
 sharingOff = "Devre dışı"
 sharingOn = "Etkin"
 
 [admin.settings.ai.status.cloud.degraded]
-body = "Stirling Cloud yanıt verdi ancak bu sunucuyu reddetti. Hesap bağlantısı iptal edilmiş olabilir."
-title = "Stirling Cloud bu sunucuyu reddediyor"
+body = "PDF Viewer Cloud yanıt verdi ancak bu sunucuyu reddetti. Hesap bağlantısı iptal edilmiş olabilir."
+title = "PDF Viewer Cloud bu sunucuyu reddediyor"
 
 [admin.settings.ai.status.cloud.down]
-body = "Bu sunucu Stirling Cloud'a ulaşamadı. Hesap bağlantısını ve bu sunucunun internete erişebildiğini kontrol edin."
-title = "Stirling Cloud'a ulaşılamıyor"
+body = "Bu sunucu PDF Viewer Cloud'a ulaşamadı. Hesap bağlantısını ve bu sunucunun internete erişebildiğini kontrol edin."
+title = "PDF Viewer Cloud'a ulaşılamıyor"
 
 [admin.settings.ai.status.cloud.ok]
-body = "Stirling Cloud bu sunucuyu kabul etti. Burada çalıştırılacak veya yamalanacak bir şey yok."
-title = "Stirling Cloud üzerinde çalışıyor"
+body = "PDF Viewer Cloud bu sunucuyu kabul etti. Burada çalıştırılacak veya yamalanacak bir şey yok."
+title = "PDF Viewer Cloud üzerinde çalışıyor"
 
 [admin.settings.ai.status.degraded]
 body = "Sağlık kontrolüne yanıt verdi ancak gerçek bir isteği reddetti. İki taraf farklı paylaşılan gizli anahtarlar kullanıyor."
@@ -1114,7 +1114,7 @@ confirmCodeLabel = "Devam etmek için onay kodunu girin"
 confirmImport = "İçe aktarımı onayla"
 confirmImportTitle = "Veritabanı içe aktarımını onayla"
 connection = "Bağlantı"
-connectionDescription = "Stirling'i yerleşik veritabanı yerine harici bir veritabanına yönlendirin."
+connectionDescription = "PDF Viewer'i yerleşik veritabanı yerine harici bir veritabanına yönlendirin."
 createBackup = "Yedek oluştur"
 created = "Oluşturulma"
 delete = "Sil"
@@ -1215,11 +1215,11 @@ description = "İsteğe bağlı özellikleri ve işlevleri yapılandırın."
 title = "Özellikler"
 
 [admin.settings.features.serverCertificate]
-description = "\"Stirling-PDF ile İmzala\" imzalama özelliğini destekleyen sertifikayı oluşturun."
+description = "\"PDF Viewer ile İmzala\" imzalama özelliğini destekleyen sertifikayı oluşturun."
 label = "Sertifika İmzalama"
 
 [admin.settings.features.serverCertificate.enabled]
-description = "Bu sunucunun oluşturduğu bir sertifikayı kullanarak \"Stirling-PDF ile İmzala\" seçeneğini sun"
+description = "Bu sunucunun oluşturduğu bir sertifikayı kullanarak \"PDF Viewer ile İmzala\" seçeneğini sun"
 label = "Sertifika İmzalamayı Etkinleştir"
 
 [admin.settings.features.serverCertificate.organizationName]
@@ -1236,7 +1236,7 @@ label = "Sertifika Geçerliliği (gün)"
 
 [admin.settings.folderAccess]
 description = "Klasör kaynaklarının ve klasör çıktılarının okuma ve yazma izni olan dizinler. Bu bir güvenlik sınırıdır: otomasyonlar asla bu listenin dışındaki bir sunucu yoluna yönlendirilemez."
-securityNote = "Klasör kaynaklarını ve çıktılarını tamamen devre dışı bırakmak için bunu boş bırakın. Stirling'in kendi yapılandırma dizini her zaman erişime kapalıdır."
+securityNote = "Klasör kaynaklarını ve çıktılarını tamamen devre dışı bırakmak için bunu boş bırakın. PDF Viewer'in kendi yapılandırma dizini her zaman erişime kapalıdır."
 title = "Klasör Erişimi"
 
 [admin.settings.folderAccess.roots]
@@ -1314,7 +1314,7 @@ description = "Yeni kullanıcılar için varsayılan dil (örn., en_US, es_ES)"
 label = "Varsayılan Yerel Ayar"
 
 [admin.settings.general.enableFeedback]
-description = "Kullanıcıların Stirling ekibine geri bildirim göndermesine izin verin"
+description = "Kullanıcıların PDF Viewer ekibine geri bildirim göndermesine izin verin"
 label = "Geri Bildirimi Etkinleştir"
 
 [admin.settings.general.fileUploadLimit]
@@ -1368,7 +1368,7 @@ description = "Çerez politikası için URL veya dosya adı"
 label = "Çerez Politikası"
 
 [admin.settings.legal.disclaimer]
-message = "Bu hukuki belgeleri özelleştirerek, GDPR ve diğer AB veri koruma gereksinimleri dahil olmak üzere yürürlükteki tüm yasa ve yönetmeliklere uygunluğu sağlamaktan tamamen siz sorumlu olursunuz. Yalnızca şu durumlarda bu ayarları değiştirin: (1) kişisel/özel bir örnek çalıştırıyorsanız, (2) AB yargı yetkisi dışında bulunuyor ve yerel yasal yükümlülüklerinizi anlıyorsanız veya (3) uygun hukuki danışmanlık aldıysanız ve tüm kullanıcı verileri ile yasal uyumluluktan yalnızca sizin sorumlu olduğunuzu kabul ediyorsanız. Stirling-PDF ve geliştiricileri yasal yükümlülüklerinizden sorumlu değildir."
+message = "Bu hukuki belgeleri özelleştirerek, GDPR ve diğer AB veri koruma gereksinimleri dahil olmak üzere yürürlükteki tüm yasa ve yönetmeliklere uygunluğu sağlamaktan tamamen siz sorumlu olursunuz. Yalnızca şu durumlarda bu ayarları değiştirin: (1) kişisel/özel bir örnek çalıştırıyorsanız, (2) AB yargı yetkisi dışında bulunuyor ve yerel yasal yükümlülüklerinizi anlıyorsanız veya (3) uygun hukuki danışmanlık aldıysanız ve tüm kullanıcı verileri ile yasal uyumluluktan yalnızca sizin sorumlu olduğunuzu kabul ediyorsanız. PDF Viewer ve geliştiricileri yasal yükümlülüklerinizden sorumlu değildir."
 title = "Hukuki Sorumluluk Uyarısı"
 
 [admin.settings.legal.impressum]
@@ -1456,8 +1456,8 @@ description = "SMTP kimlik doğrulama kullanıcı adı"
 label = "SMTP Kullanıcı Adı"
 
 [admin.settings.mcp]
-apikeyNote = "İstemciler, X-API-KEY üst bilgisinde (veya Authorization: Bearer <key> biçiminde) bir Stirling API anahtarı gönderir. Anahtar, sahibi olan Stirling kullanıcısıyla eşleştirilir; yalnızca tanımlanmış hesaplar erişebilir ve işlemler o kullanıcı adına denetlenir. Anahtarları Hesap > API Anahtarları bölümünden yönetin."
-description = "Stirling'in PDF araçlarını ve yapay zekâ ajanlarını OAuth korumalı bir uç nokta üzerinden MCP istemcilerine sunun."
+apikeyNote = "İstemciler, X-API-KEY üst bilgisinde (veya Authorization: Bearer <key> biçiminde) bir PDF Viewer API anahtarı gönderir. Anahtar, sahibi olan PDF Viewer kullanıcısıyla eşleştirilir; yalnızca tanımlanmış hesaplar erişebilir ve işlemler o kullanıcı adına denetlenir. Anahtarları Hesap > API Anahtarları bölümünden yönetin."
+description = "PDF Viewer'in PDF araçlarını ve yapay zekâ ajanlarını OAuth korumalı bir uç nokta üzerinden MCP istemcilerine sunun."
 title = "MCP Sunucusu"
 
 [admin.settings.mcp.acceptedAudiences]
@@ -1487,7 +1487,7 @@ step3ApiKeyb = "üst bilgisinde gönderin (veya Authorization: Bearer <key>). OA
 step4 = "Oturum açmayı onaylayın; istemci bir belirteçle yeniden dener. Araçlar şu gruplarda görünür: dönüştürme, sayfalar, çeşitli, güvenlik, yapay zekâ."
 step4ApiKey = "Araçlar dönüştürme, sayfalar, çeşitli, güvenlik ve yapay zekâ gruplarında görünür; her çağrı anahtarın sahibi adına denetlenir."
 tip = "İpucu: Kaynak kimliğini, kimlik sağlayıcınızda izin verilen hedef kitle olarak kaydedin. MCP Inspector ve Claude Desktop ile test edilmiştir."
-tipApiKey = "İpucu: API anahtarı modu harici bir kimlik sağlayıcı gerektirmez ve kendi sunucunuzda barındırma için en basit seçenektir. Anahtar, sahibi olan Stirling kullanıcısıyla eşleştirilir."
+tipApiKey = "İpucu: API anahtarı modu harici bir kimlik sağlayıcı gerektirmez ve kendi sunucunuzda barındırma için en basit seçenektir. Anahtar, sahibi olan PDF Viewer kullanıcısıyla eşleştirilir."
 title = "Bir MCP istemcisi bağlayın"
 
 [admin.settings.mcp.issuerUri]
@@ -1500,14 +1500,14 @@ label = "JWKS URL'si (isteğe bağlı)"
 placeholder = "Sağlayıcıdan otomatik keşfedilir"
 
 [admin.settings.mcp.mode]
-apikey = "API anahtarı (Stirling kullanıcı başına anahtar)"
-description = "OAuth harici bir kimlik sağlayıcı gerektirir. API anahtarı, kullanıcı başına bir Stirling API anahtarı (X-API-KEY) kullanır ve kendi sunucunuzda barındırma için en basit seçenektir."
+apikey = "API anahtarı (PDF Viewer kullanıcı başına anahtar)"
+description = "OAuth harici bir kimlik sağlayıcı gerektirir. API anahtarı, kullanıcı başına bir PDF Viewer API anahtarı (X-API-KEY) kullanır ve kendi sunucunuzda barındırma için en basit seçenektir."
 label = "Kimlik doğrulama modu"
 oauth = "OAuth 2.1 (harici kimlik sağlayıcı)"
 
 [admin.settings.mcp.requireAccount]
-description = "Yalnızca konusu tanımlanmış ve etkin bir Stirling kullanıcısıyla eşleşen belirteçlere izin verin."
-label = "Mevcut bir Stirling hesabı gerektir"
+description = "Yalnızca konusu tanımlanmış ve etkin bir PDF Viewer kullanıcısıyla eşleşen belirteçlere izin verin."
+label = "Mevcut bir PDF Viewer hesabı gerektir"
 
 [admin.settings.mcp.resourceId]
 description = "Bu sunucunun herkese açık /mcp URL'si. Belirteçler bunu hedef kitlelerinde (RFC 8707) listelemelidir; aksi takdirde reddedilir."
@@ -1518,7 +1518,7 @@ description = "Okuma işlemleri için mcp.tools.read, yazma/yapay zekâ işlemle
 label = "OAuth kapsamlarını zorunlu tut"
 
 [admin.settings.mcp.usernameClaim]
-description = "Bir Stirling kullanıcı adıyla eşleştirilen JWT talebi (ör. sub, email, preferred_username)."
+description = "Bir PDF Viewer kullanıcı adıyla eşleştirilen JWT talebi (ör. sub, email, preferred_username)."
 label = "Kullanıcı adı talebi"
 
 [admin.settings.plan.noData]
@@ -1847,7 +1847,7 @@ description = "Etkinleştirildiğinde yalnızca listelenen kullanıcı kimlikler
 label = "Belirli Kullanıcı Kimliklerine İzin Ver"
 
 [admin.settings.telegram.enabled]
-description = "Kullanıcıların yapılandırdığınız Telegram botu üzerinden Stirling PDF ile etkileşim kurmasına izin verin."
+description = "Kullanıcıların yapılandırdığınız Telegram botu üzerinden PDF Viewer ile etkileşim kurmasına izin verin."
 label = "Telegram Botunu Etkinleştir"
 
 [admin.settings.telegram.feedback]
@@ -1920,7 +1920,7 @@ settingsOverview = "Burası <strong>Ayarlar Paneli</strong>. Yönetici ayarları
 systemCustomization = "UI'yi özelleştirmenin kapsamlı yolları var: <strong>Sistem Ayarları</strong> uygulama adını ve dilleri değiştirmenizi sağlar, <strong>Özellikler</strong> sunucu sertifikası yönetimine olanak tanır ve <strong>Uç Noktalar</strong> kullanıcılarınız için belirli araçları etkinleştirip devre dışı bırakmanızı sağlar."
 teamsAndUsers = "Buradan <strong>Takımları</strong> ve bireysel kullanıcıları yönetin. Yeni kullanıcıları e-posta, paylaşılabilir bağlantılarla davet edebilir veya onlar için özel hesaplar oluşturabilirsiniz."
 welcome = "<strong>Yönetici Turu</strong>'na hoş geldiniz! Sistem yöneticileri için mevcut güçlü kurumsal özellikleri ve ayarları keşfedelim."
-wrapUp = "Yönetici turu bu kadar! Stirling PDF'yi kuruluşlar için güçlü ve özelleştirilebilir bir çözüm yapan enterprise özellikleri gördünüz. Bunu istediğiniz zaman yeniden oynatabilirsiniz; sadece <strong>Ayarlar</strong>'ı açın ve Yardım altındaki <strong>Turlar</strong> bölümünde bulun."
+wrapUp = "Yönetici turu bu kadar! PDF Viewer'yi kuruluşlar için güçlü ve özelleştirilebilir bir çözüm yapan enterprise özellikleri gördünüz. Bunu istediğiniz zaman yeniden oynatabilirsiniz; sadece <strong>Ayarlar</strong>'ı açın ve Yardım altındaki <strong>Turlar</strong> bölümünde bulun."
 
 [adminUserSettings]
 admin = "Yönetici"
@@ -1936,9 +1936,9 @@ thai = "Tayca"
 
 [analytics]
 learnMore = "Analytics hakkında daha fazla bilgi edinin"
-paragraph1 = "Stirling PDF, ürünü geliştirmemize yardımcı olmak için isteğe bağlı analytics kullanır. Hiçbir kişisel bilgiyi veya dosya içeriğini izlemeyiz."
-paragraph2 = "Stirling PDF’in büyümesine destek olmak ve kullanıcılarımızı daha iyi anlayabilmemiz için analizleri etkinleştirmeyi düşünebilirsiniz."
-title = "Stirling PDF'yi daha iyi hale getirmeye yardımcı olmak ister misiniz?"
+paragraph1 = "PDF Viewer, ürünü geliştirmemize yardımcı olmak için isteğe bağlı analytics kullanır. Hiçbir kişisel bilgiyi veya dosya içeriğini izlemeyiz."
+paragraph2 = "PDF Viewer’in büyümesine destek olmak ve kullanıcılarımızı daha iyi anlayabilmemiz için analizleri etkinleştirmeyi düşünebilirsiniz."
+title = "PDF Viewer'yi daha iyi hale getirmeye yardımcı olmak ister misiniz?"
 
 [annotate]
 tags = "açıklama ekle,vurgula,çiz,işaretle,yorum,notlar,incele,düzeltme,geri bildirim,işaretleme araçları,yapışkan notlar,şekiller,oklar,metin kutusu,serbest çizim"
@@ -2887,9 +2887,9 @@ typeSignature = "İmza oluşturmak için adınızı yazın"
 uploadCert = "Sertifika yükle"
 uploadCertDesc = "Kendi PKCS12, PFX, PEM veya JKS sertifikanızı kullanın."
 uploadSignature = "İmza görselinizi yükleyin"
-usePersonalCert = "Stirling Sign · Kişisel"
+usePersonalCert = "PDF Viewer Sign · Kişisel"
 usePersonalCertDesc = "Hesabınız için oluşturulan sertifikayla imzalayın."
-useServerCert = "Stirling Sign · Kuruluş"
+useServerCert = "PDF Viewer Sign · Kuruluş"
 useServerCertDesc = "Bu sunucunun paylaşılan kuruluş sertifikasıyla imzalayın."
 useSignature = "İmzayı kullan"
 
@@ -3208,8 +3208,8 @@ copy = "Mesajı kopyala"
 
 [chat.dock]
 collapse = "Sohbeti daralt"
-placeholder = "Stirling Agent'a sor"
-title = "Stirling Agent"
+placeholder = "PDF Viewer Agent'a sor"
+title = "PDF Viewer Agent"
 
 [chat.header]
 clearChat = "Sohbeti temizle"
@@ -3363,7 +3363,7 @@ translatedMetadata = "Çevirileri olan bir meta veri girişi"
 
 [checkAccessibility.pdf]
 continued = "{{name}} (devam)"
-footer = "Stirling PDF ile kontrol edildi"
+footer = "PDF Viewer ile kontrol edildi"
 page = "Sayfa {{n}}"
 title = "Erişilebilirlik raporu"
 
@@ -3804,9 +3804,9 @@ label = "Türe göre belgeler: {{summary}}"
 noTypes = "Bu belgeler bilinen bir türle eşleşmedi."
 
 [classificationDemo.defaultApp]
-body = "Stirling'i varsayılan PDF uygulamanız yapın. Email, tarayıcınız veya masaüstünüzden açtığınız her PDF buraya gelir; okumaya veya düzenlemeye hazır olur. Bunu istediğiniz zaman Ayarlar'dan değiştirebilirsiniz."
-cta = "Stirling'i varsayılanım yap"
-title = "Her PDF'yi Stirling'de aç"
+body = "PDF Viewer'i varsayılan PDF uygulamanız yapın. Email, tarayıcınız veya masaüstünüzden açtığınız her PDF buraya gelir; okumaya veya düzenlemeye hazır olur. Bunu istediğiniz zaman Ayarlar'dan değiştirebilirsiniz."
+cta = "PDF Viewer'i varsayılanım yap"
+title = "Her PDF'yi PDF Viewer'de aç"
 
 [classificationDemo.followUp]
 background = "Bu arka planda çalışır. Soldaki halka ilerlemeyi gösterir."
@@ -3821,7 +3821,7 @@ other = "Diğer"
 body = "Downloads klasörünüzdeki en son {{count}} PDF'yi türe göre sınıflandırın ve düzenleyin."
 cta = "Downloads klasörümü işle"
 privacy = "PDF'leriniz bu cihazda kalır. Bağlı sunucunuz işleme kullanımını kaydeder."
-title = "Stirling'in tüm bir klasörle neler yapabileceğini görün"
+title = "PDF Viewer'in tüm bir klasörle neler yapabileceğini görün"
 
 [classificationDemo.phase]
 finishing = "Tamamlanıyor..."
@@ -3835,10 +3835,10 @@ counts = "{{total}} PDF içinden işlendi"
 [classificationDemo.results]
 documentCount_one = "{{count}} PDF"
 documentCount_other = "{{count}} PDF"
-failedBody = "Stirling, Downloads klasörünüzü okuyamadı. Bilgisayarınızda hiçbir şey değiştirilmedi."
+failedBody = "PDF Viewer, Downloads klasörünüzü okuyamadı. Bilgisayarınızda hiçbir şey değiştirilmedi."
 failedTitle = "Bu tamamlanmadı"
 heading = "Downloads klasörünüz, sıralanmış"
-summary = "Stirling {{documents}} okudu ve bunları {{types}} içine sıraladı."
+summary = "PDF Viewer {{documents}} okudu ve bunları {{types}} içine sıraladı."
 typeCount_one = "{{count}} tür"
 typeCount_other = "{{count}} tür"
 
@@ -4176,14 +4176,14 @@ upgradeButton = "Hesabı Yükselt"
 
 [config.apiKeys]
 copyKeyAriaLabel = "API anahtarını kopyala"
-description = "Stirling'in PDF araç paketine erişmek için API anahtarınız. Projenize kopyalayın veya yenisini üretmek için yenileyin."
-docsDescription = "Stirling PDF ile entegrasyon hakkında daha fazla bilgi edinin:"
+description = "PDF Viewer'in PDF araç paketine erişmek için API anahtarınız. Projenize kopyalayın veya yenisini üretmek için yenileyin."
+docsDescription = "PDF Viewer ile entegrasyon hakkında daha fazla bilgi edinin:"
 docsLink = "API Dokümantasyonu"
 docsTitle = "API Dokümantasyonu"
 generateError = "API anahtarınızı oluşturamadık."
 goToAccount = "Hesaba Git"
 guestInfo = "Misafir kullanıcılar API anahtarı alamaz. Uygulamalarınızda kullanabileceğiniz bir API anahtarı almak için bir hesap oluşturun."
-intro = "API anahtarınızı kullanarak Stirling PDF'in işleme yeteneklerine programatik olarak erişin."
+intro = "API anahtarınızı kullanarak PDF Viewer'in işleme yeteneklerine programatik olarak erişin."
 label = "API Anahtarı"
 publicKeyAriaLabel = "Genel API anahtarı"
 refreshAriaLabel = "API anahtarını yenile"
@@ -4207,10 +4207,10 @@ title = "API Anahtarlarını Yenile"
 warning = "⚠️ Uyarı: Bu işlem yeni API anahtarları oluşturur ve önceki anahtarlarınızı geçersiz kılar."
 
 [config.mcp]
-description = "Model Context Protocol (MCP), Claude gibi AI asistanlarının Stirling PDF araçlarınızı doğrudan kullanmasını sağlar. Bir istemciyi bir kez bağlayın; asistanınız sizin adınıza belgeleri dönüştürebilir, düzenleyebilir, güvenceye alabilir ve işleyebilir."
-guestInfo = "Misafir kullanıcılar MCP istemcilerini bağlayamaz. MCP server'ı kullanmak ve AI asistanınızın sizin adınıza Stirling PDF araçlarını çalıştırmasını sağlamak için bir hesap oluşturun."
+description = "Model Context Protocol (MCP), Claude gibi AI asistanlarının PDF Viewer araçlarınızı doğrudan kullanmasını sağlar. Bir istemciyi bir kez bağlayın; asistanınız sizin adınıza belgeleri dönüştürebilir, düzenleyebilir, güvenceye alabilir ve işleyebilir."
+guestInfo = "Misafir kullanıcılar MCP istemcilerini bağlayamaz. MCP server'ı kullanmak ve AI asistanınızın sizin adınıza PDF Viewer araçlarını çalıştırmasını sağlamak için bir hesap oluşturun."
 navLabel = "MCP Sunucusu"
-tip = "Asistanınızın çalıştırdığı her işlem sizin hesabınız üzerinden yapılır ve tıpkı Stirling PDF'i doğrudan kullanmak gibi kullanımınıza sayılır."
+tip = "Asistanınızın çalıştırdığı her işlem sizin hesabınız üzerinden yapılır ve tıpkı PDF Viewer'i doğrudan kullanmak gibi kullanımınıza sayılır."
 viewApiKeys = "API key'leri görüntüle"
 
 [config.mcp.copy]
@@ -4226,7 +4226,7 @@ label = "MCP endpoint'iniz"
 
 [config.mcp.setup]
 addTo = "Şuna ekle"
-hint = "İstemcinizi seçin, parçacığı gösterilen dosyaya yapıştırın ve ardından yeniden başlatın. İlk kullanımda Stirling hesabınızla oturum açacaksınız; kopyalanacak anahtar yok."
+hint = "İstemcinizi seçin, parçacığı gösterilen dosyaya yapıştırın ve ardından yeniden başlatın. İlk kullanımda PDF Viewer hesabınızla oturum açacaksınız; kopyalanacak anahtar yok."
 title = "AI asistanınızı bağlayın"
 
 [config.overview]
@@ -4250,10 +4250,10 @@ step = "Adım {{current}} / {{total}}"
 [connect.confirm]
 acknowledge = "Bu adresi tanıyorum ve ekibime bağlamak istiyorum"
 approve = "Sunucuyu bağla"
-cannotDecide = "Bu bağlantıyı yalnızca bir ekip sahibi onaylayabilir veya reddedebilir. Farklı bir hesap kullanın ya da Stirling'i kullanmaya devam etmek için bu istemi kapatın."
+cannotDecide = "Bu bağlantıyı yalnızca bir ekip sahibi onaylayabilir veya reddedebilir. Farklı bir hesap kullanın ya da PDF Viewer'i kullanmaya devam etmek için bu istemi kapatın."
 deny = "Reddet"
 dismiss = "Kapat"
-lead = "Bir Stirling sunucusu ekibinize bağlanmak istiyor. Onaylamadan önce aşağıdaki adresin size ait olduğunu kontrol edin."
+lead = "Bir PDF Viewer sunucusu ekibinize bağlanmak istiyor. Onaylamadan önce aşağıdaki adresin size ait olduğunu kontrol edin."
 originLabel = "Adres"
 signedInAs = "Oturum açan"
 switchAccount = "Farklı bir hesap kullan"
@@ -4293,7 +4293,7 @@ disconnect = "Bağlantıyı kes"
 google = "Google Drive"
 intro = "Kendi hesaplarınızı bir kez bağlayın. Ardışık düzenleriniz sonra onlar üzerinden sizin adınıza okuyup kaydedebilir."
 microsoft = "Microsoft (OneDrive & SharePoint)"
-needsReconnect = "Stirling bu hesaba artık ulaşamıyor, bu yüzden bunu kullanan ardışık düzenler duraklatıldı."
+needsReconnect = "PDF Viewer bu hesaba artık ulaşamıyor, bu yüzden bunu kullanan ardışık düzenler duraklatıldı."
 none = "Yöneticiniz bağlı hesapları açmadı."
 personal = "Kişisel hesap"
 popupBlocked = "Tarayıcınız oturum açma penceresini engelledi. Bu site için açılır pencerelere izin verin ve tekrar deneyin."
@@ -4438,7 +4438,7 @@ showPreferencesBtn = "Tercihleri Yönet"
 title = "Çerezleri Nasıl Kullanıyoruz"
 
 [cookieBanner.popUp.description]
-1 = "Stirling PDF'nin sizin için daha iyi çalışmasını sağlamak, araçlarımızı geliştirmemize yardımcı olmak ve seveceğiniz özellikler geliştirmeyi sürdürmek için çerezler ve diğer teknolojileri kullanıyoruz."
+1 = "PDF Viewer'nin sizin için daha iyi çalışmasını sağlamak, araçlarımızı geliştirmemize yardımcı olmak ve seveceğiniz özellikler geliştirmeyi sürdürmek için çerezler ve diğer teknolojileri kullanıyoruz."
 2 = "Tercih etmezseniz, 'Hayır Teşekkürler'e tıklamak yalnızca işlerin sorunsuz çalışması için gereken temel çerezleri etkinleştirir."
 
 [cookieBanner.preferencesModal]
@@ -4451,12 +4451,12 @@ subtitle = "Çerez Kullanımı"
 title = "Onay Tercih Merkezi"
 
 [cookieBanner.preferencesModal.analytics]
-description = "Bu çerezler araçlarımızın nasıl kullanıldığını anlamamıza yardımcı olur; böylece topluluğumuzun en çok değer verdiği özellikleri geliştirmeye odaklanabiliriz. İçiniz rahat olsun; Stirling PDF üzerinde çalıştığınız belgelerin içeriğini izleyemez ve asla izlemeyecektir."
+description = "Bu çerezler araçlarımızın nasıl kullanıldığını anlamamıza yardımcı olur; böylece topluluğumuzun en çok değer verdiği özellikleri geliştirmeye odaklanabiliriz. İçiniz rahat olsun; PDF Viewer üzerinde çalıştığınız belgelerin içeriğini izleyemez ve asla izlemeyecektir."
 title = "Analitik"
 
 [cookieBanner.preferencesModal.description]
-1 = "Stirling PDF, deneyiminizi geliştirmek ve araçlarımızın nasıl kullanıldığını anlamak için çerezler ve benzeri teknolojiler kullanır. Bu, performansı iyileştirmemize, önemsediğiniz özellikleri geliştirmemize ve kullanıcılarımıza sürekli destek sağlamamıza yardımcı olur."
-2 = "Stirling PDF, kullandığınız belgelerin içeriğini izleyemez veya erişemez ve bunu asla yapmayacaktır."
+1 = "PDF Viewer, deneyiminizi geliştirmek ve araçlarımızın nasıl kullanıldığını anlamak için çerezler ve benzeri teknolojiler kullanır. Bu, performansı iyileştirmemize, önemsediğiniz özellikleri geliştirmemize ve kullanıcılarımıza sürekli destek sağlamamıza yardımcı olur."
+2 = "PDF Viewer, kullandığınız belgelerin içeriğini izleyemez veya erişemez ve bunu asla yapmayacaktır."
 3 = "Gizliliğiniz ve güveniniz bizim için en önemli şeydir."
 
 [cookieBanner.preferencesModal.necessary]
@@ -4565,11 +4565,11 @@ message = "Varsayılan PDF işleyicisi ayarlanamadı"
 title = "Hata"
 
 [defaultApp.settingsOpened]
-message = "Windows Ayarları'nda 'PDF' arayın ve varsayılan uygulamanız olarak Stirling PDF'yi seçin"
+message = "Windows Ayarları'nda 'PDF' arayın ve varsayılan uygulamanız olarak PDF Viewer'yi seçin"
 title = "Ayarlar Açıldı"
 
 [defaultApp.success]
-message = "Stirling PDF artık varsayılan PDF düzenleyiciniz"
+message = "PDF Viewer artık varsayılan PDF düzenleyiciniz"
 title = "Varsayılan Uygulama Ayarlandı"
 
 [desktop.fileSave]
@@ -4586,7 +4586,7 @@ minimize = "Küçült"
 restore = "Geri yükle"
 
 [desktopBilling]
-description = "Kullanımı ve faturalandırmayı tarayıcınızda yönetin. Burada kullandığınız aynı Stirling hesabıyla oturum açın."
+description = "Kullanımı ve faturalandırmayı tarayıcınızda yönetin. Burada kullandığınız aynı PDF Viewer hesabıyla oturum açın."
 open = "Kullanım ve Faturalandırmayı tarayıcıda aç"
 openFailed = "Kullanım ve Faturalandırma açılamadı. Bağlantınızı kontrol edip tekrar deneyin."
 selfHostedDescription = "Bağlı sunucunuzdaki kullanımı ve faturalandırmayı tarayıcınızda yönetin. Sunucu sahibi hesabınızla oturum açın."
@@ -4638,7 +4638,7 @@ updateFailedMessage = "Güncelleme indirilemedi veya yüklenemedi."
 
 [desktopUpdate.blocked]
 docsLink = "Kurulum belgelerini görüntüle"
-message = "Stirling-PDF bu makinede kendini güncelleme iznine sahip değil."
+message = "PDF Viewer bu makinede kendini güncelleme iznine sahip değil."
 title = "Yönetici izinleri gerekli"
 
 [devAirgapped]
@@ -4912,7 +4912,7 @@ description = "Seçilen sayfaları sırası korunarak yeni bir PDF'ye çıkarır
 open = "Geri bildirim gönder"
 sendMore = "Daha fazla geri bildirim gönder"
 sent = "Geri bildiriminiz için teşekkürler"
-title = "Stirling'i geliştirmemize yardımcı olun"
+title = "PDF Viewer'i geliştirmemize yardımcı olun"
 unavailable = "Geri bildirim kullanılamıyor"
 
 [feedback.tag]
@@ -5117,13 +5117,13 @@ save = "Yeniden adlandır"
 title = "Dosyayı yeniden adlandır"
 
 [filesPage]
-addedToLibrary = "Stirling kütüphanesine eklendi"
-addingToLibrary = "Stirling kütüphanesine ekleniyor…"
-addToLibrary = "Stirling kütüphanesine ekle…"
+addedToLibrary = "PDF Viewer kütüphanesine eklendi"
+addingToLibrary = "PDF Viewer kütüphanesine ekleniyor…"
+addToLibrary = "PDF Viewer kütüphanesine ekle…"
 addToLibraryFailed = "Bazı dosyalar eklenemedi"
 addToWorkspace = "Çalışma alanına ekle"
 addToWorkspaceCount = "{{count}} öğeyi çalışma alanına ekle"
-allFiles = "Stirling kitaplığı"
+allFiles = "PDF Viewer kitaplığı"
 back = "Geri"
 backToFolder = "{{folder}} klasörüne geri dön"
 backToMyFiles = "Dosya kitaplığına geri dön"
@@ -5151,7 +5151,7 @@ deleteFolderContents_one = "Klasör içindeki {{count}} dosyayı da sil"
 deleteFolderContents_other = "Klasör içindeki {{count}} dosyayı da sil"
 deleteFolderContentsWarning = "Dosyalar kalıcı olarak kaldırılacak ve kurtarılamaz."
 deleteFolderError = "Klasör silinemedi. Tekrar deneyin."
-deleteFolderKeepHint = "İçindeki dosyalar Stirling kitaplığına taşınır."
+deleteFolderKeepHint = "İçindeki dosyalar PDF Viewer kitaplığına taşınır."
 deleteFolderTitle = "Klasör silinsin mi?"
 deselectAll = "Seçimi temizle"
 details = "Ayrıntılar"
@@ -5189,7 +5189,7 @@ moveSkippedRemote_other = "{{count}} dosya sunucuda taşınamadı (izin yok veya
 moveTo = "Şuraya taşı…"
 newFolder = "Yeni klasör"
 newFolderStorageDisabled = "Sunucu klasör depolaması etkin değil."
-newFolderTabUnavailable = "Klasör oluşturmak için Stirling kitaplığına geçin."
+newFolderTabUnavailable = "Klasör oluşturmak için PDF Viewer kitaplığına geçin."
 offlineNoFolderEdits = "Sunucu klasör eşitlemesi kullanılamıyor - klasör değişiklikleri devre dışı. Oturum açmayı ve depolama yapılandırmasını kontrol edin."
 open = "Aç"
 openVersionInWorkspace = "Çalışma alanında aç"
@@ -5198,7 +5198,7 @@ recentFiles = "Son kullanılanlar"
 refresh = "Yenile"
 refreshNeedsConnection = "Sunucudan yenilemek için oturum açın."
 remove = "Sil"
-removeLocalFolder = "Stirling'den bağlantısını kaldır"
+removeLocalFolder = "PDF Viewer'den bağlantısını kaldır"
 removeVersion = "Bu sürümü sil"
 rename = "Yeniden adlandır"
 renamed = "Yeniden adlandırıldı"
@@ -5210,7 +5210,7 @@ selectAll = "Tümünü seç"
 selectedCount = "{{count}} seçildi"
 selectedFile = "{{name}}, seçildi"
 selectFile = "{{name}} dosyasını seç"
-serverFolderNeedsConnection = "Sunucu klasörlerini kullanmak için Stirling Cloud'da oturum açın veya kendi barındırdığınız bir sunucuya bağlanın."
+serverFolderNeedsConnection = "Sunucu klasörlerini kullanmak için PDF Viewer Cloud'da oturum açın veya kendi barındırdığınız bir sunucuya bağlanın."
 shareDisabledHint = "Bu sunucuda dosya paylaşımı etkin değil. Yöneticinizden etkinleştirmesini isteyin."
 shareManage = "Paylaşımı yönet"
 showDetails = "Ayrıntıları göster"
@@ -5220,7 +5220,7 @@ summary_other = "{{count}} öğe"
 tree = "Klasörler"
 unmount = "Bağlantısını kaldır"
 unmountFolderBody = "\"{{name}}\" bağlantısı kaldırılsın mı? Klasör ve dosyaları diskinizde kalır."
-unmountFolderTitle = "Stirling'den bağlantısı kaldırılsın mı?"
+unmountFolderTitle = "PDF Viewer'den bağlantısı kaldırılsın mı?"
 upload = "Yükle"
 uploadFromMobile = "Mobil'den yükle"
 versionActions = "Sürüm eylemleri"
@@ -5263,7 +5263,7 @@ orphaned = "Diskte değil"
 orphanedHint = "{{path}} konumundaki özgün dosya yok. Bu kopya yalnızca burada - kaydetmek yeni bir konum soracak."
 unavailable = "Kullanılamıyor"
 unavailableHintOffline = "Bu dosyanın bulunduğu sürücü veya paylaşım bağlı değil. Değişiklikleri tekrar almak için yeniden bağlayın."
-unavailableHintPermission = "Stirling'in bu konumu okumasına izin verilmiyor. Değişiklikleri tekrar almak için Sistem Ayarları'ndan erişim izni verin."
+unavailableHintPermission = "PDF Viewer'in bu konumu okumasına izin verilmiyor. Değişiklikleri tekrar almak için Sistem Ayarları'ndan erişim izni verin."
 unavailableHintUnknown = "Bu dosyaya şu anda ulaşılamıyor. Buradaki kopya değişmedi."
 
 [filesPage.diskState]
@@ -5378,7 +5378,7 @@ placeholder = "Klasör adı"
 
 [filesPage.folderOrigin]
 diskHint = "Diskinizdeki bir dizinden bağlanmış klasör"
-serverHint = "Stirling sunucusunda depolanan klasör"
+serverHint = "PDF Viewer sunucusunda depolanan klasör"
 virtualHint = "Yalnızca bu tarayıcıda bulunan klasör"
 
 [filesPage.moveDialog]
@@ -5402,7 +5402,7 @@ serverHint = "Hesabınızla senkronize edilir, oturum açtığınız her yerde k
 [filesPage.origin]
 all = "Tüm kaynaklar"
 cloud = "Bulut"
-cloudHint = "Stirling sunucusunda depolanır"
+cloudHint = "PDF Viewer sunucusunda depolanır"
 diskFileHint = "Bilgisayarınızda depolanır"
 diskHint = "Diskinizdeki bağlı klasörde bulunan dosya"
 local = "Yerel"
@@ -5413,7 +5413,7 @@ sharedHint = "Bağlantıyla sizinle paylaşılmış"
 
 [filesPage.processing]
 active = "Klasör işleniyor"
-blockedNeedsConnection = "Klasörleri işlemek için Stirling Cloud'da oturum açın veya kendi barındırdığınız bir sunucuya bağlanın."
+blockedNeedsConnection = "Klasörleri işlemek için PDF Viewer Cloud'da oturum açın veya kendi barındırdığınız bir sunucuya bağlanın."
 edit = "İşlemeyi düzenle..."
 nothingToRestore = "Geri yüklenecek özgün yok - bu dosyalar zaten özgün halleri."
 paused = "İşleme duraklatıldı"
@@ -5815,7 +5815,7 @@ invisible = "Görünmez (yalnızca metaveri)"
 location = "Konum:"
 logo = "Logo:"
 logoHidden = "Logo yok"
-logoShown = "Stirling PDF logosu gösteriliyor"
+logoShown = "PDF Viewer logosu gösteriliyor"
 participantCount_one = "{{count}} katılımcı seçildi"
 participantCount_other = "{{count}} katılımcı seçildi"
 participants = "Katılımcılar"
@@ -5866,7 +5866,7 @@ title = "Herhangi Bir Sırada İmzalama"
 dismiss = "Afişi kapat"
 message = "Çalışmanızı kaydetmek, daha fazla özelliğe erişmek ve projeyi desteklemek için ücretsiz bir hesap oluşturun."
 signUp = "Ücretsiz Kaydol"
-title = "Misafir olarak Stirling PDF kullanıyorsunuz!"
+title = "Misafir olarak PDF Viewer kullanıyorsunuz!"
 
 [home.addAttachments]
 desc = "Gömülü PDF eklerini görüntüleyin, ekleyin, çıkarın, yeniden adlandırın veya silin"
@@ -6050,7 +6050,7 @@ tags = "birleştir,kat,bir araya getir,birleştir,PDF'leri birleştir,PDF'leri b
 title = "Birleştir"
 
 [home.mobile]
-brandAlt = "Stirling PDF logosu"
+brandAlt = "PDF Viewer logosu"
 openFiles = "Dosyaları aç"
 swipeHint = "Görünümler arasında geçmek için sola veya sağa kaydırın"
 tools = "Araçlar"
@@ -6084,7 +6084,7 @@ tags = "düzenle,yeniden düzenle,sırala,sayfaları düzenle,sayfaları sırala
 title = "Düzenle"
 
 [home.pdfTextEditor]
-desc = "Gruplu metin düzenleme ve PDF yeniden oluşturma ile Stirling PDF JSON dışa aktarımlarını gözden geçirin ve düzenleyin"
+desc = "Gruplu metin düzenleme ve PDF yeniden oluşturma ile PDF Viewer JSON dışa aktarımlarını gözden geçirin ve düzenleyin"
 tags = "metni düzenle,metni değiştir,metni güncelle,içeriği düzenle,metni güncelle,yeniden yaz,düzelt,değişiklik yap,redline,revize et,metin düzenleyici,içerik düzenleyici"
 title = "PDF Metin Düzenleyici"
 
@@ -6262,7 +6262,7 @@ passwordRequired = "Parola gerekli"
 signIn = "Giriş yap"
 validating = "Davet doğrulanıyor..."
 validationError = "Davet bağlantısı doğrulanamadı"
-welcome = "Stirling PDF'ye hoş geldiniz"
+welcome = "PDF Viewer'ye hoş geldiniz"
 welcomeSubtitle = "Başlamak için hesap kurulumunuzu tamamlayın"
 welcomeTitle = "Davet edildiniz!"
 
@@ -6309,8 +6309,8 @@ terms = "Şartlar ve koşullar"
 title = "3. Taraf Lisansları"
 
 [localMode]
-automationUnavailable = "İşleme klasörleri ve pipeline'ları kullanmak için Stirling Cloud'da veya kendi barındırdığınız bir sunucuda oturum açın."
-toolUnavailable = "Bu araç bir hesap gerektirir. Kullanmak için Stirling Cloud'da oturum açın veya kendi barındırılan bir sunucuya bağlanın."
+automationUnavailable = "İşleme klasörleri ve pipeline'ları kullanmak için PDF Viewer Cloud'da veya kendi barındırdığınız bir sunucuda oturum açın."
+toolUnavailable = "Bu araç bir hesap gerektirir. Kullanmak için PDF Viewer Cloud'da oturum açın veya kendi barındırılan bir sunucuya bağlanın."
 
 [localMode.toolPicker]
 message = "Tüm araçların kilidini açmak için oturum açın."
@@ -6550,7 +6550,7 @@ message = "Kimlik doğrulama başarılı olmadı. Bu pencereyi kapatıp tekrar d
 title = "Kimlik Doğrulama Başarısız"
 
 [oauth.success]
-message = "Bu pencereyi kapatabilir ve Stirling PDF'ye dönebilirsiniz."
+message = "Bu pencereyi kapatabilir ve PDF Viewer'ye dönebilirsiniz."
 title = "Kimlik Doğrulama Başarılı"
 
 [oauthConsent]
@@ -6563,17 +6563,17 @@ loadFailed = "Bu yetkilendirme isteği geçersiz veya süresi dolmuş. Bu sekmey
 loading = "Yetkilendirme isteği yükleniyor..."
 missingId = "Yetkilendirme isteği eksik. Bağlantıyı uygulamanızdan başlatın ve tekrar deneyin."
 redirecting = "Uygulamaya geri döndürülüyorsunuz..."
-requesting = "{{app}} Stirling PDF hesabınıza erişmek istiyor"
+requesting = "{{app}} PDF Viewer hesabınıza erişmek istiyor"
 scopesIntro = "Bu, {{app}} uygulamasına şunları yapma izni verir:"
 signedInAs = "{{name}} olarak oturum açıldı"
 signInButton = "Devam etmek için oturum aç"
-signInPrompt = "Uygulamayı bağlamaya devam etmek için Stirling PDF hesabınızda oturum açın."
+signInPrompt = "Uygulamayı bağlamaya devam etmek için PDF Viewer hesabınızda oturum açın."
 title = "Erişimi yetkilendir"
 unknownApp = "Üçüncü taraf bir uygulama"
 
 [oauthConsent.access]
 actAsYou = "Sizin adınıza hareket eder - {{app}} tarafından yapılan her şey hesabınız altında çalışır ve kullanımınıza dahil edilir"
-tools = "Stirling PDF araçlarınızı sizin adınıza kullanır - belgelerinizi dönüştürür, düzenler, imzalar, güvenceye alır ve işler"
+tools = "PDF Viewer araçlarınızı sizin adınıza kullanır - belgelerinizi dönüştürür, düzenler, imzalar, güvenceye alır ve işler"
 
 [oauthConsent.scope]
 email = "Email adresinizi görme"
@@ -6703,26 +6703,26 @@ skipTheTour = "Turu atla"
 
 [onboarding.checklist]
 dismiss = "Kapat"
-title = "Stirling PDF'yi kurun"
+title = "PDF Viewer'yi kurun"
 
 [onboarding.checklist.downloadDesktop]
-description = "Stirling'i makinenizde yerel olarak çalıştırın"
-title = "Masaüstü için Stirling'i indir"
+description = "PDF Viewer'i makinenizde yerel olarak çalıştırın"
+title = "Masaüstü için PDF Viewer'i indir"
 
 [onboarding.checklist.inviteTeam]
 description = "Ekibinizle iş birliği yapın"
 title = "Ekip üyelerini davet et"
 
 [onboarding.checklist.setDefaultApp]
-description = "PDF dosyalarını Stirling PDF ile aç"
-title = "Stirling'i varsayılan yap"
+description = "PDF dosyalarını PDF Viewer ile aç"
+title = "PDF Viewer'i varsayılan yap"
 
 [onboarding.checklist.takeTour]
-description = "Kısa bir gezintiyle Stirling'in nasıl çalıştığını görün"
+description = "Kısa bir gezintiyle PDF Viewer'in nasıl çalıştığını görün"
 title = "Tura katıl"
 
 [onboarding.desktopInstall]
-body = "Stirling, bir masaüstü uygulaması olarak en iyi şekilde çalışır. Çevrimdışı kullanabilir, belgelere daha hızlı erişebilir ve düzenlemeleri bilgisayarınızda yerel olarak yapabilirsiniz."
+body = "PDF Viewer, bir masaüstü uygulaması olarak en iyi şekilde çalışır. Çevrimdışı kullanabilir, belgelere daha hızlı erişebilir ve düzenlemeleri bilgisayarınızda yerel olarak yapabilirsiniz."
 selectOs = "İşletim sistemini seç"
 title = "İndir"
 titleWithOs = "{{osLabel}} için indir"
@@ -6730,7 +6730,7 @@ titleWithOs = "{{osLabel}} için indir"
 [onboarding.desktopWelcome]
 body = "<strong>Agent Chat</strong>, otomatik belge <strong>sınıflandırması</strong> ve daha fazlası dahil keşfedilecek pek çok yeni değişiklik var."
 freeLine = "Düzenleyici artık <free>tamamen ücretsiz</free>."
-title = "Stirling <product>Desktop</product>'a hoş geldiniz"
+title = "PDF Viewer <product>Desktop</product>'a hoş geldiniz"
 
 [onboarding.mfa]
 authenticationCode = "Kimlik doğrulama kodu"
@@ -6751,21 +6751,21 @@ success = "MFA etkinleştirildi. Şimdi devam edebilirsiniz."
 title = "Çok Faktörlü Kimlik Doğrulama Kurulumu"
 
 [onboarding.planOverview]
-adminBodyLoginDisabled = "Oturum açma modunu etkinleştirdiğinizde kullanıcıları yönetebilir, ayarları yapılandırabilir ve sunucu sağlığını izleyebilirsiniz. Sunucunuzdaki ilk <strong>{{freeTierLimit}}</strong> kişi Stirling'i ücretsiz kullanır."
-adminBodyLoginEnabled = "Bir yönetici olarak kullanıcıları yönetebilir, ayarları yapılandırabilir ve sunucu sağlığını izleyebilirsiniz. Sunucunuzdaki ilk <strong>{{freeTierLimit}}</strong> kişi Stirling'i ücretsiz kullanır."
+adminBodyLoginDisabled = "Oturum açma modunu etkinleştirdiğinizde kullanıcıları yönetebilir, ayarları yapılandırabilir ve sunucu sağlığını izleyebilirsiniz. Sunucunuzdaki ilk <strong>{{freeTierLimit}}</strong> kişi PDF Viewer'i ücretsiz kullanır."
+adminBodyLoginEnabled = "Bir yönetici olarak kullanıcıları yönetebilir, ayarları yapılandırabilir ve sunucu sağlığını izleyebilirsiniz. Sunucunuzdaki ilk <strong>{{freeTierLimit}}</strong> kişi PDF Viewer'i ücretsiz kullanır."
 adminTitle = "Yönetici Özeti"
 userBody = "Ekip arkadaşlarını davet edin, roller atayın ve belgelerinizi tek bir güvenli çalışma alanında düzenli tutun. Tek başına kullanımdan büyümeye hazır olduğunuzda oturum açma modunu etkinleştirin."
 userTitle = "Plan Özeti"
 
 [onboarding.processorIntro]
-body = "Stirling artık <strong>İlkeler</strong> çalıştırıyor — her belge geldiğinde onu sınıflandıran, güvenceye alan ve işleyen otomatik kurallar. Bunları ayarlayın ve çalışmaları <strong>Processor</strong> içinde izleyin."
+body = "PDF Viewer artık <strong>İlkeler</strong> çalıştırıyor — her belge geldiğinde onu sınıflandıran, güvenceye alan ve işleyen otomatik kurallar. Bunları ayarlayın ve çalışmaları <strong>Processor</strong> içinde izleyin."
 cta = "Processor'ı incele"
-title = "Stirling Processor'ı inceleyin"
+title = "PDF Viewer Processor'ı inceleyin"
 
 [onboarding.saas.freeEditor]
 freeLine = "Düzenleyici artık <free>tamamen ücretsiz</free>."
 premium = "<strong>Policies</strong> ve <strong>Agent Chat</strong> dahil birçok yeni özellik ekledik."
-title = "Stirling'e hoş geldiniz"
+title = "PDF Viewer'e hoş geldiniz"
 
 [onboarding.saas.team]
 addButton = "Ekle"
@@ -6786,20 +6786,20 @@ roleUser = "Kullanıcı"
 title = "Güvenlik Kontrolü"
 
 [onboarding.serverLicense]
-freeBody = "<strong>Open-Core</strong> lisansımız, <strong>OAuth SSO</strong> ve en fazla <strong>{{freeTierLimit}}</strong> kullanıcıyı ücretsiz olarak içerir. Kesintisiz büyümek için Stirling Team planını öneririz — ayda 99 ABD doları karşılığında <strong>100 kullanıcı</strong>."
+freeBody = "<strong>Open-Core</strong> lisansımız, <strong>OAuth SSO</strong> ve en fazla <strong>{{freeTierLimit}}</strong> kullanıcıyı ücretsiz olarak içerir. Kesintisiz büyümek için PDF Viewer Team planını öneririz — ayda 99 ABD doları karşılığında <strong>100 kullanıcı</strong>."
 freeTitle = "Team planı"
-overLimitBody = "Lisansımız ücretsiz olarak en fazla <strong>{{freeTierLimit}}</strong> kullanıcıya izin verir. <strong>{{overLimitUserCopy}}</strong> Stirling kullanıcınız var. Kesintisiz devam etmek için Stirling Team planına yükseltin - <strong>100 kullanıcı</strong>, PDF metin düzenleme ve tam yönetici kontrolü $99/ay."
+overLimitBody = "Lisansımız ücretsiz olarak en fazla <strong>{{freeTierLimit}}</strong> kullanıcıya izin verir. <strong>{{overLimitUserCopy}}</strong> PDF Viewer kullanıcınız var. Kesintisiz devam etmek için PDF Viewer Team planına yükseltin - <strong>100 kullanıcı</strong>, PDF metin düzenleme ve tam yönetici kontrolü $99/ay."
 overLimitTitle = "Team planı gerekli"
 seePlans = "Planlara Bak →"
 upgrade = "Şimdi yükselt →"
 
 [onboarding.tourOverview]
-body = "Stirling PDF V2 onlarca araç ve yenilenmiş bir düzenle gelir. Nelerin değiştiğini ve ihtiyaç duyduğunuz özellikleri nerede bulacağınızı görmek için kısa bir tura çıkın."
+body = "PDF Viewer V2 onlarca araç ve yenilenmiş bir düzenle gelir. Nelerin değiştiğini ve ihtiyaç duyduğunuz özellikleri nerede bulacağınızı görmek için kısa bir tura çıkın."
 title = "Tur Genel Bakış"
 
 [onboarding.welcomeSlide]
-body = "Stirling PDF artık her boyuttan ekip için hazır. Bu güncelleme yeni bir düzen, güçlü yeni yönetici yetenekleri ve en çok istenen özelliği içerir - <strong>Metni Düzenle</strong>."
-title = "Stirling'e hoş geldiniz"
+body = "PDF Viewer artık her boyuttan ekip için hazır. Bu güncelleme yeni bir düzen, güçlü yeni yönetici yetenekleri ve en çok istenen özelliği içerir - <strong>Metni Düzenle</strong>."
+title = "PDF Viewer'e hoş geldiniz"
 
 [onboarding.whatsNew]
 activeFilesView = "Açık olan her şeyi görmek ve üzerinde çalışılacak dosyayı seçmek için Aktif Dosyaları kullanın."
@@ -6912,7 +6912,7 @@ check = "Tekrar kontrol et"
 checkAccount = "Hesabı kontrol et"
 chooseEmail = "{{team}} içinde hesaplarını seçin veya davet etmek için bir e-posta girin."
 close = "Devir iletişim kutusunu kapat"
-cloudAccount = "Stirling hesabı"
+cloudAccount = "PDF Viewer hesabı"
 cloudScopeStyled = "<user>{{name}}</user>, {{team}}, üyelerini ve faturalandırmayı yönetecek."
 cloudTargetChanged = "Başka bir bulut üyesi seçin. Bu hesap artık devir için uygun değil."
 confirm = "Erişim ve sahiplik değişikliklerini anlıyorum."
@@ -6927,7 +6927,7 @@ inviteAddress = "<account>{{email}}</account> adresini {{team}} ekibine davet et
 inviteBlocked = "Davet gönderilemedi. Kullanılabilir ekip koltuklarını ve alıcının zaten ücretli aboneliği olup olmadığını kontrol edin."
 linkChanged = "Sunucunun bulut bağlantısı değişti. Sürdürmeden önce sunucu operatöründen özgün bağlantıyı geri yüklemesini isteyin."
 linkedServerCount = "{{count}} bağlı sunucu"
-linkRevoked = "Bu sunucunun bulut bağlantısı artık geçerli değil. Devri iptal edin, ardından Stirling hesabınızı ayarlardan yeniden bağlayın. Sahiplik değişmeyecek."
+linkRevoked = "Bu sunucunun bulut bağlantısı artık geçerli değil. Devri iptal edin, ardından PDF Viewer hesabınızı ayarlardan yeniden bağlayın. Sahiplik değişmeyecek."
 localScope = "Bu sunucunun sahibi olacak ve faturalandırmayı ve bulut bağlantılarını yönetecekler. Yönetici erişiminiz devam eder, ancak bu ayarlara erişiminizi kaybedersiniz."
 membershipDetails = "Ekip üyeliği ayrıntıları"
 membershipFirst = "Devri onaylayabilmeniz için önce ekibe katılmaları gerekir."
@@ -7255,7 +7255,7 @@ benefit1Body = "araçları zincirleyin, çalıştırmaları zamanlayın, toplu i
 benefit1Title = "Otomasyon pipeline'ları"
 benefit2Body = "özetleme, sınıflandırma, sansürleme, AI-OCR"
 benefit2Title = "AI araçları"
-benefit3Body = "herhangi bir Stirling endpoint'ini programatik olarak çağırın"
+benefit3Body = "herhangi bir PDF Viewer endpoint'ini programatik olarak çağırın"
 benefit3Title = "API erişimi"
 button = "Processor'ı aç →"
 reassurance = "Minimum yok · Test için $0 limit ayarlayın · İstediğiniz zaman iptal edin"
@@ -7345,7 +7345,7 @@ editorLabel = "PDF Düzenleyici"
 login = "Oturum aç"
 manualToolsPromo = "Sınırsız ücretsiz manuel PDF araçları"
 processorLabel = "PDF İşleyici"
-processorTitle = "Stirling'in en iyi özelliklerinin kilidini açmak için bir hesap oluşturun"
+processorTitle = "PDF Viewer'in en iyi özelliklerinin kilidini açmak için bir hesap oluşturun"
 readerLabel = "PDF Okuyucu"
 
 [payg.spendCapMeter]
@@ -7385,7 +7385,7 @@ usdNote = "USD cinsinden tahmin edilir. Abone olduktan sonra limitinizi istediğ
 [payg.upgrade.checkout]
 capValue = "{{symbol}}{{amount}} / ay"
 edit = "Düzenle"
-help = "Stripe kart bilgilerinizi yönetir. Stirling bunları asla görmez."
+help = "Stripe kart bilgilerinizi yönetir. PDF Viewer bunları asla görmez."
 loading = "Checkout yükleniyor…"
 noCap = "Limit yok"
 title = "Ödeme yönteminizi ekleyin"
@@ -7393,7 +7393,7 @@ title = "Ödeme yönteminizi ekleyin"
 [payg.upgrade.help]
 aiBody = "özetleme, sınıflandırma, sansürleme, AI-OCR"
 aiTitle = "AI araçları"
-apiBody = "herhangi bir Stirling endpoint'ine programatik erişim"
+apiBody = "herhangi bir PDF Viewer endpoint'ine programatik erişim"
 apiTitle = "API çağrıları"
 automationBody = "tıklama gerektirmeyen zincirlenmiş araçlar veya zamanlanmış çalıştırmalar"
 automationTitle = "Otomasyon pipeline'ları"
@@ -7492,7 +7492,7 @@ overCapacityConsequence = "Mevcut hesaplar yerinde kalır. Kapasite ekleyene vey
 overCapacityTitle = "Sunucunuzda planınızın kapsadığından fazla kullanıcı var"
 perMonth = "/ay"
 perYear = "/yıl"
-planName = "Stirling Team"
+planName = "PDF Viewer Team"
 reductionNote = "Daha düşük kapasite bir sonraki yenilemenizde başlar. O zamana kadar mevcut hakkınızı kullanabilirsiniz. Mevcut kullanıcılar kalır; değişiklik yürürlüğe girdiğinde kapasitenin üzerindeyseniz yeni kullanıcılar engellenir."
 renewalNote = "{{total}}{{period}} olarak yenilenir. Usage & Billing bölümünden istediğiniz zaman iptal edin."
 reviewChange = "Değişikliği Stripe'da incele"
@@ -8437,35 +8437,35 @@ pdfa-3b = "PDF/A-3b"
 ownerRequired = "Bu sunucuyu yalnızca org sahibi bağlayabilir veya bağlantısını kaldırabilir."
 
 [portal.accountLink.card]
-billingNote = "Bu sunucu, ekibinizin Stirling Cloud'daki işleme hakkını paylaşır."
-connectDescription = "Stirling Cloud'da ekibinizin işleme hakkını kullanmak için bu sunucuyu bağlayın."
-disconnectBody = "Bu sunucu, Stirling Cloud'da ekibinizin işleme hakkını kullanmayı durduracak. Yerel dosyalarınız bu sunucuda kalır. Yeniden bağlanmak için özgün bağlantı adımlarını izleyin."
+billingNote = "Bu sunucu, ekibinizin PDF Viewer Cloud'daki işleme hakkını paylaşır."
+connectDescription = "PDF Viewer Cloud'da ekibinizin işleme hakkını kullanmak için bu sunucuyu bağlayın."
+disconnectBody = "Bu sunucu, PDF Viewer Cloud'da ekibinizin işleme hakkını kullanmayı durduracak. Yerel dosyalarınız bu sunucuda kalır. Yeniden bağlanmak için özgün bağlantı adımlarını izleyin."
 disconnectTitle = "Bu instance bağlantısı kesilsin mi?"
 eyebrow = "Bu örnek"
-linkButton = "Stirling hesabınızı bağlayın"
+linkButton = "PDF Viewer hesabınızı bağlayın"
 loading = "Hesap bağlantısı kontrol ediliyor"
 notLinked = "Bağlı değil"
-signedInAs = "Stirling Cloud'da şu kullanıcı olarak oturum açıldı"
+signedInAs = "PDF Viewer Cloud'da şu kullanıcı olarak oturum açıldı"
 statusError = "Hesap bağlantısı kontrol edilemedi"
-title = "Stirling Cloud"
+title = "PDF Viewer Cloud"
 unlink = "Bu örneğin bağlantısını kes"
 
 [portal.accountLink.card.error]
 title = "Bağlantı güncellenemedi"
 
 [portal.accountLink.card.loginNotConfigured]
-description = "Sunucu yöneticinizden Stirling Cloud bağlantısını etkinleştirmesini isteyin."
+description = "Sunucu yöneticinizden PDF Viewer Cloud bağlantısını etkinleştirmesini isteyin."
 title = "Hesap bağlantısı kullanılamıyor"
 
 [portal.accountLink.connect]
-adminRequired = "Sunucu yöneticinizden Usage & billing bölümünü açmasını ve daha fazla aylık kredi için bir Stirling hesabı bağlamasını isteyin. Manuel PDF araçları hâlâ kullanılabilir."
+adminRequired = "Sunucu yöneticinizden Usage & billing bölümünü açmasını ve daha fazla aylık kredi için bir PDF Viewer hesabı bağlamasını isteyin. Manuel PDF araçları hâlâ kullanılabilir."
 adminTitle = "Sunucu yöneticinize sorun"
 close = "Kapat"
 copied = "Kopyalandı"
 copyAdminMessage = "Yönetici için mesajı kopyala"
-exhaustedLede = "Bu sunucu bu ay ücretsiz kredilerini kullandı. Ekibinizin aylık hakkına erişmek için yeni veya mevcut bir Stirling hesabı bağlayın."
+exhaustedLede = "Bu sunucu bu ay ücretsiz kredilerini kullandı. Ekibinizin aylık hakkına erişmek için yeni veya mevcut bir PDF Viewer hesabı bağlayın."
 notNow = "Şimdi değil"
-start = "Stirling hesabını bağla"
+start = "PDF Viewer hesabını bağla"
 step = "{{total}} adımdan {{current}}."
 
 [portal.accountLink.connect.benefits]
@@ -8479,9 +8479,9 @@ teamsDetail = "Ücretli Team planıyla daha fazla kullanıcı ekleyin"
 teamsLabel = "Daha büyük ekipler"
 
 [portal.accountLink.connect.callback]
-linkedNotSignedIn = "Bu tarayıcıda Stirling'de oturum açmadınız, bu yüzden kullanım ve faturalandırma oturum açmanızı isteyecek."
+linkedNotSignedIn = "Bu tarayıcıda PDF Viewer'de oturum açmadınız, bu yüzden kullanım ve faturalandırma oturum açmanızı isteyecek."
 retry = "Tekrar dene"
-signedInAnyway = "Stirling'de oturum açtınız, bu yüzden faturalandırma ve kullanım yüklenecek. Yalnızca sunucu bağlantısı eksik."
+signedInAnyway = "PDF Viewer'de oturum açtınız, bu yüzden faturalandırma ve kullanım yüklenecek. Yalnızca sunucu bağlantısı eksik."
 working = "Bağlantı tamamlanıyor."
 
 [portal.accountLink.connect.callback.expired]
@@ -8497,7 +8497,7 @@ body = "Bu istek reddedildi veya zaten kullanılmış. Amaç bu değilse başka 
 title = "Bağlantı tamamlanmadı"
 
 [portal.accountLink.connect.callback.unfinished]
-body = "Stirling bağlantıyı onaylamadı. Bu genellikle geçicidir."
+body = "PDF Viewer bağlantıyı onaylamadı. Bu genellikle geçicidir."
 title = "Henüz bitmedi"
 
 [portal.accountLink.connect.done]
@@ -8508,23 +8508,23 @@ creditsBarLabel = "Kalan ücretsiz krediler"
 creditsSuffix = "{{allowance}} ücretsiz krediden kaldı"
 cta = "Tamam"
 inviteTeam = "Ekibinizi davet edin"
-lede = "Bu sunucu artık Stirling hesabınızla çalışıyor."
+lede = "Bu sunucu artık PDF Viewer hesabınızla çalışıyor."
 pendingTitle = "Neredeyse tamam"
 switchOnProcessor = "Processor'ı aç"
 title = "Bağlandı"
 
 [portal.accountLink.connect.handoff]
-opening = "Stirling oturumu açma sayfası açılıyor..."
-reauthLede = "Stirling oturumunuzun süresi doldu. Tekrar oturum açmak, kullanım ve faturalandırmanın görünür kalmasını sağlar. Bu sunucu her durumda bağlı kalır."
+opening = "PDF Viewer oturumu açma sayfası açılıyor..."
+reauthLede = "PDF Viewer oturumunuzun süresi doldu. Tekrar oturum açmak, kullanım ve faturalandırmanın görünür kalmasını sağlar. Bu sunucu her durumda bağlı kalır."
 title = "Bağlanıyor"
 
 [portal.accountLink.connectionNotice]
-expiredBody = "Bu sunucu, çevrimdışı hakkı dahilinde Stirling Cloud'a ulaşamadı. Cloud destekli Team özellikleri ve Processor işleri duraklatıldı. Mevcut veriler ve kurulu lisans hakları korunur. Planınız başarılı bir bağlantıyla doğrulandıktan sonra erişim otomatik olarak geri döner."
+expiredBody = "Bu sunucu, çevrimdışı hakkı dahilinde PDF Viewer Cloud'a ulaşamadı. Cloud destekli Team özellikleri ve Processor işleri duraklatıldı. Mevcut veriler ve kurulu lisans hakları korunur. Planınız başarılı bir bağlantıyla doğrulandıktan sonra erişim otomatik olarak geri döner."
 expiredTitle = "Cloud erişimi duraklatıldı"
 offlineBody = "Son onaylanan planınız {{deadline}} tarihine kadar kullanılabilir kalır. Cloud destekli özelliklerin ve işlemenin duraklatılmasını önlemek için bu sunucunun bağlantısını o zamandan önce geri yükleyin."
-offlineTitle = "Stirling Cloud'a ulaşılamıyor"
+offlineTitle = "PDF Viewer Cloud'a ulaşılamıyor"
 retry = "Bağlantıyı kontrol et"
-revokedBody = "Stirling Cloud bu hesap bağlantısını reddetti. Uygun cloud destekli özellikleri geri yüklemek için Ayarlar'da hesabı yeniden bağlayın."
+revokedBody = "PDF Viewer Cloud bu hesap bağlantısını reddetti. Uygun cloud destekli özellikleri geri yüklemek için Ayarlar'da hesabı yeniden bağlayın."
 revokedTitle = "Hesap bağlantısı iptal edildi"
 
 [portal.accountLink.failure]
@@ -8553,17 +8553,17 @@ callbackMismatch = "Bu sunucunun yapılandırılmış frontend adresi açtığı
 cancel = "İptal"
 continueReauth = "Tekrar oturum aç"
 exhaustedTitle = "İş akışlarınız çalışmaya devam etsin"
-identity = "Stirling hesabı"
-linkTitle = "Stirling hesabınızı bağlayın"
-noAuthorizeUrl = "Stirling devam etmek için bir yer döndürmedi. Birazdan tekrar deneyin."
-startFailed = "Bağlantıyı başlatmak için Stirling'e ulaşılamadı. Bu sunucunun dış ağ erişimini kontrol edin, ardından tekrar deneyin."
+identity = "PDF Viewer hesabı"
+linkTitle = "PDF Viewer hesabınızı bağlayın"
+noAuthorizeUrl = "PDF Viewer devam etmek için bir yer döndürmedi. Birazdan tekrar deneyin."
+startFailed = "Bağlantıyı başlatmak için PDF Viewer'e ulaşılamadı. Bu sunucunun dış ağ erişimini kontrol edin, ardından tekrar deneyin."
 transferPending = "Bekleyen bir sahiplik devri var. Bitirmek veya iptal etmek için Ayarlar → Kullanıcılar bölümüne gidin, ardından bağlamayı tekrar deneyin."
 
 [portal.accountLink.modal.loginNotConfigured]
 after = "böylece geri geldiğinizde bu sunucu bağlantıyı tamamlayabilir."
 and = "ve"
 before = "Ayarla"
-title = "Stirling bağlantısı yapılandırılmamış"
+title = "PDF Viewer bağlantısı yapılandırılmamış"
 
 [portal.accountLink.notice]
 loadFailed = "Hesap bağlama iletişim kutusu yüklenemedi."
@@ -8573,11 +8573,11 @@ openFailed = "Tarayıcınız açılamadı. Bir hesap bağlamak için bağlı sun
 instancesSub = "Aynı ekibe bağlı kendi barındırılan sunucular."
 instancesTitle = "Bağlı örnekler"
 manageCloud = "stirling.com üzerinde yönet"
-otherInstancesSub = "Stirling Cloud'da aynı ekibe bağlı diğer self-hosted sunucular."
+otherInstancesSub = "PDF Viewer Cloud'da aynı ekibe bağlı diğer self-hosted sunucular."
 otherInstancesTitle = "Diğer bağlı örnekler"
 revokeError = "Örnek iptal edilemedi"
 sessionRequired = "Bağlı örnekler, faturalandırma erişimini yeniledikten sonra görünecek."
-sub = "Bu sunucunun Stirling Cloud hesabınızla bağlantısını yönetin."
+sub = "Bu sunucunun PDF Viewer Cloud hesabınızla bağlantısını yönetin."
 
 [portal.accountLink.panel.loadError]
 forbidden = "Bağlı örnekleri yalnızca ekip sahibi yönetebilir."
@@ -8600,7 +8600,7 @@ viewAll = "Tüm iş hatlarını görüntüle"
 
 [portal.accountLink.rail]
 adminCta = "Daha fazla kredi nasıl alınır"
-adminSub = "Daha fazla kredi için sunucu yöneticinizden bir Stirling hesabı bağlamasını isteyin. Manuel PDF araçları hâlâ kullanılabilir."
+adminSub = "Daha fazla kredi için sunucu yöneticinizden bir PDF Viewer hesabı bağlamasını isteyin. Manuel PDF araçları hâlâ kullanılabilir."
 exhaustedCta = "Daha fazla kredi için hesap bağla"
 exhaustedSub = "Aylık krediler, paylaşılan faturalandırma ve Team planıyla büyüme seçeneği için bağlayın."
 exhaustedTitle = "Bu sunucunun ücretsiz kredileri tükendi"
@@ -8614,9 +8614,9 @@ malformed = "Bu oturum açma yanıtını doğrulayamadık. Kullanım ve faturala
 malformedTitle = "Oturum açma doğrulanamadı"
 rejected = "Bu oturum açma isteği reddedildi veya zaten kullanılmış. Faturalandırma erişimini yenilemek için tekrar deneyin."
 rejectedTitle = "Oturum açma tamamlanmadı"
-retry = "Stirling, faturalandırma erişimini yenilemeyi tamamlayamadı. Birazdan tekrar deneyin; sunucunuz hâlâ bağlı."
+retry = "PDF Viewer, faturalandırma erişimini yenilemeyi tamamlayamadı. Birazdan tekrar deneyin; sunucunuz hâlâ bağlı."
 retryTitle = "Faturalandırma erişimi geri yüklenmedi"
-success = "Faturalandırma erişiminiz yenilendi. Bu sunucu hâlâ aynı Stirling hesabına bağlı."
+success = "Faturalandırma erişiminiz yenilendi. Bu sunucu hâlâ aynı PDF Viewer hesabına bağlı."
 title = "Faturalandırma erişimini yenile"
 working = "Faturalandırma erişimi geri yükleniyor."
 
@@ -8630,7 +8630,7 @@ close = "Asistanı kapat"
 error = "Asistana ulaşılamadı."
 errorWithDetail = "Asistana ulaşılamadı: {{detail}}"
 inputAriaLabel = "Asistana sor"
-inputPlaceholder = "Stirling hakkında sorun…"
+inputPlaceholder = "PDF Viewer hakkında sorun…"
 open = "Asistanı aç"
 send = "Gönder"
 title = "Asistan"
@@ -8675,7 +8675,7 @@ title = "Harcama limitinizi belirleyin"
 [portal.billing.checkout.card]
 fields = "Kart numarası · AA / YY · CVC · ZIP"
 label = "Kart bilgileri"
-note = "Kart bilgileri Stripe tarafından toplanır. Stirling hiçbir zaman PAN veya CVC saklamaz."
+note = "Kart bilgileri Stripe tarafından toplanır. PDF Viewer hiçbir zaman PAN veya CVC saklamaz."
 
 [portal.billing.checkout.error]
 title = "Checkout başlatılamadı"
@@ -8759,7 +8759,7 @@ pdfsUsed_one = "{{count}} PDF işlendi"
 pdfsUsed_other = "{{count}} PDF işlendi"
 period = "Sözleşme dönemi: {{start}} – {{end}}"
 sub = "Air-gapped dağıtım, SCIM, veri yerleşimi, çalışma süresi SLA'ları ve buna uygun bir sözleşme."
-title = "Stirling'i düzenlemeye tabi bir ortamda mı çalıştırıyorsunuz?"
+title = "PDF Viewer'i düzenlemeye tabi bir ortamda mı çalıştırıyorsunuz?"
 trial = "{{days}} günlük deneme · {{date}} tarihinde sona erer"
 usersAgreed = "{{used}} / {{agreed}} kararlaştırılmış kullanıcı"
 usersOver_one = "{{count}} kullanıcı kararlaştırılmış sayının üzerinde"
@@ -8909,7 +8909,7 @@ spendAgainstLimit = "Bu döngüde {{cap}} içinden {{spend}} ölçümlü"
 [portal.billing.seats]
 awaitingSync = "Günlük senkronizasyonu bekleniyor; henüz filo toplamına dahil edilmedi."
 breakdown = "Kullanıcıların sayıldığı yerler"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 deployment = "Bağlı sunucu"
 lastReported = "{{date}} tarihinde bildirildi"
 live = "Canlı kullanıcı sayısı"
@@ -9041,7 +9041,7 @@ description = "İşlenen belgelerin sona erdiği yer - bir bucket, drive, ticket
 label = "Dosya ve ek"
 
 [portal.connections.commonFields.accessToken]
-helperText = "Stirling bunu şifreli olarak saklar ve bir daha asla göstermez."
+helperText = "PDF Viewer bunu şifreli olarak saklar ve bir daha asla göstermez."
 label = "Erişim token'ı"
 
 [portal.connections.commonFields.apiKey]
@@ -9630,8 +9630,8 @@ brandTag = "Enterprise"
 callInfo = "15 dakikalık bir görüşme. Fiyatlandırma, dağıtım veya güvenlikle ilgili sorularınızı getirin ya da devreye alma planınızı birlikte yapın."
 callTitle = "Bir çözüm mühendisiyle konuşun"
 deployment = "Dağıtım"
-footer = "Stirling Enterprise hakkında sorularınız mı var?"
-home = "Stirling'e git"
+footer = "PDF Viewer Enterprise hakkında sorularınız mı var?"
+home = "PDF Viewer'e git"
 member = "Takım lideriniz Enterprise anlaşmasını yürütüyor. Başladığında ilerleyişini buradan takip edebilirsiniz."
 memberDeal = "Takım lideriniz bu anlaşmayı yürütüyor. İlerleyişini buradan takip edebilirsiniz."
 quotePanel = "Teklifiniz"
@@ -9644,8 +9644,8 @@ stagesLabel = "İlerleme"
 lede = "14 gün ücretsiz deneyin, sonra teklifinizi oluşturup anlaşmanızı burada imzalayın. Kart gerekmez."
 tickAgreement = "MSA, sipariş formu, EULA ve DPA'yı kapsayan tek anlaşma"
 tickCompliance = "SCIM, veri yerleşimi ve çalışma süresi SLA'ları"
-tickDeploy = "Stirling Cloud'da, kendi sunucularınızda veya tamamen ağdan izole şekilde çalıştırın"
-title = "Stirling Enterprise"
+tickDeploy = "PDF Viewer Cloud'da, kendi sunucularınızda veya tamamen ağdan izole şekilde çalıştırın"
+title = "PDF Viewer Enterprise"
 
 [portal.enterprise.options.airgap]
 more = "Çevrimdışı lisans dokümanları"
@@ -9655,7 +9655,7 @@ point3 = "Oturum açma ağınız içinde kalır"
 tagline = "İnternet erişimi olmayan bir ağda kendi barındırmanız."
 
 [portal.enterprise.options.cloud]
-more = "Stirling Cloud dokümanları"
+more = "PDF Viewer Cloud dokümanları"
 point1 = "Ekibiniz stirling.com/app adresinde oturum açar"
 point2 = "AWS üzerinde çalışır, depolanan dosyalar diskte şifrelidir"
 point3 = "Kendi kimlik sağlayıcınızla tek oturum açma için kendi barındırma gerekir"
@@ -9697,11 +9697,11 @@ title = "İlk belgenizi çalıştırın"
 
 [portal.enterprise.setup.getApp]
 body = "Windows, Mac veya Linux için masaüstü uygulamasını kurun ve az önce oluşturduğunuz hesapla oturum açın ya da doğrudan tarayıcıdan kullanın."
-title = "Stirling'i edinin"
+title = "PDF Viewer'i edinin"
 
 [portal.enterprise.setup.install]
-body = "Bunu sunucunuzda çalıştırın. Lisansınız uygulanmış şekilde Stirling'i başlatır ve imaj, OCR ve ofis dönüşümünü içerir. Daha büyük ekipler için Kubernetes kullanın."
-title = "Stirling'i kurun ve başlatın"
+body = "Bunu sunucunuzda çalıştırın. Lisansınız uygulanmış şekilde PDF Viewer'i başlatır ve imaj, OCR ve ofis dönüşümünü içerir. Daha büyük ekipler için Kubernetes kullanın."
+title = "PDF Viewer'i kurun ve başlatın"
 
 [portal.enterprise.setup.invite]
 body = "Kullanacak kişileri davet edin; böylece deneme gerçek işleri yansıtsın."
@@ -9722,21 +9722,21 @@ invite = "Ekip arkadaşlarını davet et"
 kubernetes = "Kubernetes rehberi"
 licence = "Lisans aktivasyonu"
 ocr = "OCR dilleri"
-openApp = "Stirling'i aç"
+openApp = "PDF Viewer'i aç"
 samlGuide = "SAML rehberi"
 ssoGuide = "SSO rehberi"
 
 [portal.enterprise.setup.offlineInstall]
 body = "Tam imajı bağlı bir makinede çekin, imajı ve lisans dosyasını karşıya taşıyın, sonra yükleyip başlatın. Tam imaj, çevrimdışı bir sunucunun indiremediği yazı tiplerini ekler."
-title = "Stirling'i taşıyın ve başlatın"
+title = "PDF Viewer'i taşıyın ve başlatın"
 
 [portal.enterprise.setup.offlineLicence]
 body = "Ağdan izole bir sunucu lisans hizmetimize ulaşamaz; bunun yerine bu imzalı dosyayı kontrol eder. Onu, taşıdığınız imajla birlikte tutun."
 title = "Çevrimdışı lisansınızı indirin"
 
 [portal.enterprise.setup.people]
-bodyAirgap = "Hesapları <code>/settings/people</code> adresinde oluşturun veya Stirling'i dahili kimlik sağlayıcınıza yönlendirin; böylece oturum açma ağınızın dışına çıkmaz."
-bodySelfHosted = "Hesapları <code>/settings/people</code> adresinde oluşturun veya kimlik sağlayıcınızı bağlayın; böylece ekibiniz iş hesaplarıyla oturum açsın. Stirling'i, sunucunuzun adresindeki tarayıcıda ya da ona işaretlenen masaüstü uygulamasında kullanırlar."
+bodyAirgap = "Hesapları <code>/settings/people</code> adresinde oluşturun veya PDF Viewer'i dahili kimlik sağlayıcınıza yönlendirin; böylece oturum açma ağınızın dışına çıkmaz."
+bodySelfHosted = "Hesapları <code>/settings/people</code> adresinde oluşturun veya kimlik sağlayıcınızı bağlayın; böylece ekibiniz iş hesaplarıyla oturum açsın. PDF Viewer'i, sunucunuzun adresindeki tarayıcıda ya da ona işaretlenen masaüstü uygulamasında kullanırlar."
 title = "Kişilerinizi ekleyin"
 
 [portal.enterprise.setup.signIn]
@@ -9750,7 +9750,7 @@ retry = "Tekrar dene"
 title = "Bu sayfada bir şeyler ters gitti"
 
 [portal.failures]
-closedBySystem = "Stirling"
+closedBySystem = "PDF Viewer"
 noMatches = "Geçerli filtrelerle eşleşen bir şey yok"
 occurrences = "{{count}} oluşum"
 searchPlaceholder = "Sorunları, kullanıcıları ve hataları ara"
@@ -9862,7 +9862,7 @@ description = "Bu sunucuda adımın ihtiyaç duyduğu yazılım eksik, bu nedenl
 title = "Yazılım kurulu değil"
 
 [portal.failures.kind.unknown]
-description = "Stirling'in henüz tanımadığı bir şey ters gitti."
+description = "PDF Viewer'in henüz tanımadığı bir şey ters gitti."
 title = "Tanınmayan sorun"
 
 [portal.failures.log]
@@ -9895,13 +9895,13 @@ title = "İncelenecek bir şey yok"
 [portal.home.download]
 back = "Geri"
 body = "Masaüstü uygulamasını indirin veya sunucuyu kendi ortamınızda barındırın."
-bodyDesktop = "Masaüstü uygulamasını indirin, ardından Stirling hesabınızla oturum açın."
+bodyDesktop = "Masaüstü uygulamasını indirin, ardından PDF Viewer hesabınızla oturum açın."
 done = "Bitti"
 guide = "{{name}} kılavuzunu aç"
 openInBrowser = "Bunun yerine tarayıcıda aç"
 sectionDesktop = "Masaüstü uygulaması"
 sectionSelfHosted = "Kendi barındırılan"
-title = "Stirling PDF Editor'ı yükleyin"
+title = "PDF Viewer Editor'ı yükleyin"
 
 [portal.home.download.docker]
 detailBody = "Resmi image'ı sunucunuzda çalıştırın."
@@ -9983,7 +9983,7 @@ usageMonth = "Bu ay kullanım"
 usageToday = "Bugünkü kullanım"
 
 [portal.infrastructure.apiKeys.empty]
-description = "Stirling API çağrılarına başlamak için bir anahtar oluşturun."
+description = "PDF Viewer API çağrılarına başlamak için bir anahtar oluşturun."
 title = "Henüz API anahtarı yok"
 
 [portal.infrastructure.apiKeys.error]
@@ -10073,7 +10073,7 @@ done = "Tamam"
 keyNameLabel = "Anahtar adı"
 keyNamePlaceholder = "örn. Üretim alımı"
 secretKeyCaption = "Gizli anahtar"
-secretWarning = "Bunu bir sır yöneticisinde saklayın. Stirling yalnızca hash saklar, bu nedenle daha sonra kurtarmanın bir yolu yoktur."
+secretWarning = "Bunu bir sır yöneticisinde saklayın. PDF Viewer yalnızca hash saklar, bu nedenle daha sonra kurtarmanın bir yolu yoktur."
 subtitle = "Daha sonra tanıyabilmeniz için anahtara bir ad verin. İstediğiniz zaman iptal edebilirsiniz."
 subtitleCreated = "Bu sırrı şimdi kopyalayın — tekrar gösterilmeyecek."
 title = "API anahtarı oluştur"
@@ -10257,7 +10257,7 @@ connectionCount_one = "{{count}} bağlantı"
 connectionCount_other = "{{count}} bağlantı"
 customApi = "Özel API"
 searchPlaceholder = "Entegrasyonlarda ara"
-subtitle = "Stirling'in konuşabileceği her şey. Kimlik bilgileri burada bir kez oluşturulur, ardından kaynaklar, politikalar ve işlem hatları tarafından referans verilir."
+subtitle = "PDF Viewer'in konuşabileceği her şey. Kimlik bilgileri burada bir kez oluşturulur, ardından kaynaklar, politikalar ve işlem hatları tarafından referans verilir."
 title = "Entegrasyonlar"
 typedName = "{{tool}} adı"
 
@@ -10942,8 +10942,8 @@ saveFailed = "İşlem hattı kaydedilemedi. Lütfen tekrar deneyin."
 
 [portal.policies.wizard.locations]
 aiSettings = "AI ayarlarını aç"
-builtin = "Stirling bilgi tabanı"
-builtinHelp = "Stirling'de aranabilir parçaları indeksler ve işlenmiş PDF'i aşağıdaki hedefe döndürür. AI ayarlarında bir embedding sağlayıcısı yapılandırılmalıdır."
+builtin = "PDF Viewer bilgi tabanı"
+builtinHelp = "PDF Viewer'de aranabilir parçaları indeksler ve işlenmiş PDF'i aşağıdaki hedefe döndürür. AI ayarlarında bir embedding sağlayıcısı yapılandırılmalıdır."
 checking = "Ingestion kullanılabilirliği kontrol ediliyor..."
 chooseOutput = "Kaydetmeden önce etkin bir çıktı hedefi seçin."
 chooseSource = "Belgelerin nereden geleceğini seçin"
@@ -11035,7 +11035,7 @@ title = "Henüz akış yok"
 
 [portal.processorFlow.sources]
 comingSoonTag = "Bağlan"
-editor = "Stirling PDF Düzenleyici"
+editor = "PDF Viewer Düzenleyici"
 heading = "Kaynaklar"
 perDay = "{{n}} / 24s"
 
@@ -11051,7 +11051,7 @@ title = "Satın alma"
 agreeCta = "Sözleşmeyi imzala"
 confidential = "Gizli"
 confirm = "Bu Sözleşmeyi okudum ve kabul ediyorum; yukarıda adı belirtilen kuruluş adına imzalama yetkim olduğunu beyan ederim."
-docName = "Stirling Kurumsal Sözleşmesi"
+docName = "PDF Viewer Kurumsal Sözleşmesi"
 docSub = "MSA, Sipariş Formu, EULA ve DPA, tek bir imzada birleştirildi."
 download = "İndir"
 downloadDraftError = "Sözleşme PDF'i oluşturulamadı - belge renderer kullanılamıyor. Lütfen kısa süre sonra tekrar deneyin veya destekle iletişime geçin."
@@ -11091,7 +11091,7 @@ contactNamePlaceholder = "Jane Doe"
 continue = "Devam"
 done = "Tamam"
 editUsage = "Kullanımı düzenle"
-eula = "Stirling Enterprise EULA'yı okudum ve kabul ediyorum. Bu tekliften oluşturulan anlaşmayı yönetir."
+eula = "PDF Viewer Enterprise EULA'yı okudum ve kabul ediyorum. Bu tekliften oluşturulan anlaşmayı yönetir."
 generate = "Teklif oluştur"
 indemnification = "Gelişmiş IP Koruması"
 indemnificationSub = "IP savunmamızı patent taleplerine genişletir. Temel telif hakkı, ticari marka ve ticari sır tazminatı ücretsiz olarak dahildir."
@@ -11099,7 +11099,7 @@ minimum = "Enterprise, yıllık en az {{min}} harcama gerektirir."
 minimumBelow = "Bu teklif yıllık {{annual}} tutuyor. Daha fazla kullanmayı bekliyorsanız tahmini kullanımı artırın; aksi halde Team planı muhtemelen daha uygundur."
 minimumNear = "Enterprise, yıllık en az {{min}} harcama gerektirir. Buna ulaşmak için tahmini kullanımı artırın veya bizimle görüşün."
 minimumNearTitle = "Enterprise için yıllık {{gap}} eksik."
-paperBrand = "Stirling PDF"
+paperBrand = "PDF Viewer"
 paperEyebrow = "Kurumsal teklif"
 paperFor = "Hazırlanan"
 pdfSize = "PDF boyutu"
@@ -11210,7 +11210,7 @@ eyebrow = "Kurumsal"
 eyebrowCompany = "{{company}} Kurumsal"
 inviteTeammates = "Takım arkadaşlarını davet et"
 liveSub = "Kuruluşunuz provision edildi ve lisansınız aktif."
-liveTitle = "Stirling Enterprise'ta canlıdasınız"
+liveTitle = "PDF Viewer Enterprise'ta canlıdasınız"
 next = "Sonraki: {{stage}}"
 open = "Satın almayı aç"
 scheduleCall = "Görüşme planla"
@@ -11246,7 +11246,7 @@ gatingAction = "Teklifinizi kabul edin"
 label = "Teklif"
 
 [portal.procurement.journeySteps.trial]
-blurb = "Stirling'i belgeleriniz ve iş akışlarınızla değerlendirin."
+blurb = "PDF Viewer'i belgeleriniz ve iş akışlarınızla değerlendirin."
 gatingAction = "Teklifinizi oluşturun"
 label = "Deneme"
 
@@ -11261,7 +11261,7 @@ trialFileHint = "Bu, deneme lisans dosyanızdır. Sözleşmeniz yürürlüğe gi
 
 [portal.procurement.live]
 description = "Aboneliğiniz aktif ve lisansınız verildi. Ekibiniz hazırlandı ve faturalandırma başladı."
-title = "Stirling Enterprise'ta yayındasınız"
+title = "PDF Viewer Enterprise'ta yayındasınız"
 
 [portal.procurement.milestone]
 downloadError = "Teklif PDF'si henüz indirilemedi — lütfen birazdan tekrar deneyin."
@@ -11294,11 +11294,11 @@ airgapSub = "Kapalı, dışa giden yok"
 back = "Geri"
 businessName = "İşletme adı"
 businessNamePlaceholder = "Acme Corp"
-cloud = "Stirling Cloud"
+cloud = "PDF Viewer Cloud"
 cloudSub = "Yönetilen, en hızlı başlangıç"
 continue = "Devam et"
 deployment = "Nereye dağıtılmalı?"
-eula = "Stirling EULA ve Ticari Şartlar'ı kabul ediyorum."
+eula = "PDF Viewer EULA ve Ticari Şartlar'ı kabul ediyorum."
 fullName = "Tam ad"
 fullNamePlaceholder = "Adınız"
 invites = "Ekip arkadaşlarını davet et · isteğe bağlı"
@@ -11344,7 +11344,7 @@ account-link = "Hesap bağlantısı"
 [portal.shell.sidebar]
 appEditor = "Düzenleyici"
 appProcessor = "İşleyici"
-linkAccount = "Stirling hesabını bağla"
+linkAccount = "PDF Viewer hesabını bağla"
 primaryNav = "Birincil gezinme"
 
 [portal.shell.topbar]
@@ -11354,7 +11354,7 @@ search = "Ara"
 
 [portal.sources]
 processingModeHelp = "Track orijinalleri tutar ve her sürümü bir kez işler. Snapshot orijinalleri tutar ve her çalıştırmada işler. Consume başarılı teslimden sonra orijinalleri siler."
-subtitle = "Belgeleri Stirling'e besleyen yeniden kullanılabilir giriş bağlantıları. Bir kaynağı bir kez yapılandırın, ardından istediğiniz sayıda işlem hattından ona başvurun."
+subtitle = "Belgeleri PDF Viewer'e besleyen yeniden kullanılabilir giriş bağlantıları. Bir kaynağı bir kez yapılandırın, ardından istediğiniz sayıda işlem hattından ona başvurun."
 title = "Kaynaklar"
 
 [portal.sources.actions]
@@ -11590,7 +11590,7 @@ secretNote = "İmzalama secret'ı webhook oluşturulduğunda bir kez gösterilir
 copy = "Kopyala"
 done = "Tamam"
 secret = "İmzalama secret'ı"
-secretHelp = "Her teslimatın ham body içeriğini bu anahtarla imzalayın (HMAC-SHA256) ve X-Stirling-Signature header'ı olarak gönderin."
+secretHelp = "Her teslimatın ham body içeriğini bu anahtarla imzalayın (HMAC-SHA256) ve X-PDF Viewer-Signature header'ı olarak gönderin."
 secretWarning = "İmzalama secret'ını şimdi kopyalayın. Güvenliğiniz için yalnızca bir kez gösterilir ve daha sonra alınamaz."
 title = "Webhook oluşturuldu"
 url = "Teslim URL'si"
@@ -11618,15 +11618,15 @@ adminOnly = "Bu sunucunun aylık kredileri sunucudaki herkes tarafından paylaş
 barAria = "Kalan ücretsiz krediler"
 capSuffix_one = "{{allowance}} ücretsiz krediden bu ay kalan"
 capSuffix_other = "{{allowance}} ücretsiz krediden bu ay kalan"
-connect = "Bir Stirling hesabı bağla"
+connect = "Bir PDF Viewer hesabı bağla"
 connectBody = "Bağlanmak ikinci bir aylık hak ekler, bu sunucunun sahip olabileceği kullanıcı sayısını artırır ve Processor’ı açar."
-connectTitle = "Bu sunucuda Stirling hesabı yok"
+connectTitle = "Bu sunucuda PDF Viewer hesabı yok"
 loadError = "Bu sunucunun kredi kullanımı okunamadı. Birazdan tekrar deneyin."
 loadErrorTitle = "Kredi kullanımı yüklenemedi"
 resets = "{{date}} tarihinde sıfırlanır"
 
 [portal.usage.sessionExpired]
-body = "Stirling hesap oturumunuzun süresi doldu. Faturalandırmayı görüntülemek için tekrar oturum açın — örneğiniz bağlı kalır."
+body = "PDF Viewer hesap oturumunuzun süresi doldu. Faturalandırmayı görüntülemek için tekrar oturum açın — örneğiniz bağlı kalır."
 
 [portal.users]
 title = "Kullanıcılar"
@@ -11741,7 +11741,7 @@ name = "Google Drive"
 scope = "Dosya İçe Aktarma"
 
 [provider.googledrive.accountScope]
-description = "drive tüm dosyalara erişir (bunun için Google'ın herkese açık uygulamayı doğrulaması gerekir); drive.file yalnızca kullanıcıların seçtiği ya da Stirling'in oluşturduğu dosyalar"
+description = "drive tüm dosyalara erişir (bunun için Google'ın herkese açık uygulamayı doğrulaması gerekir); drive.file yalnızca kullanıcıların seçtiği ya da PDF Viewer'in oluşturduğu dosyalar"
 label = "Drive erişimi"
 
 [provider.googledrive.allowAccountConnections]
@@ -11786,7 +11786,7 @@ description = "Editör ve pipeline'ları için tek bir oturum açma. Yalnızca k
 label = "Kişilerin kendi hesaplarını bağlamasına izin ver"
 
 [provider.microsoft.allowEditorSaves]
-description = "Kapatırsanız düzenlemeler Stirling'de kalır: OneDrive'dan açılan dosyalar bunun yerine indirilir ve sunucu OneDrive'a kaydetmeleri reddeder."
+description = "Kapatırsanız düzenlemeler PDF Viewer'de kalır: OneDrive'dan açılan dosyalar bunun yerine indirilir ve sunucu OneDrive'a kaydetmeleri reddeder."
 label = "Editörün OneDrive'a geri kaydetmesine izin ver"
 
 [provider.microsoft.clientId]
@@ -11931,7 +11931,7 @@ notConfigured = "OneDrive yapılandırılmadı"
 pickerFailed = "OneDrive açılamadı"
 popupBlocked = "Tarayıcınız Microsoft oturum açma penceresini engelledi. Bu site için açılır pencerelere izin verip tekrar deneyin."
 reconnect = "Microsoft hesabınızın tekrar oturum açması gerekiyor. Ayarlar > Bağlı hesaplar'dan yeniden bağlayın."
-serverError = "OneDrive ya da Stirling sunucusunda bir sorun oluştu. Tekrar deneyin; devam ederse yöneticinize danışın."
+serverError = "OneDrive ya da PDF Viewer sunucusunda bir sorun oluştu. Tekrar deneyin; devam ederse yöneticinize danışın."
 unreachable = "OneDrive'a ulaşılamadı. Bağlantınızı kontrol edip tekrar deneyin."
 
 [provider.saml2]
@@ -12024,7 +12024,7 @@ files = "Dosyalar"
 account = "Hesap"
 docs = "Dokümantasyon"
 editor = "Düzenleyici"
-home = "Stirling"
+home = "PDF Viewer"
 invite = "Davet et"
 landmark = "Hızlı gezinme"
 noProcessorAccess = "Processor erişimi için bir yöneticiden isteyin"
@@ -12456,7 +12456,7 @@ yd = "Yarda (yd)"
 back = "Geri"
 continue = "Devam"
 subtitle = "Nerede çalışacağını seçin."
-title = "Stirling'i nerede çalıştırmak istiyorsunuz?"
+title = "PDF Viewer'i nerede çalıştırmak istiyorsunuz?"
 
 [runLocation.choice.browser]
 description = "Web uygulaması."
@@ -12655,8 +12655,8 @@ hideTools = "Kullanılamayan araçları gizle ▴"
 messageNoFallback = "Sunucunuz geri gelene kadar araçlar kullanılamaz."
 messageWithFallback = "Bazı araçlar sunucu bağlantısı gerektirir."
 showTools = "Kullanılamayan araçları görüntüle ▾"
-title = "Stirling-PDF sunucunuza ulaşılamıyor"
-toolNotAvailableLocally = "Stirling-PDF sunucunuz çevrimdışı ve \"{{endpoint}}\" yerel arka uçta kullanılamıyor."
+title = "PDF Viewer sunucunuza ulaşılamıyor"
+toolNotAvailableLocally = "PDF Viewer sunucunuz çevrimdışı ve \"{{endpoint}}\" yerel arka uçta kullanılamıyor."
 
 [serverSetup]
 back = "Geri"
@@ -12691,7 +12691,7 @@ usernameHelp = "Oturum açarken kullanacağınız ad. Bir e-posta adresi de olab
 backendUrl = "Sunucu adresi"
 backendUrlHelp = "Oturum açma sağlayıcılarının kullanıcıları geri göndereceği yer. Genellikle web adresiyle aynıdır."
 frontendUrl = "Web adresi"
-frontendUrlHelp = "Kullanıcıların Stirling PDF'i açtığı yer. E-postalarda, paylaşım bağlantılarında ve QR kodlarında kullanılır."
+frontendUrlHelp = "Kullanıcıların PDF Viewer'i açtığı yer. E-postalarda, paylaşım bağlantılarında ve QR kodlarında kullanılır."
 subtitle = "Kullanıcılar ve oturum açma sağlayıcılarının bu sunucuya nasıl ulaştığı."
 title = "Adresler"
 
@@ -12705,7 +12705,7 @@ label = "Kendi barındırılan AI"
 provider = "Model sağlayıcısı"
 providerCustom = "OpenAI-uyumlu"
 smartModel = "Tam model"
-stirling = "Stirling AI"
+stirling = "PDF Viewer AI"
 subtitle = "Belge soruları, otomatik düzenlemeler ve AI ajanları."
 title = "AI"
 
@@ -12716,7 +12716,7 @@ changeLater = "Bunu istediğiniz zaman {{path}} üzerinden değiştirebilirsiniz
 decline = "Reddet ve devam et"
 declineFinish = "Reddet ve bitir"
 learnMore = "Neleri topluyoruz"
-note = "Bu sunucudan kullanım verilerini bizimle paylaşarak Stirling PDF'i geliştirmemize yardımcı olun. Dosyaları veya içeriklerini asla toplamıyoruz."
+note = "Bu sunucudan kullanım verilerini bizimle paylaşarak PDF Viewer'i geliştirmemize yardımcı olun. Dosyaları veya içeriklerini asla toplamıyoruz."
 title = "Sunucu analitiği"
 
 [serverSetup.documents]
@@ -12854,7 +12854,7 @@ description = "Kendi OneDrive, SharePoint ve Google Drive'ınız; pipeline'ları
 title = "Bağlı hesaplar"
 
 [settings.connectedInstances]
-confirmBody = "Bu, örneğin Stirling Cloud’daki ekibinize erişimini iptal eder. Yerel dosyaları silmez veya daha önce kaydedilmiş kullanımı kaldırmaz. Tekrar bağlanmak için örnekteki özgün bağlantı adımlarını izleyin."
+confirmBody = "Bu, örneğin PDF Viewer Cloud’daki ekibinize erişimini iptal eder. Yerel dosyaları silmez veya daha önce kaydedilmiş kullanımı kaldırmaz. Tekrar bağlanmak için örnekteki özgün bağlantı adımlarını izleyin."
 confirmTitle = "{{name}} kaldırılsın mı?"
 connectedAt = "Bağlandı: {{date}}"
 connectedDate = "Bağlandı"
@@ -12888,7 +12888,7 @@ unknown = "Kullanılamıyor"
 yourTeam = "Ekibiniz"
 
 [settings.connection]
-description = "Bu makinede yerel olarak çalışın veya uygulamayı bir Stirling sunucusuna bağlayın."
+description = "Bu makinede yerel olarak çalışın veya uygulamayı bir PDF Viewer sunucusuna bağlayın."
 localDescription = "Bir hesap olmadan yerel arka ucu kullanıyorsunuz. Bulut işlem veya kendi barındırılan sunucu gerektiren bazı araçlar kullanılamaz."
 logout = "Çıkış Yap"
 server = "Sunucu"
@@ -12898,19 +12898,19 @@ user = "Şu olarak oturum açıldı"
 
 [settings.connection.mode]
 local = "Yalnızca Yerel"
-saas = "Stirling Cloud"
+saas = "PDF Viewer Cloud"
 selfhosted = "Öz Barındırılan"
 
 [settings.developer]
 apiKeys = "API Anahtarları"
-apiKeysDescription = "Stirling API’yi script’lerden ve entegrasyonlardan çağırmak için kişisel anahtarlar."
+apiKeysDescription = "PDF Viewer API’yi script’lerden ve entegrasyonlardan çağırmak için kişisel anahtarlar."
 title = "Geliştirici"
 
 [settings.feedback]
 label = "Geri bildirim"
 
 [settings.feedback.send]
-description = "Bir sorunu bildirin veya Stirling ekibine bir iyileştirme önerin."
+description = "Bir sorunu bildirin veya PDF Viewer ekibine bir iyileştirme önerin."
 label = "Geri bildirim gönder"
 
 [settings.general]
@@ -12919,7 +12919,7 @@ autoUnzipFileLimit = "Otomatik zip açma dosya sınırı"
 autoUnzipFileLimitTooltip = "Yalnızca ZIP bu kadar ya da daha az dosya içeriyorsa çıkar. Daha büyük ZIP'leri çıkarmak için daha yüksek ayarlayın."
 autoUnzipTooltip = "API işlemlerinden dönen ZIP dosyalarını otomatik olarak çıkarır. ZIP dosyalarını olduğu gibi tutmak için devre dışı bırakın. Bu, otomasyon iş akışlarını etkilemez."
 defaultPdfEditor = "Varsayılan PDF düzenleyici"
-defaultPdfEditorActive = "Stirling PDF varsayılan PDF düzenleyiciniz"
+defaultPdfEditorActive = "PDF Viewer varsayılan PDF düzenleyiciniz"
 defaultPdfEditorChecking = "Kontrol ediliyor..."
 defaultPdfEditorInactive = "Varsayılan olarak başka bir uygulama ayarlı"
 defaultPdfEditorSet = "Zaten Varsayılan"
@@ -12990,7 +12990,7 @@ updateBehavior = "Güncelleme davranışı"
 updateBehaviorDescription = "Güncellemeleri yüklemeden önce sorulmasını, otomatik yüklenmesini veya güncelleme denetimlerinin tamamen atlanmasını seçin."
 updateBehaviorError = "Güncelleme davranışı değiştirilemedi"
 updateBehaviorErrorLocked = "Bu ayar yöneticiniz tarafından kilitlendi."
-updateBehaviorLockedDescription = "Yöneticiniz bu makinede Stirling-PDF'in güncellemeleri nasıl ele alacağını yapılandırdı. Değiştirmek için onlarla iletişime geçin."
+updateBehaviorLockedDescription = "Yöneticiniz bu makinede PDF Viewer'in güncellemeleri nasıl ele alacağını yapılandırdı. Değiştirmek için onlarla iletişime geçin."
 updateBehaviorSaved = "Güncelleme davranışı kaydedildi."
 versionMismatch = "Masaüstü uygulamanız ve sunucunuz farklı sürümler çalıştırıyor. Uyumluluk sorunlarından kaçınmak için ikisini de aynı sürüme güncelleyin."
 viewDetails = "Ayrıntıları Görüntüle"
@@ -13091,7 +13091,7 @@ title = "İzleme"
 [settings.planBilling]
 currentPlan = "Geçerli Plan"
 loading = "Faturalandırma bilgileri yükleniyor..."
-notAvailable = "Plan ve Faturalandırma yalnızca Stirling Cloud'a bağlıyken kullanılabilir (SaaS modu)."
+notAvailable = "Plan ve Faturalandırma yalnızca PDF Viewer Cloud'a bağlıyken kullanılabilir (SaaS modu)."
 title = "Plan ve Faturalandırma"
 
 [settings.planBilling.billing]
@@ -13226,7 +13226,7 @@ oauthFailed = "OAuth oturumu başarısız oldu. Lütfen tekrar deneyin."
 openResetFailed = "Parolanızı sıfırlamak için tarayıcınız açılamadı."
 
 [setup.saas]
-title = "Stirling'de Oturum Açın"
+title = "PDF Viewer'de Oturum Açın"
 
 [setup.selfhosted]
 changeServerLocked = "Kuruluşunuz bu uygulamayı belirli bir sunucuyla sınırlamıştır"
@@ -13272,7 +13272,7 @@ step3 = "Sunucuyu yeniden başlatın"
 title = "Giriş Etkin Değil"
 
 [setup.server.url]
-description = "Öz barındırılan Stirling PDF sunucunuzun tam URL'sini girin"
+description = "Öz barındırılan PDF Viewer sunucunuzun tam URL'sini girin"
 label = "Sunucu URL'si"
 
 [sharedSign]
@@ -13731,7 +13731,7 @@ pleaseFillAllFields = "Lütfen tüm alanları doldurun"
 signUp = "Kaydol"
 signUpWith = "Şununla kaydol"
 skip = "Atla"
-subtitle = "Başlamak için Stirling PDF ile başlayın"
+subtitle = "Başlamak için PDF Viewer ile başlayın"
 title = "Hesap oluşturun"
 unableToAccessTool = "Araca erişilemiyor: {{error}}"
 unexpectedError = "Beklenmeyen hata: {{message}}"
@@ -14013,7 +14013,7 @@ download = "İndir"
 downloaded = "İndirildi"
 downloadFailed = "Bu dosya indirilemedi."
 downloadsCount = "İndirme: {{count}}"
-emailWarningBody = "Bu bir e-posta adresine benziyor. Bu kişi henüz bir Stirling PDF kullanıcısı değilse dosyaya erişemez."
+emailWarningBody = "Bu bir e-posta adresine benziyor. Bu kişi henüz bir PDF Viewer kullanıcısı değilse dosyaya erişemez."
 emailWarningConfirm = "Yine de paylaş"
 emailWarningTitle = "E-posta adresi"
 errorTitle = "Paylaşım başarısız"
@@ -14044,7 +14044,7 @@ manageTitle = "Paylaşımı Yönet"
 noActivity = "Henüz etkinlik yok."
 noLinks = "Henüz etkin paylaşım bağlantısı yok."
 noSharedUsers = "Henüz hiçbir kullanıcının erişimi yok."
-openInApp = "Stirling PDF'de Aç"
+openInApp = "PDF Viewer'de Aç"
 ownerLabel = "Sahip"
 removeLink = "Bağlantıyı kaldır"
 removeUser = "Kaldır"
@@ -14101,7 +14101,7 @@ all = "Tümü"
 ariaLabel = "Süper arama"
 filtersAriaLabel = "Arama filtreleri"
 hint = "Aramak için yazın"
-placeholder = "Stirling içinde ara"
+placeholder = "PDF Viewer içinde ara"
 placeholderShort = "Ara"
 showLess = "Daha az göster"
 showMore = "{{count}} tane daha göster"
@@ -14115,7 +14115,7 @@ settings = "Ayarlar"
 tools = "Araçlar"
 
 [survey]
-title = "Stirling-PDF Anketi"
+title = "PDF Viewer Anketi"
 
 [swagger]
 clickHere = "buraya tıklayın"
@@ -14237,7 +14237,7 @@ noFiles = "Başlamak için bir dosya ekleyin."
 scopeFiles = "dosyalar"
 scopeThisFile = "bu dosya"
 selectFilesHint = "Bu aracı çalıştırmak için Etkin Dosyalar içinden dosyaları seçin"
-signInRequired = "Bunun için bir Stirling hesabı gerekir. Devam etmek için oturum açın."
+signInRequired = "Bunun için bir PDF Viewer hesabı gerekir. Devam etmek için oturum açın."
 signInToUse = "Kullanmak için oturum açın"
 singleFileScope = "Yalnızca şu dosyaya uygulanıyor: {{fileName}}"
 viewerMode = "Birden fazla dosya eklemek için dosya düzenleyiciye geçin."
@@ -14290,7 +14290,7 @@ favorites = "Favoriler"
 heading = "Tüm araçlar (tam ekran görünüm)"
 noResults = "Aramanızı ayarlamayı deneyin veya ihtiyacınızı bulmak için açıklamaları aç/kapatın."
 recommended = "Önerilen"
-selfHostedOffline = "Stirling-PDF sunucunuzu gerektirir (şu anda çevrimdışı):"
+selfHostedOffline = "PDF Viewer sunucunuzu gerektirir (şu anda çevrimdışı):"
 showDetails = "Ayrıntıları Göster"
 unavailable = "Sunucu yöneticisi tarafından devre dışı bırakıldı:"
 unavailableDependency = "Kullanılamıyor - sunucuda gerekli araç eksik:"
@@ -14299,7 +14299,7 @@ unfavorite = "Favorilerden kaldır"
 [toolPanel.modePrompt]
 chooseFullscreen = "Tam ekran modunu kullan"
 chooseSidebar = "Kenar çubuğu modunu kullan"
-description = "Her iki düzeni önizleyin ve Stirling PDF araçlarını nasıl keşfetmek istediğinize karar verin."
+description = "Her iki düzeni önizleyin ve PDF Viewer araçlarını nasıl keşfetmek istediğinize karar verin."
 dismiss = "Belki sonra"
 fullscreenDescription = "Birini seçene kadar çalışma alanını kaplayan bir katalogda tüm araçlara göz atın."
 fullscreenTitle = "Tam ekran modu - (eski)"
@@ -14366,7 +14366,7 @@ loadingDetailedInfo = "Ayrıntılı bilgiler yükleniyor..."
 migrationGuide = "Geçiş Kılavuzu"
 migrationGuides = "Geçiş Kılavuzları"
 migrationGuidesDesc = "Güncellemeden önce önemli değişiklikleri gözden geçirin."
-modalSubtitle = "Stirling PDF'in yeni bir sürümü yüklenmeye hazır."
+modalSubtitle = "PDF Viewer'in yeni bir sürümü yüklenmeye hazır."
 modalTitle = "Güncelleme Mevcut"
 notes = "Notlar"
 releaseNotes = "Sürüm Notları"
@@ -14392,7 +14392,7 @@ urgent = "Acil"
 attentionBody = "Daha fazla bilgi görmek için yöneticinizin oturum açması gerekiyor. Lütfen hemen iletişime geçin."
 attentionBodyAdmin = "Bu sunucunun uyumlu kalması için lisans gereksinimlerini gözden geçirin."
 attentionTitle = "Bu sunucunun yönetici dikkatine ihtiyacı var"
-message = "100 kullanıcı, PDF metin düzenleme ve gelişmiş özelliklerle Stirling PDF'den en iyi şekilde yararlanın"
+message = "100 kullanıcı, PDF metin düzenleme ve gelişmiş özelliklerle PDF Viewer'den en iyi şekilde yararlanın"
 seeInfo = "Bilgileri gör"
 title = "Team planına yükselt"
 upgradeButton = "Şimdi Yükselt"
@@ -14530,7 +14530,7 @@ authWeb = "Parola"
 create = "Hesap oluştur"
 createSubtitle = "Parola veya SSO ile kendi sunucunuzda barındırılan bir hesap oluşturun."
 createTitle = "Hesap oluştur"
-editorDesc = "Stirling PDF Editor'da PDF'leri düzenleyin. Herkes bunu alır."
+editorDesc = "PDF Viewer Editor'da PDF'leri düzenleyin. Herkes bunu alır."
 email = "Email adresi"
 emailError = "Geçerli bir email adresi girin"
 emailPlaceholder2 = "ad@sirket.com"
@@ -14545,7 +14545,7 @@ processorDeferred = "Davet gönderildi, ancak Processor erişimi henüz verileme
 processorDesc = "Yönetişim yüzeyi, pipeline çalıştırma, aracılar ve API."
 role = "Rol"
 send2 = "Davet gönder"
-subtitle2 = "Stirling çalışma alanınıza katılmak için bir e-posta alacaklar."
+subtitle2 = "PDF Viewer çalışma alanınıza katılmak için bir e-posta alacaklar."
 team = "Ekip"
 title = "Kişileri davet et"
 username = "Kullanıcı adı"
@@ -14687,7 +14687,7 @@ downloads = "İndirmeler"
 entryLabel = "İmza Özeti"
 filesEvaluated_one = "{{count}} dosya değerlendirildi"
 filesEvaluated_other = "{{count}} dosya değerlendirildi"
-footer = "Stirling PDF ile doğrulandı"
+footer = "PDF Viewer ile doğrulandı"
 generatedAt = "Oluşturuldu"
 noPdf = "PDF raporu başarılı bir doğrulamadan sonra kullanılabilir olacaktır."
 page = "Sayfa"
@@ -14896,7 +14896,7 @@ text = "Metin"
 addFile = "Dosya ekle"
 count_one = "Bu portföyde {{count}} dosya"
 count_other = "Bu portföyde {{count}} dosya"
-import = "Stirling’e içe aktar"
+import = "PDF Viewer’e içe aktar"
 importFailed = "Bu dosya çalışma alanınıza eklenemedi."
 memberUnavailable = "Bu dosya portföyden okunamadı."
 preview = "Önizleme"
