@@ -33,6 +33,7 @@
 !/editor/.env.proprietary
 !/editor/.env.desktop
 !/editor/.env.saas
+!/.env.studio
 
 npm-debug.log*
 yarn-debug.log*

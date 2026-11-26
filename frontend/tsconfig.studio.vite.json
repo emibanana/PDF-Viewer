@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@editor/*": ["./src/editor/studio/*", "./src/editor/core/*"],
+      "@editor-core/*": ["./src/editor/core/*"],
+      "@editor-studio/*": ["./src/editor/studio/*"]
+    }
+  },
+  "exclude": [
+    "src/editor/core/**/*.test.ts*",
+    "src/editor/core/**/*.spec.ts*",
+    "src/editor/studio/**/*.test.ts*",
+    "src/editor/studio/**/*.spec.ts*",
+    "src/editor/desktop",
+    "src/editor/proprietary",
+    "src/editor/cloud",
+    "src/editor/saas",
+    "src/processor"
+  ]
+}

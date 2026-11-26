@@ -1,0 +1,14 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    MASTER LOGO MARK. Edit or replace this one file, then run from frontend/:
+        python scripts/studio/gen-brand.py
+    Every other logo, icon and favicon is generated from it. Keep the 0 0 100 100 viewBox
+    and avoid <text> (it is rasterised without your fonts).
+  -->
+  <rect x="3" y="3" width="94" height="94" rx="20" fill="#C82828"/>
+  <path d="M28 16h32l14 14v54H28z" fill="#FFFFFF"/>
+  <path d="M60 16v14h14z" fill="#EBBEBE"/>
+  <rect x="36" y="46" width="30" height="5" rx="2.5" fill="#C82828"/>
+  <rect x="36" y="58" width="30" height="5" rx="2.5" fill="#C82828"/>
+  <rect x="36" y="70" width="19" height="5" rx="2.5" fill="#C82828"/>
+</svg>

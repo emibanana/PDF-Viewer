@@ -474,11 +474,45 @@ function subpathBareRedirectPlugin(subpath: string): PluginOption {
   };
 }
 
+// Licence guard for the PDF Viewer (studio) build. These directories carry the
+// restrictive Stirling PDF User License; the studio bundle must be built from
+// MIT code only (core + studio). Any module resolving into them fails the build.
+const RESTRICTED_SOURCE_DIRS = [
+  "/src/editor/desktop/",
+  "/src/editor/proprietary/",
+  "/src/editor/cloud/",
+  "/src/editor/saas/",
+  "/src/processor/",
+];
+
+function licenceGuardPlugin(): PluginOption {
+  return {
+    name: "studio-licence-guard",
+    enforce: "pre",
+    transform(_code, id) {
+      const normalised = id.split("?")[0].replace(/\\/g, "/");
+      const hit = RESTRICTED_SOURCE_DIRS.find((dir) => normalised.includes(dir));
+      if (hit) {
+        this.error(
+          `Licence guard: ${normalised} is under ${hit} (restricted Stirling PDF User License). The studio build may only use src/editor/core and src/editor/studio.`,
+        );
+      }
+      return null;
+    },
+  };
+}
+
 // NOTE: cloud/ is a SHARED layer, not a runnable build flavor — it's compiled
 // into the saas and desktop builds. It has no entry here and no vite tsconfig;
 // it is only typechecked standalone via src/editor/cloud/tsconfig.json
 // (task frontend:typecheck:cloud) to prove it carries no saas/desktop-only deps.
-const VALID_MODES = ["core", "proprietary", "saas", "desktop"] as const;
+const VALID_MODES = [
+  "core",
+  "proprietary",
+  "saas",
+  "desktop",
+  "studio",
+] as const;
 type BuildMode = (typeof VALID_MODES)[number];
 
 const TSCONFIG_MAP: Record<BuildMode, string> = {
@@ -486,6 +520,8 @@ const TSCONFIG_MAP: Record<BuildMode, string> = {
   proprietary: "./tsconfig.proprietary.vite.json",
   saas: "./tsconfig.saas.vite.json",
   desktop: "./tsconfig.desktop.vite.json",
+  // PDF Viewer fork: our own MIT desktop layer (studio) on top of core.
+  studio: "./tsconfig.studio.vite.json",
 };
 
 export default defineConfig(async ({ mode, command }) => {
@@ -517,6 +553,9 @@ export default defineConfig(async ({ mode, command }) => {
         : "proprietary");
 
   const tsconfigProject = TSCONFIG_MAP[effectiveMode];
+  // desktop and studio are both embedded in a Tauri binary (no HTTP server,
+  // no Java backend serving fonts or proxying /api).
+  const isTauriBuild = effectiveMode === "desktop" || effectiveMode === "studio";
 
   // Subpath the app is served under (base becomes "/<runSubpath>/"). Empty = root.
   const runSubpath = (env.RUN_SUBPATH || "").replace(/^\/+|\/+$/g, "");
@@ -567,7 +606,7 @@ export default defineConfig(async ({ mode, command }) => {
   // deliberately absent: the stubbed suite runs backend-free and proxying font
   // requests would turn a static 404 into a connection error.
   const backendProxyConfig =
-    effectiveMode === "desktop"
+    isTauriBuild
       ? undefined
       : {
           "/api": backendProxy,
@@ -598,6 +637,7 @@ export default defineConfig(async ({ mode, command }) => {
       __DEV_WORKTREE_LABEL__: JSON.stringify(devWorktreeLabel),
     },
     plugins: [
+      ...(effectiveMode === "studio" ? [licenceGuardPlugin()] : []),
       embedpdfEnginesPlugin(),
       iconSvgr(),
       react(),
@@ -609,7 +649,7 @@ export default defineConfig(async ({ mode, command }) => {
       // compresses every asset itself and never negotiates encodings, so the
       // .br/.gz siblings would only add their full size (tens of MB) to the
       // bundle. Web flavours keep both encodings for the HTTP server.
-      ...(effectiveMode === "desktop"
+      ...(isTauriBuild
         ? []
         : [
             compression({
@@ -660,10 +700,21 @@ export default defineConfig(async ({ mode, command }) => {
             src: "src/editor/core/assets/brand/modern-logo/*",
             dest: "modern-logo",
           },
+          // The studio layer's generic PDF Viewer brand assets overwrite the
+          // core ones (same file names, copied after core).
+          ...(effectiveMode === "studio"
+            ? [
+                {
+                  src: "src/editor/studio/assets/brand/modern-logo/*",
+                  dest: "modern-logo",
+                  overwrite: true,
+                },
+              ]
+            : []),
           // The compression pass writes the .br/.gz siblings the backend JAR
           // serves from classpath:/static/fonts/; desktop is embedded and gets
           // them from the bundled backend instead.
-          ...(effectiveMode === "desktop"
+          ...(isTauriBuild
             ? []
             : [
                 {
@@ -673,10 +724,10 @@ export default defineConfig(async ({ mode, command }) => {
               ]),
         ],
       }),
-      ...(effectiveMode === "desktop" ? [] : [compressStaticCopyPlugin()]),
+      ...(isTauriBuild ? [] : [compressStaticCopyPlugin()]),
       prerenderOgPlugin({
         isSaas: effectiveMode === "saas",
-        precompress: effectiveMode !== "desktop",
+        precompress: !isTauriBuild,
         canonicalOrigin: env.VITE_OG_BASE_URL || "",
       }),
     ],
@@ -822,7 +873,7 @@ export default defineConfig(async ({ mode, command }) => {
     base: runSubpath
       ? `/${runSubpath}/`
       : process.env.VITE_BUILD_FOR_PREVIEW === "1" ||
-          effectiveMode === "desktop"
+          isTauriBuild
         ? "/"
         : "./",
   };

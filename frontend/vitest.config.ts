@@ -87,6 +87,24 @@ export default defineConfig({
       },
       {
         test: {
+          name: "studio",
+          ...TEST_DEFAULTS,
+          // The PDF processors only need Node's Blob/File; jsdom's Blob cannot wrap a Uint8Array.
+          include: ["src/editor/studio/**/*.test.{ts,tsx}"],
+          environment: "node",
+          globals: true,
+        },
+        plugins: [
+          tsconfigPaths({
+            projects: ["./tsconfig.studio.vite.json"],
+          }),
+        ],
+        esbuild: {
+          target: "es2020",
+        },
+      },
+      {
+        test: {
           name: "processor",
           ...TEST_DEFAULTS,
           include: ["src/processor/proprietary/**/*.test.{ts,tsx}"],

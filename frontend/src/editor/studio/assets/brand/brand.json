@@ -1,0 +1,7 @@
+{
+  "name": "PDF Viewer",
+  "textColorOnLight": "#1A1A1A",
+  "textColorOnDark": "#FFFFFF",
+  "textColorGrey": "#8A8A8A",
+  "font": "Arial, Helvetica, sans-serif"
+}
