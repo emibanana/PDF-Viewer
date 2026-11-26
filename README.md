@@ -1,69 +1,48 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/docs/stirling.png" width="80" alt="Stirling PDF logo">
-</p>
+# PDF Viewer
 
-<h1 align="center">Stirling PDF - The Open-Source PDF Platform</h1>
+A local-only Windows desktop PDF viewer and markup tool. No accounts, no login, no backend server, no online services.
 
-Stirling PDF is a powerful, open-source PDF editing platform. Run it as a personal desktop app, in the browser, or deploy it on your own servers with a private API. Edit, sign, redact, convert, and automate PDFs without sending documents to external services.
+This is a fork of [Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) (upstream `594a564`, v3.5.0). The app is the upstream editor UI running in a small Tauri (Rust) shell, with our own layer on top.
 
-<p align="center">
-  <a href="https://hub.docker.com/r/stirlingtools/stirling-pdf">
-    <img src="https://img.shields.io/docker/pulls/frooodle/s-pdf" alt="Docker Pulls">
-  </a>
-  <a href="https://discord.gg/HYmhKj45pU">
-    <img src="https://img.shields.io/discord/1068636748814483718?label=Discord" alt="Discord">
-  </a>
-  <a href="https://scorecard.dev/viewer/?uri=github.com/Stirling-Tools/Stirling-PDF">
-    <img src="https://api.scorecard.dev/projects/github.com/Stirling-Tools/Stirling-PDF/badge" alt="OpenSSF Scorecard">
-  </a>
-  <a href="https://github.com/Stirling-Tools/stirling-pdf">
-    <img src="https://img.shields.io/github/stars/stirling-tools/stirling-pdf?style=social" alt="GitHub Repo stars">
-  </a>
-</p>
+**What's done, what's next, and what's deferred: [docs/IMPLEMENTATION-PLAN.md](docs/IMPLEMENTATION-PLAN.md)**
 
-![Stirling PDF - Dashboard](docs/images/home-light.png)
+## Run it (Windows, no admin needed)
 
-## Key Capabilities
+Prerequisites installed per-user: Node, Rust (`rustup`), and the Microsoft C++ build tools via
+[portable-msvc](https://gist.github.com/mmozeiko/7f3162ec2988e81e56d5c4e22cde9977) into `%USERPROFILE%\tools\msvc`.
+`dev-env.ps1` puts them on `PATH`.
 
-- **Everywhere you work** - Desktop client, browser UI, and self-hosted server with a private API.
-- **50+ PDF tools** - Edit, merge, split, sign, redact, convert, OCR, compress, and more.
-- **Automation & workflows** - No-code pipelines direct in UI with APIs to process millions of PDFs.
-- **Enterprise‑grade** - SSO, auditing, and flexible on‑prem deployments.
-- **Developer platform** - REST APIs available for nearly all tools to integrate into your existing systems.
-- **Global UI** - Interface available in 40+ languages.
-
-For a full feature list, see the docs: **https://docs.stirlingpdf.com**
-
-## Quick Start
-
-```bash
-docker run -p 8080:8080 docker.stirlingpdf.com/stirlingtools/stirling-pdf
+```powershell
+cd frontend
+npm ci
+. ..\dev-env.ps1
+npx tauri dev
 ```
 
-Then open: http://localhost:8080
+Other commands (from `frontend/`):
 
-For full installation options (including desktop and Kubernetes), see our [Documentation Guide](https://docs.stirlingpdf.com/#documentation-guide).
+| Command | What it does |
+|---|---|
+| `npx vitest run --project studio` | Unit tests for our tool ports |
+| `npx tsc --noEmit -p tsconfig.studio.vite.json` | Typecheck the studio build |
+| `cargo test` (in `frontend/src-tauri`) | Rust host tests |
+| `python scripts/studio/gen-brand.py` | Regenerate every logo and icon from `studio/assets/brand/mark.svg` |
+| `node scripts/studio/rebrand-locales.mjs` | Re-apply the product name to the locale files |
 
-## Resources
+## Where our code lives
 
-- [**Documentation**](https://docs.stirlingpdf.com)
-- [**Homepage**](https://stirling.com)
-- [**API Docs**](https://registry.scalar.com/@stirlingpdf/apis/stirling-pdf-processing-api/)
-- [**Server Plan & Enterprise**](https://docs.stirlingpdf.com/Paid-Offerings)
+| Path | What |
+|---|---|
+| `frontend/src/editor/studio/` | Our UI layer. A file here with the same path as one in `core/` replaces it in our build |
+| `frontend/src-tauri/` | Rust host: window, file open/save, single instance |
+| `frontend/scripts/studio/` | Brand and locale tooling |
+| `frontend/src/editor/core/` | Upstream editor UI (MIT). Keep our edits here minimal |
 
-## Support
+## Git
 
-- **Community**: [Discord](https://discord.gg/HYmhKj45pU)
-- **Bug Reports**: [GitHub Issues](https://github.com/Stirling-Tools/Stirling-PDF/issues)
+- `upstream` remote = Stirling-Tools/Stirling-PDF. `main` mirrors it; never commit to `main`.
+- `studio` is the product branch. Add your own fork as `origin` with `git remote add origin <url>`.
 
-## Contributing
+## Licence
 
-We welcome contributions! Please see [CONTRIBUTING.md](.github/CONTRIBUTING.md) for guidelines.
-
-This project uses [Task](https://taskfile.dev/) as a unified command runner for all build, dev, and test commands. Run `task dev` to get started running the editor, run `task` to see the most common commands, or see the [Developer Guide](docs/developer/DeveloperGuide.md) for full details.
-
-For adding translations, see the [Translation Guide](docs/developer/HowToAddNewLanguage.md).
-
-## License
-
-Stirling PDF is open-core. See [LICENSE](LICENSE) for details.
+The root licence is MIT, but `frontend/src/editor/{desktop,proprietary,cloud,saas}`, `frontend/src/processor`, `app/proprietary`, `app/saas` and `engine` carry the restrictive Stirling PDF User License. This product never uses code from those directories, and the build fails if it tries to. See the plan for details.

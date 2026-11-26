@@ -1,0 +1,172 @@
+# PDF Viewer: feature plan and status
+
+A local-only Windows desktop PDF viewer and markup tool, forked from [Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) (upstream `594a564`, v3.5.0). **No accounts, no login, no backend, no online services.** The app is built and running; this document tracks what is done and what to build next.
+
+| Icon | Meaning |
+|---|---|
+| ✅ | Done and checked |
+| 🟡 | In progress, or built but not yet checked end to end |
+| ⬜ | Not started |
+| 🔴 | Blocked (needs a decision or something from you) |
+| ⏸️ | Deferred on purpose (see Deferred) |
+| ⚠️ | Done with a known caveat (written beside it) |
+
+---
+
+## 1. Tech stack (brief)
+
+| Layer | What we use |
+|---|---|
+| Shell | Tauri 2 (Rust). Small host in `frontend/src-tauri`: window, single-instance file forwarding, atomic save. No Java, no JRE, no server |
+| UI | React 19, Mantine 8, Vite 7. Upstream editor UI (`src/editor/core`, MIT) plus our own layer `src/editor/studio` |
+| PDF engine | EmbedPDF 2.15 (PDFium compiled to WASM): render, search, annotations, page ops. `@cantoo/pdf-lib` for writing PDFs, `pdfjs-dist` for text extraction |
+| Build modes | `vite --mode studio`: `@editor/*` resolves `studio/` first, then `core/`. A file in `studio/` with the same path as a core file replaces it, so upstream merges stay small |
+| Installer | NSIS, per-user, no admin (`installMode: currentUser`) |
+| Branding | One master logo `studio/assets/brand/mark.svg` + `brand.json`; `python scripts/studio/gen-brand.py` regenerates every logo and icon |
+
+**Licence boundary.** Only `src/editor/core`, `src-tauri` and `app/core` are MIT. `desktop/`, `proprietary/`, `cloud/`, `saas/`, `processor/` and `engine/` carry the restrictive Stirling licence: never copy or port code from them. A Vite plugin fails the build if the studio bundle imports any of them. (Engineering reading, not legal advice: get it confirmed before distributing outside your own use.)
+
+**Run it** (PowerShell, from `frontend/`):
+
+```powershell
+. ..\dev-env.ps1      # puts rustup + the no-admin MSVC toolchain on PATH
+npx tauri dev         # builds the Rust host and opens the app
+```
+
+---
+
+## 2. Feature list and status
+
+### Foundation
+
+| | Feature | Notes |
+|---|---|---|
+| ✅ | Native Windows app that launches | `npx tauri dev` |
+| ✅ | Local only: no login or account UI | Avatar replaced by a Settings gear; third-party keys blanked in `.env.studio` |
+| ✅ | Rebrand to PDF Viewer | Name, icons, installer id, locale strings, single master logo |
+| ✅ | Licence guard | Build fails on any import from a restricted directory. ⬜ CI step still to add |
+| ✅ | Open a PDF from disk | Verified: launching `pdf-viewer.exe file.pdf` while the app runs opens it. ⚠️ Open dialog and drag-drop written, not clicked through yet |
+| ✅ | Save in place (always overwrite) | Verified: temp file + rename in Rust, no leftover temp file. ⚠️ The "Save as" dialog for a never-saved file is not exercised yet |
+| ✅ | Tools that need the Java backend removed from the menu | Hidden everywhere (menu, search, Automate, links) via `studio/config/toolAvailability.ts` |
+| 🟡 | Per-user NSIS installer | Configured; `tauri build` not run yet |
+| ⬜ | GitHub fork pushed | Repo is prepared locally (`main` tracks upstream, `studio` is ours); needs your GitHub fork URL |
+
+### Tools that work today (no backend)
+
+✅ Read (viewer) · ✅ Multi Tool (page editor) · ✅ Annotate · ✅ Sign (draw/type/image) · ✅ Add Text · ✅ Add Image · ✅ Compare · ✅ Remove Annotations · ✅ Adjust Colors/Contrast · ✅ PDF Text Editor (⚠️ its OCR button needs a backend) · ✅ Form Fill (⚠️ creating new fields needs a backend) · ✅ Redact (⚠️ manual mode only; auto-redact needs a backend)
+
+### Tools being ported to run in the app
+
+Re-implemented with `@cantoo/pdf-lib` / PDFium as shadow hooks in `studio/hooks/tools/`; each returns to the menu when its port is tested.
+
+| | Tool | Approach |
+|---|---|---|
+| 🟡 | Merge, Rotate, Remove Pages, Change Metadata | In progress |
+| 🟡 | Extract Pages, Reorganize Pages | In progress |
+| 🟡 | Add Password, Remove Password, Change Permissions | In progress (pdf-lib encryption) |
+| 🟡 | Flatten (forms) | In progress |
+| ⬜ | Split | Page-based modes first; chapters via bookmarks |
+| ⬜ | Show JavaScript, Edit Table of Contents, Manage Attachments | PDFium engine calls |
+| ⬜ | Crop, Watermark, Add Page Numbers, Sanitize, Get Info | pdf-lib |
+
+### Desktop shell
+
+| | Feature | Design notes |
+|---|---|---|
+| ⬜ | New window per file; window title = file name + dot when unsaved | Single-instance handler focuses an already-open file, else opens a window |
+| ⬜ | Open-file switcher | Rust window registry; file strip in the title bar; Ctrl+Tab recent-files switcher with thumbnails; Ctrl+P "go to file" |
+| ⬜ | Taskbar integration | One AppUserModelID; thumbnail-toolbar buttons (Save, Print, Prev, Next, Close); overlay badge for unsaved; progress; Jump List |
+| ⬜ | Unsaved-changes handling | Ignore our own writes in the file watcher; silent reload when clean; our version wins when dirty; prompt on close only if unsaved |
+| ⬜ | Right-click menu and file association (per-user, no admin) | `HKCU` shell verbs, ProgID, PDF thumbnail handler (crate exists in `src-tauri/thumbnail-handler`); Integrations settings page |
+| ⏸️ | Windows 11 top-level context menu | Needs a signed sparse package and an elevation helper; later |
+
+### Search panel (Bluebeam-style)
+
+| | Feature |
+|---|---|
+| ⬜ | Left-dock panel: scope = this file / all open files / a folder |
+| ⬜ | Options: match case, whole word, regex, wildcards (`*` `?`), boolean (AND, OR, NOT, phrases) |
+| ⬜ | Results tree File > Page > hit with snippet; click jumps and flashes the hit |
+| ⬜ | Bulk actions on checked hits: highlight, underline, strikeout, redact, copy, export CSV |
+| ⬜ | "N pages have no text" banner (OCR is deferred, so informational only) |
+
+Notes: EmbedPDF already returns match context and case/whole-word flags, so the basic list is UI work; regex and boolean need a per-document text index built in a worker.
+
+### Organize pages (Adobe-style)
+
+| | Feature |
+|---|---|
+| ⬜ | Continuous thumbnail grid with file groups; collapse a file to one stacked card; zoom slider |
+| ⬜ | Selection: click, shift/ctrl range, rubber-band, odd/even/range |
+| ⬜ | Toolbar: rotate, delete, extract, insert (blank, from file, clipboard image), replace, duplicate, split, move to file, undo/redo |
+| ⬜ | Drag and drop at an insertion caret: PDFs spliced in, images become pages (async placeholder tile so converters can plug in later) |
+
+### Markup Studio (Bluebeam-like)
+
+Foundation first: a typed markup model above EmbedPDF (subject, label, layer, status, colours, measurement, custom columns), a Properties panel and a Tool Chest of saved tool presets. Non-standard keys are written in a save-time pdf-lib pass.
+
+| | Step | Markups |
+|---|---|---|
+| ⬜ | M0 | Markup model, Properties panel, Tool Chest, copy/paste markups between files |
+| ⬜ | M1 Text | Rich-text box, typewriter, callout with changeable leader (our own appearance stream; riskiest, do first) |
+| ⬜ | M2 Lines | Arrow and line-end types, polyline, polygon, curve/arc, dimension line |
+| ⬜ | M3 Cloud | Rectangle, polygon and ellipse clouds, Cloud+ (cloud with callout) |
+| ⬜ | M4 Image | Insert image with border, transparency, crop, replace |
+| ⬜ | M5 Measure | Calibrate scale, length, polylength, area, perimeter, count, angle, radius, volume |
+| ⬜ | M6 Workflow | Layers, status and replies, lock, flatten, align/distribute, group, custom stamps, hyperlinks |
+
+### Markups List (Bluebeam-compatible)
+
+| | Feature |
+|---|---|
+| ⬜ | Read every markup plus raw dictionary keys (Bluebeam custom columns, subject, status, layer, measurement) |
+| ⬜ | Grid: multi-level grouping, sort, filter, subtotals and grand total, show/hide/reorder columns, saved views |
+| ⬜ | Inline edit writes back to the markup; row click jumps to it; bulk set status/layer/colour |
+| ⬜ | Custom columns (text, number, date, choice, yes/no, formula) |
+| ⬜ | Export CSV, XLSX, summary PDF; option to match Revu's Markup Summary layout |
+| ⬜ | Compatibility corpus: 15 to 20 real Revu PDFs plus their Markup Summary CSVs (kept out of the public repo) as the acceptance test |
+
+### Performance
+
+| | Feature |
+|---|---|
+| ⬜ | Profile first (WASM raster time vs React re-renders vs tile churn) |
+| ⬜ | Zoom without the flash: keep old tiles, CSS-scale, coalesce wheel steps |
+| ⬜ | Raw binary IPC for file bytes (save already does this) |
+| ⬜ | Native PDF crate (`pdfium-render`) for folder-wide search and large merges |
+
+---
+
+## 3. Deferred
+
+Hidden from the app because they need something this build does not ship. Listed in `studio/config/toolAvailability.ts`. Their upstream source stays in `core/` untouched so upstream merges stay clean; only the menu entry is removed.
+
+| | Tool(s) | Why deferred |
+|---|---|---|
+| ⏸️ | OCR / Cleanup scans, Auto Rotate, Detect and Split Scanned Photos | Need OCR or computer vision. Planned route: Windows built-in OCR from Rust |
+| ⏸️ | Compress | Needs a real image/stream optimiser (Ghostscript is AGPL, so not bundled) |
+| ⏸️ | Convert (all), Repair | Office, PDF/A, HTML, epub and similar need Office, LibreOffice or a server. PDF to image and image to PDF can be revived client-side |
+| ⏸️ | Word/Excel/PowerPoint to PDF and back, PDF/A conversion and validation | Planned route: installed MS Office via COM, LibreOffice fallback |
+| ⏸️ | Certificate Sign, Remove Certificate Sign, Timestamp, Validate Signature | Need the Windows certificate store / CMS signing. Planned: Rust cert store + PKI.js |
+| ⏸️ | Check Accessibility, Auto Form Detection, Classify, Auto Rename | Need native analysis or an AI model |
+| ⏸️ | Page size/scale, Multi-Page Layout, Booklet, PDF to Single Page, Overlay PDFs, Remove Blank Pages, Remove Images, Replace Color, Add Stamp, Unlock Forms, Create Portfolio, Extract Images | Medium pdf-lib/pdfjs ports; not scheduled yet |
+| ⏸️ | Automate (batch pipelines) | Each step needs a tool endpoint; revisit once more tools run in-app |
+| ⏸️ | Developer link tools (API, folder scanning, SSO, air-gapped) | Open Stirling's online docs or the backend API |
+
+---
+
+## 4. Repo and upstream
+
+- Git remotes: `upstream` = Stirling-Tools/Stirling-PDF; `origin` = your fork (add it with `git remote add origin <url>`).
+- Branches: `main` mirrors upstream (never commit to it); `studio` is the product branch. Merge upstream into `studio` roughly monthly.
+- Our code lives in `frontend/src/editor/studio/` (UI layer), `frontend/src-tauri/` (Rust host), `frontend/scripts/studio/` (brand and locale tools). Edits to upstream `core/` are kept to a minimum and listed in `docs/core-patches.md` when they happen.
+- A fork of a public repo stays public: never commit anything confidential (the Revu corpus goes in `corpus/`, which is git-ignored).
+- Releases: build on a Windows machine or GitHub Actions `windows-latest`; unsigned for internal use, a code-signing certificate before wide distribution.
+
+## 5. Risks and open questions
+
+1. Licence reading (section 1): confirm before distributing outside your own use.
+2. Rich-text FreeText appearance streams (Markup M1) are the hardest technical item: spike first.
+3. Bluebeam's custom-column storage is undocumented; compatibility depends on the Revu sample corpus you provide.
+4. Memory with many windows (one WebView2 per file): measure when the window-per-file feature lands; offer a tabs mode if needed.
+5. Dev PC has no admin: Rust and MSVC are per-user (`%USERPROFILE%\tools\msvc`); a global MSVC install would only simplify setup.

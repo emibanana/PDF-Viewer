@@ -314,3 +314,7 @@ scripts/pdf-collection/
 # Local screenshot artifacts from *-screenshots.spec.ts
 frontend/screenshots/
 frontend/src-tauri/libs/.variant
+
+### PDF Viewer fork ###
+# Real Bluebeam Revu PDFs used for compatibility tests: keep out of the public fork
+/corpus/
