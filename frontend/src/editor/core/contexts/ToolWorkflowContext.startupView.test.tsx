@@ -108,7 +108,7 @@ describe("server default reaches the launch view", () => {
     localStorage.setItem(
       STORAGE_KEY,
       JSON.stringify({
-        defaultStartupView: "automate",
+        defaultStartupView: "tools",
         defaultToolPanelMode: "sidebar",
       }),
     );
@@ -118,15 +118,15 @@ describe("server default reaches the launch view", () => {
     });
 
     await waitFor(() => {
-      expect(launch).toHaveAttribute("data-tool", "automate");
+      expect(launch).toHaveAttribute("data-tool", "");
       expect(launch).toHaveAttribute("data-reader", "false");
-      expect(launch).toHaveAttribute("data-startup", "automate");
+      expect(launch).toHaveAttribute("data-startup", "tools");
       expect(launch).toHaveAttribute("data-panel", "sidebar");
       expect(launch).toHaveAttribute("data-mode", "sidebar");
     });
     expect(JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}")).toMatchObject(
       {
-        defaultStartupView: "automate",
+        defaultStartupView: "tools",
         defaultToolPanelMode: "sidebar",
       },
     );
@@ -150,14 +150,13 @@ describe("server default reaches the launch view", () => {
       await act(async () => {
         resolveConfig({
           status: 200,
-          data: { defaultStartupView: "automate" },
+          data: { defaultStartupView: "read" },
         });
       });
 
       await waitFor(() => {
-        expect(launch).toHaveAttribute("data-tool", "automate");
-        expect(launch).toHaveAttribute("data-reader", "false");
-        expect(launch).toHaveAttribute("data-startup", "automate");
+        expect(launch).toHaveAttribute("data-reader", "true");
+        expect(launch).toHaveAttribute("data-startup", "read");
         expect(launch).toHaveAttribute("data-from-server", "true");
       });
       expect(localStorage.getItem(STORAGE_KEY)).toBeNull();

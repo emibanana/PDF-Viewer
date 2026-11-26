@@ -1,5 +1,5 @@
 import { pdfWorkerManager } from "@editor/services/pdfWorkerManager";
-import type { PageRenderer } from "./flatten";
+import type { PageRenderer } from "@editor/services/pdfEdit/flatten";
 
 /** Browser page renderer (pdfjs + canvas). Kept apart from the processors so they stay testable in node. */
 export const renderPagesWithPdfjs: PageRenderer = async (file, dpi) => {

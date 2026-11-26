@@ -12,7 +12,6 @@ import { useTranslation } from "react-i18next";
 import { useRepairOperation } from "@editor/hooks/tools/repair/useRepairOperation";
 import { defaultParameters } from "@editor/hooks/tools/repair/useRepairParameters";
 import { useFileSelectors } from "@editor/contexts/file/fileHooks";
-import { useToolWorkflowData } from "@editor/contexts/ToolWorkflowContext";
 import { alert } from "@editor/components/toast";
 import type { FileId } from "@editor/types/file";
 
@@ -39,7 +38,6 @@ export function DamagedFileRepairProvider({
   const { t } = useTranslation();
   const operation = useRepairOperation();
   const selectors = useFileSelectors();
-  const { toolAvailability } = useToolWorkflowData();
   const [repairing, setRepairing] = useState<{
     id: FileId;
     name: string;

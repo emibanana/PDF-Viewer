@@ -38,9 +38,7 @@ const COMPRESSION_EXCLUDED_EXTENSIONS = [
   ".woff",
   ".woff2",
 ];
-const COMPRESSION_EXCLUDE_REGEX = new RegExp(
-  `\\.(${COMPRESSION_EXCLUDED_EXTENSIONS.map((e) => e.slice(1)).join("|")})$`,
-);
+const COMPRESSION_EXCLUDE_REGEX = new RegExp(`\\.(${COMPRESSION_EXCLUDED_EXTENSIONS.map((e) => e.slice(1)).join("|")})$`);
 const EXCLUDED_EXTENSION_SET = new Set(COMPRESSION_EXCLUDED_EXTENSIONS);
 
 // Cloudflare's extension-based cache list omits .mjs, so pdf.js's hashed worker
@@ -48,9 +46,7 @@ const EXCLUDED_EXTENSION_SET = new Set(COMPRESSION_EXCLUDED_EXTENSIONS);
 // rewrite the `new URL(..., import.meta.url)` references; worker sub-builds need
 // the same option because they do not inherit the main build's output options.
 const mjsToJsAssetFileNames = (assetInfo: PreRenderedAsset) =>
-  assetInfo.names.some((name) => name.endsWith(".mjs"))
-    ? "assets/[name]-[hash].js"
-    : "assets/[name]-[hash][extname]";
+  assetInfo.names.some((name) => name.endsWith(".mjs")) ? "assets/[name]-[hash].js" : "assets/[name]-[hash][extname]";
 
 // A variant only earns its place when it is meaningfully smaller than the source
 // it shadows; the encoders happily emit a sidecar larger than a small or already
@@ -60,10 +56,7 @@ const mjsToJsAssetFileNames = (assetInfo: PreRenderedAsset) =>
 const MIN_COMPRESSION_RATIO = 0.98;
 
 /** True when `sibling` exists and is at least as new as the source. */
-async function isFresh(
-  sibling: string,
-  sourceMtimeMs: number,
-): Promise<boolean> {
+async function isFresh(sibling: string, sourceMtimeMs: number): Promise<boolean> {
   try {
     return (await fs.stat(sibling)).mtimeMs >= sourceMtimeMs;
   } catch {
@@ -78,11 +71,7 @@ async function writeVariant(target: string, bytes: Uint8Array): Promise<void> {
   await fs.rename(temp, target);
 }
 
-async function writeVariantIfSmaller(
-  target: string,
-  encoded: Uint8Array,
-  sourceLength: number,
-): Promise<void> {
+async function writeVariantIfSmaller(target: string, encoded: Uint8Array, sourceLength: number): Promise<void> {
   if (encoded.length < sourceLength * MIN_COMPRESSION_RATIO) {
     await writeVariant(target, encoded);
   } else {
@@ -106,19 +95,13 @@ async function compressFile(file: string, distDir: string): Promise<void> {
   // so a stale one has to be replaced rather than trusted. Each encoding is
   // checked independently: a fresh .br next to a stale .gz is not a pair.
   const source = await fs.stat(resolved);
-  const [gzFresh, brFresh] = await Promise.all([
-    isFresh(gzPath, source.mtimeMs),
-    isFresh(brPath, source.mtimeMs),
-  ]);
+  const [gzFresh, brFresh] = await Promise.all([isFresh(gzPath, source.mtimeMs), isFresh(brPath, source.mtimeMs)]);
   if (gzFresh && brFresh) return;
 
   // A source that shrank below the threshold must not keep serving the variants
   // left over from when it was larger.
   if (source.size < 1024) {
-    await Promise.all([
-      fs.rm(gzPath, { force: true }),
-      fs.rm(brPath, { force: true }),
-    ]);
+    await Promise.all([fs.rm(gzPath, { force: true }), fs.rm(brPath, { force: true })]);
     return;
   }
 
@@ -143,11 +126,7 @@ const COMPRESSION_BATCH_FILES = 16;
 
 async function compressFiles(files: string[], distDir: string): Promise<void> {
   for (let i = 0; i < files.length; i += COMPRESSION_BATCH_FILES) {
-    await Promise.all(
-      files
-        .slice(i, i + COMPRESSION_BATCH_FILES)
-        .map((f) => compressFile(f, distDir)),
-    );
+    await Promise.all(files.slice(i, i + COMPRESSION_BATCH_FILES).map((f) => compressFile(f, distDir)));
   }
 }
 
@@ -164,9 +143,7 @@ function startupModules(meta: ManualChunkMeta): Set<string> {
   let modules = startupModulesByOutput.get(meta);
   if (modules) return modules;
   modules = new Set();
-  const queue = [...meta.getModuleIds()].filter(
-    (id) => meta.getModuleInfo(id)?.isEntry,
-  );
+  const queue = [...meta.getModuleIds()].filter((id) => meta.getModuleInfo(id)?.isEntry);
   for (const id of queue) {
     if (modules.has(id)) continue;
     modules.add(id);
@@ -234,10 +211,7 @@ const MARKDOWN_PACKAGES = new Set([
 ]);
 
 function isMarkdownPackage(pkg: string): boolean {
-  return (
-    MARKDOWN_PACKAGES.has(pkg) ||
-    MARKDOWN_PACKAGE_PREFIXES.some((prefix) => pkg.startsWith(prefix))
-  );
+  return MARKDOWN_PACKAGES.has(pkg) || MARKDOWN_PACKAGE_PREFIXES.some((prefix) => pkg.startsWith(prefix));
 }
 
 function compressStaticCopyPlugin(): PluginOption {
@@ -262,12 +236,7 @@ function compressStaticCopyPlugin(): PluginOption {
         for (const entry of entries) {
           const p = path.join(dir, entry.name);
           if (entry.isDirectory()) await walk(p);
-          else if (
-            !entry.name.endsWith(".html") &&
-            entry.name !== "sitemap.xml" &&
-            entry.name !== "robots.txt"
-          )
-            files.push(p);
+          else if (!entry.name.endsWith(".html") && entry.name !== "sitemap.xml" && entry.name !== "robots.txt") files.push(p);
         }
       };
 
@@ -310,17 +279,11 @@ function compressStaticCopyPlugin(): PluginOption {
 // origin serves the page (correct for self-hosted Docker). Indexing signals
 // (canonical, JSON-LD, sitemap) need VITE_OG_BASE_URL specifically - see below.
 // Logic lives in scripts/og-prerender.mjs so it can be unit-tested without a full build.
-function prerenderOgPlugin(options: {
-  isSaas: boolean;
-  precompress: boolean;
-  canonicalOrigin: string;
-}): PluginOption {
+function prerenderOgPlugin(options: { isSaas: boolean; precompress: boolean; canonicalOrigin: string }): PluginOption {
   const { isSaas, precompress, canonicalOrigin } = options;
   // SaaS (stirling.com) prerenders the marketing cards from a dedicated
   // manifest; every other flavour uses the tool-registry manifest.
-  const manifestFile = isSaas
-    ? "public/og-metadata.saas.json"
-    : "public/og-metadata.json";
+  const manifestFile = isSaas ? "public/og-metadata.saas.json" : "public/og-metadata.json";
   return {
     name: "prerender-og",
     apply: "build" as const,
@@ -347,13 +310,10 @@ function prerenderOgPlugin(options: {
       }
       let manifest;
       try {
-        manifest = JSON.parse(
-          await fs.readFile(path.resolve(__dirname, manifestFile), "utf8"),
-        );
+        manifest = JSON.parse(await fs.readFile(path.resolve(__dirname, manifestFile), "utf8"));
       } catch {
         console.warn(
-          `[prerender-og] ${manifestFile} missing; skipping OG prerender. ` +
-            "Run `node scripts/generate-og-metadata.mjs`.",
+          `[prerender-og] ${manifestFile} missing; skipping OG prerender. ` + "Run `node scripts/generate-og-metadata.mjs`.",
         );
         return;
       }
@@ -367,18 +327,12 @@ function prerenderOgPlugin(options: {
       });
       console.log(
         `[prerender-og] wrote ${count} prerendered route pages` +
-          (ogBase
-            ? ` (absolute URLs, base=${ogBase})`
-            : " (root-relative URLs)"),
+          (ogBase ? ` (absolute URLs, base=${ogBase})` : " (root-relative URLs)"),
       );
 
       // prerenderOg rewrote index.html, so the bundler's siblings for the
       // original shell are stale.
-      await Promise.all(
-        ["index.html.br", "index.html.gz"].map((name) =>
-          fs.rm(path.join(distDir, name), { force: true }),
-        ),
-      );
+      await Promise.all(["index.html.br", "index.html.gz"].map((name) => fs.rm(path.join(distDir, name), { force: true })));
 
       const lateFiles: string[] = [path.join(distDir, "index.html")];
 
@@ -396,9 +350,7 @@ function prerenderOgPlugin(options: {
         try {
           let robots = await fs.readFile(robotsPath, "utf8");
           if (!/^\s*Sitemap:/im.test(robots)) {
-            robots =
-              robots.replace(/\s*$/, "\n") +
-              `Sitemap: ${canonicalBase}/sitemap.xml\n`;
+            robots = robots.replace(/\s*$/, "\n") + `Sitemap: ${canonicalBase}/sitemap.xml\n`;
             await fs.writeFile(robotsPath, robots);
           }
         } catch {
@@ -426,8 +378,7 @@ function prerenderOgPlugin(options: {
         for (const entry of entries) {
           const p = path.join(dir, entry.name);
           if (entry.isDirectory()) await walkHtml(p);
-          else if (entry.name.endsWith(".html") && entry.name !== "index.html")
-            lateFiles.push(p);
+          else if (entry.name.endsWith(".html") && entry.name !== "index.html") lateFiles.push(p);
         }
       };
       await walkHtml(distDir);
@@ -506,13 +457,7 @@ function licenceGuardPlugin(): PluginOption {
 // into the saas and desktop builds. It has no entry here and no vite tsconfig;
 // it is only typechecked standalone via src/editor/cloud/tsconfig.json
 // (task frontend:typecheck:cloud) to prove it carries no saas/desktop-only deps.
-const VALID_MODES = [
-  "core",
-  "proprietary",
-  "saas",
-  "desktop",
-  "studio",
-] as const;
+const VALID_MODES = ["core", "proprietary", "saas", "desktop", "studio"] as const;
 type BuildMode = (typeof VALID_MODES)[number];
 
 const TSCONFIG_MAP: Record<BuildMode, string> = {
@@ -529,20 +474,14 @@ export default defineConfig(async ({ mode, command }) => {
   // top-level dev tasks so concurrent worktrees have distinguishable tabs.
   // Only injected during `vite` (dev serve) — never baked into a production
   // build — and carries only the folder name, no path/host/user info.
-  const devWorktreeLabel =
-    command === "serve" ? (process.env.STIRLING_DEV_LABEL ?? "") : "";
+  const devWorktreeLabel = command === "serve" ? (process.env.STIRLING_DEV_LABEL ?? "") : "";
   // Relative to this config, not process.cwd(), so .env* load wherever vite is run from.
   const env = loadEnv(mode, import.meta.dirname, "");
 
   // Effective mode: --mode > STIRLING_FLAVOR > ENABLE_SAAS > DISABLE_ADDITIONAL_FEATURES > proprietary.
-  const explicitMode = (VALID_MODES as readonly string[]).includes(mode)
-    ? (mode as BuildMode)
-    : null;
+  const explicitMode = (VALID_MODES as readonly string[]).includes(mode) ? (mode as BuildMode) : null;
   const flavor = (process.env.STIRLING_FLAVOR ?? "").toLowerCase();
-  const flavorMode: BuildMode | null =
-    flavor === "core" || flavor === "proprietary" || flavor === "saas"
-      ? flavor
-      : null;
+  const flavorMode: BuildMode | null = flavor === "core" || flavor === "proprietary" || flavor === "saas" ? flavor : null;
   const effectiveMode: BuildMode =
     explicitMode ??
     flavorMode ??
@@ -571,16 +510,10 @@ export default defineConfig(async ({ mode, command }) => {
   let reportedBackendDown = false;
   logger.error = (msg, options) => {
     const code = (options?.error as NodeJS.ErrnoException | undefined)?.code;
-    if (
-      command === "serve" &&
-      msg.includes("http proxy error") &&
-      code === "ECONNREFUSED"
-    ) {
+    if (command === "serve" && msg.includes("http proxy error") && code === "ECONNREFUSED") {
       if (!reportedBackendDown) {
         reportedBackendDown = true;
-        logger.warn(
-          `backend unreachable at ${backendUrl}; suppressing proxy connection errors until it starts`,
-        );
+        logger.warn(`backend unreachable at ${backendUrl}; suppressing proxy connection errors until it starts`);
       }
       return;
     }
@@ -588,8 +521,7 @@ export default defineConfig(async ({ mode, command }) => {
   };
   // Allow host header checks to be configured via env so LAN/reverse-proxy
   // dev setups don't require editing this file for each machine.
-  const allowedHostsRaw =
-    process.env.FRONTEND_ALLOWED_HOSTS || env.FRONTEND_ALLOWED_HOSTS || "";
+  const allowedHostsRaw = process.env.FRONTEND_ALLOWED_HOSTS || env.FRONTEND_ALLOWED_HOSTS || "";
   const allowedHosts = allowedHostsRaw
     .split(",")
     .map((host) => host.trim())
@@ -605,18 +537,17 @@ export default defineConfig(async ({ mode, command }) => {
   // in CI/E2E) so the live test suite still resolves /api → :8080. /fonts is
   // deliberately absent: the stubbed suite runs backend-free and proxying font
   // requests would turn a static 404 into a connection error.
-  const backendProxyConfig =
-    isTauriBuild
-      ? undefined
-      : {
-          "/api": backendProxy,
-          "/oauth2": backendProxy,
-          "/saml2": backendProxy,
-          "/login/oauth2": backendProxy,
-          "/login/saml2": backendProxy,
-          "/swagger-ui": backendProxy,
-          "/v1/api-docs": backendProxy,
-        };
+  const backendProxyConfig = isTauriBuild
+    ? undefined
+    : {
+        "/api": backendProxy,
+        "/oauth2": backendProxy,
+        "/saml2": backendProxy,
+        "/login/oauth2": backendProxy,
+        "/login/saml2": backendProxy,
+        "/swagger-ui": backendProxy,
+        "/v1/api-docs": backendProxy,
+      };
 
   return {
     customLogger: logger,
@@ -624,11 +555,7 @@ export default defineConfig(async ({ mode, command }) => {
     // different modes re-optimize over each other and the browser 504s on a stale dep
     // hash. Anchored to frontend/ because a relative path resolves against the vite
     // root (frontend/) and would create a second node_modules there.
-    cacheDir: resolve(
-      import.meta.dirname,
-      "node_modules",
-      `.vite-${effectiveMode}`,
-    ),
+    cacheDir: resolve(import.meta.dirname, "node_modules", `.vite-${effectiveMode}`),
     resolve: {
       // Linked workspace dependencies must share the renderer's React instance.
       dedupe: ["react", "react-dom"],
@@ -711,17 +638,6 @@ export default defineConfig(async ({ mode, command }) => {
                 },
               ]
             : []),
-          // The compression pass writes the .br/.gz siblings the backend JAR
-          // serves from classpath:/static/fonts/; desktop is embedded and gets
-          // them from the bundled backend instead.
-          ...(isTauriBuild
-            ? []
-            : [
-                {
-                  src: "../app/core/src/main/resources/static/fonts/*.ttf",
-                  dest: "fonts",
-                },
-              ]),
         ],
       }),
       ...(isTauriBuild ? [] : [compressStaticCopyPlugin()]),
@@ -769,7 +685,7 @@ export default defineConfig(async ({ mode, command }) => {
       modulePreload: {
         // Lazy chunks can import the entry again. An upfront link lets Vite reuse
         // its preload instead of fetching an already-running module in WebKit.
-        resolveDependencies: (filename, deps, { hostType }) =>
+        resolveDependencies: (filename: string, deps: string[], { hostType }: { hostType: "html" | "js" }) =>
           hostType === "html" ? [filename, ...deps] : deps,
       },
       // The real precompression runs below, so Vite's gzip measurement is
@@ -785,8 +701,7 @@ export default defineConfig(async ({ mode, command }) => {
         output: {
           assetFileNames: mjsToJsAssetFileNames,
           manualChunks(id: string, meta: ManualChunkMeta) {
-            if (id.includes("material-symbols-icons.json"))
-              return "vendor-iconset";
+            if (id.includes("material-symbols-icons.json")) return "vendor-iconset";
             // An asset URL import compiles to a single string. Filed by package
             // name it joins that package's vendor chunk, and its importer then
             // loads the whole chunk: the startup WASM warm-up imports pdfium's
@@ -836,16 +751,9 @@ export default defineConfig(async ({ mode, command }) => {
               return startupModules(meta).has(id) ? "vendor-ui" : undefined;
             }
             if (inScope(pkg, "@supabase")) return "vendor-supabase";
-            if (pkg === "posthog-js" || inScope(pkg, "@posthog"))
-              return "vendor-posthog";
-            if (pkg === "@cantoo/pdf-lib" || pkg === "pdf-lib")
-              return "vendor-pdflib";
-            if (
-              pkg === "recharts" ||
-              pkg === "d3" ||
-              pkg.startsWith("d3-") ||
-              pkg === "decimal.js"
-            ) {
+            if (pkg === "posthog-js" || inScope(pkg, "@posthog")) return "vendor-posthog";
+            if (pkg === "@cantoo/pdf-lib" || pkg === "pdf-lib") return "vendor-pdflib";
+            if (pkg === "recharts" || pkg === "d3" || pkg.startsWith("d3-") || pkg === "decimal.js") {
               return "vendor-charts";
             }
             if (pkg === "jszip" || pkg === "pako") return "vendor-zip";
@@ -870,11 +778,6 @@ export default defineConfig(async ({ mode, command }) => {
     // nested routes (/processor/..., /settings/...), so it takes the absolute
     // base too: with "./" those reloads fetch assets and locales from under the
     // route and render blank.
-    base: runSubpath
-      ? `/${runSubpath}/`
-      : process.env.VITE_BUILD_FOR_PREVIEW === "1" ||
-          isTauriBuild
-        ? "/"
-        : "./",
+    base: runSubpath ? `/${runSubpath}/` : process.env.VITE_BUILD_FOR_PREVIEW === "1" || isTauriBuild ? "/" : "./",
   };
 });

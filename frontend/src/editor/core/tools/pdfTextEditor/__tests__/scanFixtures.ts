@@ -59,7 +59,7 @@ export interface ScanOptions {
 
 export const FONT_DIR = path.join(
   import.meta.dirname,
-  "../../../../../../../app/core/src/main/resources/static/fonts",
+  "../../../../../../../frontend/src/editor/core/tests/test-fixtures/fonts",
 );
 
 export async function readBundledFaces(): Promise<Face[]> {

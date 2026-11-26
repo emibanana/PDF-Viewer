@@ -1,11 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  PDFArray,
-  PDFDict,
-  PDFHexString,
-  PDFName,
-  PDFString,
-} from "@cantoo/pdf-lib";
+import { PDFArray, PDFDict, PDFHexString, PDFName, PDFString } from "@cantoo/pdf-lib";
 import { mergePdfs } from "./merge";
 import { makePdf, open, widths } from "./testPdf";
 
@@ -21,10 +15,10 @@ describe("mergePdfs", () => {
   });
 
   it("adds one bookmark per file when asked", async () => {
-    const merged = await mergePdfs(
-      [await makePdf(2, "first.pdf"), await makePdf(1, "second.pdf")],
-      { ...noOptions, generateTableOfContents: true },
-    );
+    const merged = await mergePdfs([await makePdf(2, "first.pdf"), await makePdf(1, "second.pdf")], {
+      ...noOptions,
+      generateTableOfContents: true,
+    });
     const doc = await open(merged);
     const outlines = doc.catalog.lookup(PDFName.of("Outlines"), PDFDict);
     expect(outlines.get(PDFName.of("Count"))?.toString()).toBe("2");
@@ -33,9 +27,7 @@ describe("mergePdfs", () => {
     const titles: string[] = [];
     const targets: unknown[] = [];
     while (item) {
-      titles.push(
-        (item.lookup(PDFName.of("Title")) as PDFHexString | PDFString).decodeText(),
-      );
+      titles.push((item.lookup(PDFName.of("Title")) as PDFHexString | PDFString).decodeText());
       const dest = item.lookup(PDFName.of("Dest"), PDFArray);
       targets.push(dest.get(0));
       item = item.lookupMaybe(PDFName.of("Next"), PDFDict) as PDFDict;
@@ -63,16 +55,9 @@ describe("mergePdfs", () => {
       doc.getPage(0).node.set(PDFName.of("Annots"), context.obj([widget]));
     });
     const annotCount = async (file: File) =>
-      (await open(file))
-        .getPage(0)
-        .node.lookupMaybe(PDFName.of("Annots"), PDFArray)
-        ?.size() ?? 0;
+      (await open(file)).getPage(0).node.lookupMaybe(PDFName.of("Annots"), PDFArray)?.size() ?? 0;
 
     expect(await annotCount(await mergePdfs([withSignature], noOptions))).toBe(1);
-    expect(
-      await annotCount(
-        await mergePdfs([withSignature], { ...noOptions, removeDigitalSignature: true }),
-      ),
-    ).toBe(0);
+    expect(await annotCount(await mergePdfs([withSignature], { ...noOptions, removeDigitalSignature: true }))).toBe(0);
   });
 });

@@ -1,14 +1,8 @@
 import { useTranslation } from "react-i18next";
-import {
-  useToolOperation,
-  defineCustomTool,
-} from "@editor/hooks/tools/shared/useToolOperation";
+import { useToolOperation, defineCustomTool } from "@editor/hooks/tools/shared/useToolOperation";
 import { renderPagesWithPdfjs } from "@editor/services/pdfEdit/renderPages";
 import { createStandardErrorHandler } from "@editor/utils/toolErrorHandler";
-import {
-  FlattenParameters,
-  defaultParameters,
-} from "@editor/hooks/tools/flatten/useFlattenParameters";
+import { FlattenParameters, defaultParameters } from "@editor/hooks/tools/flatten/useFlattenParameters";
 import { flattenForms, flattenToImages } from "@editor/services/pdfEdit/flatten";
 
 export {
@@ -35,8 +29,6 @@ export const useFlattenOperation = () => {
 
   return useToolOperation<FlattenParameters>({
     ...flattenOperationConfig,
-    getErrorMessage: createStandardErrorHandler(
-      t("flatten.error.failed", "An error occurred while flattening the PDF."),
-    ),
+    getErrorMessage: createStandardErrorHandler(t("flatten.error.failed", "An error occurred while flattening the PDF.")),
   });
 };

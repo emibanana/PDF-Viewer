@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next";
-import {
-  useToolOperation,
-  defineCustomTool,
-} from "@editor/hooks/tools/shared/useToolOperation";
+import { useToolOperation, defineCustomTool } from "@editor/hooks/tools/shared/useToolOperation";
 import { createStandardErrorHandler } from "@editor/utils/toolErrorHandler";
 import {
   ChangePermissionsParameters,
@@ -22,10 +19,7 @@ export {
 export const changePermissionsOperationConfig = defineCustomTool({
   validateParams: validateChangePermissionsParameters,
   operationType: "changePermissions",
-  customProcessor: async (
-    parameters: ChangePermissionsParameters,
-    files: File[],
-  ) => ({
+  customProcessor: async (parameters: ChangePermissionsParameters, files: File[]) => ({
     files: await encryptPdfs(
       {
         password: parameters.password,
@@ -44,10 +38,7 @@ export const useChangePermissionsOperation = () => {
   return useToolOperation<ChangePermissionsParameters>({
     ...changePermissionsOperationConfig,
     getErrorMessage: createStandardErrorHandler(
-      t(
-        "changePermissions.error.failed",
-        "An error occurred while changing PDF permissions.",
-      ),
+      t("changePermissions.error.failed", "An error occurred while changing PDF permissions."),
     ),
   });
 };

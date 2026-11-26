@@ -19,7 +19,7 @@ import { readTableDirectory } from "@editor/tools/pdfTextEditor/util/sfnt";
 
 const FONTS = path.join(
   import.meta.dirname,
-  "../../../../../../../app/core/src/main/resources/static/fonts",
+  "../../../../../../../frontend/src/editor/core/tests/test-fixtures/fonts",
 );
 
 function collect(fonts: Uint8Array[]): Uint8Array {

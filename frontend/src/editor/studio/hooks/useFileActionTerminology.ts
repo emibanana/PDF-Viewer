@@ -1,0 +1,24 @@
+import { useTranslation } from "react-i18next";
+
+/** A native app opens and saves files; nothing is uploaded or downloaded. */
+export function useFileActionTerminology() {
+  const { t } = useTranslation();
+
+  return {
+    uploadFiles: t("fileUpload.openFiles", "Open Files"),
+    uploadFile: t("fileUpload.openFile", "Open File"),
+    upload: t("fileUpload.open", "Open"),
+    dropFilesHere: t("fileUpload.dropFilesHereOpen", "Drop files here or click the open button"),
+    addFiles: t("fileUpload.openFile", "Open File"),
+    mobileUpload: t("landing.mobileUpload", "Upload from Mobile"),
+    uploadFromComputer: t("landing.openFromComputer", "Open from computer"),
+    download: t("save", "Save"),
+    downloadAll: t("workbenchBar.saveAll", "Save All"),
+    downloadSelected: t("fileManager.saveSelected", "Save Selected"),
+    downloadSelectedPages: t("pageTracks.saveSelectedPages", "Save selected pages"),
+    downloadEachPage: t("pageTracks.saveEachPage", "Save each page individually"),
+    downloadAsOneFile: t("pageTracks.saveAsOneFile", "Save as one file"),
+    downloadUnavailable: t("saveUnavailable", "Save unavailable for this item"),
+    noFilesInStorage: t("fileUpload.noFilesInStorageOpen", "No files available in storage. Open some files first."),
+  };
+}

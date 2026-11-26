@@ -41,11 +41,8 @@ function entry(name: string): ToolRegistryEntry {
 }
 
 const REGISTRY: Partial<Record<ToolId, ToolRegistryEntry>> = {
-  compress: entry("Compress"),
-  convert: entry("Convert"),
   sanitize: entry("Sanitize"),
   split: entry("Split"),
-  ocr: entry("OCR"),
   addPassword: entry("Add Password"),
   merge: entry("Merge"),
   rotate: entry("Rotate"),
@@ -57,8 +54,8 @@ const REGISTRY: Partial<Record<ToolId, ToolRegistryEntry>> = {
     component: null,
   } as ToolRegistryEntry,
   // No component and no link - nothing to open.
-  automate: {
-    name: "Automate",
+  redact: {
+    name: "Redact",
     icon: null,
     component: null,
   } as ToolRegistryEntry,
@@ -75,12 +72,9 @@ function setup(
   toolAvailability: ToolAvailabilityMap = {},
 ) {
   mockRecommendations.mockReturnValue({ recommendations });
-  mockNavigation.mockReturnValue({ selectedTool } as ReturnType<
-    typeof useNavigationState
-  >);
+  mockNavigation.mockReturnValue({ selectedTool } as ReturnType<typeof useNavigationState>);
   mockWorkflow.mockReturnValue({
-    getSelectedTool: (id: ToolId | null) =>
-      id ? (REGISTRY[id] ?? null) : null,
+    getSelectedTool: (id: ToolId | null) => (id ? (REGISTRY[id] ?? null) : null),
     toolAvailability,
   } as unknown as ReturnType<typeof useToolWorkflow>);
 
@@ -91,7 +85,7 @@ describe("useSuggestedTools", () => {
   beforeEach(() => vi.clearAllMocks());
 
   it("shows the curated list when the backend has no usage data", () => {
-    expect(setup(null)).toEqual(["compress", "convert", "sanitize", "split"]);
+    expect(setup(null)).toEqual(["sanitize", "split", "merge", "rotate"]);
   });
 
   it("leads with the usage ranking, then tops up from the curated list", () => {
@@ -100,28 +94,26 @@ describe("useSuggestedTools", () => {
         { toolKey: "addPassword", score: 9 },
         { toolKey: "merge", score: 4 },
       ]),
-    ).toEqual(["addPassword", "merge", "compress", "convert"]);
+    ).toEqual(["addPassword", "merge", "sanitize", "split"]);
   });
 
   it("never suggests the tool the user is currently in", () => {
     expect(
       setup(
         [
-          { toolKey: "compress", score: 9 },
+          { toolKey: "sanitize", score: 9 },
           { toolKey: "addPassword", score: 4 },
         ],
-        "compress",
+        "sanitize",
       ),
-    ).toEqual(["addPassword", "convert", "sanitize", "split"]);
+    ).toEqual(["addPassword", "split", "merge", "rotate"]);
   });
 
   it("breaks ties on the curated order rather than the alphabet", () => {
-    // Alphabetically this is merge, ocr, rotate, sanitize, split, watermark.
-    const ids = setup(
-      tied("watermark", "split", "merge", "ocr", "rotate", "sanitize"),
-    );
+    // Alphabetically this is addPassword, merge, rotate, sanitize.
+    const ids = setup(tied("watermark", "addPassword", "split", "merge", "rotate", "sanitize"));
 
-    expect(ids).toEqual(["sanitize", "split", "ocr", "merge"]);
+    expect(ids).toEqual(["sanitize", "split", "merge", "rotate"]);
   });
 
   it("keeps a real score ahead of the curated order", () => {
@@ -137,20 +129,19 @@ describe("useSuggestedTools", () => {
   it("skips tools that are unknown or still coming soon", () => {
     expect(
       setup([
-        { toolKey: "automate", score: 9 },
+        { toolKey: "redact", score: 9 },
         { toolKey: "nonsense", score: 8 },
         { toolKey: "merge", score: 7 },
       ]),
-    ).toEqual(["merge", "compress", "convert", "sanitize"]);
+    ).toEqual(["merge", "sanitize", "split", "rotate"]);
   });
 
   it("skips a tool this install cannot run", () => {
     const ids = setup([{ toolKey: "merge", score: 9 }], null, {
       merge: { available: false, reason: "disabledByAdmin" },
-      convert: { available: false, reason: "missingDependency" },
     });
 
-    expect(ids).toEqual(["compress", "sanitize", "split", "ocr"]);
+    expect(ids).toEqual(["sanitize", "split", "rotate"]);
   });
 
   it("keeps workbench-only tools, which have no component by design", () => {
@@ -159,15 +150,15 @@ describe("useSuggestedTools", () => {
         { toolKey: "multiTool", score: 9 },
         { toolKey: "merge", score: 4 },
       ]),
-    ).toEqual(["multiTool", "merge", "compress", "convert"]);
+    ).toEqual(["multiTool", "merge", "sanitize", "split"]);
   });
 
   it("does not repeat a ranked tool that is also in the curated list", () => {
     const ids = setup([
       { toolKey: "split", score: 9 },
-      { toolKey: "compress", score: 4 },
+      { toolKey: "sanitize", score: 4 },
     ]);
-    expect(ids).toEqual(["split", "compress", "convert", "sanitize"]);
+    expect(ids).toEqual(["split", "sanitize", "merge", "rotate"]);
     expect(new Set(ids).size).toBe(ids.length);
   });
 });

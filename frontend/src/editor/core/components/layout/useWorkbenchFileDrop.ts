@@ -1,6 +1,7 @@
 import { useSyncExternalStore, type DragEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { useFileSelectors } from "@editor/contexts/FileContext";
+import { beginDroppedPathLookup } from "@editor/services/droppedFilePaths";
 import { useFileHandler } from "@editor/hooks/useFileHandler";
 import { useDropzoneFiles } from "@editor/hooks/useDropzoneFiles";
 import { alert } from "@editor/components/toast";
@@ -105,9 +106,11 @@ export function useWorkbenchFileDrop(enabled: boolean) {
     if (!isExternalFileDrag(e)) return;
     e.preventDefault();
     setDragDepth(0);
+    const pathLookup = beginDroppedPathLookup(e.dataTransfer);
     const dropped = await getDropzoneFiles(e);
     const files = dropped.filter((item) => item instanceof File);
     if (files.length === 0) return;
+    pathLookup.link(files);
     const openBefore = fileSelectors.getStirlingFileStubs().length;
     try {
       await addFiles(files);

@@ -15,7 +15,7 @@ export function toStandardFont(value: unknown): PdfStandardFont {
   if (typeof value === "number" && value in PdfStandardFont) {
     return value === PdfStandardFont.Unknown
       ? PdfStandardFont.Helvetica
-      : (value as PdfStandardFont);
+      : (value);
   }
   if (typeof value === "string") {
     const name = value.trim().toLowerCase();

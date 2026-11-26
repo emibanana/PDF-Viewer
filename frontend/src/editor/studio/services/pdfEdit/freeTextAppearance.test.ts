@@ -1,17 +1,6 @@
 import { describe, expect, it } from "vitest";
-import {
-  PDFArray,
-  PDFDict,
-  PDFDocument,
-  PDFName,
-  PDFString,
-  decodePDFRawStream,
-  PDFRawStream,
-} from "@cantoo/pdf-lib";
-import {
-  ensureFreeTextAppearances,
-  standardFontFor,
-} from "./freeTextAppearance";
+import { PDFArray, PDFDict, PDFDocument, PDFName, PDFString, decodePDFRawStream, PDFRawStream } from "@cantoo/pdf-lib";
+import { ensureFreeTextAppearances, standardFontFor } from "./freeTextAppearance";
 
 async function pdfWithTextBox(opts: {
   contents: string;
@@ -94,18 +83,12 @@ describe("ensureFreeTextAppearances", () => {
   it("fills the background from /C and leaves it out when absent", async () => {
     const withBg = streamText(
       await firstAnnot(
-        await ensureFreeTextAppearances(
-          await pdfWithTextBox({ contents: "x", da: "0 0 0 rg /Helv 12 Tf", color: [1, 1, 0] }),
-        ),
+        await ensureFreeTextAppearances(await pdfWithTextBox({ contents: "x", da: "0 0 0 rg /Helv 12 Tf", color: [1, 1, 0] })),
       ),
     );
     expect(withBg).toContain("1 1 0 rg 0 0 200 60 re f");
     const without = streamText(
-      await firstAnnot(
-        await ensureFreeTextAppearances(
-          await pdfWithTextBox({ contents: "x", da: "0 0 0 rg /Helv 12 Tf" }),
-        ),
-      ),
+      await firstAnnot(await ensureFreeTextAppearances(await pdfWithTextBox({ contents: "x", da: "0 0 0 rg /Helv 12 Tf" }))),
     );
     expect(without).not.toContain(" re f");
   });

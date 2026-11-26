@@ -1,11 +1,10 @@
 import React, {
   createContext,
   useContext,
-  useState,
   useCallback,
   useMemo,
+  useRef,
 } from "react";
-import { useTranslation } from "react-i18next";
 import { useFileHandler } from "@editor/hooks/useFileHandler";
 import { useFileActions } from "@editor/contexts/FileContext";
 import { useFileContext } from "@editor/contexts/file/fileHooks";
@@ -13,18 +12,8 @@ import {
   useNavigationActions,
   useNavigationState,
 } from "@editor/contexts/NavigationContext";
-import { StirlingFileStub } from "@editor/types/fileContext";
-import type { FileId } from "@editor/types/file";
-import { fileStorage } from "@editor/services/fileStorage";
-import { importShareBundle } from "@editor/services/shareBundleImportService";
-import apiClient from "@editor/services/apiClient";
-import {
-  extractLatestFilesFromBundle,
-  isZipBundle,
-  loadShareBundleEntries,
-  parseContentDispositionFilename,
-  readResponseHeader,
-} from "@editor/services/shareBundleUtils";
+import { hasNativeFileDialog } from "@editor/services/fileDialogService";
+import { openFilesFromDisk } from "@editor/services/openFilesFromDisk";
 
 type CustomFileHandler = (
   files: File[],
@@ -34,38 +23,40 @@ type CustomFileHandler = (
 interface FilesModalOptions {
   insertAfterPage?: number;
   customHandler?: CustomFileHandler;
+  /** 1 limits the OS dialog to a single file. */
   maxSelectable?: number | null;
+  /** File extensions without the dot; limits what the OS dialog offers. */
   supportedFormats?: string[];
 }
 
 interface FilesModalContextType {
-  isFilesModalOpen: boolean;
-  openFilesModal: (options?: FilesModalOptions) => void;
+  /** Opens the OS file dialog; the chosen files go to `customHandler` or the workbench. */
+  openFilesModal: (options?: FilesModalOptions) => Promise<void>;
+  /** Nothing stays open between dialog and ingest, so there is nothing to close. */
   closeFilesModal: () => void;
-  maxSelectable: number | null;
-  /** A caller's format restriction takes precedence over the currently selected tool. */
-  supportedFormats?: string[];
-  /** Closes the picker before ingestion; rejects on import failure. */
+  /** Adds files the caller already holds to the workbench. */
   onFileUpload: (files: File[]) => Promise<void>;
-  /** Imports readable selections before rejecting with unavailable filenames; leaves modal state unchanged. */
-  onRecentFileSelect: (
-    stirlingFileStubs: StirlingFileStub[],
-    uploads?: File[],
-  ) => Promise<void>;
-  /** Reads inputs in selection order without changing the workspace; rejects if any file is unavailable. */
-  loadFiles: (stubs: StirlingFileStub[]) => Promise<File[]>;
-  onModalClose?: () => void;
-  setOnModalClose: (callback: () => void) => void;
 }
 
 export const FilesModalContext = createContext<FilesModalContextType | null>(
   null,
 );
 
+/** A plain `<input type=file>`, for running outside the desktop shell. */
+function pickWithBrowserInput(multiple: boolean): Promise<File[]> {
+  return new Promise((resolve) => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.multiple = multiple;
+    input.onchange = () => resolve(Array.from(input.files ?? []));
+    input.oncancel = () => resolve([]);
+    input.click();
+  });
+}
+
 export const FilesModalProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const { t } = useTranslation();
   const { addFiles } = useFileHandler();
   const { actions } = useFileActions();
   const fileCtx = useFileContext();
@@ -73,274 +64,56 @@ export const FilesModalProvider: React.FC<{ children: React.ReactNode }> = ({
   const { workbench: currentWorkbench } = useNavigationState();
   // The page editor lays out every open file, so an added file belongs there.
   const staysOnAdd = currentWorkbench === "pageEditor";
-  const [isFilesModalOpen, setIsFilesModalOpen] = useState(false);
-  const [onModalClose, setOnModalClose] = useState<(() => void) | undefined>();
-  const [insertAfterPage, setInsertAfterPage] = useState<number | undefined>();
-  const [customHandler, setCustomHandler] = useState<CustomFileHandler>();
-  const [maxSelectable, setMaxSelectable] = useState<number | null>(null);
-  const [supportedFormats, setSupportedFormats] = useState<string[]>();
 
-  const importBundleToWorkbench = useCallback(
-    async (
-      blob: Blob,
-      filename: string,
-      contentType: string,
-      remoteStorageId?: number,
-      remoteStorageUpdatedAt?: number,
-      remoteOwnerUsername?: string,
-      remoteOwnedByCurrentUser?: boolean,
-      remoteSharedViaLink?: boolean,
-      remoteShareToken?: string,
-    ): Promise<FileId[]> => {
-      const bundle = isZipBundle(contentType, filename)
-        ? await loadShareBundleEntries(blob)
-        : null;
-      if (bundle) {
-        const remoteUpdatedAt = remoteStorageUpdatedAt ?? Date.now();
-        const currentFiles = await importShareBundle(
-          bundle,
-          {
-            addFiles: (files) =>
-              actions.addFilesWithOptions(files, {
-                selectFiles: false,
-                autoUnzip: false,
-                skipAutoUnzip: false,
-                allowDuplicates: true,
-              }),
-            updateStub: actions.updateStirlingFileStub,
-          },
-          {
-            remoteStorageId,
-            remoteStorageUpdatedAt: remoteUpdatedAt,
-            remoteOwnerUsername,
-            remoteOwnedByCurrentUser,
-            remoteSharedViaLink,
-            remoteShareToken,
-          },
-        );
-        return currentFiles.map(({ file }) => file.fileId);
-      }
-
-      const file = new File([blob], filename, {
-        type: contentType || blob.type,
-      });
-      const stirlingFiles = await actions.addFilesWithOptions([file], {
-        selectFiles: false,
-        autoUnzip: false,
-        skipAutoUnzip: false,
-        allowDuplicates: true,
-      });
-      const fileId = stirlingFiles[0]?.fileId as FileId | undefined;
-      if (fileId && remoteStorageId) {
-        const remoteUpdatedAt = remoteStorageUpdatedAt ?? Date.now();
-        const updates = {
-          remoteStorageId,
-          remoteStorageUpdatedAt: remoteUpdatedAt,
-          remoteOwnerUsername,
-          remoteOwnedByCurrentUser,
-          remoteSharedViaLink,
-          remoteShareToken,
-        };
-        actions.updateStirlingFileStub(fileId, updates);
-        await fileStorage.updateFileMetadata(fileId, updates);
-      }
-      return fileId ? [fileId] : [];
-    },
-    [actions, fileStorage],
-  );
-
-  const downloadRemoteFile = useCallback(async (stub: StirlingFileStub) => {
-    const path = stub.remoteShareToken
-      ? `/api/v1/storage/share-links/${stub.remoteShareToken}`
-      : stub.remoteStorageId && stub.id.startsWith("server-")
-        ? `/api/v1/storage/files/${stub.remoteStorageId}/download`
-        : null;
-    if (!path) return null;
-    const response = await apiClient.get(path, {
-      responseType: "blob",
-      suppressErrorToast: true,
-      skipAuthRedirect: true,
-    });
-    const contentType = readResponseHeader(response.headers, "content-type");
-    const disposition = readResponseHeader(
-      response.headers,
-      "content-disposition",
-    );
-    const filename = parseContentDispositionFilename(disposition) || stub.name;
-    const blob = response.data as Blob;
-    const contentTypeValue = contentType || blob.type;
-    return { blob, filename, contentType: contentTypeValue };
-  }, []);
-
-  const openFilesModal = useCallback((options?: FilesModalOptions) => {
-    setInsertAfterPage(options?.insertAfterPage);
-    setCustomHandler(() => options?.customHandler);
-    setMaxSelectable(options?.maxSelectable ?? null);
-    setSupportedFormats(options?.supportedFormats);
-    setIsFilesModalOpen(true);
-  }, []);
-
-  const closeFilesModal = useCallback(() => {
-    setIsFilesModalOpen(false);
-    setInsertAfterPage(undefined);
-    setCustomHandler(undefined);
-    onModalClose?.();
-  }, [onModalClose]);
-
-  const loadFiles = useCallback(
-    async (stirlingFileStubs: StirlingFileStub[]) => {
-      const loadedFiles: File[] = [];
-      for (const stub of stirlingFileStubs) {
-        const remote = await downloadRemoteFile(stub);
-        if (remote) {
-          loadedFiles.push(
-            ...(await extractLatestFilesFromBundle(
-              remote.blob,
-              remote.filename,
-              remote.contentType,
-            )),
-          );
-        } else {
-          const file = await fileStorage.getStirlingFile(stub.id);
-          if (!file) throw new Error(`${stub.name} is no longer available.`);
-          loadedFiles.push(file);
-        }
-      }
-      return loadedFiles;
-    },
-    [downloadRemoteFile],
-  );
-
-  const handleRecentFileSelect = useCallback(
-    async (stirlingFileStubs: StirlingFileStub[], uploads: File[] = []) => {
-      const failedNames: string[] = [];
-      const reportUnavailable = () => {
-        if (failedNames.length)
-          throw new Error(
-            t("filePicker.filesUnavailable", "Could not add: {{names}}", {
-              names: failedNames.join(", "),
-            }),
-          );
-      };
-      if (customHandler) {
-        const loadedFiles: File[] = [];
-        for (const stub of stirlingFileStubs) {
-          try {
-            loadedFiles.push(...(await loadFiles([stub])));
-          } catch (cause) {
-            console.error("Could not load selected file", stub.name, cause);
-            failedNames.push(stub.name);
-          }
-        }
-        const files = [...loadedFiles, ...uploads];
-        if (files.length) await customHandler(files, insertAfterPage);
-        reportUnavailable();
-        return;
-      }
-      const uploadedFiles = uploads.length > 0 ? await addFiles(uploads) : [];
-
-      const localStubs: StirlingFileStub[] = [];
-      const requestedIds: FileId[] = [];
-      for (const stub of stirlingFileStubs) {
-        try {
-          const remote = await downloadRemoteFile(stub);
-          if (!remote) {
-            localStubs.push(stub);
-            continue;
-          }
-          const importedIds = await importBundleToWorkbench(
-            remote.blob,
-            remote.filename,
-            remote.contentType,
-            stub.remoteStorageId,
-            stub.remoteStorageUpdatedAt,
-            stub.remoteOwnerUsername,
-            stub.remoteOwnedByCurrentUser,
-            stub.remoteShareToken ? true : stub.remoteSharedViaLink,
-            stub.remoteShareToken,
-          );
-          requestedIds.push(...importedIds);
-        } catch (cause) {
-          console.error("Could not import selected file", stub.name, cause);
-          failedNames.push(stub.name);
-        }
-      }
-
-      if (localStubs.length) {
-        const admitted = await actions.addStirlingFileStubs(localStubs, {
-          selectFiles: false,
-        });
-        requestedIds.push(...admitted.map((file) => file.fileId));
-      }
+  const addToWorkbench = useCallback(
+    async (files: File[]) => {
+      const added = await addFiles(files);
       // Adding an input must preserve a tool's existing selection.
-      const uploadedIds = uploadedFiles.map((file) => file.fileId);
       const currentSelected = fileCtx.selectors
         .getSelectedStirlingFileStubs()
-        .map((s) => s.id);
+        .map((stub) => stub.id);
       actions.setSelectedFiles(
         Array.from(
-          new Set([...currentSelected, ...requestedIds, ...uploadedIds]),
+          new Set([...currentSelected, ...added.map((file) => file.fileId)]),
         ),
       );
-
-      const totalAdded = requestedIds.length + uploadedIds.length;
-      if (!staysOnAdd && totalAdded > 0) {
-        navActions.setWorkbench(totalAdded === 1 ? "viewer" : "fileEditor");
+      if (!staysOnAdd && added.length > 0) {
+        navActions.setWorkbench(added.length === 1 ? "viewer" : "fileEditor");
       }
-      reportUnavailable();
     },
-    [
-      addFiles,
-      loadFiles,
-      actions,
-      customHandler,
-      insertAfterPage,
-      fileCtx,
-      downloadRemoteFile,
-      importBundleToWorkbench,
-      navActions,
-      staysOnAdd,
-      t,
-    ],
+    [addFiles, actions, fileCtx, navActions, staysOnAdd],
   );
 
-  const handleFileUpload = useCallback(
-    (files: File[]) => {
-      closeFilesModal();
-      return handleRecentFileSelect([], files);
-    },
-    [closeFilesModal, handleRecentFileSelect],
-  );
+  const addToWorkbenchRef = useRef(addToWorkbench);
+  addToWorkbenchRef.current = addToWorkbench;
 
-  const setModalCloseCallback = useCallback((callback: () => void) => {
-    setOnModalClose(() => callback);
+  const openFilesModal = useCallback(async (options?: FilesModalOptions) => {
+    const multiple = options?.maxSelectable !== 1;
+    const files = hasNativeFileDialog
+      ? await openFilesFromDisk({
+          multiple,
+          filters: options?.supportedFormats?.length
+            ? [{ name: "Files", extensions: options.supportedFormats }]
+            : undefined,
+        })
+      : await pickWithBrowserInput(multiple);
+    if (files.length === 0) return;
+    if (options?.customHandler) {
+      await options.customHandler(files, options.insertAfterPage);
+    } else {
+      await addToWorkbenchRef.current(files);
+    }
   }, []);
+
+  const closeFilesModal = useCallback(() => {}, []);
 
   const contextValue: FilesModalContextType = useMemo(
     () => ({
-      isFilesModalOpen,
       openFilesModal,
       closeFilesModal,
-      onFileUpload: handleFileUpload,
-      onRecentFileSelect: handleRecentFileSelect,
-      loadFiles,
-      onModalClose,
-      setOnModalClose: setModalCloseCallback,
-      maxSelectable,
-      supportedFormats,
+      onFileUpload: addToWorkbench,
     }),
-    [
-      isFilesModalOpen,
-      openFilesModal,
-      closeFilesModal,
-      handleFileUpload,
-      handleRecentFileSelect,
-      loadFiles,
-      onModalClose,
-      setModalCloseCallback,
-      maxSelectable,
-      supportedFormats,
-    ],
+    [openFilesModal, closeFilesModal, addToWorkbench],
   );
 
   return (

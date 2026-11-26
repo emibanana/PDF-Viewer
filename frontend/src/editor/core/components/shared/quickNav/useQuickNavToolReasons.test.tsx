@@ -73,7 +73,7 @@ describe("useQuickNavToolReasons", () => {
 
   it("admits it does not know rather than reporting nothing wrong", () => {
     h.loading = true;
-    h.endpointStatus = { automate: false };
+    h.endpointStatus = { sign: false };
 
     expect(
       renderHook(() => useQuickNavToolReasons()).result.current,
@@ -82,8 +82,8 @@ describe("useQuickNavToolReasons", () => {
 
   it("reports what it last knew while the answer is being fetched again", () => {
     // Each app has its own query cache, and a reload has none at all.
-    h.endpointStatus = { automate: false };
-    h.endpointDetails = { automate: { reason: "CONFIG" } };
+    h.endpointStatus = { sign: false };
+    h.endpointDetails = { sign: { reason: "CONFIG" } };
     renderHook(() => useQuickNavToolReasons());
 
     h.loading = true;
@@ -91,15 +91,15 @@ describe("useQuickNavToolReasons", () => {
     h.endpointDetails = {};
 
     const { result } = renderHook(() => useQuickNavToolReasons());
-    expect(result.current?.automate).toBe("Disabled by server administrator");
+    expect(result.current?.sign).toBe("Disabled by server administrator");
   });
 
   it("forgets a reason once the server stops reporting it", () => {
-    h.endpointStatus = { automate: false };
-    h.endpointDetails = { automate: { reason: "CONFIG" } };
+    h.endpointStatus = { sign: false };
+    h.endpointDetails = { sign: { reason: "CONFIG" } };
     renderHook(() => useQuickNavToolReasons());
 
-    h.endpointStatus = { automate: true };
+    h.endpointStatus = { sign: true };
     h.endpointDetails = {};
     expect(renderHook(() => useQuickNavToolReasons()).result.current).toEqual(
       {},
@@ -113,7 +113,7 @@ describe("useQuickNavToolReasons", () => {
   });
 
   it("says nothing about an endpoint the server reports as available", () => {
-    h.endpointStatus = { automate: true };
+    h.endpointStatus = { sign: true };
 
     expect(renderHook(() => useQuickNavToolReasons()).result.current).toEqual(
       {},
@@ -121,20 +121,20 @@ describe("useQuickNavToolReasons", () => {
   });
 
   it("blames the administrator when the endpoint was turned off by config", () => {
-    h.endpointStatus = { automate: false };
-    h.endpointDetails = { automate: { reason: "CONFIG" } };
+    h.endpointStatus = { sign: false };
+    h.endpointDetails = { sign: { reason: "CONFIG" } };
 
     const { result } = renderHook(() => useQuickNavToolReasons());
     // The tool picker's label with its trailing colon stripped.
-    expect(result.current?.automate).toBe("Disabled by server administrator");
+    expect(result.current?.sign).toBe("Disabled by server administrator");
   });
 
   it("blames the missing dependency when that is what the server said", () => {
-    h.endpointStatus = { automate: false };
-    h.endpointDetails = { automate: { reason: "DEPENDENCY" } };
+    h.endpointStatus = { sign: false };
+    h.endpointDetails = { sign: { reason: "DEPENDENCY" } };
 
     const { result } = renderHook(() => useQuickNavToolReasons());
-    expect(result.current?.automate).toBe(
+    expect(result.current?.sign).toBe(
       "Unavailable - required tool missing on server",
     );
   });

@@ -9,20 +9,12 @@ import React, {
   useMemo,
   useRef,
   useState,
-  useSyncExternalStore,
 } from "react";
 import { createPortal } from "react-dom";
-import { Button } from "@editor/ui/Button";
 import { ActionIcon } from "@editor/ui/ActionIcon";
 import { SegmentedControl } from "@editor/ui/SegmentedControl";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import { Icon } from "@editor/ui/Icon";
-import {
-  clearFilesPageReturnRoute,
-  getFilesPageReturnRoute,
-  subscribeFilesPageReturnRoute,
-} from "@editor/components/filesPage/filesPageReturnRoute";
 import { useWorkbenchBar } from "@editor/contexts/WorkbenchBarContext";
 import {
   useAllFiles,
@@ -82,20 +74,8 @@ export default function WorkbenchBar({
   hasFiles,
 }: WorkbenchBarProps) {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const strip = useTitleBarStrip();
   const searchScopes = useEditorSearchScopes();
-  const returnRoute = useSyncExternalStore(
-    subscribeFilesPageReturnRoute,
-    getFilesPageReturnRoute,
-    () => null,
-  );
-  const handleBackToFiles = useCallback(() => {
-    if (!returnRoute) return;
-    const target = returnRoute.route;
-    clearFilesPageReturnRoute();
-    navigate(target);
-  }, [returnRoute, navigate]);
   const { buttons, actions, allButtonsDisabled, viewFileActions } =
     useWorkbenchBar();
   const { toolPanelMode, leftPanelView, customWorkbenchViews } =
@@ -283,7 +263,7 @@ export default function WorkbenchBar({
     currentView,
     // Save, Save As and Close act on an open document. The library has none: it
     // lists files, and opening one is what the other views are for.
-    showsFileActions: !isCustomView && currentView !== "myFiles",
+    showsFileActions: !isCustomView,
     actionsDisabled,
     policyEnforcing,
     downloadLabel: saveButton.label ?? downloadTooltip,
@@ -425,37 +405,7 @@ export default function WorkbenchBar({
   // Left: optional "Back to File library" + view switcher.
   const viewsCluster = (
     <div className="workbench-bar-views" data-tour="view-switcher">
-      {returnRoute && hasFiles && (
-        <>
-          <Button
-            variant="tertiary"
-            className="workbench-bar-view-btn workbench-bar-back-btn"
-            onClick={handleBackToFiles}
-            aria-label={t(
-              returnRoute.label
-                ? "filesPage.backToFolder"
-                : "filesPage.backToMyFiles",
-              returnRoute.label
-                ? `Back to ${returnRoute.label}`
-                : "Back to File library",
-              { folder: returnRoute.label ?? "" },
-            )}
-            leftSection={<Icon name="arrow-left" size={"1.1rem"} />}
-          >
-            <span className="workbench-bar-view-label">
-              {returnRoute.label
-                ? t("filesPage.backToFolder", "Back to {{folder}}", {
-                    folder: returnRoute.label,
-                  })
-                : t("filesPage.backToMyFiles", "Back to File library")}
-            </span>
-          </Button>
-          <div className="workbench-bar-divider" />
-        </>
-      )}
-      {/* Not in the library: it browses files rather than showing one, and the
-          rail is what moves between surfaces. */}
-      {currentView !== "myFiles" && (hasFiles || isCustomView) && (
+      {(hasFiles || isCustomView) && (
         <SegmentedControl<WorkbenchType>
           className="workbench-bar-views"
           size="sm"

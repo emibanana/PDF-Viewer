@@ -3,17 +3,12 @@ import { defineConfig, devices } from "@playwright/test";
 /**
  * Stirling-PDF E2E Test Configuration
  *
- * The suite is split into two projects:
- *   - `stubbed` - backend-free specs that mock `/api/v1/*` via `page.route()`.
- *                 Safe to run in CI without the Spring Boot server. Lives in
- *                 `src/editor/core/tests/stubbed/**`.
- *   - `live`    - specs that require a real backend on `localhost:8080`
- *                 (auth, admin mutation, real tool round-trips). Lives in
- *                 `src/editor/core/tests/live/**`.
+ * Backend-free specs that mock `/api/v1/*` via `page.route()`, in
+ * `src/editor/core/tests/stubbed/**`. There is no backend to run live specs
+ * against.
  *
- * Run one:
+ * Run:
  *   npx playwright test --project=stubbed
- *   npx playwright test --project=live
  *
  * @see https://playwright.dev/docs/test-configuration
  */
@@ -50,11 +45,7 @@ export default defineConfig({
   // the outputFile here is just a sane default. Omitted locally to keep dev
   // runs' terminal output clean.
   reporter: process.env.CI
-    ? [
-        ["html", { open: "never" }],
-        ["list"],
-        ["json", { outputFile: "playwright-report/results.json" }],
-      ]
+    ? [["html", { open: "never" }], ["list"], ["json", { outputFile: "playwright-report/results.json" }]]
     : [["html", { open: "never" }], ["list"]],
   timeout: 60_000,
   expect: { timeout: 10_000 },
@@ -87,37 +78,6 @@ export default defineConfig({
       use: {
         ...chromiumViewport,
         baseURL: `http://localhost:${DESKTOP_PORT}`,
-      },
-    },
-
-    // Live setup - runs once before the live suite to perform the real
-    // forced-password-change first-login flow against a freshly-booted
-    // backend. The live project depends on it.
-    {
-      name: "live-setup",
-      testDir: "./src/editor/core/tests/live-setup",
-      testMatch: /.*\.setup\.ts$/,
-      use: chromiumViewport,
-    },
-
-    // Live backend - auth + admin-mutation + real-tool smoke
-    {
-      name: "live",
-      testDir: "./src/editor/core/tests/live",
-      use: chromiumViewport,
-      dependencies: ["live-setup"],
-    },
-
-    // Enterprise - license-gated SSO/SAML/audit/teams against keycloak compose
-    // Uses port 8080 directly (the docker compose stack publishes the
-    // backend's built-in frontend there); the Vite dev server is bypassed
-    // because the OAuth/SAML callback URLs are registered against 8080.
-    {
-      name: "enterprise",
-      testDir: "./src/editor/core/tests/enterprise",
-      use: {
-        ...chromiumViewport,
-        baseURL: "http://localhost:8080",
       },
     },
 
@@ -167,8 +127,7 @@ export default defineConfig({
           env: {
             VITE_ACCESSIBILITY_EDITING: "true",
           },
-          url:
-            process.env.PLAYWRIGHT_BASE_URL ?? `http://localhost:${DEV_PORT}`,
+          url: process.env.PLAYWRIGHT_BASE_URL ?? `http://localhost:${DEV_PORT}`,
           reuseExistingServer: !process.env.CI,
           timeout: 120_000,
         },

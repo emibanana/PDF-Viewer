@@ -4,14 +4,11 @@ import { parseSize, splitPdfs } from "./split";
 import { readOutline, replaceOutline } from "./outline";
 import { makePdf, open, widths } from "./testPdf";
 
-const pageCounts = async (files: File[]) =>
-  Promise.all(files.map(async (f) => (await open(f)).getPageCount()));
+const pageCounts = async (files: File[]) => Promise.all(files.map(async (f) => (await open(f)).getPageCount()));
 
 describe("splitPdfs", () => {
   it("splits after the listed pages", async () => {
-    const out = await splitPdfs({ kind: "afterPages", pages: "2,4" }, [
-      await makePdf(5, "a.pdf"),
-    ]);
+    const out = await splitPdfs({ kind: "afterPages", pages: "2,4" }, [await makePdf(5, "a.pdf")]);
     expect(out.map((f) => f.name)).toEqual(["a_1.pdf", "a_2.pdf", "a_3.pdf"]);
     expect(await widths(out[0])).toEqual([100, 101]);
     expect(await widths(out[1])).toEqual([102, 103]);
@@ -19,20 +16,14 @@ describe("splitPdfs", () => {
   });
 
   it("splits every N pages and into N documents", async () => {
-    const every = await splitPdfs({ kind: "pageCount", count: 2 }, [
-      await makePdf(5),
-    ]);
+    const every = await splitPdfs({ kind: "pageCount", count: 2 }, [await makePdf(5)]);
     expect(await pageCounts(every)).toEqual([2, 2, 1]);
-    const docs = await splitPdfs({ kind: "docCount", count: 2 }, [
-      await makePdf(5),
-    ]);
+    const docs = await splitPdfs({ kind: "docCount", count: 2 }, [await makePdf(5)]);
     expect(await pageCounts(docs)).toEqual([3, 2]);
   });
 
   it("starts a new part when the size limit is exceeded", async () => {
-    const parts = await splitPdfs({ kind: "size", maxBytes: 1 }, [
-      await makePdf(3),
-    ]);
+    const parts = await splitPdfs({ kind: "size", maxBytes: 1 }, [await makePdf(3)]);
     expect(parts).toHaveLength(3);
   });
 
@@ -62,24 +53,17 @@ describe("splitPdfs", () => {
       );
       doc.catalog.set(PDFName.of("Outlines"), root);
     });
-    expect(
-      readOutline(await open(file)).map((e) => [e.title, e.pageIndex]),
-    ).toEqual([
+    expect(readOutline(await open(file)).map((e) => [e.title, e.pageIndex])).toEqual([
       ["Intro", 0],
       ["Body", 2],
     ]);
     const out = await splitPdfs({ kind: "chapters", level: 1 }, [file]);
-    expect(out.map((f) => f.name)).toEqual([
-      "book_1_Intro.pdf",
-      "book_2_Body.pdf",
-    ]);
+    expect(out.map((f) => f.name)).toEqual(["book_1_Intro.pdf", "book_2_Body.pdf"]);
     expect(await widths(out[1])).toEqual([102, 103]);
   });
 
   it("explains a missing bookmark level", async () => {
-    await expect(
-      splitPdfs({ kind: "chapters", level: 1 }, [await makePdf(2)]),
-    ).rejects.toThrow(/No bookmarks/);
+    await expect(splitPdfs({ kind: "chapters", level: 1 }, [await makePdf(2)])).rejects.toThrow(/No bookmarks/);
   });
 });
 

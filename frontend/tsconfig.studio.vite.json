@@ -1,6 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
     "paths": {
       "@editor/*": ["./src/editor/studio/*", "./src/editor/core/*"],
       "@editor-core/*": ["./src/editor/core/*"],

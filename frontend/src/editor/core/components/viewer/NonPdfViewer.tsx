@@ -1,16 +1,10 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useMemo } from "react";
 import { Box, Center, Stack, Text } from "@mantine/core";
 import { useTranslation } from "react-i18next";
-import { Button } from "@editor/ui/Button";
 import { Icon } from "@editor/ui/Icon";
 import { useAllFiles } from "@editor/contexts/FileContext";
 import { useViewer } from "@editor/contexts/ViewerContext";
-import { useToolWorkflow } from "@editor/contexts/ToolWorkflowContext";
-import {
-  detectFileExtension,
-  detectNonPdfFileType,
-} from "@editor/utils/fileUtils";
-import { CONVERSION_MATRIX } from "@editor/constants/convertConstants";
+import { detectNonPdfFileType } from "@editor/utils/fileUtils";
 
 import { NonPdfBanner } from "@editor/components/viewer/nonpdf/NonPdfBanner";
 import { ImageViewer } from "@editor/components/viewer/nonpdf/ImageViewer";

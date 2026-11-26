@@ -1,8 +1,5 @@
 import { assertFilesNotBlocked } from "@editor/services/policyFileGuard";
-import {
-  saveToLocalPath,
-  showSaveDialog,
-} from "@editor/services/localFileSaveService";
+import { saveToLocalPath, showSaveDialog } from "@editor/services/localFileSaveService";
 import { isTauriRuntime } from "@editor/services/tauriFiles";
 
 export interface DownloadRequest {
@@ -34,9 +31,7 @@ function browserDownload(url: string, filename: string): void {
  * Save always overwrites: with a linked path the file is replaced in place with
  * no prompt; without one the user picks a location once and the file links to it.
  */
-export async function downloadFile(
-  request: DownloadRequest,
-): Promise<DownloadResult> {
+export async function downloadFile(request: DownloadRequest): Promise<DownloadResult> {
   assertFilesNotBlocked([request.fileId]);
 
   if (!isTauriRuntime()) {
@@ -56,11 +51,7 @@ export async function downloadFile(
   return { savedPath: target };
 }
 
-export async function downloadFromUrl(
-  url: string,
-  filename: string,
-  localPath?: string,
-): Promise<DownloadResult> {
+export async function downloadFromUrl(url: string, filename: string, localPath?: string): Promise<DownloadResult> {
   assertFilesNotBlocked();
   if (!isTauriRuntime()) {
     browserDownload(url, filename);

@@ -2,9 +2,7 @@ import { useMemo } from "react";
 
 import type { ToolId } from "@editor/types/toolId";
 import type { ToolRegistry } from "@editor/data/toolsTaxonomy";
-import ToolRegistryContext, {
-  ToolRegistryCatalog,
-} from "@editor/contexts/ToolRegistryContext";
+import ToolRegistryContext, { ToolRegistryCatalog } from "@editor/contexts/ToolRegistryContext";
 import { useTranslatedToolCatalog } from "@editor/data/useTranslatedToolRegistry";
 import { omitHiddenTools } from "@editor/config/toolAvailability";
 
@@ -18,9 +16,7 @@ interface ToolRegistryProviderProps {
  * place the registry is built, removes a tool from the menu, search, Automate
  * and deep links at once.
  */
-export const ToolRegistryProvider: React.FC<ToolRegistryProviderProps> = ({
-  children,
-}) => {
+export const ToolRegistryProvider: React.FC<ToolRegistryProviderProps> = ({ children }) => {
   const catalog = useTranslatedToolCatalog();
 
   const contextValue = useMemo<ToolRegistryCatalog>(() => {
@@ -43,9 +39,5 @@ export const ToolRegistryProvider: React.FC<ToolRegistryProviderProps> = ({
     return { regularTools, superTools, linkTools, allTools, getToolById };
   }, [catalog]);
 
-  return (
-    <ToolRegistryContext.Provider value={contextValue}>
-      {children}
-    </ToolRegistryContext.Provider>
-  );
+  return <ToolRegistryContext.Provider value={contextValue}>{children}</ToolRegistryContext.Provider>;
 };

@@ -1,5 +1,5 @@
-import { loadPdf, savePdf } from "./common";
-import { resolvePageSelection } from "./pages";
+import { loadPdf, savePdf } from "@editor/services/pdfEdit/common";
+import { resolvePageSelection } from "@editor/services/pdfEdit/pages";
 
 export interface CropArea {
   /** PDF points from the page's bottom-left corner. */
@@ -13,18 +13,12 @@ export interface CropArea {
  * Sets the visible box of the selected pages. The page content stays in the file, so this
  * hides what is outside the box but does not remove it. Use Redact for anything sensitive.
  */
-export async function cropPdfs(
-  area: CropArea,
-  pageNumbers: string,
-  files: File[],
-): Promise<File[]> {
+export async function cropPdfs(area: CropArea, pageNumbers: string, files: File[]): Promise<File[]> {
   const out: File[] = [];
   for (const file of files) {
     const doc = await loadPdf(file);
     const count = doc.getPageCount();
-    const selected = /^\s*(all)?\s*$/i.test(pageNumbers)
-      ? doc.getPageIndices()
-      : resolvePageSelection(pageNumbers, count);
+    const selected = /^\s*(all)?\s*$/i.test(pageNumbers) ? doc.getPageIndices() : resolvePageSelection(pageNumbers, count);
     for (const i of new Set(selected)) {
       const page = doc.getPage(i);
       const media = page.getMediaBox();

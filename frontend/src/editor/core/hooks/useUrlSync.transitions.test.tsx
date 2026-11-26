@@ -8,7 +8,7 @@ import { EDITOR_BASENAME } from "@editor/routes/editorBasename";
 
 const h = vi.hoisted(() => ({
   location: {
-    pathname: "/scale-pages",
+    pathname: "/rotate",
     search: "",
     hash: "",
     state: null,
@@ -28,13 +28,13 @@ vi.mock("@editor/contexts/AppConfigContext", () => ({
 
 const registry = {
   sign: { name: "Sign", workbench: "viewer" },
-  scalePages: { name: "Adjust page size and scale" },
+  rotate: { name: "Rotate" },
 } as ToolRegistry;
 
 describe("useNavigationUrlSync router transitions", () => {
   beforeEach(() => {
     h.navigate.mockClear();
-    h.location = { ...h.location, pathname: "/scale-pages", key: "scale" };
+    h.location = { ...h.location, pathname: "/rotate", key: "scale" };
   });
 
   it("requests a guarded history navigation only once per visit", () => {
@@ -42,7 +42,7 @@ describe("useNavigationUrlSync router transitions", () => {
     const clearTool = vi.fn();
     const { rerender } = renderHook(() =>
       useNavigationUrlSync(
-        "scalePages",
+        "rotate",
         (tool) => selectTool(tool),
         clearTool,
         registry,
@@ -58,7 +58,7 @@ describe("useNavigationUrlSync router transitions", () => {
     rerender();
     expect(selectTool).toHaveBeenCalledTimes(1);
 
-    h.location = { ...h.location, pathname: "/scale-pages", key: "scale" };
+    h.location = { ...h.location, pathname: "/rotate", key: "scale" };
     rerender();
     h.location = { ...h.location, pathname: "/sign", key: "sign" };
     rerender();
@@ -82,7 +82,7 @@ describe("useNavigationUrlSync router transitions", () => {
             clearTool,
             registry,
           ),
-        { initialProps: { selectedTool: "scalePages" as ToolId | null } },
+        { initialProps: { selectedTool: "rotate" as ToolId | null } },
       );
 
       rerender({ selectedTool: selection });
@@ -99,9 +99,9 @@ describe("useNavigationUrlSync router transitions", () => {
       expect(selectTool).not.toHaveBeenCalled();
       expect(clearTool).not.toHaveBeenCalled();
 
-      h.location = { ...h.location, pathname: "/scale-pages", key: "scale" };
+      h.location = { ...h.location, pathname: "/rotate", key: "scale" };
       rerender({ selectedTool: selection });
-      expect(selectTool).toHaveBeenCalledExactlyOnceWith("scalePages");
+      expect(selectTool).toHaveBeenCalledExactlyOnceWith("rotate");
     },
   );
 });

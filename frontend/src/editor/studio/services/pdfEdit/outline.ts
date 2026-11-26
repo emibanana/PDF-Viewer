@@ -1,14 +1,5 @@
-import {
-  PDFArray,
-  PDFDict,
-  PDFDocument,
-  PDFHexString,
-  PDFName,
-  PDFNumber,
-  PDFRef,
-  PDFString,
-} from "@cantoo/pdf-lib";
-import { loadPdf, savePdf } from "./common";
+import { PDFArray, PDFDict, PDFDocument, PDFHexString, PDFName, PDFNumber, PDFRef, PDFString } from "@cantoo/pdf-lib";
+import { loadPdf, savePdf } from "@editor/services/pdfEdit/common";
 
 export interface OutlineEntry {
   title: string;
@@ -29,11 +20,7 @@ export function readOutline(doc: PDFDocument): OutlineEntry[] {
 
   const pageOf = (dest: unknown): number | null => {
     let d = dest;
-    if (
-      d instanceof PDFName ||
-      d instanceof PDFString ||
-      d instanceof PDFHexString
-    ) {
+    if (d instanceof PDFName || d instanceof PDFString || d instanceof PDFHexString) {
       d = named.get(d.decodeText());
     }
     if (d instanceof PDFDict) d = d.lookup(PDFName.of("D"));
@@ -49,11 +36,7 @@ export function readOutline(doc: PDFDocument): OutlineEntry[] {
   const walk = (first: PDFDict | undefined, level: number) => {
     for (let node = first; node && !seen.has(node); ) {
       seen.add(node);
-      const title = node.lookupMaybe(
-        PDFName.of("Title"),
-        PDFString,
-        PDFHexString,
-      );
+      const title = node.lookupMaybe(PDFName.of("Title"), PDFString, PDFHexString);
       let dest: unknown = node.lookup(PDFName.of("Dest"));
       if (!dest) {
         const action = node.lookupMaybe(PDFName.of("A"), PDFDict);
@@ -87,11 +70,7 @@ function namedDestinations(doc: PDFDocument): Map<string, unknown> {
       visit(kids.lookupMaybe(i, PDFDict));
     }
   };
-  visit(
-    doc.catalog
-      .lookupMaybe(PDFName.of("Names"), PDFDict)
-      ?.lookupMaybe(PDFName.of("Dests"), PDFDict),
-  );
+  visit(doc.catalog.lookupMaybe(PDFName.of("Names"), PDFDict)?.lookupMaybe(PDFName.of("Dests"), PDFDict));
   return map;
 }
 
@@ -135,10 +114,7 @@ export function writeOutline(doc: PDFDocument, items: OutlineInput[]): void {
   };
 
   const top = build(items, rootRef);
-  context.assign(
-    rootRef,
-    context.obj({ Type: "Outlines", First: top.first, Last: top.last, Count: top.count }),
-  );
+  context.assign(rootRef, context.obj({ Type: "Outlines", First: top.first, Last: top.last, Count: top.count }));
   doc.catalog.set(PDFName.of("Outlines"), rootRef);
 }
 

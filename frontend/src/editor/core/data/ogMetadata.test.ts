@@ -32,7 +32,7 @@ const TEMPLATE = `<!doctype html>
 
 describe("getToolOgImage (client resolver)", () => {
   it("maps a tool id to its image (camelCase id, kebab filename)", () => {
-    expect(getToolOgImage("", "compress")).toBe("/og_images/compress.png");
+    expect(getToolOgImage("", "merge")).toBe("/og_images/mergePdfs.png");
     expect(getToolOgImage("", "addPassword")).toBe(
       "/og_images/add-password.png",
     );
@@ -51,8 +51,8 @@ describe("getToolOgImage (client resolver)", () => {
   });
 
   it("prefixes the base url", () => {
-    expect(getToolOgImage("https://x.test", "compress")).toBe(
-      "https://x.test/og_images/compress.png",
+    expect(getToolOgImage("https://x.test", "merge")).toBe(
+      "https://x.test/og_images/mergePdfs.png",
     );
   });
 });

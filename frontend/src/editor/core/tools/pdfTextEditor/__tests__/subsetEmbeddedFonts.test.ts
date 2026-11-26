@@ -10,7 +10,7 @@ import { subsetTrueType } from "@editor/tools/pdfTextEditor/util/ttfSubset";
 
 const FONT = path.join(
   import.meta.dirname,
-  "../../../../../../../app/core/src/main/resources/static/fonts/LiberationSans-Regular.ttf",
+  "../../../../../../../frontend/src/editor/core/tests/test-fixtures/fonts/LiberationSans-Regular.ttf",
 );
 
 const TAG = (s: string) =>

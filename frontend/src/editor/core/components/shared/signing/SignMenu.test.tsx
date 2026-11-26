@@ -1,10 +1,7 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { expect, it, vi } from "vitest";
 import { SignMenu } from "@editor/components/shared/signing/SignMenu";
-import {
-  collectSigningItems,
-  type SigningMenuItem,
-} from "@editor/utils/signingItems";
+import { collectSigningItems, type SigningMenuItem } from "@editor/utils/signingItems";
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
@@ -37,14 +34,7 @@ function setup(items: SigningMenuItem[] = [], sharedSign?: string) {
   const onOpenSigning = vi.fn();
   const onClose = vi.fn();
   const menu = (rows: SigningMenuItem[]) => (
-    <SignMenu
-      opened
-      onClose={onClose}
-      onSelect={onSelect}
-      onOpenSigning={onOpenSigning}
-      reasons={{ sharedSign }}
-      items={rows}
-    >
+    <SignMenu opened onClose={onClose} onSelect={onSelect} onOpenSigning={onOpenSigning} reasons={{ sharedSign }} items={rows}>
       <button>Sign</button>
     </SignMenu>
   );
@@ -67,26 +57,20 @@ it("shows one owner session in the popover as its action changes from signing to
   const { onOpenSigning, updateItems } = setup(rows);
   const active = within(screen.getByRole("region", { name: "Active" }));
   expect(active.getAllByRole("button")).toHaveLength(1);
-  fireEvent.click(
-    active.getByRole("button", { name: /Owned.pdf.*Needs your signature/ }),
-  );
+  fireEvent.click(active.getByRole("button", { name: /Owned.pdf.*Needs your signature/ }));
   expect(onOpenSigning).toHaveBeenCalledWith({
     kind: "session",
     sessionId: "owned",
   });
-  expect(
-    screen.getByRole("button", { name: /^Unread\s*1$/ }),
-  ).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /^Unread\s*1$/ })).toBeInTheDocument();
   updateItems(
-    collectSigningItems(
-      [{ ...request, myStatus: "SIGNED" }],
-      [{ ...owned, signedCount: 2 }],
-    ).map((item) => ({ ...item, unread: false })),
+    collectSigningItems([{ ...request, myStatus: "SIGNED" }], [{ ...owned, signedCount: 2 }]).map((item) => ({
+      ...item,
+      unread: false,
+    })),
   );
   expect(active.getAllByRole("button")).toHaveLength(1);
-  expect(
-    active.getByRole("button", { name: /Owned.pdf.*Ready to finalize/ }),
-  ).toBeInTheDocument();
+  expect(active.getByRole("button", { name: /Owned.pdf.*Ready to finalize/ })).toBeInTheDocument();
 });
 
 it("filters unread invitations and ready owner sessions, updating the count when read", () => {
@@ -105,40 +89,26 @@ it("filters unread invitations and ready owner sessions, updating the count when
   fireEvent.click(screen.getByRole("button", { name: /^Unread\s*2$/ }));
   const list = within(screen.getByRole("region", { name: "Unread" }));
   expect(list.getAllByRole("button")).toHaveLength(2);
-  expect(
-    list.getByRole("button", { name: /Owned.pdf.*Ready to finalize/ }),
-  ).toBeInTheDocument();
-  expect(
-    list.queryByRole("button", { name: /Read.pdf|Closed.pdf/ }),
-  ).not.toBeInTheDocument();
+  expect(list.getByRole("button", { name: /Owned.pdf.*Ready to finalize/ })).toBeInTheDocument();
+  expect(list.queryByRole("button", { name: /Read.pdf|Closed.pdf/ })).not.toBeInTheDocument();
   fireEvent.change(screen.getByRole("searchbox"), {
     target: { value: "Owned" },
   });
   expect(list.getAllByRole("button")).toHaveLength(1);
-  expect(screen.getByRole("button", { name: /^Unread\s*2$/ })).toHaveAttribute(
-    "aria-pressed",
-    "true",
-  );
+  expect(screen.getByRole("button", { name: /^Unread\s*2$/ })).toHaveAttribute("aria-pressed", "true");
   expect(onOpenSigning).not.toHaveBeenCalled();
   fireEvent.change(screen.getByRole("searchbox"), { target: { value: "" } });
   updateItems(items.map((item) => ({ ...item, unread: false })));
-  expect(screen.getByRole("button", { name: /^Unread\s*0$/ })).toHaveAttribute(
-    "aria-pressed",
-    "true",
-  );
+  expect(screen.getByRole("button", { name: /^Unread\s*0$/ })).toHaveAttribute("aria-pressed", "true");
   expect(screen.getByText("You're all caught up")).toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Active" }));
-  expect(
-    screen.getByRole("button", { name: /Owned.pdf.*Ready to finalize/ }),
-  ).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /Owned.pdf.*Ready to finalize/ })).toBeInTheDocument();
 });
 
 it("keeps personal signing accessible when shared signing is disabled", () => {
   const { onSelect } = setup([], "Disabled on this server");
   expect(screen.getByRole("dialog", { name: "Sign" })).toBeInTheDocument();
-  expect(
-    screen.getByRole("button", { name: "Request signatures" }),
-  ).toBeDisabled();
+  expect(screen.getByRole("button", { name: "Request signatures" })).toBeDisabled();
   fireEvent.click(screen.getByRole("button", { name: /Personal signature/ }));
   expect(onSelect).toHaveBeenCalledWith("sign");
 });
@@ -153,32 +123,20 @@ it("keeps expired and server-closed requests out of Active and the unread count"
       documentName: "Expired.pdf",
     },
   ]);
-  expect(
-    screen.getByRole("button", { name: /^Unread\s*0$/ }),
-  ).toBeInTheDocument();
-  expect(
-    screen.queryByRole("button", { name: /Viewer.pdf|Expired.pdf/ }),
-  ).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /^Unread\s*0$/ })).toBeInTheDocument();
+  expect(screen.queryByRole("button", { name: /Viewer.pdf|Expired.pdf/ })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Completed" }));
-  expect(
-    screen.getByRole("button", { name: /Viewer.pdf.*Closed/ }),
-  ).toBeInTheDocument();
-  expect(
-    screen.getByRole("button", { name: /Expired.pdf.*Access expired/ }),
-  ).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /Viewer.pdf.*Closed/ })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /Expired.pdf.*Access expired/ })).toBeInTheDocument();
 });
 
-it("opens request creation, expanded sessions and certificate signing directly", () => {
-  const { onSelect, onOpenSigning, onClose } = setup();
+it("opens request creation and expanded sessions directly", () => {
+  const { onOpenSigning, onClose } = setup();
   fireEvent.click(screen.getByRole("button", { name: "Request signatures" }));
   expect(onOpenSigning).toHaveBeenLastCalledWith("create");
-  fireEvent.click(
-    screen.getByRole("button", { name: "Expand signing sessions" }),
-  );
+  fireEvent.click(screen.getByRole("button", { name: "Expand signing sessions" }));
   expect(onOpenSigning).toHaveBeenLastCalledWith("list");
-  fireEvent.click(screen.getByRole("button", { name: /Digital signature/ }));
-  expect(onSelect).toHaveBeenCalledWith("certSign");
-  expect(onClose).toHaveBeenCalledTimes(3);
+  expect(onClose).toHaveBeenCalledTimes(2);
 });
 
 it("shows requests and owned sessions together, with unread dots independent of readiness", () => {
@@ -200,13 +158,8 @@ it("shows requests and owned sessions together, with unread dots independent of 
       unread: false,
     },
   ]);
-  expect(
-    screen.queryByRole("button", { name: /Needs action/ }),
-  ).not.toBeInTheDocument();
-  expect(screen.getByRole("button", { name: "Active" })).toHaveAttribute(
-    "aria-pressed",
-    "true",
-  );
+  expect(screen.queryByRole("button", { name: /Needs action/ })).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Active" })).toHaveAttribute("aria-pressed", "true");
   const list = within(screen.getByRole("region", { name: "Active" }));
   expect(list.getAllByRole("button")).toHaveLength(4);
   expect(list.getAllByRole("img", { name: /New activity/ })).toHaveLength(2);
@@ -214,16 +167,12 @@ it("shows requests and owned sessions together, with unread dots independent of 
     name: /Ready.pdf.*Ready to finalize/,
   });
   expect(ready).toBeInTheDocument();
-  expect(
-    within(ready).queryByRole("img", { name: /New activity/ }),
-  ).not.toBeInTheDocument();
+  expect(within(ready).queryByRole("img", { name: /New activity/ })).not.toBeInTheDocument();
   expect(list.getByRole("button", { name: /Waiting.pdf/ })).toBeInTheDocument();
 });
 it("opens the selected role by identity and closes the popover", () => {
   const { onOpenSigning, onSelect, onClose } = setup([incoming]);
-  fireEvent.click(
-    screen.getByRole("button", { name: /Contract.pdf.*Needs your signature/ }),
-  );
+  fireEvent.click(screen.getByRole("button", { name: /Contract.pdf.*Needs your signature/ }));
   expect(onOpenSigning).toHaveBeenCalledWith({
     kind: "request",
     sessionId: "incoming",
@@ -240,21 +189,13 @@ it("includes a newly finalized document in Unread and Completed, but never Activ
     myStatus: "SIGNED",
   };
   const { updateItems } = setup([completed]);
-  expect(
-    screen.queryByRole("button", { name: /Contract.pdf.*Finalized/ }),
-  ).not.toBeInTheDocument();
+  expect(screen.queryByRole("button", { name: /Contract.pdf.*Finalized/ })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: /^Unread\s*1$/ }));
-  expect(
-    screen.getByRole("button", { name: /Contract.pdf.*Finalized/ }),
-  ).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /Contract.pdf.*Finalized/ })).toBeInTheDocument();
   updateItems([{ ...completed, unread: false }]);
-  expect(
-    screen.queryByRole("button", { name: /Contract.pdf.*Finalized/ }),
-  ).not.toBeInTheDocument();
+  expect(screen.queryByRole("button", { name: /Contract.pdf.*Finalized/ })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Completed" }));
-  expect(
-    screen.getByRole("button", { name: /Contract.pdf.*Finalized/ }),
-  ).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /Contract.pdf.*Finalized/ })).toBeInTheDocument();
 });
 
 it("shows every active item and searches without marking hidden items as read", () => {
@@ -265,29 +206,17 @@ it("shows every active item and searches without marking hidden items as read", 
   }));
   setup([...requests, { ...owned, unread: false }]);
   fireEvent.click(screen.getByRole("button", { name: "Active" }));
-  expect(
-    within(screen.getByRole("region", { name: "Active" })).getAllByRole(
-      "button",
-    ),
-  ).toHaveLength(10);
+  expect(within(screen.getByRole("region", { name: "Active" })).getAllByRole("button")).toHaveLength(10);
   fireEvent.change(screen.getByRole("searchbox"), {
     target: { value: "Document 8" },
   });
-  expect(
-    screen.getByRole("button", { name: /Document 8.pdf/ }),
-  ).toBeInTheDocument();
-  expect(
-    screen.queryByRole("button", { name: /Document 0.pdf/ }),
-  ).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /Document 8.pdf/ })).toBeInTheDocument();
+  expect(screen.queryByRole("button", { name: /Document 0.pdf/ })).not.toBeInTheDocument();
   expect(screen.getByRole("img", { name: /New activity/ })).toBeInTheDocument();
   fireEvent.change(screen.getByRole("searchbox"), {
     target: { value: "alice" },
   });
-  expect(
-    within(screen.getByRole("region", { name: "Active" })).getAllByRole(
-      "button",
-    ),
-  ).toHaveLength(9);
+  expect(within(screen.getByRole("region", { name: "Active" })).getAllByRole("button")).toHaveLength(9);
 });
 
 it("keeps submitted requests active and places finalized or declined requests in Completed", () => {
@@ -308,22 +237,12 @@ it("keeps submitted requests active and places finalized or declined requests in
     },
   ]);
   fireEvent.click(screen.getByRole("button", { name: "Active" }));
-  expect(
-    screen.getByRole("button", { name: /Submitted.pdf.*Submitted/ }),
-  ).toBeInTheDocument();
-  expect(
-    screen.queryByRole("button", { name: /Declined.pdf/ }),
-  ).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /Submitted.pdf.*Submitted/ })).toBeInTheDocument();
+  expect(screen.queryByRole("button", { name: /Declined.pdf/ })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Completed" }));
-  expect(
-    screen.getByRole("button", { name: /Owned.pdf.*Finalized/ }),
-  ).toBeInTheDocument();
-  expect(
-    screen.getByRole("button", { name: /Declined.pdf.*Declined/ }),
-  ).toBeInTheDocument();
-  expect(
-    screen.queryByRole("button", { name: /Submitted.pdf/ }),
-  ).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /Owned.pdf.*Finalized/ })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /Declined.pdf.*Declined/ })).toBeInTheDocument();
+  expect(screen.queryByRole("button", { name: /Submitted.pdf/ })).not.toBeInTheDocument();
 });
 
 it("allows editing search with Home/End and restores the trigger on Escape", () => {

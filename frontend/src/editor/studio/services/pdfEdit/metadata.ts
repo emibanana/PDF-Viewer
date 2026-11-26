@@ -1,11 +1,5 @@
-import {
-  PDFDict,
-  PDFDocument,
-  PDFHexString,
-  PDFName,
-  PDFString,
-} from "@cantoo/pdf-lib";
-import { loadPdf, savePdf } from "./common";
+import { PDFDict, PDFDocument, PDFHexString, PDFName, PDFString } from "@cantoo/pdf-lib";
+import { loadPdf, savePdf } from "@editor/services/pdfEdit/common";
 
 export interface MetadataEdit {
   title: string;
@@ -75,10 +69,7 @@ export function applyMetadata(doc: PDFDocument, edit: MetadataEdit): void {
   }
 }
 
-export async function changeMetadata(
-  edit: MetadataEdit,
-  files: File[],
-): Promise<File[]> {
+export async function changeMetadata(edit: MetadataEdit, files: File[]): Promise<File[]> {
   const out: File[] = [];
   for (const file of files) {
     const doc = await loadPdf(file);

@@ -1,10 +1,5 @@
-import {
-  PDFArray,
-  PDFDict,
-  PDFDocument,
-  PDFName,
-} from "@cantoo/pdf-lib";
-import { loadPdf, savePdf } from "./common";
+import { PDFArray, PDFDict, PDFDocument, PDFName } from "@cantoo/pdf-lib";
+import { loadPdf, savePdf } from "@editor/services/pdfEdit/common";
 
 export interface SanitizeOptions {
   removeJavaScript: boolean;
@@ -17,8 +12,7 @@ export interface SanitizeOptions {
 
 const N = (s: string) => PDFName.of(s);
 
-const isJsAction = (action: PDFDict | undefined): boolean =>
-  action?.lookup(N("S")) === N("JavaScript");
+const isJsAction = (action: PDFDict | undefined): boolean => action?.lookup(N("S")) === N("JavaScript");
 
 function dictsIn(doc: PDFDocument): PDFDict[] {
   return doc.context
@@ -82,10 +76,7 @@ function removeInfo(doc: PDFDocument): void {
 }
 
 /** Strips the selected kinds of hidden content from each file. */
-export async function sanitizePdfs(
-  options: SanitizeOptions,
-  files: File[],
-): Promise<File[]> {
+export async function sanitizePdfs(options: SanitizeOptions, files: File[]): Promise<File[]> {
   const out: File[] = [];
   for (const file of files) {
     const doc = await loadPdf(file);

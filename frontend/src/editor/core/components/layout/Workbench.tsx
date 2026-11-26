@@ -41,9 +41,6 @@ const PageTracks = lazy(
   () => import("@editor/components/pageTracks/PageTracks"),
 );
 const Viewer = lazy(() => import("@editor/components/viewer/Viewer"));
-const FileManagerView = lazy(
-  () => import("@editor/components/filesPage/FileManagerView"),
-);
 
 // No props needed - component uses contexts directly
 export default function Workbench() {
@@ -102,8 +99,6 @@ export default function Workbench() {
     hasFiles ||
     fileIds.length > 0 ||
     !isBaseWorkbench(currentView) ||
-    // The library browses stored files, so it has content of its own with none open.
-    currentView === "myFiles" ||
     currentView === "signing";
   // Reading hides the bar; the rail's Reader entry is the way back. A takeover hides
   // the switcher and search too: both navigate away from a flow that must finish.
@@ -146,12 +141,6 @@ export default function Workbench() {
     }
 
     if (currentView === "signing") return <SigningWorkspace />;
-
-    // The file-library workbench is available regardless of whether files are
-    // currently loaded into the workbench - it lives on top of the IDB store.
-    if (currentView === "myFiles") {
-      return <FileManagerView />;
-    }
 
     if (activeFiles.length === 0) {
       // Files are open but their bytes are still loading (a cold PDF engine can

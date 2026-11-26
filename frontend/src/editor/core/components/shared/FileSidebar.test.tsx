@@ -92,6 +92,9 @@ vi.mock("@editor/components/filesPage/VersionHistoryModal", () => ({
 vi.mock("@editor/components/filesPage/DeleteFilesDialog", () => ({
   DeleteFilesDialog: () => null,
 }));
+vi.mock("@editor/components/shared/AddFromRecentModal", () => ({
+  AddFromRecentModal: () => null,
+}));
 vi.mock("@editor/components/shared/RenameFileDialog", () => ({
   RenameFileDialog: () => null,
 }));
@@ -138,11 +141,7 @@ vi.mock("@editor/services/fileStorage", () => ({
   onRecordUnreadable: () => () => {},
 }));
 
-function stub(
-  id: string,
-  name: string,
-  thumbnailUrl: string,
-): StirlingFileStub {
+function stub(id: string, name: string, thumbnailUrl: string): StirlingFileStub {
   return {
     id: id as FileId,
     name,
@@ -194,8 +193,6 @@ describe("FileSidebar", () => {
       expect(after[handler], handler).toBe(before[handler]);
 
     act(() => before.onSaveToCloud?.(before.fileId));
-    expect(sidebar.uploadTarget?.map((file) => file.name)).toEqual([
-      "renamed.pdf",
-    ]);
+    expect(sidebar.uploadTarget?.map((file) => file.name)).toEqual(["renamed.pdf"]);
   });
 });

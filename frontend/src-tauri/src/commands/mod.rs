@@ -1,3 +1,5 @@
+#[cfg(windows)]
+pub mod dropped_paths;
 pub mod files;
 pub mod fonts;
 pub mod platform;

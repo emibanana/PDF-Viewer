@@ -3,7 +3,7 @@
  * FileContext uses pure File objects with separate ID tracking
  */
 
-import { OperationId, ToolId } from "@editor/types/toolId";
+import { OperationId } from "@editor/types/toolId";
 import { FolderId } from "@editor/types/folder";
 
 declare const tag: unique symbol;

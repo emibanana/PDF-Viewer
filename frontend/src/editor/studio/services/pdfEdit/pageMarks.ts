@@ -1,6 +1,6 @@
 import { PDFDocument, PDFFont, StandardFonts, rgb, degrees } from "@cantoo/pdf-lib";
-import { loadPdf, savePdf } from "./common";
-import { resolvePageSelection } from "./pages";
+import { loadPdf, savePdf } from "@editor/services/pdfEdit/common";
+import { resolvePageSelection } from "@editor/services/pdfEdit/pages";
 
 export type NumberFont = "Times" | "Helvetica" | "Courier";
 export type Margin = "small" | "medium" | "large" | "x-large";
@@ -32,18 +32,13 @@ const FONTS: Record<NumberFont, StandardFonts> = {
 };
 
 /** Draws a page number (or a text template containing {n}, {total}, {filename}) on each selected page. */
-export async function addPageNumbers(
-  options: PageNumberOptions,
-  files: File[],
-): Promise<File[]> {
+export async function addPageNumbers(options: PageNumberOptions, files: File[]): Promise<File[]> {
   const out: File[] = [];
   for (const file of files) {
     const doc = await loadPdf(file);
     const font = await doc.embedFont(FONTS[options.font]);
     const total = doc.getPageCount();
-    const selected = options.pages.trim()
-      ? resolvePageSelection(options.pages, total)
-      : doc.getPageIndices();
+    const selected = options.pages.trim() ? resolvePageSelection(options.pages, total) : doc.getPageIndices();
     for (const i of new Set(selected)) {
       const page = doc.getPage(i);
       const n = String(options.startingNumber + i).padStart(options.zeroPad, "0");
@@ -94,10 +89,7 @@ function assertDrawable(text: string, font: PDFFont): void {
 }
 
 /** Tiles a text or image watermark over every page. */
-export async function addWatermark(
-  options: WatermarkOptions,
-  files: File[],
-): Promise<File[]> {
+export async function addWatermark(options: WatermarkOptions, files: File[]): Promise<File[]> {
   const out: File[] = [];
   for (const file of files) {
     const doc = await loadPdf(file);
@@ -121,9 +113,7 @@ async function markDrawer(doc: PDFDocument, o: WatermarkOptions) {
   const rotate = degrees(o.rotation);
   if (o.image) {
     const bytes = new Uint8Array(await o.image.arrayBuffer());
-    const image = /png$/i.test(o.image.type)
-      ? await doc.embedPng(bytes)
-      : await doc.embedJpg(bytes);
+    const image = /png$/i.test(o.image.type) ? await doc.embedPng(bytes) : await doc.embedJpg(bytes);
     const scaled = image.scale(o.fontSize / image.width);
     return {
       width: scaled.width,

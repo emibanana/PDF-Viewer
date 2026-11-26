@@ -1,11 +1,7 @@
 import { PDFDocument } from "@cantoo/pdf-lib";
 
 /** A PDF whose page i (zero-based) is 100 + i points wide, so tests can tell pages apart. */
-export async function makePdf(
-  pageCount: number,
-  name = "doc.pdf",
-  tweak?: (doc: PDFDocument) => void,
-): Promise<File> {
+export async function makePdf(pageCount: number, name = "doc.pdf", tweak?: (doc: PDFDocument) => void): Promise<File> {
   const doc = await PDFDocument.create();
   for (let i = 0; i < pageCount; i++) doc.addPage([100 + i, 200]);
   tweak?.(doc);
@@ -14,10 +10,7 @@ export async function makePdf(
   });
 }
 
-export async function open(
-  file: File,
-  password?: string,
-): Promise<PDFDocument> {
+export async function open(file: File, password?: string): Promise<PDFDocument> {
   return PDFDocument.load(await file.arrayBuffer(), {
     updateMetadata: false,
     password,

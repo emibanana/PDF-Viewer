@@ -46,7 +46,7 @@ function bundledFont(name: string): ArrayBuffer {
   const bytes = readFileSync(
     path.resolve(
       __dirname,
-      "../../../../../../../app/core/src/main/resources/static/fonts",
+      "../../../../../../../frontend/src/editor/core/tests/test-fixtures/fonts",
       name,
     ),
   );

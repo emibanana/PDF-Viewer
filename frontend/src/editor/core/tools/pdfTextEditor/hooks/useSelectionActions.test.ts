@@ -80,7 +80,7 @@ const HEBREW = "5".repeat(64);
 
 const FONTS = path.resolve(
   __dirname,
-  "../../../../../../../app/core/src/main/resources/static/fonts",
+  "../../../../../../../frontend/src/editor/core/tests/test-fixtures/fonts",
 );
 const HEBREW_TTF = readFileSync(path.join(FONTS, "NotoSansHebrew-Regular.ttf"));
 const LATIN_TTF = readFileSync(path.join(FONTS, "LiberationSans-Regular.ttf"));

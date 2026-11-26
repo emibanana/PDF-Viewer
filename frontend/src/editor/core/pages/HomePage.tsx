@@ -1,5 +1,4 @@
 import {
-  forwardRef,
   startTransition,
   useCallback,
   useEffect,
@@ -36,7 +35,6 @@ import { ReaderSuperSearch } from "@editor/components/viewer/readerRail/ReaderSu
 import { useTitleBarStrip } from "@editor/contexts/TitleBarStripContext";
 import Workbench from "@editor/components/layout/Workbench";
 import FileSidebar from "@editor/components/shared/FileSidebar";
-import FileManager from "@editor/components/FileManager";
 import {
   getStartupNavigationAction,
   getDefaultWorkbenchForFileCount,
@@ -52,28 +50,11 @@ import { SignMenu } from "@editor/components/shared/signing/SignMenu";
 import { useOpenSigning } from "@editor/hooks/signing/useOpenSigning";
 import { usePreferences } from "@editor/contexts/PreferencesContext";
 import {
-  getToolDisabledReason,
-  getDisabledLabel,
-} from "@editor/components/tools/fullscreen/shared";
-import {
   consumeReaderModeFromPreference,
   consumeReaderModeRequest,
 } from "@editor/utils/pendingReaderMode";
-import {
-  FilesPageProvider,
-  useFilesPage,
-} from "@editor/contexts/FilesPageContext";
-import { useFolders } from "@editor/contexts/FolderContext";
-import { useNewFolderFlow } from "@editor/hooks/useNewFolderFlow";
-import { NewFolderButton } from "@editor/components/filesPage/NewFolderButton";
-import MobileUploadModal from "@editor/components/shared/MobileUploadModal";
-import { useLibraryRefresh } from "@editor/hooks/useLibraryRefresh";
-import { useAuth } from "@editor/auth/UseSession";
-import { canPickDirectory } from "@editor/services/directoryPicker";
-import { useLibraryUpload } from "@editor/components/filesPage/useLibraryUpload";
 import { useProcessingFolderCreation } from "@editor/hooks/useProcessingFolderCreation";
 import { consumeProcessingFolderCreationRequest } from "@editor/utils/pendingProcessingFolderCreation";
-import type { FileSidebarProps } from "@editor/components/shared/FileSidebar";
 
 import { Button } from "@editor/ui/Button";
 import "@editor/components/layout/WorkspaceFrame.css";
@@ -126,9 +107,7 @@ export default function HomePage() {
     readerMode,
     setReaderMode,
     setLeftPanelView,
-    toolAvailability,
     customWorkbenchViews,
-    toolRegistry,
   } = useToolWorkflow();
 
   const navigate = useNavigate();
@@ -228,16 +207,9 @@ export default function HomePage() {
   const derivedFromPath = actions.viewDerivedFromPathRef;
   useEffect(() => {
     if (derivedFromPath.current === location.pathname) return;
-    if (location.pathname.startsWith("/files")) {
-      if (navigationState.workbench !== "myFiles") {
-        actions.setWorkbench("myFiles");
-      }
-    } else if (location.pathname === "/shared-sign") {
+    if (location.pathname === "/shared-sign") {
       actions.setToolAndWorkbench(null, "signing");
-    } else if (
-      navigationState.workbench === "myFiles" ||
-      navigationState.workbench === "signing"
-    ) {
+    } else if (navigationState.workbench === "signing") {
       // A restore is reopening a recorded view onto files still loading. Leave the
       // path unmarked so the correction runs once those files land.
       if (isApplyingRestoredView()) return;
@@ -246,23 +218,6 @@ export default function HomePage() {
     derivedFromPath.current = location.pathname;
     // Deliberately not keyed on the workbench: this reacts to the path only.
   }, [location.pathname, actions, derivedFromPath, activeFiles.length]);
-
-  // View moved, so the path follows. Pushed, not replaced, so Back leaves the library.
-  const wasInLibraryRef = useRef(navigationState.workbench === "myFiles");
-  useEffect(() => {
-    const inLibrary = navigationState.workbench === "myFiles";
-    if (inLibrary === wasInLibraryRef.current) return;
-    wasInLibraryRef.current = inLibrary;
-    const onFilesPath = location.pathname.startsWith("/files");
-    if (inLibrary && !onFilesPath) {
-      navigate("/files");
-    } else if (!inLibrary && onFilesPath && !readerMode) {
-      // Reading also leaves the library, and its own effect names the path it
-      // leaves for. Both navigating puts the editor between the two in history,
-      // so Back out of reading would land somewhere the user never went.
-      navigate(EDITOR_BASENAME);
-    }
-  }, [navigationState.workbench, location.pathname, navigate, readerMode]);
 
   // Path moved, so the path is the cause. The ref starts null so mount counts too:
   // that is what makes a reload land back in reading, and what takes you out of it
@@ -369,9 +324,7 @@ export default function HomePage() {
     isMobile,
   ]);
 
-  const isWorkspaceHub =
-    navigationState.workbench === "myFiles" ||
-    navigationState.workbench === "signing";
+  const isWorkspaceHub = navigationState.workbench === "signing";
   const hideToolPanel =
     isWorkspaceHub ||
     (customWorkbenchViews.find(
@@ -663,261 +616,142 @@ export default function HomePage() {
       <QuickNavHostBridge
         requestNavigation={requestNavigation}
         readerMode={readerMode}
-        fileLibrary={navigationState.workbench === "myFiles"}
         onSetReaderMode={setReaderMode}
         onGoToDefaultState={goToDefaultState}
         onGoToStartupView={goToStartupView}
         onSelectTool={handleToolSelect}
         activeTool={selectedToolKey}
-        onShowFileLibrary={() => actions.setWorkbench("myFiles")}
         onCreateProcessingFolder={processingFolderCreation.open}
         toolReasons={quickNavToolReasons}
-        onOpenFromComputer={
-          navigationState.workbench === "myFiles" ? undefined : openFromComputer
-        }
+        onOpenFromComputer={openFromComputer}
       />
-      <FilesPageProvider>
-        {/* Keep signing in the same tree across breakpoints to preserve drafts and placed signatures. */}
-        {isMobile && navigationState.workbench !== "signing" ? (
-          <div className="mobile-layout" data-files-mode={isWorkspaceHub}>
-            {/* The library brings its own tabs and folder path, so the
+      {/* Keep signing in the same tree across breakpoints to preserve drafts and placed signatures. */}
+      {isMobile && navigationState.workbench !== "signing" ? (
+        <div className="mobile-layout" data-files-mode={isWorkspaceHub}>
+          {/* The library brings its own tabs and folder path, so the
               tools/workspace toggle would only cost it vertical space. Every
               other view keeps the toggle. */}
-            {!isWorkspaceHub && (
-              <div className="mobile-toggle">
-                <div className="mobile-brand">
-                  <LogoIcon className="mobile-brand-icon" />
-                  <Wordmark alt={brandAltText} className="mobile-brand-text" />
-                </div>
-                <div
-                  className="mobile-toggle-buttons"
-                  role="tablist"
-                  aria-label={t(
-                    "home.mobile.viewSwitcher",
-                    "Switch workspace view",
-                  )}
-                >
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={activeMobileView === "tools"}
-                    className={`mobile-toggle-button ${activeMobileView === "tools" ? "active" : ""}`}
-                    onClick={() => handleSelectMobileView("tools")}
-                  >
-                    {t("home.mobile.tools", "Tools")}
-                  </button>
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={activeMobileView === "workbench"}
-                    className={`mobile-toggle-button ${activeMobileView === "workbench" ? "active" : ""}`}
-                    onClick={() => handleSelectMobileView("workbench")}
-                  >
-                    {t("home.mobile.workspace", "Workspace")}
-                  </button>
-                </div>
+          {!isWorkspaceHub && (
+            <div className="mobile-toggle">
+              <div className="mobile-brand">
+                <LogoIcon className="mobile-brand-icon" />
+                <Wordmark alt={brandAltText} className="mobile-brand-text" />
               </div>
-            )}
-            {isWorkspaceHub ? (
-              /* /files takes the whole viewport. Skipping the slider keeps
+              <div
+                className="mobile-toggle-buttons"
+                role="tablist"
+                aria-label={t(
+                  "home.mobile.viewSwitcher",
+                  "Switch workspace view",
+                )}
+              >
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={activeMobileView === "tools"}
+                  className={`mobile-toggle-button ${activeMobileView === "tools" ? "active" : ""}`}
+                  onClick={() => handleSelectMobileView("tools")}
+                >
+                  {t("home.mobile.tools", "Tools")}
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={activeMobileView === "workbench"}
+                  className={`mobile-toggle-button ${activeMobileView === "workbench" ? "active" : ""}`}
+                  onClick={() => handleSelectMobileView("workbench")}
+                >
+                  {t("home.mobile.workspace", "Workspace")}
+                </button>
+              </div>
+            </div>
+          )}
+          {isWorkspaceHub ? (
+            /* /files takes the whole viewport. Skipping the slider keeps
                 the FileManagerView from being trapped inside a 100vw
                 horizontal-scroll container (which truncated buttons and
                 created a stray side-scroll surface on touch). */
-              <div className="mobile-files-full">
-                <div className="flex-1 min-h-0 flex" style={{ minWidth: 0 }}>
-                  <Workbench />
-                </div>
+            <div className="mobile-files-full">
+              <div className="flex-1 min-h-0 flex" style={{ minWidth: 0 }}>
+                <Workbench />
               </div>
-            ) : (
-              <div className="mobile-slider-wrap">
-                <div ref={sliderRef} className="mobile-slider">
-                  <div
-                    className="mobile-slide"
-                    aria-label={t(
-                      "home.mobile.toolsSlide",
-                      "Tool selection panel",
-                    )}
-                  >
-                    <div className="mobile-slide-content">
-                      <RightSidebar />
-                    </div>
-                  </div>
-                  <div
-                    className="mobile-slide"
-                    aria-label={t(
-                      "home.mobile.workbenchSlide",
-                      "Workspace panel",
-                    )}
-                  >
-                    <div className="mobile-slide-content">
-                      <div
-                        className="flex-1 min-h-0 flex"
-                        style={{ minWidth: 0 }}
-                      >
-                        <Workbench />
-                      </div>
-                    </div>
+            </div>
+          ) : (
+            <div className="mobile-slider-wrap">
+              <div ref={sliderRef} className="mobile-slider">
+                <div
+                  className="mobile-slide"
+                  aria-label={t(
+                    "home.mobile.toolsSlide",
+                    "Tool selection panel",
+                  )}
+                >
+                  <div className="mobile-slide-content">
+                    <RightSidebar />
                   </div>
                 </div>
-                {isTouch && showSwipeHint && (
-                  <span className="mobile-swipe-hint" aria-hidden="true">
-                    {t(
-                      "home.mobile.swipeHint",
-                      "Swipe left or right to switch views",
-                    )}
-                  </span>
-                )}
+                <div
+                  className="mobile-slide"
+                  aria-label={t(
+                    "home.mobile.workbenchSlide",
+                    "Workspace panel",
+                  )}
+                >
+                  <div className="mobile-slide-content">
+                    <div
+                      className="flex-1 min-h-0 flex"
+                      style={{ minWidth: 0 }}
+                    >
+                      <Workbench />
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
-            {mobileNavigation}
-          </div>
-        ) : (
-          <Group
-            align={isMobile ? "stretch" : "flex-start"}
-            gap={0}
-            wrap="nowrap"
-            h="100%"
-            className="flex-nowrap flex"
-            bg="var(--c-bg)"
-            data-wings={wingsPhase ?? undefined}
-            style={{ flexDirection: isMobile ? "column" : "row" }}
-          >
-            {/* Reading leaves the document and nothing beside it, so the wing goes
+              {isTouch && showSwipeHint && (
+                <span className="mobile-swipe-hint" aria-hidden="true">
+                  {t(
+                    "home.mobile.swipeHint",
+                    "Swipe left or right to switch views",
+                  )}
+                </span>
+              )}
+            </div>
+          )}
+          {mobileNavigation}
+        </div>
+      ) : (
+        <Group
+          align={isMobile ? "stretch" : "flex-start"}
+          gap={0}
+          wrap="nowrap"
+          h="100%"
+          className="flex-nowrap flex"
+          bg="var(--c-bg)"
+          data-wings={wingsPhase ?? undefined}
+          style={{ flexDirection: isMobile ? "column" : "row" }}
+        >
+          {/* Reading leaves the document and nothing beside it, so the wing goes
                 rather than shrinking to a rail. Everywhere else it is fixed open. */}
-            {wingsMounted && navigationState.workbench !== "signing" && (
-              <div className="workspace-frame">
-                <MyFilesAwareFileSidebar
-                  ref={quickAccessRef}
-                  accountHoisted
-                  active={navigationState.workbench === "myFiles"}
-                  onOpenSettings={openSettings}
-                  onRegisterOpenFromComputer={registerOpenFromComputer}
-                />
-              </div>
-            )}
-            <Workbench />
-            {isMobile && mobileNavigation}
-            {/* The reader's rail takes the slot the tool panel holds otherwise: the
+          {wingsMounted && navigationState.workbench !== "signing" && (
+            <div className="workspace-frame">
+              <FileSidebar
+                ref={quickAccessRef}
+                accountHoisted
+                onOpenSettings={openSettings}
+                onRegisterOpenFromComputer={registerOpenFromComputer}
+              />
+            </div>
+          )}
+          <Workbench />
+          {isMobile && mobileNavigation}
+          {/* The reader's rail takes the slot the tool panel holds otherwise: the
                 panel's controls are the editor's, and reading wants the viewer's.
                 Both render together only while the panel is on its way out. */}
-            {wingsMounted && !hideToolPanel && <RightSidebar />}
-            {readerMode && <ReaderRail />}
-            {readerMode && !strip.enabled && <ReaderSuperSearch />}
-          </Group>
-        )}
-        <FileManager selectedTool={selectedTool} />
-      </FilesPageProvider>
+          {wingsMounted && !hideToolPanel && <RightSidebar />}
+          {readerMode && <ReaderRail />}
+          {readerMode && !strip.enabled && <ReaderSuperSearch />}
+        </Group>
+      )}
     </div>
   );
 }
-
-interface MyFilesAwareFileSidebarProps extends FileSidebarProps {
-  active: boolean;
-}
-
-/** Wraps FileSidebar with the library's overrides while the library is on screen. */
-const MyFilesAwareFileSidebar = forwardRef<
-  HTMLDivElement,
-  MyFilesAwareFileSidebarProps
->(function MyFilesAwareFileSidebar(props, ref) {
-  const { active, ...rest } = props;
-  if (!active) {
-    return <FileSidebar ref={ref} {...rest} />;
-  }
-  return <MyFilesSidebarOverrides ref={ref} {...rest} />;
-});
-
-const MyFilesSidebarOverrides = forwardRef<HTMLDivElement, FileSidebarProps>(
-  function MyFilesSidebarOverrides(props, ref) {
-    const { t } = useTranslation();
-    const filesPage = useFilesPage();
-    const folders = useFolders();
-    const handleUpload = useLibraryUpload();
-    const {
-      addLocalFolder,
-      createFolderHere,
-      createFolderHereBlockedReason: newFolderDisabledReason,
-      serverFolderBlock,
-    } = useNewFolderFlow();
-    const { refreshing, refresh: refreshLibrary } = useLibraryRefresh();
-    const { isAnonymous } = useAuth();
-    const { config: appConfig } = useAppConfig();
-    const [mobileUploadOpen, setMobileUploadOpen] = useState(false);
-    const isMobileViewport = useIsMobile();
-    // The scanner sends files from a phone to this screen, so it is a desktop
-    // affordance: on a phone you are already where the files are.
-    const mobileUploadAvailable =
-      Boolean(appConfig?.enableMobileScanner) && !isMobileViewport;
-    const signInRequired = isAnonymous
-      ? t("filesPage.signInRequired", "Sign in to use cloud storage.")
-      : null;
-
-    return (
-      <>
-        <FileSidebar
-          ref={ref}
-          {...props}
-          onUploadFiles={handleUpload}
-          onPickCloudFiles={handleUpload}
-          extraActions={[
-            {
-              icon: <Icon name="folder-plus" />,
-              label: t("filesPage.newFolder", "New folder"),
-              onClick: createFolderHere,
-              disabled: newFolderDisabledReason !== null,
-              disabledTooltip: newFolderDisabledReason ?? undefined,
-              testId: "files-rail-new-folder",
-              // Share folder availability rules with the library toolbar.
-              render: () => (
-                <NewFolderButton
-                  trigger="row"
-                  testId="files-rail-new-folder"
-                  label={t("filesPage.newFolder", "New folder")}
-                  disabledReason={newFolderDisabledReason}
-                  serverDisabledReason={serverFolderBlock ?? undefined}
-                  currentFolderId={folders.currentFolderId}
-                  canAddLocalFolder={canPickDirectory}
-                  onAddLocalFolder={() => void addLocalFolder()}
-                  onOpenDialog={filesPage.openNewFolderDialog}
-                />
-              ),
-            },
-            {
-              icon: (
-                <Icon
-                  name="refresh-cw"
-                  className={refreshing ? "file-sidebar-spin" : undefined}
-                />
-              ),
-              label: t("filesPage.refresh", "Refresh"),
-              onClick: () => void refreshLibrary(),
-              disabled: refreshing || signInRequired !== null,
-              disabledTooltip: signInRequired ?? undefined,
-              testId: "files-rail-refresh",
-            },
-            ...(mobileUploadAvailable
-              ? [
-                  {
-                    icon: <Icon name="qr-code" />,
-                    label: t(
-                      "filesPage.uploadFromMobile",
-                      "Upload from Mobile",
-                    ),
-                    onClick: () => setMobileUploadOpen(true),
-                    testId: "files-rail-mobile-upload",
-                  },
-                ]
-              : []),
-          ]}
-        />
-        <MobileUploadModal
-          opened={mobileUploadOpen}
-          onClose={() => setMobileUploadOpen(false)}
-          onFilesReceived={(files) => {
-            if (files.length > 0) void handleUpload(files);
-          }}
-        />
-      </>
-    );
-  },
-);

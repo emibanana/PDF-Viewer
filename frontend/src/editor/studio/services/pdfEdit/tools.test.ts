@@ -20,22 +20,18 @@ async function pageContent(file: File, index: number): Promise<string> {
 
 describe("cropPdfs", () => {
   it("sets the crop box on the selected pages only", async () => {
-    const [out] = await cropPdfs({ x: 10, y: 20, width: 50, height: 60 }, "2", [
-      await makePdf(2),
-    ]);
+    const [out] = await cropPdfs({ x: 10, y: 20, width: 50, height: 60 }, "2", [await makePdf(2)]);
     const doc = await open(out);
     expect(doc.getPage(1).getCropBox()).toMatchObject({ x: 10, y: 20, width: 50, height: 60 });
     expect(doc.getPage(0).getCropBox().width).toBe(100);
   });
 
   it("clamps to the page and rejects an area outside it", async () => {
-    const [out] = await cropPdfs({ x: 0, y: 0, width: 9999, height: 9999 }, "all", [
-      await makePdf(1),
-    ]);
+    const [out] = await cropPdfs({ x: 0, y: 0, width: 9999, height: 9999 }, "all", [await makePdf(1)]);
     expect((await open(out)).getPage(0).getCropBox()).toMatchObject({ width: 100, height: 200 });
-    await expect(
-      cropPdfs({ x: 500, y: 500, width: 10, height: 10 }, "all", [await makePdf(1)]),
-    ).rejects.toThrow(/outside page 1/);
+    await expect(cropPdfs({ x: 500, y: 500, width: 10, height: 10 }, "all", [await makePdf(1)])).rejects.toThrow(
+      /outside page 1/,
+    );
   });
 });
 
@@ -52,9 +48,7 @@ describe("addPageNumbers", () => {
   };
 
   it("numbers every page from the starting number", async () => {
-    const [out] = await addPageNumbers({ ...base, startingNumber: 5, text: "Page {n} of {total}" }, [
-      await makePdf(2),
-    ]);
+    const [out] = await addPageNumbers({ ...base, startingNumber: 5, text: "Page {n} of {total}" }, [await makePdf(2)]);
     expect(await pageContent(out, 0)).toContain("Page 5 of 2");
     expect(await pageContent(out, 1)).toContain("Page 6 of 2");
   });
@@ -121,9 +115,7 @@ describe("sanitizePdfs", () => {
 
   it("removes link annotations on request", async () => {
     const file = await makePdf(1, "l.pdf", (doc) => {
-      const link = doc.context.register(
-        doc.context.obj({ Type: "Annot", Subtype: "Link", Rect: [0, 0, 10, 10] }),
-      );
+      const link = doc.context.register(doc.context.obj({ Type: "Annot", Subtype: "Link", Rect: [0, 0, 10, 10] }));
       doc.getPage(0).node.set(PDFName.of("Annots"), doc.context.obj([link]));
     });
     const [out] = await sanitizePdfs({ ...none, removeLinks: true }, [file]);

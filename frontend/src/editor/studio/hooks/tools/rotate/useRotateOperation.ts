@@ -1,14 +1,7 @@
 import { useTranslation } from "react-i18next";
-import {
-  useToolOperation,
-  defineCustomTool,
-} from "@editor/hooks/tools/shared/useToolOperation";
+import { useToolOperation, defineCustomTool } from "@editor/hooks/tools/shared/useToolOperation";
 import { createStandardErrorHandler } from "@editor/utils/toolErrorHandler";
-import {
-  validateRotateParameters,
-  RotateParameters,
-  defaultParameters,
-} from "@editor/hooks/tools/rotate/useRotateParameters";
+import { validateRotateParameters, RotateParameters, defaultParameters } from "@editor/hooks/tools/rotate/useRotateParameters";
 import { rotatePdfs } from "@editor/services/pdfEdit/rotate";
 
 export {
@@ -31,8 +24,6 @@ export const useRotateOperation = () => {
 
   return useToolOperation<RotateParameters>({
     ...rotateOperationConfig,
-    getErrorMessage: createStandardErrorHandler(
-      t("rotate.error.failed", "An error occurred while rotating the PDF."),
-    ),
+    getErrorMessage: createStandardErrorHandler(t("rotate.error.failed", "An error occurred while rotating the PDF.")),
   });
 };

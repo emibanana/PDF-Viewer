@@ -13,7 +13,7 @@ import { chromium } from "@playwright/test";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FONTS = join(
   __dirname,
-  "../../../../../../app/core/src/main/resources/static/fonts",
+  "../../../../../../frontend/src/editor/core/tests/test-fixtures/fonts",
 );
 const face = (weight, style, file) =>
   `@font-face { font-family: "Liberation Sans"; font-weight: ${weight}; font-style: ${style}; src: url(data:font/ttf;base64,${readFileSync(join(FONTS, file)).toString("base64")}); }`;

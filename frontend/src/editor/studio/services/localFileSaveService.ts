@@ -1,9 +1,6 @@
 import { save } from "@tauri-apps/plugin-dialog";
 import { ensureFreeTextAppearances } from "@editor/services/pdfEdit/freeTextAppearance";
-import {
-  isTauriRuntime,
-  writeBlobToPath,
-} from "@editor/services/tauriFiles";
+import { isTauriRuntime, writeBlobToPath } from "@editor/services/tauriFiles";
 
 export interface SaveResult {
   success: boolean;
@@ -18,23 +15,15 @@ export interface MultiFileSaveResult {
 }
 
 /** Text boxes are saved with a stored appearance, so every viewer draws them the same way. */
-async function withTextBoxAppearances(
-  data: Blob | File,
-  filePath: string,
-): Promise<Blob> {
+async function withTextBoxAppearances(data: Blob | File, filePath: string): Promise<Blob> {
   if (!/\.pdf$/i.test(filePath)) return data;
   const original = new Uint8Array(await data.arrayBuffer());
   const fixed = await ensureFreeTextAppearances(original);
-  return fixed === original
-    ? data
-    : new Blob([fixed as BlobPart], { type: "application/pdf" });
+  return fixed === original ? data : new Blob([fixed as BlobPart], { type: "application/pdf" });
 }
 
 /** Writes `data` to `filePath`, replacing the file in place. */
-export async function saveToLocalPath(
-  data: Blob | File,
-  filePath: string,
-): Promise<SaveResult> {
+export async function saveToLocalPath(data: Blob | File, filePath: string): Promise<SaveResult> {
   if (!isTauriRuntime()) {
     return { success: false, error: "Local file save needs the desktop app" };
   }
@@ -50,14 +39,9 @@ export async function saveToLocalPath(
 }
 
 /** Native "Save as" dialog; null when the user cancels. */
-export async function showSaveDialog(
-  defaultFilename: string,
-  defaultDirectory?: string,
-): Promise<string | null> {
+export async function showSaveDialog(defaultFilename: string, defaultDirectory?: string): Promise<string | null> {
   if (!isTauriRuntime()) return null;
-  const defaultPath = defaultDirectory
-    ? `${defaultDirectory.replace(/[\\/]+$/, "")}\\${defaultFilename}`
-    : defaultFilename;
+  const defaultPath = defaultDirectory ? `${defaultDirectory.replace(/[\\/]+$/, "")}\\${defaultFilename}` : defaultFilename;
   return save({
     defaultPath,
     filters: [{ name: "PDF", extensions: ["pdf"] }],
@@ -84,10 +68,7 @@ export async function saveMultipleFilesWithPrompt(
   let savedCount = 0;
   for (const file of files) {
     const name = file instanceof File ? file.name : `file-${savedCount + 1}.pdf`;
-    const result = await saveToLocalPath(
-      file,
-      `${folder.replace(/[\\/]+$/, "")}\\${name}`,
-    );
+    const result = await saveToLocalPath(file, `${folder.replace(/[\\/]+$/, "")}\\${name}`);
     if (!result.success) {
       return { success: false, savedCount, error: result.error };
     }

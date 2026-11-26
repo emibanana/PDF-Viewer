@@ -3,8 +3,7 @@ import { degrees } from "@cantoo/pdf-lib";
 import { rotatePdfs } from "./rotate";
 import { makePdf, open } from "./testPdf";
 
-const rotations = async (file: File) =>
-  (await open(file)).getPages().map((p) => p.getRotation().angle);
+const rotations = async (file: File) => (await open(file)).getPages().map((p) => p.getRotation().angle);
 
 describe("rotatePdfs", () => {
   it("adds the angle to each page's existing rotation", async () => {
@@ -25,10 +24,7 @@ describe("rotatePdfs", () => {
   });
 
   it("handles several files and keeps the page count", async () => {
-    const out = await rotatePdfs(180, [
-      await makePdf(2, "a.pdf"),
-      await makePdf(4, "b.pdf"),
-    ]);
+    const out = await rotatePdfs(180, [await makePdf(2, "a.pdf"), await makePdf(4, "b.pdf")]);
     expect(out.map((f) => f.name)).toEqual(["a.pdf", "b.pdf"]);
     expect((await open(out[1])).getPageCount()).toBe(4);
   });

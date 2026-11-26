@@ -65,3 +65,12 @@
 .sidebar-base__loading {
   padding: 2rem 1rem !important;
 }
+
+/* Inside the left file sidebar: fills the slot instead of floating. */
+.sidebar-base--docked {
+  flex: 1;
+  min-height: 0;
+  border-left: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}

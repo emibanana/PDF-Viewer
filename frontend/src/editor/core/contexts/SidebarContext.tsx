@@ -1,4 +1,12 @@
-import { createContext, useContext, useState, useRef, useMemo } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useRef,
+  useMemo,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import {
   SidebarState,
   SidebarRefs,
@@ -10,7 +18,28 @@ const SidebarContext = createContext<SidebarContextValue | undefined>(
   undefined,
 );
 
+interface SidebarDock {
+  element: HTMLElement | null;
+  setElement: Dispatch<SetStateAction<HTMLElement | null>>;
+}
+
+const SidebarDockContext = createContext<SidebarDock | undefined>(undefined);
+
+/**
+ * The slot in the left file sidebar that bookmarks, comments and attachments
+ * render into (by portal, so they keep their own React context). Null element
+ * means no left panel is mounted and the panels float on the right instead.
+ */
+export function useSidebarDock(): SidebarDock | undefined {
+  return useContext(SidebarDockContext);
+}
+
 export function SidebarProvider({ children }: SidebarProviderProps) {
+  const [dockElement, setDockElement] = useState<HTMLElement | null>(null);
+  const dock = useMemo(
+    () => ({ element: dockElement, setElement: setDockElement }),
+    [dockElement],
+  );
   // All sidebar state management
   const quickAccessRef = useRef<HTMLDivElement>(null);
   const toolPanelRef = useRef<HTMLDivElement>(null);
@@ -48,7 +77,9 @@ export function SidebarProvider({ children }: SidebarProviderProps) {
 
   return (
     <SidebarContext.Provider value={contextValue}>
-      {children}
+      <SidebarDockContext.Provider value={dock}>
+        {children}
+      </SidebarDockContext.Provider>
     </SidebarContext.Provider>
   );
 }

@@ -20,9 +20,7 @@ export interface FileDialogOptions {
 export const hasNativeFileDialog = isTauriRuntime();
 
 /** Native open dialog; returns each chosen file with the path it came from. */
-export async function openFileDialog(
-  options?: FileDialogOptions,
-): Promise<FileWithPath[]> {
+export async function openFileDialog(options?: FileDialogOptions): Promise<FileWithPath[]> {
   if (!isTauriRuntime()) return [];
 
   const selected = await open({

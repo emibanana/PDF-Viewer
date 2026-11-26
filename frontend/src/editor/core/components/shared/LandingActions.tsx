@@ -2,14 +2,10 @@ import React from "react";
 import { Group, Tooltip } from "@mantine/core";
 import { Button } from "@editor/ui/Button";
 import { Icon } from "@editor/ui/Icon";
-import { useFilesModalContext } from "@editor/contexts/FilesModalContext";
-import { useFilesPage } from "@editor/contexts/FilesPageContext";
-import { useFolders } from "@editor/contexts/FolderContext";
 import { useFileActionTerminology } from "@editor/hooks/useFileActionTerminology";
 import { useAppConfig } from "@editor/contexts/AppConfigContext";
 import { useIsMobile } from "@editor/hooks/useIsMobile";
 import { CreateProcessingFolderButton } from "@editor/components/policies/CreateProcessingFolderButton";
-import { folderKind } from "@editor/types/folder";
 
 type LandingActionsProps = {
   fileInputRef: React.RefObject<HTMLInputElement | null>;
@@ -25,17 +21,8 @@ export function LandingActions({
   onFileSelect,
 }: LandingActionsProps) {
   const terminology = useFileActionTerminology();
-  const { openFilesModal } = useFilesModalContext();
-  const { allFiles, loading } = useFilesPage();
-  const folders = useFolders();
   const { config } = useAppConfig();
   const isMobile = useIsMobile();
-  // Mounted directories are listed on demand, so their files may not be cached yet.
-  const hasMountedFolders = folders.folders.some(
-    (folder) => folderKind(folder) === "local",
-  );
-  const libraryEmpty =
-    !loading && !folders.loading && allFiles.length === 0 && !hasMountedFolders;
 
   return (
     <>
@@ -45,11 +32,7 @@ export function LandingActions({
           leftSection={<Icon name="plus" size="1rem" />}
           onClick={(e) => {
             e.stopPropagation();
-            if (libraryEmpty) {
-              onUploadClick();
-            } else {
-              openFilesModal();
-            }
+            onUploadClick();
           }}
         >
           {terminology.addFiles}

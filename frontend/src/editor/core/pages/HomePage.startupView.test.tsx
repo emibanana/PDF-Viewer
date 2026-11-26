@@ -2,17 +2,14 @@ import "fake-indexeddb/auto";
 import { useState } from "react";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { MemoryRouter, useLocation, useNavigate } from "react-router-dom";
+import { MemoryRouter, useLocation } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import { AppProviders } from "@editor/components/AppProviders";
 import { PlatformProviders } from "@editor/components/PlatformProviders";
 import HomePage from "@editor/pages/HomePage";
 import SettingsPage from "@editor/pages/SettingsPage";
 import { useToolWorkflow } from "@editor/contexts/ToolWorkflowContext";
-import {
-  useNavigationActions,
-  useNavigationState,
-} from "@editor/contexts/NavigationContext";
+import { useNavigationActions, useNavigationState } from "@editor/contexts/NavigationContext";
 import NavigationWarningModal from "@editor/components/shared/NavigationWarningModal";
 import { QuickNavHostProvider } from "@editor/contexts/QuickNavHostContext";
 import { QuickNavRailHost } from "@editor/components/shared/quickNav/QuickNavRailHost";
@@ -30,26 +27,19 @@ vi.mock("@editor/components/FileManager", () => ({ default: () => null }));
 
 const seen = { pathname: "", readerMode: false };
 let showPage: () => void = () => {};
-let backToTools: () => void = () => {};
 let selectTool: (id: ToolId) => void = () => {};
-let goBack: () => void = () => {};
-let goToSettings: () => void = () => {};
-let setReaderMode: (on: boolean) => void = () => {};
 let navigation: ReturnType<typeof useNavigationState>;
 let navigationActions: ReturnType<typeof useNavigationActions>["actions"];
+let setReaderMode: (on: boolean) => void = () => {};
 
 function Probe() {
   seen.pathname = useLocation().pathname;
-  const navigate = useNavigate();
   const workflow = useToolWorkflow();
   navigation = useNavigationState();
   navigationActions = useNavigationActions().actions;
   seen.readerMode = workflow.readerMode;
-  backToTools = workflow.handleBackToTools;
   selectTool = workflow.handleToolSelect;
   setReaderMode = workflow.setReaderMode;
-  goBack = () => navigate(-1);
-  goToSettings = () => navigate("/settings/general");
   return null;
 }
 
@@ -63,8 +53,7 @@ function Page({ late }: { late: boolean }) {
     <>
       <Probe />
       <NavigationWarningModal />
-      {shown &&
-        (pathname.startsWith("/settings") ? <SettingsPage /> : <HomePage />)}
+      {shown && (pathname.startsWith("/settings") ? <SettingsPage /> : <HomePage />)}
     </>
   );
 }
@@ -103,21 +92,12 @@ describe("default startup view: Reader", () => {
   beforeEach(() => {
     // setImmediate stays real: React's scheduler and fake-indexeddb run on it.
     vi.useFakeTimers({
-      toFake: [
-        "setTimeout",
-        "clearTimeout",
-        "setInterval",
-        "clearInterval",
-        "Date",
-      ],
+      toFake: ["setTimeout", "clearTimeout", "setInterval", "clearInterval", "Date"],
     });
     // The full provider tree settles asynchronously outside act().
     allowConsole.error(/not wrapped in act/);
     localStorage.clear();
-    localStorage.setItem(
-      "stirlingpdf_preferences",
-      JSON.stringify({ defaultStartupView: "read" }),
-    );
+    localStorage.setItem("stirlingpdf_preferences", JSON.stringify({ defaultStartupView: "read" }));
   });
 
   afterEach(() => {
@@ -153,53 +133,11 @@ describe("default startup view: Reader", () => {
     }
   }, 15000);
 
-  it("returns to reading from the brand mark", async () => {
-    renderApp();
-    await expectSettledInReader();
-    act(() => backToTools());
-    await vi.waitFor(() =>
-      expect(seen).toEqual({ pathname: "/", readerMode: false }),
-    );
-    fireEvent.click(document.querySelector(".quick-nav-brand-button")!);
-    await expectSettledInReader();
-  }, 15000);
-
-  it("returns to reading from a selected tool and Back reopens that tool", async () => {
-    renderApp();
-    await expectSettledInReader();
-    act(() => selectTool("compress"));
-    await vi.waitFor(() =>
-      expect(seen).toEqual({ pathname: "/compress", readerMode: false }),
-    );
-
-    fireEvent.click(document.querySelector(".quick-nav-brand-button")!);
-    await expectSettledInReader();
-
-    act(() => goBack());
-    await vi.waitFor(() =>
-      expect(seen).toEqual({ pathname: "/compress", readerMode: false }),
-    );
-  }, 15000);
-
-  it("returns from settings to reading with one brand click", async () => {
-    renderApp();
-    await expectSettledInReader();
-    act(() => backToTools());
-    await vi.waitFor(() => expect(seen.readerMode).toBe(false));
-    act(() => goToSettings());
-    await vi.waitFor(() => expect(seen.pathname).toBe("/settings/general"));
-
-    fireEvent.click(document.querySelector(".quick-nav-brand-button")!);
-    await expectSettledInReader();
-  }, 15000);
-
   it("opens reading from the rail while a tool is open", async () => {
     renderApp();
     await expectSettledInReader();
-    act(() => selectTool("compress"));
-    await vi.waitFor(() =>
-      expect(seen).toEqual({ pathname: "/compress", readerMode: false }),
-    );
+    act(() => selectTool("rotate"));
+    await vi.waitFor(() => expect(seen).toEqual({ pathname: "/rotate", readerMode: false }));
 
     act(() => setReaderMode(true));
     await expectSettledInReader();
@@ -211,7 +149,7 @@ describe("default startup view: Reader", () => {
     ["cancel", "checker"],
     ["discard", "checker"],
   ])(
-    "waits for the unsaved-changes decision from the brand mark: %s (%s)",
+    "waits for the unsaved-changes decision when the rail opens reading: %s (%s)",
     async (decision, dirtySource) => {
       renderApp();
       await expectSettledInReader();
@@ -234,30 +172,21 @@ describe("default startup view: Reader", () => {
         act(() => navigationActions.setHasUnsavedChanges(true));
       }
 
-      fireEvent.click(document.querySelector(".quick-nav-brand-button")!);
-      await vi.waitFor(() =>
-        expect(navigation.showNavigationWarning).toBe(true),
-      );
-      expect(seen).toEqual({ pathname: "/multi-tool", readerMode: false });
-      expect(navigation.selectedTool).toBe("multiTool");
+      fireEvent.click(screen.getByRole("button", { name: /reader/i }));
+      await vi.waitFor(() => expect(navigation.showNavigationWarning).toBe(true));
       expect(navigation.workbench).toBe("pageEditor");
+      expect(seen.readerMode).toBe(false);
 
       if (decision === "cancel") {
         fireEvent.click(screen.getByRole("button", { name: "keepWorking" }));
-        await vi.waitFor(() =>
-          expect(navigation.showNavigationWarning).toBe(false),
-        );
-        expect(seen).toEqual({ pathname: "/multi-tool", readerMode: false });
-        expect(navigation.selectedTool).toBe("multiTool");
+        await vi.waitFor(() => expect(navigation.showNavigationWarning).toBe(false));
         expect(navigation.workbench).toBe("pageEditor");
         expect(navigation.hasUnsavedChanges).toBe(true);
       } else {
         fireEvent.click(screen.getByTestId("unsaved-discard"));
         await expectSettledInReader();
         expect(navigation.workbench).toBe("viewer");
-        expect(navigation.selectedTool).toBeNull();
         expect(navigation.hasUnsavedChanges).toBe(false);
-        expect(navigation.showNavigationWarning).toBe(false);
         expect(navigation.pendingNavigation).toBeNull();
       }
     },

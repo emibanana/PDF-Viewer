@@ -2,7 +2,9 @@ import { useEffect, useRef } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { useFileHandler } from "@editor/hooks/useFileHandler";
-import { useFileActions } from "@editor/contexts/FileContext";
+import { useAllFiles, useFileActions } from "@editor/contexts/FileContext";
+import { useWindowTitle } from "@editor/hooks/useWindowTitle";
+import { useUnsavedCloseGuard } from "@editor/hooks/useUnsavedCloseGuard";
 import { pendingFilePathMappings } from "@editor/services/pendingFilePathMappings";
 import { beginLaunchIngest } from "@editor/services/launchFiles";
 import { isTauriRuntime, readPathAsFile } from "@editor/services/tauriFiles";
@@ -17,9 +19,12 @@ import { createQuickKey } from "@editor/types/fileContext";
 export function useAppInitialization(): void {
   const { addFiles } = useFileHandler();
   const { actions } = useFileActions();
+  const { fileStubs } = useAllFiles();
   const draining = useRef(false);
-  const latest = useRef({ addFiles, actions });
-  latest.current = { addFiles, actions };
+  const latest = useRef({ addFiles, actions, fileStubs });
+  latest.current = { addFiles, actions, fileStubs };
+  useWindowTitle();
+  useUnsavedCloseGuard();
 
   useEffect(() => {
     if (!isTauriRuntime()) return;
@@ -45,14 +50,20 @@ export function useAppInitialization(): void {
         }
         if (loaded.length === 0) return;
 
+        // The workspace restores last session's copy of a file; opening the same
+        // path again replaces that copy rather than listing the name twice.
+        const openedPaths = new Set(loaded.map((entry) => entry.path.toLowerCase()));
+        const staleIds = latest.current.fileStubs
+          .filter((stub) => stub.localFilePath && openedPaths.has(stub.localFilePath.toLowerCase()))
+          .map((stub) => stub.id);
+        if (staleIds.length > 0) await latest.current.actions.removeFiles(staleIds);
+
         const added = await latest.current.addFiles(
           loaded.map((entry) => entry.file),
           { selectFiles: true },
         );
         // Link each opened file to its path so Save writes back to it.
-        const pathByQuickKey = new Map(
-          loaded.map(({ file, path }) => [createQuickKey(file), path]),
-        );
+        const pathByQuickKey = new Map(loaded.map(({ file, path }) => [createQuickKey(file), path]));
         for (const stirlingFile of added) {
           const path = pathByQuickKey.get(stirlingFile.quickKey);
           if (path) {

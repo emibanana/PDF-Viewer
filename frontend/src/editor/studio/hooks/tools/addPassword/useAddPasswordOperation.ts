@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next";
-import {
-  useToolOperation,
-  defineCustomTool,
-} from "@editor/hooks/tools/shared/useToolOperation";
+import { useToolOperation, defineCustomTool } from "@editor/hooks/tools/shared/useToolOperation";
 import { createStandardErrorHandler } from "@editor/utils/toolErrorHandler";
 import {
   validateAddPasswordParameters,
@@ -26,10 +23,7 @@ const fullDefaultParameters: AddPasswordFullParameters = {
 export const addPasswordOperationConfig = defineCustomTool({
   validateParams: validateAddPasswordParameters,
   operationType: "addPassword",
-  customProcessor: async (
-    parameters: AddPasswordFullParameters,
-    files: File[],
-  ) => ({
+  customProcessor: async (parameters: AddPasswordFullParameters, files: File[]) => ({
     files: await encryptPdfs(
       {
         password: parameters.password,
@@ -48,11 +42,6 @@ export const useAddPasswordOperation = () => {
 
   return useToolOperation<AddPasswordFullParameters>({
     ...addPasswordOperationConfig,
-    getErrorMessage: createStandardErrorHandler(
-      t(
-        "addPassword.error.failed",
-        "An error occurred while encrypting the PDF.",
-      ),
-    ),
+    getErrorMessage: createStandardErrorHandler(t("addPassword.error.failed", "An error occurred while encrypting the PDF.")),
   });
 };

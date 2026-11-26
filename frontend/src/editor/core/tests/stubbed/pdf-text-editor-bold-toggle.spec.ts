@@ -18,7 +18,7 @@ const COLOURED_PDF = path.join(
 
 const FONTS = path.join(
   import.meta.dirname,
-  "../../../../../../app/core/src/main/resources/static/fonts",
+  "../../../../../../frontend/src/editor/core/tests/test-fixtures/fonts",
 );
 
 /** A server family with a light and a semibold face, so the weight menu shows. */

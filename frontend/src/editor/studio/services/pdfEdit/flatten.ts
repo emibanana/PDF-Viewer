@@ -1,5 +1,5 @@
 import { PDFDocument } from "@cantoo/pdf-lib";
-import { copyDocumentInfo, loadPdf, savePdf } from "./common";
+import { copyDocumentInfo, loadPdf, savePdf } from "@editor/services/pdfEdit/common";
 
 /**
  * Burns each file's interactive form fields into the page content so they can no
@@ -29,11 +29,7 @@ export type PageRenderer = (file: File, dpi: number) => Promise<RenderedPage[]>;
  * Replaces each page with a picture of itself, so text, vector art, annotations and
  * form fields all become one flat image. The text is no longer selectable or searchable.
  */
-export async function flattenToImages(
-  files: File[],
-  dpi: number,
-  render: PageRenderer,
-): Promise<File[]> {
+export async function flattenToImages(files: File[], dpi: number, render: PageRenderer): Promise<File[]> {
   const out: File[] = [];
   for (const file of files) {
     const pages = await render(file, dpi);

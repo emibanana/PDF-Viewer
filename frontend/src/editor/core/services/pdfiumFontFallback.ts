@@ -44,9 +44,9 @@ export function getLocalFontFallbackConfig(
     fonts: Object.fromEntries(
       Object.entries(config.fonts).map(([charset, entry]) => [
         charset,
-        swap(entry as FontEntry),
+        swap(entry),
       ]),
-    ) as typeof config.fonts,
+    ),
     fontFamilies: {
       serif: swap(config.fontFamilies.serif),
       monospace: swap(config.fontFamilies.monospace),

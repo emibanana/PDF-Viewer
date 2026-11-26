@@ -26,7 +26,10 @@ describe("flattenForms", () => {
 describe("flattenToImages", () => {
   it("rebuilds each page as one image and drops the text", async () => {
     const src = await makePdf(2, "a.pdf", (doc) => doc.getPage(0).drawText("secret"));
-    const bytes = Uint8Array.from(atob("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="), (c) => c.charCodeAt(0));
+    const bytes = Uint8Array.from(
+      atob("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="),
+      (c) => c.charCodeAt(0),
+    );
     const [out] = await flattenToImages([src], 150, async () => [
       { png: bytes, widthPt: 100, heightPt: 200 },
       { png: bytes, widthPt: 101, heightPt: 200 },

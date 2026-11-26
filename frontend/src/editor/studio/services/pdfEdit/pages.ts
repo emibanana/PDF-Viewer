@@ -1,5 +1,5 @@
 import { parseSelection } from "@editor/utils/bulkselection/parseSelection";
-import { BLANK_PAGE, buildFromPages, loadPdf, savePdf } from "./common";
+import { BLANK_PAGE, buildFromPages, loadPdf, savePdf } from "@editor/services/pdfEdit/common";
 
 /**
  * Turns a page selection ("1,3,5-8", "all", "2n+1", "odd & 1-10") into zero-based
@@ -7,10 +7,7 @@ import { BLANK_PAGE, buildFromPages, loadPdf, savePdf } from "./common";
  * repeat); anything fancier goes through the shared selection parser, which yields
  * ascending pages.
  */
-export function resolvePageSelection(
-  expression: string,
-  pageCount: number,
-): number[] {
+export function resolvePageSelection(expression: string, pageCount: number): number[] {
   const text = expression.trim();
   const pages: number[] = [];
   const parts = /[()&|!]|\b(and|or|not)\b/i.test(text) ? [text] : text.split(",");
@@ -29,14 +26,10 @@ export function resolvePageSelection(
   return pages.map((n) => n - 1);
 }
 
-const ascendingUnique = (indices: number[]): number[] =>
-  [...new Set(indices)].sort((a, b) => a - b);
+const ascendingUnique = (indices: number[]): number[] => [...new Set(indices)].sort((a, b) => a - b);
 
 /** Deletes the selected pages from each file. */
-export async function removePages(
-  pageNumbers: string,
-  files: File[],
-): Promise<File[]> {
+export async function removePages(pageNumbers: string, files: File[]): Promise<File[]> {
   const out: File[] = [];
   for (const file of files) {
     const doc = await loadPdf(file);
@@ -55,16 +48,11 @@ export async function removePages(
 }
 
 /** Keeps only the selected pages of each file, in ascending order. */
-export async function extractPages(
-  pageNumbers: string,
-  files: File[],
-): Promise<File[]> {
+export async function extractPages(pageNumbers: string, files: File[]): Promise<File[]> {
   const out: File[] = [];
   for (const file of files) {
     const doc = await loadPdf(file);
-    const kept = ascendingUnique(
-      resolvePageSelection(pageNumbers, doc.getPageCount()),
-    );
+    const kept = ascendingUnique(resolvePageSelection(pageNumbers, doc.getPageCount()));
     if (kept.length === 0) {
       throw new Error(`No pages of ${file.name} match "${pageNumbers}".`);
     }
@@ -74,14 +62,9 @@ export async function extractPages(
 }
 
 /** Page order for each preset of the Reorganize Pages tool; zero-based, BLANK_PAGE pads booklets. */
-export function reorganizeSequence(
-  mode: string,
-  pageNumbers: string,
-  n: number,
-): number[] {
+export function reorganizeSequence(mode: string, pageNumbers: string, n: number): number[] {
   const all = Array.from({ length: n }, (_, i) => i);
-  const padded = (indices: number[]) =>
-    indices.map((i) => (i < n ? i : BLANK_PAGE));
+  const padded = (indices: number[]) => indices.map((i) => (i < n ? i : BLANK_PAGE));
 
   switch (mode) {
     case "":
@@ -90,9 +73,7 @@ export function reorganizeSequence(
     case "REVERSE_ORDER":
       return [...all].reverse();
     case "DUPLEX_SORT": // 1, n, 2, n-1, ...
-      return all
-        .slice(0, Math.ceil(n / 2))
-        .flatMap((i) => (i === n - 1 - i ? [i] : [i, n - 1 - i]));
+      return all.slice(0, Math.ceil(n / 2)).flatMap((i) => (i === n - 1 - i ? [i] : [i, n - 1 - i]));
     case "BOOKLET_SORT": {
       // Per sheet: front = last, first; back = second, second last.
       const total = Math.ceil(n / 4) * 4;
@@ -130,11 +111,7 @@ export function reorganizeSequence(
 }
 
 /** Rebuilds each file with its pages in the order the chosen mode gives. */
-export async function reorganizePages(
-  mode: string,
-  pageNumbers: string,
-  files: File[],
-): Promise<File[]> {
+export async function reorganizePages(mode: string, pageNumbers: string, files: File[]): Promise<File[]> {
   const out: File[] = [];
   for (const file of files) {
     const doc = await loadPdf(file);

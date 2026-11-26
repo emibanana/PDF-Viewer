@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next";
-import {
-  useToolOperation,
-  defineCustomTool,
-} from "@editor/hooks/tools/shared/useToolOperation";
+import { useToolOperation, defineCustomTool } from "@editor/hooks/tools/shared/useToolOperation";
 import { createStandardErrorHandler } from "@editor/utils/toolErrorHandler";
 import {
   validateChangeMetadataParameters,
@@ -20,10 +17,9 @@ export {
 export const changeMetadataOperationConfig = defineCustomTool({
   validateParams: validateChangeMetadataParameters,
   operationType: "changeMetadata",
-  customProcessor: async (
-    parameters: ChangeMetadataParameters,
-    files: File[],
-  ) => ({ files: await changeMetadata(parameters, files) }),
+  customProcessor: async (parameters: ChangeMetadataParameters, files: File[]) => ({
+    files: await changeMetadata(parameters, files),
+  }),
   defaultParameters,
 });
 
@@ -33,10 +29,7 @@ export const useChangeMetadataOperation = () => {
   return useToolOperation<ChangeMetadataParameters>({
     ...changeMetadataOperationConfig,
     getErrorMessage: createStandardErrorHandler(
-      t(
-        "changeMetadata.error.failed",
-        "An error occurred while changing the PDF metadata.",
-      ),
+      t("changeMetadata.error.failed", "An error occurred while changing the PDF metadata."),
     ),
   });
 };

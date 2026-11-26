@@ -16,7 +16,6 @@ function renderItem(props: Partial<Parameters<typeof FileItem>[0]> = {}) {
       <FileItem
         fileId={fileId}
         name="Q3 Board Pack.pdf"
-        isSelected={false}
         isActive={false}
         isViewedInViewer={false}
         onClick={vi.fn()}

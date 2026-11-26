@@ -1,20 +1,9 @@
 import { useTranslation } from "react-i18next";
-import {
-  useToolOperation,
-  defineCustomTool,
-} from "@editor/hooks/tools/shared/useToolOperation";
+import { useToolOperation, defineCustomTool } from "@editor/hooks/tools/shared/useToolOperation";
 import { createStandardErrorHandler } from "@editor/utils/toolErrorHandler";
-import {
-  validateSplitParameters,
-  SplitParameters,
-  defaultParameters,
-} from "@editor/hooks/tools/split/useSplitParameters";
+import { validateSplitParameters, SplitParameters, defaultParameters } from "@editor/hooks/tools/split/useSplitParameters";
 import { SPLIT_METHODS } from "@editor/constants/splitConstants";
-import {
-  parseSize,
-  splitPdfs,
-  type SplitPlan,
-} from "@editor/services/pdfEdit/split";
+import { parseSize, splitPdfs, type SplitPlan } from "@editor/services/pdfEdit/split";
 
 export {
   splitToApiParams,
@@ -54,8 +43,6 @@ export const useSplitOperation = () => {
   const { t } = useTranslation();
   return useToolOperation<SplitParameters>({
     ...splitOperationConfig,
-    getErrorMessage: createStandardErrorHandler(
-      t("split.error.failed", "An error occurred while splitting the PDF."),
-    ),
+    getErrorMessage: createStandardErrorHandler(t("split.error.failed", "An error occurred while splitting the PDF.")),
   });
 };

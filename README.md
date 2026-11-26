@@ -45,4 +45,4 @@ Other commands (from `frontend/`):
 
 ## Licence
 
-The root licence is MIT, but `frontend/src/editor/{desktop,proprietary,cloud,saas}`, `frontend/src/processor`, `app/proprietary`, `app/saas` and `engine` carry the restrictive Stirling PDF User License. This product never uses code from those directories, and the build fails if it tries to. See the plan for details.
+The root licence is MIT, but `frontend/src/editor/{desktop,proprietary,cloud,saas}`, `frontend/src/processor`, and `engine` carry the restrictive Stirling PDF User License. This product never uses code from those directories, and the build fails if it tries to. See the plan for details.

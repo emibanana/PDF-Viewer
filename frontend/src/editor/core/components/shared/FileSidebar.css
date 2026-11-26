@@ -436,20 +436,13 @@
   gap: 8px;
   border-radius: 0;
 }
-/* Hover reads neutral (not the default blue tint); selected stays blue. */
-.file-sidebar-group-items .file-sidebar-file-item:hover:not(.selected) {
+/* Hover reads neutral (not the default blue tint). */
+.file-sidebar-group-items .file-sidebar-file-item:hover {
   background-color: var(--c-hover);
-}
-/* A plain circle where the selected check sits — on hover, and blue when selected. */
-.file-sidebar-group-items .file-sidebar-file-checkbox-hover,
-.file-sidebar-group-items .file-sidebar-file-check {
-  border-radius: 50%;
 }
 
 /* Smaller, tighter icon column in grouped rows (colour left as-is for now). */
-.file-sidebar-group-items .file-sidebar-file-icon-wrapper,
-.file-sidebar-group-items .file-sidebar-file-check,
-.file-sidebar-group-items .file-sidebar-file-checkbox-hover {
+.file-sidebar-group-items .file-sidebar-file-icon-wrapper {
   width: 16px;
   height: 16px;
 }
@@ -650,4 +643,21 @@
 
 .sidebar-content-fade {
   animation: sidebar-content-in 0.12s ease 0.18s both;
+}
+
+/* Bookmarks, comments and attachments take over the file list while open. */
+.file-sidebar-dock:empty {
+  display: none;
+}
+
+.file-sidebar-dock:not(:empty) {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.file-sidebar-dock:not(:empty) ~ .file-sidebar-controls,
+.file-sidebar-dock:not(:empty) ~ .file-sidebar-files-box {
+  display: none;
 }

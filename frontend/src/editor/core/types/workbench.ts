@@ -4,7 +4,6 @@ export const BASE_WORKBENCH_TYPES = [
   // Multi-file page editor: every open PDF as its own track of pages.
   "pageEditor",
   "fileEditor",
-  "myFiles",
   "signing",
 ] as const;
 

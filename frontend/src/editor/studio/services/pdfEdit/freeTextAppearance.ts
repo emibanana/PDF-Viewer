@@ -84,8 +84,7 @@ const n = (value: number) => (Math.round(value * 1000) / 1000).toString();
 
 function readText(dict: PDFDict, key: string): string {
   const value = dict.lookup(PDFName.of(key));
-  if (value instanceof PDFString || value instanceof PDFHexString)
-    return value.decodeText();
+  if (value instanceof PDFString || value instanceof PDFHexString) return value.decodeText();
   return "";
 }
 
@@ -106,22 +105,14 @@ function appearanceHasText(annot: PDFDict): boolean {
   const normal = ap.lookup(PDFName.of("N"));
   if (!(normal instanceof PDFStream)) return false;
   try {
-    const bytes =
-      normal instanceof PDFRawStream
-        ? decodePDFRawStream(normal).decode()
-        : normal.getContents();
+    const bytes = normal instanceof PDFRawStream ? decodePDFRawStream(normal).decode() : normal.getContents();
     return /\b(Tj|TJ)\b/.test(new TextDecoder("latin1").decode(bytes));
   } catch {
     return true; // can't read it, so don't replace it
   }
 }
 
-function wrap(
-  text: string,
-  font: PDFFont,
-  size: number,
-  maxWidth: number,
-): string[] {
+function wrap(text: string, font: PDFFont, size: number, maxWidth: number): string[] {
   const lines: string[] = [];
   for (const paragraph of text.split("\n")) {
     let line = "";
@@ -146,11 +137,7 @@ function toWinAnsi(text: string, font: PDFFont): string {
     .join("");
 }
 
-async function rebuildAppearance(
-  doc: PDFDocument,
-  annot: PDFDict,
-  fonts: Map<string, PDFFont>,
-): Promise<boolean> {
+async function rebuildAppearance(doc: PDFDocument, annot: PDFDict, fonts: Map<string, PDFFont>): Promise<boolean> {
   const contents = readText(annot, "Contents");
   const rect = readNumbers(annot, "Rect");
   if (!contents.trim() || rect.length < 4) return false;
@@ -167,9 +154,7 @@ async function rebuildAppearance(
   const height = Math.abs(rect[3] - rect[1]);
   const borderWidth = annot.lookup(PDFName.of("BS"));
   const border =
-    borderWidth instanceof PDFDict
-      ? ((borderWidth.lookup(PDFName.of("W")) as PDFNumber | undefined)?.asNumber() ?? 0)
-      : 0;
+    borderWidth instanceof PDFDict ? ((borderWidth.lookup(PDFName.of("W")) as PDFNumber | undefined)?.asNumber() ?? 0) : 0;
   const pad = PAD + border;
 
   const text = toWinAnsi(contents, font);
@@ -180,22 +165,14 @@ async function rebuildAppearance(
   const ops: string[] = ["q"];
   const background = readNumbers(annot, "C");
   if (background.length === 3 || background.length === 1) {
-    const [r, g, b] =
-      background.length === 3
-        ? background
-        : [background[0], background[0], background[0]];
+    const [r, g, b] = background.length === 3 ? background : [background[0], background[0], background[0]];
     ops.push(`${n(r)} ${n(g)} ${n(b)} rg 0 0 ${n(width)} ${n(height)} re f`);
   }
   ops.push(`0 0 ${n(width)} ${n(height)} re W n`);
   ops.push("BT", `/${spec.key} ${n(da.size)} Tf`, `${da.rgb.map(n).join(" ")} rg`);
   lines.forEach((line, index) => {
     const lineWidth = font.widthOfTextAtSize(line, da.size);
-    const x =
-      align === 1
-        ? (width - lineWidth) / 2
-        : align === 2
-          ? width - pad - lineWidth
-          : pad;
+    const x = align === 1 ? (width - lineWidth) / 2 : align === 2 ? width - pad - lineWidth : pad;
     const y = height - pad - ascent - index * da.size * LINE_HEIGHT;
     ops.push(`1 0 0 1 ${n(x)} ${n(y)} Tm ${font.encodeText(line).toString()} Tj`);
   });
@@ -220,10 +197,7 @@ async function rebuildAppearance(
   });
   const ref: PDFRef = context.register(stream);
   annot.set(PDFName.of("AP"), context.obj({ N: ref }));
-  annot.set(
-    PDFName.of("DA"),
-    PDFString.of(`${da.rgb.map(n).join(" ")} rg /${spec.key} ${n(da.size)} Tf`),
-  );
+  annot.set(PDFName.of("DA"), PDFString.of(`${da.rgb.map(n).join(" ")} rg /${spec.key} ${n(da.size)} Tf`));
   return true;
 }
 
@@ -247,8 +221,7 @@ function registerDefaultResources(doc: PDFDocument, fonts: Map<string, PDFFont>)
     (resources as PDFDict).set(PDFName.of("Font"), fontDict);
   }
   for (const [key, font] of fonts) {
-    if (!(fontDict as PDFDict).has(PDFName.of(key)))
-      (fontDict as PDFDict).set(PDFName.of(key), font.ref);
+    if (!(fontDict as PDFDict).has(PDFName.of(key))) (fontDict as PDFDict).set(PDFName.of(key), font.ref);
   }
 }
 
@@ -268,19 +241,14 @@ const OBJECT_STREAM_MARKER = new TextEncoder().encode("/ObjStm");
 
 /** Cheap pre-check, so files without text boxes are never reparsed. Object streams hide the marker. */
 function mayContainFreeText(bytes: Uint8Array): boolean {
-  return (
-    includesBytes(bytes, FREE_TEXT_MARKER) ||
-    includesBytes(bytes, OBJECT_STREAM_MARKER)
-  );
+  return includesBytes(bytes, FREE_TEXT_MARKER) || includesBytes(bytes, OBJECT_STREAM_MARKER);
 }
 
 /**
  * Returns the PDF with a proper appearance on each text box that lacks one, or the same bytes
  * when there is nothing to fix. Never throws: a file this cannot read is returned as it was.
  */
-export async function ensureFreeTextAppearances(
-  bytes: Uint8Array,
-): Promise<Uint8Array> {
+export async function ensureFreeTextAppearances(bytes: Uint8Array): Promise<Uint8Array> {
   if (!mayContainFreeText(bytes)) return bytes;
   try {
     const doc = await PDFDocument.load(bytes, { updateMetadata: false });

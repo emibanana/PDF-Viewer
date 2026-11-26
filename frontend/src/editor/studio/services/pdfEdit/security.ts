@@ -1,5 +1,5 @@
 import { PDFDocument, PDFHeader } from "@cantoo/pdf-lib";
-import { loadPdf, savePdf } from "./common";
+import { loadPdf, savePdf } from "@editor/services/pdfEdit/common";
 
 /** The "prevent ..." switches of the Add Password and Change Permissions tools. */
 export interface PermissionRestrictions {
@@ -36,14 +36,10 @@ function randomPassword(): string {
   return Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-export const hasRestrictions = (r: PermissionRestrictions = {}): boolean =>
-  Object.values(r).some(Boolean);
+export const hasRestrictions = (r: PermissionRestrictions = {}): boolean => Object.values(r).some(Boolean);
 
 /** Encrypts `doc` in place; call just before saving. */
-export function encryptDocument(
-  doc: PDFDocument,
-  settings: EncryptionSettings,
-): void {
+export function encryptDocument(doc: PDFDocument, settings: EncryptionSettings): void {
   const { restrictions = {} } = settings;
   const userPassword = settings.password ?? "";
   let ownerPassword = settings.ownerPassword ?? "";
@@ -89,10 +85,7 @@ export function encryptDocument(
 }
 
 /** Password-protects and/or restricts each file. Input files must not already be encrypted. */
-export async function encryptPdfs(
-  settings: EncryptionSettings,
-  files: File[],
-): Promise<File[]> {
+export async function encryptPdfs(settings: EncryptionSettings, files: File[]): Promise<File[]> {
   const out: File[] = [];
   for (const file of files) {
     const doc = await loadPdf(file);
@@ -107,10 +100,7 @@ export async function encryptPdfs(
  * then permissions password) and finally the empty one, which opens PDFs that only
  * carry a permissions password.
  */
-export async function decryptPdfs(
-  passwords: (string | undefined)[],
-  files: File[],
-): Promise<File[]> {
+export async function decryptPdfs(passwords: (string | undefined)[], files: File[]): Promise<File[]> {
   const candidates = [...new Set([...passwords.filter((p): p is string => !!p), ""])];
   const out: File[] = [];
   for (const file of files) {
@@ -131,10 +121,7 @@ export async function decryptPdfs(
   return out;
 }
 
-async function tryLoad(
-  file: File,
-  password: string | undefined,
-): Promise<PDFDocument | undefined> {
+async function tryLoad(file: File, password: string | undefined): Promise<PDFDocument | undefined> {
   try {
     return await loadPdf(file, { password, ignoreEncryption: true });
   } catch {

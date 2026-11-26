@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next";
-import {
-  useToolOperation,
-  defineCustomTool,
-} from "@editor/hooks/tools/shared/useToolOperation";
+import { useToolOperation, defineCustomTool } from "@editor/hooks/tools/shared/useToolOperation";
 import { createStandardErrorHandler } from "@editor/utils/toolErrorHandler";
 import {
   validateRemovePagesParameters,
@@ -20,10 +17,7 @@ export {
 export const removePagesOperationConfig = defineCustomTool({
   validateParams: validateRemovePagesParameters,
   operationType: "removePages",
-  customProcessor: async (
-    parameters: RemovePagesParameters,
-    files: File[],
-  ) => ({
+  customProcessor: async (parameters: RemovePagesParameters, files: File[]) => ({
     files: await removePages(parameters.pageNumbers, files),
   }),
   defaultParameters,
@@ -34,8 +28,6 @@ export const useRemovePagesOperation = () => {
 
   return useToolOperation<RemovePagesParameters>({
     ...removePagesOperationConfig,
-    getErrorMessage: createStandardErrorHandler(
-      t("removePages.error.failed", "Failed to remove pages"),
-    ),
+    getErrorMessage: createStandardErrorHandler(t("removePages.error.failed", "Failed to remove pages")),
   });
 };

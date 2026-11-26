@@ -25,6 +25,7 @@ import type {
   DocumentRestoreRequest,
 } from "@editor/components/viewer/DocumentRestoreBridge";
 import { useViewer } from "@editor/contexts/ViewerContext";
+import { useSidebarDock } from "@editor/contexts/SidebarContext";
 import { LocalEmbedPDF } from "@editor/components/viewer/LocalEmbedPDF";
 import { PdfProtectionStatus } from "@editor/components/viewer/PdfProtectionStatus";
 import { usePdfAccess } from "@editor/hooks/usePdfAccess";
@@ -2002,11 +2003,13 @@ const EmbedPdfViewerContent = ({
 
   // One content panel at most, against the edge, with the thumbnails strip
   // to its left.
+  const sidebarDockElement = useSidebarDock()?.element ?? null;
   const contentPanelWidthRem =
-    isBookmarkSidebarVisible ||
+    !sidebarDockElement &&
+    (isBookmarkSidebarVisible ||
     isAttachmentSidebarVisible ||
     isLayerSidebarVisible ||
-    isCommentsSidebarVisible
+      isCommentsSidebarVisible)
       ? 15
       : 0;
   const sidebarsMarginRem =

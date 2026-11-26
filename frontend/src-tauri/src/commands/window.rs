@@ -17,7 +17,7 @@ fn next_window_label() -> String {
 // user-data folder (and therefore the same IndexedDB and settings).
 // OS drag-drop is disabled so the web layer receives file drops itself.
 fn build_window(app: &AppHandle, label: &str) -> Result<WebviewWindow, String> {
-    WebviewWindowBuilder::new(app, label, WebviewUrl::App("/".into()))
+    let window = WebviewWindowBuilder::new(app, label, WebviewUrl::App("/".into()))
         .title(APP_TITLE)
         .inner_size(1280.0, 800.0)
         // Below this width the web UI collapses to its mobile layout.
@@ -25,7 +25,10 @@ fn build_window(app: &AppHandle, label: &str) -> Result<WebviewWindow, String> {
         .resizable(true)
         .disable_drag_drop_handler()
         .build()
-        .map_err(|e| e.to_string())
+        .map_err(|e| e.to_string())?;
+    #[cfg(windows)]
+    crate::commands::dropped_paths::install(&window);
+    Ok(window)
 }
 
 pub fn build_main_window(app: &AppHandle) -> Result<WebviewWindow, String> {

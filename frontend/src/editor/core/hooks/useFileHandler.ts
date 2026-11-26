@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useFileActions } from "@editor/contexts/FileContext";
+import { linkImportedPaths } from "@editor/services/linkImportedPaths";
 import type { StirlingFile, StirlingFileStub } from "@editor/types/fileContext";
 
 export const useFileHandler = () => {
@@ -32,9 +33,10 @@ export const useFileHandler = () => {
       const mergedOptions = { selectFiles: true, ...options };
       // Let FileContext handle deduplication with quickKey logic
       const result = await actions.addFiles(files, mergedOptions);
+      void linkImportedPaths(files, result, actions.updateStirlingFileStub);
       return result;
     },
-    [actions.addFiles],
+    [actions.addFiles, actions.updateStirlingFileStub],
   );
 
   return {

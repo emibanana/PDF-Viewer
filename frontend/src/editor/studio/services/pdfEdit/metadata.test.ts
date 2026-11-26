@@ -17,8 +17,7 @@ const blank: MetadataEdit = {
   deleteAll: false,
 };
 
-const infoOf = (doc: Awaited<ReturnType<typeof open>>) =>
-  doc.context.lookup(doc.context.trailerInfo.Info, PDFDict);
+const infoOf = (doc: Awaited<ReturnType<typeof open>>) => doc.context.lookup(doc.context.trailerInfo.Info, PDFDict);
 
 describe("changeMetadata", () => {
   it("writes the standard fields, dates, trapped flag and custom entries", async () => {
@@ -78,23 +77,14 @@ describe("changeMetadata", () => {
   });
 
   it("deleteAll clears the info dictionary and XMP metadata", async () => {
-    const [titled] = await changeMetadata(
-      { ...blank, title: "T", author: "A" },
-      [await makePdf(1)],
-    );
+    const [titled] = await changeMetadata({ ...blank, title: "T", author: "A" }, [await makePdf(1)]);
     const withXmp = await open(titled);
-    withXmp.catalog.set(
-      PDFName.of("Metadata"),
-      withXmp.context.register(withXmp.context.stream("<xmp/>")),
-    );
+    withXmp.catalog.set(PDFName.of("Metadata"), withXmp.context.register(withXmp.context.stream("<xmp/>")));
     const file = new File([(await withXmp.save()) as BlobPart], "x.pdf", {
       type: "application/pdf",
     });
 
-    const [out] = await changeMetadata(
-      { ...blank, title: "ignored", deleteAll: true },
-      [file],
-    );
+    const [out] = await changeMetadata({ ...blank, title: "ignored", deleteAll: true }, [file]);
     const doc = await open(out);
     expect(doc.getTitle()).toBeUndefined();
     expect(doc.getAuthor()).toBeUndefined();

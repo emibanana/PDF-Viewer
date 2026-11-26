@@ -27,7 +27,7 @@ vi.mock("@editor/tools/pdfTextEditor/util/embeddedFace", () => ({
 
 const FONTS = path.join(
   import.meta.dirname,
-  "../../../../../../../app/core/src/main/resources/static/fonts",
+  "../../../../../../../frontend/src/editor/core/tests/test-fixtures/fonts",
 );
 const fontFile = async (name: string) =>
   new Uint8Array(await readFile(path.join(FONTS, name)));

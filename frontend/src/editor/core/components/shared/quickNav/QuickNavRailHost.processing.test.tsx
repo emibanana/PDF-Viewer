@@ -89,12 +89,6 @@ it("hides off-device processing shortcuts under managed privacy", () => {
   expect(
     screen.queryByRole("button", { name: "processingFolders.setup.title" }),
   ).toBeNull();
-  expect(
-    screen.queryByRole("button", { name: "quickAccess.automate" }),
-  ).toBeNull();
-  expect(
-    screen.getByRole("button", { name: "fileSidebar.myFiles" }),
-  ).toBeInTheDocument();
 });
 
 it.each(["/settings/general", "/docs", "/processor"])(
@@ -196,7 +190,7 @@ it("omits folder processing in builds without the feature", () => {
   ).toBeNull();
 });
 
-it("disables folder processing but keeps automate with no connected server", () => {
+it("disables folder processing with no connected server", () => {
   connected.value = false;
   const createProcessingFolder = vi.fn();
   setup("/compress-pdf", { createProcessingFolder });
@@ -204,11 +198,7 @@ it("disables folder processing but keeps automate with no connected server", () 
   const processing = screen.getByRole("button", {
     name: "processingFolders.setup.title",
   });
-  const automate = screen.getByRole("button", {
-    name: "quickAccess.automate",
-  });
   expect(processing).toBeDisabled();
-  expect(automate).toBeEnabled();
 
   fireEvent.click(processing);
   expect(createProcessingFolder).not.toHaveBeenCalled();

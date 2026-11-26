@@ -9,10 +9,7 @@ import type { QuickNavEntry } from "@editor/components/shared/quickNav/QuickNavR
 import type { ToolId } from "@editor/types/toolId";
 import { useQuickNavHost } from "@editor/contexts/QuickNavHostContext";
 import { requestReaderMode } from "@editor/utils/pendingReaderMode";
-import {
-  saveEditorReturnPath,
-  takeEditorReturnPath,
-} from "@editor/services/workbenchSession";
+import { saveEditorReturnPath, takeEditorReturnPath } from "@editor/services/workbenchSession";
 import { EDITOR_BASENAME } from "@editor/routes/editorBasename";
 import { PORTAL_BASENAME } from "@editor/routes/portalBasename";
 import { HAS_PORTAL } from "@editor/routes/hasPortal";
@@ -73,13 +70,6 @@ export function QuickNavRailHost() {
     else go(route);
   };
 
-  const openingTool = (id: ToolId) => ({ current: host?.activeTool === id });
-
-  const unusable = (id: ToolId) => {
-    const reason = host?.toolReasons?.[id];
-    return { disabled: Boolean(reason), reason };
-  };
-
   // Reading is a surface of its own rather than a tool inside the editor, and it
   // leads the group because it is where most visits start.
   const reader: QuickNavEntry = {
@@ -107,11 +97,7 @@ export function QuickNavRailHost() {
     icon: <Icon name="pencil" size={SIZE} />,
     // The library and reading are places of their own, not the editor with a
     // different centre.
-    current:
-      inEditor &&
-      !host?.fileLibrary &&
-      !host?.readerMode &&
-      path !== "/shared-sign",
+    current: inEditor && !host?.fileLibrary && !host?.readerMode && path !== "/shared-sign",
     onClick: () => {
       if (inEditor) {
         returnHome();
@@ -124,17 +110,14 @@ export function QuickNavRailHost() {
 
   // Without a connected server (desktop's local mode) signing in is the way in, not an admin.
   const signInForProcessor = host?.isAnonymous || !connectedServer;
-  const noProcessorAccess =
-    HAS_PORTAL && !inPortal && !host?.portalAccess && !signInForProcessor;
+  const noProcessorAccess = HAS_PORTAL && !inPortal && !host?.portalAccess && !signInForProcessor;
   const processor: QuickNavEntry = {
     id: "processor",
     label: t("quickNav.processor", "Processor"),
     icon: <Icon name="cpu" size={SIZE} />,
     current: inPortal,
     disabled: noProcessorAccess,
-    reason: noProcessorAccess
-      ? t("quickNav.noProcessorAccess", "Ask an admin for processor access")
-      : undefined,
+    reason: noProcessorAccess ? t("quickNav.noProcessorAccess", "Ask an admin for processor access") : undefined,
     onClick: () => {
       if (signInForProcessor) {
         requestProcessorSignup();
@@ -151,11 +134,7 @@ export function QuickNavRailHost() {
 
   // The processor is additive: dropping the editor with it left a lone reader
   // entry in builds without a portal, with no way back out of reading.
-  const surfaces: QuickNavEntry[] = [
-    reader,
-    editor,
-    ...(HAS_PORTAL && !localOnly ? [processor] : []),
-  ];
+  const surfaces: QuickNavEntry[] = [reader, editor, ...(HAS_PORTAL && !localOnly ? [processor] : [])];
 
   const within: QuickNavEntry[] = [
     ...(!host?.hasOpenFromComputer
@@ -177,9 +156,7 @@ export function QuickNavRailHost() {
             label: t("processingFolders.setup.title"),
             icon: <Icon name="folder-plus" size={SIZE} />,
             disabled: !connectedServer,
-            reason: connectedServer
-              ? undefined
-              : t("quickNav.signInToUse", "Sign in to use this"),
+            reason: connectedServer ? undefined : t("quickNav.signInToUse", "Sign in to use this"),
             onClick: () => {
               if (host?.isAnonymous) {
                 requestProcessorSignup();
@@ -207,8 +184,7 @@ export function QuickNavRailHost() {
       badge: host?.signingBadge,
       badgeMax: null,
       badgeTone: "warning",
-      current:
-        host?.activeTool === "sign" || path === "/shared-sign",
+      current: host?.activeTool === "sign" || path === "/shared-sign",
       expanded: signMenuOpen,
       onClick: () => setSignMenuOpen((open) => !open),
       wrap: (button) => (
@@ -260,10 +236,7 @@ export function QuickNavRailHost() {
 
   return (
     <QuickNavRailContainer
-      groups={[
-        surfaces,
-        within,
-      ]}
+      groups={[surfaces, within]}
       identity={host?.identity ?? null}
       onOpenAccount={() => openSettingsAt("/settings")}
       onOpenAccountShortcut={openSettingsAt}
@@ -274,13 +247,9 @@ export function QuickNavRailHost() {
       docsActive={inDocs}
       onInvite={
         // Spelt out: VIEW_PATHS lives in the portal, which core cannot import.
-        HAS_PORTAL && host?.portalAccess
-          ? () => go(`${PORTAL_BASENAME}/users`)
-          : undefined
+        HAS_PORTAL && host?.portalAccess ? () => go(`${PORTAL_BASENAME}/users`) : undefined
       }
-      onToggleNotifications={() =>
-        host?.actions.current?.toggleNotifications?.()
-      }
+      onToggleNotifications={() => host?.actions.current?.toggleNotifications?.()}
       notificationsOpen={host?.notificationsOpen}
     />
   );

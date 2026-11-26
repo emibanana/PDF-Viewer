@@ -1,17 +1,10 @@
 import { describe, expect, it } from "vitest";
-import {
-  extractPages,
-  removePages,
-  reorganizePages,
-  reorganizeSequence,
-  resolvePageSelection,
-} from "./pages";
+import { extractPages, removePages, reorganizePages, reorganizeSequence, resolvePageSelection } from "./pages";
 import { BLANK_PAGE } from "./common";
 import { makePdf, open, widths } from "./testPdf";
 
 // Page n (one-based) of makePdf is 99 + n points wide.
-const pageNumbersOf = async (file: File) =>
-  (await widths(file)).map((w) => w - 99);
+const pageNumbersOf = async (file: File) => (await widths(file)).map((w) => w - 99);
 
 describe("resolvePageSelection", () => {
   it("keeps the written order of numbers and ranges", () => {
@@ -61,17 +54,13 @@ describe("extractPages", () => {
   });
 
   it("fails when nothing matches", async () => {
-    await expect(extractPages("8", [await makePdf(3)])).rejects.toThrow(
-      /No pages/,
-    );
+    await expect(extractPages("8", [await makePdf(3)])).rejects.toThrow(/No pages/);
   });
 });
 
 describe("reorganizeSequence", () => {
   const one = (mode: string, n: number, pages = "") =>
-    reorganizeSequence(mode, pages, n).map((i) =>
-      i === BLANK_PAGE ? "_" : i + 1,
-    );
+    reorganizeSequence(mode, pages, n).map((i) => (i === BLANK_PAGE ? "_" : i + 1));
 
   it("custom order may repeat and drop pages", () => {
     expect(one("", 5, "3,1,3")).toEqual([3, 1, 3]);
@@ -82,9 +71,7 @@ describe("reorganizeSequence", () => {
     expect(one("DUPLEX_SORT", 5)).toEqual([1, 5, 2, 4, 3]);
     expect(one("BOOKLET_SORT", 8)).toEqual([8, 1, 2, 7, 6, 3, 4, 5]);
     expect(one("BOOKLET_SORT", 6)).toEqual(["_", 1, 2, "_", 6, 3, 4, 5]);
-    expect(one("SIDE_STITCH_BOOKLET_SORT", 5)).toEqual([
-      4, 1, 2, 3, "_", 5, "_", "_",
-    ]);
+    expect(one("SIDE_STITCH_BOOKLET_SORT", 5)).toEqual([4, 1, 2, 3, "_", 5, "_", "_"]);
     expect(one("ODD_EVEN_SPLIT", 5)).toEqual([1, 3, 5, 2, 4]);
     expect(one("ODD_EVEN_MERGE", 5)).toEqual([1, 4, 2, 5, 3]);
     expect(one("REMOVE_FIRST", 3)).toEqual([2, 3]);
@@ -109,9 +96,7 @@ describe("reorganizePages", () => {
   });
 
   it("adds blank pages of the source size for booklets", async () => {
-    const [out] = await reorganizePages("BOOKLET_SORT", "", [
-      await makePdf(2),
-    ]);
+    const [out] = await reorganizePages("BOOKLET_SORT", "", [await makePdf(2)]);
     expect(await widths(out)).toEqual([100, 100, 101, 100]);
   });
 });

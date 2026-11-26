@@ -1,12 +1,5 @@
-import {
-  PDFArray,
-  PDFDict,
-  PDFDocument,
-  PDFHexString,
-  PDFName,
-  PDFPage,
-} from "@cantoo/pdf-lib";
-import { baseName, loadPdf, savePdf } from "./common";
+import { PDFArray, PDFDict, PDFDocument, PDFHexString, PDFName, PDFPage } from "@cantoo/pdf-lib";
+import { baseName, loadPdf, savePdf } from "@editor/services/pdfEdit/common";
 
 export interface MergeOptions {
   /** Drop digital-signature fields from the merged pages (their signatures cannot survive a merge). */
@@ -36,10 +29,7 @@ function stripSignatureWidgets(page: PDFPage): void {
 }
 
 /** Flat outline (bookmarks) with one entry per `{ title, page }`. */
-function addOutline(
-  doc: PDFDocument,
-  entries: { title: string; page: PDFPage }[],
-): void {
+function addOutline(doc: PDFDocument, entries: { title: string; page: PDFPage }[]): void {
   if (entries.length === 0) return;
   const { context } = doc;
   const outlineRef = context.nextRef();
@@ -73,10 +63,7 @@ function addOutline(
  * the sources' own bookmarks and interactive form fields are not carried over
  * (the pages still show the fields' appearance).
  */
-export async function mergePdfs(
-  files: File[],
-  options: MergeOptions,
-): Promise<File> {
+export async function mergePdfs(files: File[], options: MergeOptions): Promise<File> {
   if (files.length === 0) throw new Error("No files to merge.");
   const merged = await PDFDocument.create({ updateMetadata: false });
   const outline: { title: string; page: PDFPage }[] = [];

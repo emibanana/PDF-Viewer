@@ -7,17 +7,14 @@ import { defineConfig, type OxlintGlobals } from "oxlint";
 const APP_SOURCE = "src/**/*.{js,mjs,jsx,ts,tsx}";
 // processor/desktop is the processor's desktop edition and processor/cloud its
 // hosted edition, so each takes the import scope of the editor layer it pairs with.
-const DESKTOP_SOURCE =
-  "src/{editor/desktop,processor/desktop}/**/*.{js,mjs,jsx,ts,tsx}";
-const CLOUD_SOURCE =
-  "src/{editor/cloud,processor/cloud}/**/*.{js,mjs,jsx,ts,tsx}";
+const DESKTOP_SOURCE = "src/{editor/desktop,editor/studio,processor/desktop}/**/*.{js,mjs,jsx,ts,tsx}";
+const CLOUD_SOURCE = "src/{editor/cloud,processor/cloud}/**/*.{js,mjs,jsx,ts,tsx}";
 
 // Shared import-ban building blocks -----------------------------------------
 
 const aliasOverRelative = {
   regex: "^\\.",
-  message:
-    "Use a workspace alias (@editor/* for editor, @processor/* for portal) instead of relative imports.",
+  message: "Use a workspace alias (@editor/* for editor, @processor/* for portal) instead of relative imports.",
 };
 const aliasOverSrc = {
   regex: "^src/",
@@ -25,8 +22,7 @@ const aliasOverSrc = {
 };
 const noTauriOutsideDesktop = {
   regex: "^@tauri-apps/",
-  message:
-    "Tauri APIs are desktop-only. Review frontend/DeveloperGuide.md for structure advice.",
+  message: "Tauri APIs are desktop-only. Review frontend/DeveloperGuide.md for structure advice.",
 };
 const cloudNoTauri = {
   regex: "^@tauri-apps/",
@@ -45,27 +41,19 @@ const cloudNoSupabase = {
 const mantineDsPaths = [
   {
     name: "@mantine/core",
-    importNames: [
-      "Button",
-      "ActionIcon",
-      "UnstyledButton",
-      "CloseButton",
-      "FileButton",
-    ],
+    importNames: ["Button", "ActionIcon", "UnstyledButton", "CloseButton", "FileButton"],
     message:
       'Use the shared Button (@editor/ui/Button) instead of the Mantine button family. variant=primary|secondary|tertiary, accent=default|neutral|brand|ai|premium|danger|success|warning; an icon-only button is `<Button leftSection={…} aria-label="…" />`. If no variant fits, extend the shared Button rather than importing Mantine.',
   },
   {
     name: "@mantine/core",
     importNames: ["SegmentedControl"],
-    message:
-      "Use the shared SegmentedControl (@editor/ui/SegmentedControl) instead of Mantine's.",
+    message: "Use the shared SegmentedControl (@editor/ui/SegmentedControl) instead of Mantine's.",
   },
   {
     name: "@mantine/core",
     importNames: ["Chip", "Pill"],
-    message:
-      "Use the shared Chip (@editor/ui/Chip) instead of Mantine's Chip/Pill.",
+    message: "Use the shared Chip (@editor/ui/Chip) instead of Mantine's Chip/Pill.",
   },
 ];
 
@@ -244,11 +232,7 @@ export default defineConfig({
     },
     {
       // Node globals for build scripts, config files, and Storybook config.
-      files: [
-        "scripts/**/*.{js,ts,mjs,mts}",
-        "*.config.{js,ts,mjs}",
-        ".storybook/*.{js,ts,mjs,mts,tsx}",
-      ],
+      files: ["scripts/**/*.{js,ts,mjs,mts}", "*.config.{js,ts,mjs}", ".storybook/*.{js,ts,mjs,mts,tsx}"],
       globals: modernGlobals,
       env: {
         node: true,
@@ -295,12 +279,7 @@ export default defineConfig({
         "no-restricted-imports": [
           "error",
           {
-            patterns: [
-              aliasOverRelative,
-              aliasOverSrc,
-              cloudNoTauri,
-              cloudNoSupabase,
-            ],
+            patterns: [aliasOverRelative, aliasOverSrc, cloudNoTauri, cloudNoSupabase],
             paths: mantineDsPaths,
           },
         ],
@@ -313,13 +292,11 @@ export default defineConfig({
           },
           {
             name: "localStorage",
-            message:
-              "cloud/ must not touch localStorage — use an @editor/* storage seam so desktop/web can differ.",
+            message: "cloud/ must not touch localStorage — use an @editor/* storage seam so desktop/web can differ.",
           },
           {
             name: "sessionStorage",
-            message:
-              "cloud/ must not touch sessionStorage — use an @editor/* storage seam so desktop/web can differ.",
+            message: "cloud/ must not touch sessionStorage — use an @editor/* storage seam so desktop/web can differ.",
           },
         ],
         "no-restricted-properties": [
@@ -395,6 +372,21 @@ export default defineConfig({
       ],
       rules: {
         "react/jsx-max-depth": "off",
+      },
+    },
+    {
+      // Studio tests import their subject relatively: the studio vitest project
+      // takes its aliases from a tsconfig that excludes test files, so @editor/*
+      // does not resolve inside them.
+      files: ["src/editor/studio/**/*.test.{ts,tsx}"],
+      rules: {
+        "no-restricted-imports": [
+          "error",
+          {
+            patterns: [aliasOverSrc],
+            paths: mantineDsPaths,
+          },
+        ],
       },
     },
     {

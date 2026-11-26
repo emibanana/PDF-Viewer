@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next";
-import {
-  useToolOperation,
-  defineCustomTool,
-} from "@editor/hooks/tools/shared/useToolOperation";
+import { useToolOperation, defineCustomTool } from "@editor/hooks/tools/shared/useToolOperation";
 import { createStandardErrorHandler } from "@editor/utils/toolErrorHandler";
 import {
   validateSanitizeParameters,
@@ -32,8 +29,6 @@ export const useSanitizeOperation = () => {
   const { t } = useTranslation();
   return useToolOperation<SanitizeParameters>({
     ...sanitizeOperationConfig,
-    getErrorMessage: createStandardErrorHandler(
-      t("sanitize.error.failed", "An error occurred while sanitising the PDF."),
-    ),
+    getErrorMessage: createStandardErrorHandler(t("sanitize.error.failed", "An error occurred while sanitising the PDF.")),
   });
 };

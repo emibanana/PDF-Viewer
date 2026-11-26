@@ -42,10 +42,7 @@ export async function readPathAsFile(path: string): Promise<File> {
   const bytes = await readFile(path);
   let lastModified = Date.now();
   try {
-    const state = await invoke<{ availability: string; modifiedMs?: number }>(
-      "file_disk_state",
-      { path },
-    );
+    const state = await invoke<{ availability: string; modifiedMs?: number }>("file_disk_state", { path });
     if (state.availability === "present" && state.modifiedMs) {
       lastModified = state.modifiedMs;
     }
@@ -62,10 +59,7 @@ export async function readPathAsFile(path: string): Promise<File> {
  * Overwrites `path` in place (temp file + rename in the same folder, done in
  * Rust). The bytes travel as a raw IPC body, never JSON or base64.
  */
-export async function writeBlobToPath(
-  data: Blob,
-  path: string,
-): Promise<void> {
+export async function writeBlobToPath(data: Blob, path: string): Promise<void> {
   const bytes = new Uint8Array(await data.arrayBuffer());
   await invoke("write_file_atomic", bytes, {
     headers: { "x-path": encodeURIComponent(path) },

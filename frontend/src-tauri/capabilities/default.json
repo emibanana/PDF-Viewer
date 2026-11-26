@@ -24,6 +24,7 @@
     { "identifier": "fs:allow-remove", "allow": [{ "path": "**" }] },
     "dialog:default",
     "dialog:allow-message",
+    "dialog:allow-ask",
     "dialog:allow-open",
     "dialog:allow-save",
     "opener:default",

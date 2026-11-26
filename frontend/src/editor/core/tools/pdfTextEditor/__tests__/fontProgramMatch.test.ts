@@ -6,7 +6,7 @@ import { compareFontPrograms } from "@editor/tools/pdfTextEditor/util/fontProgra
 
 const FONTS = path.join(
   import.meta.dirname,
-  "../../../../../../../app/core/src/main/resources/static/fonts",
+  "../../../../../../../frontend/src/editor/core/tests/test-fixtures/fonts",
 );
 const font = async (name: string) =>
   new Uint8Array(await readFile(path.join(FONTS, name)));

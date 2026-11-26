@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next";
-import {
-  useToolOperation,
-  defineCustomTool,
-} from "@editor/hooks/tools/shared/useToolOperation";
+import { useToolOperation, defineCustomTool } from "@editor/hooks/tools/shared/useToolOperation";
 import { createStandardErrorHandler } from "@editor/utils/toolErrorHandler";
 import {
   validateAddWatermarkParameters,
@@ -37,9 +34,7 @@ export const addWatermarkOperationConfig = defineCustomTool({
         },
         files,
       );
-      return parameters.convertPDFToImage
-        ? flattenToImages(marked, 150, renderPagesWithPdfjs)
-        : marked;
+      return parameters.convertPDFToImage ? flattenToImages(marked, 150, renderPagesWithPdfjs) : marked;
     })(),
   }),
   defaultParameters,
@@ -49,8 +44,6 @@ export const useAddWatermarkOperation = () => {
   const { t } = useTranslation();
   return useToolOperation<AddWatermarkParameters>({
     ...addWatermarkOperationConfig,
-    getErrorMessage: createStandardErrorHandler(
-      t("watermark.error.failed", "An error occurred while adding the watermark."),
-    ),
+    getErrorMessage: createStandardErrorHandler(t("watermark.error.failed", "An error occurred while adding the watermark.")),
   });
 };

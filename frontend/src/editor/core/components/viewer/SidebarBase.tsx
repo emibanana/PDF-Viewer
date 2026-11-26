@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { createPortal } from "react-dom";
+import { useSidebarDock } from "@editor/contexts/SidebarContext";
 import { Box, ScrollArea, Text, TextInput } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { ActionIcon } from "@editor/ui/ActionIcon";
@@ -53,6 +55,7 @@ export function SidebarBase({
   children,
 }: SidebarBaseProps) {
   const { t } = useTranslation();
+  const dockElement = useSidebarDock()?.element ?? null;
   const resolvedCloseLabel =
     closeLabel ?? t("viewer.sidebar.close", "Close sidebar");
 
@@ -66,17 +69,24 @@ export function SidebarBase({
     icon
   );
 
-  return (
+  const docked = dockElement !== null;
+  const panel = (
     <Box
-      className={["sidebar-base", className].filter(Boolean).join(" ")}
-      style={{
-        position: "fixed",
-        right: rightOffset,
-        top: 0,
-        bottom: 0,
-        width: SIDEBAR_WIDTH,
-        zIndex: 998,
-      }}
+      className={["sidebar-base", docked && "sidebar-base--docked", className]
+        .filter(Boolean)
+        .join(" ")}
+      style={
+        docked
+          ? undefined
+          : {
+              position: "fixed",
+              right: rightOffset,
+              top: 0,
+              bottom: 0,
+              width: SIDEBAR_WIDTH,
+              zIndex: 998,
+            }
+      }
     >
       <div className="sidebar-base__header">
         <div className="sidebar-base__header-title">
@@ -125,4 +135,5 @@ export function SidebarBase({
       </ScrollArea>
     </Box>
   );
+  return dockElement ? createPortal(panel, dockElement) : panel;
 }

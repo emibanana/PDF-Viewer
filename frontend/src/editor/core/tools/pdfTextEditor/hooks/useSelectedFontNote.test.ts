@@ -21,7 +21,7 @@ const SERIF_BOLD = "1".repeat(64);
 const SERIF_BOLD_TTF = readFileSync(
   path.resolve(
     __dirname,
-    "../../../../../../../app/core/src/main/resources/static/fonts/DejaVuSerif-Bold.ttf",
+    "../../../../../../../frontend/src/editor/core/tests/test-fixtures/fonts/DejaVuSerif-Bold.ttf",
   ),
 );
 

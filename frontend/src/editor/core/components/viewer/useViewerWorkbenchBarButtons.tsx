@@ -31,10 +31,7 @@ import { useViewerReadAloud } from "@editor/components/viewer/useViewerReadAloud
 import { RulerScaleSettingsButton } from "@editor/components/viewer/RulerScaleSettingsButton";
 import type { MeasureScale } from "@editor/utils/measurementTypes";
 import type { StirlingFile } from "@editor/types/fileContext";
-import {
-  reviewMode,
-  useReviewMode,
-} from "@editor/tools/pdfTextEditor/store/reviewMode";
+import { useReviewMode } from "@editor/tools/pdfTextEditor/store/reviewMode";
 import {
   useEditOrReview,
 } from "@editor/tools/pdfTextEditor/hooks/useEditOrReview";
