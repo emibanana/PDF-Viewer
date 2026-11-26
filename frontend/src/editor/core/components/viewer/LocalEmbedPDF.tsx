@@ -146,6 +146,7 @@ import { DocumentReadyWrapper } from "@editor/components/viewer/DocumentReadyWra
 import { InitialDocumentLoadBridge } from "@editor/components/viewer/InitialDocumentLoadBridge";
 import ToolLoadingFallback from "@editor/components/tools/ToolLoadingFallback";
 import { useFontFallbackConfig } from "@editor/hooks/useFontFallbackConfig";
+import { getAnnotationAuthor } from "@editor/services/annotationAuthor";
 import { pdfiumWasmUrl } from "@editor/services/wasmPrecompiler";
 import { FormFieldOverlay } from "@editor/tools/formFill/FormFieldOverlay";
 import { FormCreationInteractionLock } from "@editor/tools/formFill/FormCreationInteractionLock";
@@ -1533,7 +1534,7 @@ export function LocalEmbedPDF({
       // Register annotation plugin (depends on InteractionManager, Selection, History)
       // Always register for reading existing annotations like links
       createPluginRegistration(AnnotationPluginPackage, {
-        annotationAuthor: "Digital Signature",
+        annotationAuthor: getAnnotationAuthor(),
         autoCommit: true,
         deactivateToolAfterCreate: false,
         selectAfterCreate: true,

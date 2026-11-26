@@ -6,8 +6,8 @@ mod utils;
 
 use commands::{
     add_opened_file, build_main_window, clear_opened_files, file_disk_state,
-    forward_files_to_window, get_desktop_os, get_opened_files, open_in_new_window,
-    pop_opened_files, target_window_label, write_file_atomic, MAIN_WINDOW_LABEL,
+    forward_files_to_window, get_desktop_os, get_opened_files, get_os_username, list_system_fonts,
+    open_in_new_window, pop_opened_files, serve_system_font, target_window_label, write_file_atomic, MAIN_WINDOW_LABEL,
 };
 use utils::{add_log, get_app_logs};
 
@@ -43,6 +43,7 @@ fn focus_window(app: &AppHandle, label: &str) {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
+        .register_uri_scheme_protocol("sysfont", |_ctx, request| serve_system_font(request))
         .plugin(
             // Dropping a file outside a dropzone makes the webview navigate to it
             // and kills the UI. Block every off-app navigation at the Rust layer.
@@ -111,6 +112,8 @@ pub fn run() {
             write_file_atomic,
             open_in_new_window,
             get_desktop_os,
+            get_os_username,
+            list_system_fonts,
             get_app_logs,
         ])
         .build(tauri::generate_context!())

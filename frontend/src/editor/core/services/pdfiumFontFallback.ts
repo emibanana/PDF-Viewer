@@ -33,7 +33,43 @@ export type LocalFontFallbackConfig = FontFallbackConfig & {
  * is what keeps that CDN out of the render path. Charsets without a face
  * (SYMBOL) resolve to `defaultFont`.
  */
-export function getLocalFontFallbackConfig(): LocalFontFallbackConfig {
+export function getLocalFontFallbackConfig(
+  systemFontUrls: Readonly<Record<string, string>> = {},
+): LocalFontFallbackConfig {
+  const config = bundledFallbackConfig();
+  if (Object.keys(systemFontUrls).length === 0) return config;
+  const swap = (entry: FontEntry) => withSystemFonts(entry, systemFontUrls);
+  return {
+    ...config,
+    fonts: Object.fromEntries(
+      Object.entries(config.fonts).map(([charset, entry]) => [
+        charset,
+        swap(entry as FontEntry),
+      ]),
+    ) as typeof config.fonts,
+    fontFamilies: {
+      serif: swap(config.fontFamilies.serif),
+      monospace: swap(config.fontFamilies.monospace),
+      wide: swap(config.fontFamilies.wide),
+    },
+  };
+}
+
+/** A face the host can serve from the operating system replaces the bundled file of that name. */
+function withSystemFonts(
+  entry: FontEntry,
+  urls: Readonly<Record<string, string>>,
+): FontEntry {
+  const swapUrl = (url: string) => urls[url] ?? url;
+  if (typeof entry === "string") return swapUrl(entry);
+  const swapVariant = (variant: FontVariant): FontVariant => ({
+    ...variant,
+    url: swapUrl(variant.url),
+  });
+  return Array.isArray(entry) ? entry.map(swapVariant) : swapVariant(entry);
+}
+
+function bundledFallbackConfig(): LocalFontFallbackConfig {
   return {
     baseUrl: getFontBaseUrl(),
     defaultFont: "NotoSans-Regular.ttf",

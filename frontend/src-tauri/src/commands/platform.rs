@@ -18,3 +18,11 @@ pub fn get_desktop_os() -> DesktopOS {
         _ => DesktopOS::Unknown,
     }
 }
+
+/// The signed-in Windows user's name, used as the author of new annotations.
+#[tauri::command]
+pub fn get_os_username() -> String {
+    std::env::var("USERNAME")
+        .or_else(|_| std::env::var("USER"))
+        .unwrap_or_default()
+}

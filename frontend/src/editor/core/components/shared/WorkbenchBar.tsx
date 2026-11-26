@@ -58,6 +58,7 @@ import { useIsMobile, useIsPhone } from "@editor/hooks/useIsMobile";
 import "@editor/components/shared/WorkbenchBar.css";
 import { NotificationBell } from "@editor/components/notifications/NotificationBell";
 import { useWorkbenchSave } from "@editor/hooks/useWorkbenchSave";
+import { useCtrlSSave } from "@editor/hooks/useCtrlSSave";
 import { useSaveButton } from "@editor/components/shared/workbenchBar/useSaveButton";
 import { useCloseViewerDocument } from "@editor/components/viewer/useCloseViewerDocument";
 
@@ -169,6 +170,7 @@ export default function WorkbenchBar({
     (policyFileBadges.get(id) ?? []).some((p) => p.enforcing),
   );
   const policyEnforcing = enforcingFileId != null;
+  useCtrlSSave(workbenchSave.save, !policyEnforcing);
   const policyRuns = usePolicyRuns();
   const enforcingRun = policyEnforcing
     ? policyRuns.find(
