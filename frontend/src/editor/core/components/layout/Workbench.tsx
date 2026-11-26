@@ -27,7 +27,6 @@ import LandingPage from "@editor/components/shared/LandingPage";
 import DismissAllErrorsButton from "@editor/components/shared/DismissAllErrorsButton";
 import { NotificationBell } from "@editor/components/notifications/NotificationBell";
 import { FeedbackTag } from "@editor/components/feedback/FeedbackTag";
-import { ReviewHost } from "@editor/tools/pdfTextEditor/components/review/ReviewHost";
 
 // Workbench panels are loaded on demand. Viewer pulls in pdfjs-dist and the
 // full @embedpdf plugin set; FileEditor/PageTracks are only needed once a file
@@ -123,12 +122,6 @@ export default function Workbench() {
     if (previousMode === "split") {
       // Use context's handleToolSelect which coordinates tool selection and view changes
       handleToolSelect("split");
-      sessionStorage.removeItem("previousMode");
-    } else if (previousMode === "compress") {
-      handleToolSelect("compress");
-      sessionStorage.removeItem("previousMode");
-    } else if (previousMode === "convert") {
-      handleToolSelect("convert");
       sessionStorage.removeItem("previousMode");
     } else {
       setCurrentView("fileEditor");
@@ -253,7 +246,6 @@ export default function Workbench() {
 
       {/* Dismiss All Errors Button */}
       <DismissAllErrorsButton />
-      <ReviewHost />
 
       {/* Main content area */}
       <Box

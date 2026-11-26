@@ -455,11 +455,6 @@ export function ToolWorkflowProvider({ children }: ToolWorkflowProviderProps) {
       hasAppliedStartupView.current = true;
       markReaderModeFromPreference();
       setReaderMode(true);
-    } else if (startupView === "automate") {
-      hasAppliedStartupView.current = true;
-      startupSelectedToolRef.current = "automate";
-      actions.setSelectedTool("automate");
-      setLeftPanelView("toolContent");
     }
     // 'tools' is the default — no action needed
     if (startupView === "tools") {

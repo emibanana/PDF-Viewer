@@ -43,9 +43,7 @@ export function SignMenuPersonalSection({
   onSelectTool,
 }: SignMenuPersonalSectionProps) {
   const { t } = useTranslation();
-  const unavailable = [
-    ...new Set([reasons.sign, reasons.certSign].filter(Boolean)),
-  ];
+  const unavailable = [...new Set([reasons.sign].filter(Boolean))];
   return (
     <section
       className="sign-menu__personal"
@@ -59,13 +57,6 @@ export function SignMenuPersonalSection({
           hint={t("signMenu.personalHint", "Draw, type or upload")}
           unavailableReason={reasons.sign}
           onClick={() => onSelectTool("sign")}
-        />
-        <SignToolButton
-          icon="shield-check"
-          title={t("signMenu.certificateTitle", "Digital signature")}
-          hint={t("signMenu.certificateHint", "Use a certificate")}
-          unavailableReason={reasons.certSign}
-          onClick={() => onSelectTool("certSign")}
         />
       </div>
       {unavailable.length > 0 && (

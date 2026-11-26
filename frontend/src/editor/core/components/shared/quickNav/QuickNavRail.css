@@ -121,34 +121,8 @@
 }
 
 /* ---- Brand: one header row tall, so it lines up with the sidebar's wordmark ---- */
-.quick-nav-brand {
-  width: 100%;
-  height: var(--nav-header-h);
-  flex-shrink: 0;
-  /* The bar's inset supplies part of the gap; only the remainder is added here. */
-  margin-bottom: calc(var(--quicknav-item-gap) - var(--quicknav-surface-pad));
-}
 
-.quick-nav-brand-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  /* Repeated fast clicks otherwise read as a double/triple click and start a
-     text selection in the surrounding chrome. */
-  user-select: none;
-}
 
-.quick-nav-brand-button:focus-visible {
-  outline: 0.125rem solid var(--c-primary);
-  outline-offset: -0.125rem;
-  border-radius: var(--radius-md);
-}
 
 /* The "on" state: a solid block with the glyph knocked out, hover owning the tints. */
 .quick-nav-rail-item[aria-current="true"],

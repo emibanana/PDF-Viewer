@@ -6,71 +6,52 @@ import {
 
 export type ToolKind = "regular" | "super" | "link";
 
-export const CORE_REGULAR_TOOL_IDS = [
+// ocr, convert, repair and certSign have no tool page or menu entry any more. Their operations
+// stay because live features (text-editor OCR, create-PDF, damaged-file repair, signing) still
+// run them; remove them together with those features.
+export const OPERATION_ONLY_TOOL_IDS = [
+  "ocr",
+  "convert",
+  "repair",
   "certSign",
+] as const;
+export type OperationOnlyToolId = (typeof OPERATION_ONLY_TOOL_IDS)[number];
+
+export const CORE_REGULAR_TOOL_IDS = [
   "sign",
   "addText",
   "addPassword",
   "removePassword",
   "removePages",
-  "removeBlanks",
   "removeAnnotations",
-  "removeImage",
   "changePermissions",
   "watermark",
   "sanitize",
   "split",
   "merge",
-  "convert",
-  "ocr",
   "addImage",
   "rotate",
-  "autoRotate",
   "annotate",
-  "scannerImageSplit",
   "editTableOfContents",
-  "autoRename",
-  "pageLayout",
-  "scalePages",
   "adjustContrast",
   "crop",
-  "pdfToSinglePage",
-  "repair",
   "compare",
   "addPageNumbers",
   "redact",
   "flatten",
-  "removeCertSign",
-  "unlockPDFForms",
-  "compress",
-  "classify",
   "extractPages",
   "reorganizePages",
-  "extractImages",
-  "addStamp",
   "addAttachments",
-  "createPortfolio",
   "changeMetadata",
-  "overlayPdfs",
   "getPdfInfo",
-  "checkAccessibility",
-  "validateSignature",
-  "timestampPdf",
-  "replaceColor",
   "showJS",
-  "bookletImposition",
   "pdfTextEditor",
   "formFill",
-  "autoFormDetection",
 ] as const;
 
-export const CORE_SUPER_TOOL_IDS = ["multiTool", "read", "automate"] as const;
+export const CORE_SUPER_TOOL_IDS = ["multiTool", "read"] as const;
 
 export const CORE_LINK_TOOL_IDS = [
-  "devApi",
-  "devFolderScanning",
-  "devSsoGuide",
-  "devAirgapped",
 ] as const;
 
 export const REGULAR_TOOL_IDS = [
@@ -96,6 +77,8 @@ export const TOOL_IDS = [
 
 // Tool identity - what PDF operation we're performing (type-safe)
 export type ToolId = (typeof TOOL_IDS)[number];
+/** Anything a tool operation can be recorded as: a tool, or one of the operation-only ids. */
+export type OperationId = ToolId | OperationOnlyToolId;
 export const isValidToolId = (value: string): value is ToolId =>
   TOOL_IDS.includes(value as ToolId);
 

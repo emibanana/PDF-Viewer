@@ -18,13 +18,7 @@ export interface SuggestedTool {
  * Shown when usage tracking has nothing to say, and the order tied scores fall
  * back to - see {@link orderRanked}.
  */
-const FALLBACK_TOOL_IDS: ToolId[] = [
-  "compress",
-  "convert",
-  "sanitize",
-  "split",
-  "ocr",
-];
+const FALLBACK_TOOL_IDS: ToolId[] = ["sanitize", "split", "merge", "rotate"];
 
 const SUGGESTION_COUNT = 4;
 

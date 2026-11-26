@@ -1,5 +1,5 @@
 import { recordToolUsage } from "@editor/api/toolRecommendations";
-import type { ToolId } from "@editor/types/toolId";
+import type { OperationId as ToolId } from "@editor/types/toolId";
 import type { FileId, ToolOperation } from "@editor/types/file";
 
 // Module store rather than a context: tool completions happen deep in operation

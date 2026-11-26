@@ -35,7 +35,7 @@ const shortChain: StirlingFileStub[] = [
     size: 102400,
     versionNumber: 2,
     parentFileId: "file-1" as FileId,
-    toolHistory: [toolOp("compress")],
+    toolHistory: [toolOp("rotate")],
   }),
   buildFileStub({
     id: "file-3" as FileId,
@@ -43,7 +43,7 @@ const shortChain: StirlingFileStub[] = [
     size: 110592,
     versionNumber: 3,
     parentFileId: "file-2" as FileId,
-    toolHistory: [toolOp("compress"), toolOp("watermark")],
+    toolHistory: [toolOp("rotate"), toolOp("watermark")],
   }),
 ];
 
@@ -52,7 +52,7 @@ const longChain: StirlingFileStub[] = Array.from({ length: 9 }, (_, index) => {
   const toolHistory: ToolOperation[] =
     versionNumber === 1
       ? []
-      : [toolOp(versionNumber % 2 === 0 ? "compress" : "watermark")];
+      : [toolOp(versionNumber % 2 === 0 ? "rotate" : "watermark")];
   return buildFileStub({
     id: `file-${versionNumber}` as FileId,
     name: `report-v${versionNumber}.pdf`,

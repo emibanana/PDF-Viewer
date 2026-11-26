@@ -33,20 +33,6 @@ export function NonPdfViewer({ file }: NonPdfViewerProps) {
   const { t } = useTranslation();
   const fileType = useMemo(() => detectNonPdfFileType(file), [file]);
 
-  const { handleToolSelect, toolAvailability } = useToolWorkflow();
-
-  const fileExtension = detectFileExtension(file.name);
-  // Only show convert when the extension has an explicit entry in the conversion matrix
-  // (skip the 'any'/'image' wildcard fallbacks that would match everything)
-  const isConvertAvailable =
-    toolAvailability["convert"]?.available === true &&
-    fileExtension !== "" &&
-    fileExtension in CONVERSION_MATRIX;
-
-  const handleConvertToPdf = useCallback(() => {
-    handleToolSelect("convert");
-  }, [handleToolSelect]);
-
   const renderContent = () => {
     switch (fileType) {
       case "image":
@@ -81,16 +67,6 @@ export function NonPdfViewer({ file }: NonPdfViewerProps) {
                   "Preview not available for this file type",
                 )}
               </Text>
-              {isConvertAvailable && (
-                <Button
-                  variant="secondary"
-                  accent="warning"
-                  leftSection={<Icon name="file-pdf" />}
-                  onClick={handleConvertToPdf}
-                >
-                  {t("viewer.nonPdf.convertToPdf", "Convert to PDF")}
-                </Button>
-              )}
             </Stack>
           </Center>
         );
@@ -105,14 +81,10 @@ export function NonPdfViewer({ file }: NonPdfViewerProps) {
         flex: 1,
         overflow: "hidden",
         position: "relative",
-        // The Convert button floats over the content; viewers that draw their
-        // own top bar read this to keep their text clear of it.
-        "--nonpdf-action-inset": isConvertAvailable ? "11rem" : "0rem",
+        "--nonpdf-action-inset": "0rem",
       }}
     >
-      <NonPdfBanner
-        onConvertToPdf={isConvertAvailable ? handleConvertToPdf : undefined}
-      />
+      <NonPdfBanner />
       <Box
         className={privateContentClassName}
         style={{

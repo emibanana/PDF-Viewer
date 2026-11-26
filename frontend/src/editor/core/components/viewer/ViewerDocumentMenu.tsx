@@ -163,11 +163,6 @@ export function ViewerDocumentMenu({ disabled }: { disabled?: boolean }) {
             "addPassword",
             t("workbenchBar.docMenu.password", "Add password"),
           )}
-          {tool(
-            "shrink",
-            "compress",
-            t("workbenchBar.docMenu.compress", "Compress"),
-          )}
           <Menu.Divider />
           {tool("signature", "sign", t("workbenchBar.docMenu.sign", "Sign"))}
           <Menu.Divider />

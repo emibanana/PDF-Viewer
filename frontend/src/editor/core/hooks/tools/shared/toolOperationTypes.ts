@@ -1,7 +1,7 @@
 import { lazy, type ComponentType } from "react";
 import { StirlingFile } from "@editor/types/fileContext";
 import type { ResponseHandler } from "@editor/utils/toolResponseProcessor";
-import { ToolId } from "@editor/types/toolId";
+import { OperationId, ToolId } from "@editor/types/toolId";
 import type { ProcessingProgress } from "@editor/hooks/tools/shared/useToolState";
 import {
   TOOL_FILE_FIELDS,
@@ -92,7 +92,7 @@ export interface FileParamOverride<TParams, TEndpoint> {
  */
 interface BaseToolOperationConfig<TParams, TEndpoint extends ToolEndpoint> {
   /** Operation identifier for tracking and logging */
-  operationType: ToolId;
+  operationType: OperationId;
 
   /**
    * Prefix added to processed filenames (e.g., 'compressed_', 'split_').

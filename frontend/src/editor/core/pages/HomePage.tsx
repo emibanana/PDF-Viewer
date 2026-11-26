@@ -213,8 +213,7 @@ export default function HomePage() {
       if (preferences.defaultStartupView === "read") {
         if (location.pathname !== READER_PATH) navigate(READER_PATH);
         setReaderMode(true);
-      } else if (preferences.defaultStartupView === "automate")
-        handleToolSelect("automate");
+      }
     });
   }, [
     goToDefaultState,
@@ -382,23 +381,7 @@ export default function HomePage() {
 
   const brandAltText = t("home.mobile.brandAlt", "Stirling PDF logo");
 
-  const quickNavToolReasons = useMemo(() => {
-    const reasons: QuickNavToolReasons = {};
-    for (const id of ["automate"] as const) {
-      const tool = toolRegistry[id];
-      if (!tool) continue;
-      const disabledReason = getToolDisabledReason(
-        id,
-        tool,
-        toolAvailability,
-        config?.premiumEnabled,
-      );
-      if (!disabledReason) continue;
-      const { key, fallback } = getDisabledLabel(disabledReason);
-      reasons[id] = t(key, fallback).replace(/:\s*$/, "");
-    }
-    return reasons;
-  }, [toolRegistry, toolAvailability, config?.premiumEnabled, t]);
+  const quickNavToolReasons = useMemo<QuickNavToolReasons>(() => ({}), []);
 
   const openFromComputerRef = useRef<(() => void) | null>(null);
   // Reading unmounts the sidebar that owns the picker, so a request made there
@@ -648,25 +631,6 @@ export default function HomePage() {
           {t("quickAccess.allTools", "Tools")}
         </span>
       </Button>
-      {toolAvailability["automate"]?.available !== false && (
-        <Button
-          variant="tertiary"
-          className="mobile-bottom-button"
-          aria-label={t("quickAccess.automate", "Automate")}
-          onClick={() => {
-            leaveMyFiles();
-            handleToolSelect("automate");
-            if (isMobile) {
-              setActiveMobileView("tools");
-            }
-          }}
-        >
-          <Icon name="automate" size="1.5rem" />
-          <span className="mobile-bottom-button-label">
-            {t("quickAccess.automate", "Automate")}
-          </span>
-        </Button>
-      )}
       <Button
         variant="tertiary"
         className="mobile-bottom-button"

@@ -17,7 +17,7 @@ import { useToolWorkflowActions } from "@editor/contexts/ToolWorkflowContext";
 import { useNavigationState } from "@editor/contexts/NavigationContext";
 import { createStirlingFilesAndStubs } from "@editor/services/fileStubHelpers";
 import type { FileId } from "@editor/types/file";
-import type { ToolId } from "@editor/types/toolId";
+import type { OperationId } from "@editor/types/toolId";
 import type { BaseToolProps } from "@editor/types/tool";
 import { useEditorStore } from "@editor/tools/pdfTextEditor/hooks/useEditorStore";
 import { useEditorSelection } from "@editor/tools/pdfTextEditor/hooks/useEditorSelection";
@@ -222,7 +222,7 @@ export default function PdfTextEditor(_props: BaseToolProps) {
     async (
       blob: Blob,
       filename: string,
-      toolId: ToolId = "pdfTextEditor",
+      toolId: OperationId = "pdfTextEditor",
       isCurrent: () => boolean = () => true,
     ): Promise<File | null> => {
       const edited = new File([blob], filename, { type: "application/pdf" });

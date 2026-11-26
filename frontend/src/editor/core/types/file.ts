@@ -3,7 +3,7 @@
  * FileContext uses pure File objects with separate ID tracking
  */
 
-import { ToolId } from "@editor/types/toolId";
+import { OperationId, ToolId } from "@editor/types/toolId";
 import { FolderId } from "@editor/types/folder";
 
 declare const tag: unique symbol;
@@ -14,7 +14,7 @@ export type FileId = string & { readonly [tag]: "FileId" };
  * Note: Parameters removed for security - sensitive data like passwords should not be stored in history
  */
 export interface ToolOperation {
-  toolId: ToolId;
+  toolId: OperationId;
   timestamp: number;
   /** Overrides the tool's own name in history. Set by a policy run to its pipeline's name, since
    *  every policy records the same "automate" toolId. */

@@ -94,7 +94,8 @@ export function DamagedFileRepairProvider({
     setRepairing(null);
   }, [repairing, operation, t]);
 
-  const available = toolAvailability.repair?.available !== false;
+  // Repair runs on the server, which this build does not have.
+  const available = false;
   const value = useMemo(
     () =>
       available

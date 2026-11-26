@@ -6,13 +6,13 @@ function op(toolId: ToolOperation["toolId"], timestamp: number): ToolOperation {
   return { toolId, timestamp };
 }
 
-const shortChain: ToolOperation[] = [op("watermark", 1), op("ocr", 2)];
+const shortChain: ToolOperation[] = [op("watermark", 1), op("sanitize", 2)];
 
 const longChain: ToolOperation[] = [
   op("split", 1),
   op("merge", 2),
   op("watermark", 3),
-  op("ocr", 4),
+  op("sanitize", 4),
   op("rotate", 5),
 ];
 

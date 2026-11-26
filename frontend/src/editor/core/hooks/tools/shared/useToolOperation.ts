@@ -207,9 +207,8 @@ export const useToolOperation = <TParams>(
     (endpoint: string | undefined) =>
       !endpoint &&
       config.endpoint === undefined &&
-      !!config.customProcessor &&
-      config.operationType !== "automate",
-    [config.customProcessor, config.endpoint, config.operationType],
+      !!config.customProcessor,
+    [config.customProcessor, config.endpoint],
   );
 
   const getCompatibleFiles = useCallback(

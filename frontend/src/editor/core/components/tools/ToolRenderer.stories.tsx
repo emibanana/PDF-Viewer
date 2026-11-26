@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>;
 /** A registered tool with a component renders its lazy-loaded settings UI. */
 export const Default: Story = {
   args: {
-    selectedToolKey: "compress",
+    selectedToolKey: "rotate",
     onPreviewFile: () => {},
     onComplete: () => {},
     onError: () => {},

@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { NavSurface } from "@editor/ui/NavSurface";
 import { Icon } from "@editor/ui/Icon";
-import { QuickNavBrand } from "@editor/components/shared/quickNav/QuickNavBrand";
 import type {
   QuickNavAccountMenu,
   QuickNavIdentity,
@@ -40,7 +39,6 @@ export interface QuickNavRailContainerProps extends Omit<
   onToggleNotifications?: () => void;
   notificationsOpen?: boolean;
   identity?: QuickNavIdentity | null;
-  onReturnHome: () => void;
 }
 
 /** The fixed-width column the rail sits in. */
@@ -55,13 +53,11 @@ export function QuickNavRailContainer({
   onToggleNotifications,
   notificationsOpen,
   identity = null,
-  onReturnHome,
   ...railProps
 }: QuickNavRailContainerProps) {
   const { t } = useTranslation();
   return (
     <div className="quick-nav-rail-container">
-      <QuickNavBrand onReturnHome={onReturnHome} />
       <NavSurface className="quick-nav-rail-surface">
         <QuickNavRailBase
           {...railProps}

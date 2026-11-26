@@ -57,13 +57,6 @@ export function QuickNavRailHost() {
     else navigate(inPortal ? PORTAL_BASENAME : EDITOR_BASENAME);
   };
 
-  // The brand goes where the app launches; the Editor entry stays in the editor.
-  const goToStartupView = () => {
-    const start = host?.actions.current?.goToStartupView;
-    if (start) start();
-    else returnHome();
-  };
-
   // Guarded where the app supplies a guard, so leaving mid-edit still prompts.
   const guarded = (leave: () => void) => {
     const guard = host?.actions.current?.requestNavigation;
@@ -177,25 +170,6 @@ export function QuickNavRailHost() {
             onClick: () => host?.actions.current?.openFromComputer?.(),
           },
         ]),
-    {
-      id: "files",
-      label: t("fileSidebar.myFiles", "File library"),
-      icon: <Icon name="folder" size={SIZE} />,
-      current: Boolean(host?.fileLibrary),
-      testId: "my-files-button",
-      // Through the app where possible: the library is a view, not a route. From the
-      // processor there is no editor to ask, so the path carries it and HomePage seeds
-      // the view on arrival. Unwrapped: setting the view runs the app's own
-      // unsaved-changes check, and asking twice leaves the second ask nowhere to
-      // prompt.
-      onClick: () => {
-        const show = host?.actions.current?.showFileLibrary;
-        // Unwrapped: setting the view runs the app's own unsaved-changes check, and
-        // asking twice leaves the second ask with nowhere to prompt.
-        if (show) show();
-        else go("/files");
-      },
-    },
     ...(canCreateProcessingFolders && !localOnly
       ? [
           {
@@ -223,14 +197,6 @@ export function QuickNavRailHost() {
         ]
       : []),
     {
-      id: "automate",
-      label: t("quickAccess.automate", "Automate"),
-      icon: <Icon name="git-branch" size={SIZE} />,
-      ...openingTool("automate"),
-      ...unusable("automate"),
-      onClick: () => openTool("automate", "/automate"),
-    },
-    {
       id: "sign",
       label: host?.signingBadge
         ? t("signMenu.triggerUnreadCount", "Sign · {{count}} unread sessions", {
@@ -242,9 +208,7 @@ export function QuickNavRailHost() {
       badgeMax: null,
       badgeTone: "warning",
       current:
-        host?.activeTool === "sign" ||
-        host?.activeTool === "certSign" ||
-        path === "/shared-sign",
+        host?.activeTool === "sign" || path === "/shared-sign",
       expanded: signMenuOpen,
       onClick: () => setSignMenuOpen((open) => !open),
       wrap: (button) => (
@@ -259,9 +223,7 @@ export function QuickNavRailHost() {
               navigate("/shared-sign");
             })
           }
-          onSelect={(tool) =>
-            openTool(tool, tool === "certSign" ? "/cert-sign" : "/sign")
-          }
+          onSelect={(tool) => openTool(tool, "/sign")}
         >
           {button}
         </SignMenu>
@@ -300,9 +262,8 @@ export function QuickNavRailHost() {
     <QuickNavRailContainer
       groups={[
         surfaces,
-        localOnly ? within.filter((entry) => entry.id !== "automate") : within,
+        within,
       ]}
-      onReturnHome={() => guarded(goToStartupView)}
       identity={host?.identity ?? null}
       onOpenAccount={() => openSettingsAt("/settings")}
       onOpenAccountShortcut={openSettingsAt}

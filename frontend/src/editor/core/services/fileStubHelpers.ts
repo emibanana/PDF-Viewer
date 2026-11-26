@@ -4,7 +4,7 @@ import {
   generateProcessedFileMetadata,
 } from "@editor/contexts/file/fileActions";
 import { createStirlingFile } from "@editor/types/fileContext";
-import { ToolId } from "@editor/types/toolId";
+import { OperationId } from "@editor/types/toolId";
 
 /**
  * Create StirlingFiles and StirlingFileStubs from exported files
@@ -13,7 +13,7 @@ import { ToolId } from "@editor/types/toolId";
 export async function createStirlingFilesAndStubs(
   files: File[],
   parentStub: StirlingFileStub,
-  toolId: ToolId,
+  toolId: OperationId,
   /** Shown instead of the tool's name in version history (a policy passes its pipeline name). */
   label?: string,
 ): Promise<{ stirlingFiles: StirlingFile[]; stubs: StirlingFileStub[] }> {
