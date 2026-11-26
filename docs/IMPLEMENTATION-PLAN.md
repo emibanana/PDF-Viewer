@@ -46,7 +46,7 @@ npx tauri dev         # builds the Rust host and opens the app
 | ✅ | Rebrand to PDF Viewer | Name, icons, installer id, locale strings, single master logo |
 | ✅ | Licence guard | Build fails on any import from a restricted directory. ⬜ CI step still to add |
 | ✅ | Open a PDF from disk | Verified: launching `pdf-viewer.exe file.pdf` while the app runs opens it. ⚠️ Open dialog and drag-drop written, not clicked through yet |
-| ✅ | Save in place (always overwrite) | Verified: temp file + rename in Rust, no leftover temp file. ⚠️ The "Save as" dialog for a never-saved file is not exercised yet |
+| ✅ | Save in place (always overwrite), button and Ctrl+S | Verified: temp file + rename in Rust, no leftover temp file; Ctrl+S saves a linked file with no prompt. ⚠️ The "Save as" dialog for a never-saved file is not exercised yet |
 | ✅ | Tools that need the Java backend deleted | Page, hooks, settings, tooltips, registry entry, route and id are gone from the code; listed under Deferred. ⚠️ Four keep only their operation hooks (OCR, Convert, Repair, Certificate Sign) because the text editor, create-PDF, damaged-file repair and signing still call them |
 | ✅ | Automate removed | Rail entry, tool and start-up option deleted |
 | 🟡 | File Library removed | Rail entry and the sidebar's "browse all" buttons are gone. ⬜ The library page code (`components/filesPage`, `FileManager`, the `myFiles` view) is still in `core/` and still has to be cut out |
@@ -92,6 +92,7 @@ Re-implemented with `@cantoo/pdf-lib` as shadow hooks in `studio/hooks/tools/` a
 
 | | Feature | Design notes |
 |---|---|---|
+| ⬜ | Re-opening a file duplicates it in the sidebar | The workspace restores last session's copy and the launched file is added beside it, so the same name can appear several times. Should replace the stale copy of the same path |
 | ✅ | New window per launched file | Double-click / "Open with" opens the PDF in its own window; each window has its own file queue |
 | ⬜ | Window title = file name + dot when unsaved; focus the window if the file is already open | Single-instance handler currently always opens a new window |
 | ⬜ | Open-file switcher | Rust window registry; file strip in the title bar; Ctrl+Tab recent-files switcher with thumbnails; Ctrl+P "go to file" |
@@ -150,6 +151,7 @@ Foundation first: a typed markup model above EmbedPDF (subject, label, layer, st
 
 | | Feature |
 |---|---|
+| ✅ | Opening speed measured | The slow open is the dev server only: about 7 s in `tauri dev` against about 0.5 s with the production bundle. Nothing to fix |
 | ⬜ | Profile first (WASM raster time vs React re-renders vs tile churn) |
 | ⬜ | Zoom without the flash: keep old tiles, CSS-scale, coalesce wheel steps |
 | ⬜ | Raw binary IPC for file bytes (save already does this) |
@@ -180,11 +182,11 @@ Automate (batch pipelines), the File Library page, the logo button on the rail.
 
 | | What | Notes |
 |---|---|---|
-| ⬜ | File Library page code | `core/components/filesPage`, `FileManager`, the `myFiles` workbench view, `/files` route |
-| ⬜ | Per-tool automation plumbing | `*AutomationSettings` components, `automationSettings` registry field, `constants/automation.ts`, automation services |
+| 🟡 | File Library page code (queued as its own task: "Wipe File Library and automation code") | `core/components/filesPage`, `FileManager`, the `myFiles` workbench view, `/files` route |
+| 🟡 | Per-tool automation plumbing (same queued task) | `*AutomationSettings` components, `automationSettings` registry field, `constants/automation.ts`, automation services |
 | ⬜ | Features that call the server | Signing sessions and workspace, text-editor OCR, create-PDF, damaged-file repair; then delete the four operation-only hooks |
 | ⬜ | Accessibility review inside the text editor | Inert (flag off), entry points removed; internals remain |
-| ⬜ | Translation strings of removed tools | In `public/locales/*/translation.toml` |
+| 🟡 | Translation strings of removed tools (same queued task) | In `public/locales/*/translation.toml` |
 
 ---|---|---|
 | ⏸️ | OCR / Cleanup scans, Auto Rotate, Detect and Split Scanned Photos | Need OCR or computer vision. Planned route: Windows built-in OCR from Rust |
