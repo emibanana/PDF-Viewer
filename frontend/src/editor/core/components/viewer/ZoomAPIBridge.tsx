@@ -224,7 +224,14 @@ function ZoomAPIBridgeInner({
     }
 
     const fitWidthZoom = currentZoomLevel;
-    if (!fitWidthZoom || fitWidthZoom <= 0 || fitWidthZoom === 1) {
+    if (!fitWidthZoom || fitWidthZoom <= 0) {
+      return;
+    }
+    if (fitWidthZoom === 1) {
+      // 1 is the plugin's unfitted start. Its own first fit runs before the
+      // viewport has a size and is retried only by a 150 ms debounced resize,
+      // while the viewport stays gated (blank) until a zoom lands.
+      requestFitWidth();
       return;
     }
 
@@ -372,6 +379,13 @@ function ZoomAPIBridgeInner({
         // the fit back to the auto heuristic, so it has to clear the flag.
         explicitFitRef.current = isFitMode(level);
         zoomRef.current?.requestZoom(level, center);
+      },
+      zoomBy: (factor: number, center: Point) => {
+        const zoom = zoomRef.current;
+        if (!zoom) return;
+        explicitFitRef.current = false;
+        // Read live: several wheel steps can land before React re-renders.
+        zoom.requestZoom(zoom.getState().currentZoomLevel * factor, center);
       },
     }),
     [explicitFitRef],

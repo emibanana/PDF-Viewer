@@ -75,6 +75,7 @@ function SeedDocument({
         zoomOut: noop,
         toggleMarqueeZoom: noop,
         requestZoom: noop,
+        zoomBy: noop,
       },
     });
     registerBridge("spread", {

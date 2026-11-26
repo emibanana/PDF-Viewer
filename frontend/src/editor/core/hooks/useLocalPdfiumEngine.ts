@@ -42,6 +42,54 @@ function destroyEngine(engine: PdfEngine<Blob> | null): void {
   }
 }
 
+/**
+ * An engine whose viewer unmounted, kept for the next viewer with the same
+ * options: a fresh one costs a worker plus a PDFium WASM boot on every
+ * document open. Only one is kept; its documents are closed by the registry
+ * that opened them, so nothing here may close all of the engine's documents
+ * once it can be handed on.
+ */
+let parked: { key: string; engine: PdfEngine<Blob> } | null = null;
+
+function engineKey({
+  wasmUrl,
+  logger,
+  encoderPoolSize,
+  fontFallback,
+}: LocalPdfiumEngineOptions): string | null {
+  // A caller's logger is bound to that caller, so its engine is not shared.
+  if (logger) return null;
+  return JSON.stringify({ wasmUrl, encoderPoolSize, fontFallback });
+}
+
+function takeParkedEngine(key: string | null): PdfEngine<Blob> | null {
+  if (key === null || parked?.key !== key) return null;
+  const { engine } = parked;
+  parked = null;
+  return engine;
+}
+
+function parkEngine(key: string | null, engine: PdfEngine<Blob> | null) {
+  if (!engine) return;
+  if (key === null) {
+    destroyEngine(engine);
+    return;
+  }
+  if (parked) destroyEngine(parked.engine);
+  parked = { key, engine };
+}
+
+/** Test seam: drops the kept engine so each test starts cold. */
+export function resetParkedPdfiumEngine(): void {
+  if (parked) destroyEngine(parked.engine);
+  parked = null;
+}
+
+/**
+ * The PDFium worker engine for one viewer. On unmount the engine is kept for
+ * the next viewer with equal options rather than destroyed; the options are
+ * compared by value, so a font config rebuilt with the same fonts still reuses it.
+ */
 export function useLocalPdfiumEngine({
   wasmUrl,
   logger,
@@ -52,50 +100,59 @@ export function useLocalPdfiumEngine({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const engineRef = useRef<PdfEngine<Blob> | null>(null);
+  const key = engineKey({ wasmUrl, logger, encoderPoolSize, fontFallback });
 
   useEffect(() => {
     let cancelled = false;
-    // Reset per attempt so the render tree never exposes the engine this run is
-    // about to destroy, nor a stale error left over from an earlier failure.
-    setEngine(null);
     setError(null);
-    setIsLoading(true);
 
-    (async () => {
-      try {
-        startEagerWasmCompilation();
-        const { createPdfiumEngine } =
-          await import("@embedpdf/engines/pdfium-worker-engine");
-        // The worker engine resolves pdfium from wasmUrl itself, so the
-        // precompiled module (a main-thread optimization) must not gate
-        // creation; awaiting it here would only delay the engine.
-        const pdfEngine = createPdfiumEngine(wasmUrl, {
-          logger,
-          encoderPoolSize,
-          fontFallback,
-        });
-        if (cancelled) {
-          destroyEngine(pdfEngine);
-          return;
-        }
-        engineRef.current = pdfEngine;
-        setEngine(pdfEngine);
-        setIsLoading(false);
-      } catch (cause) {
-        if (!cancelled) {
-          setError(cause instanceof Error ? cause : new Error(String(cause)));
+    const reused = takeParkedEngine(key);
+    if (reused) {
+      engineRef.current = reused;
+      setEngine(reused);
+      setIsLoading(false);
+    } else {
+      // Reset per attempt so the render tree never exposes the engine this run
+      // is about to release, nor a stale error left over from an earlier failure.
+      setEngine(null);
+      setIsLoading(true);
+      (async () => {
+        try {
+          startEagerWasmCompilation();
+          const { createPdfiumEngine } =
+            await import("@embedpdf/engines/pdfium-worker-engine");
+          // The worker engine resolves pdfium from wasmUrl itself, so the
+          // precompiled module (a main-thread optimization) must not gate
+          // creation; awaiting it here would only delay the engine.
+          const pdfEngine = createPdfiumEngine(wasmUrl, {
+            logger,
+            encoderPoolSize,
+            fontFallback,
+          });
+          if (cancelled) {
+            parkEngine(key, pdfEngine);
+            return;
+          }
+          engineRef.current = pdfEngine;
+          setEngine(pdfEngine);
           setIsLoading(false);
+        } catch (cause) {
+          if (!cancelled) {
+            setError(cause instanceof Error ? cause : new Error(String(cause)));
+            setIsLoading(false);
+          }
         }
-      }
-    })();
+      })();
+    }
 
     return () => {
       cancelled = true;
       const current = engineRef.current;
       engineRef.current = null;
-      destroyEngine(current);
+      parkEngine(key, current);
     };
-  }, [wasmUrl, logger, encoderPoolSize, fontFallback]);
+    // The key carries the other options by value.
+  }, [key, logger]);
 
   return { engine, isLoading, error };
 }

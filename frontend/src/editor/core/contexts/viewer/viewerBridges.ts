@@ -49,6 +49,11 @@ export interface ZoomAPIWrapper {
   zoomOut: () => void;
   toggleMarqueeZoom: () => void;
   requestZoom: (level: ZoomLevel, center?: Point) => void;
+  /**
+   * Multiplies the current zoom, keeping the document point under `center`
+   * (viewport pixels from the padding box's top-left) where it is.
+   */
+  zoomBy: (factor: number, center: Point) => void;
 }
 
 export interface PanAPIWrapper {

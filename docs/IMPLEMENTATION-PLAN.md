@@ -176,7 +176,8 @@ Foundation first: a typed markup model above EmbedPDF (subject, label, layer, st
 | --- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | ✅  | Opening speed measured                                                     | The slow open is the dev server only: about 7 s in `tauri dev` against about 0.5 s with the production bundle. Nothing to fix |
 | ⬜  | Profile first (WASM raster time vs React re-renders vs tile churn)         |
-| ⬜  | Zoom without the flash: keep old tiles, CSS-scale, coalesce wheel steps    |
+| ✅  | Zoom without the flash: keep old tiles until the new ones decode; Ctrl+wheel anchors on the pointer | `ViewerTilingLayer`, `useViewerWheelZoom` (see `core-patches.md`). ⚠️ Checked in the browser dev server, not yet in the desktop app |
+| ✅  | Faster open: one PDFium engine per open (was two), reused across documents; first fit no longer waits on a 150 ms debounce | Dev server, open to first sharp tile: about 550 ms before, 265 to 340 ms after. ⚠️ Production bundle not re-measured |
 | ⬜  | Raw binary IPC for file bytes (save already does this)                     |
 | ⬜  | Native PDF crate (`pdfium-render`) for folder-wide search and large merges |
 

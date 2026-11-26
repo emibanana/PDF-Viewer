@@ -38,10 +38,7 @@ import {
   SelectionLayer,
   SelectionPluginPackage,
 } from "@embedpdf/plugin-selection/react";
-import {
-  TilingLayer,
-  TilingPluginPackage,
-} from "@embedpdf/plugin-tiling/react";
+import { TilingPluginPackage } from "@embedpdf/plugin-tiling/react";
 import { PanPluginPackage } from "@embedpdf/plugin-pan/react";
 import { VIEWER_PAN_CONFIG } from "@editor/components/viewer/viewerPanConfig";
 import {
@@ -79,6 +76,7 @@ import {
 import { CustomSearchLayer } from "@editor/components/viewer/CustomSearchLayer";
 import { useActiveUrlSource } from "@editor/components/viewer/useActiveUrlSource";
 import { ZoomAPIBridge } from "@editor/components/viewer/ZoomAPIBridge";
+import { ViewerTilingLayer } from "@editor/components/viewer/ViewerTilingLayer";
 import { VIEWER_VIEWPORT_ATTR } from "@editor/components/viewer/usePagesPastInset";
 import { Center, Loader, Stack, Text } from "@mantine/core";
 import { ScrollAPIBridge } from "@editor/components/viewer/ScrollAPIBridge";
@@ -486,7 +484,7 @@ function PageTiles({
         visibility: hidden ? "hidden" : undefined,
       }}
     >
-      <TilingLayer documentId={documentId} pageIndex={pageIndex} />
+      <ViewerTilingLayer documentId={documentId} pageIndex={pageIndex} />
     </div>
   );
 }

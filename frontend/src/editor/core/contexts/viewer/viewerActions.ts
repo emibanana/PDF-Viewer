@@ -22,6 +22,8 @@ export interface ZoomActions {
   zoomOut: () => void;
   toggleMarqueeZoom: () => void;
   requestZoom: (level: ZoomLevel, center?: Point) => void;
+  /** Multiplies the zoom about `center`, in viewport pixels. */
+  zoomBy: (factor: number, center: Point) => void;
   setZoomLevel: (factor: number) => void;
 }
 
@@ -225,6 +227,9 @@ export function createViewerActions({
       if (api?.requestZoom) {
         api.requestZoom(level, center);
       }
+    },
+    zoomBy: (factor: number, center: Point) => {
+      registry.current.zoom?.api?.zoomBy?.(factor, center);
     },
     setZoomLevel: (factor: number) => {
       const api = registry.current.zoom?.api;

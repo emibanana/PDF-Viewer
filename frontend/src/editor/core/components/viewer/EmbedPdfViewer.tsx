@@ -69,7 +69,7 @@ import {
   RulerOverlay,
   type RulerOverlayHandle,
 } from "@editor/components/viewer/RulerOverlay";
-import { useWheelZoom } from "@editor/hooks/useWheelZoom";
+import { useViewerWheelZoom } from "@editor/components/viewer/useViewerWheelZoom";
 import { useFormFill } from "@editor/tools/formFill/FormFillContext";
 import { FormSaveBar } from "@editor/tools/formFill/FormSaveBar";
 import { useDocumentLoadWaiter } from "@editor/components/viewer/useDocumentLoadWaiter";
@@ -837,11 +837,7 @@ const EmbedPdfViewerContent = ({
       .filter(Boolean) as string[];
   }, [activeFiles, previewFile, bookmarkCacheKey]);
 
-  useWheelZoom({
-    ref: viewerRef,
-    onZoomIn: zoomActions.zoomIn,
-    onZoomOut: zoomActions.zoomOut,
-  });
+  useViewerWheelZoom(viewerRef, zoomActions.zoomBy);
 
   const viewerKeyCommand = useViewerKeyCommand();
 
