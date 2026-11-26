@@ -1,29 +1,23 @@
 {
-  "$schema": "../../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "Stirling PDF",
-  "mainBinaryName": "Stirling-PDF",
-  "version": "3.5.0",
-  "identifier": "stirling.pdf.dev",
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "PDF Viewer",
+  "mainBinaryName": "PDF-Viewer",
+  "version": "0.1.0",
+  "identifier": "app.pdfviewer.desktop",
   "build": {
     "frontendDist": "../dist",
     "devUrl": "http://localhost:5173",
-    "beforeDevCommand": "npx vite --mode desktop",
-    "beforeBuildCommand": "npx vite build --mode desktop"
+    "beforeDevCommand": "npx vite --mode studio",
+    "beforeBuildCommand": "npx vite build --mode studio"
   },
   "app": {
     "windows": []
   },
   "bundle": {
     "active": true,
-    "createUpdaterArtifacts": true,
-    "publisher": "Stirling PDF Inc.",
-    "targets": ["deb", "rpm", "appimage", "dmg", "app", "msi"],
-    "icon": [
-      "icons/windows/app.ico",
-      "icons/macos/app.icns",
-      "icons/macos/app-512.png"
-    ],
-    "resources": ["libs/*.jar", "runtime/jre/**/*"],
+    "publisher": "PDF Viewer",
+    "targets": ["nsis"],
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/windows/app.ico"],
     "fileAssociations": [
       {
         "ext": ["pdf"],
@@ -32,65 +26,15 @@
         "mimeType": "application/pdf"
       }
     ],
-    "linux": {
-      "deb": {
-        "desktopTemplate": "stirling-pdf.desktop"
-      },
-      "rpm": {
-        "desktopTemplate": "stirling-pdf.desktop",
-        "compression": { "type": "zstd", "level": 3 }
-      },
-      "appimage": {
-        "bundleMediaFramework": false
-      }
-    },
     "windows": {
-      "certificateThumbprint": null,
-      "digestAlgorithm": "sha256",
-      "timestampUrl": "http://timestamp.digicert.com",
-      "wix": {
-        "upgradeCode": "3305fba9-7e5e-5c09-bc71-eca0a65f4fee",
-        "bannerPath": "windows/wix/banner.bmp",
-        "dialogImagePath": "windows/wix/dialog.bmp",
-        "fragmentPaths": ["windows/wix/provisioning.wxs"],
-        "componentGroupRefs": ["ProvisioningComponentGroup"]
+      "nsis": {
+        "installMode": "currentUser"
       }
-    },
-    "macOS": {
-      "dmg": {
-        "background": "macos/dmg/background.png",
-        "windowSize": { "width": 660, "height": 400 },
-        "appPosition": { "x": 200, "y": 210 },
-        "applicationFolderPosition": { "x": 460, "y": 210 }
-      },
-      "minimumSystemVersion": "10.15",
-      "signingIdentity": null,
-      "entitlements": null,
-      "providerShortName": null,
-      "infoPlist": "Info.plist"
     }
   },
   "plugins": {
-    "shell": {
-      "open": true
-    },
     "fs": {
       "requireLiteralLeadingDot": false
-    },
-    "deep-link": {
-      "desktop": {
-        "schemes": ["stirlingpdf"]
-      }
-    },
-    "updater": {
-      "endpoints": [
-        "https://github.com/Stirling-Tools/Stirling-PDF/releases/latest/download/latest.json"
-      ],
-      "dialog": false,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDZEREM2QTgwNjdGNzdCOUQKUldTZGUvZG5nR3JjYmZ4TlZ3YVpHTVIzd2hBT2c4c000RDNIN2tLZENEblE4ZXFhU3J5V0lQanEK",
-      "windows": {
-        "installMode": "passive"
-      }
     }
   }
 }

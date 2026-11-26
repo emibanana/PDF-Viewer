@@ -4,90 +4,48 @@ use std::io::Write;
 use std::path::PathBuf;
 use std::sync::Mutex;
 
-// Store backend logs globally
-static BACKEND_LOGS: Mutex<VecDeque<String>> = Mutex::new(VecDeque::new());
+// Last few log lines, kept in memory so the frontend can show them for debugging.
+static LOGS: Mutex<VecDeque<String>> = Mutex::new(VecDeque::new());
+const MAX_LOG_LINES: usize = 200;
 
-// Get platform-specific log directory
-fn get_log_directory() -> PathBuf {
-    if cfg!(target_os = "macos") {
-        // macOS: ~/Library/Logs/Stirling-PDF
-        let home = std::env::var("HOME").unwrap_or_else(|_| "/tmp".to_string());
-        PathBuf::from(home)
-            .join("Library")
-            .join("Logs")
-            .join("Stirling-PDF")
-    } else if cfg!(target_os = "windows") {
-        // Windows: %APPDATA%\Stirling-PDF\logs
-        let appdata = std::env::var("APPDATA")
-            .unwrap_or_else(|_| std::env::temp_dir().to_string_lossy().to_string());
-        PathBuf::from(appdata).join("Stirling-PDF").join("logs")
-    } else {
-        // Linux: ~/.config/Stirling-PDF/logs
-        let home = std::env::var("HOME").unwrap_or_else(|_| "/tmp".to_string());
-        PathBuf::from(home)
-            .join(".config")
-            .join("Stirling-PDF")
-            .join("logs")
-    }
+// %APPDATA%\PDF Viewer\logs on Windows, a temp folder elsewhere.
+fn log_directory() -> PathBuf {
+    let base = std::env::var("APPDATA")
+        .map(PathBuf::from)
+        .unwrap_or_else(|_| std::env::temp_dir());
+    base.join("PDF Viewer").join("logs")
 }
 
-// Helper function to add log entry
 pub fn add_log(message: String) {
     let timestamp = std::time::SystemTime::now()
         .duration_since(std::time::UNIX_EPOCH)
-        .unwrap()
-        .as_secs();
+        .map(|d| d.as_secs())
+        .unwrap_or(0);
+    let entry = format!("{}: {}", timestamp, message.trim_end_matches('\n'));
 
-    let log_entry = format!("{}: {}", timestamp, message);
-
-    // Add to memory logs
-    {
-        let mut logs = BACKEND_LOGS.lock().unwrap();
-        logs.push_back(log_entry.clone());
-        // Keep only last 100 log entries
-        if logs.len() > 100 {
+    if let Ok(mut logs) = LOGS.lock() {
+        logs.push_back(entry.clone());
+        if logs.len() > MAX_LOG_LINES {
             logs.pop_front();
         }
     }
 
-    // Write to file
-    write_to_log_file(&log_entry);
-
-    // Remove trailing newline if present
-    let clean_message = message.trim_end_matches('\n').to_string();
-    println!("{}", clean_message); // Also print to console
-}
-
-// Write log entry to file
-fn write_to_log_file(log_entry: &str) {
-    let log_dir = get_log_directory();
-    if let Err(e) = std::fs::create_dir_all(&log_dir) {
-        eprintln!("Failed to create log directory: {}", e);
-        return;
-    }
-
-    let log_file = log_dir.join("tauri-backend.log");
-
-    match OpenOptions::new().create(true).append(true).open(&log_file) {
-        Ok(mut file) => {
-            if let Err(e) = writeln!(file, "{}", log_entry) {
-                eprintln!("Failed to write to log file: {}", e);
-            }
-        }
-        Err(e) => {
-            eprintln!("Failed to open log file {:?}: {}", log_file, e);
+    let dir = log_directory();
+    if std::fs::create_dir_all(&dir).is_ok() {
+        if let Ok(mut file) = OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open(dir.join("pdf-viewer.log"))
+        {
+            let _ = writeln!(file, "{}", entry);
         }
     }
+    println!("{}", entry);
 }
 
-// Get current logs for debugging
-pub fn get_logs() -> Vec<String> {
-    let logs = BACKEND_LOGS.lock().unwrap();
-    logs.iter().cloned().collect()
-}
-
-// Command to get logs from frontend
 #[tauri::command]
-pub async fn get_tauri_logs() -> Result<Vec<String>, String> {
-    Ok(get_logs())
+pub fn get_app_logs() -> Vec<String> {
+    LOGS.lock()
+        .map(|logs| logs.iter().cloned().collect())
+        .unwrap_or_default()
 }
