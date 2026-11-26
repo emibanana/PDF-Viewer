@@ -3,12 +3,13 @@ import {
   useToolOperation,
   defineCustomTool,
 } from "@editor/hooks/tools/shared/useToolOperation";
+import { renderPagesWithPdfjs } from "@editor/services/pdfEdit/renderPages";
 import { createStandardErrorHandler } from "@editor/utils/toolErrorHandler";
 import {
   FlattenParameters,
   defaultParameters,
 } from "@editor/hooks/tools/flatten/useFlattenParameters";
-import { flattenForms } from "@editor/services/pdfEdit/flatten";
+import { flattenForms, flattenToImages } from "@editor/services/pdfEdit/flatten";
 
 export {
   flattenToApiParams,
@@ -20,9 +21,9 @@ export const flattenOperationConfig = defineCustomTool({
   operationType: "flatten",
   customProcessor: async (parameters: FlattenParameters, files: File[]) => {
     if (!parameters.flattenOnlyForms) {
-      throw new Error(
-        'Flattening whole pages to images is not available in this build. Turn on "Flatten only forms".',
-      );
+      return {
+        files: await flattenToImages(files, parameters.renderDpi ?? 150, renderPagesWithPdfjs),
+      };
     }
     return { files: await flattenForms(files) };
   },

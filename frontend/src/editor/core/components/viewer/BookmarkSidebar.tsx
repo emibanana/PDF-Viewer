@@ -15,7 +15,10 @@ import { useToolWorkflow } from "@editor/contexts/ToolWorkflowContext";
 import { useFileContext } from "@editor/contexts/FileContext";
 import { isStirlingFile } from "@editor/types/fileContext";
 import { createStirlingFilesAndStubs } from "@editor/services/fileStubHelpers";
-import apiClient from "@editor/services/apiClient";
+import {
+  replaceTableOfContents,
+  type BookmarkPayload,
+} from "@editor/services/tableOfContentsService";
 import { assertSignedPdfsEditable } from "@editor/services/pdfSessionUnlock";
 import { openExternalTab } from "@editor/platform/openExternalTab";
 import { getExternalHref } from "@editor/utils/externalUrl";
@@ -33,12 +36,6 @@ interface BookmarkSidebarProps {
 }
 
 type BookmarkNode = PdfBookmarkObject & { id: string };
-
-interface BookmarkPayload {
-  title: string;
-  pageNumber: number;
-  children: BookmarkPayload[];
-}
 
 type BookmarkCacheStatus = "idle" | "loading" | "success" | "error";
 
@@ -411,18 +408,9 @@ export const BookmarkSidebar = ({
         { title, pageNumber: newBookmarkPage, children: [] },
       ];
 
-      const formData = new FormData();
-      formData.append("fileInput", file);
-      formData.append("replaceExisting", "true");
-      formData.append("bookmarkData", JSON.stringify(bookmarkData));
+      const blob = await replaceTableOfContents(file, bookmarkData);
 
-      const response = await apiClient.post(
-        "/api/v1/general/edit-table-of-contents",
-        formData,
-        { responseType: "blob" },
-      );
-
-      const newFile = new File([response.data as Blob], file.name, {
+      const newFile = new File([blob], file.name, {
         type: "application/pdf",
       });
       const { stirlingFiles, stubs } = await createStirlingFilesAndStubs(

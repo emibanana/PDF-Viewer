@@ -29,9 +29,10 @@ A local-only Windows desktop PDF viewer and markup tool, forked from [Stirling-P
 **Run it** (PowerShell, from `frontend/`):
 
 ```powershell
-. ..\dev-env.ps1      # puts rustup + the no-admin MSVC toolchain on PATH
 npx tauri dev         # builds the Rust host and opens the app
 ```
+
+Needs Rust (rustup) and the MSVC C++ build tools with a Windows SDK on the machine. A PC without admin rights can use a portable MSVC unpacked to `%USERPROFILE%	ools\msvc` with its own untracked `dev-env.ps1` that sets PATH, INCLUDE and LIB (the file is git-ignored).
 
 ---
 
@@ -52,7 +53,7 @@ npx tauri dev         # builds the Rust host and opens the app
 | 🟡 | File Library removed | Rail entry and the sidebar's "browse all" buttons are gone. ⬜ The library page code (`components/filesPage`, `FileManager`, the `myFiles` view) is still in `core/` and still has to be cut out |
 | ✅ | Rail logo button removed | It had no purpose |
 | 🟡 | Per-user NSIS installer | Configured; `tauri build` not run yet |
-| ✅ | GitHub fork pushed | `origin` = emibanana/PDF-Viewer; `main` tracks upstream, `studio` is ours |
+| ✅ | GitHub fork pushed | `origin` = emibanana/PDF-Viewer; `main` is our product branch (the former `studio`); the upstream mirror branch is gone |
 
 ### Tools that work today (no backend)
 
@@ -60,7 +61,7 @@ npx tauri dev         # builds the Rust host and opens the app
 
 ### Tools ported to run in the app
 
-Re-implemented with `@cantoo/pdf-lib` as shadow hooks in `studio/hooks/tools/` and processors in `studio/services/pdfEdit/` (39 unit tests: `npx vitest run --project studio`). A tool returns to the menu when its id leaves `PORT_PLANNED_TOOL_IDS`.
+Re-implemented with `@cantoo/pdf-lib` as shadow hooks in `studio/hooks/tools/` and processors in `studio/services/pdfEdit/` (66 unit tests: `npx vitest run --project studio`). A tool returns to the menu when its id leaves `PORT_PLANNED_TOOL_IDS`.
 
 | | Tool | Notes |
 |---|---|---|
@@ -68,10 +69,15 @@ Re-implemented with `@cantoo/pdf-lib` as shadow hooks in `studio/hooks/tools/` a
 | ✅ | Rotate, Remove Pages, Extract Pages, Change Metadata | Unit tested |
 | ✅ | Reorganize Pages (all 11 modes) | ⚠️ Booklet and side-stitch orders written from the UI descriptions, not compared with the Java output |
 | ✅ | Add Password, Remove Password, Change Permissions | ⚠️ Only round-tripped with pdf-lib; open an output in a real viewer to confirm |
-| 🟡 | Flatten | Forms-only mode works; the default whole-page-to-image mode is not built, so the tool stays hidden |
-| ⬜ | Split | Page-based modes first; chapters via bookmarks |
-| ⬜ | Show JavaScript, Edit Table of Contents, Manage Attachments | PDFium engine calls |
-| ⬜ | Crop, Watermark, Add Page Numbers, Sanitize, Get Info | pdf-lib |
+| ✅ | Flatten | Forms-only and whole-page-to-image (pdfjs render at the chosen DPI, rebuilt with pdf-lib). ⚠️ The image mode is unit tested with a stub renderer; the real canvas render is not clicked through yet |
+| ✅ | Split | After pages, every N pages, into N documents, by size, by bookmarks (`outline.ts` reader). ⚠️ By sections, page dividers and poster are not ported and are hidden from the method list |
+| ⬜ | Show JavaScript, Edit Table of Contents (tool), Manage Attachments | PDFium engine calls |
+| ✅ | Crop | Sets the crop box (content stays in the file). ⚠️ Auto-crop is not built and reports an error |
+| ✅ | Watermark | Tiled text or image, opacity, rotation, colour. ⚠️ Latin text only (standard font); the image-flatten option reuses Flatten |
+| ✅ | Add Page Numbers | 9 positions, margins, `{n}` `{total}` `{filename}`, zero padding, page selection |
+| ✅ | Sanitize | JavaScript, embedded files, XMP, info dictionary, links, embedded fonts. ⚠️ Checked on constructed files, not on real-world ones |
+| ✅ | Get Info | Metadata, size, per-page boxes/fonts/images/links, bookmarks, form fields. ⚠️ No text statistics, PDF/A or permissions sections |
+| ✅ | Bookmarks panel (viewer nav) | The panel reads the outline from the PDF locally; "add bookmark" now writes with pdf-lib through `tableOfContentsService` (core seam, see `docs/core-patches.md`). ⬜ Not clicked through in the app yet; the Edit Table of Contents tool is still hidden |
 
 ### Annotate: Add Text (text box)
 
@@ -188,23 +194,13 @@ Automate (batch pipelines), the File Library page, the logo button on the rail.
 | ⬜ | Accessibility review inside the text editor | Inert (flag off), entry points removed; internals remain |
 | 🟡 | Translation strings of removed tools (same queued task) | In `public/locales/*/translation.toml` |
 
----|---|---|
-| ⏸️ | OCR / Cleanup scans, Auto Rotate, Detect and Split Scanned Photos | Need OCR or computer vision. Planned route: Windows built-in OCR from Rust |
-| ⏸️ | Compress | Needs a real image/stream optimiser (Ghostscript is AGPL, so not bundled) |
-| ⏸️ | Convert (all), Repair | Office, PDF/A, HTML, epub and similar need Office, LibreOffice or a server. PDF to image and image to PDF can be revived client-side |
-| ⏸️ | Word/Excel/PowerPoint to PDF and back, PDF/A conversion and validation | Planned route: installed MS Office via COM, LibreOffice fallback |
-| ⏸️ | Certificate Sign, Remove Certificate Sign, Timestamp, Validate Signature | Need the Windows certificate store / CMS signing. Planned: Rust cert store + PKI.js |
-| ⏸️ | Check Accessibility, Auto Form Detection, Classify, Auto Rename | Need native analysis or an AI model |
-| ⏸️ | Page size/scale, Multi-Page Layout, Booklet, PDF to Single Page, Overlay PDFs, Remove Blank Pages, Remove Images, Replace Color, Add Stamp, Unlock Forms, Create Portfolio, Extract Images | Medium pdf-lib/pdfjs ports; not scheduled yet |
-| ⏸️ | Automate (batch pipelines) | Each step needs a tool endpoint; revisit once more tools run in-app |
-| ⏸️ | Developer link tools (API, folder scanning, SSO, air-gapped) | Open Stirling's online docs or the backend API |
 
 ---
 
 ## 4. Repo and upstream
 
 - Git remotes: `upstream` = Stirling-Tools/Stirling-PDF; `origin` = your fork (add it with `git remote add origin <url>`).
-- Branches: `main` mirrors upstream (never commit to it); `studio` is the product branch. Merge upstream into `studio` roughly monthly.
+- Branches: one branch, `main`. To take upstream changes, add the `upstream` remote and merge it into `main` roughly monthly.
 - Our code lives in `frontend/src/editor/studio/` (UI layer), `frontend/src-tauri/` (Rust host), `frontend/scripts/studio/` (brand and locale tools). Edits to upstream `core/` are kept to a minimum and listed in `docs/core-patches.md` when they happen.
 - A fork of a public repo stays public: never commit anything confidential (the Revu corpus goes in `corpus/`, which is git-ignored).
 - Releases: build on a Windows machine or GitHub Actions `windows-latest`; unsigned for internal use, a code-signing certificate before wide distribution.

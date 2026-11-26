@@ -10,17 +10,9 @@
  */
 
 export const PORT_PLANNED_TOOL_IDS: readonly string[] = [
-  // Flatten is ported for forms only; its default mode (whole page to an image) is not, so it stays hidden.
-  "flatten",
-  "split",
   "showJS",
   "editTableOfContents",
   "addAttachments",
-  "crop",
-  "watermark",
-  "addPageNumbers",
-  "sanitize",
-  "getPdfInfo",
 ];
 
 export const HIDDEN_TOOL_IDS: ReadonlySet<string> = new Set([

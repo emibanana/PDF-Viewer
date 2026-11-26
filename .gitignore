@@ -318,3 +318,6 @@ frontend/src-tauri/libs/.variant
 ### PDF Viewer fork ###
 # Real Bluebeam Revu PDFs used for compatibility tests: keep out of the public fork
 /corpus/
+
+# per-machine toolchain setup
+dev-env.ps1
