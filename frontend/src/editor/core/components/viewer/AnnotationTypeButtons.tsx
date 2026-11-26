@@ -5,6 +5,7 @@ import { OpacityControl } from "@editor/components/annotation/shared/OpacityCont
 import { WidthControl } from "@editor/components/annotation/shared/WidthControl";
 import { PropertiesPopover } from "@editor/components/annotation/shared/PropertiesPopover";
 import { ColorControl } from "@editor/components/annotation/shared/ColorControl";
+import { FreeTextStyleControls } from "@editor/components/annotation/shared/FreeTextStyleControls";
 import {
   DeleteButton,
   EditTextButton,
@@ -124,16 +125,20 @@ export function AnnotationTypeButtons(props: AnnotationTypeButtonsProps) {
     case "note":
       return (
         <>
-          {attachCommentButton}
+          <FreeTextStyleControls
+            fontSize={obj?.fontSize ?? 14}
+            fontFamily={obj?.fontFamily}
+            onChange={onPropertiesUpdate}
+          />
           <ColorControl
             value={textColor}
             onChange={(color) => onColorChange(color, "text")}
-            label={t("annotation.color", "Color")}
+            label={t("annotation.textColor", "Text colour")}
           />
           <ColorControl
             value={backgroundColor}
             onChange={(color) => onColorChange(color, "background")}
-            label={t("annotation.backgroundColor", "Background color")}
+            label={t("annotation.backgroundColor", "Background colour")}
           />
           <EditTextButton onEdit={onEdit} />
           <PropertiesPopover

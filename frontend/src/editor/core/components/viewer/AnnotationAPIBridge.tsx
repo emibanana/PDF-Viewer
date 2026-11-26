@@ -1,7 +1,12 @@
 import { useImperativeHandle, forwardRef, useCallback } from "react";
+import { toStandardFont } from "@editor/components/viewer/freeTextFont";
 import type { TrackedAnnotation } from "@embedpdf/plugin-annotation";
 import { useAnnotationCapability } from "@embedpdf/plugin-annotation/react";
-import { PdfAnnotationSubtype, PdfAnnotationIcon } from "@embedpdf/models";
+import {
+  PdfAnnotationSubtype,
+  PdfAnnotationIcon,
+  type PdfStandardFont,
+} from "@embedpdf/models";
 import type {
   AnnotationToolId,
   AnnotationToolOptions,
@@ -43,7 +48,7 @@ type AnnotationDefaults =
       type: PdfAnnotationSubtype.FREETEXT;
       fontColor?: string;
       fontSize?: number;
-      fontFamily?: string;
+      fontFamily?: PdfStandardFont;
       textAlign?: number;
       opacity?: number;
       color?: string;
@@ -246,7 +251,7 @@ const TOOL_DEFAULT_BUILDERS: Record<AnnotationToolId, ToolDefaultsBuilder> = {
     type: PdfAnnotationSubtype.FREETEXT,
     fontColor: options?.color ?? DEFAULTS.text,
     fontSize: options?.fontSize ?? 14,
-    fontFamily: options?.fontFamily ?? "Helvetica",
+    fontFamily: toStandardFont(options?.fontFamily),
     textAlign: options?.textAlign ?? 0,
     opacity: options?.opacity ?? 1,
     borderWidth: options?.thickness ?? 1,
@@ -261,7 +266,7 @@ const TOOL_DEFAULT_BUILDERS: Record<AnnotationToolId, ToolDefaultsBuilder> = {
     return {
       type: PdfAnnotationSubtype.FREETEXT,
       fontColor,
-      fontFamily: options?.fontFamily ?? "Helvetica",
+      fontFamily: toStandardFont(options?.fontFamily),
       textAlign: options?.textAlign ?? 0,
       fontSize: options?.fontSize ?? 12,
       opacity: options?.opacity ?? 1,

@@ -47,9 +47,12 @@ npx tauri dev         # builds the Rust host and opens the app
 | ✅ | Licence guard | Build fails on any import from a restricted directory. ⬜ CI step still to add |
 | ✅ | Open a PDF from disk | Verified: launching `pdf-viewer.exe file.pdf` while the app runs opens it. ⚠️ Open dialog and drag-drop written, not clicked through yet |
 | ✅ | Save in place (always overwrite) | Verified: temp file + rename in Rust, no leftover temp file. ⚠️ The "Save as" dialog for a never-saved file is not exercised yet |
-| ✅ | Tools that need the Java backend removed from the menu | Hidden everywhere (menu, search, Automate, links) via `studio/config/toolAvailability.ts` |
+| ✅ | Tools that need the Java backend deleted | Page, hooks, settings, tooltips, registry entry, route and id are gone from the code; listed under Deferred. ⚠️ Four keep only their operation hooks (OCR, Convert, Repair, Certificate Sign) because the text editor, create-PDF, damaged-file repair and signing still call them |
+| ✅ | Automate removed | Rail entry, tool and start-up option deleted |
+| 🟡 | File Library removed | Rail entry and the sidebar's "browse all" buttons are gone. ⬜ The library page code (`components/filesPage`, `FileManager`, the `myFiles` view) is still in `core/` and still has to be cut out |
+| ✅ | Rail logo button removed | It had no purpose |
 | 🟡 | Per-user NSIS installer | Configured; `tauri build` not run yet |
-| ⬜ | GitHub fork pushed | Repo is prepared locally (`main` tracks upstream, `studio` is ours); needs your GitHub fork URL |
+| ✅ | GitHub fork pushed | `origin` = emibanana/PDF-Viewer; `main` tracks upstream, `studio` is ours |
 
 ### Tools that work today (no backend)
 
@@ -70,11 +73,25 @@ Re-implemented with `@cantoo/pdf-lib` as shadow hooks in `studio/hooks/tools/` a
 | ⬜ | Show JavaScript, Edit Table of Contents, Manage Attachments | PDFium engine calls |
 | ⬜ | Crop, Watermark, Add Page Numbers, Sanitize, Get Info | pdf-lib |
 
+### Annotate: Add Text (text box)
+
+| | Feature | Design notes |
+|---|---|---|
+| ✅ | Font, size and colour per box | Floating menu on the selected box: font list, size − / number / +, text colour, background colour |
+| ✅ | Text box survives save, kill, reopen | Verified end to end: saved in place, process killed, file reopened, text present |
+| ✅ | Looks the same in Edge / Chrome / other viewers | Root causes: wrong font id written by the engine (Courier) and an empty stored appearance. Fixed by a real appearance stream added on save (`pdfEdit/freeTextAppearance.ts`, 7 tests). Checked by rendering the saved file with PDFium (Chrome's engine) |
+| ✅ | Standard fonts render in the viewer | The viewer's PDFium has no built-in Helvetica/Times/Courier and loaded them from a backend route we do not have, so non-embedded standard-font text was invisible. Liberation and DejaVu fallback fonts are now served from `public/fonts` |
+| ⚠️ | Caveats | Standard fonts only; characters outside WinAnsi are written as "?"; author field says "Digital Signature"; boxes saved before the fix keep Courier |
+| ⬜ | Use the fonts installed in Windows for fallback | Rust reads `C:\Windows\Fonts` (Arial, Times New Roman, Courier New, Segoe UI, CJK) and serves them to the engine; bundled Liberation stays as the backup. Gives Edge-identical glyphs and CJK text that the bundle cannot cover |
+| ⬜ | Pick any installed font for a new box | Needs embedding the font file on save |
+| ⬜ | Ctrl+S in Annotate | Download button saves in place today; Ctrl+S has no handler in the studio build |
+
 ### Desktop shell
 
 | | Feature | Design notes |
 |---|---|---|
-| ⬜ | New window per file; window title = file name + dot when unsaved | Single-instance handler focuses an already-open file, else opens a window |
+| ✅ | New window per launched file | Double-click / "Open with" opens the PDF in its own window; each window has its own file queue |
+| ⬜ | Window title = file name + dot when unsaved; focus the window if the file is already open | Single-instance handler currently always opens a new window |
 | ⬜ | Open-file switcher | Rust window registry; file strip in the title bar; Ctrl+Tab recent-files switcher with thumbnails; Ctrl+P "go to file" |
 | ⬜ | Taskbar integration | One AppUserModelID; thumbnail-toolbar buttons (Save, Print, Prev, Next, Close); overlay badge for unsaved; progress; Jump List |
 | ⬜ | Unsaved-changes handling | Ignore our own writes in the file watcher; silent reload when clean; our version wins when dirty; prompt on close only if unsaved |
@@ -140,10 +157,34 @@ Foundation first: a typed markup model above EmbedPDF (subject, label, layer, st
 
 ## 3. Deferred
 
-Hidden from the app because they need something this build does not ship. Listed in `studio/config/toolAvailability.ts`. Their upstream source stays in `core/` untouched so upstream merges stay clean; only the menu entry is removed.
+These tools need something this build does not ship (the Java backend, OCR, Office, a certificate store). Their code is **deleted**, not hidden, so the app carries no dead weight. Each line says what it would take to build them again.
 
 | | Tool(s) | Why deferred |
 |---|---|---|
+| ⏸️ | OCR / Cleanup scans, Auto Rotate, Detect and Split Scanned Photos | Need OCR or computer vision. Planned route: Windows built-in OCR from Rust |
+| ⏸️ | Compress | Needs a real image/stream optimiser (Ghostscript is AGPL, so not bundled) |
+| ⏸️ | Convert (all), Repair | Office, PDF/A, HTML, epub and similar need Office, LibreOffice or a server. PDF to image and image to PDF can be rebuilt client-side |
+| ⏸️ | Word/Excel/PowerPoint to PDF and back, PDF/A conversion and validation | Planned route: installed MS Office via COM, LibreOffice fallback |
+| ⏸️ | Certificate Sign, Remove Certificate Sign, Timestamp, Validate Signature | Need the Windows certificate store / CMS signing. Planned: Rust cert store + PKI.js |
+| ⏸️ | Check Accessibility, Auto Form Detection, Classify, Auto Rename | Need native analysis or an AI model |
+| ⏸️ | Page size/scale, Multi-Page Layout, Booklet, PDF to Single Page, Overlay PDFs, Remove Blank Pages, Remove Images, Replace Color, Add Stamp, Unlock Forms, Create Portfolio, Extract Images | Medium pdf-lib/pdfjs ports; not scheduled yet |
+| ⏸️ | Developer link tools (API, folder scanning, SSO, air-gapped) | Opened Stirling's online docs or the backend API |
+
+### Removed for good (not coming back)
+
+Automate (batch pipelines), the File Library page, the logo button on the rail.
+
+### Leftovers to clean up
+
+| | What | Notes |
+|---|---|---|
+| ⬜ | File Library page code | `core/components/filesPage`, `FileManager`, the `myFiles` workbench view, `/files` route |
+| ⬜ | Per-tool automation plumbing | `*AutomationSettings` components, `automationSettings` registry field, `constants/automation.ts`, automation services |
+| ⬜ | Features that call the server | Signing sessions and workspace, text-editor OCR, create-PDF, damaged-file repair; then delete the four operation-only hooks |
+| ⬜ | Accessibility review inside the text editor | Inert (flag off), entry points removed; internals remain |
+| ⬜ | Translation strings of removed tools | In `public/locales/*/translation.toml` |
+
+---|---|---|
 | ⏸️ | OCR / Cleanup scans, Auto Rotate, Detect and Split Scanned Photos | Need OCR or computer vision. Planned route: Windows built-in OCR from Rust |
 | ⏸️ | Compress | Needs a real image/stream optimiser (Ghostscript is AGPL, so not bundled) |
 | ⏸️ | Convert (all), Repair | Office, PDF/A, HTML, epub and similar need Office, LibreOffice or a server. PDF to image and image to PDF can be revived client-side |

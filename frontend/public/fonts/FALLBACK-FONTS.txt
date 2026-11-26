@@ -1,0 +1,10 @@
+Fallback fonts for PDFium (the viewer's PDF engine ships no standard-14 fonts, so a PDF's
+non-embedded Helvetica/Arial, Times and Courier are drawn with the metric-compatible faces below).
+
+LiberationSans/Serif/Mono-*.ttf  Liberation Fonts 2.x, SIL Open Font License 1.1
+                                  (Helvetica/Arial, Times, Courier substitutes)
+DejaVuSans*.ttf                   DejaVu Fonts, Bitstream Vera licence with public-domain DejaVu changes
+                                  (Verdana-width substitute)
+NotoSans-Regular.ttf              Noto Sans, SIL OFL 1.1 (see NotoSans-OFL.txt)
+
+Source: copied from app/core/src/main/resources/static/fonts in this repository.

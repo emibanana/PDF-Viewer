@@ -119,3 +119,27 @@
   background-color: rgba(255, 255, 255, 0.15);
   margin: 0 2px;
 }
+
+.embedpdf-floating-select,
+.embedpdf-floating-number {
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--c-floating-menu-text);
+  font-size: 0.8rem;
+}
+
+.embedpdf-floating-select {
+  padding: 0 4px;
+}
+
+.embedpdf-floating-select option {
+  color: #111;
+}
+
+.embedpdf-floating-number {
+  width: 46px;
+  padding: 0 4px;
+  text-align: center;
+}

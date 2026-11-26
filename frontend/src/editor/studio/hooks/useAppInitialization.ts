@@ -23,15 +23,15 @@ export function useAppInitialization(): void {
 
   useEffect(() => {
     if (!isTauriRuntime()) return;
-    let disposed = false;
-
     const drain = async () => {
       if (draining.current) return;
       draining.current = true;
       const endIngest = beginLaunchIngest();
       try {
         const paths = await invoke<string[]>("pop_opened_files");
-        if (disposed || paths.length === 0) return;
+        // Once popped the paths exist nowhere else, so load them even if this effect was
+        // torn down meanwhile (React remounts effects in development).
+        if (paths.length === 0) return;
 
         const loaded: { file: File; path: string }[] = [];
         for (const path of paths) {
@@ -73,7 +73,6 @@ export function useAppInitialization(): void {
     void drain();
     const unlisten = listen("files-changed", () => void drain());
     return () => {
-      disposed = true;
       void unlisten.then((off) => off());
     };
   }, []);

@@ -1,4 +1,5 @@
 import { save } from "@tauri-apps/plugin-dialog";
+import { ensureFreeTextAppearances } from "@editor/services/pdfEdit/freeTextAppearance";
 import {
   isTauriRuntime,
   writeBlobToPath,
@@ -16,6 +17,19 @@ export interface MultiFileSaveResult {
   error?: string;
 }
 
+/** Text boxes are saved with a stored appearance, so every viewer draws them the same way. */
+async function withTextBoxAppearances(
+  data: Blob | File,
+  filePath: string,
+): Promise<Blob> {
+  if (!/\.pdf$/i.test(filePath)) return data;
+  const original = new Uint8Array(await data.arrayBuffer());
+  const fixed = await ensureFreeTextAppearances(original);
+  return fixed === original
+    ? data
+    : new Blob([fixed as BlobPart], { type: "application/pdf" });
+}
+
 /** Writes `data` to `filePath`, replacing the file in place. */
 export async function saveToLocalPath(
   data: Blob | File,
@@ -25,7 +39,7 @@ export async function saveToLocalPath(
     return { success: false, error: "Local file save needs the desktop app" };
   }
   try {
-    await writeBlobToPath(data, filePath);
+    await writeBlobToPath(await withTextBoxAppearances(data, filePath), filePath);
     return { success: true };
   } catch (error) {
     return {

@@ -1,4 +1,5 @@
 import { useCallback, useMemo, type RefObject } from "react";
+import { toStandardFont } from "@editor/components/viewer/freeTextFont";
 import {
   PdfActionType,
   PdfAnnotationSubtype,
@@ -262,7 +263,7 @@ export function useAnnotationMenuHandlers({
         patch.textColor = color;
         patch.fontColor = color;
         patch.fontSize = obj?.fontSize ?? 14;
-        patch.fontFamily = obj?.fontFamily ?? "Helvetica";
+        patch.fontFamily = toStandardFont(obj?.fontFamily);
         patch.contents = obj?.contents ?? "";
       } else {
         patch.color = color;

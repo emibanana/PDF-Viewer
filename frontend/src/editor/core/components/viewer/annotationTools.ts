@@ -2,7 +2,7 @@ import type {
   AnnotationCapability,
   AnnotationTool,
 } from "@embedpdf/plugin-annotation";
-import { PdfAnnotationSubtype } from "@embedpdf/models";
+import { PdfAnnotationSubtype, PdfStandardFont } from "@embedpdf/models";
 import type { PdfAnnotationObject } from "@embedpdf/models";
 import { clickToClickLineHandler } from "@editor/components/viewer/clickToClickLineHandler";
 
@@ -342,7 +342,7 @@ export function registerAnnotationTools(
       type: PdfAnnotationSubtype.FREETEXT,
       textColor: "#111111",
       fontSize: 14,
-      fontFamily: "Helvetica",
+      fontFamily: PdfStandardFont.Helvetica,
       opacity: 1,
       interiorColor: "#fffef7",
       contents: "Text",
