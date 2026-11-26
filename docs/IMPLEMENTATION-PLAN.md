@@ -81,10 +81,12 @@ Re-implemented with `@cantoo/pdf-lib` as shadow hooks in `studio/hooks/tools/` a
 | ✅ | Text box survives save, kill, reopen | Verified end to end: saved in place, process killed, file reopened, text present |
 | ✅ | Looks the same in Edge / Chrome / other viewers | Root causes: wrong font id written by the engine (Courier) and an empty stored appearance. Fixed by a real appearance stream added on save (`pdfEdit/freeTextAppearance.ts`, 7 tests). Checked by rendering the saved file with PDFium (Chrome's engine) |
 | ✅ | Standard fonts render in the viewer | The viewer's PDFium has no built-in Helvetica/Times/Courier and loaded them from a backend route we do not have, so non-embedded standard-font text was invisible. Liberation and DejaVu fallback fonts are now served from `public/fonts` |
-| ⚠️ | Caveats | Standard fonts only; characters outside WinAnsi are written as "?"; author field says "Digital Signature"; boxes saved before the fix keep Courier |
-| ⬜ | Use the fonts installed in Windows for fallback | Rust reads `C:\Windows\Fonts` (Arial, Times New Roman, Courier New, Segoe UI, CJK) and serves them to the engine; bundled Liberation stays as the backup. Gives Edge-identical glyphs and CJK text that the bundle cannot cover |
-| ⬜ | Pick any installed font for a new box | Needs embedding the font file on save |
-| ⬜ | Ctrl+S in Annotate | Download button saves in place today; Ctrl+S has no handler in the studio build |
+| ✅ | Ctrl+S saves in place | Same Save as the toolbar button; commits a text box that is still being typed first. Verified: typed text, Ctrl+S, no prompt, text on disk |
+| ✅ | Fallback fonts come from Windows | Rust serves the installed Arial, Times New Roman, Courier New, Verdana, Segoe UI and CJK fonts to the engine (`sysfont://`, `commands/fonts.rs`); bundled Liberation/DejaVu are the backup. Verified: Times, Courier and Japanese/Chinese text render |
+| ✅ | Author is the Windows user | New annotations store the signed-in Windows user name instead of "Digital Signature" |
+| ⚠️ | Boxes saved before the fix keep Courier | The wrong font was written into the file; pick the font in the box's menu and save to correct one |
+| ⬜ | Non-Latin text in a text box | Stored text is right but the appearance draws "?" for characters outside Western text. Needs `@pdf-lib/fontkit` (new dependency, MIT) to embed a Windows font |
+| ⬜ | Pick any installed font for a new box | Same embedding work as above |
 
 ### Desktop shell
 
