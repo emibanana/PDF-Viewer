@@ -58,7 +58,7 @@ pub async fn open_in_new_window(app: AppHandle, paths: Vec<String>) -> Result<St
     run_on_main_thread(&app, move || {
         let label = next_window_label();
         for path in &valid {
-            add_opened_file(path.clone());
+            add_opened_file(&label, path.clone());
         }
         match build_window(&handle, &label) {
             Ok(window) => {
@@ -95,7 +95,7 @@ pub fn target_window_label(app: &AppHandle) -> Option<String> {
 // Queue files and tell one window to pick them up.
 pub fn forward_files_to_window(app: &AppHandle, label: &str, paths: Vec<String>) {
     for path in &paths {
-        add_opened_file(path.clone());
+        add_opened_file(label, path.clone());
     }
     if let Some(window) = app.get_webview_window(label) {
         let _ = app.emit_to(label, "files-changed", ());

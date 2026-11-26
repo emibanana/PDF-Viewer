@@ -72,17 +72,21 @@ pub fn run() {
         .plugin(tauri_plugin_single_instance::init(|app, args, _cwd| {
             // Runs in the running instance when a second launch is attempted
             // ("open with", double-click while the app is open).
+            // Each document opens in a window of its own.
             let files = parse_launch_files(&args);
-            let label = target_window_label(app).unwrap_or_else(|| MAIN_WINDOW_LABEL.to_string());
             if files.is_empty() {
+                let label =
+                    target_window_label(app).unwrap_or_else(|| MAIN_WINDOW_LABEL.to_string());
                 focus_window(app, &label);
             } else {
-                add_log(format!(
-                    "Forwarding {} file(s) to window '{}'",
-                    files.len(),
-                    label
-                ));
-                forward_files_to_window(app, &label, files);
+                for file in files {
+                    let handle = app.clone();
+                    tauri::async_runtime::spawn(async move {
+                        if let Err(err) = open_in_new_window(handle, vec![file]).await {
+                            add_log(format!("Could not open a window for a file: {}", err));
+                        }
+                    });
+                }
             }
         }))
         .setup(|app| {
@@ -95,7 +99,7 @@ pub fn run() {
             // frontend mounts and pops the queue.
             let args: Vec<String> = std::env::args().collect();
             for path in parse_launch_files(&args) {
-                add_opened_file(path);
+                add_opened_file(MAIN_WINDOW_LABEL, path);
             }
             Ok(())
         })

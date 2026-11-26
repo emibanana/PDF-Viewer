@@ -2,41 +2,43 @@ use crate::utils::add_log;
 use serde::Serialize;
 use std::io::{ErrorKind, Write};
 use std::path::{Path, PathBuf};
+use std::collections::BTreeMap;
 use std::sync::Mutex;
 use tauri::ipc::{InvokeBody, Request};
 
 // Paths handed to the app by the OS ("open with", command line, second launch)
-// that no window has picked up yet.
-static OPENED_FILES: Mutex<Vec<String>> = Mutex::new(Vec::new());
+// that the target window has not picked up yet, keyed by window label so each
+// window only ever opens the files meant for it.
+static OPENED_FILES: Mutex<BTreeMap<String, Vec<String>>> = Mutex::new(BTreeMap::new());
 
-pub fn add_opened_file(file_path: String) {
-    if let Ok(mut files) = OPENED_FILES.lock() {
-        add_log(format!("File queued for opening: {}", file_path));
-        files.push(file_path);
+pub fn add_opened_file(label: &str, file_path: String) {
+    if let Ok(mut queues) = OPENED_FILES.lock() {
+        add_log(format!("File queued for window '{}': {}", label, file_path));
+        queues.entry(label.to_string()).or_default().push(file_path);
     }
 }
 
 #[tauri::command]
-pub fn get_opened_files() -> Vec<String> {
+pub fn get_opened_files(window: tauri::WebviewWindow) -> Vec<String> {
     OPENED_FILES
         .lock()
-        .map(|files| files.clone())
+        .map(|queues| queues.get(window.label()).cloned().unwrap_or_default())
         .unwrap_or_default()
 }
 
 #[tauri::command]
-pub fn clear_opened_files() {
-    if let Ok(mut files) = OPENED_FILES.lock() {
-        files.clear();
+pub fn clear_opened_files(window: tauri::WebviewWindow) {
+    if let Ok(mut queues) = OPENED_FILES.lock() {
+        queues.remove(window.label());
     }
 }
 
-// Atomically take and clear the queue, so two windows never open the same file.
+// Atomically take and clear this window's queue.
 #[tauri::command]
-pub fn pop_opened_files() -> Vec<String> {
+pub fn pop_opened_files(window: tauri::WebviewWindow) -> Vec<String> {
     OPENED_FILES
         .lock()
-        .map(|mut files| std::mem::take(&mut *files))
+        .map(|mut queues| queues.remove(window.label()).unwrap_or_default())
         .unwrap_or_default()
 }
 

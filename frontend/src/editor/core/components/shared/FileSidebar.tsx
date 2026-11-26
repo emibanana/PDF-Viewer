@@ -271,19 +271,6 @@ function LibraryHeader({
       <FileSidebarGroupControls stubs={stubs} />
       <ActionIcon
         variant="quiet"
-        className="file-sidebar-section-btn file-sidebar-section-btn-external"
-        onClick={onOpenFilesPage}
-        title={t("fileSidebar.openFileManager", "Browse all files & folders")}
-        aria-label={t(
-          "fileSidebar.openFileManager",
-          "Browse all files & folders",
-        )}
-        data-testid="open-files-page"
-      >
-        <Icon name="maximize-2" size={"1rem"} />
-      </ActionIcon>
-      <ActionIcon
-        variant="quiet"
         className="file-sidebar-section-btn file-sidebar-section-btn-search"
         onClick={() => openSuperSearch(["files"])}
         title={t("fileSidebar.searchFiles", "Search files")}
@@ -459,18 +446,6 @@ function GroupedFileList({
           />
         );
       })}
-      <Button
-        variant="quiet"
-        fullWidth
-        justify="between"
-        className="file-sidebar-view-all"
-        onClick={onViewAll}
-        rightSection={<Icon name="chevron-right" size={"1rem"} />}
-      >
-        {t("fileSidebar.viewAll", "View all {{count}} files", {
-          count: total,
-        })}
-      </Button>
     </>
   );
 }

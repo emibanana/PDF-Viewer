@@ -49,7 +49,6 @@ export const DEFERRED_TOOL_IDS: readonly string[] = [
   "convert",
   "repair",
   "autoRename",
-  "automate",
   "autoFormDetection",
   "classify",
   // Link-only entries that open Stirling's online docs or the backend API.
@@ -59,9 +58,13 @@ export const DEFERRED_TOOL_IDS: readonly string[] = [
   "devAirgapped",
 ];
 
+/** Dropped on purpose, not deferred: no plan to bring them back. */
+export const REMOVED_TOOL_IDS: readonly string[] = ["automate"];
+
 export const HIDDEN_TOOL_IDS: ReadonlySet<string> = new Set([
   ...PORT_PLANNED_TOOL_IDS,
   ...DEFERRED_TOOL_IDS,
+  ...REMOVED_TOOL_IDS,
 ]);
 
 export function omitHiddenTools<T extends object>(tools: T): T {
