@@ -9,6 +9,7 @@ import { markupKindOf, readMarkupCustom } from "@editor/services/markups/markupM
 import { DEFAULT_PRECISION, computeMeasurement, formatPrimary } from "@editor/services/markups/measureMath";
 import { normalizeTurns } from "@editor/services/markups/pageGeometry";
 import { useActiveFileKey, usePageScale } from "@editor/services/markups/pageScaleStore";
+import { useMarkupsUi } from "@editor/services/markups/markupsUiStore";
 import { isHiddenAnnotation } from "@editor/services/markups/propertyPatches";
 import "@editor/components/viewer/markups/MarkupsDocks.css";
 
@@ -25,7 +26,7 @@ interface PlacedLabel {
 /**
  * The measured value of each measurement markup on a page (ours, and `*Dimension` annotations
  * other programs wrote, measured on the page's scale), drawn on it, plus the click
- * layer for calibration. Labels are an overlay, not part of the saved appearance: they are
+ * layer for calibration. The pills only show while the viewer bar's toggle is on. Labels are an overlay, not part of the saved appearance: they are
  * computed from the geometry and the page's scale, so they follow edits and scale changes, keep
  * one screen size at every zoom and are turned back upright on a rotated page. A markup that is
  * hidden or deleted has no label.
@@ -37,6 +38,7 @@ export function MeasureLabelLayer({ documentId, pageIndex }: { documentId: strin
   const zoom = documentState?.scale ?? 1;
   const turns = normalizeTurns((documentState?.document?.pages?.[pageIndex]?.rotation ?? 0) + (documentState?.rotation ?? 0));
   const pageScale = usePageScale(useActiveFileKey(), pageIndex);
+  const showLabels = useMarkupsUi((uiState) => uiState.showMeasureLabels);
 
   const labels = useMemo<PlacedLabel[]>(() => {
     if (!state) return [];
@@ -76,7 +78,7 @@ export function MeasureLabelLayer({ documentId, pageIndex }: { documentId: strin
   return (
     <>
       {handleCss && <style>{handleCss}</style>}
-      {labels.length > 0 && (
+      {showLabels && labels.length > 0 && (
         <div className="measure-label-layer" aria-hidden>
           {labels.map((label) => (
             <span

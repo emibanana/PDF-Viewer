@@ -65,10 +65,6 @@ import {
 } from "@editor/types/fileContext";
 import { useViewerWorkbenchBarButtons } from "@editor/components/viewer/useViewerWorkbenchBarButtons";
 import { StampPlacementOverlay } from "@editor/components/viewer/StampPlacementOverlay";
-import {
-  RulerOverlay,
-  type RulerOverlayHandle,
-} from "@editor/components/viewer/RulerOverlay";
 import { useViewerWheelZoom } from "@editor/components/viewer/useViewerWheelZoom";
 import { useFormFill } from "@editor/tools/formFill/FormFillContext";
 import { FormSaveBar } from "@editor/tools/formFill/FormSaveBar";
@@ -78,9 +74,6 @@ import {
   type FormApplyDetail,
 } from "@editor/tools/formFill/formFillEvents";
 import { useViewerKeyCommand } from "@editor/hooks/useViewerKeyCommand";
-import { useMeasurementManager } from "@editor/hooks/useMeasurementManager";
-import { ScaleCalibrationDialog } from "@editor/components/viewer/ScaleCalibrationDialog";
-import { MarkupsRightDock } from "@editor/components/viewer/markups/MarkupsRightDock";
 import { MarkupsBottomDock } from "@editor/components/viewer/markups/MarkupsBottomDock";
 import { useMarkupDockLayout } from "@editor/components/viewer/markups/useMarkupDockLayout";
 import { usePolicyFileBadges } from "@editor/hooks/usePolicyFileBadges";
@@ -1880,46 +1873,16 @@ const EmbedPdfViewerContent = ({
     };
   }, [applyChanges, setApplyChanges]);
 
-  // Ruler / measurement tool state is handled by the dedicated hook.
-  const rulerOverlayRef = useRef<RulerOverlayHandle | null>(null);
-
-  const {
-    isRulerActive,
-    setIsRulerActive,
-    pageMeasureScales,
-    customScale,
-    handleSetCustomScale,
-    isScaleCalibrationActive,
-    scaleCalibrationMeasurement,
-    startScaleCalibration,
-    cancelScaleCalibration,
-    handleScaleCalibrationMeasurement,
-    applyScaleCalibration,
-  } = useMeasurementManager({
-    currentFile,
-    effectiveFile,
-    rulerOverlayRef,
-  });
-
   // A page tool takes the pages' pointer input and draws its own find, so the
-  // viewer's ruler, pan and search stand down while it is open.
+  // viewer's pan and search stand down while it is open.
   useEffect(() => {
     if (!pageToolActive) return;
-    setIsRulerActive(false);
     panActions.disablePan();
     searchInterfaceActions.close();
-  }, [pageToolActive, setIsRulerActive, panActions, searchInterfaceActions]);
+  }, [pageToolActive, panActions, searchInterfaceActions]);
 
   // Register workbench bar buttons for the viewer
-  useViewerWorkbenchBarButtons(
-    isRulerActive,
-    setIsRulerActive,
-    customScale,
-    handleSetCustomScale,
-    isScaleCalibrationActive,
-    startScaleCalibration,
-    cancelScaleCalibration,
-  );
+  useViewerWorkbenchBarButtons();
 
   // Auto-fetch form fields when a PDF is loaded in the viewer.
   // In normal viewer mode, this uses PDFium WASM (frontend-only).
@@ -2022,7 +1985,7 @@ const EmbedPdfViewerContent = ({
   const totalRightMargin =
     sidebarsMarginRem + (pagesPastInset ? 0 : rightInsetRem);
   const markupDocks = useMarkupDockLayout();
-  const pagesRightMargin = `calc(${totalRightMargin}rem + ${markupDocks.rightPx}px)`;
+  const pagesRightMargin = `${totalRightMargin}rem`;
 
   return (
     <Box
@@ -2217,27 +2180,10 @@ const EmbedPdfViewerContent = ({
               signatureConfig={signatureConfig}
               signatureLineZoom={signatureLineZoom}
             />
-            <RulerOverlay
-              ref={rulerOverlayRef}
-              containerRef={pdfContainerRef}
-              isActive={isRulerActive}
-              pageMeasureScales={pageMeasureScales}
-              customScale={customScale}
-              isCalibrationActive={isScaleCalibrationActive}
-              onCalibrationMeasure={handleScaleCalibrationMeasurement}
-            />
           </Box>
-          <MarkupsRightDock rightOffsetRem={totalRightMargin} />
           </div>
           <MarkupsBottomDock />
           {pageTool?.BottomBar && <pageTool.BottomBar />}
-          <ScaleCalibrationDialog
-            opened={!!scaleCalibrationMeasurement}
-            measurement={scaleCalibrationMeasurement}
-            defaultUnit={customScale?.unit ?? "m"}
-            onApplyScale={applyScaleCalibration}
-            onClose={cancelScaleCalibration}
-          />
         </>
       )}
 

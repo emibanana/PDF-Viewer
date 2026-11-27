@@ -2,16 +2,13 @@ import { useSyncExternalStore } from "react";
 
 export const BOTTOM_DOCK_MIN_HEIGHT = 140;
 export const BOTTOM_DOCK_MAX_HEIGHT = 720;
-export const RIGHT_DOCK_MIN_WIDTH = 260;
-export const RIGHT_DOCK_MAX_WIDTH = 520;
 
 export interface MarkupsUiState {
-  rightDockOpen: boolean;
   bottomDockOpen: boolean;
+  /** Value pills drawn on measurement markups; off unless the user turns them on. */
+  showMeasureLabels: boolean;
   /** Pixels; applies while the bottom dock is open. */
   bottomDockHeight: number;
-  /** Pixels; applies while the right dock is open. */
-  rightDockWidth: number;
   /** The annotation id the viewer has selected, with the page it is on. */
   selectedAnnotationId: string | null;
   selectedPageIndex: number | null;
@@ -20,7 +17,7 @@ export interface MarkupsUiState {
 }
 
 const STORAGE_KEY = "markups.ui";
-const PERSISTED_KEYS = ["rightDockOpen", "bottomDockOpen", "bottomDockHeight", "rightDockWidth"] as const;
+const PERSISTED_KEYS = ["bottomDockOpen", "bottomDockHeight", "showMeasureLabels"] as const;
 
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
@@ -32,13 +29,10 @@ function loadPersisted(): Partial<MarkupsUiState> {
     if (typeof parsed !== "object" || parsed === null) return {};
     const source = parsed as Record<string, unknown>;
     const result: Partial<MarkupsUiState> = {};
-    if (typeof source.rightDockOpen === "boolean") result.rightDockOpen = source.rightDockOpen;
     if (typeof source.bottomDockOpen === "boolean") result.bottomDockOpen = source.bottomDockOpen;
+    if (typeof source.showMeasureLabels === "boolean") result.showMeasureLabels = source.showMeasureLabels;
     if (typeof source.bottomDockHeight === "number") {
       result.bottomDockHeight = clamp(source.bottomDockHeight, BOTTOM_DOCK_MIN_HEIGHT, BOTTOM_DOCK_MAX_HEIGHT);
-    }
-    if (typeof source.rightDockWidth === "number") {
-      result.rightDockWidth = clamp(source.rightDockWidth, RIGHT_DOCK_MIN_WIDTH, RIGHT_DOCK_MAX_WIDTH);
     }
     return result;
   } catch {
@@ -48,10 +42,9 @@ function loadPersisted(): Partial<MarkupsUiState> {
 
 function initialState(): MarkupsUiState {
   return {
-    rightDockOpen: false,
     bottomDockOpen: false,
+    showMeasureLabels: false,
     bottomDockHeight: 260,
-    rightDockWidth: 320,
     selectedAnnotationId: null,
     selectedPageIndex: null,
     armedToolId: null,
@@ -86,7 +79,6 @@ export function subscribeMarkupsUi(listener: () => void): () => void {
 export function setMarkupsUi(patch: Partial<MarkupsUiState>): void {
   const next: MarkupsUiState = { ...state, ...patch };
   next.bottomDockHeight = clamp(next.bottomDockHeight, BOTTOM_DOCK_MIN_HEIGHT, BOTTOM_DOCK_MAX_HEIGHT);
-  next.rightDockWidth = clamp(next.rightDockWidth, RIGHT_DOCK_MIN_WIDTH, RIGHT_DOCK_MAX_WIDTH);
   const changed = (Object.keys(next) as (keyof MarkupsUiState)[]).some((key) => next[key] !== state[key]);
   if (!changed) return;
   const persistedChanged = PERSISTED_KEYS.some((key) => next[key] !== state[key]);
@@ -95,8 +87,8 @@ export function setMarkupsUi(patch: Partial<MarkupsUiState>): void {
   for (const listener of [...listeners]) listener();
 }
 
-export function toggleRightDock(): void {
-  setMarkupsUi({ rightDockOpen: !state.rightDockOpen });
+export function toggleMeasureLabels(): void {
+  setMarkupsUi({ showMeasureLabels: !state.showMeasureLabels });
 }
 
 export function toggleBottomDock(): void {
@@ -110,10 +102,9 @@ export function useMarkupsUi<T>(select: (state: MarkupsUiState) => T): T {
 
 export function resetMarkupsUiForTests(): void {
   state = {
-    rightDockOpen: false,
     bottomDockOpen: false,
+    showMeasureLabels: false,
     bottomDockHeight: 260,
-    rightDockWidth: 320,
     selectedAnnotationId: null,
     selectedPageIndex: null,
     armedToolId: null,

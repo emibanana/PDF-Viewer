@@ -61,7 +61,10 @@ export function MeasurementValues({ measurement, precision = DEFAULT_PRECISION }
     [t("markups.props.area", "Area"), show(measurement.area, "area")],
     [t("markups.props.perimeter", "Perimeter"), show(measurement.perimeter, "length")],
     [t("markups.props.wallArea", "Wall area"), show(measurement.wallArea, "area")],
+    [t("markups.props.height", "Height"), show(measurement.height, "length")],
+    [t("markups.props.depth", "Depth"), show(measurement.depth, "length")],
     [t("markups.props.volume", "Volume"), show(measurement.volume, "volume")],
+    [t("markups.props.angle", "Angle"), show(measurement.angle, "angle")],
   ];
   return (
     <dl className="markups-values" data-testid="markups-values">

@@ -63,7 +63,8 @@ import {
   type RowFacetFilter,
 } from "@editor/services/markups/markupRows";
 import { formatNumber } from "@editor/services/markups/measureMath";
-import { setMarkupsUi, useMarkupsUi } from "@editor/services/markups/markupsUiStore";
+import { useMarkupsUi } from "@editor/services/markups/markupsUiStore";
+import { showReaderNavTab } from "@editor/utils/readerNavStore";
 import { useMarkupRows, useMarkupTextFormat } from "@editor/services/markups/useMarkupRows";
 import { MarkupsListToolbar, type FacetOptions } from "@editor/components/viewer/markups/MarkupsListToolbar";
 import "@editor/components/viewer/markups/MarkupsList.css";
@@ -621,7 +622,7 @@ export function MarkupsList({ onClose }: { onClose: () => void }) {
                     if (event.shiftKey) event.preventDefault();
                   }}
                   onClick={(event) => selectRow(event, row)}
-                  onDoubleClick={() => setMarkupsUi({ rightDockOpen: true })}
+                  onDoubleClick={() => showReaderNavTab("measure")}
                 >
                   {visibleIds.map((id) => {
                     const spec = specOf(id);

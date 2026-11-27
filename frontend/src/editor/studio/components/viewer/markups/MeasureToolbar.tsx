@@ -31,13 +31,13 @@ export function useToolLabels(): Record<MarkupKind, string> {
   };
 }
 
-/** The six measurement tools and Calibrate. A tool stays armed after each markup; Esc stops it. */
+/** The measurement tools. A tool stays armed after each markup; Esc stops it. */
 export function MeasureToolbar() {
   const { t } = useTranslation();
   const labels = useToolLabels();
   const armedToolId = useMarkupsUi((state) => state.armedToolId);
   const calibrating = useCalibration().active;
-  const { armTool, calibrate } = useMeasureActions();
+  const { armTool } = useMeasureActions();
   const hint = calibrating
     ? t("markups.calibrate.hint", "Click two points a known distance apart. Esc cancels.")
     : armedToolId
@@ -60,17 +60,6 @@ export function MeasureToolbar() {
             {labels[spec.kind]}
           </Button>
         ))}
-        <Button
-          size="sm"
-          variant={calibrating ? "primary" : "secondary"}
-          leftSection={<Icon name="pencil-ruler" size="1rem" />}
-          aria-pressed={calibrating}
-          className="markups-dock__calibrate"
-          onClick={calibrate}
-          data-testid="markups-calibrate"
-        >
-          {t("markups.calibrate.button", "Calibrate")}
-        </Button>
       </div>
       {hint && <p className="markups-hint">{hint}</p>}
     </section>

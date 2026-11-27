@@ -21,6 +21,7 @@ import { requestProcessorSignup } from "@editor/services/processorSignup";
 import { useConnectedServer } from "@editor/hooks/useConnectedServer";
 
 import { Icon } from "@editor/ui/Icon";
+import { useMarkupRailEntries } from "@editor/components/viewer/markups/useMarkupRailEntries";
 import { selectReaderNavTab, useReaderNav, type ReaderNavTab } from "@editor/utils/readerNavStore";
 const SIZE = "1.125rem";
 
@@ -146,6 +147,7 @@ export function QuickNavRailHost() {
     current: readerNav.open && readerNav.tab === id,
     onClick: () => selectReaderNavTab(id),
   });
+  const markupEntries = useMarkupRailEntries();
   const readerNavEntries: QuickNavEntry[] = inEditor
     ? [
         readerTab("files", t("readerPanel.files", "Files"), <Icon name="folder-open" size={SIZE} />),
@@ -153,6 +155,7 @@ export function QuickNavRailHost() {
         readerTab("pages", t("readerPanel.pages", "Pages"), <Icon name="rows-2" size={SIZE} />),
         readerTab("comments", t("readerPanel.comments", "Comments"), <Icon name="message-square" size={SIZE} />),
         readerTab("attachments", t("readerPanel.attachments", "Attachments"), <Icon name="paperclip" size={SIZE} />),
+        ...markupEntries,
       ]
     : [];
 

@@ -9,6 +9,7 @@ import { ScaleCalibrationDialog } from "@editor/components/viewer/ScaleCalibrati
 import type { MeasureScale } from "@editor/utils/measurementTypes";
 import { getUnitOptions } from "@editor/utils/measurementUtils";
 import { cancelCalibration, restartCalibration, useCalibration } from "@editor/services/markups/calibrateStore";
+import { useMeasureActions } from "@editor/components/viewer/markups/useMeasureActions";
 import { setPagePrecision, setScaleForPages, usePageScale } from "@editor/services/markups/pageScaleStore";
 import {
   IMPERIAL_PRESETS,
@@ -42,6 +43,7 @@ export function PageScaleSection({ fileKey, pageIndex, totalPages }: PageScaleSe
   const { t } = useTranslation();
   const entry = usePageScale(fileKey, pageIndex);
   const calibration = useCalibration();
+  const { calibrate } = useMeasureActions();
   const [applyToAll, setApplyToAll] = useState(false);
   const scale = entry?.scale ?? null;
   const preset = findPreset(scale);
@@ -103,6 +105,19 @@ export function PageScaleSection({ fileKey, pageIndex, totalPages }: PageScaleSe
         {": "}
         {label ?? t("markups.scale.notSet", "Scale not set")}
       </p>
+      <Button
+        size="sm"
+        variant={calibration.active ? "primary" : "secondary"}
+        fullWidth
+        aria-pressed={calibration.active}
+        disabled={!fileKey}
+        onClick={calibration.active ? cancelCalibration : calibrate}
+        data-testid="markups-calibrate"
+      >
+        {calibration.active
+          ? t("markups.scale.drawCancel", "Drawing a known length: click two points (Esc cancels)")
+          : t("markups.scale.draw", "Draw to set scale")}
+      </Button>
       <div className="markups-fields">
         <FormField label={t("markups.scale.preset", "Scale")}>
           <Select

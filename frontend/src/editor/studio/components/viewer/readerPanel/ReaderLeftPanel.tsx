@@ -12,6 +12,7 @@ import { pendingFilePathMappings } from "@editor/services/pendingFilePathMapping
 import { isTauriRuntime, readPathAsFile } from "@editor/services/tauriFiles";
 import { createQuickKey } from "@editor/types/fileContext";
 import { useWorkbenchFileDrop } from "@editor/components/layout/useWorkbenchFileDrop";
+import { MeasurePanel } from "@editor/components/viewer/markups/MeasurePanel";
 import { setReaderNavOpen, useReaderNav } from "@editor/utils/readerNavStore";
 import "@editor/components/viewer/readerPanel/ReaderLeftPanel.css";
 
@@ -111,7 +112,8 @@ export function ReaderLeftPanel({ recent }: { recent: ReactNode }) {
   ]);
 
   // The layers toggle in the viewer bar docks here too, whichever tab is showing.
-  const showDock = tab !== "files" || isLayerSidebarVisible;
+  const showMeasure = open && tab === "measure";
+  const showDock = !showMeasure && (tab !== "files" || isLayerSidebarVisible);
 
   const openPathNow = useCallback(
     async (path: string) => {
@@ -165,10 +167,11 @@ export function ReaderLeftPanel({ recent }: { recent: ReactNode }) {
     pages: t("readerPanel.pages", "Pages"),
     comments: t("readerPanel.comments", "Comments"),
     attachments: t("readerPanel.attachments", "Attachments"),
+    measure: t("markups.bar.properties", "Measure"),
   };
 
   return (
-    <aside className="reader-panel" data-testid="reader-left-panel" hidden={!open} {...dropHandlers}>
+    <aside className="reader-panel" data-testid="reader-left-panel" hidden={!open} data-wide={tab === "measure" || undefined} {...dropHandlers}>
       <div className="reader-panel__header">
         <span className="reader-panel__title">{titles[tab]}</span>
         <ActionIcon
@@ -188,7 +191,13 @@ export function ReaderLeftPanel({ recent }: { recent: ReactNode }) {
 
       {/* The file cards stay mounted while another tab shows: they own opening and
           dropping files. */}
-      <div className="reader-panel__files" hidden={showDock}>
+      {showMeasure && (
+        <div className="reader-panel__measure">
+          <MeasurePanel />
+        </div>
+      )}
+
+      <div className="reader-panel__files" hidden={showDock || showMeasure}>
         <section className="reader-panel__recent">
           <h3 className="reader-panel__heading">{t("readerPanel.recent", "Recent")}</h3>
           <div className="reader-panel__recent-list">{recent}</div>

@@ -6,6 +6,8 @@ Read, mark up, organise and protect PDFs in one lightweight desktop app. No acco
 
 ![PDF Viewer showing an architectural floor plan at 218% zoom, with recent files and the other drawings in the same folder in the left panel](docs/screenshots/viewer.png)
 
+![Measuring a drawing: length, area, count and angle markups with value labels, the Measure panel with the page scale, and the Markups List with totals](docs/screenshots/measure-markups.png)
+
 > **Early but usable.** Version 0.1. The viewer, markup and page tools work today; the professional markup, measurement and editing features below are on the [roadmap](docs/ROADMAP.md).
 
 ## Why PDF Viewer
@@ -23,11 +25,12 @@ PDF Viewer starts from the [Stirling-PDF](https://github.com/Stirling-Tools/Stir
 - **Installs without admin rights.** The installer is per-user, so it works on locked-down company laptops where IT has to install Revu or Acrobat for you.
 - **Page orders the others don't do.** Booklet and side-stitch order, interleaving separately scanned front and back pages, odd/even splits and other page-reordering modes, built in.
 - **Light and quick.** One small native app with no Java and no server: a document is on screen in about half a second, zoom never flashes, and Ctrl+S saves straight back to the file.
-- **Coming next: Revu markups without Revu.** Read and reply to Bluebeam markups with their status, custom columns and measurements ([roadmap P2](docs/ROADMAP.md#phases)).
+- **Revu markups without Revu.** Bluebeam measurements open as measurements; status, custom columns and replies are next ([roadmap P2](docs/ROADMAP.md#phases)).
 
 ## What you can do today
 
 - **Read**: smooth zoom and scroll, thumbnails, bookmarks, attachments and comments panels, find and replace text.
+- **Measure** like Bluebeam: set the page scale by drawing a known length, then measure length, polylength, curve, area, wall, volume, angle and count. Values are written the way Revu writes them, so Revu and this app read each other's measurements. The Measure panel and the Markups List (with totals and CSV export) open from the left rail.
 - **Mark up**: highlight, underline, strikeout, squiggly, pen and highlighter, text boxes, sticky notes, insert and replace text, rectangles, ellipses, lines, arrows, polylines, polygons, stamps, images and signatures.
 - **Organise pages**: drag-and-drop page editor, merge, split, rotate, extract, delete, reorganise, crop.
 - **Edit and annotate documents**: edit text, fill forms, watermark, page numbers, metadata, adjust colours, compare two documents.
@@ -45,7 +48,7 @@ PDF Viewer starts from the [Stirling-PDF](https://github.com/Stirling-Tools/Stir
 | Works fully offline, no licence check or cloud features | ✅ | 🟡 | 🟡 |
 | Installs without admin rights | ✅ | ❌ | ❌ |
 | Booklet, side-stitch and duplex-scan page reordering | ✅ | ❌ | 🟡 |
-| Review Revu markups (status, columns, measurements) without a Revu licence | 🗺️ | ❌ | 🟡 |
+| Review Revu markups (status, columns, measurements) without a Revu licence | 🟡 | ❌ | 🟡 |
 | _Viewing_ | | | |
 | Fast viewer, thumbnails, bookmarks, text search | ✅ | ✅ | ✅ |
 | Search across files with bulk markup from results | 🗺️ | ✅ | 🟡 |
@@ -59,8 +62,8 @@ PDF Viewer starts from the [Stirling-PDF](https://github.com/Stirling-Tools/Stir
 | Layers and legends | 🗺️ | ✅ | 🟡 |
 | Markups List with status, custom columns and CSV/XLSX export | 🟡 | ✅ | 🟡 |
 | _Measurement_ | | | |
-| Calibrated length, perimeter and area | 🗺️ | ✅ | 🟡 |
-| Count, volume, cutouts and quantity totals | 🗺️ | ✅ | ❌ |
+| Calibrated length, perimeter and area | ✅ | ✅ | 🟡 |
+| Count, volume, cutouts and quantity totals | 🟡 | ✅ | ❌ |
 | _Review_ | | | |
 | Compare documents | ✅ | ✅ | ✅ |
 | Overlay pages | 🗺️ | ✅ | ❌ |

@@ -124,3 +124,15 @@
 .reader-panel__dock .sidebar-base__header {
   display: none;
 }
+
+.reader-panel[data-wide] {
+  width: 20rem;
+  min-width: 20rem;
+}
+
+.reader-panel__measure {
+  flex: 1;
+  min-height: 0;
+  padding: 0 0.75rem 0.75rem;
+  overflow-y: auto;
+}

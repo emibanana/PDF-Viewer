@@ -102,12 +102,12 @@ Every phase below has to keep these budgets. A feature that makes the viewer slo
 
 | Feature | From | Us | Notes |
 | --- | --- | --- | --- |
-| Show the values of measurements made in Revu (read-only) | Revu | P2 | Read from the file's measurement data; creating new measurements is P4 |
-| Calibrate scale per page, preset scales, viewports with their own scale | Revu (Acrobat basic) | P4 | |
-| Length, polylength, perimeter, area | Both | P4 | Acrobat has distance, perimeter and area only |
-| Area with cutouts, volume (depth), radius, angle, diameter | Revu | P4 | |
-| Count tool with symbols | Revu | P4 | |
-| Measurement totals in the Markups List; export quantities | Revu | P4 | Builds on P2 totals |
+| Show the values of measurements made in Revu | Revu | ✅ | Length, polylength, area, angle and count read from `/IT`, `/Measure` and `/VP`, and written back the way Revu writes them |
+| Calibrate scale per page, preset scales, viewports with their own scale | Revu (Acrobat basic) | 🟡 | Draw a known length, presets and typed ratios per page or all pages; region viewports are read but not drawn |
+| Length, polylength, perimeter, area | Both | ✅ | Acrobat has distance, perimeter and area only |
+| Area with cutouts, volume (depth), radius, angle, diameter | Revu | 🟡 | Volume, wall height and angle are in; cutouts, radius and diameter are not |
+| Count tool with symbols | Revu | 🟡 | Checkmark count, totalled per page and subject; other symbols are not |
+| Measurement totals in the Markups List; export quantities | Revu | 🟡 | Totals and CSV export work; angle and count have no column yet |
 | Snap to PDF content (endpoints, midpoints, intersections) | Revu | P4 | Reads vector paths from PDFium |
 | Spaces: named regions that group markups (rooms, zones) | Revu | P4 | |
 | Sketch to scale (draw by typed length and angle) | Revu | P4 | |

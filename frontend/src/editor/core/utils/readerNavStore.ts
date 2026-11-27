@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from "react";
 
 /** What the reader's left panel is showing, picked from the quick-nav rail. */
-export type ReaderNavTab = "files" | "bookmarks" | "pages" | "comments" | "attachments";
+export type ReaderNavTab = "files" | "bookmarks" | "pages" | "comments" | "attachments" | "measure";
 
 interface ReaderNavState {
   open: boolean;
@@ -30,6 +30,11 @@ export function useReaderNav(): ReaderNavState {
 export function selectReaderNavTab(tab: ReaderNavTab) {
   if (state.open && state.tab === tab) set({ ...state, open: false });
   else set({ open: true, tab });
+}
+
+/** Opens `tab` in the panel and leaves it open if it is already showing. */
+export function showReaderNavTab(tab: ReaderNavTab) {
+  set({ open: true, tab });
 }
 
 export function setReaderNavOpen(open: boolean) {

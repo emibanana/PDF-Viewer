@@ -26,23 +26,13 @@ import {
   useRedaction,
   useRedactionMode,
 } from "@editor/contexts/RedactionContext";
-import { RulerScaleSettingsButton } from "@editor/components/viewer/RulerScaleSettingsButton";
 import { useMarkupBarButtons } from "@editor/components/viewer/markups/useMarkupBarButtons";
-import type { MeasureScale } from "@editor/utils/measurementTypes";
 import { useReviewMode } from "@editor/tools/pdfTextEditor/store/reviewMode";
 import {
   useEditOrReview,
 } from "@editor/tools/pdfTextEditor/hooks/useEditOrReview";
 
-export function useViewerWorkbenchBarButtons(
-  isRulerActive?: boolean,
-  setIsRulerActive?: (v: boolean) => void,
-  customScale?: MeasureScale | null,
-  setCustomScale?: (scale: MeasureScale | null) => void,
-  isScaleCalibrationActive?: boolean,
-  startScaleCalibration?: () => void,
-  cancelScaleCalibration?: () => void,
-) {
+export function useViewerWorkbenchBarButtons() {
   const { t, i18n } = useTranslation();
   const viewer = useViewer();
   const {
@@ -102,8 +92,6 @@ export function useViewerWorkbenchBarButtons(
   const editTextLabel = t("workbenchBar.editText", "Edit Text");
   const { reviewing } = useReviewMode();
   const { startEditing } = useEditOrReview();
-  const rulerLabel = t("workbenchBar.ruler", "Ruler / Measure");
-  const rulerSettingsLabel = t("workbenchBar.rulerSettings", "Scale Settings");
 
   const isFormFillActive = (selectedTool as string) === "formFill";
   const isTextEditActive = selectedTool === "pdfTextEditor";
@@ -144,29 +132,6 @@ export function useViewerWorkbenchBarButtons(
     [toolRegistry],
   );
 
-  const handleStartScaleCalibration = useCallback(() => {
-    startScaleCalibration?.();
-    setIsRulerActive?.(true);
-    if (isPanning) {
-      viewer.panActions.disablePan();
-    }
-  }, [isPanning, setIsRulerActive, startScaleCalibration, viewer.panActions]);
-
-  const handleCancelScaleCalibration = useCallback(() => {
-    cancelScaleCalibration?.();
-  }, [cancelScaleCalibration]);
-
-  const handleApplyRulerScale = useCallback(
-    (scale: MeasureScale) => {
-      setCustomScale?.(scale);
-    },
-    [setCustomScale],
-  );
-
-  const handleResetRulerScale = useCallback(() => {
-    setCustomScale?.(null);
-  }, [setCustomScale]);
-
   const viewerButtons = useMemo<WorkbenchBarButtonWithAction[]>(() => {
     const panRedactionBlocked =
       !isPanning && pendingCount > 0 && redactionActiveType !== null;
@@ -183,15 +148,6 @@ export function useViewerWorkbenchBarButtons(
     const togglePan = () =>
       leaveTextEditThen(() => {
         viewer.panActions.togglePan();
-        if (!isPanning && isRulerActive) setIsRulerActive?.(false);
-      });
-    const toggleRuler = () =>
-      leaveTextEditThen(() => {
-        const next = !isRulerActive;
-        setIsRulerActive?.(next);
-        if (next && isPanning) {
-          viewer.panActions.disablePan();
-        }
       });
     const panelToggle = (
       id: string,
@@ -289,29 +245,6 @@ export function useViewerWorkbenchBarButtons(
           />
         ),
       },
-      {
-        id: "viewer-ruler",
-        tooltip: rulerLabel,
-        ariaLabel: rulerLabel,
-        section: pageSection,
-        order: 14,
-        active: Boolean(isRulerActive),
-        icon: <Icon name="ruler" size="1rem" />,
-        onClick: toggleRuler,
-        foldsIntoMenu,
-        render: ({ disabled }) => (
-          <BarButton
-            icon="ruler"
-            label={rulerLabel}
-            iconOnly
-            size={pageButtonSize}
-            tooltipPosition={pageTooltip}
-            active={Boolean(isRulerActive)}
-            disabled={disabled}
-            onClick={toggleRuler}
-          />
-        ),
-      },
       // Bookmarks, comments and attachments live in the reader's left panel, picked
       // from the quick-nav rail, rather than as toggles in this row.
       ...(hasLayers
@@ -348,32 +281,6 @@ export function useViewerWorkbenchBarButtons(
           />
         ),
       },
-      // Scale settings belong to the ruler, so they sit beside it while it is
-      // on. They don't fold, so a narrow bar keeps them next to the Tools menu.
-      ...(isRulerActive
-        ? [
-            {
-              id: "viewer-ruler-settings",
-              tooltip: rulerSettingsLabel,
-              ariaLabel: rulerSettingsLabel,
-              section: pageSection,
-              order: 15,
-              render: ({ disabled }: { disabled?: boolean }) => (
-                <RulerScaleSettingsButton
-                  disabled={disabled}
-                  label={rulerSettingsLabel}
-                  tooltipPosition={pageTooltip}
-                  currentScale={customScale}
-                  onApplyScale={handleApplyRulerScale}
-                  onResetScale={handleResetRulerScale}
-                  onStartCalibration={handleStartScaleCalibration}
-                  onCancelCalibration={handleCancelScaleCalibration}
-                  isCalibrationActive={isScaleCalibrationActive}
-                />
-              ),
-            },
-          ]
-        : []),
       {
         id: "viewer-edit-text",
         tooltip: editTextLabel,
@@ -530,18 +437,8 @@ export function useViewerWorkbenchBarButtons(
     pageTool,
     pageToolActive,
     leaveTextEditThen,
-    rulerLabel,
-    rulerSettingsLabel,
-    isRulerActive,
-    setIsRulerActive,
-    handleStartScaleCalibration,
-    handleCancelScaleCalibration,
-    handleApplyRulerScale,
-    handleResetRulerScale,
-    customScale,
-    isScaleCalibrationActive,
   ]);
 
-  useWorkbenchBarButtons(viewerButtons);
   useMarkupBarButtons();
+  useWorkbenchBarButtons(viewerButtons);
 }
