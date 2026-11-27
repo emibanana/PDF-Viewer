@@ -3,7 +3,7 @@ import { PdfAnnotationSubtype } from "@embedpdf/models";
 import { MEASURE_TOOL_SPECS, isMeasureToolId, markupKindOf, mergeMarkupCustom, readMarkupCustom } from "./markupModel";
 
 describe("tool specs", () => {
-  it("maps the six tools to the subtypes and intents of the plan", () => {
+  it("maps the tools to the subtypes and intents of the plan", () => {
     expect(MEASURE_TOOL_SPECS.map(({ id, subtype, intent }) => [id, subtype, intent])).toEqual([
       ["measureLength", PdfAnnotationSubtype.LINE, "LineDimension"],
       ["measurePolylength", PdfAnnotationSubtype.POLYLINE, "PolyLineDimension"],
@@ -11,9 +11,19 @@ describe("tool specs", () => {
       ["measureArea", PdfAnnotationSubtype.POLYGON, "PolygonDimension"],
       ["measureWall", PdfAnnotationSubtype.POLYLINE, "PolyLineDimension"],
       ["measureVolume", PdfAnnotationSubtype.POLYGON, "PolygonDimension"],
+      ["measureAngle", PdfAnnotationSubtype.POLYLINE, "PolyLineAngle"],
+      ["measureCount", PdfAnnotationSubtype.POLYGON, "PolygonCount"],
     ]);
     expect(isMeasureToolId("measureWall")).toBe(true);
     expect(isMeasureToolId("polyline")).toBe(false);
+  });
+});
+
+describe("markupKindOf for Bluebeam intents", () => {
+  it("recognises angles and counts by /IT and subtype", () => {
+    expect(markupKindOf({ type: PdfAnnotationSubtype.POLYLINE, intent: "PolyLineAngle" })).toBe("angle");
+    expect(markupKindOf({ type: PdfAnnotationSubtype.POLYGON, intent: "PolygonCount" })).toBe("count");
+    expect(markupKindOf({ type: PdfAnnotationSubtype.POLYGON, intent: "PolyLineAngle" })).toBeNull();
   });
 });
 

@@ -11,10 +11,13 @@ import {
 
 export const DEFAULT_PRECISION = 2;
 
+/** Decimal places of an angle; the page scale's precision is for lengths. Bluebeam writes `55.7°`. */
+const ANGLE_PRECISION = 1;
+
 /** What a page with no scale set measures in: millimetres on the paper. */
 export const PAPER_SCALE: MeasureScale = { factor: POINT_TO_UNIT.mm, ratio: 1, unit: "mm" };
 
-export type Quantity = "length" | "area" | "volume";
+export type Quantity = "length" | "area" | "volume" | "angle";
 
 export function distance(a: MarkupPoint, b: MarkupPoint): number {
   return Math.hypot(a.x - b.x, a.y - b.y);
@@ -110,6 +113,7 @@ export function effectiveScale(scale: MeasureScale | null | undefined): MeasureS
 export function unitLabel(unit: string, quantity: Quantity): string {
   if (quantity === "area") return `sq ${unit}`;
   if (quantity === "volume") return `cu ${unit}`;
+  if (quantity === "angle") return "°";
   return unit;
 }
 
@@ -120,6 +124,7 @@ export function formatNumber(value: number, precision = DEFAULT_PRECISION): stri
 
 /** For example `15.67 m`, `13.78 sq m`, `0.46 cu m`. */
 export function formatQuantity(value: number, unit: string, quantity: Quantity, precision = DEFAULT_PRECISION): string {
+  if (quantity === "angle") return `${formatNumber(value, precision)}°`;
   return `${formatNumber(value, precision)} ${unitLabel(unit, quantity)}`;
 }
 
@@ -160,6 +165,18 @@ export interface Measurement {
   depth?: number;
   wallArea?: number;
   volume?: number;
+  /** Degrees, 0 to 180, at the middle of the three points. */
+  angle?: number;
+}
+
+/** The angle at `vertex` between the rays to `a` and `b`, in degrees from 0 to 180. */
+export function angleAt(a: MarkupPoint, vertex: MarkupPoint, b: MarkupPoint): number {
+  const first = { x: a.x - vertex.x, y: a.y - vertex.y };
+  const second = { x: b.x - vertex.x, y: b.y - vertex.y };
+  const lengths = Math.hypot(first.x, first.y) * Math.hypot(second.x, second.y);
+  if (lengths === 0) return 0;
+  const cosine = (first.x * second.x + first.y * second.y) / lengths;
+  return (Math.acos(Math.max(-1, Math.min(1, cosine))) * 180) / Math.PI;
 }
 
 function geometryOf(annotation: MarkupAnnotation, kind: MarkupKind): MarkupPoint[] {
@@ -179,6 +196,11 @@ export function computeMeasurement(annotation: MarkupAnnotation, scale: MeasureS
   const kind = markupKindOf(annotation);
   if (!kind) return null;
   const points = geometryOf(annotation, kind);
+  if (kind === "count") return { kind, unit: effectiveScale(scale).unit, scaled: scale !== null };
+  if (kind === "angle") {
+    if (points.length < 3) return null;
+    return { kind, unit: effectiveScale(scale).unit, scaled: scale !== null, angle: angleAt(points[0], points[1], points[2]) };
+  }
   if (points.length < (isClosedKind(kind) ? 3 : 2)) return null;
   const { factor, unit } = effectiveScale(scale);
   const custom = readMarkupCustom(annotation.custom);
@@ -212,6 +234,10 @@ export function primaryValue(measurement: Measurement): { value: number; quantit
     case "wall":
       if (measurement.wallArea !== undefined) return { value: measurement.wallArea, quantity: "area" };
       return measurement.length === undefined ? null : { value: measurement.length, quantity: "length" };
+    case "angle":
+      return measurement.angle === undefined ? null : { value: measurement.angle, quantity: "angle" };
+    case "count":
+      return null;
     case "volume":
       if (measurement.volume !== undefined) return { value: measurement.volume, quantity: "volume" };
       return measurement.area === undefined ? null : { value: measurement.area, quantity: "area" };
@@ -221,6 +247,7 @@ export function primaryValue(measurement: Measurement): { value: number; quantit
 /** The text written to an annotation's `/Contents`, or null when there is no value to show. */
 export function formatPrimary(measurement: Measurement, precision = DEFAULT_PRECISION): string | null {
   const primary = primaryValue(measurement);
+  if (primary?.quantity === "angle") return formatQuantity(primary.value, measurement.unit, "angle", ANGLE_PRECISION);
   return primary ? formatQuantity(primary.value, measurement.unit, primary.quantity, precision) : null;
 }
 

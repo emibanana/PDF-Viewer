@@ -1,5 +1,11 @@
 import type { AnnotationCapability, AnnotationTool, HandlerFactory } from "@embedpdf/plugin-annotation";
-import { PdfAnnotationBorderStyle, PdfAnnotationSubtype, type PdfAnnotationObject, type Position } from "@embedpdf/models";
+import {
+  PdfAnnotationBorderStyle,
+  PdfAnnotationSubtype,
+  type PdfAnnotationObject,
+  type PdfPolygonAnnoObject,
+  type Position,
+} from "@embedpdf/models";
 import { clickToClickLineHandler } from "@editor/components/viewer/clickToClickLineHandler";
 import {
   MEASURE_TOOL_SPECS,
@@ -40,7 +46,7 @@ function matchScoreFor(spec: MeasureToolSpec) {
 }
 
 function defaultsFor(spec: MeasureToolSpec): Record<string, unknown> {
-  const closed = spec.subtype === PdfAnnotationSubtype.POLYGON;
+  const closed = spec.subtype === PdfAnnotationSubtype.POLYGON && spec.kind !== "count";
   return {
     type: spec.subtype,
     intent: spec.intent,
@@ -48,7 +54,7 @@ function defaultsFor(spec: MeasureToolSpec): Record<string, unknown> {
     strokeColor: MEASURE_STROKE,
     color: closed ? MEASURE_FILL : MEASURE_STROKE,
     opacity: closed ? 0.6 : 1,
-    strokeWidth: 2,
+    strokeWidth: spec.kind === "count" ? 0.5 : 2,
     strokeStyle: PdfAnnotationBorderStyle.SOLID,
     custom: { markup: { v: 1, kind: spec.kind } },
   };
@@ -87,6 +93,90 @@ function curveHandler(base: Handler): Handler {
   };
 }
 
+const ANGLE_POINTS = 3;
+
+/** Finishes the polyline on its third click: an angle is exactly two rays from a vertex. */
+function angleHandler(base: Handler): Handler {
+  return {
+    annotationType: base.annotationType,
+    create(context) {
+      const inner = base.create(context);
+      let clicks = 0;
+      const reset = () => {
+        clicks = 0;
+      };
+      return {
+        ...inner,
+        onClick(pos, evt, modeId) {
+          inner.onClick?.(pos, evt, modeId);
+          if (++clicks < ANGLE_POINTS) return;
+          reset();
+          inner.onDoubleClick?.(pos, evt, modeId);
+        },
+        onPointerCancel(pos, evt, modeId) {
+          reset();
+          inner.onPointerCancel?.(pos, evt, modeId);
+        },
+        onHandlerActiveStart(modeId) {
+          reset();
+          inner.onHandlerActiveStart?.(modeId);
+        },
+        onHandlerActiveEnd(modeId) {
+          reset();
+          inner.onHandlerActiveEnd?.(modeId);
+        },
+      };
+    },
+  };
+}
+
+/** Offsets from the checkmark's centre in a y-up page, in points: the shape Bluebeam draws for a count. */
+const CHECKMARK: readonly Position[] = [
+  { x: -9, y: -0.19 },
+  { x: -6.96, y: 1.85 },
+  { x: -2.44, y: -2.67 },
+  { x: 6.96, y: 6.73 },
+  { x: 9, y: 4.7 },
+  { x: -2.44, y: -6.74 },
+];
+
+/** One click drops one checkmark; the save pass totals them per page and subject. */
+function countHandler(base: Handler): Handler {
+  return {
+    annotationType: base.annotationType,
+    create(context) {
+      return {
+        onClick(pos, evt) {
+          if (evt.metaKey || evt.ctrlKey) return;
+          const tool = context.getTool();
+          if (!tool) return;
+          const defaults = tool.defaults as Record<string, unknown>;
+          const strokeWidth = typeof defaults.strokeWidth === "number" ? defaults.strokeWidth : 0.5;
+          const vertices = CHECKMARK.map(({ x, y }) => ({ x: pos.x + x, y: pos.y - y }));
+          const xs = vertices.map((v) => v.x);
+          const ys = vertices.map((v) => v.y);
+          const pad = strokeWidth / 2;
+          const left = Math.min(...xs) - pad;
+          const top = Math.min(...ys) - pad;
+          const rect = { origin: { x: left, y: top }, size: { width: Math.max(...xs) + pad - left, height: Math.max(...ys) + pad - top } };
+          const annotation = {
+            ...defaults,
+            type: PdfAnnotationSubtype.POLYGON,
+            id: crypto.randomUUID(),
+            pageIndex: context.pageIndex,
+            created: new Date(),
+            vertices,
+            rect,
+            contents: "1",
+            flags: defaults.flags ?? ["print"],
+          } as unknown as PdfPolygonAnnoObject;
+          context.onCommit(annotation);
+        },
+      };
+    },
+  };
+}
+
 /** Fills `/Contents` and the default wall height or slab depth into the annotation as it is created, so creation stays one undo step. */
 function measuredHandler(base: Handler, getPageScale: MeasureScaleLookup): Handler {
   return {
@@ -107,6 +197,8 @@ function buildTool(spec: MeasureToolSpec, base: AnnotationTool, getPageScale: Me
   const baseHandler = base.pointerHandler as Handler;
   let handler = spec.kind === "length" ? clickToClickLineHandler(baseHandler) : baseHandler;
   if (spec.kind === "curve") handler = curveHandler(handler);
+  if (spec.kind === "angle") handler = angleHandler(handler);
+  if (spec.kind === "count") handler = countHandler(handler);
   return {
     ...base,
     id: spec.id,

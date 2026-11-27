@@ -111,6 +111,8 @@ const TYPE_ICONS: Record<MarkupTypeId, IconName> = {
   area: "square-dashed",
   wall: "rows-2",
   volume: "boxes",
+  angle: "triangle",
+  count: "check",
   note: "sticky-note",
   textBox: "type",
   line: "minus",

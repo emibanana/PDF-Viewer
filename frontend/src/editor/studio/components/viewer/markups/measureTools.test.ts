@@ -56,10 +56,10 @@ function draw(tool: AnnotationTool): Committed {
 }
 
 describe("registerMeasureTools", () => {
-  it("registers the six tools once, with their kind in the defaults", () => {
+  it("registers every tool once, with their kind in the defaults", () => {
     const registry = fakeRegistry({});
     registerMeasureTools(registry, () => null);
-    expect(registry.addTool).toHaveBeenCalledTimes(6);
+    expect(registry.addTool).toHaveBeenCalledTimes(MEASURE_TOOL_SPECS.length);
     expect(MEASURE_TOOL_SPECS.map((spec) => registry.getTool(spec.id)?.id)).toEqual(MEASURE_TOOL_SPECS.map((spec) => spec.id));
     for (const spec of MEASURE_TOOL_SPECS) {
       const tool = registry.getTool(spec.id) as unknown as {
@@ -71,7 +71,7 @@ describe("registerMeasureTools", () => {
       expect(tool.behavior.deactivateToolAfterCreate).toBe(false);
     }
     registerMeasureTools(registry, () => null);
-    expect(registry.addTool).toHaveBeenCalledTimes(6);
+    expect(registry.addTool).toHaveBeenCalledTimes(MEASURE_TOOL_SPECS.length);
   });
 
   it("wins the match over the plain tools for our markups and for foreign dimension annotations", () => {
@@ -146,6 +146,6 @@ describe("registerMeasureTools", () => {
     const registry = fakeRegistry({});
     registry.tools.delete("polygon");
     registerMeasureTools(registry, () => null);
-    expect(registry.addTool).toHaveBeenCalledTimes(4);
+    expect(registry.addTool).toHaveBeenCalledTimes(5);
   });
 });

@@ -160,4 +160,32 @@ describe("ensureMeasureDictionaries", () => {
     const junk = new TextEncoder().encode("EPDFCustom is not a pdf");
     expect(await ensureMeasureDictionaries(junk, new Map())).toBe(junk);
   });
+
+  it("writes Bluebeam's measurement types, and counts totalled per page and subject", async () => {
+    const bytes = await makeMarkedPdf([
+      [
+        { subtype: "Polygon", kind: "count" },
+        { subtype: "Polygon", kind: "count" },
+        { subtype: "PolyLine", kind: "angle" },
+        { subtype: "Line", kind: "length" },
+        { subtype: "Polygon", kind: "area" },
+      ],
+    ]);
+    const saved = await ensureMeasureDictionaries(bytes, new Map([[0, scale]]));
+
+    const count = await annotOf(saved, 0, 0);
+    expect(count.lookup(PDFName.of("IT"))).toBe(PDFName.of("PolygonCount"));
+    expect(count.lookup(PDFName.of("CountStyle"))).toBe(PDFName.of("Checkmark"));
+    expect(num(count, "MeasurementTypes")).toBe(128);
+    expect(num(count, "NumCounts")).toBe(2);
+    expect(text(count, "Contents")).toBe("2");
+    expect(count.lookup(PDFName.of("BBMeasure"))).toBeInstanceOf(PDFDict);
+    expect(count.lookup(PDFName.of("Measure"))).toBeUndefined();
+
+    const angle = await annotOf(saved, 0, 2);
+    expect(angle.lookup(PDFName.of("IT"))).toBe(PDFName.of("PolyLineAngle"));
+    expect(num(angle, "MeasurementTypes")).toBe(1152);
+    expect(num(await annotOf(saved, 0, 3), "MeasurementTypes")).toBe(130);
+    expect(num(await annotOf(saved, 0, 4), "MeasurementTypes")).toBe(129);
+  });
 });

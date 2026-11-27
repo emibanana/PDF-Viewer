@@ -13,6 +13,8 @@ const TOOL_ICONS: Record<MarkupKind, IconName> = {
   area: "square-dashed",
   wall: "layers",
   volume: "boxes",
+  angle: "triangle",
+  count: "check",
 };
 
 export function useToolLabels(): Record<MarkupKind, string> {
@@ -24,6 +26,8 @@ export function useToolLabels(): Record<MarkupKind, string> {
     area: t("markups.tools.area", "Area"),
     wall: t("markups.tools.wall", "Wall"),
     volume: t("markups.tools.volume", "Volume"),
+    angle: t("markups.tools.angle", "Angle"),
+    count: t("markups.tools.count", "Count"),
   };
 }
 

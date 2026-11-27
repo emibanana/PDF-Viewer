@@ -1,6 +1,6 @@
 import { PdfAnnotationSubtype } from "@embedpdf/models";
 
-export const MARKUP_KINDS = ["length", "polylength", "curve", "area", "wall", "volume"] as const;
+export const MARKUP_KINDS = ["length", "polylength", "curve", "area", "wall", "volume", "angle", "count"] as const;
 export type MarkupKind = (typeof MARKUP_KINDS)[number];
 
 export type MeasureToolId =
@@ -9,14 +9,16 @@ export type MeasureToolId =
   | "measureCurve"
   | "measureArea"
   | "measureWall"
-  | "measureVolume";
+  | "measureVolume"
+  | "measureAngle"
+  | "measureCount";
 
 export interface MeasureToolSpec {
   id: MeasureToolId;
   kind: MarkupKind;
   subtype: PdfAnnotationSubtype;
   /** `/IT` written to the file, which is how Acrobat and Revu recognise a measurement. */
-  intent: "LineDimension" | "PolyLineDimension" | "PolygonDimension";
+  intent: "LineDimension" | "PolyLineDimension" | "PolygonDimension" | "PolyLineAngle" | "PolygonCount";
   /** `/Subj` of a new markup; the Markups List groups by it. */
   subject: string;
 }
@@ -63,6 +65,20 @@ export const MEASURE_TOOL_SPECS: readonly MeasureToolSpec[] = [
     subtype: PdfAnnotationSubtype.POLYGON,
     intent: "PolygonDimension",
     subject: "Volume",
+  },
+  {
+    id: "measureAngle",
+    kind: "angle",
+    subtype: PdfAnnotationSubtype.POLYLINE,
+    intent: "PolyLineAngle",
+    subject: "Angle",
+  },
+  {
+    id: "measureCount",
+    kind: "count",
+    subtype: PdfAnnotationSubtype.POLYGON,
+    intent: "PolygonCount",
+    subject: "Count",
   },
 ];
 
@@ -174,6 +190,10 @@ export function markupKindOf(annotation: MarkupAnnotation): MarkupKind | null {
       return annotation.type === PdfAnnotationSubtype.POLYLINE ? "polylength" : null;
     case "PolygonDimension":
       return annotation.type === PdfAnnotationSubtype.POLYGON ? "area" : null;
+    case "PolyLineAngle":
+      return annotation.type === PdfAnnotationSubtype.POLYLINE ? "angle" : null;
+    case "PolygonCount":
+      return annotation.type === PdfAnnotationSubtype.POLYGON ? "count" : null;
     default:
       return null;
   }

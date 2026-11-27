@@ -16,6 +16,11 @@ const PDF_NAMES = {
   custom: PDFName.of("EPDFCustom"),
   intent: PDFName.of("IT"),
   measurementTypes: PDFName.of("MeasurementTypes"),
+  bbMeasure: PDFName.of("BBMeasure"),
+  countStyle: PDFName.of("CountStyle"),
+  numCounts: PDFName.of("NumCounts"),
+  contents: PDFName.of("Contents"),
+  subj: PDFName.of("Subj"),
   measure: PDFName.of("Measure"),
   subtype: PDFName.of("Subtype"),
   viewports: PDFName.of("VP"),
@@ -25,6 +30,8 @@ const EXPECTED_SUBTYPE: Record<MeasureToolSpec["intent"], string> = {
   LineDimension: "Line",
   PolyLineDimension: "PolyLine",
   PolygonDimension: "Polygon",
+  PolyLineAngle: "PolyLine",
+  PolygonCount: "Polygon",
 };
 
 function includesBytes(bytes: Uint8Array, needle: Uint8Array): boolean {
@@ -127,11 +134,13 @@ function existingPageMeasure(page: PDFPage): PDFDict | undefined {
   return undefined;
 }
 
-/** Bluebeam's `/MeasurementTypes` bit flags, as read from its files: 130 for lengths and polylengths, 129 for areas. */
+/** Bluebeam's `/MeasurementTypes` values, as read from its files. */
 const MEASUREMENT_TYPES: Partial<Record<MeasureToolSpec["intent"], number>> = {
   LineDimension: 130,
   PolyLineDimension: 130,
   PolygonDimension: 129,
+  PolyLineAngle: 1152,
+  PolygonCount: 128,
 };
 
 function readOwnKind(annot: PDFDict) {
@@ -148,6 +157,29 @@ function subtypeName(annot: PDFDict): string | undefined {
   return annot.lookupMaybe(PDF_NAMES.subtype, PDFName)?.decodeText();
 }
 
+function subjectOf(annot: PDFDict): string {
+  const subj = annot.lookup(PDF_NAMES.subj);
+  return subj instanceof PDFString || subj instanceof PDFHexString ? subj.decodeText() : "";
+}
+
+/**
+ * Bluebeam counts per page and subject: each checkmark is its own annotation, and every one of
+ * a group carries the group's total in `/NumCounts` and `/Contents`.
+ */
+function writeCountTotals(counts: readonly PDFDict[]): void {
+  const groups = new Map<string, PDFDict[]>();
+  for (const annot of counts) {
+    const key = subjectOf(annot);
+    groups.set(key, [...(groups.get(key) ?? []), annot]);
+  }
+  for (const members of groups.values()) {
+    for (const annot of members) {
+      annot.set(PDF_NAMES.numCounts, PDFNumber.of(members.length));
+      annot.set(PDF_NAMES.contents, PDFString.of(String(members.length)));
+    }
+  }
+}
+
 /** Sets `/IT` and, when the page has a scale, `/Measure` on one of our markups; true when it changed anything. */
 function markAnnotation(annot: PDFDict, measure: PDFRef | PDFDict | undefined): boolean {
   const kind = readOwnKind(annot);
@@ -159,7 +191,12 @@ function markAnnotation(annot: PDFDict, measure: PDFRef | PDFDict | undefined): 
   if (types !== undefined && spec.kind !== "wall" && spec.kind !== "volume") {
     annot.set(PDF_NAMES.measurementTypes, PDFNumber.of(types));
   }
-  if (measure) annot.set(PDF_NAMES.measure, measure);
+  if (spec.kind === "count") {
+    annot.set(PDF_NAMES.countStyle, PDFName.of("Checkmark"));
+    if (measure) annot.set(PDF_NAMES.bbMeasure, measure);
+  } else if (measure) {
+    annot.set(PDF_NAMES.measure, measure);
+  }
   return true;
 }
 
@@ -191,10 +228,14 @@ export async function ensureMeasureDictionaries(
         measure = existingPageMeasure(page);
       }
       const annots = page.node.lookupMaybe(PDF_NAMES.annots, PDFArray);
+      const counts: PDFDict[] = [];
       for (let i = 0; annots && i < annots.size(); i++) {
         const annot = annots.lookup(i);
-        if (annot instanceof PDFDict && markAnnotation(annot, measure)) changed = true;
+        if (!(annot instanceof PDFDict) || !markAnnotation(annot, measure)) continue;
+        changed = true;
+        if (annot.lookupMaybe(PDF_NAMES.intent, PDFName)?.decodeText() === "PolygonCount") counts.push(annot);
       }
+      writeCountTotals(counts);
     });
     return changed ? await doc.save() : bytes;
   } catch (error) {

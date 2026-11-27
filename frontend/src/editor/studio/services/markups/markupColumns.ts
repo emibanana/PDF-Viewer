@@ -370,6 +370,8 @@ export const MARKUP_TYPE_LABELS: Record<MarkupTypeId, readonly [key: string, fal
   area: ["markups.list.types.area", "Area"],
   wall: ["markups.list.types.wall", "Wall"],
   volume: ["markups.list.types.volume", "Volume"],
+  angle: ["markups.list.types.angle", "Angle"],
+  count: ["markups.list.types.count", "Count"],
   note: ["markups.list.types.note", "Note"],
   textBox: ["markups.list.types.textBox", "Text Box"],
   line: ["markups.list.types.line", "Line"],

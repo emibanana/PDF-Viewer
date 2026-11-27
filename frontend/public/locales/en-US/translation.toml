@@ -5589,9 +5589,11 @@ none = "None"
 rejected = "Rejected"
 
 [markups.list.types]
+angle = "Angle"
 area = "Area"
 attachment = "File Attachment"
 caret = "Caret"
+count = "Count"
 curve = "Curve"
 ellipse = "Ellipse"
 highlight = "Highlight"
@@ -5656,7 +5658,9 @@ title = "Page scale"
 unit = "Unit"
 
 [markups.tools]
+angle = "Angle"
 area = "Area"
+count = "Count"
 curve = "Curve"
 length = "Length"
 polylength = "Polylength"

@@ -38,6 +38,8 @@ export const MARKUP_TYPE_IDS: readonly MarkupTypeId[] = [
   "area",
   "wall",
   "volume",
+  "angle",
+  "count",
   "note",
   "textBox",
   "line",

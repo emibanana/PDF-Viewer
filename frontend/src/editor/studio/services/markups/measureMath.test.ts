@@ -8,6 +8,7 @@ import {
   formatNumber,
   formatPrimary,
   formatQuantity,
+  angleAt,
   polygonArea,
   polygonPerimeter,
   polylineLength,
@@ -235,5 +236,29 @@ describe("defaultExtent", () => {
   it("gives a wall height and slab depth in the scale's own unit", () => {
     expect(defaultExtent("m")).toEqual({ height: 3, depth: 0.1 });
     expect(defaultExtent("ft").height).toBe(10);
+  });
+});
+
+describe("angle and count", () => {
+  it("measures the angle at the middle point in degrees", () => {
+    expect(angleAt({ x: 10, y: 0 }, { x: 0, y: 0 }, { x: 0, y: 10 })).toBeCloseTo(90);
+    expect(angleAt({ x: 10, y: 0 }, { x: 0, y: 0 }, { x: -10, y: 0 })).toBeCloseTo(180);
+    expect(angleAt({ x: 1, y: 1 }, { x: 1, y: 1 }, { x: 5, y: 5 })).toBe(0);
+  });
+
+  it("writes an angle to /Contents with one decimal and needs three points", () => {
+    const points = [
+      { x: 10, y: 0 },
+      { x: 0, y: 0 },
+      { x: 5, y: 5 },
+    ];
+    const angle = computeMeasurement({ type: PdfAnnotationSubtype.POLYLINE, intent: "PolyLineAngle", vertices: points }, null);
+    expect(angle && formatPrimary(angle)).toBe("45.0°");
+    expect(computeMeasurement({ type: PdfAnnotationSubtype.POLYLINE, intent: "PolyLineAngle", vertices: points.slice(0, 2) }, null)).toBeNull();
+  });
+
+  it("leaves a count's /Contents alone", () => {
+    const count = computeMeasurement({ type: PdfAnnotationSubtype.POLYGON, intent: "PolygonCount", vertices: square(2) }, null);
+    expect(count && formatPrimary(count)).toBeNull();
   });
 });
