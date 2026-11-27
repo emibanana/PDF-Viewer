@@ -4,7 +4,7 @@
 
 Read, mark up, organise and protect PDFs in one lightweight desktop app. No account, no subscription, no cloud: your files never leave your machine.
 
-![PDF Viewer with a document open and the tools panel](docs/screenshots/viewer.png)
+![PDF Viewer showing an architectural floor plan at 218% zoom, with recent files and the other drawings in the same folder in the left panel](docs/screenshots/viewer.png)
 
 > **Early but usable.** Version 0.1. The viewer, markup and page tools work today; the professional markup, measurement and editing features below are on the [roadmap](docs/ROADMAP.md).
 
