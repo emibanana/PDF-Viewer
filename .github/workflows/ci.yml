@@ -1,0 +1,52 @@
+name: CI
+
+# Checks for the desktop viewer: frontend typecheck, lint and tests, plus Rust
+# format and lint for the Tauri host. Everything runs client-side; there is no
+# backend, Docker or release pipeline here.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit -p tsconfig.studio.vite.json
+
+      - name: Lint
+        run: npx oxlint --config oxlint.config.ts --max-warnings=0
+
+      - name: Test
+        run: npx vitest run --project core --project studio
+
+  rust:
+    uses: ./.github/workflows/rust-lint.yml
+    permissions:
+      contents: read
