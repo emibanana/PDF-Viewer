@@ -1,0 +1,96 @@
+.markups-dock {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  background: var(--c-bg);
+  border: 0 solid var(--border-subtle, rgba(127, 127, 127, 0.25));
+  overflow: hidden;
+}
+
+.markups-dock--right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+  border-left-width: 1px;
+}
+
+.markups-dock--bottom {
+  position: relative;
+  flex: none;
+  border-top-width: 1px;
+}
+
+.markups-dock__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.6rem;
+}
+
+.markups-dock__title {
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.markups-dock__body {
+  flex: 1;
+  min-height: 0;
+  padding: 0.25rem 0.75rem 0.75rem;
+  overflow: auto;
+}
+
+.markups-dock__empty {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.markups-dock__tools {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.markups-dock__resize {
+  position: absolute;
+  z-index: 1;
+}
+
+.markups-dock__resize--vertical {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  cursor: row-resize;
+}
+
+.markups-dock__resize--horizontal {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  cursor: col-resize;
+}
+
+.measure-label-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.measure-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0 0.3rem;
+  border-radius: 0.2rem;
+  font-size: 0.7rem;
+  line-height: 1.1rem;
+  white-space: nowrap;
+  color: #fff;
+  background: var(--measure-label-color, #e53935);
+}

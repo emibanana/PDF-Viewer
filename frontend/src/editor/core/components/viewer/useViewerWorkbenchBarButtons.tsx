@@ -27,6 +27,7 @@ import {
   useRedactionMode,
 } from "@editor/contexts/RedactionContext";
 import { RulerScaleSettingsButton } from "@editor/components/viewer/RulerScaleSettingsButton";
+import { useMarkupBarButtons } from "@editor/components/viewer/markups/useMarkupBarButtons";
 import type { MeasureScale } from "@editor/utils/measurementTypes";
 import { useReviewMode } from "@editor/tools/pdfTextEditor/store/reviewMode";
 import {
@@ -542,4 +543,5 @@ export function useViewerWorkbenchBarButtons(
   ]);
 
   useWorkbenchBarButtons(viewerButtons);
+  useMarkupBarButtons();
 }

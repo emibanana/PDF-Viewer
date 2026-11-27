@@ -5513,6 +5513,21 @@ header = "Markdown To PDF"
 tags = "markup,web-content,transformation,convert,md"
 title = "Markdown To PDF"
 
+[markups.bar]
+list = "Markups List"
+properties = "Measure / Properties"
+
+[markups.dock]
+noSelection = "Select a markup to see its properties."
+
+[markups.tools]
+area = "Area"
+curve = "Curve"
+length = "Length"
+polylength = "Polylength"
+volume = "Volume"
+wall = "Wall"
+
 [merge]
 goToFileEditor = "Go to file editor"
 submit = "Merge"

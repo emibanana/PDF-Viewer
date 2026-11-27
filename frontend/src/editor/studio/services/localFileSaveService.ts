@@ -1,5 +1,8 @@
 import { save } from "@tauri-apps/plugin-dialog";
 import { ensureFreeTextAppearances } from "@editor/services/pdfEdit/freeTextAppearance";
+import { ensureMeasureDictionaries, type PageScaleToWrite } from "@editor/services/pdfEdit/measureDictionaries";
+import { getUserPageScales, resolveFileKey } from "@editor/services/markups/pageScaleStore";
+import { isStirlingFile } from "@editor/types/fileContext";
 import { isTauriRuntime, writeBlobToPath } from "@editor/services/tauriFiles";
 
 export interface SaveResult {
@@ -14,21 +17,36 @@ export interface MultiFileSaveResult {
   error?: string;
 }
 
-/** Text boxes are saved with a stored appearance, so every viewer draws them the same way. */
-async function withTextBoxAppearances(data: Blob | File, filePath: string): Promise<Blob> {
+/** Page scales the user set in the app for the file being saved, by page index. */
+function userScalesFor(data: Blob | File, fileId: string | undefined): Map<number, PageScaleToWrite> {
+  const key = resolveFileKey(fileId ?? (isStirlingFile(data) ? data.fileId : undefined));
+  const scales = new Map<number, PageScaleToWrite>();
+  for (const [pageIndex, { scale, precision }] of getUserPageScales(key)) scales.set(pageIndex, { scale, precision });
+  return scales;
+}
+
+/**
+ * Text boxes are saved with a stored appearance, so every viewer draws them the same way, and
+ * measurements carry the dictionaries other viewers read them by.
+ */
+async function withViewerCompatibility(data: Blob | File, filePath: string, fileId: string | undefined): Promise<Blob> {
   if (!/\.pdf$/i.test(filePath)) return data;
   const original = new Uint8Array(await data.arrayBuffer());
-  const fixed = await ensureFreeTextAppearances(original);
+  const withText = await ensureFreeTextAppearances(original);
+  const fixed = await ensureMeasureDictionaries(withText, userScalesFor(data, fileId));
   return fixed === original ? data : new Blob([fixed as BlobPart], { type: "application/pdf" });
 }
 
-/** Writes `data` to `filePath`, replacing the file in place. */
-export async function saveToLocalPath(data: Blob | File, filePath: string): Promise<SaveResult> {
+/**
+ * Writes `data` to `filePath`, replacing the file in place. `fileId` is the workspace file the
+ * bytes belong to, which is how the page scales set for it are found.
+ */
+export async function saveToLocalPath(data: Blob | File, filePath: string, fileId?: string): Promise<SaveResult> {
   if (!isTauriRuntime()) {
     return { success: false, error: "Local file save needs the desktop app" };
   }
   try {
-    await writeBlobToPath(await withTextBoxAppearances(data, filePath), filePath);
+    await writeBlobToPath(await withViewerCompatibility(data, filePath, fileId), filePath);
     return { success: true };
   } catch (error) {
     return {

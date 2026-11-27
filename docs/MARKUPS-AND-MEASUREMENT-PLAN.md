@@ -98,12 +98,41 @@ Strings go in `frontend/public/locales/en-US/translation.toml` under a `markups.
 
 | # | Step | Done when |
 | --- | --- | --- |
-| 1 | Foundation: model, math, page scale store, six tools registered, measured value written into `contents`, seams mounted (empty docks), save pass | Unit tests for math, curve sampling and the save pass (pdf-lib round trip: `/Measure`, `/IT`, `/VP` present and readable by `pdfMeasurementExtraction`). Tools draw in the viewer |
+| 1 | Foundation: model, math, page scale store, six tools registered, measured value written into `contents`, seams mounted (empty docks), save pass | Unit tests for math, curve sampling and the save pass (pdf-lib round trip: `/Measure`, `/IT`, `/VP` present and readable by `pdfMeasurementExtraction`). Tools draw in the viewer (status: implemented, not yet exercised in the running app) |
 | 2 | Properties panel and Measure toolbar, calibration, live labels | Select a markup, change colour, transparency, height: annotation and label update live; set or calibrate scale and values change |
 | 3 | Markups List and CSV export | Grid lists all annotations with values, grouping, subtotals, totals, column show/hide and reorder, sort, filter, row click selects; CSV opens in Excel with the same rows |
 | 4 | Test pass | Checks clean; a written test report of what was exercised in the running app and what failed |
 
 Checks after every step, from `frontend/`: `npx tsc --noEmit -p tsconfig.studio.vite.json`, `npx oxlint --config oxlint.config.ts --max-warnings=0`, `npx vitest run --project core --project studio`.
+
+## Implementation notes (step 1)
+
+Written for whoever builds steps 2 and 3.
+
+**Seams.** Core ships null versions under `core/components/viewer/markups/`; the studio versions shadow them at the same `@editor/components/viewer/markups/<name>` path: `useMarkupTools` (takes `{enabled, file}`, registers tools, sync and controller), `useMarkupBarButtons` (the two viewer-bar toggles), `useMarkupDockLayout` (returns `{rightPx, bottomPx}`), `MarkupsRightDock` (prop `rightOffsetRem`), `MarkupsBottomDock`, `MeasureLabelLayer` (props `documentId`, `pageIndex`). Steps 2 and 3 replace the body of the two dock files; the layout hook already reserves their space.
+
+**Stores and controller** (all under `studio/services/markups/`).
+- `pageScaleStore`: `usePageScale(fileKey, pageIndex)`, `getPageScale`, `getMeasureScale`, `setPageScale`, `setScaleForPages`, `setPagePrecision`, `clearPageScale`, `getActiveFileKey`. Keyed by the lineage-root file id (`stub.originalFileId`); `aliasFileKey` maps each version's file id to it so the save path finds the scales. Scales read from a file's `/VP` have `source: "file"` and are never written back; only `source: "user"` ones are saved.
+- `markupsUiStore`: `useMarkupsUi(selector)`, `setMarkupsUi`, `toggleRightDock`, `toggleBottomDock`. Holds dock open state and sizes (persisted under `markups.ui`), `selectedAnnotationId`, `selectedPageIndex`, `armedToolId`.
+- `markupController`: `armMeasureTool`, `disarmTool`, `selectMarkup(pageIndex, id, {scroll})`, `scrollToMarkup`, `deselectMarkup`, `updateMarkup(pageIndex, id, patch)` (undoable), `deleteMarkups`, `listAnnotations`. No-ops until a document is bound.
+- `markupContents.computeMarkupPatch(annotation, pageScale)` is the single place that decides `contents` and default wall height / slab depth; reuse it when a panel edit should re-derive the label.
+
+**Events.** Update events carry the pre-patch annotation plus the `patch`; the new state is `{...annotation, ...patch}`. Events fire synchronously before the commit, so `syncAnnotationObject` (no history entry, no dirtying) lands inside the same commit and creation stays one undo step. A user scale change goes through `updateAnnotations`, so it is undoable and marks the document changed. Selection is mirrored into `markupsUiStore` by `attachMarkupUiSync`; read selection from there rather than from the plugin.
+
+**Custom fields.** Everything of ours lives in `custom.markup` (`/EPDFCustom`): `kind`, `label`, `status`, `height`, `depth`, `controlPoints` (curve), `manualContents`. Step 2 must set `manualContents: true` when the user types a comment, otherwise the measured value overwrites it. A curve's `controlPoints` are dropped when its `vertices` change (edited by handle).
+
+**Decisions.**
+- Save pass: `/Measure` has `/X` = [{U, C: factor, F: D, D: 10^precision}], `/D` and `/A` with `C: 1`; `/R` is the ratio text. A whole-page `/VP` carries it, ours first, existing region viewports kept. Core's `parseScale` now takes whichever of `/D` and `/X` has a factor other than 1 (logged in `core-patches.md`).
+- Pages without a scale measure in paper millimetres (`PAPER_SCALE`) and get no default height or depth until a scale is set.
+- Default extents come from `defaultExtent(unit)`: for `m`, wall height 3 and slab depth 0.1.
+- Tool defaults: stroke `#e53935`, polygon fill `#ff8a80` at 0.6 opacity, width 2, solid; tools stay armed after each markup; Esc disarms (window handler, ignored inside inputs).
+
+**Not verified.**
+- Nothing has been exercised in the running app; only unit tests, tsc, oxlint and comment-lint.
+- Revu's exact keys for height, depth and custom columns, and whether Acrobat and Revu read our `/X` and `/D` split the way we intend.
+- Dense vertex handles on curves (the annotation has the sampled spline as vertices).
+- Arming a tool does not turn the viewer's pan mode off; the Properties toolbar should call the viewer pan API when it arms a tool.
+- Full vitest run: all new tests pass; two failures are outside this work (`unusedTranslations`: `workbenchBar.selectLanguage`; three `ZoomAPIBridge` fit-mode tests).
 
 ## Open questions
 

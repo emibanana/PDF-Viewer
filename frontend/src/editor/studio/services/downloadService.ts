@@ -44,7 +44,7 @@ export async function downloadFile(request: DownloadRequest): Promise<DownloadRe
   const target = request.localPath ?? (await showSaveDialog(request.filename));
   if (!target) return { cancelled: true };
 
-  const result = await saveToLocalPath(request.data, target);
+  const result = await saveToLocalPath(request.data, target, request.fileId);
   if (!result.success) {
     throw new Error(result.error ?? "Could not save the file");
   }

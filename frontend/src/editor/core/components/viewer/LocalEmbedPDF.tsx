@@ -69,6 +69,8 @@ import {
 } from "@embedpdf/models";
 import type { PdfAnnotationObject, Rect } from "@embedpdf/models";
 import { registerAnnotationTools } from "@editor/components/viewer/annotationTools";
+import { MeasureLabelLayer } from "@editor/components/viewer/markups/MeasureLabelLayer";
+import { useMarkupTools } from "@editor/components/viewer/markups/useMarkupTools";
 import {
   RedactionPluginPackage,
   RedactionLayer,
@@ -756,6 +758,9 @@ function PageLayers({
         showBakedAnnotations={showBakedAnnotations}
         onAnnotationMenuAnchor={onAnnotationMenuAnchor}
       />
+      {enableAnnotations && (
+        <MeasureLabelLayer documentId={documentId} pageIndex={pageIndex} />
+      )}
       {/* LinkLayer: uses EmbedPDF annotation state for link rendering */}
       <LinkLayer
         documentId={documentId}
@@ -988,6 +993,7 @@ type EditingBridgesProps = Pick<
   enableRedaction: boolean;
   isManualRedactionMode: boolean;
   isSignMode: boolean;
+  file: File | Blob | undefined;
   getAnnotationAnchor: (annotationId: string) => AnnotationMenuAnchor | null;
   onAnnotationDeleted: (anchor: AnnotationMenuAnchor) => void;
   deletedAnnotationMenu: AnnotationMenuAnchor | null;
@@ -1000,6 +1006,7 @@ function EditingBridges({
   enableRedaction,
   isManualRedactionMode,
   isSignMode,
+  file,
   historyApiRef,
   signatureApiRef,
   annotationApiRef,
@@ -1009,6 +1016,7 @@ function EditingBridges({
   deletedAnnotationMenu,
   onDismissDeletedAnnotationMenu,
 }: EditingBridgesProps) {
+  useMarkupTools({ enabled: enableAnnotations, file });
   const redactionActive = enableRedaction || isManualRedactionMode;
   if (!enableAnnotations && !redactionActive) return null;
   return (
@@ -1870,6 +1878,7 @@ export function LocalEmbedPDF({
               isManualRedactionMode && !annotationsReadOnly
             }
             isSignMode={isSignMode}
+            file={file}
             historyApiRef={historyApiRef}
             signatureApiRef={signatureApiRef}
             annotationApiRef={annotationApiRef}

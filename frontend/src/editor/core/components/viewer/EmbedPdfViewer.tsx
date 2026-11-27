@@ -80,6 +80,9 @@ import {
 import { useViewerKeyCommand } from "@editor/hooks/useViewerKeyCommand";
 import { useMeasurementManager } from "@editor/hooks/useMeasurementManager";
 import { ScaleCalibrationDialog } from "@editor/components/viewer/ScaleCalibrationDialog";
+import { MarkupsRightDock } from "@editor/components/viewer/markups/MarkupsRightDock";
+import { MarkupsBottomDock } from "@editor/components/viewer/markups/MarkupsBottomDock";
+import { useMarkupDockLayout } from "@editor/components/viewer/markups/useMarkupDockLayout";
 import { usePolicyFileBadges } from "@editor/hooks/usePolicyFileBadges";
 import { alert } from "@editor/components/toast";
 import { useDamagedFileRepair } from "@editor/contexts/DamagedFileRepairContext";
@@ -2018,6 +2021,8 @@ const EmbedPdfViewerContent = ({
   );
   const totalRightMargin =
     sidebarsMarginRem + (pagesPastInset ? 0 : rightInsetRem);
+  const markupDocks = useMarkupDockLayout();
+  const pagesRightMargin = `calc(${totalRightMargin}rem + ${markupDocks.rightPx}px)`;
 
   return (
     <Box
@@ -2106,6 +2111,15 @@ const EmbedPdfViewerContent = ({
             )
           )}
           {/* EmbedPDF Viewer */}
+          <div
+            style={{
+              position: "relative",
+              display: "flex",
+              flex: 1,
+              minHeight: 0,
+              minWidth: 0,
+            }}
+          >
           <Box
             ref={pdfContainerRef}
             data-viewer-pages
@@ -2117,7 +2131,7 @@ const EmbedPdfViewerContent = ({
               overflow: "hidden",
               minHeight: 0,
               minWidth: 0,
-              marginRight: `${totalRightMargin}rem`,
+              marginRight: pagesRightMargin,
               // The card in the inset tracks this box's edge; animating the margin would slide it.
               transition: rightInsetRem ? undefined : "margin-right 0.3s ease",
             }}
@@ -2213,6 +2227,9 @@ const EmbedPdfViewerContent = ({
               onCalibrationMeasure={handleScaleCalibrationMeasurement}
             />
           </Box>
+          <MarkupsRightDock rightOffsetRem={totalRightMargin} />
+          </div>
+          <MarkupsBottomDock />
           {pageTool?.BottomBar && <pageTool.BottomBar />}
           <ScaleCalibrationDialog
             opened={!!scaleCalibrationMeasurement}
@@ -2232,13 +2249,13 @@ const EmbedPdfViewerContent = ({
             position: "fixed",
             // Gutter matching the workbench rails, so the bar reads as a
             // floating card rather than one welded to the viewport edge.
-            bottom: "0.5rem",
+            bottom: `calc(0.5rem + ${markupDocks.bottomPx}px)`,
             left: 0,
             // Centres on the pages: clear of the side panels (always on the
             // right) and the scrollbar (on the inline end, so left in RTL). As
             // the toolbar's size container, a narrow dock drops controls
             // rather than overlapping a panel.
-            right: `${totalRightMargin}rem`,
+            right: pagesRightMargin,
             paddingInlineEnd: `${scrollbarWidth}px`,
             transition: "right 0.3s ease",
             zIndex: 50,

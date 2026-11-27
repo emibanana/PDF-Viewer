@@ -130,15 +130,12 @@ function readBBox(
   return [x0, y0, x1, y1];
 }
 
-function parseScale(
-  measureDict: PDFDict | null,
+function readNumberFormat(
+  measureDict: PDFDict,
+  key: string,
   pdfObjects: PdfMeasurementObjects,
-): MeasureScale | null {
-  if (!measureDict) return null;
-
-  const fmtArray =
-    lookupArray(measureDict, "D", pdfObjects) ??
-    lookupArray(measureDict, "X", pdfObjects);
+): { factor: number; unit: string } | null {
+  const fmtArray = lookupArray(measureDict, key, pdfObjects);
   if (!fmtArray || fmtArray.size() === 0) return null;
 
   const firstFmt = asPdfDict(fmtArray.lookup(0), pdfObjects);
@@ -148,13 +145,28 @@ function parseScale(
   if (factor === null || factor <= 0) return null;
 
   const unit = lookupText(firstFmt, "U", pdfObjects)?.trim().toLowerCase();
-  if (!unit) return null;
+  return unit ? { factor, unit } : null;
+}
 
-  const baseFactor = getUnitFactor(unit);
+function parseScale(
+  measureDict: PDFDict | null,
+  pdfObjects: PdfMeasurementObjects,
+): MeasureScale | null {
+  if (!measureDict) return null;
+
+  // Some writers put the scale in /D, others in /X with /D as a plain display
+  // format (factor 1); the entry whose factor is not 1 carries the scale.
+  const formats = ["D", "X"]
+    .map((key) => readNumberFormat(measureDict, key, pdfObjects))
+    .filter((format) => format !== null);
+  const chosen = formats.find((format) => format.factor !== 1) ?? formats[0];
+  if (!chosen) return null;
+
+  const baseFactor = getUnitFactor(chosen.unit);
   if (!baseFactor) return null;
 
-  const ratio = factor / baseFactor;
-  return { factor, ratio, unit };
+  const ratio = chosen.factor / baseFactor;
+  return { factor: chosen.factor, ratio, unit: chosen.unit };
 }
 
 export async function extractPageMeasureScales(
