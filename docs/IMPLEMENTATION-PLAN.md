@@ -32,7 +32,7 @@ A local-only Windows desktop PDF viewer and markup tool, forked from [Stirling-P
 npx tauri dev         # builds the Rust host and opens the app
 ```
 
-Needs Rust (rustup) and the MSVC C++ build tools with a Windows SDK on the machine. A PC without admin rights can use a portable MSVC unpacked to `%USERPROFILE%\tools\msvc` with its own untracked `dev-env.ps1` that sets PATH, INCLUDE and LIB (the file is git-ignored).
+Needs Rust (rustup) and the MSVC C++ build tools with a Windows SDK on the machine. A PC without admin rights can use a portable MSVC unpacked to `%USERPROFILE%\tools\msvc` with the committed `dev-env.ps1`, which sets PATH, INCLUDE and LIB for the current shell and prefers a system Visual Studio Build Tools install when present.
 
 ---
 

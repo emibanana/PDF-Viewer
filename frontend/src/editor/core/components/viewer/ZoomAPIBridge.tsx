@@ -15,12 +15,8 @@ import type { ZoomAPIWrapper } from "@editor/contexts/viewer/viewerBridges";
 import { useActiveDocumentId } from "@editor/components/viewer/useActiveDocumentId";
 import { useAllFiles, useFileSelection } from "@editor/contexts/FileContext";
 import {
-  determineAutoZoom,
-  DEFAULT_FALLBACK_ZOOM,
-  DEFAULT_VISIBILITY_THRESHOLD,
   useFitWidthResize,
 } from "@editor/utils/viewerZoom";
-import { getFirstPageAspectRatioFromStub } from "@editor/utils/pageMetadata";
 import { useDocumentReady } from "@editor/components/viewer/hooks/useDocumentReady";
 import { useViewerPageTool } from "@editor/contexts/viewer/ViewerPageTool";
 import { useIsMobile } from "@editor/hooks/useIsMobile";
@@ -160,9 +156,6 @@ function ZoomAPIBridgeInner({
   const zoomLevel = liveZoomState?.zoomLevel;
   const currentZoomLevel = liveZoomState?.currentZoomLevel;
 
-  // Extract metadata aspect ratio as a primitive to avoid object reference issues
-  const metadataAspectRatio = getFirstPageAspectRatioFromStub(activeStub);
-
   useEffect(() => {
     if (!activeFileRootId) {
       hasSetInitialZoom.current = false;
@@ -252,9 +245,6 @@ function ZoomAPIBridgeInner({
     let cancelled = false;
 
     const applyAutoZoom = async () => {
-      const currentSpreadMode = spreadMode ?? SpreadMode.None;
-      const pagesPerSpread = currentSpreadMode !== SpreadMode.None ? 2 : 1;
-
       if (cancelled) {
         return;
       }
@@ -267,48 +257,17 @@ function ZoomAPIBridgeInner({
       // Check user preference for default viewer zoom
       const zoomPref: ViewerZoomSetting =
         preferencesService.getPreference("defaultViewerZoom");
-      if (zoomPref !== "auto") {
-        if (zoomPref === "fitWidth") {
-          applyTrackedZoom(ZoomMode.FitWidth, fitWidthZoom);
-        } else if (zoomPref === "fitPage") {
-          applyTrackedZoom(ZoomMode.FitPage, fitWidthZoom);
-        } else {
-          // Numeric zoom: '50', '75', '100', '125', '150', '200'
-          const numericZoom = parseInt(zoomPref, 10) / 100;
-          applyTrackedZoom(numericZoom, numericZoom);
-        }
-        return;
-      }
-
-      const viewportWidth = window.innerWidth ?? 0;
-      const viewportHeight = window.innerHeight ?? 0;
-
-      if (viewportWidth <= 0 || viewportHeight <= 0) {
-        return;
-      }
-
-      const decision = determineAutoZoom({
-        viewportWidth,
-        viewportHeight,
-        fitWidthZoom,
-        pagesPerSpread,
-        pageRect: undefined,
-        metadataAspectRatio: metadataAspectRatio ?? null,
-        visibilityThreshold: DEFAULT_VISIBILITY_THRESHOLD,
-        fallbackZoom: DEFAULT_FALLBACK_ZOOM,
-      });
-
-      if (decision.type === "fallback") {
-        applyTrackedZoom(decision.zoom, decision.zoom);
-        return;
-      }
-
-      if (decision.type === "fitWidth") {
+      // PDF Viewer fork: "auto" opens every document fit to width. Upstream's
+      // heuristic (determineAutoZoom) could open documents at a tiny zoom.
+      if (zoomPref === "auto" || zoomPref === "fitWidth") {
         applyTrackedZoom(ZoomMode.FitWidth, fitWidthZoom);
-        return;
+      } else if (zoomPref === "fitPage") {
+        applyTrackedZoom(ZoomMode.FitPage, fitWidthZoom);
+      } else {
+        // Numeric zoom: '50', '75', '100', '125', '150', '200'
+        const numericZoom = parseInt(zoomPref, 10) / 100;
+        applyTrackedZoom(numericZoom, numericZoom);
       }
-
-      applyTrackedZoom(decision.zoom, decision.zoom);
     };
 
     applyAutoZoom();
@@ -323,7 +282,6 @@ function ZoomAPIBridgeInner({
     activeFileRootId,
     checkSpreadReady,
     spreadReadyTick,
-    metadataAspectRatio,
     requestFitWidth,
     autoZoomTick,
     spreadMode,

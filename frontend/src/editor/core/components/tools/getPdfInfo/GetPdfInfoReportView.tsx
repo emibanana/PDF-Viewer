@@ -7,6 +7,7 @@ import type {
   PdfInfoBackendData,
   ParsedPdfSections,
 } from "@editor/types/getPdfInfo";
+// Do not delete: this stylesheet lives under the removed validateSignature tool but the report still needs it.
 import "@editor/components/tools/validateSignature/reportView/styles.css";
 import SummarySection from "@editor/components/tools/getPdfInfo/sections/SummarySection";
 import KeyValueSection from "@editor/components/tools/getPdfInfo/sections/KeyValueSection";

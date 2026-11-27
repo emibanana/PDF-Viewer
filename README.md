@@ -2,22 +2,35 @@
 
 A local-only Windows desktop PDF viewer and markup tool. No accounts, no login, no backend server, no online services.
 
-This is a fork of [Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) (upstream `594a564`, v3.5.0). The app is the upstream editor UI running in a small Tauri (Rust) shell, with our own layer on top.
+Built on the [Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) editor UI (MIT), running in a small Tauri (Rust) shell with our own layer on top.
+
+![PDF Viewer with a document open and the tools panel](docs/screenshots/viewer.png)
 
 **What's done, what's next, and what's deferred: [docs/IMPLEMENTATION-PLAN.md](docs/IMPLEMENTATION-PLAN.md)**
 
-## Run it (Windows, no admin needed)
+## Getting started (Windows, no admin needed)
 
-Prerequisites installed per-user: Node, Rust (`rustup`), and the Microsoft C++ build tools via
-[portable-msvc](https://gist.github.com/mmozeiko/7f3162ec2988e81e56d5c4e22cde9977) into `%USERPROFILE%\tools\msvc`.
-`dev-env.ps1` puts them on `PATH`.
+What you need:
+
+- Windows 10/11 with the WebView2 runtime (included with Windows 11)
+- Node.js 20 or newer (with npm)
+- Rust, installed with [rustup](https://rustup.rs) (stable, MSVC target)
+- Microsoft C++ build tools, either of:
+  - Visual Studio Build Tools with the "Desktop development with C++" workload, or
+  - the per-user [portable-msvc](https://gist.github.com/mmozeiko/7f3162ec2988e81e56d5c4e22cde9977) in `%USERPROFILE%\tools\msvc` (no admin needed)
+- PowerShell for building (not Git Bash: its GNU `link` shadows the MSVC linker)
+
+Then, from `frontend/`:
 
 ```powershell
-cd frontend
 npm ci
-. ..\dev-env.ps1
-npx tauri dev
+npx tauri dev       # run the app
+npx tauri build     # build the installer
 ```
+
+- The NSIS installer is written to `frontend/src-tauri/target/release/bundle/nsis/PDF Viewer_<version>_x64-setup.exe` and installs per-user.
+- Keep the npm `@tauri-apps/*` packages on the same major/minor as the Rust `tauri` crates.
+- Avoid a blanket `cargo update`; it can pull in duplicate `webview2-com-sys` versions that break the build.
 
 Other commands (from `frontend/`):
 
@@ -40,8 +53,8 @@ Other commands (from `frontend/`):
 
 ## Git
 
-- `upstream` remote = Stirling-Tools/Stirling-PDF. `main` mirrors it; never commit to `main`.
-- `studio` is the product branch. Add your own fork as `origin` with `git remote add origin <url>`.
+- `main` is the product branch.
+- `upstream` remote = Stirling-Tools/Stirling-PDF, for pulling in upstream changes when wanted.
 
 ## Licence
 

@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/docs/stirling.png" width="80">
-  <br>
-  <h1 align="center">Stirling-PDF</h1>
-</p>
+# PDF Viewer
 
 # How to add new languages to Stirling-PDF
 
