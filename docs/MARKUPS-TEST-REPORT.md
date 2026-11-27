@@ -187,3 +187,107 @@ Totals: 36 pass, 19 fail, 10 not tested (65 checks).
 - Frame-rate and label-layer performance on 500 own markups.
 - The core ruler.
 - Exact Revu keys for wall height, depth and columns.
+
+## Re-test (2026-11-27)
+
+Scope: confirm or refute the fixes for bugs 1 to 17, sweep the first pass's passing checks for regressions, note new behaviours, check the console. Nothing was edited except this section; nothing was committed.
+
+Environment: Vite dev server `http://localhost:5173` (browser build, not Tauri), Browser pane at 1600x900. IndexedDB and localStorage were cleared first. Test PDFs from the first pass (`drawing-a3.pdf`, `foreign-revu.pdf`, `perf-500.pdf`) were served from a throw-away local helper server that has been stopped. Not available in a browser build and therefore not tested: Tauri save dialog, disk save, CSV save dialog, Windows user name, Acrobat or Revu opening the output. Values were hand-checked against the page scale (A3 page at 73% zoom, 0.726 CSS px per pt; 1:100 m gives 0.0353 m per pt).
+
+### Bug re-test
+
+| Bug | Status | Evidence |
+| --- | --- | --- |
+| 1 Opening another file drops unsaved markups | Fixed | Drew 7 markups, added `foreign-revu.pdf` through the sidebar file input: "Unsaved Changes" dialog (Save & Leave, Keep Working, Discard & Leave). Keep Working: markups kept, new file added to the workbench. Save & Leave (later run): a new version of the file appeared first in the list with all markups; Discard & Leave also works. With no unsaved edits, adding a file jumps without a prompt. |
+| 2 Ctrl+S jumps to another open file | Fixed | Three files open, viewing the second, Ctrl+S with the viewer hovered: stays on the saved version, new version listed, no prompt on the next add (dirty flag cleared), the next open (`perf-500.pdf`) loaded normally. The "hung at Loading PDF Engine" follow-up did not recur. |
+| 3 Scale not persisted in in-app saved version | Fixed | 1:100 m, draw, Ctrl+S, reload page, open the saved version: "Page 1: 1:100 (m)", metre labels, list values and Comments unchanged, volume depth kept (Volume 15.11 cu m at depth 0.5 m). |
+| 4 Colour picker deselects, swatch not applied | Fixed | Volume selected, opened the colour popover, clicked the blue swatch: stroke `#1e88e5` applied, selection and handles kept, list colour chip updated. |
+| 5 Enter does not finish polyline, curve, polygon | Fixed | Polylength 3 clicks + Enter (15.55 m), Curve 4 clicks + Enter (19.70 m), Area 4 clicks + Enter (66.11 sq m), Wall 2 clicks + Enter, Volume 4 clicks + Enter; Esc then disarms. |
+| 6 Stale armed tool after file switch | Fixed | Length armed (`aria-pressed` true, `data-measure-tool-armed` set), switched file: all six buttons `aria-pressed=false`, attribute gone. Arming Length on the new file and dragging draws (4.95 m, hand check 4.96). |
+| 7 Armed tool, pointer-down on annotation selects it | Fixed | Length armed, dragged from the middle of an existing line: a new 7.77 m line was drawn, the first stayed unchanged. |
+| 8 500-annotation selection delay | Not fixed, as documented | `perf-500.pdf`, one click on one annotation: one 2121 ms `longtask`. Unchanged from the first pass (about 1.7 s). |
+| 9 Undo of depth/height edit leaves `contents` stale | Fixed | Volume depth 0.1 to 0.5: Comments, label, list and panel 3.02 to 15.11 cu m; Ctrl+Z: all four 3.02; Ctrl+Y: 15.11. Same for a curve handle drag (see 13). |
+| 10 Undo of a scale change | Not fixed, as documented | Page 2 at 1/4" = 1'-0" then 1:50, Ctrl+Z: scale stays 1:50 and the markup stays consistent with it (4.86 m); Ctrl+Y: still consistent. The undo step is wasted, nothing breaks. |
+| 11 No feedback when file open drops markups | Fixed (by bug 1) | Same dialog as bug 1. A layout switch still drops unsaved markups, see N1. |
+| 12 Foreign measurements: no label, no values, stale `contents` | Fixed | `foreign-revu.pdf`: every foreign measurement has a page label (10.58 m, 14.11 m, 24.89 sq m); Properties shows Measurement "Length 10.58 m"; dragging the end of the line gives 8.16 m in panel, list and Comments with author "Alice Reviewer" kept; Ctrl+Z gives 10.58 m everywhere. |
+| 13 Curve shows about 134 dense handles | Fixed | Curve shows 4 visible handles (164 `data-epdf-vertex` nodes exist, 4 visible). The curve also keeps its 4 handles after save and reopen. Dragging one handle re-samples smoothly, 19.70 to 24.81 m; Ctrl+Z restores 19.70 m and 4 handles. |
+| 14 Custom ratio shows 100.0001 | Fixed | `foreign-revu.pdf` (`/VP` factor 0.0352778): "Page 1: 1:100 (m)", preset 1:100, custom field 100. |
+| 15 Opacity slider reaches 0 | Fixed | `aria-valuemin` 0.1; Home key gives 10% (tooltip "10%"), the markup stays visible; End gives 100%. |
+| 16 Mixed-unit Total row | Fixed | Page 1 in m, page 2 at 1/4" = 1'-0" (Length 15.30 ft): Total and the Length group subtotal show a dash in Length, Area, Wall Area and Volume. Back to one unit (1:50 m on page 2): sums return (Length group 22.35, hand check 9.72 + 7.77 + 4.86). |
+| 17 Shift-click selects row text | Fixed | Click first row, Shift-click third: 3 rows selected, `getSelection()` is empty. Ctrl-click toggles as before. |
+| 18 Console script-tag error | Unchanged | One "Encountered a script tag while rendering React component" per page load. |
+| 19, 20 | Not retested | No cheap repro (19 needs a narrow window, and the pane width then changed by itself, see N1; 20 was not reproducible). |
+
+Counts: 15 fixed (1, 2, 3, 4, 5, 6, 7, 9, 11, 12, 13, 14, 15, 16, 17), 2 not fixed as documented (8, 10), 0 partly fixed, 1 unchanged (18), 2 not retested (19, 20).
+
+### Regression sweep
+
+| Area | Check | Result | Evidence |
+| --- | --- | --- | --- |
+| Page scale | Preset 1:100 m | pass | Length 9.72 m for 275.6 pt (hand 9.72) |
+| Page scale | Custom ratio | pass | 1:200 doubles lengths (19.44), 1:150 gives 14.58, 1:80 gives 0.8 times the 1:100 value |
+| Page scale | Calibrate | pass | Two clicks 275.6 pt apart, dialog "Measured page distance 97.2 mm", 10 m entered: scale 1:102.9, the page 2 Length reads 10.00 m |
+| Page scale | Imperial preset | pass | 1/4" = 1'-0" gives 15.30 ft (hand 15.31) |
+| Page scale | Apply to all pages | pass | Both pages updated, see N2 for a selection side effect |
+| Page scale | Foreign `/VP` on open | pass | "Page 1: 1:100 (m)" |
+| Tools | Length, Polylength, Curve, Area, Wall, Volume values | pass | Length 9.72 and 7.77 m (hand 7.78); Polylength 9.72 + 5.83 = 15.55; Curve 19.70 (chord length 19.19, curve longer); Area 66.11 (hand 66.2); Wall 9.72 x 3 = 29.16; Volume: area 30.22 x depth 0.1 = 3.02 |
+| Tools | Esc disarms and cancels | pass | |
+| Properties | Subject, comments, line width, colour, depth | pass | List regrouped to "Slab A", comments appended, width field 6 applied |
+| Properties | Undo and redo | pass | Depth edit undo and redo, curve handle undo, foreign geometry undo |
+| Geometry | Move a whole markup | pass | Length moved, value 9.72 m kept |
+| Geometry | Vertex drag updates value | pass | Foreign line 10.58 to 8.16 m |
+| Markups List | Grouping, subtotals, totals | pass | Length total 62.46 = 19.70 + 17.49 + 15.55 + 9.72 (wall length counts); Area 96.34 (rounding) |
+| Markups List | Sort, filter, column chooser, reorder | pass | Descending sort inside groups; "wall" filter; Label added, Author moved up |
+| Markups List | Row click, multi-select | pass | Click, Ctrl-click, Shift-click |
+| Markups List | Status edit | pass | "Accepted" on the Wall row |
+| Markups List | Hide and show | pass | Row greyed and label removed, then restored |
+| CSV | Content | pass | Captured through the browser blob path: header "Row type" then the visible columns in the reordered order, Subtotal and Total rows, values at the current scale (7.77 at 1:80) |
+| Save | In-app save then reload | pass | See bug 3 |
+| Files | Switching between two open files | pass | Docks, scale and values follow the file |
+| General | Dark mode | pass | Only dark was exercised; a light scheme forced by attribute is not a supported path, so light mode is not tested |
+| General | Console | see below | |
+
+### New behaviours worth knowing
+
+- Adding a file while viewing now asks "Unsaved Changes ... Are you sure you want to leave?" when the viewed file is dirty. It also appears after edits that were undone back to the original (the file stays dirty), and the wording suggests leaving although the user only added a file. Not a bug, but it can surprise.
+- With a measurement tool armed, existing markups ignore the pointer and handles of the selected markup are inert: dragging a handle of the selected line draws a new line from there (confirmed, a 7.13 m line). Esc, then drag, edits.
+- Curve control-point handles: 4 handles for a 4-point curve, dragging re-samples; during the drag a kink is visible until release (per the fix note).
+- Opacity minimum 10%; a file already carrying `CA 0` was not tested.
+- Foreign measurements are now labelled. On `perf-500.pdf` this paints 500 labels that overlap into a solid red mass at fit width.
+- Scale-only changes (no markup edit) do not mark the file dirty, so Save & Leave or Ctrl+S do not persist them, as the plan says.
+
+### New bugs
+
+Medium
+
+N1. A layout change (the pane width changed by itself during testing, which switches the app between desktop and mobile layout) remounts the viewer and silently drops unsaved markups and edits, and leaves state inconsistent. This is the known note under bug 11, now reproduced with consequences.
+- Repro: open `drawing-a3.pdf`, 1:100 m, draw Length, Polylength, Curve, Area, Wall and Volume, edit one, add a Length on page 2, set the scale to 1:80 on page 1 with "Apply to all pages" ticked, set a status. Make the pane narrower than the desktop breakpoint, then widen it again (or let the pane resize).
+- Expected: markups kept, or the unsaved-changes prompt.
+- Actual: the page 2 Length and the status are gone (7 markups instead of 8), no prompt. The in-memory page scale store kept 1:80, so the list shows 42.31 for the Area and 7.77 for a 9.72 m line while Comments still read "66.11 sq m" and "9.72 m": values and Comments disagree until the scale is set again (setting 1:100 restored them).
+- Likely files: `core/components/viewer/EmbedPdfViewer.tsx` (viewer remount on layout switch), `studio/services/markups/pageScaleStore.ts` (scale kept while the document is rebuilt).
+
+Low
+
+N2. Ticking "Apply to all pages" moves the selection to an unrelated markup.
+- Repro: `drawing-a3.pdf`, page 1 at 1:100 and page 2 at another scale (set 1:80 with the box unticked), select the Length on page 2, tick "Apply to all pages".
+- Expected: selection stays on the page 2 Length.
+- Actual: the Volume on page 1 becomes selected and the dock title switches to "Page 1". It did not happen when all pages already had the same scale, or for a preset or custom Set with the box already ticked.
+- Likely files: `studio/components/viewer/markups/PageScaleSection.tsx`, `studio/services/markups/markupController.ts` (batch update path through `updateMarkups` and `setScaleForPages`).
+
+N3. Editing a foreign `LineDimension` through the Properties panel regenerates its appearance with large arrowheads at both ends.
+- Repro: `foreign-revu.pdf`, select "Beam length", set line width 2 to 3 (or change opacity).
+- Expected: line style unchanged.
+- Actual: a double arrow appears. Own Length lines do not get arrowheads when edited. Probably the engine's default line endings for a `/Line` without `/LE`; not attributed to our code.
+- Likely files: `studio/services/markups/propertyPatches.ts` (the patch), EmbedPDF line appearance regeneration.
+
+N4. Console: about 430 "Failed to load resource: net::ERR_FILE_NOT_FOUND" errors in a session (about 394 still buffered after a reload), none tied to a UI action in a quick check (a plain file switch added none). Probably stale blob or file URLs for stored thumbnails; the first pass did not log them. Origin not identified, not attributed to the markup work.
+
+### Console
+
+- 1 "Encountered a script tag while rendering React component" per page load (bug 18, unchanged).
+- The `ERR_FILE_NOT_FOUND` flood above (N4).
+- No uncaught exceptions, no React key or state warnings, no errors tied to drawing, editing, saving, undo or the list.
+
+### Cleanup
+
+No tabs were opened (only the pane's seed tab was used). Viewport emulation reset to desktop. The helper server on port 8765 was stopped. The dev server on port 5173 is still running. The app's IndexedDB and localStorage contain the test files from this run.
