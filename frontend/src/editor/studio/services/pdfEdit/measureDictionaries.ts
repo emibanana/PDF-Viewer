@@ -15,6 +15,7 @@ const PDF_NAMES = {
   bbox: PDFName.of("BBox"),
   custom: PDFName.of("EPDFCustom"),
   intent: PDFName.of("IT"),
+  measurementTypes: PDFName.of("MeasurementTypes"),
   measure: PDFName.of("Measure"),
   subtype: PDFName.of("Subtype"),
   viewports: PDFName.of("VP"),
@@ -126,6 +127,13 @@ function existingPageMeasure(page: PDFPage): PDFDict | undefined {
   return undefined;
 }
 
+/** Bluebeam's `/MeasurementTypes` bit flags, as read from its files: 130 for lengths and polylengths, 129 for areas. */
+const MEASUREMENT_TYPES: Partial<Record<MeasureToolSpec["intent"], number>> = {
+  LineDimension: 130,
+  PolyLineDimension: 130,
+  PolygonDimension: 129,
+};
+
 function readOwnKind(annot: PDFDict) {
   const raw = annot.lookup(PDF_NAMES.custom);
   if (!(raw instanceof PDFString || raw instanceof PDFHexString)) return null;
@@ -147,6 +155,10 @@ function markAnnotation(annot: PDFDict, measure: PDFRef | PDFDict | undefined): 
   const spec = measureSpecForKind(kind);
   if (subtypeName(annot) !== EXPECTED_SUBTYPE[spec.intent]) return false;
   annot.set(PDF_NAMES.intent, PDFName.of(spec.intent));
+  const types = MEASUREMENT_TYPES[spec.intent];
+  if (types !== undefined && spec.kind !== "wall" && spec.kind !== "volume") {
+    annot.set(PDF_NAMES.measurementTypes, PDFNumber.of(types));
+  }
   if (measure) annot.set(PDF_NAMES.measure, measure);
   return true;
 }
