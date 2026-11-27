@@ -32,7 +32,11 @@ import { Icon } from "@editor/ui/Icon";
 import RightSidebar from "@editor/components/tools/RightSidebar";
 import { ReaderSuperSearch } from "@editor/components/viewer/readerRail/ReaderSuperSearch";
 import { useTitleBarStrip } from "@editor/contexts/TitleBarStripContext";
-import Workbench from "@editor/components/layout/Workbench";
+import {
+  PersistentWorkbench,
+  usePersistentWorkbenchHost,
+  WorkbenchSlot,
+} from "@editor/components/layout/PersistentWorkbench";
 import FileSidebar from "@editor/components/shared/FileSidebar";
 import { ReaderLeftPanel } from "@editor/components/viewer/readerPanel/ReaderLeftPanel";
 import {
@@ -117,6 +121,7 @@ export default function HomePage() {
   const strip = useTitleBarStrip();
   const processingFolderCreation = useProcessingFolderCreation();
   const isMobile = useIsMobile();
+  const workbenchHost = usePersistentWorkbenchHost();
   const isTouch = useIsTouch();
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const [activeMobileView, setActiveMobileView] = useState<MobileView>("tools");
@@ -689,9 +694,11 @@ export default function HomePage() {
                 horizontal-scroll container (which truncated buttons and
                 created a stray side-scroll surface on touch). */
             <div className="mobile-files-full">
-              <div className="flex-1 min-h-0 flex" style={{ minWidth: 0 }}>
-          <Workbench />
-              </div>
+              <WorkbenchSlot
+                host={workbenchHost}
+                className="flex-1 min-h-0 flex"
+                style={{ minWidth: 0 }}
+              />
             </div>
           ) : (
             <div className="mobile-slider-wrap">
@@ -715,12 +722,11 @@ export default function HomePage() {
                   )}
                 >
                   <div className="mobile-slide-content">
-                    <div
+                    <WorkbenchSlot
+                      host={workbenchHost}
                       className="flex-1 min-h-0 flex"
                       style={{ minWidth: 0 }}
-                    >
-                      <Workbench />
-                    </div>
+                    />
                   </div>
                 </div>
               </div>
@@ -764,7 +770,7 @@ export default function HomePage() {
               }
             />
           )}
-          <Workbench />
+          <WorkbenchSlot host={workbenchHost} style={{ display: "contents" }} />
           {isMobile && mobileNavigation}
           {/* The reader's rail takes the slot the tool panel holds otherwise: the
                 panel's controls are the editor's, and reading wants the viewer's.
@@ -773,6 +779,7 @@ export default function HomePage() {
           {readerMode && !strip.enabled && <ReaderSuperSearch />}
         </Group>
       )}
+      <PersistentWorkbench host={workbenchHost} />
     </div>
   );
 }

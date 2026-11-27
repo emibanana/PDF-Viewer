@@ -77,3 +77,27 @@ describe("embedpdfEnginesPatch raster transfer", () => {
     expect(patch("index.js")).toBeNull();
   });
 });
+
+describe("embedpdfEnginesPatch annotation appearance image", () => {
+  const annotationDist = new URL(
+    "../node_modules/@embedpdf/plugin-annotation/dist/",
+    import.meta.url,
+  );
+  const patchAnnotation = (relativePath: string) => {
+    const file = fileURLToPath(new URL(relativePath, annotationDist));
+    return patchEmbedpdfEngines(readFileSync(file, "utf8"), file);
+  };
+
+  it("keeps the blob URL alive until the effect has replaced it, in the React and Preact builds", () => {
+    for (const file of ["react/index.js", "preact/index.js"]) {
+      const code = patchAnnotation(file);
+      expect(code).not.toBeNull();
+      expect(code).toContain("setTimeout(() => URL.revokeObjectURL(retired), 10000)");
+      expect(code).toContain("const handleImageLoad = void 0;");
+    }
+  });
+
+  it("leaves the annotation plugin's core build alone", () => {
+    expect(patchAnnotation("index.js")).toBeNull();
+  });
+});

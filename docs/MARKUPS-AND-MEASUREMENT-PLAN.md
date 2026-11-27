@@ -206,3 +206,10 @@ Per-bug causes are in `MARKUPS-TEST-REPORT.md`. What the next agent needs to kno
 - **Curves**: `curveEditing.ts` maps a vertex edit back to the clicked points and re-samples; `MeasureLabelLayer` hides the dense handles of the selected curve with a generated stylesheet keyed on `data-epdf-vertex`. The live preview of a handle drag shows a kink until release.
 - **Total rows**: once the units of the measured rows differ, no numeric column is summed.
 - **Bug 8** (selection on 500 annotations takes about 2 s) is inside EmbedPDF's annotation layer, not in the studio code; it is unchanged by closing the dock or removing the label layer.
+
+## Fixes from the re-test (N1 to N4)
+
+- **One Workbench for every layout** (`core/components/layout/PersistentWorkbench.tsx`): `HomePage` does not render `<Workbench />` inside each layout; a portal host plus `WorkbenchSlot`s keeps the viewer, and its unsaved annotations, mounted across the mobile and desktop switch. Do not render `Workbench` directly in a layout again.
+- **Scale changes do not move the selection**: `markupSync` calls `suppressMenuSelection(ids)` (core seam `annotationMenuSuppression.ts`) before `updateAnnotations` in the scale subscription. Other code that edits annotations in bulk on the user's behalf should do the same.
+- **Appearance image patch**: `scripts/embedpdfEnginesPatch.mts` also patches `@embedpdf/plugin-annotation` 2.15.1 so an appearance image's blob URL is revoked 10 s late; this removed the `ERR_FILE_NOT_FOUND` console flood. A plugin version bump fails the patch loudly.
+- **Foreign `/Line` without `/LE`** regenerates with arrowheads on edit: the engine's default for the file's omission, not our patch.

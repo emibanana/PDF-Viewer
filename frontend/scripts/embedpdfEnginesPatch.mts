@@ -1,10 +1,13 @@
-// In-memory patch for @embedpdf/engines: font fallback, zero-copy raster transfer, and /IT on every annotation.
+// In-memory patch for @embedpdf/engines (font fallback, zero-copy raster transfer, /IT on every
+// annotation) and for the annotation plugin's appearance image (blob URL lifetime).
 //
 // Upgrade steps when bumping @embedpdf/engines:
 // 1. Follow frontend/scripts/embedpdfFontFallbackPatch.mts for the font fallback patch.
-// 2. Re-check every `from` anchor in ENGINE_EDITS against the new dist files.
-// 3. Update EXPECTED_VERSION, bump PATCH_REVISION so Vite discards its prebundle cache,
-//    and update the hashed dist filenames in frontend/scripts/embedpdfEnginesPatch.test.ts.
+// 2. Re-check every `from` anchor in ENGINE_EDITS and ANNOTATION_EDITS against the new dist files
+//    (drop ANNOTATION_EDITS once the plugin stops revoking the appearance URL on image load).
+// 3. Update EXPECTED_VERSION and EXPECTED_ANNOTATION_VERSION, bump PATCH_REVISION so Vite discards
+//    its prebundle cache, and update the hashed dist filenames in
+//    frontend/scripts/embedpdfEnginesPatch.test.ts.
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { Plugin as EsbuildPlugin } from "esbuild";
@@ -13,9 +16,12 @@ import type { Plugin } from "vite";
 import { patchEmbedpdfFontFallback } from "./embedpdfFontFallbackPatch.mts";
 
 const EXPECTED_VERSION = "2.15.1";
-const PATCH_REVISION = "6";
+const EXPECTED_ANNOTATION_VERSION = "2.15.1";
+const PATCH_REVISION = "7";
 const ENGINES_DIST =
   /[\\/]node_modules[\\/]@embedpdf[\\/]engines[\\/]dist[\\/]/;
+const ANNOTATION_DIST =
+  /[\\/]node_modules[\\/]@embedpdf[\\/]plugin-annotation[\\/]dist[\\/]/;
 
 interface Edit {
   from: string | RegExp;
@@ -167,6 +173,44 @@ const ENGINE_EDITS: PatchSite[] = [
   },
 ];
 
+const ANNOTATION_EDITS: PatchSite[] = [
+  {
+    name: "appearance image blob URL lifetime",
+    edits: [
+      {
+        // The load handler revokes whatever URL is current, not the one that loaded. When the
+        // appearance is re-rendered (every zoom change) while the previous image's load event is
+        // still queued, that revokes the new URL before it is fetched: the image stays broken and
+        // the annotation, whose vector fallback is hidden behind it, disappears. The URL is only
+        // retired once the effect has replaced it, late enough for a queued load to finish; the
+        // blob itself stays referenced by the appearance, so revoking later costs no memory.
+        from: `    return () => {
+      if (urlRef.current) {
+        URL.revokeObjectURL(urlRef.current);
+        urlRef.current = null;
+      }
+    };
+  }, [appearance.data]);
+  const handleImageLoad = () => {
+    if (urlRef.current) {
+      URL.revokeObjectURL(urlRef.current);
+      urlRef.current = null;
+    }
+  };`,
+        to: `    return () => {
+      if (urlRef.current) {
+        const retired = urlRef.current;
+        urlRef.current = null;
+        setTimeout(() => URL.revokeObjectURL(retired), 10000);
+      }
+    };
+  }, [appearance.data]);
+  const handleImageLoad = void 0;`,
+      },
+    ],
+  },
+];
+
 const escapeNewlines = (text: string) => text.replace(/\n/g, "\\n");
 const fail = (file: string, reason: string): never => {
   throw new Error(
@@ -176,22 +220,22 @@ const fail = (file: string, reason: string): never => {
   );
 };
 
-let checkedVersion = false;
-function assertPinnedVersion(file: string) {
-  if (checkedVersion) return;
-  const pkgDir =
-    file.slice(0, file.search(ENGINES_DIST)) +
-    "/node_modules/@embedpdf/engines";
+const checkedVersions = new Set<string>();
+function assertPinnedVersion(
+  file: string,
+  dist: RegExp,
+  pkg: string,
+  expected: string,
+) {
+  if (checkedVersions.has(pkg)) return;
+  const pkgDir = file.slice(0, file.search(dist)) + `/node_modules/${pkg}`;
   const version = JSON.parse(
     readFileSync(path.join(pkgDir, "package.json"), "utf8"),
   ).version;
-  if (version !== EXPECTED_VERSION) {
-    fail(
-      file,
-      `expected @embedpdf/engines@${EXPECTED_VERSION}, found ${version}`,
-    );
+  if (version !== expected) {
+    fail(file, `expected ${pkg}@${expected}, found ${version}`);
   }
-  checkedVersion = true;
+  checkedVersions.add(pkg);
 }
 
 /** Applies one anchor exactly once, escaping replacements inside worker source. */
@@ -223,16 +267,14 @@ function applyEdit(original: string, edit: Edit, file: string): string {
   return original.slice(0, at) + to + original.slice(at + needle.length);
 }
 
-/** Applies ENGINE_EDITS to ESM `.js` dist files, or returns null when none applies. */
-export function patchEmbedpdfEngineEdits(
+function applySites(
   code: string,
   file: string,
+  sites: PatchSite[],
 ): string | null {
-  if (!ENGINES_DIST.test(file) || !file.endsWith(".js")) return null;
-  assertPinnedVersion(file);
   let out = code;
   let patched = false;
-  for (const site of ENGINE_EDITS) {
+  for (const site of sites) {
     const [primary] = site.edits;
     const present =
       primary.from instanceof RegExp
@@ -248,13 +290,47 @@ export function patchEmbedpdfEngineEdits(
   return patched ? out : null;
 }
 
+/** Applies ENGINE_EDITS to ESM `.js` dist files, or returns null when none applies. */
+export function patchEmbedpdfEngineEdits(
+  code: string,
+  file: string,
+): string | null {
+  if (!ENGINES_DIST.test(file) || !file.endsWith(".js")) return null;
+  assertPinnedVersion(
+    file,
+    ENGINES_DIST,
+    "@embedpdf/engines",
+    EXPECTED_VERSION,
+  );
+  return applySites(code, file, ENGINE_EDITS);
+}
+
+/** Applies ANNOTATION_EDITS to the annotation plugin's ESM `.js` dist files, or returns null. */
+export function patchEmbedpdfAnnotationEdits(
+  code: string,
+  file: string,
+): string | null {
+  if (!ANNOTATION_DIST.test(file) || !file.endsWith(".js")) return null;
+  assertPinnedVersion(
+    file,
+    ANNOTATION_DIST,
+    "@embedpdf/plugin-annotation",
+    EXPECTED_ANNOTATION_VERSION,
+  );
+  return applySites(code, file, ANNOTATION_EDITS);
+}
+
 export function patchEmbedpdfEngines(
   code: string,
   file: string,
 ): string | null {
   const fontPatched = patchEmbedpdfFontFallback(code, file);
   const enginePatched = patchEmbedpdfEngineEdits(fontPatched ?? code, file);
-  return enginePatched ?? fontPatched;
+  const annotationPatched = patchEmbedpdfAnnotationEdits(
+    enginePatched ?? fontPatched ?? code,
+    file,
+  );
+  return annotationPatched ?? enginePatched ?? fontPatched;
 }
 
 export function embedpdfEnginesPlugin(): Plugin {
@@ -263,7 +339,10 @@ export function embedpdfEnginesPlugin(): Plugin {
     name: `embedpdf-engines-${PATCH_REVISION}`,
     setup(build) {
       build.onLoad(
-        { filter: /[\\/]@embedpdf[\\/]engines[\\/]dist[\\/].*\.c?js$/ },
+        {
+          filter:
+            /[\\/]@embedpdf[\\/](engines|plugin-annotation)[\\/]dist[\\/].*\.c?js$/,
+        },
         (args) => {
           const patched = patchEmbedpdfEngines(
             readFileSync(args.path, "utf8"),

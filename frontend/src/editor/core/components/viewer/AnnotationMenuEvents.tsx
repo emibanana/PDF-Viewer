@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useAnnotationCapability } from "@embedpdf/plugin-annotation/react";
 import { useActiveDocumentId } from "@editor/components/viewer/useActiveDocumentId";
+import { consumeMenuSuppression } from "@editor/components/viewer/annotationMenuSuppression";
 import type { AnnotationMenuAnchor } from "@editor/components/viewer/viewerTypes";
 
 interface AnnotationMenuEventsProps {
@@ -33,6 +34,7 @@ export function AnnotationMenuEvents({
       }
 
       if (event.type !== "update") return;
+      if (consumeMenuSuppression(event.annotation.id)) return;
       const selected = provides.getSelectedAnnotationIds?.() ?? [];
       if (selected.includes(event.annotation.id)) return;
       provides.selectAnnotation?.(event.pageIndex, event.annotation.id);

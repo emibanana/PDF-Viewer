@@ -1,5 +1,6 @@
 import type { AnnotationCapability } from "@embedpdf/plugin-annotation";
 import type { PdfAnnotationObject } from "@embedpdf/models";
+import { suppressMenuSelection } from "@editor/components/viewer/annotationMenuSuppression";
 import { computeMarkupPatch } from "@editor/services/markups/markupContents";
 import { applyCurveVertexEdit, polylineBounds } from "@editor/services/markups/curveEditing";
 import {
@@ -71,7 +72,8 @@ function curveEditWrite(
  * here and the measured value changes; from then on it is kept in step like ours.
  *
  * A page whose scale the user changes is different: nothing about the annotation changed, so its
- * markups are patched through `updateAnnotations` and the document is marked as changed.
+ * markups are patched through `updateAnnotations` and the document is marked as changed. The
+ * selection stays where it was (see `suppressMenuSelection`).
  * Scales read from the file never rewrite anything.
  */
 export function attachMarkupSync(api: AnnotationCapability): () => void {
@@ -127,7 +129,11 @@ export function attachMarkupSync(api: AnnotationCapability): () => void {
         return patch ? [{ pageIndex, id: tracked.object.id, patch: patch as Partial<PdfAnnotationObject> }] : [];
       }),
     );
-    if (patches.length > 0) api.updateAnnotations(patches);
+    if (patches.length > 0) {
+      // The user changed a page setting, not these markups: the viewer must not select one.
+      suppressMenuSelection(patches.map((entry) => entry.id));
+      api.updateAnnotations(patches);
+    }
   });
 
   return () => {
