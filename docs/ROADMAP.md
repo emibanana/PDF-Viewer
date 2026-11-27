@@ -103,12 +103,12 @@ Every phase below has to keep these budgets. A feature that makes the viewer slo
 | Feature | From | Us | Notes |
 | --- | --- | --- | --- |
 | Show the values of measurements made in Revu | Revu | ✅ | Length, polylength, area, angle and count read from `/IT`, `/Measure` and `/VP`, and written back the way Revu writes them |
-| Calibrate scale per page, preset scales, viewports with their own scale | Revu (Acrobat basic) | 🟡 | Draw a known length, presets and typed ratios per page or all pages; region viewports are read but not drawn |
+| Calibrate scale per page, preset scales, viewports with their own scale | Revu (Acrobat basic) | 🟡 | Calibrate on a known length, presets and typed ratios per page or all pages; region viewports are read but not drawn |
 | Length, polylength, perimeter, area | Both | ✅ | Acrobat has distance, perimeter and area only |
 | Area with cutouts, volume (depth), radius, angle, diameter | Revu | 🟡 | Volume, wall height and angle are in; cutouts, radius and diameter are not |
 | Count tool with symbols | Revu | 🟡 | Checkmark count, totalled per page and subject; other symbols are not |
 | Measurement totals in the Markups List; export quantities | Revu | 🟡 | Totals and CSV export work; angle and count have no column yet |
-| Snap to PDF content (endpoints, midpoints, intersections) | Revu | P4 | Reads vector paths from PDFium |
+| Snap measuring and calibration to PDF content (endpoints, midpoints, intersections, nearest point on a line), with a snap marker and a toggle | Revu | P4 | Reads vector paths from PDFium, cached per page; applies to every measure tool and to Calibrate |
 | Spaces: named regions that group markups (rooms, zones) | Revu | P4 | |
 | Sketch to scale (draw by typed length and angle) | Revu | P4 | |
 | Dynamic Fill (flood-fill an area to measure it) | Revu | P6 | Raster fill in a worker |
@@ -123,7 +123,7 @@ Every phase below has to keep these budgets. A feature that makes the viewer slo
 | Metadata, document info report | Both | ✅ | |
 | Adobe-style Organize Pages grid: insert blank, from file, from clipboard image, replace, duplicate | Acrobat | P5 | Design in IMPLEMENTATION-PLAN "Organize pages" |
 | Header and footer, Bates numbering, background | Both | P5 | |
-| Edit existing text | Acrobat (Revu basic) | 🟡 | PDF Text Editor works; inline editing in the viewer with any Windows font is P5 |
+| Edit existing text | Acrobat (Revu basic) | 🟡 | PDF Text Editor works but typing is slow on dense pages (every keystroke re-renders every text overlay); fixing that comes before inline editing in the viewer with any Windows font (P5) |
 | Edit, replace and move existing images | Acrobat | P5 | |
 | Fill forms | Both | ✅ | |
 | Create and edit form fields, auto-detect fields | Both | P5 | Field creation needs a client-side port |
