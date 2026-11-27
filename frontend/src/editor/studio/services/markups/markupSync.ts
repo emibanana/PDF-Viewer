@@ -31,7 +31,11 @@ export function attachMarkupSync(api: AnnotationCapability): () => void {
     const stale = event.type === "update" && "vertices" in event.patch && readMarkupCustom(annotation.custom)?.controlPoints;
     if (stale) annotation = { ...annotation, custom: mergeMarkupCustom(annotation.custom, { controlPoints: undefined }) };
     const patch = computeMarkupPatch(annotation, getPageScale(getActiveFileKey(), event.pageIndex));
-    const write = stale ? { custom: annotation.custom, ...patch } : patch;
+    let write: Partial<PdfAnnotationObject> | null = stale ? { custom: annotation.custom, ...patch } : patch;
+    // The plugin stamps the local user as author on every update; the author is whoever made the
+    // markup, as in Revu, so an edit must not rewrite a reviewer's name.
+    const originalAuthor = event.type === "update" ? event.annotation.author : undefined;
+    if (originalAuthor && annotation.author !== originalAuthor) write = { ...write, author: originalAuthor };
     if (write) api.syncAnnotationObject(annotation.id, write, event.documentId);
   });
 

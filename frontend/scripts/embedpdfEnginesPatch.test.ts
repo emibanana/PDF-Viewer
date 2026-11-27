@@ -65,6 +65,14 @@ describe("embedpdfEnginesPatch raster transfer", () => {
     );
   });
 
+  it("reads /IT for every annotation subtype, in the worker and the direct engine", () => {
+    for (const file of ["lib/pdfium/web/worker-engine.js", "direct-engine-C8xTbxym.js"]) {
+      const engine = patch(file);
+      expect(engine).toContain("const intent = this.getAnnotIntent(annotationPtr);");
+      expect(engine).toContain("...intent && { intent },");
+    }
+  });
+
   it("leaves an unrelated engines file alone", () => {
     expect(patch("index.js")).toBeNull();
   });

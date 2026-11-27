@@ -181,6 +181,11 @@ Right dock, Page Scale, Properties, tool defaults, calibration and live labels. 
 
 **Not verified.** Everything above was exercised only in the Vite dev server in a browser tab with a hand-written PDF (own measurements, highlight, note, shapes): list contents, group subtotals and total, row click and viewer-to-list sync with scrolling, Ctrl-click multi-select, Delete, status dropdown, hide/show, search, sort, column resize and persistence, collapse/expand and ungroup, CSV text (captured from the browser-download path). Not exercised: the Tauri save dialog path, Shift-range selection, column reordering from the menu, drag-resizing the dock while the list is open, lists of thousands of markups (virtualisation is by construction), mixed scales across pages in the app (covered by unit tests), undo of delete and of status edits.
 
+## Integration fixes (after steps 2 and 3)
+
+- **Author kept on edit.** The annotation plugin stamps `patch.author ?? annotationAuthor` on every update, from any UI (floating menu, vertex drag, status change). `markupSync.ts` writes the annotation's original author back in the same uncommitted update, so a Revu reviewer's name survives our edits.
+- **`/IT` read for every subtype.** EmbedPDF read `/IT` only for ink, caret and free text, so Revu and Acrobat measurements (Line, PolyLine, Polygon with a `*Dimension` intent) loaded as plain shapes. `frontend/scripts/embedpdfEnginesPatch.mts` now adds `intent` to `readBaseAnnotationProperties` in both the direct and the worker engine (site "annotation intent on every subtype", covered by `embedpdfEnginesPatch.test.ts`).
+
 ## Open questions
 
 - Exact Revu keys for wall height, depth and custom columns: need a Revu-saved sample with these markups. Until then our values round-trip through `/EPDFCustom` and Revu sees standard measurements without depth.

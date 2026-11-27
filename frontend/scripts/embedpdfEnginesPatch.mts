@@ -1,8 +1,8 @@
-// In-memory patch combining font fallback and zero-copy raster transfer for @embedpdf/engines.
+// In-memory patch for @embedpdf/engines: font fallback, zero-copy raster transfer, and /IT on every annotation.
 //
 // Upgrade steps when bumping @embedpdf/engines:
 // 1. Follow frontend/scripts/embedpdfFontFallbackPatch.mts for the font fallback patch.
-// 2. Re-check every `from` anchor in RASTER_EDITS against the new dist files.
+// 2. Re-check every `from` anchor in ENGINE_EDITS against the new dist files.
 // 3. Update EXPECTED_VERSION, bump PATCH_REVISION so Vite discards its prebundle cache,
 //    and update the hashed dist filenames in frontend/scripts/embedpdfEnginesPatch.test.ts.
 import { readFileSync } from "node:fs";
@@ -13,7 +13,7 @@ import type { Plugin } from "vite";
 import { patchEmbedpdfFontFallback } from "./embedpdfFontFallbackPatch.mts";
 
 const EXPECTED_VERSION = "2.15.1";
-const PATCH_REVISION = "5";
+const PATCH_REVISION = "6";
 const ENGINES_DIST =
   /[\\/]node_modules[\\/]@embedpdf[\\/]engines[\\/]dist[\\/]/;
 
@@ -27,7 +27,7 @@ interface PatchSite {
   edits: Edit[];
 }
 
-const RASTER_EDITS: PatchSite[] = [
+const ENGINE_EDITS: PatchSite[] = [
   {
     name: "pdfium worker response",
     edits: [
@@ -144,6 +144,27 @@ const RASTER_EDITS: PatchSite[] = [
       },
     ],
   },
+  {
+    name: "annotation intent on every subtype",
+    edits: [
+      {
+        // The engine reads /IT only for ink, caret and free text, so a Revu or Acrobat
+        // measurement (Line, PolyLine, Polygon with a *Dimension intent) would load as a plain shape.
+        from: `    const flags = this.getAnnotationFlags(annotationPtr);
+    const custom = this.getAnnotCustom(annotationPtr);`,
+        to: `    const flags = this.getAnnotationFlags(annotationPtr);
+    const intent = this.getAnnotIntent(annotationPtr);
+    const custom = this.getAnnotCustom(annotationPtr);`,
+      },
+      {
+        from: `      ...subject && { subject },
+      // Only include IRT if present`,
+        to: `      ...subject && { subject },
+      ...intent && { intent },
+      // Only include IRT if present`,
+      },
+    ],
+  },
 ];
 
 const escapeNewlines = (text: string) => text.replace(/\n/g, "\\n");
@@ -202,8 +223,8 @@ function applyEdit(original: string, edit: Edit, file: string): string {
   return original.slice(0, at) + to + original.slice(at + needle.length);
 }
 
-/** Patches the raster path in ESM `.js` dist files, or returns null. */
-export function patchEmbedpdfRasterTransfer(
+/** Applies ENGINE_EDITS to ESM `.js` dist files, or returns null when none applies. */
+export function patchEmbedpdfEngineEdits(
   code: string,
   file: string,
 ): string | null {
@@ -211,7 +232,7 @@ export function patchEmbedpdfRasterTransfer(
   assertPinnedVersion(file);
   let out = code;
   let patched = false;
-  for (const site of RASTER_EDITS) {
+  for (const site of ENGINE_EDITS) {
     const [primary] = site.edits;
     const present =
       primary.from instanceof RegExp
@@ -232,8 +253,8 @@ export function patchEmbedpdfEngines(
   file: string,
 ): string | null {
   const fontPatched = patchEmbedpdfFontFallback(code, file);
-  const rasterPatched = patchEmbedpdfRasterTransfer(fontPatched ?? code, file);
-  return rasterPatched ?? fontPatched;
+  const enginePatched = patchEmbedpdfEngineEdits(fontPatched ?? code, file);
+  return enginePatched ?? fontPatched;
 }
 
 export function embedpdfEnginesPlugin(): Plugin {
