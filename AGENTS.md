@@ -15,6 +15,10 @@ Read on demand, only for the area you are touching:
 
 Frontend checks that matter (from `frontend/`): `npx tsc --noEmit -p tsconfig.studio.vite.json`, `npx oxlint --config oxlint.config.ts --max-warnings=0`, `npx vitest run --project core --project studio`. Keep the relevant doc above updated when you learn something the next agent would otherwise have to rediscover.
 
+## Committing and pushing
+
+When the user asks to commit or push, commit the whole working tree (`git add -A`), including changes you did not make: this is a one-person repo worked from several PCs, and anything left uncommitted is stranded on one machine. Never cherry-pick hunks to "only commit this session's changes", never leave other edits behind, and never reset or stash them. Check for secrets and per-machine files (see `.gitignore`) first, pull with `--rebase` before pushing, and report anything you deliberately excluded.
+
 ## Taskfile (Recommended)
 
 This project uses [Task](https://taskfile.dev/) as a unified command runner. All build, dev, test and lint commands can be run from the repo root via `task <command>`. Run `task --list` to see all available commands.
