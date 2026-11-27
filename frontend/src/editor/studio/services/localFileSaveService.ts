@@ -56,13 +56,24 @@ export async function saveToLocalPath(data: Blob | File, filePath: string, fileI
   }
 }
 
-/** Native "Save as" dialog; null when the user cancels. */
-export async function showSaveDialog(defaultFilename: string, defaultDirectory?: string): Promise<string | null> {
+export interface SaveDialogFilter {
+  name: string;
+  extensions: string[];
+}
+
+const PDF_FILTER: SaveDialogFilter = { name: "PDF", extensions: ["pdf"] };
+
+/** Native "Save as" dialog, offering PDF files unless `filter` says otherwise; null when the user cancels. */
+export async function showSaveDialog(
+  defaultFilename: string,
+  defaultDirectory?: string,
+  filter: SaveDialogFilter = PDF_FILTER,
+): Promise<string | null> {
   if (!isTauriRuntime()) return null;
   const defaultPath = defaultDirectory ? `${defaultDirectory.replace(/[\\/]+$/, "")}\\${defaultFilename}` : defaultFilename;
   return save({
     defaultPath,
-    filters: [{ name: "PDF", extensions: ["pdf"] }],
+    filters: [filter],
   });
 }
 

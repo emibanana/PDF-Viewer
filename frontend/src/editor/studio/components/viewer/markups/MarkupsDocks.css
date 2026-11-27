@@ -85,12 +85,14 @@
 
 .measure-label {
   position: absolute;
-  transform: translate(-50%, -50%);
   padding: 0 0.3rem;
   border-radius: 0.2rem;
   font-size: 0.7rem;
+  font-weight: 500;
   line-height: 1.1rem;
   white-space: nowrap;
-  color: #fff;
-  background: var(--measure-label-color, #e53935);
+  user-select: none;
+  color: var(--measure-label-fg, #fff);
+  background: var(--measure-label-bg, #e53935);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.85);
 }

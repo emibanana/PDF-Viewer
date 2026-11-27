@@ -1,0 +1,125 @@
+.markups-section {
+  padding: 0.5rem 0 0.75rem;
+  border-top: 1px solid var(--c-border, rgba(127, 127, 127, 0.25));
+}
+
+.markups-section:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.markups-section__title {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--c-text-muted, inherit);
+}
+
+.markups-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.markups-hint {
+  margin: 0.25rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.3;
+  opacity: 0.75;
+}
+
+.markups-scale__current {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.markups-scale__custom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto;
+  align-items: end;
+  gap: 0.4rem;
+}
+
+.markups-textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0.4rem 0.6rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--c-text);
+  background: var(--c-input-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  resize: vertical;
+}
+
+.markups-textarea:focus-visible {
+  outline: none;
+  border-color: var(--c-primary);
+}
+
+.markups-values {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0 0 0.55rem;
+}
+
+.markups-values__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.markups-values__row dt {
+  opacity: 0.75;
+}
+
+.markups-values__row dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.markups-dock__calibrate {
+  grid-column: 1 / -1;
+}
+
+.calibrate-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  cursor: crosshair;
+}
+
+.calibrate-overlay__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.calibrate-overlay__halo {
+  stroke: #fff;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.calibrate-overlay__line {
+  stroke: #1c7ed6;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.calibrate-overlay__dot {
+  fill: #1c7ed6;
+  stroke: #fff;
+  stroke-width: 1.5;
+}

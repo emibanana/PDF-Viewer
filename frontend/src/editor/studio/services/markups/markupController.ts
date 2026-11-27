@@ -15,9 +15,83 @@ interface BoundPlugins {
 }
 
 let bound: BoundPlugins | null = null;
+let stopAnnotationState: (() => void) | null = null;
+
+const EMPTY_SELECTION: readonly string[] = [];
+let annotationsVersion = 0;
+let selection: readonly string[] = EMPTY_SELECTION;
+let lastSeenByUid: unknown = null;
+let pendingNotify: (() => void) | null = null;
+const annotationListeners = new Set<() => void>();
+
+function sameIds(a: readonly string[], b: readonly string[]): boolean {
+  return a.length === b.length && a.every((id, index) => id === b[index]);
+}
+
+function flushAnnotationListeners(): void {
+  pendingNotify = null;
+  for (const listener of [...annotationListeners]) listener();
+}
+
+/**
+ * Listeners are told at most once per frame: a drag fires a plugin state change per pointer
+ * move, and the Markups List rebuilds every row on each notification.
+ */
+function scheduleAnnotationNotify(): void {
+  if (pendingNotify) return;
+  if (typeof requestAnimationFrame === "function") {
+    const handle = requestAnimationFrame(flushAnnotationListeners);
+    pendingNotify = () => cancelAnimationFrame(handle);
+  } else {
+    const handle = setTimeout(flushAnnotationListeners, 16);
+    pendingNotify = () => clearTimeout(handle);
+  }
+}
 
 export function bindMarkupController(plugins: BoundPlugins | null): void {
+  stopAnnotationState?.();
+  stopAnnotationState = null;
   bound = plugins;
+  lastSeenByUid = null;
+  selection = EMPTY_SELECTION;
+  annotationsVersion++;
+  if (plugins) {
+    stopAnnotationState =
+      plugins.annotation.onStateChange(({ state }) => {
+        const nextSelection = state.selectedUids ?? EMPTY_SELECTION;
+        const selectionChanged = !sameIds(nextSelection, selection);
+        const annotationsChanged = state.byUid !== lastSeenByUid;
+        if (!selectionChanged && !annotationsChanged) return;
+        lastSeenByUid = state.byUid;
+        if (selectionChanged) selection = nextSelection.length === 0 ? EMPTY_SELECTION : [...nextSelection];
+        if (annotationsChanged) annotationsVersion++;
+        scheduleAnnotationNotify();
+      }) ?? null;
+  }
+  pendingNotify?.();
+  flushAnnotationListeners();
+}
+
+/**
+ * Subscribes to changes of the bound document's annotations or selection, and to the document
+ * being bound or unbound. Pair with {@link getMarkupAnnotationsVersion} and
+ * {@link getMarkupSelection} in `useSyncExternalStore`.
+ */
+export function subscribeMarkupAnnotations(listener: () => void): () => void {
+  annotationListeners.add(listener);
+  return () => {
+    annotationListeners.delete(listener);
+  };
+}
+
+/** Changes whenever an annotation was added, edited or removed, or another document was bound. */
+export function getMarkupAnnotationsVersion(): number {
+  return annotationsVersion;
+}
+
+/** The ids of the annotations the viewer has selected; the same array until the selection changes. */
+export function getMarkupSelection(): readonly string[] {
+  return selection;
 }
 
 export function isMarkupControllerReady(): boolean {
@@ -87,4 +161,19 @@ export function updateMarkup(pageIndex: number, annotationId: string, patch: Par
 
 export function deleteMarkups(items: { pageIndex: number; id: string }[]): void {
   if (items.length > 0) bound?.annotation.deleteAnnotations(items);
+}
+
+/** Adds the annotation to the selection, or removes it when already selected. */
+export function toggleMarkupSelection(pageIndex: number, annotationId: string): void {
+  bound?.annotation.toggleSelection(pageIndex, annotationId);
+}
+
+/** Replaces the selection with exactly these annotations. */
+export function setMarkupSelection(annotationIds: string[]): void {
+  bound?.annotation.setSelection(annotationIds);
+}
+
+/** Applies several property patches as one undo step. */
+export function updateMarkups(patches: { pageIndex: number; id: string; patch: Partial<PdfAnnotationObject> }[]): void {
+  if (patches.length > 0) bound?.annotation.updateAnnotations(patches);
 }

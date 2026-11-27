@@ -4,9 +4,11 @@ import { useScrollCapability } from "@embedpdf/plugin-scroll/react";
 import { useAllFiles } from "@editor/contexts/FileContext";
 import { getFormFillFileId, isStirlingFile } from "@editor/types/fileContext";
 import { registerMeasureTools } from "@editor/components/viewer/markups/measureTools";
+import { bindAnnotationBridge } from "@editor/services/markups/annotationBridge";
 import { bindMarkupController, disarmTool, isMeasureToolArmed } from "@editor/services/markups/markupController";
 import { attachMarkupSync, attachMarkupUiSync } from "@editor/services/markups/markupSync";
 import { getMarkupsUiState } from "@editor/services/markups/markupsUiStore";
+import { applyStoredToolDefaults } from "@editor/services/markups/toolDefaults";
 import {
   aliasFileKey,
   getActiveFileKey,
@@ -60,6 +62,8 @@ export function useMarkupTools({ enabled, file }: MarkupToolsSource): void {
   useEffect(() => {
     if (!enabled || !annotation) return undefined;
     registerMeasureTools(annotation, (pageIndex) => getPageScale(getActiveFileKey(), pageIndex));
+    bindAnnotationBridge(annotation);
+    applyStoredToolDefaults();
     const stopSync = attachMarkupSync(annotation);
     const stopUiSync = attachMarkupUiSync(annotation);
     bindMarkupController({ annotation, scroll: scroll ?? null });
@@ -71,6 +75,7 @@ export function useMarkupTools({ enabled, file }: MarkupToolsSource): void {
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       bindMarkupController(null);
+      bindAnnotationBridge(null);
       stopUiSync();
       stopSync();
     };

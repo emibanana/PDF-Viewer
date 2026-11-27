@@ -1,24 +1,38 @@
 import { useMemo } from "react";
 import { useDocumentState } from "@embedpdf/core/react";
 import { useAnnotation } from "@embedpdf/plugin-annotation/react";
-import { isOwnMarkup } from "@editor/services/markups/markupModel";
+import { CalibrateOverlay } from "@editor/components/viewer/markups/CalibrateOverlay";
+import { labelAnchor, readableTextColor } from "@editor/services/markups/labelPlacement";
+import { isOwnMarkup, markupKindOf } from "@editor/services/markups/markupModel";
+import { DEFAULT_PRECISION, computeMeasurement, formatPrimary } from "@editor/services/markups/measureMath";
+import { normalizeTurns } from "@editor/services/markups/pageGeometry";
+import { useActiveFileKey, usePageScale } from "@editor/services/markups/pageScaleStore";
+import { isHiddenAnnotation } from "@editor/services/markups/propertyPatches";
 import "@editor/components/viewer/markups/MarkupsDocks.css";
 
 interface PlacedLabel {
   id: string;
   text: string;
-  color: string | undefined;
+  background: string | undefined;
+  color: string;
+  /** Page pixels at the current zoom, in the page's unrotated space. */
   x: number;
   y: number;
 }
 
 /**
- * The measured value of each of our measurement markups on a page, drawn beside it. An overlay,
- * not part of the saved appearance; the same text is in the annotation's `/Contents`.
+ * The measured value of each of our measurement markups on a page, drawn on it, plus the click
+ * layer for calibration. Labels are an overlay, not part of the saved appearance: they are
+ * computed from the geometry and the page's scale, so they follow edits and scale changes, keep
+ * one screen size at every zoom and are turned back upright on a rotated page. A markup that is
+ * hidden or deleted has no label.
  */
 export function MeasureLabelLayer({ documentId, pageIndex }: { documentId: string; pageIndex: number }) {
   const { state } = useAnnotation(documentId);
-  const scale = useDocumentState(documentId)?.scale ?? 1;
+  const documentState = useDocumentState(documentId);
+  const zoom = documentState?.scale ?? 1;
+  const turns = normalizeTurns((documentState?.document?.pages?.[pageIndex]?.rotation ?? 0) + (documentState?.rotation ?? 0));
+  const pageScale = usePageScale(useActiveFileKey(), pageIndex);
 
   const labels = useMemo<PlacedLabel[]>(() => {
     if (!state) return [];
@@ -27,31 +41,48 @@ export function MeasureLabelLayer({ documentId, pageIndex }: { documentId: strin
       const tracked = state.byUid[uid];
       if (!tracked || tracked.commitState === "deleted") continue;
       const annotation = tracked.object;
-      if (!isOwnMarkup(annotation) || !annotation.contents) continue;
-      const { origin, size } = annotation.rect;
+      if (!isOwnMarkup(annotation) || isHiddenAnnotation(annotation)) continue;
+      const kind = markupKindOf(annotation);
+      const measurement = kind ? computeMeasurement(annotation, pageScale?.scale ?? null) : null;
+      const text = measurement ? formatPrimary(measurement, pageScale?.precision ?? DEFAULT_PRECISION) : null;
+      const anchor = kind ? labelAnchor(annotation, kind) : null;
+      if (!text || !anchor) continue;
+      const background = "strokeColor" in annotation ? annotation.strokeColor : undefined;
       placed.push({
         id: annotation.id,
-        text: annotation.contents,
-        color: "strokeColor" in annotation ? annotation.strokeColor : undefined,
-        x: (origin.x + size.width / 2) * scale,
-        y: (origin.y + size.height / 2) * scale,
+        text,
+        background,
+        color: readableTextColor(background),
+        x: anchor.x * zoom,
+        y: anchor.y * zoom,
       });
     }
     return placed;
-  }, [state, pageIndex, scale]);
+  }, [state, pageIndex, zoom, pageScale]);
 
-  if (labels.length === 0) return null;
   return (
-    <div className="measure-label-layer" aria-hidden>
-      {labels.map((label) => (
-        <span
-          key={label.id}
-          className="measure-label"
-          style={{ left: label.x, top: label.y, ["--measure-label-color" as string]: label.color }}
-        >
-          {label.text}
-        </span>
-      ))}
-    </div>
+    <>
+      {labels.length > 0 && (
+        <div className="measure-label-layer" aria-hidden>
+          {labels.map((label) => (
+            <span
+              key={label.id}
+              className="measure-label"
+              data-testid="measure-label"
+              style={{
+                left: label.x,
+                top: label.y,
+                transform: `translate(-50%, -50%) rotate(${-turns * 90}deg)`,
+                ["--measure-label-bg" as string]: label.background,
+                ["--measure-label-fg" as string]: label.color,
+              }}
+            >
+              {label.text}
+            </span>
+          ))}
+        </div>
+      )}
+      <CalibrateOverlay documentId={documentId} pageIndex={pageIndex} />
+    </>
   );
 }

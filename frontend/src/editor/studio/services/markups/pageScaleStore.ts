@@ -25,6 +25,7 @@ const filesByKey = new Map<string, Map<number, PageScale>>();
 const seededKeys = new Set<string>();
 const aliases = new Map<string, string>();
 const listeners = new Set<() => void>();
+const activeKeyListeners = new Set<() => void>();
 let version = 0;
 let activeFileKey: string | null = null;
 
@@ -163,11 +164,25 @@ export function resolveFileKey(fileId: string | null | undefined): string | null
 
 /** The file the viewer shows, which measurement tools and the value writer look scales up in. */
 export function setActiveFileKey(fileKey: string | null): void {
+  if (activeFileKey === fileKey) return;
   activeFileKey = fileKey;
+  for (const listener of [...activeKeyListeners]) listener();
 }
 
 export function getActiveFileKey(): string | null {
   return activeFileKey;
+}
+
+function subscribeActiveFileKey(listener: () => void): () => void {
+  activeKeyListeners.add(listener);
+  return () => {
+    activeKeyListeners.delete(listener);
+  };
+}
+
+/** The viewer's file key, re-read when the viewer switches file. */
+export function useActiveFileKey(): string | null {
+  return useSyncExternalStore(subscribeActiveFileKey, getActiveFileKey);
 }
 
 /** The scale entry of one page, re-read whenever any scale changes. */
@@ -180,6 +195,7 @@ export function resetPageScalesForTests(): void {
   seededKeys.clear();
   aliases.clear();
   listeners.clear();
+  activeKeyListeners.clear();
   activeFileKey = null;
   version = 0;
 }
