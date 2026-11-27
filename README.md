@@ -86,33 +86,44 @@ Competitor columns reflect Bluebeam Revu 21 (Complete) and Adobe Acrobat Pro as 
 
 The full feature-by-feature map is in [docs/ROADMAP.md](docs/ROADMAP.md); day-to-day status is in [docs/IMPLEMENTATION-PLAN.md](docs/IMPLEMENTATION-PLAN.md).
 
-## Getting started
+## Install
 
-There is no published installer yet, so build it from source. Everything installs per-user; no admin rights needed.
+> No release is published yet: the first one is on its way. Until then, build the installer yourself as described under [Build from source](#build-from-source).
+
+1. Download the latest `PDF Viewer_<version>_x64_en-US.msi` from the [Releases page](https://github.com/emibanana/PDF-Viewer/releases).
+2. Double-click it. It installs for your Windows user only, so no admin rights are needed.
+3. Start **PDF Viewer** from the Start menu, or right-click a PDF and choose **Open with**.
+
+Needs Windows 10 or 11 (64-bit) with the Microsoft Edge WebView2 runtime, which Windows 11 and up-to-date Windows 10 already have.
+
+The installer is not code-signed yet, so Windows SmartScreen may warn you the first time. Choose **More info**, then **Run anyway**.
+
+## For contributors
+
+### Build from source
 
 You need:
 
-- Windows 10 or 11 with the WebView2 runtime (included with Windows 11)
 - Node.js 20 or newer (with npm)
 - Rust, installed with [rustup](https://rustup.rs) (stable, MSVC target)
 - Microsoft C++ build tools, either of:
   - Visual Studio Build Tools with the "Desktop development with C++" workload, or
   - the per-user [portable-msvc](https://gist.github.com/mmozeiko/7f3162ec2988e81e56d5c4e22cde9977) in `%USERPROFILE%\tools\msvc`
-- PowerShell for building (not Git Bash: its GNU `link` shadows the MSVC linker)
+- PowerShell (not Git Bash: its GNU `link` shadows the MSVC linker)
 
-Then, from `frontend/`:
+To build the installer and install it in one step, double-click **`Build and Install.cmd`** at the repo root. It writes a per-user MSI to `frontend/src-tauri/target/release/bundle/msi/` and launches it.
+
+To run the app while developing, from `frontend/`:
 
 ```powershell
 npm ci
-npx tauri dev       # run the app
-npx tauri build     # build the installer
+npx tauri dev
 ```
 
-- The installer is written to `frontend/src-tauri/target/release/bundle/nsis/PDF Viewer_<version>_x64-setup.exe` and installs per-user.
 - Keep the npm `@tauri-apps/*` packages on the same major/minor as the Rust `tauri` crates.
 - Avoid a blanket `cargo update`; it can pull in duplicate `webview2-com-sys` versions that break the build.
 
-## For contributors
+### Checks and tools
 
 | Command (from `frontend/`) | What it does |
 | --- | --- |
@@ -134,4 +145,4 @@ Start with [AGENTS.md](AGENTS.md) and [docs/developer/FORK-FRONTEND-MAP.md](docs
 
 ## Licence
 
-PDF Viewer is MIT licensed. The upstream directories `frontend/src/editor/{desktop,proprietary,cloud,saas}`, and `frontend/src/processor` carry the restrictive Stirling PDF User License; this product never uses code from them, and the build fails if it tries to.
+PDF Viewer is MIT licensed. The upstream directories `frontend/src/editor/{desktop,proprietary,cloud,saas}` and `frontend/src/processor` carry the restrictive Stirling PDF User License; this product never uses code from them, and the build fails if it tries to.
