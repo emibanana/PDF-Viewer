@@ -146,3 +146,42 @@ mod tests {
         );
     }
 }
+
+/// A PDF sitting beside the open file.
+#[derive(Serialize)]
+pub struct SiblingPdf {
+    pub name: String,
+    pub path: String,
+}
+
+/// Lists the PDFs in the same folder as `path`, name-sorted and case-insensitive.
+/// Not recursive; an unreadable folder yields an empty list rather than an error.
+#[tauri::command]
+pub fn list_sibling_pdfs(path: String) -> Vec<SiblingPdf> {
+    let Some(dir) = Path::new(&path).parent() else {
+        return Vec::new();
+    };
+    let Ok(entries) = std::fs::read_dir(dir) else {
+        return Vec::new();
+    };
+    let mut pdfs: Vec<SiblingPdf> = entries
+        .filter_map(Result::ok)
+        .filter(|entry| entry.file_type().map(|kind| kind.is_file()).unwrap_or(false))
+        .filter_map(|entry| {
+            let file_path = entry.path();
+            let is_pdf = file_path
+                .extension()
+                .and_then(|ext| ext.to_str())
+                .is_some_and(|ext| ext.eq_ignore_ascii_case("pdf"));
+            if !is_pdf {
+                return None;
+            }
+            Some(SiblingPdf {
+                name: entry.file_name().to_string_lossy().into_owned(),
+                path: file_path.to_string_lossy().into_owned(),
+            })
+        })
+        .collect();
+    pdfs.sort_by_key(|pdf| pdf.name.to_lowercase());
+    pdfs
+}

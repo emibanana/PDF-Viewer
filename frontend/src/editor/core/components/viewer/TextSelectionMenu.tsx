@@ -31,11 +31,6 @@ import {
 import { MARKUP_ANNOTATION_COLORS } from "@editor/components/viewer/annotationDefaults";
 import { alert } from "@editor/components/toast";
 import { getExternalHref } from "@editor/utils/externalUrl";
-import {
-  READ_ALOUD_FROM_SELECTION_EVENT,
-  glyphPositionRatio,
-  type ReadAloudFromSelectionDetail,
-} from "@editor/components/viewer/readAloudFromSelection";
 import "@editor/components/viewer/TextSelectionMenu.css";
 import { privateContentClassName } from "@editor/components/shared/privateContentClassName";
 
@@ -328,43 +323,6 @@ function TextSelectionMenuInner({
     handleToolSelect,
   ]);
 
-  const canReadAloud =
-    typeof window !== "undefined" && "speechSynthesis" in window;
-
-  const handleReadAloudFromHere = useCallback(() => {
-    const state = selection?.getState(documentId);
-    if (!selection || !state?.selection) return;
-    const originalSelection = state.selection;
-    const { page, index } = originalSelection.start;
-    // The text task resolves asynchronously; a selection made in the meantime
-    // must not be the one read aloud and cleared.
-    const stillSelected = () =>
-      selection.getState(documentId).selection === originalSelection;
-    const dispatch = (selectedText: string) => {
-      if (!stillSelected()) return;
-      window.dispatchEvent(
-        new CustomEvent<ReadAloudFromSelectionDetail>(
-          READ_ALOUD_FROM_SELECTION_EVENT,
-          {
-            detail: {
-              pageNumber: page + 1,
-              selectedText,
-              approximatePosition: glyphPositionRatio(
-                state.geometry[page],
-                index,
-              ),
-            },
-          },
-        ),
-      );
-      selection.clear(documentId);
-    };
-    selection.getSelectedText(documentId).wait(
-      (texts) => dispatch(texts[0] ?? ""),
-      () => dispatch(""),
-    );
-  }, [selection, documentId]);
-
   const handleRedact = useCallback(() => {
     if (!documentId || readOnly) return;
     const selections = selection?.getFormattedSelection(documentId) ?? [];
@@ -590,25 +548,6 @@ function TextSelectionMenuInner({
                 data-testid="text-selection-edit-text"
               >
                 <Icon name="square-pen" size={20} />
-              </button>
-            </Tooltip>
-          )}
-
-          {canReadAloud && (
-            <Tooltip
-              label={t("viewer.readAloudFromHere", "Read aloud from here")}
-              withArrow
-            >
-              <button
-                type="button"
-                className="embedpdf-text-selection-btn"
-                onClick={handleReadAloudFromHere}
-                aria-label={t(
-                  "viewer.readAloudFromHere",
-                  "Read aloud from here",
-                )}
-              >
-                <Icon name="volume-2" size={20} />
               </button>
             </Tooltip>
           )}

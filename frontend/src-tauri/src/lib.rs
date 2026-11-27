@@ -6,7 +6,7 @@ mod utils;
 
 use commands::{
     add_opened_file, build_main_window, clear_opened_files, file_disk_state,
-    forward_files_to_window, get_desktop_os, get_opened_files, get_os_username, list_system_fonts,
+    forward_files_to_window, get_desktop_os, get_opened_files, get_os_username, list_sibling_pdfs, list_system_fonts,
     open_in_new_window, pop_opened_files, serve_system_font, target_window_label, write_file_atomic, MAIN_WINDOW_LABEL,
 };
 use utils::{add_log, get_app_logs};
@@ -115,6 +115,7 @@ pub fn run() {
             get_os_username,
             list_system_fonts,
             get_app_logs,
+            list_sibling_pdfs,
         ])
         .build(tauri::generate_context!())
         .expect("error while building tauri application")

@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useLocalProcessingOnly } from "@editor/hooks/useLocalProcessingOnly";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { SignMenu } from "@editor/components/shared/signing/SignMenu";
 import { requestSigningIntent } from "@editor/utils/pendingSigningIntent";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -21,6 +21,7 @@ import { requestProcessorSignup } from "@editor/services/processorSignup";
 import { useConnectedServer } from "@editor/hooks/useConnectedServer";
 
 import { Icon } from "@editor/ui/Icon";
+import { selectReaderNavTab, useReaderNav, type ReaderNavTab } from "@editor/utils/readerNavStore";
 const SIZE = "1.125rem";
 
 /** Entries come from the URL, not either app's context, so the rail survives a switch. */
@@ -31,6 +32,7 @@ export function QuickNavRailHost() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const host = useQuickNavHost();
+  const readerNav = useReaderNav();
   const [signMenuOpen, setSignMenuOpen] = useState(false);
   // Processing folders run on the non-core API server. True on web (served by that backend);
   // on desktop it tracks the signed-in connection, so the entry falls inert until the user
@@ -136,7 +138,26 @@ export function QuickNavRailHost() {
   // entry in builds without a portal, with no way back out of reading.
   const surfaces: QuickNavEntry[] = [reader, editor, ...(HAS_PORTAL && !localOnly ? [processor] : [])];
 
+  // The rail picks what the left panel shows, in the reader and the editor alike.
+  const readerTab = (id: ReaderNavTab, label: string, icon: ReactNode): QuickNavEntry => ({
+    id: `reader-nav-${id}`,
+    label,
+    icon,
+    current: readerNav.open && readerNav.tab === id,
+    onClick: () => selectReaderNavTab(id),
+  });
+  const readerNavEntries: QuickNavEntry[] = inEditor
+    ? [
+        readerTab("files", t("readerPanel.files", "Files"), <Icon name="folder-open" size={SIZE} />),
+        readerTab("bookmarks", t("readerPanel.bookmarks", "Bookmarks"), <Icon name="bookmark" size={SIZE} />),
+        readerTab("pages", t("readerPanel.pages", "Pages"), <Icon name="rows-2" size={SIZE} />),
+        readerTab("comments", t("readerPanel.comments", "Comments"), <Icon name="message-square" size={SIZE} />),
+        readerTab("attachments", t("readerPanel.attachments", "Attachments"), <Icon name="paperclip" size={SIZE} />),
+      ]
+    : [];
+
   const within: QuickNavEntry[] = [
+    ...readerNavEntries,
     ...(!host?.hasOpenFromComputer
       ? []
       : [

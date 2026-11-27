@@ -172,7 +172,7 @@ describe("default startup view: Reader", () => {
         act(() => navigationActions.setHasUnsavedChanges(true));
       }
 
-      fireEvent.click(screen.getByRole("button", { name: /reader/i }));
+      fireEvent.click(screen.getByRole("button", { name: /^(quickNav.)?reader$/i }));
       await vi.waitFor(() => expect(navigation.showNavigationWarning).toBe(true));
       expect(navigation.workbench).toBe("pageEditor");
       expect(seen.readerMode).toBe(false);

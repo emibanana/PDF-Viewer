@@ -9,6 +9,13 @@ import { pendingFilePathMappings } from "@editor/services/pendingFilePathMapping
 import { beginLaunchIngest } from "@editor/services/launchFiles";
 import { isTauriRuntime, readPathAsFile } from "@editor/services/tauriFiles";
 import { createQuickKey } from "@editor/types/fileContext";
+import { preferencesService } from "@editor/services/preferencesService";
+
+// The viewer opens in the reader; the editor is one switch away. Seeded at import,
+// before the first render reads the startup view, and only if the user never chose.
+if (!preferencesService.hasStoredPreference("defaultStartupView")) {
+  preferencesService.setPreference("defaultStartupView", "read");
+}
 
 /**
  * Loads files the OS hands the app into the workspace: files passed on the

@@ -1,0 +1,126 @@
+.reader-panel {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  min-width: 15rem;
+  height: 100%;
+  background: var(--c-bg);
+  border-right: 1px solid var(--border-subtle, rgba(127, 127, 127, 0.25));
+  overflow: hidden;
+}
+
+.reader-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.75rem;
+}
+
+.reader-panel__title {
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.reader-panel__dock {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.reader-panel__dock[data-empty] {
+  display: none;
+}
+
+.reader-panel__files {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Recent takes the top third, the folder listing the rest. */
+.reader-panel__recent {
+  flex: 0 0 33%;
+  min-height: 0;
+  padding: 0 0.5rem;
+  overflow-y: auto;
+}
+
+.reader-panel[hidden],
+.reader-panel__files[hidden] {
+  display: none;
+}
+
+.reader-panel__nearby {
+  flex: 1 1 0;
+}
+
+.reader-panel__section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 0;
+  padding: 0 0.5rem;
+  overflow-y: auto;
+}
+
+.reader-panel__heading {
+  margin: 0.25rem 0.25rem 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+}
+
+.reader-panel__separator {
+  width: calc(100% - 1rem);
+  margin: 0.5rem auto;
+  border: 0;
+  border-top: 1px solid var(--border-subtle, rgba(127, 127, 127, 0.3));
+}
+
+.reader-panel__row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.8rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.reader-panel__row:hover {
+  background: rgba(127, 127, 127, 0.15);
+}
+
+.reader-panel__row[data-active] {
+  background: rgba(127, 127, 127, 0.22);
+  font-weight: 600;
+}
+
+.reader-panel__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reader-panel__empty {
+  margin: 0.25rem;
+  font-size: 0.75rem;
+  opacity: 0.55;
+}
+
+/* The panel's own header names the tab and retracts the panel. */
+.reader-panel__dock .sidebar-base__header {
+  display: none;
+}

@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
+import { useSidebarDock } from "@editor/contexts/SidebarContext";
 import { Box, ScrollArea, Text } from "@mantine/core";
 import { ActionIcon } from "@editor/ui/ActionIcon";
 import { useTranslation } from "react-i18next";
@@ -25,6 +27,7 @@ export function ThumbnailSidebar({
   rightOffsetRem = 0,
 }: ThumbnailSidebarProps) {
   const { t } = useTranslation();
+  const dockElement = useSidebarDock()?.element ?? null;
   const { getScrollState, scrollActions, getThumbnailAPI } = useViewer();
   const [thumbnails, setThumbnails] = useState<{ [key: number]: string }>({});
 
@@ -159,20 +162,21 @@ export function ThumbnailSidebar({
     scrollActions.scrollToPage(pageNumber);
   };
 
-  return (
-    <>
-      {/* Thumbnail Sidebar */}
-      {visible && (
+  const panel = visible ? (
         <Box
-          className="sidebar-base"
-          style={{
-            position: "fixed",
-            right: `${rightOffsetRem}rem`,
-            top: 0,
-            bottom: 0,
-            width: `${THUMBNAIL_SIDEBAR_WIDTH_REM}rem`,
-            zIndex: 998,
-          }}
+          className={dockElement ? "sidebar-base sidebar-base--docked" : "sidebar-base"}
+          style={
+            dockElement
+              ? undefined
+              : {
+                  position: "fixed",
+                  right: `${rightOffsetRem}rem`,
+                  top: 0,
+                  bottom: 0,
+                  width: `${THUMBNAIL_SIDEBAR_WIDTH_REM}rem`,
+                  zIndex: 998,
+                }
+          }
         >
           <div className="sidebar-base__header">
             <div className="sidebar-base__header-title">
@@ -343,7 +347,6 @@ export function ThumbnailSidebar({
             </Box>
           </ScrollArea>
         </Box>
-      )}
-    </>
-  );
+  ) : null;
+  return dockElement && panel ? createPortal(panel, dockElement) : panel;
 }

@@ -1,5 +1,3 @@
-/* Used by getPdfInfo/GetPdfInfoReportView.tsx. Do not delete: it sits under the removed validateSignature tool
-   but the PDF info report still imports it. */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));

@@ -30,11 +30,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { Icon } from "@editor/ui/Icon";
 import RightSidebar from "@editor/components/tools/RightSidebar";
-import { ReaderRail } from "@editor/components/viewer/readerRail/ReaderRail";
 import { ReaderSuperSearch } from "@editor/components/viewer/readerRail/ReaderSuperSearch";
 import { useTitleBarStrip } from "@editor/contexts/TitleBarStripContext";
 import Workbench from "@editor/components/layout/Workbench";
 import FileSidebar from "@editor/components/shared/FileSidebar";
+import { ReaderLeftPanel } from "@editor/components/viewer/readerPanel/ReaderLeftPanel";
 import {
   getStartupNavigationAction,
   getDefaultWorkbenchForFileCount,
@@ -673,7 +673,7 @@ export default function HomePage() {
                 created a stray side-scroll surface on touch). */
             <div className="mobile-files-full">
               <div className="flex-1 min-h-0 flex" style={{ minWidth: 0 }}>
-                <Workbench />
+          <Workbench />
               </div>
             </div>
           ) : (
@@ -730,17 +730,22 @@ export default function HomePage() {
           data-wings={wingsPhase ?? undefined}
           style={{ flexDirection: isMobile ? "column" : "row" }}
         >
-          {/* Reading leaves the document and nothing beside it, so the wing goes
-                rather than shrinking to a rail. Everywhere else it is fixed open. */}
-          {wingsMounted && navigationState.workbench !== "signing" && (
-            <div className="workspace-frame">
-              <FileSidebar
-                ref={quickAccessRef}
-                accountHoisted
-                onOpenSettings={openSettings}
-                onRegisterOpenFromComputer={registerOpenFromComputer}
-              />
-            </div>
+          {/* Always there, reading or editing: recent files, the open file's folder and
+                the bookmark/comment/attachment tabs. FileSidebar sits inside it as the
+                recent list (it owns opening and dropping files). Not in the signing hub. */}
+          {navigationState.workbench !== "signing" && (
+            <ReaderLeftPanel
+              recent={
+                <FileSidebar
+                  ref={quickAccessRef}
+                  compact
+                  maxFiles={10}
+                  accountHoisted
+                  onOpenSettings={openSettings}
+                  onRegisterOpenFromComputer={registerOpenFromComputer}
+                />
+              }
+            />
           )}
           <Workbench />
           {isMobile && mobileNavigation}
@@ -748,7 +753,6 @@ export default function HomePage() {
                 panel's controls are the editor's, and reading wants the viewer's.
                 Both render together only while the panel is on its way out. */}
           {wingsMounted && !hideToolPanel && <RightSidebar />}
-          {readerMode && <ReaderRail />}
           {readerMode && !strip.enabled && <ReaderSuperSearch />}
         </Group>
       )}

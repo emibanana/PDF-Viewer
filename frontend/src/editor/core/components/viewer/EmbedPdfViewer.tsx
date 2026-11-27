@@ -1916,7 +1916,6 @@ const EmbedPdfViewerContent = ({
     isScaleCalibrationActive,
     startScaleCalibration,
     cancelScaleCalibration,
-    currentFile,
   );
 
   // Auto-fetch form fields when a PDF is loaded in the viewer.
@@ -2010,7 +2009,7 @@ const EmbedPdfViewerContent = ({
       : 0;
   const sidebarsMarginRem =
     contentPanelWidthRem +
-    (isThumbnailSidebarVisible ? THUMBNAIL_SIDEBAR_WIDTH_REM : 0);
+    (isThumbnailSidebarVisible && !sidebarDockElement ? THUMBNAIL_SIDEBAR_WIDTH_REM : 0);
   const rightInsetRem = pageTool?.rightInsetRem ?? 0;
   const pagesPastInset = usePagesPastInset(
     pdfContainerRef,

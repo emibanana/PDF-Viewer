@@ -95,9 +95,6 @@ vi.mock("@editor/components/shared/FileSidebar", () => ({
 vi.mock("@editor/components/shared/MobileUploadModal", () => ({
   default: () => null,
 }));
-vi.mock("@editor/components/viewer/readerRail/ReaderRail", () => ({
-  ReaderRail: () => null,
-}));
 vi.mock("@editor/components/viewer/readerRail/ReaderSuperSearch", () => ({
   ReaderSuperSearch: () => null,
 }));

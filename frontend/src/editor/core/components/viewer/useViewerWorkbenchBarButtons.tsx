@@ -1,7 +1,6 @@
 import { useMemo, useState, useEffect, useCallback } from "react";
-import { Slider, Popover, Select } from "@mantine/core";
+import { Popover } from "@mantine/core";
 import { useTranslation } from "react-i18next";
-import { supportedLanguages } from "@editor/i18n";
 import { useViewer } from "@editor/contexts/ViewerContext";
 import { useViewerPageTool } from "@editor/contexts/viewer/ViewerPageTool";
 import {
@@ -27,10 +26,8 @@ import {
   useRedaction,
   useRedactionMode,
 } from "@editor/contexts/RedactionContext";
-import { useViewerReadAloud } from "@editor/components/viewer/useViewerReadAloud";
 import { RulerScaleSettingsButton } from "@editor/components/viewer/RulerScaleSettingsButton";
 import type { MeasureScale } from "@editor/utils/measurementTypes";
-import type { StirlingFile } from "@editor/types/fileContext";
 import { useReviewMode } from "@editor/tools/pdfTextEditor/store/reviewMode";
 import {
   useEditOrReview,
@@ -44,18 +41,12 @@ export function useViewerWorkbenchBarButtons(
   isScaleCalibrationActive?: boolean,
   startScaleCalibration?: () => void,
   cancelScaleCalibration?: () => void,
-  displayedFile?: StirlingFile | File | null,
 ) {
   const { t, i18n } = useTranslation();
   const viewer = useViewer();
   const {
-    isThumbnailSidebarVisible,
-    isBookmarkSidebarVisible,
-    isAttachmentSidebarVisible,
     isLayerSidebarVisible,
     hasLayers,
-    isCommentsSidebarVisible,
-    toggleCommentsSidebar,
     isSearchInterfaceVisible,
     registerImmediatePanUpdate,
   } = viewer;
@@ -73,23 +64,12 @@ export function useViewerWorkbenchBarButtons(
     clearToolSelection,
     setLeftPanelView,
     setReaderMode,
-    readerMode,
     toolRegistry,
   } = useToolWorkflow();
   const { selectedTool } = useNavigationState();
   const { requestNavigation } = useNavigationGuard();
   const { redactionsApplied, activeType: redactionActiveType } = useRedaction();
   const { pendingCount } = useRedactionMode();
-  const {
-    isReadingAloud,
-    speechRate,
-    speechLanguage,
-    speechVoice,
-    supportedLanguageCodes,
-    handleReadAloud,
-    handleSpeechRateChange,
-    handleSpeechLanguageChange,
-  } = useViewerReadAloud(i18n.language || "en-US", displayedFile);
 
   useEffect(() => {
     return registerImmediatePanUpdate((newIsPanning) => {
@@ -111,11 +91,7 @@ export function useViewerWorkbenchBarButtons(
     "workbenchBar.toggleAnnotations",
     "Toggle Annotations Visibility",
   );
-  const thumbnailsLabel = t("workbenchBar.thumbnails", "Pages");
-  const bookmarksLabel = t("workbenchBar.bookmarks", "Bookmarks");
-  const attachmentsLabel = t("workbenchBar.attachments", "Attachments");
   const layersLabel = t("workbenchBar.layers", "Layers");
-  const commentsLabel = t("workbenchBar.toggleComments", "Comments");
   const annotationsLabel = t("workbenchBar.annotate", "Annotate");
   const exitAnnotationsLabel = t(
     "workbenchBar.exitAnnotations",
@@ -127,8 +103,6 @@ export function useViewerWorkbenchBarButtons(
   const { startEditing } = useEditOrReview();
   const rulerLabel = t("workbenchBar.ruler", "Ruler / Measure");
   const rulerSettingsLabel = t("workbenchBar.rulerSettings", "Scale Settings");
-  const readAloudLabel = t("workbenchBar.readAloud", "Read Aloud");
-  const readAloudSpeedLabel = t("workbenchBar.readAloudSpeed", "Speed");
 
   const isFormFillActive = (selectedTool as string) === "formFill";
   const isTextEditActive = selectedTool === "pdfTextEditor";
@@ -192,26 +166,6 @@ export function useViewerWorkbenchBarButtons(
     setCustomScale?.(null);
   }, [setCustomScale]);
 
-  // Filter languages based on available voices
-  const filteredLanguages = useMemo(
-    () =>
-      Object.entries(supportedLanguages)
-        .filter(
-          ([code]) =>
-            supportedLanguageCodes.size === 0 ||
-            supportedLanguageCodes.has(code) ||
-            supportedLanguageCodes.has(code.split("-")[0]),
-        )
-        .map(([code, label]) => ({
-          value: code,
-          label: label,
-        })),
-    [supportedLanguageCodes],
-  );
-
-  const shouldShowLanguageSelector =
-    supportedLanguageCodes.size === 0 || filteredLanguages.length > 1;
-
   const viewerButtons = useMemo<WorkbenchBarButtonWithAction[]>(() => {
     const panRedactionBlocked =
       !isPanning && pendingCount > 0 && redactionActiveType !== null;
@@ -222,11 +176,6 @@ export function useViewerWorkbenchBarButtons(
     const pageSection = isPhone ? ("top" as const) : ("page-bar" as const);
     const pageTooltip = isPhone ? tooltipPosition : ("top" as const);
     const pageButtonSize = isPhone ? undefined : ("sm" as const);
-    // Reading mode's rail draws read aloud itself. A second copy in the page
-    // bar would share its open state, and each popover's outside click would
-    // close the other's.
-    const railOwned = readerMode && !isPhone;
-    const railSection = railOwned ? ("top" as const) : pageSection;
     // A narrow page bar folds these into a menu, which acts through the
     // registered action and shows the registered icon.
     const foldsIntoMenu = pageSection === "page-bar";
@@ -243,11 +192,6 @@ export function useViewerWorkbenchBarButtons(
           viewer.panActions.disablePan();
         }
       });
-    const popoverPosition = isPhone
-      ? ("bottom-end" as const)
-      : railOwned
-        ? ("left-start" as const)
-        : ("top" as const);
     const panelToggle = (
       id: string,
       icon: IconName,
@@ -263,23 +207,19 @@ export function useViewerWorkbenchBarButtons(
       section,
       order,
       active,
-      // Registered as the action too, for reading mode's rail, which draws
-      // its own round button when no renderer is given.
       onClick: onToggle,
-      render: railOwned
-        ? undefined
-        : ({ disabled }) => (
-            <BarButton
-              icon={icon}
-              label={label}
-              iconOnly
-              tooltipPosition={tooltipPosition}
-              active={active}
-              disabled={disabled}
-              onClick={onToggle}
-              testId={id}
-            />
-          ),
+      render: ({ disabled }) => (
+        <BarButton
+          icon={icon}
+          label={label}
+          iconOnly
+          tooltipPosition={tooltipPosition}
+          active={active}
+          disabled={disabled}
+          onClick={onToggle}
+          testId={id}
+        />
+      ),
     });
 
     const buttons: WorkbenchBarButtonWithAction[] = [
@@ -371,123 +311,8 @@ export function useViewerWorkbenchBarButtons(
           />
         ),
       },
-      {
-        id: "viewer-read-aloud",
-        tooltip: readAloudLabel,
-        ariaLabel: readAloudLabel,
-        section: railSection,
-        order: 16,
-        active: isReadingAloud,
-        icon: <Icon name="volume-2" size="1rem" />,
-        disabled: typeof window === "undefined" || !window.speechSynthesis,
-        onClick: handleReadAloud,
-        foldsIntoMenu: foldsIntoMenu && !railOwned,
-        render: ({ disabled }) => (
-          <Popover
-            position={popoverPosition}
-            withArrow
-            shadow="md"
-            offset={8}
-            opened={isReadingAloud}
-            onClose={() => {}}
-            withinPortal
-          >
-            <Popover.Target>
-              <BarButton
-                icon={isReadingAloud ? "square" : "volume-2"}
-                label={readAloudLabel}
-                iconOnly
-                size={pageButtonSize}
-                tooltipPosition={pageTooltip}
-                active={isReadingAloud}
-                disabled={
-                  disabled ||
-                  typeof window === "undefined" ||
-                  !window.speechSynthesis
-                }
-                onClick={handleReadAloud}
-              />
-            </Popover.Target>
-            <Popover.Dropdown>
-              <div style={{ width: "16rem", padding: "0.5rem" }}>
-                <div
-                  style={{
-                    fontSize: "0.75rem",
-                    marginBottom: "0.5rem",
-                    textAlign: "center",
-                  }}
-                >
-                  {readAloudSpeedLabel}: {speechRate.toFixed(1)}x
-                </div>
-                <Slider
-                  value={speechRate}
-                  onChange={handleSpeechRateChange}
-                  min={0.5}
-                  max={2}
-                  step={0.1}
-                  marks={[
-                    { value: 0.5, label: "0.5x" },
-                    { value: 1, label: "1x" },
-                    { value: 2, label: "2x" },
-                  ]}
-                  styles={{
-                    markLabel: { fontSize: "0.6rem" },
-                  }}
-                  mb="md"
-                />
-                {shouldShowLanguageSelector && (
-                  <Select
-                    label={t("workbenchBar.readAloudLanguage", "Language")}
-                    placeholder={t(
-                      "workbenchBar.selectLanguage",
-                      "Select language",
-                    )}
-                    value={speechLanguage}
-                    onChange={(value) => {
-                      if (value) {
-                        handleSpeechLanguageChange(value);
-                      }
-                    }}
-                    data={filteredLanguages}
-                    size="xs"
-                    searchable
-                    mb="sm"
-                  />
-                )}
-              </div>
-            </Popover.Dropdown>
-          </Popover>
-        ),
-      },
-      // The side panels as plain toggles at the row's edges: the document's
-      // own content panels on the left, page thumbnails beside its menu.
-      panelToggle(
-        "viewer-toggle-bookmarks",
-        "bookmark",
-        bookmarksLabel,
-        isBookmarkSidebarVisible,
-        viewer.toggleBookmarkSidebar,
-        "row-start",
-        1,
-      ),
-      panelToggle(
-        "viewer-toggle-comments",
-        "message-square",
-        commentsLabel,
-        isCommentsSidebarVisible,
-        toggleCommentsSidebar,
-        "row-start",
-        2,
-      ),
-      panelToggle(
-        "viewer-toggle-attachments",
-        "paperclip",
-        attachmentsLabel,
-        isAttachmentSidebarVisible,
-        viewer.toggleAttachmentSidebar,
-        "row-start",
-        3,
-      ),
+      // Bookmarks, comments and attachments live in the reader's left panel, picked
+      // from the quick-nav rail, rather than as toggles in this row.
       ...(hasLayers
         ? [
             panelToggle(
@@ -501,15 +326,6 @@ export function useViewerWorkbenchBarButtons(
             ),
           ]
         : []),
-      panelToggle(
-        "viewer-toggle-sidebar",
-        "list",
-        thumbnailsLabel,
-        isThumbnailSidebarVisible,
-        viewer.toggleThumbnailSidebar,
-        "row-end",
-        59,
-      ),
       {
         id: "viewer-page-view",
         tooltip: pageViewLabel,
@@ -681,9 +497,6 @@ export function useViewerWorkbenchBarButtons(
     t,
     i18n.language,
     viewer,
-    isThumbnailSidebarVisible,
-    isBookmarkSidebarVisible,
-    isAttachmentSidebarVisible,
     isLayerSidebarVisible,
     hasLayers,
     isSearchInterfaceVisible,
@@ -691,15 +504,8 @@ export function useViewerWorkbenchBarButtons(
     searchLabel,
     panLabel,
     applyRedactionsLabel,
-    thumbnailsLabel,
-    bookmarksLabel,
-    attachmentsLabel,
     layersLabel,
-    commentsLabel,
-    isCommentsSidebarVisible,
-    toggleCommentsSidebar,
     isPhone,
-    readerMode,
     pageViewLabel,
     annotationVisibilityLabel,
     preloadTextEditor,
@@ -733,18 +539,6 @@ export function useViewerWorkbenchBarButtons(
     handleResetRulerScale,
     customScale,
     isScaleCalibrationActive,
-    readAloudLabel,
-    readAloudSpeedLabel,
-    isReadingAloud,
-    speechRate,
-    speechLanguage,
-    speechVoice,
-    supportedLanguageCodes,
-    filteredLanguages,
-    shouldShowLanguageSelector,
-    handleReadAloud,
-    handleSpeechRateChange,
-    handleSpeechLanguageChange,
   ]);
 
   useWorkbenchBarButtons(viewerButtons);

@@ -6,8 +6,8 @@ pub mod platform;
 pub mod window;
 
 pub use files::{
-    add_opened_file, clear_opened_files, file_disk_state, get_opened_files, pop_opened_files,
-    write_file_atomic,
+    add_opened_file, clear_opened_files, file_disk_state, get_opened_files, list_sibling_pdfs,
+    pop_opened_files, write_file_atomic,
 };
 pub use fonts::{list_system_fonts, serve_system_font};
 pub use platform::{get_desktop_os, get_os_username};

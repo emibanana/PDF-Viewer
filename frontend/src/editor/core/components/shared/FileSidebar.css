@@ -661,3 +661,36 @@
 .file-sidebar-dock:not(:empty) ~ .file-sidebar-files-box {
   display: none;
 }
+
+/* Embedded in the reader panel: only the file cards. */
+.file-sidebar--compact {
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  height: auto;
+  z-index: auto;
+}
+.file-sidebar--compact .file-sidebar-header,
+.file-sidebar--compact .file-sidebar-controls,
+.file-sidebar--compact .file-sidebar-footer-box,
+.file-sidebar--compact .file-sidebar-section-header {
+  display: none;
+}
+.file-sidebar--compact .file-sidebar-files-box {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+}
+.file-sidebar--compact .file-sidebar-inner,
+.file-sidebar--compact .file-sidebar-files-box,
+.file-sidebar--compact .file-sidebar-scroll,
+.file-sidebar--compact .file-sidebar-files-section {
+  flex: none;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+}

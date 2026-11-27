@@ -21,7 +21,6 @@ import { useFreeCreditsSummary } from "@editor/hooks/useFreeCreditsSummary";
 import { useOpenPlan } from "@editor/hooks/useOpenPlan";
 import { NavFooter } from "@editor/components/shared/navFooter/NavFooter";
 import { useIndexedDB, useIndexedDBRevision } from "@editor/contexts/IndexedDBContext";
-import { useSidebarDock } from "@editor/contexts/SidebarContext";
 import { SidebarHeader } from "@editor/components/shared/SidebarHeader";
 import type { StirlingFileStub } from "@editor/types/fileContext";
 import type { FileId } from "@editor/types/file";
@@ -80,6 +79,10 @@ export interface FileSidebarProps {
   /** Publishes the sidebar's picker so the quick navigation rail can reuse it. */
   onRegisterOpenFromComputer?: (open: (() => void) | null) => void;
   onPickCloudFiles?: (files: File[]) => void | Promise<void>;
+  /** Embedded in another panel: just the file cards, no wordmark, actions or footer. */
+  compact?: boolean;
+  /** With `compact`, shows only this many of the most recent files. */
+  maxFiles?: number;
   /** Action rows inserted under Open-from-computer (New folder, Refresh). A
    *  control with more than one destination renders itself instead. */
   extraActions?: Array<{
@@ -418,11 +421,19 @@ function FileLibrarySection({
 }
 
 const FileSidebar = forwardRef<HTMLDivElement, FileSidebarProps>(function FileSidebar(
-  { onOpenSettings, accountHoisted = false, onUploadFiles, onRegisterOpenFromComputer, onPickCloudFiles, extraActions },
+  {
+    onOpenSettings,
+    accountHoisted = false,
+    onUploadFiles,
+    onRegisterOpenFromComputer,
+    onPickCloudFiles,
+    extraActions,
+    compact = false,
+    maxFiles,
+  },
   ref,
 ) {
   const { t } = useTranslation();
-  const sidebarDock = useSidebarDock();
   const labelName = useLabelName();
   // Classification off (non-SaaS / AI-off) → never show the per-row label chip,
   // even if a stub carries labels from an imported PDF; keeps the row plain.
@@ -840,7 +851,7 @@ const FileSidebar = forwardRef<HTMLDivElement, FileSidebarProps>(function FileSi
 
   // Editor views already show every open file as cards, so the sidebar drops
   // the recent list there and offers a picker for adding more.
-  const showRecentList = currentWorkbench !== "fileEditor" && currentWorkbench !== "pageEditor";
+  const showRecentList = compact || (currentWorkbench !== "fileEditor" && currentWorkbench !== "pageEditor");
   const [recentPickerOpen, setRecentPickerOpen] = useState(false);
 
   // Shared ingest path for both the native picker and drag-and-drop.
@@ -958,7 +969,7 @@ const FileSidebar = forwardRef<HTMLDivElement, FileSidebarProps>(function FileSi
   return (
     <div
       ref={ref}
-      className="file-sidebar"
+      className={compact ? "file-sidebar file-sidebar--compact" : "file-sidebar"}
       style={{
         width: SIDEBAR_WIDTH,
         minWidth: SIDEBAR_WIDTH,
@@ -966,12 +977,10 @@ const FileSidebar = forwardRef<HTMLDivElement, FileSidebarProps>(function FileSi
       }}
       data-sidebar="file-sidebar"
       data-tour="quick-access-bar"
-      {...dropHandlers}
+      {...(compact ? {} : dropHandlers)}
     >
       <div className="file-sidebar-inner">
         <SidebarHeader />
-
-        <div ref={sidebarDock?.setElement} className="file-sidebar-dock" />
 
         <input
           ref={nativeFileInputRef}
@@ -993,8 +1002,8 @@ const FileSidebar = forwardRef<HTMLDivElement, FileSidebarProps>(function FileSi
           <div className="file-sidebar-scroll" aria-busy={ingestsInFlight > 0}>
             <FileLibrarySection
               loaded={stubsLoaded}
-              stubs={allFileStubs}
-              groups={fileGroups}
+              stubs={compact && maxFiles ? allFileStubs.slice(0, maxFiles) : allFileStubs}
+              groups={compact ? null : fileGroups}
               groupOpen={groupOpen}
               onGroupOpenChange={setGroupOpenState}
               renderFileRow={renderFileRow}

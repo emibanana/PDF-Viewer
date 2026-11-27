@@ -116,8 +116,6 @@ test("unlocked links remain navigable and text selection offers reading actions 
   await expect(
     selectionMenu.getByRole("button", { name: "Copy", exact: true }),
   ).toBeVisible();
-  // A password-opened document is view-only, so the menu offers reading actions
-  // only: copy, plus read aloud when the browser can speak.
-  const canSpeak = await page.evaluate(() => "speechSynthesis" in window);
-  await expect(selectionMenu.getByRole("button")).toHaveCount(canSpeak ? 2 : 1);
+  // A password-opened document is view-only, so the menu offers copy and nothing else.
+  await expect(selectionMenu.getByRole("button")).toHaveCount(1);
 });
