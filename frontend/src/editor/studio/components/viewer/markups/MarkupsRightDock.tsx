@@ -51,6 +51,7 @@ export function MarkupsRightDock({ rightOffsetRem }: { rightOffsetRem: number })
       style={{ width, right: `${rightOffsetRem}rem` }}
       aria-label={t("markups.bar.properties", "Measure / Properties")}
       data-testid="markups-right-dock"
+      data-no-interaction
     >
       <div className="markups-dock__resize markups-dock__resize--horizontal" onPointerDown={startResize} />
       <div className="markups-dock__header">

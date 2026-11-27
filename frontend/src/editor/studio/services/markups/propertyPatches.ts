@@ -104,7 +104,11 @@ export function labelPatch(annotation: MarkupAnnotation, label: string): Record<
  * The comment the user typed. On our measurement markups it is marked as theirs so the measured
  * value stops overwriting it; clearing it hands `/Contents` back to the measured value.
  */
-export function commentPatch(annotation: MarkupAnnotation, text: string, pageScale: PageScale | null): Record<string, unknown> {
+export function commentPatch(
+  annotation: MarkupAnnotation,
+  text: string,
+  pageScale: PageScale | null,
+): Record<string, unknown> {
   if (!readMarkupCustom(annotation.custom)) return { contents: text };
   if (text === "") return resetCommentPatch(annotation, pageScale);
   return { contents: text, custom: mergeMarkupCustom(annotation.custom, { manualContents: true }) };

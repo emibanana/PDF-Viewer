@@ -53,10 +53,7 @@ describe("polygonCentroid", () => {
 describe("labelAnchor", () => {
   it("anchors a length on the middle of its line", () => {
     expect(
-      labelAnchor(
-        { type: PdfAnnotationSubtype.LINE, linePoints: { start: { x: 0, y: 0 }, end: { x: 10, y: 20 } } },
-        "length",
-      ),
+      labelAnchor({ type: PdfAnnotationSubtype.LINE, linePoints: { start: { x: 0, y: 0 }, end: { x: 10, y: 20 } } }, "length"),
     ).toEqual({ x: 5, y: 10 });
   });
 

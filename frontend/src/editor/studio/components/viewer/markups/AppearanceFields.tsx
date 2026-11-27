@@ -18,15 +18,7 @@ interface AppearanceFieldsProps {
   onChange: (change: AppearanceValues) => void;
 }
 
-function BufferedColor({
-  label,
-  value,
-  onCommit,
-}: {
-  label: string;
-  value: string;
-  onCommit: (value: string) => void;
-}) {
+function BufferedColor({ label, value, onCommit }: { label: string; value: string; onCommit: (value: string) => void }) {
   const [shown, change, flush] = useBufferedValue(value, (next) => {
     if (COMPLETE_HEX.test(next)) onCommit(next);
   });

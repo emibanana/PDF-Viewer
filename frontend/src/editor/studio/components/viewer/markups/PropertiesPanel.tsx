@@ -55,15 +55,7 @@ function BufferedText({
   );
 }
 
-function BufferedComments({
-  label,
-  value,
-  onCommit,
-}: {
-  label: string;
-  value: string;
-  onCommit: (value: string) => void;
-}) {
+function BufferedComments({ label, value, onCommit }: { label: string; value: string; onCommit: (value: string) => void }) {
   const [shown, change, flush] = useBufferedValue(value, onCommit, 600);
   return (
     <FormField label={label}>

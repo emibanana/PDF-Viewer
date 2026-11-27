@@ -72,6 +72,7 @@ const ROW_HEIGHT = 24;
 const HEADER_HEIGHT = 26;
 const MAX_COLUMN_WIDTH = 800;
 const LAYOUT_SAVE_DELAY_MS = 250;
+const NOTICE_DURATION_MS = 5000;
 const NO_VALUE = "—";
 const SAFE_COLOUR = /^#[0-9a-f]{3,8}$/i;
 
@@ -213,6 +214,12 @@ export function MarkupsList({ onClose }: { onClose: () => void }) {
     const timer = setTimeout(() => saveMarkupListLayout(layout), LAYOUT_SAVE_DELAY_MS);
     return () => clearTimeout(timer);
   }, [layout]);
+
+  useEffect(() => {
+    if (!notice) return undefined;
+    const timer = setTimeout(() => setNotice(null), NOTICE_DURATION_MS);
+    return () => clearTimeout(timer);
+  }, [notice]);
 
   const selection = useSyncExternalStore(subscribeMarkupAnnotations, getMarkupSelection);
   const selectedSet = useMemo(() => new Set(selection), [selection]);
@@ -486,8 +493,10 @@ export function MarkupsList({ onClose }: { onClose: () => void }) {
   const firstColumnId: MarkupColumnId | undefined = visibleIds[0];
   const headers = table.getHeaderGroups()[0]?.headers ?? [];
 
+  // data-no-interaction: the viewer deselects on any pointer-down outside the page unless told
+  // otherwise, which would turn a Ctrl-click in the list into a plain click.
   return (
-    <div className="markups-list">
+    <div className="markups-list" data-no-interaction>
       <MarkupsListToolbar
         shownCount={filteredRows.length}
         totalCount={allRows.length}
@@ -549,7 +558,7 @@ export function MarkupsList({ onClose }: { onClose: () => void }) {
               );
             })}
           </div>
-          <div className="markups-list__body" style={{ height: virtualizer.getTotalSize() - HEADER_HEIGHT }}>
+          <div className="markups-list__body" style={{ height: virtualizer.getTotalSize() }}>
             {virtualizer.getVirtualItems().map((virtualItem) => {
               const item = items[virtualItem.index];
               const style = { width: "100%", transform: `translateY(${virtualItem.start - HEADER_HEIGHT}px)` };

@@ -8,11 +8,13 @@ interface ExtentFieldProps {
   label: string;
   unit: string;
   value: number | undefined;
+  /** Shown while empty: the extent a new markup gets when none is set. */
+  placeholder?: string;
   onCommit: (value: number) => void;
 }
 
 /** A wall height or slab depth in the page's unit; only a positive number is committed. */
-export function ExtentField({ label, unit, value, onCommit }: ExtentFieldProps) {
+export function ExtentField({ label, unit, value, placeholder, onCommit }: ExtentFieldProps) {
   const [shown, change, flush] = useBufferedValue<number | string>(value ?? "", (next) => {
     if (typeof next === "number" && next > 0) onCommit(next);
   });
@@ -25,6 +27,7 @@ export function ExtentField({ label, unit, value, onCommit }: ExtentFieldProps) 
         step={0.1}
         decimalScale={4}
         allowNegative={false}
+        placeholder={placeholder}
         suffix={unit ? ` ${unit}` : undefined}
         onChange={change}
         onBlur={flush}

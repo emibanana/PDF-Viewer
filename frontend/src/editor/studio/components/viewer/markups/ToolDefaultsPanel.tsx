@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { FormField } from "@editor/ui/FormField";
 import { Input } from "@editor/ui/Input";
 import { isClosedKind, type MeasureToolSpec } from "@editor/services/markups/markupModel";
+import { defaultExtent } from "@editor/services/markups/measureMath";
 import { useActiveFileKey, usePageScale } from "@editor/services/markups/pageScaleStore";
 import type { AppearanceValues } from "@editor/services/markups/propertyPatches";
 import { AppearanceFields } from "@editor/components/viewer/markups/AppearanceFields";
@@ -58,6 +59,7 @@ export function ToolDefaultsPanel({
               label={t("markups.props.height", "Height")}
               unit={unit ?? ""}
               value={values.height}
+              placeholder={unit ? String(defaultExtent(unit).height) : undefined}
               onCommit={(height) => update({ height })}
             />
           )}
@@ -66,6 +68,7 @@ export function ToolDefaultsPanel({
               label={t("markups.props.depth", "Depth")}
               unit={unit ?? ""}
               value={values.depth}
+              placeholder={unit ? String(defaultExtent(unit).depth) : undefined}
               onCommit={(depth) => update({ depth })}
             />
           )}
@@ -73,10 +76,7 @@ export function ToolDefaultsPanel({
       </section>
       <section className="markups-section">
         <h3 className="markups-section__title">{t("markups.props.appearance", "Appearance")}</h3>
-        <AppearanceFields
-          values={appearance}
-          onChange={update}
-        />
+        <AppearanceFields values={appearance} onChange={update} />
       </section>
     </div>
   );

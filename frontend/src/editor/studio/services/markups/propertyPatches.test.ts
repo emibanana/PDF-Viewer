@@ -148,7 +148,10 @@ describe("commentPatch", () => {
 
 describe("resetCommentPatch", () => {
   it("re-derives the value even when the typed text happens to equal it", () => {
-    const typed = wall({ contents: "10.00 sq m", custom: { markup: { v: 1, kind: "wall", height: 1, manualContents: true } } });
+    const typed = wall({
+      contents: "10.00 sq m",
+      custom: { markup: { v: 1, kind: "wall", height: 1, manualContents: true } },
+    });
     const patch = resetCommentPatch(typed, scale);
     expect(patch.contents).toBe("10.00 sq m");
     expect(readMarkupCustom(patch.custom)?.manualContents).toBeUndefined();

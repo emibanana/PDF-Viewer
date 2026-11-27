@@ -8,7 +8,16 @@ import {
 } from "@editor/services/markups/calibrateStore";
 import { clientToPagePixels, normalizeTurns } from "@editor/services/markups/pageGeometry";
 
-const SWALLOWED_EVENTS = ["pointerdown", "pointerup", "mousedown", "mouseup", "dblclick", "touchstart", "touchend", "contextmenu"];
+const SWALLOWED_EVENTS = [
+  "pointerdown",
+  "pointerup",
+  "mousedown",
+  "mouseup",
+  "dblclick",
+  "touchstart",
+  "touchend",
+  "contextmenu",
+];
 
 /**
  * Catches the two clicks of a calibration on a page. Sits above the page's own layers while
@@ -76,8 +85,20 @@ export function CalibrateOverlay({ documentId, pageIndex }: { documentId: string
       <svg className="calibrate-overlay__svg" aria-hidden>
         {line && (
           <>
-            <line className="calibrate-overlay__halo" x1={line.a.x * zoom} y1={line.a.y * zoom} x2={line.b.x * zoom} y2={line.b.y * zoom} />
-            <line className="calibrate-overlay__line" x1={line.a.x * zoom} y1={line.a.y * zoom} x2={line.b.x * zoom} y2={line.b.y * zoom} />
+            <line
+              className="calibrate-overlay__halo"
+              x1={line.a.x * zoom}
+              y1={line.a.y * zoom}
+              x2={line.b.x * zoom}
+              y2={line.b.y * zoom}
+            />
+            <line
+              className="calibrate-overlay__line"
+              x1={line.a.x * zoom}
+              y1={line.a.y * zoom}
+              x2={line.b.x * zoom}
+              y2={line.b.y * zoom}
+            />
           </>
         )}
         {first && first.pageIndex === pageIndex && (

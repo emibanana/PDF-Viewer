@@ -23,6 +23,9 @@ import {
 
 const PRECISIONS = [0, 1, 2, 3, 4] as const;
 
+/** A calibrated ratio has a long fraction; four places is more than a typed ratio needs. */
+const ratioToText = (ratio: number | null | undefined) => (ratio ? String(Number(ratio.toFixed(4))) : "");
+
 const range = (count: number) => Array.from({ length: count }, (_, index) => index);
 
 interface PageScaleSectionProps {
@@ -42,11 +45,11 @@ export function PageScaleSection({ fileKey, pageIndex, totalPages }: PageScaleSe
   const [applyToAll, setApplyToAll] = useState(false);
   const scale = entry?.scale ?? null;
   const preset = findPreset(scale);
-  const [ratioText, setRatioText] = useState(scale?.ratio ? String(scale.ratio) : "");
+  const [ratioText, setRatioText] = useState(ratioToText(scale?.ratio));
   const [unit, setUnit] = useState(scale?.unit ?? "m");
 
   useEffect(() => {
-    if (scale?.ratio) setRatioText(String(scale.ratio));
+    if (scale?.ratio) setRatioText(ratioToText(scale.ratio));
     if (scale) setUnit(scale.unit);
   }, [scale]);
 

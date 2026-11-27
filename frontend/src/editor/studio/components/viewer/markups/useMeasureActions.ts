@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useViewer } from "@editor/contexts/ViewerContext";
-import { armMeasureTool } from "@editor/services/markups/markupController";
+import { armMeasureTool, deselectMarkup } from "@editor/services/markups/markupController";
 import type { MeasureToolId } from "@editor/services/markups/markupModel";
 import { cancelCalibration, startCalibration } from "@editor/services/markups/calibrateStore";
 
@@ -27,6 +27,7 @@ export function useMeasureActions() {
 
   const calibrate = useCallback(() => {
     armMeasureTool(null);
+    deselectMarkup();
     leavePan();
     startCalibration();
   }, [leavePan]);

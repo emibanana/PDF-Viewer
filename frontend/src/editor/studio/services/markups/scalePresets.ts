@@ -58,7 +58,10 @@ export function findPreset(scale: MeasureScale | null | undefined): ScalePreset 
   const ratio = scale.ratio;
   return (
     SCALE_PRESETS.find(
-      (preset) => preset.unit === scale.unit.toLowerCase() && sameRatio(preset.ratio, ratio) && sameRatio(presetScale(preset).factor, scale.factor),
+      (preset) =>
+        preset.unit === scale.unit.toLowerCase() &&
+        sameRatio(preset.ratio, ratio) &&
+        sameRatio(presetScale(preset).factor, scale.factor),
     ) ?? null
   );
 }
