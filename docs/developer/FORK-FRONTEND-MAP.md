@@ -36,7 +36,7 @@ The "Wipe backend-only tools" commit removed the tool pages for compress, OCR, c
 
 Tests of removed tools were deleted or rewritten around live tools (rotate, sign, merge), and the brand-mark click tests in `pages/HomePage.startupView.test.tsx` went with the removed `.quick-nav-brand-button`. `core` and `studio` pass in full; new tests must not name a removed tool or route.
 
-The Java backend, Gradle, Docker and `app/` are gone. Font fixtures for the text-editor tests live in `src/editor/core/tests/test-fixtures/fonts/`. There is no `engine/`, no Docker/Gradle workflow and no release pipeline: `.github/workflows/ci.yml` runs the frontend checks and Rust lint, and `task pre-commit` runs its Python tools through pinned `uvx` calls.
+The Java backend, Gradle, Docker and `app/` are gone. Font fixtures for the text-editor tests live in `src/editor/core/tests/test-fixtures/fonts/`. There is no `engine/`, no Docker/Gradle workflow, no GitHub Actions and no release pipeline: checks run locally (`task check`), releases are built by hand with `npx tauri build`, and `task pre-commit` runs its Python tools through pinned `uvx` calls.
 
 ## Units
 

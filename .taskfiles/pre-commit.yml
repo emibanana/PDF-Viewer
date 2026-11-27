@@ -32,7 +32,6 @@ vars:
     ':(exclude)*bootstrap*'
     ':(exclude)*.min.*'
     ':(exclude)*diff.js'
-    ':(exclude).github/workflows/*'
   LOCALE_TOML: 'frontend/public/locales/*/translation.toml'
 
   # Pinned Python tools, run on demand through uv: nothing to install or clean up.
