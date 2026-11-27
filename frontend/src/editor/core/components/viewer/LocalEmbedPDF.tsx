@@ -155,6 +155,7 @@ import type { ViewerPageLayerProps } from "@editor/contexts/viewer/ViewerPageToo
 import { FormFieldCreationOverlay } from "@editor/tools/formFill/FormFieldCreationOverlay";
 import { FormFieldEditOverlay } from "@editor/tools/formFill/FormFieldEditOverlay";
 import { ButtonAppearanceOverlay } from "@editor/tools/formFill/ButtonAppearanceOverlay";
+import { selectionHandleUI } from "@editor/components/viewer/selectionHandleUI";
 import SignatureFieldOverlay from "@editor/components/viewer/SignatureFieldOverlay";
 import { CommentsSidebar } from "@editor/components/viewer/CommentsSidebar";
 import { CommentAuthorProvider } from "@editor/contexts/CommentAuthorContext";
@@ -667,7 +668,7 @@ function AnnotationEditingLayers({
         documentId={documentId}
         pageIndex={pageIndex}
         annotationRenderers={LINK_RENDERERS}
-        selectionOutline={{ color: "#007ACC" }}
+        {...selectionHandleUI}
         selectionMenu={(props) => (
           <AnnotationSelectionMenu
             {...props}
