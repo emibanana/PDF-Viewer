@@ -32,6 +32,38 @@ function viewportPoint(viewport: Element, event: WheelEvent): Point {
   };
 }
 
+interface PageAnchor {
+  page: Element;
+  fx: number;
+  fy: number;
+}
+
+function pageAnchorAt(event: WheelEvent): PageAnchor | null {
+  const hit = document.elementsFromPoint?.(event.clientX, event.clientY) ?? [];
+  for (const el of hit) {
+    const page = el.closest("[data-page-index]");
+    if (!page) continue;
+    const rect = page.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) return null;
+    return {
+      page,
+      fx: (event.clientX - rect.left) / rect.width,
+      fy: (event.clientY - rect.top) / rect.height,
+    };
+  }
+  return null;
+}
+
+/** Scrolls so the anchored page point sits under the pointer again. */
+function pinAnchor(viewport: Element, anchor: PageAnchor, event: WheelEvent) {
+  if (!anchor.page.isConnected) return;
+  const rect = anchor.page.getBoundingClientRect();
+  const dx = rect.left + anchor.fx * rect.width - event.clientX;
+  const dy = rect.top + anchor.fy * rect.height - event.clientY;
+  viewport.scrollLeft += dx;
+  viewport.scrollTop += dy;
+}
+
 /**
  * Ctrl/Cmd + wheel (and touchpad pinch, which browsers report the same way)
  * zooms the document about the pointer, so the spot under it stays put.
@@ -40,6 +72,11 @@ function viewportPoint(viewport: Element, event: WheelEvent): Point {
  * position on the next animation frame, and if React has not laid the pages
  * out at the new size by then the browser clamps that scroll and the document
  * jumps away from the pointer.
+ *
+ * The plugin also derives its scroll target from scroll metrics that lag the
+ * DOM while wheel events arrive faster than frames, and applies it in a later
+ * animation frame. So the page point under the pointer is re-pinned from the
+ * DOM right after the zoom and again after the plugin's own scroll lands.
  */
 export function useViewerWheelZoom(
   ref: RefObject<HTMLElement | null>,
@@ -63,7 +100,11 @@ export function useViewerWheelZoom(
 
       const factor = Math.exp(-pixels * ZOOM_PER_PIXEL);
       const center = viewportPoint(viewport, event);
+      const anchor = pageAnchorAt(event);
       flushSync(() => zoomByRef.current(factor, center));
+      if (!anchor) return;
+      pinAnchor(viewport, anchor, event);
+      requestAnimationFrame(() => pinAnchor(viewport, anchor, event));
     };
 
     element.addEventListener("wheel", handleWheel, { passive: false });
