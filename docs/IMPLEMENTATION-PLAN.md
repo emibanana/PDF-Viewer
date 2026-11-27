@@ -1,6 +1,6 @@
 # PDF Viewer: feature plan and status
 
-A local-only Windows desktop PDF viewer and markup tool, forked from [Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) (upstream `594a564`, v3.5.0). **No accounts, no login, no backend, no online services.** The app is built and running; this document tracks what is done and what to build next.
+A local-only Windows desktop PDF viewer and markup tool, forked from [Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) (upstream `594a564`, v3.5.0). **No accounts, no login, no backend, no online services.** The app is built and running; this document tracks what is done and what to build next. The product direction (Bluebeam and Acrobat feature map, phases P1 to P6) is in [ROADMAP.md](ROADMAP.md).
 
 | Icon | Meaning                                              |
 | ---- | ---------------------------------------------------- |

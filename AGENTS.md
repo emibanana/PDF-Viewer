@@ -10,7 +10,8 @@ Read on demand, only for the area you are touching:
 
 - Layers, alias resolution, which checks to run (and which not to), i18n rules, removed features, Windows gotchas: `docs/developer/FORK-FRONTEND-MAP.md`
 - Open files (workbench), views, and the file/library sidebar: `docs/developer/WORKBENCH-AND-FILE-SIDEBAR.md`
-- Product status and roadmap: `docs/IMPLEMENTATION-PLAN.md`
+- Product status: `docs/IMPLEMENTATION-PLAN.md`
+- Product direction (Bluebeam + Acrobat feature map and phases): `docs/ROADMAP.md`. Keep its marks and the README comparison table in step when a feature ships
 - Every edit we made to upstream `core/`: `docs/core-patches.md` (add a row when you edit core)
 
 Frontend checks that matter (from `frontend/`): `npx tsc --noEmit -p tsconfig.studio.vite.json`, `npx oxlint --config oxlint.config.ts --max-warnings=0`, `npx vitest run --project core --project studio`. Keep the relevant doc above updated when you learn something the next agent would otherwise have to rediscover.
