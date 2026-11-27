@@ -285,7 +285,7 @@ export default function HomePage() {
     }
   }, [readerMode, location.pathname, navigate]);
 
-  const { setActiveFileIndex } = useViewer();
+  const { setActiveFileIndex, setActiveFileId } = useViewer();
   const prevFileCountRef = useRef(activeFiles.length);
 
   // Startup/open transition behavior:
@@ -305,9 +305,24 @@ export default function HomePage() {
     // A session restore fills an empty workbench too, but it already knows which view the user
     // left - so it wins over this heuristic rather than being overwritten by it.
     if (action && !isApplyingRestoredView()) {
-      actions.setWorkbench(action.workbench);
-      if (typeof action.activeFileIndex === "number") {
-        setActiveFileIndex(action.activeFileIndex);
+      const showNewFile = () => {
+        actions.setWorkbench(action.workbench);
+        if (typeof action.activeFileIndex === "number") {
+          setActiveFileIndex(action.activeFileIndex);
+        }
+      };
+      if (action.replacesViewedFile) {
+        // Resolved now: a save made while the prompt is open reorders the workbench.
+        const newestId =
+          typeof action.activeFileIndex === "number"
+            ? activeFiles[action.activeFileIndex]?.fileId
+            : undefined;
+        requestNavigation(() => {
+          if (newestId) setActiveFileId(newestId);
+          else showNewFile();
+        });
+      } else {
+        showNewFile();
       }
       if (isMobile) {
         setActiveMobileView("workbench");
@@ -316,9 +331,11 @@ export default function HomePage() {
 
     prevFileCountRef.current = currentCount;
   }, [
-    activeFiles.length,
+    activeFiles,
     actions,
     setActiveFileIndex,
+    setActiveFileId,
+    requestNavigation,
     selectedToolKey,
     navigationState.workbench,
     isMobile,

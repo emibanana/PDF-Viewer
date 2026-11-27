@@ -3,6 +3,7 @@ import type { ScrollCapability } from "@embedpdf/plugin-scroll";
 import type { PdfAnnotationObject } from "@embedpdf/models";
 import { isMeasureToolId, type MeasureToolId } from "@editor/services/markups/markupModel";
 import { setMarkupsUi } from "@editor/services/markups/markupsUiStore";
+import { cancelCalibration } from "@editor/services/markups/calibrateStore";
 
 /**
  * The open document's annotation and scroll plugins, bound by `useMarkupTools` while the viewer
@@ -48,10 +49,32 @@ function scheduleAnnotationNotify(): void {
   }
 }
 
+/**
+ * The UI store mirrors the armed tool and the selection through plugin events, and a document
+ * switch destroys the old plugin without firing one. Binding therefore re-reads both from the
+ * plugin, so a button never shows a tool armed that the new document does not have.
+ */
+function mirrorPluginUi(plugins: BoundPlugins | null): void {
+  let armedToolId: string | null = null;
+  let selectedAnnotationId: string | null = null;
+  let selectedPageIndex: number | null = null;
+  try {
+    armedToolId = plugins?.annotation.getActiveTool?.()?.id ?? null;
+    const selected = plugins?.annotation.getSelectedAnnotation?.() ?? null;
+    selectedAnnotationId = selected?.object.id ?? null;
+    selectedPageIndex = selected?.object.pageIndex ?? null;
+  } catch {
+    // The plugin has no document yet, so nothing is armed or selected.
+  }
+  setMarkupsUi({ armedToolId, selectedAnnotationId, selectedPageIndex });
+}
+
 export function bindMarkupController(plugins: BoundPlugins | null): void {
   stopAnnotationState?.();
   stopAnnotationState = null;
   bound = plugins;
+  mirrorPluginUi(plugins);
+  if (!plugins) cancelCalibration();
   lastSeenByUid = null;
   selection = EMPTY_SELECTION;
   annotationsVersion++;

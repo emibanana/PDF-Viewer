@@ -8,6 +8,12 @@ export type StartupWorkbench = "viewer" | "fileEditor";
 export interface StartupNavigationAction {
   workbench: StartupWorkbench;
   activeFileIndex?: number;
+  /**
+   * True when the viewer already shows a document and would move to another one. No workbench
+   * change happens, so the unsaved-changes guard never sees it: the caller has to ask itself
+   * before the open document's edits are replaced.
+   */
+  replacesViewedFile?: boolean;
 }
 
 /** Several files means the file editor; one or none the viewer. */
@@ -41,7 +47,11 @@ export function getStartupNavigationAction(
     currentWorkbench === "viewer" &&
     currentFileCount > previousFileCount
   ) {
-    return { workbench: "viewer", activeFileIndex: currentFileCount - 1 };
+    return {
+      workbench: "viewer",
+      activeFileIndex: currentFileCount - 1,
+      replacesViewedFile: true,
+    };
   }
 
   // From landing page (no prior files)

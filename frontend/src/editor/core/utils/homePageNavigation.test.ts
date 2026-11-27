@@ -44,10 +44,12 @@ describe("getStartupNavigationAction", () => {
     expect(getStartupNavigationAction(1, 2, null, "viewer")).toEqual({
       workbench: "viewer",
       activeFileIndex: 1,
+      replacesViewedFile: true,
     });
     expect(getStartupNavigationAction(3, 5, null, "viewer")).toEqual({
       workbench: "viewer",
       activeFileIndex: 4,
+      replacesViewedFile: true,
     });
   });
 

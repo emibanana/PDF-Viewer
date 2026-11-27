@@ -138,7 +138,7 @@ function AnnotationSelectionMenuInner({
       )
         return;
       if (target.closest("[data-no-interaction]")) return;
-      if (target.closest(".mantine-Popover-dropdown")) return;
+      if (target.closest(".mantine-Popover-dropdown,[data-portal]")) return;
       provides?.deselectAnnotation?.();
     };
     document.addEventListener("pointerdown", handlePointerDown);
