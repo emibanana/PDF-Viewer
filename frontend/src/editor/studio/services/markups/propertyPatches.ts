@@ -30,6 +30,9 @@ export interface PropertyAnnotation extends MarkupAnnotation {
 
 const MIN_WIDTH = 0.25;
 
+/** Below this a markup is effectively invisible and hard to find again. */
+export const MIN_OPACITY = 0.1;
+
 const FILLABLE: ReadonlySet<PdfAnnotationSubtype> = new Set([
   PdfAnnotationSubtype.POLYGON,
   PdfAnnotationSubtype.SQUARE,
@@ -74,7 +77,7 @@ export function appearancePatch(annotation: PropertyAnnotation, change: Appearan
   const patch: Record<string, unknown> = {};
   if (change.strokeColor !== undefined && "strokeColor" in annotation) patch.strokeColor = change.strokeColor;
   if (change.fillColor !== undefined && hasFill(annotation)) patch.color = change.fillColor;
-  if (change.opacity !== undefined && "opacity" in annotation) patch.opacity = clamp(change.opacity, 0, 1);
+  if (change.opacity !== undefined && "opacity" in annotation) patch.opacity = clamp(change.opacity, MIN_OPACITY, 1);
   const current = readAppearance(annotation);
   const widthChanged = change.strokeWidth !== undefined && "strokeWidth" in annotation;
   if (widthChanged) patch.strokeWidth = Math.max(MIN_WIDTH, change.strokeWidth as number);

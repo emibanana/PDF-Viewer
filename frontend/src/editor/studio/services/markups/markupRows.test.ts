@@ -225,6 +225,31 @@ describe("totals and grouping", () => {
     expect(totals.unit).toBe(MIXED_UNITS);
   });
 
+  it("sums no numeric column at all once the list mixes units, even one only some rows have", () => {
+    const wall = annotation({
+      id: "w",
+      type: PdfAnnotationSubtype.POLYLINE,
+      vertices: [
+        { x: 0, y: 0 },
+        { x: 4, y: 0 },
+      ],
+      custom: { markup: { v: 1, kind: "wall", height: 3 } },
+    });
+    const length = annotation({
+      id: "l",
+      type: PdfAnnotationSubtype.LINE,
+      pageIndex: 1,
+      linePoints: { start: { x: 0, y: 0 }, end: { x: 5, y: 0 } },
+      custom: { markup: { v: 1, kind: "length" } },
+    });
+    const totals = computeTotals(buildMarkupRows([wall, length], options({ 0: metres, 1: feet })));
+    expect(totals.unit).toBe(MIXED_UNITS);
+    expect(totals.sums.length).toBe(MIXED_UNITS);
+    expect(totals.sums.wallArea).toBe(MIXED_UNITS);
+    expect(totals.sums.area).toBeNull();
+    expect(totals.sums.volume).toBeNull();
+  });
+
   it("ignores rows without a measurement when summing and when naming the unit", () => {
     const rows = buildMarkupRows(
       [area("a", 10), annotation({ id: "h", type: PdfAnnotationSubtype.HIGHLIGHT, subject: "Area" })],

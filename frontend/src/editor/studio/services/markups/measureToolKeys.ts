@@ -11,8 +11,7 @@ export interface KeyLike {
 /** Fields and editors keep Enter for themselves; so does a focused button, where Enter presses it. */
 export function isEnterConsumer(target: EventTarget | null): boolean {
   return (
-    target instanceof HTMLElement &&
-    (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(target.tagName))
+    target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(target.tagName))
   );
 }
 

@@ -8,6 +8,7 @@ import {
   findPreset,
   parseRatioInput,
   presetScale,
+  roundRatio,
 } from "./scalePresets";
 
 describe("presets", () => {
@@ -100,5 +101,27 @@ describe("customScale", () => {
   it("returns null for an unknown unit or a bad ratio", () => {
     expect(customScale(50, "parsec")).toBeNull();
     expect(customScale(0, "m")).toBeNull();
+  });
+});
+
+describe("roundRatio", () => {
+  it.each([
+    [100.0001, 100],
+    [99.9996, 100],
+    [50.26, 50.26],
+    [12.3456, 12.35],
+    [48.01, 48],
+    [48.5, 48.5],
+    [1000.2, 1000],
+  ])("shows %f as %f", (ratio, expected) => {
+    expect(roundRatio(ratio)).toBe(expected);
+  });
+
+  it("reads the factor of a 1:100 /VP written to six digits as 1:100", () => {
+    const factor = 0.0352778;
+    const ratio = factor / presetScale(METRIC_PRESETS[0]).factor;
+    expect(ratio).not.toBe(100);
+    expect(roundRatio(ratio)).toBe(100);
+    expect(findPreset({ factor, ratio, unit: "m" })?.id).toBe("1:100");
   });
 });

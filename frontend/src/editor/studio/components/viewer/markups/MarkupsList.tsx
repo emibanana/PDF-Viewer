@@ -614,6 +614,10 @@ export function MarkupsList({ onClose }: { onClose: () => void }) {
                   aria-selected={selectedSet.has(row.id)}
                   className={`markups-list__line markups-list__row${selectedSet.has(row.id) ? " is-selected" : ""}${row.hidden ? " is-hidden" : ""}`}
                   style={style}
+                  onMouseDown={(event) => {
+                    // Shift-click extends the row range; the browser would also extend a text selection across the rows.
+                    if (event.shiftKey) event.preventDefault();
+                  }}
                   onClick={(event) => selectRow(event, row)}
                   onDoubleClick={() => setMarkupsUi({ rightDockOpen: true })}
                 >

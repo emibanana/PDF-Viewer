@@ -1,4 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { getMarkupsUiState, resetMarkupsUiForTests, setMarkupsUi } from "./markupsUiStore";
+import { getCalibrationState, startCalibration } from "./calibrateStore";
 import {
   bindMarkupController,
   getMarkupAnnotationsVersion,
@@ -105,5 +107,38 @@ describe("selection and batch commands", () => {
     expect(plugin.annotation.setSelection).toHaveBeenCalledWith(["a", "b"]);
     expect(plugin.annotation.toggleSelection).toHaveBeenCalledWith(1, "c");
     expect(plugin.annotation.updateAnnotations).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("binding another document", () => {
+  it("drops an armed tool and a selection that belonged to the document before", () => {
+    resetMarkupsUiForTests();
+    setMarkupsUi({ armedToolId: "measureLength", selectedAnnotationId: "a1", selectedPageIndex: 0 });
+    const next = fakePlugin();
+    bindMarkupController(next.plugins);
+    expect(getMarkupsUiState().armedToolId).toBeNull();
+    expect(getMarkupsUiState().selectedAnnotationId).toBeNull();
+  });
+
+  it("shows the tool the bound plugin really has armed", () => {
+    resetMarkupsUiForTests();
+    const plugin = fakePlugin();
+    Object.assign(plugin.annotation, {
+      getActiveTool: () => ({ id: "measureArea" }),
+      getSelectedAnnotation: () => ({ object: { id: "a2", pageIndex: 3 } }),
+    });
+    bindMarkupController(plugin.plugins);
+    expect(getMarkupsUiState()).toMatchObject({
+      armedToolId: "measureArea",
+      selectedAnnotationId: "a2",
+      selectedPageIndex: 3,
+    });
+  });
+
+  it("cancels a calibration that was waiting on the unbound document", () => {
+    startCalibration();
+    expect(getCalibrationState().active).toBe(true);
+    bindMarkupController(null);
+    expect(getCalibrationState().active).toBe(false);
   });
 });

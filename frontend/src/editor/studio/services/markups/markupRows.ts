@@ -299,7 +299,11 @@ export interface QuantityTotal {
   unit: string;
 }
 
-/** Subtotal of a set of rows. A sum only adds rows measured in the same unit. */
+/**
+ * Subtotal of a set of rows. A sum only adds rows measured in the same unit, and once the rows'
+ * units differ no numeric column is summed at all, so every column of a mixed list reads the
+ * same way instead of some columns happening to have rows in one unit only.
+ */
 export interface MarkupTotals {
   count: number;
   sums: Record<NumericColumn, QuantityTotal | Mixed | null>;
@@ -328,6 +332,9 @@ export function computeTotals(rows: readonly MarkupRow[]): MarkupTotals {
         sums[column] = { value: current.value + value, unit: row.unit };
       else sums[column] = MIXED_UNITS;
     }
+  }
+  if (unit === MIXED_UNITS) {
+    for (const column of NUMERIC_COLUMNS) if (sums[column] !== null) sums[column] = MIXED_UNITS;
   }
   return { count: rows.length, sums, unit, precision: precision || DEFAULT_PRECISION };
 }

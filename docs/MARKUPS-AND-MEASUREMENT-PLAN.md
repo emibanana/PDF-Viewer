@@ -186,8 +186,23 @@ Right dock, Page Scale, Properties, tool defaults, calibration and live labels. 
 - **Author kept on edit.** The annotation plugin stamps `patch.author ?? annotationAuthor` on every update, from any UI (floating menu, vertex drag, status change). `markupSync.ts` writes the annotation's original author back in the same uncommitted update, so a Revu reviewer's name survives our edits.
 - **`/IT` read for every subtype.** EmbedPDF read `/IT` only for ink, caret and free text, so Revu and Acrobat measurements (Line, PolyLine, Polygon with a `*Dimension` intent) loaded as plain shapes. `frontend/scripts/embedpdfEnginesPatch.mts` now adds `intent` to `readBaseAnnotationProperties` in both the direct and the worker engine (site "annotation intent on every subtype", covered by `embedpdfEnginesPatch.test.ts`).
 
+- **Opening a file with unsaved markups.** The viewer's jump to a newly added file now asks first (`requestNavigation`); see `docs/core-patches.md`. Applying changes (Ctrl+S) sets the active file id only after the new version is in the workbench.
+- **Page scales in in-app versions.** `exportActions.saveAsCopy` runs `finishViewerExport` (studio: `services/viewerExportFinish.ts`), so `/Measure` and `/VP` are written into every version saved in the app, not only into the Tauri disk save. A scale changed on a page with no markup does not mark the document changed, so only the Tauri Save (which always writes the user scales) persists it on its own.
+- **Armed tool and selection on a document switch.** `bindMarkupController` re-reads both from the bound plugin and cancels a pending calibration when unbound.
+- **Scale changes are not undoable (decision).** A scale is a page setting; it stays outside the annotation history. The `/Contents` rewrite it causes is one history step, and `markupSync` re-derives `/Contents` from the current scale on undo and redo, so the text never disagrees with the scale. To revert, set the previous scale.
+
 ## Open questions
 
 - Exact Revu keys for wall height, depth and custom columns: need a Revu-saved sample with these markups. Until then our values round-trip through `/EPDFCustom` and Revu sees standard measurements without depth.
 - Count tool, layers and spaces columns are shown empty in this slice.
 - XLSX export: no spreadsheet library in the tree; a small SpreadsheetML writer is the likely route (later).
+
+## Fixes from the test pass: interaction and measurement display (bugs 4, 5, 7, 8, 9, 12 to 17)
+
+Per-bug causes are in `MARKUPS-TEST-REPORT.md`. What the next agent needs to know:
+
+- **Armed-tool interaction** lives in `components/viewer/markups/useMeasureToolInteraction.ts`, mounted by `MeasureLabelLayer` (reference counted, so one listener for all pages). It sets `data-measure-tool-armed` on the root element, which `MarkupsDocks.css` uses to switch off pointer events inside the plugin's annotation containers, and finishes multi-click shapes on Enter. With a tool armed the selected markup's handles are inert by design.
+- **`markupSync` reads the annotation from the plugin state**, not from `event.annotation + event.patch`: an undo event carries the pre-edit object and only the originally patched keys. Keep that if you touch it. Foreign measurements (`*Dimension` `/IT` without our `custom.markup`) keep their `/Contents` until a geometry edit here changes the measured value (`rewriteForeignContents`); labels and Measurement values use the page scale because the engine does not expose an annotation's own `/Measure`.
+- **Curves**: `curveEditing.ts` maps a vertex edit back to the clicked points and re-samples; `MeasureLabelLayer` hides the dense handles of the selected curve with a generated stylesheet keyed on `data-epdf-vertex`. The live preview of a handle drag shows a kink until release.
+- **Total rows**: once the units of the measured rows differ, no numeric column is summed.
+- **Bug 8** (selection on 500 annotations takes about 2 s) is inside EmbedPDF's annotation layer, not in the studio code; it is unchanged by closing the dock or removing the label layer.

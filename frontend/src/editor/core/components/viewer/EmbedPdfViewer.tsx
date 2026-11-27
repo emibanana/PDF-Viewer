@@ -1250,12 +1250,13 @@ const EmbedPdfViewerContent = ({
         skipReloadContentKeyRef.current = getFormFillFileId(savedFile);
       }
 
-      // Track the new file ID so the viewer follows it after the list reorders
-      const newFileId = stubs[0]?.id;
-      if (newFileId) setActiveFileId(newFileId);
-
       // Step 4: Consume only the current file (replace in context)
       await actions.consumeFiles([currentFileId], stirlingFiles, stubs);
+
+      // Only once the new record exists: ViewerContext clears an active id that is not in the
+      // workbench, which sent the viewer to the first open file.
+      const newFileId = stubs[0]?.id;
+      if (newFileId) setActiveFileId(newFileId);
 
       // The exported bytes cover everything up to this revision; an edit that
       // landed while the save was in flight stays unsaved.
@@ -1424,10 +1425,9 @@ const EmbedPdfViewerContent = ({
           selectedTool ?? "multiTool",
         );
 
+        await actions.consumeFiles([currentFileId], stirlingFiles, stubs);
         const newFileId = stubs[0]?.id;
         if (newFileId) setActiveFileId(newFileId);
-
-        await actions.consumeFiles([currentFileId], stirlingFiles, stubs);
       } catch (error) {
         console.error("[Viewer] Apply layer changes failed:", error);
       } finally {
@@ -1484,11 +1484,11 @@ const EmbedPdfViewerContent = ({
         selectedTool ?? "multiTool",
       );
 
-      const newFileId = stubs[0]?.id;
-      if (newFileId) setActiveFileId(newFileId);
-
       // Consume only the current file (replace in context)
       await actions.consumeFiles([currentFileId], stirlingFiles, stubs);
+
+      const newFileId = stubs[0]?.id;
+      if (newFileId) setActiveFileId(newFileId);
 
       // Clear flags
       hasAnnotationChangesRef.current = false;

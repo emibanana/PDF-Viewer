@@ -96,6 +96,7 @@ Totals: 36 pass, 19 fail, 10 not tested (65 checks).
    - Repro: open `drawing-a3.pdf`, draw a Length, then load a second PDF through the sidebar file input (`.file-sidebar-inner input[type=file]`). Switch back.
    - Expected: markups kept, or a prompt about unsaved changes.
    - Actual: the first file's markups are gone.
+   - Fix (2026-11-27): cause was not the file input but `HomePage`'s "files added while viewing" effect, which jumps the viewer to the newest file with `setWorkbench("viewer")` from `viewer`: no workbench change, so the unsaved-changes guard never ran. The jump now goes through `requestNavigation` (Save & Leave / Discard & Leave / Keep Working; Keep Working leaves the file open with its markups and the new file in the workbench). Covers the file input, drops and OS "open with". Core edit logged in `docs/core-patches.md`; verified in the dev server (draw, add a file: prompt appears, Keep Working keeps the markup, Save & Leave saves a version first).
    - Likely source: file replacement path in `core/contexts/FileContext.tsx` and `core/components/viewer/EmbedPdfViewer.tsx` (annotation state is not carried across file switches).
 
 ### Medium
@@ -104,6 +105,7 @@ Totals: 36 pass, 19 fail, 10 not tested (65 checks).
    - Repro: with several files open, hover the viewer, draw a markup, press Ctrl+S.
    - Expected: stays on the file; the dirty flag clears.
    - Actual: the viewer jumps to `test-drawing.pdf`, the dirty flag stays set, and the next open hung at "Loading PDF Engine..." until the page was reloaded.
+   - Fix (2026-11-27): `applyChanges` set the viewer's active id to the new version before `consumeFiles` had added it; `ViewerContext` clears an active id that is not in the workbench, so the viewer fell back to the first open file (reproduced: it landed on another file whenever the viewed file was not first). The id is now set after `consumeFiles` (three call sites in `EmbedPdfViewer.tsx`, as the form-fill path already did). Verified: Ctrl+S keeps the file, the dirty flag clears (no prompt on the next switch), later opens work. The "hung at Loading PDF Engine" follow-up was not reproduced separately; it came after the jump and is assumed to be a consequence of it.
    - Likely source: `core/components/viewer/EmbedPdfViewer.tsx` (`applyChanges`, around line 1181, which saves a new version via `saveAsCopy`).
 
 3. User page scales are not persisted into the in-app saved version.
@@ -111,53 +113,68 @@ Totals: 36 pass, 19 fail, 10 not tested (65 checks).
    - Expected: scale restored.
    - Actual: scale lost, labels and list switch to mm while Comments still say m, and wall height and depth show "3.00 mm".
    - Likely source: `studio/services/localFileSaveService.ts` (the `/VP` pass runs only in Tauri `saveToLocalPath`; the in-app version and `downloadService.ts` skip `ensureMeasureDictionaries`).
+   - Fix (2026-11-27): the measure pass now runs on every export of the viewer's live document. `exportActions.saveAsCopy` calls a new core seam `finishViewerExport`; the studio shadow (`studio/services/viewerExportFinish.ts`) runs `ensureMeasureDictionaries` with the user scales of the active file (skipped when there is neither a user scale nor one of our markups). Verified: 1:100 m, draw, Ctrl+S, reload, the saved version shows 1:100 (m) and metre labels. Unit test added. Known gap: a scale change on a page with no markup does not mark the document changed, so Ctrl+S in the browser build does nothing for it; the Tauri Save always writes the scales to disk.
 
 4. The colour picker popover in the Properties dock deselects the markup and does not apply the swatch.
    - Repro: select a markup, open the colour picker, click a swatch.
    - Expected: colour applied, selection kept.
    - Actual: markup deselected, colour unchanged.
    - Likely source: `core/components/viewer/AnnotationSelectionMenu.tsx` around line 141 (click-outside exempts only `.mantine-Popover-dropdown`; the colour dropdown is `.mantine-ColorInput-dropdown`).
+   - Fix (2026-11-27): cause as suspected: the click-outside handler exempted only `.mantine-Popover-dropdown`, and the colour and select dropdowns are Mantine portals under `body`, outside the dock's `data-no-interaction`. It now ignores anything inside `[data-portal]` (`core/components/viewer/AnnotationSelectionMenu.tsx`, logged in `core-patches.md`). Verified in the browser: swatch click keeps the selection and applies the colour.
 
 5. Enter does not finish polyline, curve or polygon drawing.
    - Repro: arm Polylength, click three points, press Enter.
    - Expected: shape finishes, as the panel hint says.
    - Actual: nothing happens; a double-click is needed.
    - Likely source: `finishPendingPageShape()` is wired only in core `core/tools/annotate/AnnotationPanel.tsx`; the studio measure panel and `ViewerPointerProviders.tsx` have no Enter handler.
+   - Fix (2026-11-27): Enter was wired only in core's AnnotationPanel. `useMeasureToolInteraction` (new, mounted once through `MeasureLabelLayer`, reference counted) listens for a bare Enter while polylength, curve, area, wall or volume is armed and calls `finishPendingPageShape()`; fields, buttons and links keep their Enter, a length has nothing to finish. Esc already cancels the shape by disarming the tool (`useMarkupTools`), unchanged. Verified: three clicks plus Enter finish a polyline and a curve; logic in `measureToolKeys.test.ts`.
 
 6. Stale armed-tool state after switching files.
    - Repro: arm Length, open another file via the sidebar.
    - Expected: tool state reset, or tool still draws.
    - Actual: UI store keeps `armedToolId: "measureLength"` (button pressed, "LENGTH DEFAULTS" shown) while `isMeasureToolArmed()` is false; a drag adds nothing.
    - Likely source: studio measure tool store and its reset on document change.
+   - Fix (2026-11-27): the UI store mirrors the armed tool through plugin events, and a document switch destroys the plugin without one. `bindMarkupController` now re-reads the armed tool and the selection from the newly bound plugin (so a fresh document starts with no tool armed) and cancels a pending calibration when unbound. Verified: arm Length, open another file, button is not pressed. Unit tests added.
 
 7. With a tool armed, pointer-down on an existing annotation selects it instead of drawing.
    - Repro: arm Length, drag starting on an existing markup.
    - Expected: a new line is drawn.
    - Actual: the existing markup is selected, nothing drawn.
    - Likely source: EmbedPDF annotation selection layer versus tool capture in `core/components/viewer/ViewerPointerProviders.tsx`.
+   - Fix (2026-11-27): the plugin's annotation containers (`[data-no-interaction]` under `.pdf-page-pointer-layer`) take the pointer down and select or drag. While a measurement tool is armed the same hook sets `data-measure-tool-armed` on the root and `MarkupsDocks.css` turns pointer events off on everything inside those containers, so the page pointer layer draws. Side effect: with a tool armed, handles of the selected markup are inert; Esc, then drag, as in Revu. Verified: Length armed, drag from an existing line draws a new line and leaves the first one alone.
 
 8. Selecting one annotation on a 500-annotation page blocks the main thread for about 1.7 s.
    - Repro: open `perf-500.pdf`, click one annotation, observe `longtask`.
    - Expected: responsive.
    - Actual: about 1.7 s long task. Not attributed to our code versus EmbedPDF.
    - Likely source: `markupSync.ts` or the Properties dock re-rendering on selection, or EmbedPDF itself.
+   - Fix (2026-11-27): not fixed, it is not our code. Reproduced with `perf-500.pdf` by selecting one annotation through `selectMarkup` (about 2.0 s long task, only 2 ms of it synchronous). The same cost remained with the right dock closed and with `MeasureLabelLayer` returning null (about 1.8 s either way), so the Properties panel, label layer, Markups List (closed) and our store listeners are not the cause. What is left is React re-rendering all 500 `AnnotationContainer`s of EmbedPDF's `AnnotationLayer` (about 4 ms each, `isSelected` changes on a state change and each container resolves its tool by scoring every registered tool) plus core's page layers. Fixing it needs a change inside EmbedPDF's annotation layer (memoised containers); our additions did not measurably add to it.
 
 9. Undo of a depth/height edit leaves `contents` stale.
    - Repro: change wall height or volume depth, press Ctrl+Z (viewer hovered).
    - Expected: value, label and `contents` revert together.
    - Actual: `contents` keeps the edited value.
    - Likely source: `studio/.../markupSync.ts` (writes `contents` outside history).
+   - Fix (2026-11-27): cause: an undo event carries the pre-edit object plus only the keys the original edit patched, so `markupSync` rebuilt the annotation with the old `/Contents` and found nothing to fix while the state still held the edited one. It now reads the annotation from the plugin's state at event time, so undo and redo recompute `contents` (written with `syncAnnotationObject`, no extra undo step). Verified: wall height 3 to 5 gives 34.36 sq m, Ctrl+Z gives 20.62 sq m, Ctrl+Y 34.36 sq m; the same for a curve handle drag.
 
 ### Low
 
 10. Undo of a scale change has no visible effect and wastes an undo step. The scale store is not in the history plugin (`pageScaleStore`).
+    - Fix (2026-11-27): not fixed, decided and documented. A scale is a page setting, not an edit of a markup, so it stays outside the undo history; making it undoable would need either a history command that also rewrites `/Contents` (annotation commits only follow annotation edits) or a second undo step per change. What is made consistent: the markup text rewrite caused by a scale change is still one history step, and `markupSync` re-derives `/Contents` from the current scale when that step is undone or redone, so the comment, label and list never disagree with the scale (verified: after Ctrl+Z at 1:50 the comment still reads the 1:50 value). The only cost is the wasted step; to go back, set the previous scale again.
 11. Opening a second file via the file input gives no feedback that markups were dropped (see bug 1).
+    - Fix (2026-11-27): solved by the bug 1 fix: nothing is dropped without the Save / Discard / Keep working prompt, so no extra toast was added. Note found while testing: a layout switch (pane narrowed into the mobile layout) remounts the viewer and drops unsaved markups without a prompt; not in scope here.
 12. Foreign measurements have no on-page label and no Measurement values in the panel, and their `contents` goes stale after a geometry edit while the list Length updates. `MeasureLabelLayer.tsx` labels only `isOwnMarkup`.
+   - Fix (2026-11-27): the engine does not expose `/Measure`, so foreign measurements use the page scale (`/VP`). `MeasureLabelLayer` no longer filters on `isOwnMarkup`, so they get labels; the panel already shows Measurement values once `intent` is read (verified: Length 10.58 m on the Revu line). `contents` is rewritten for a foreign measurement only after a geometry edit here that changes the measured value (`rewriteForeignContents` in `computeMarkupPatch`, tracked per annotation in `markupSync`), so a moved line or a scale change keeps the author's text. Verified: dragging a vertex gives 7.57 m, undo gives 10.58 m again. Not covered: a foreign measurement with its own `/Measure` that differs from the page scale is measured on the page scale.
 13. The curve tool shows about 134 dense vertex handles that obscure the line.
+   - Fix (2026-11-27): the plugin offers a handle per sampled vertex. `MeasureLabelLayer` now emits a stylesheet that hides every `[data-epdf-vertex]` handle of the selected curve except those at the clicked points (`curveHandleIndices`). `markupSync` turns a vertex edit into a re-sampled spline (`applyCurveVertexEdit`): a dragged control-point handle updates that point and re-samples, a moved curve moves its points, an undo restores them; anything else drops `controlPoints` as before. Verified: a drawn curve shows 4 handles instead of 193, dragging one re-samples smoothly and undo restores. During the drag itself the preview shows a kink at the one moved sample until release.
 14. The custom ratio field shows 100.0001 for a `/VP` factor of 0.0352778 (rounding in `core/utils/pdfMeasurementExtraction.ts` or the ratio display).
+   - Fix (2026-11-27): the `/VP` factor is stored to six digits, so factor over point size gives 100.0001 and the field printed it to four decimals. `roundRatio` in `scalePresets.ts` snaps a ratio within 0.05% of a whole number (every preset is one) and otherwise rounds to two decimals; `findPreset` uses the same tolerance so the preset list also selects 1:100. `PageScaleSection.tsx` (other agent's file) changed only its `ratioToText` helper and one import. Verified: the foreign file shows 100 and preset 1:100.
 15. The opacity slider can go to 0, leaving an invisible markup.
+   - Fix (2026-11-27): the slider and `appearancePatch` now stop at `MIN_OPACITY` (10%). Verified in the browser (`aria-valuemin` 0.1) and in `propertyPatches.test.ts`.
 16. The Total row in a mixed-unit list leaves Length and Area empty but sums Wall Area and Volume.
+   - Fix (2026-11-27): `computeTotals` summed each numeric column over the rows that had a value, so Wall Area and Volume (only metre rows) added up while Length and Area (mixed) did not. Once the list's units differ no numeric column is summed; every column with values reads mixed. Unit-tested in `markupRows.test.ts`.
 17. Shift-click on a Markups List row selects the row text.
+   - Fix (2026-11-27): a Markups List row cancels the default of a Shift mouse-down, so the browser no longer extends a text selection across the rows; the range selection still works. Verified: shift-click selects 4 rows and `getSelection()` is empty.
 18. Console: repeated "Encountered a script tag while rendering React component". Probably pre-existing, not attributed.
 19. At about 1000px the app falls into the mobile layout and the docks are cramped.
 20. One intermittent case: after Esc plus a double-click over an existing line, a polyline kept 7 vertices. Not reproducible.

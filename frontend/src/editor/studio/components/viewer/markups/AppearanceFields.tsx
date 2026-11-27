@@ -4,7 +4,7 @@ import { FormField } from "@editor/ui/FormField";
 import { NumberInput } from "@editor/ui/NumberInput";
 import { SegmentedControl } from "@editor/ui/SegmentedControl";
 import { Slider } from "@editor/ui/Slider";
-import type { AppearanceValues, LineStyle } from "@editor/services/markups/propertyPatches";
+import { MIN_OPACITY, type AppearanceValues, type LineStyle } from "@editor/services/markups/propertyPatches";
 import { useBufferedValue } from "@editor/components/viewer/markups/useBufferedValue";
 
 // The picker reports every keystroke, including half-typed colours such as "#12".
@@ -70,7 +70,7 @@ function BufferedOpacity({ value, onCommit }: { value: number; onCommit: (value:
       <Slider
         inputSize="sm"
         value={shown}
-        min={0}
+        min={MIN_OPACITY}
         max={1}
         step={0.05}
         formatValue={(v) => `${Math.round(v * 100)}%`}

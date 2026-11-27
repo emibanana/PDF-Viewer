@@ -45,6 +45,23 @@ describe("computeMarkupPatch", () => {
     expect(computeMarkupPatch(manual, scale)).toBeNull();
   });
 
+  it("rewrites a foreign measurement's contents only when asked", () => {
+    const foreign = {
+      type: PdfAnnotationSubtype.LINE,
+      intent: "LineDimension",
+      contents: "10.58 m",
+      linePoints: { start: { x: 0, y: 0 }, end: { x: 72, y: 0 } },
+    };
+    expect(computeMarkupPatch(foreign, scale)).toBeNull();
+    expect(computeMarkupPatch(foreign, scale, { rewriteForeignContents: true })).toEqual({ contents: "2.54 m" });
+    expect(computeMarkupPatch({ ...foreign, contents: "2.54 m" }, scale, { rewriteForeignContents: true })).toBeNull();
+  });
+
+  it("never rewrites an annotation that is not a measurement", () => {
+    const highlight = { type: PdfAnnotationSubtype.HIGHLIGHT, contents: "x" };
+    expect(computeMarkupPatch(highlight, scale, { rewriteForeignContents: true })).toBeNull();
+  });
+
   it("leaves annotations that are not ours alone", () => {
     const foreign = { type: PdfAnnotationSubtype.LINE, intent: "LineDimension", contents: "x" };
     expect(computeMarkupPatch(foreign, scale)).toBeNull();

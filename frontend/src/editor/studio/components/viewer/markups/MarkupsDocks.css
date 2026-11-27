@@ -96,3 +96,8 @@
   background: var(--measure-label-bg, #e53935);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.85);
 }
+
+/* A drag that starts on an existing markup draws a new one while a measurement tool is armed. */
+[data-measure-tool-armed] .pdf-page-pointer-layer [data-no-interaction] * {
+  pointer-events: none !important;
+}

@@ -1,11 +1,5 @@
 import type { AnnotationCapability, AnnotationTool, HandlerFactory } from "@embedpdf/plugin-annotation";
-import {
-  PdfAnnotationBorderStyle,
-  PdfAnnotationSubtype,
-  type PdfAnnotationObject,
-  type Position,
-  type Rect,
-} from "@embedpdf/models";
+import { PdfAnnotationBorderStyle, PdfAnnotationSubtype, type PdfAnnotationObject, type Position } from "@embedpdf/models";
 import { clickToClickLineHandler } from "@editor/components/viewer/clickToClickLineHandler";
 import {
   MEASURE_TOOL_SPECS,
@@ -14,6 +8,7 @@ import {
   markupKindOf,
   type MeasureToolSpec,
 } from "@editor/services/markups/markupModel";
+import { polylineBounds } from "@editor/services/markups/curveEditing";
 import { sampleCatmullRom } from "@editor/services/markups/measureMath";
 import { normalizeMarkupAnnotation } from "@editor/services/markups/markupContents";
 import type { PageScale } from "@editor/services/markups/pageScaleStore";
@@ -59,18 +54,6 @@ function defaultsFor(spec: MeasureToolSpec): Record<string, unknown> {
   };
 }
 
-function boundsOf(points: readonly Position[], strokeWidth: number): Rect {
-  const xs = points.map((p) => p.x);
-  const ys = points.map((p) => p.y);
-  const pad = strokeWidth / 2 + 1.2 * strokeWidth;
-  const left = Math.min(...xs) - pad;
-  const top = Math.min(...ys) - pad;
-  return {
-    origin: { x: left, y: top },
-    size: { width: Math.max(...xs) + pad - left, height: Math.max(...ys) + pad - top },
-  };
-}
-
 /** Turns the clicked points of a polyline into the spline through them, so the saved geometry draws as a curve in every viewer. */
 function curveHandler(base: Handler): Handler {
   return {
@@ -82,7 +65,7 @@ function curveHandler(base: Handler): Handler {
           const vertices = (state?.data as { vertices?: Position[]; strokeWidth?: number } | undefined)?.vertices;
           if (!state || !vertices) return context.onPreview(state);
           const sampled = sampleCatmullRom(vertices);
-          const bounds = boundsOf(sampled, (state.data as { strokeWidth?: number }).strokeWidth ?? 1);
+          const bounds = polylineBounds(sampled, (state.data as { strokeWidth?: number }).strokeWidth ?? 1);
           context.onPreview({ ...state, bounds, data: { ...state.data, vertices: sampled, rect: bounds } });
         },
         onCommit: (annotation, ctx) => {
@@ -93,7 +76,7 @@ function curveHandler(base: Handler): Handler {
             {
               ...annotation,
               vertices,
-              rect: boundsOf(vertices, annotation.strokeWidth),
+              rect: polylineBounds(vertices, annotation.strokeWidth),
               custom: mergeMarkupCustom(annotation.custom, { controlPoints }),
             },
             ctx,

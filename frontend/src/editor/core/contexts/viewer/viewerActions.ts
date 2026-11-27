@@ -8,6 +8,7 @@ import {
 import { PdfBookmarkObject, PdfAttachmentObject } from "@embedpdf/models";
 import { ZoomLevel, Point } from "@embedpdf/plugin-zoom";
 import { FormattedSelection } from "@embedpdf/plugin-selection";
+import { finishViewerExport } from "@editor/services/viewerExportFinish";
 
 export interface ScrollActions {
   scrollToPage: (page: number, behavior?: "smooth" | "instant") => void;
@@ -377,7 +378,7 @@ export function createViewerActions({
       if (api?.saveAsCopy) {
         try {
           const result = api.saveAsCopy();
-          return await result.toPromise();
+          return await finishViewerExport(await result.toPromise());
         } catch (error) {
           console.error("Failed to save PDF copy:", error);
           return null;

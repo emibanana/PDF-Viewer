@@ -51,14 +51,24 @@ export interface CurveSampling {
   maxSegmentsPerSpan?: number;
 }
 
+export interface SampledCurve {
+  points: MarkupPoint[];
+  /** Index in `points` of each input point, in order: the vertices an editor should offer as handles. */
+  controlIndices: number[];
+}
+
 /**
  * Samples a Catmull-Rom spline through `points`, which it passes through exactly. The first and
  * last spans use a reflected phantom neighbour, so the curve leaves the ends without a kink.
  * Fewer than three points are returned as they are: two points are already a straight line.
+ * The sampling depends on the chord lengths, so moving one input point can change how many
+ * samples every span gets.
  */
-export function sampleCatmullRom(points: readonly MarkupPoint[], options: CurveSampling = {}): MarkupPoint[] {
+export function sampleCatmullRomIndexed(points: readonly MarkupPoint[], options: CurveSampling = {}): SampledCurve {
   const { maxStep = 4, minSegmentsPerSpan = 4, maxSegmentsPerSpan = 64 } = options;
-  if (points.length < 3) return points.map(({ x, y }) => ({ x, y }));
+  if (points.length < 3) {
+    return { points: points.map(({ x, y }) => ({ x, y })), controlIndices: points.map((_, index) => index) };
+  }
   const first = points[0];
   const second = points[1];
   const last = points[points.length - 1];
@@ -69,6 +79,7 @@ export function sampleCatmullRom(points: readonly MarkupPoint[], options: CurveS
     { x: 2 * last.x - beforeLast.x, y: 2 * last.y - beforeLast.y },
   ];
   const result: MarkupPoint[] = [{ x: first.x, y: first.y }];
+  const controlIndices = [0];
   for (let i = 1; i < padded.length - 2; i++) {
     const [p0, p1, p2, p3] = [padded[i - 1], padded[i], padded[i + 1], padded[i + 2]];
     const chord = distance(p1, p2);
@@ -82,8 +93,13 @@ export function sampleCatmullRom(points: readonly MarkupPoint[], options: CurveS
       result.push({ x: blend(p0.x, p1.x, p2.x, p3.x), y: blend(p0.y, p1.y, p2.y, p3.y) });
     }
     result.push({ x: p2.x, y: p2.y });
+    controlIndices.push(result.length - 1);
   }
-  return result;
+  return { points: result, controlIndices };
+}
+
+export function sampleCatmullRom(points: readonly MarkupPoint[], options: CurveSampling = {}): MarkupPoint[] {
+  return sampleCatmullRomIndexed(points, options).points;
 }
 
 export function effectiveScale(scale: MeasureScale | null | undefined): MeasureScale {

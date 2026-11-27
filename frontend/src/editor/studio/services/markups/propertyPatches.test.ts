@@ -80,9 +80,10 @@ describe("appearancePatch", () => {
     });
   });
 
-  it("clamps opacity to 0..1", () => {
+  it("clamps opacity to 10%..100% so a markup never becomes invisible", () => {
     expect(appearancePatch(area(), { opacity: 3 })).toEqual({ opacity: 1 });
-    expect(appearancePatch(area(), { opacity: -1 })).toEqual({ opacity: 0 });
+    expect(appearancePatch(area(), { opacity: -1 })).toEqual({ opacity: 0.1 });
+    expect(appearancePatch(area(), { opacity: 0 })).toEqual({ opacity: 0.1 });
   });
 
   it("ignores a fill colour on an open shape", () => {

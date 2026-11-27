@@ -1,7 +1,8 @@
 import { save } from "@tauri-apps/plugin-dialog";
 import { ensureFreeTextAppearances } from "@editor/services/pdfEdit/freeTextAppearance";
-import { ensureMeasureDictionaries, type PageScaleToWrite } from "@editor/services/pdfEdit/measureDictionaries";
-import { getUserPageScales, resolveFileKey } from "@editor/services/markups/pageScaleStore";
+import { ensureMeasureDictionaries } from "@editor/services/pdfEdit/measureDictionaries";
+import { resolveFileKey } from "@editor/services/markups/pageScaleStore";
+import { pageScalesToWrite } from "@editor/services/viewerExportFinish";
 import { isStirlingFile } from "@editor/types/fileContext";
 import { isTauriRuntime, writeBlobToPath } from "@editor/services/tauriFiles";
 
@@ -18,11 +19,8 @@ export interface MultiFileSaveResult {
 }
 
 /** Page scales the user set in the app for the file being saved, by page index. */
-function userScalesFor(data: Blob | File, fileId: string | undefined): Map<number, PageScaleToWrite> {
-  const key = resolveFileKey(fileId ?? (isStirlingFile(data) ? data.fileId : undefined));
-  const scales = new Map<number, PageScaleToWrite>();
-  for (const [pageIndex, { scale, precision }] of getUserPageScales(key)) scales.set(pageIndex, { scale, precision });
-  return scales;
+function userScalesFor(data: Blob | File, fileId: string | undefined) {
+  return pageScalesToWrite(resolveFileKey(fileId ?? (isStirlingFile(data) ? data.fileId : undefined)));
 }
 
 /**

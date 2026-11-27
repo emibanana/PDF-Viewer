@@ -19,12 +19,12 @@ import {
   findPreset,
   parseRatioInput,
   presetScale,
+  roundRatio,
 } from "@editor/services/markups/scalePresets";
 
 const PRECISIONS = [0, 1, 2, 3, 4] as const;
 
-/** A calibrated ratio has a long fraction; four places is more than a typed ratio needs. */
-const ratioToText = (ratio: number | null | undefined) => (ratio ? String(Number(ratio.toFixed(4))) : "");
+const ratioToText = (ratio: number | null | undefined) => (ratio ? String(roundRatio(ratio)) : "");
 
 const range = (count: number) => Array.from({ length: count }, (_, index) => index);
 
