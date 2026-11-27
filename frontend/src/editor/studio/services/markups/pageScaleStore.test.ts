@@ -16,7 +16,7 @@ import {
 } from "./pageScaleStore";
 
 const metres = { factor: 0.03527, ratio: 100, unit: "m" };
-const feet = { factor: 0.0833, ratio: 12, unit: "ft" };
+const centimetres = { factor: 0.0833, ratio: 12, unit: "cm" };
 
 beforeEach(() => resetPageScalesForTests());
 
@@ -36,9 +36,9 @@ describe("pageScaleStore", () => {
 
   it("applies one scale to several pages and remembers each page's precision", () => {
     setPageScale("a", 0, metres, 3);
-    setScaleForPages("a", [0, 1, 2], feet);
-    expect(getPageScale("a", 0)).toMatchObject({ scale: feet, precision: 3 });
-    expect(getPageScale("a", 2)).toMatchObject({ scale: feet, precision: 2 });
+    setScaleForPages("a", [0, 1, 2], centimetres);
+    expect(getPageScale("a", 0)).toMatchObject({ scale: centimetres, precision: 3 });
+    expect(getPageScale("a", 2)).toMatchObject({ scale: centimetres, precision: 2 });
     setPagePrecision("a", 2, 0);
     expect(getPageScale("a", 2)?.precision).toBe(0);
   });
@@ -58,14 +58,14 @@ describe("pageScaleStore", () => {
   });
 
   it("seeds from the file's viewports without overwriting the user, and never writes them back", () => {
-    setPageScale("a", 1, feet);
+    setPageScale("a", 1, centimetres);
     const fromFile: PageMeasureScales = new Map([
       [
         0,
         {
           pageHeight: 100,
           viewports: [
-            { bbox: [0, 0, 50, 50], scale: feet },
+            { bbox: [0, 0, 50, 50], scale: centimetres },
             { bbox: null, scale: metres },
           ],
         },
@@ -75,7 +75,7 @@ describe("pageScaleStore", () => {
     seedPageScales("a", fromFile);
     expect(getMeasureScale("a", 0)).toEqual(metres);
     expect(getPageScale("a", 0)?.source).toBe("file");
-    expect(getMeasureScale("a", 1)).toEqual(feet);
+    expect(getMeasureScale("a", 1)).toEqual(centimetres);
     expect([...getUserPageScales("a").keys()]).toEqual([1]);
   });
 

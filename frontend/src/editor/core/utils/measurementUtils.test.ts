@@ -16,7 +16,7 @@ describe("measurementUtils", () => {
       expect(calculateScaleFactor(50, " cm ")).toBeCloseTo(
         POINT_TO_UNIT.cm * 50,
       );
-      expect(calculateScaleFactor(12, "FT")).toBeCloseTo(POINT_TO_UNIT.ft * 12);
+      expect(calculateScaleFactor(12, "MM")).toBeCloseTo(POINT_TO_UNIT.mm * 12);
     });
 
     test("rejects invalid scale ratios", () => {
@@ -40,9 +40,9 @@ describe("measurementUtils", () => {
   describe("convertUnit", () => {
     test("converts representative metric and imperial values", () => {
       expect(convertUnit(1, "m", "cm")).toBeCloseTo(100);
-      expect(convertUnit(12, "in", "ft")).toBeCloseTo(1);
-      expect(convertUnit(3, "ft", "yd")).toBeCloseTo(1);
-      expect(convertUnit(1, "ft", "m")).toBeCloseTo(0.3048);
+      expect(convertUnit(1000, "m", "km")).toBeCloseTo(1);
+      expect(convertUnit(10, "mm", "cm")).toBeCloseTo(1);
+      expect(convertUnit(1, "ft", "m")).toBeNull();
     });
 
     test("returns null for invalid values or unsupported units", () => {
@@ -87,11 +87,11 @@ describe("measurementUtils", () => {
 
   describe("calculateCalibratedScale", () => {
     test("calculates a calibrated scale from a known physical distance", () => {
-      const scale = calculateCalibratedScale(72, 1, "in");
+      const scale = calculateCalibratedScale(72, 0.0254, "m");
 
-      expect(scale.factor).toBeCloseTo(POINT_TO_UNIT.in);
+      expect(scale.factor).toBeCloseTo(POINT_TO_UNIT.m);
       expect(scale.ratio).toBeCloseTo(1);
-      expect(scale.unit).toBe("in");
+      expect(scale.unit).toBe("m");
     });
 
     test("calculates architectural ratios for metric calibration", () => {

@@ -1,4 +1,5 @@
 import { EditorDocument } from "@editor/tools/pdfTextEditor/model/EditorDocument";
+import { reuseSnapshots } from "@editor/tools/pdfTextEditor/store/reuseSnapshots";
 import {
   HistoryStack,
   HistoryStepError,
@@ -706,13 +707,22 @@ export class EditorStore {
         ...p,
         dirty: live.dirty,
         revision: live.revision,
-        runs: live.runs.map((r) => r.snapshot()),
-        images: live.images.map((img) => img.snapshot()),
+        runs: reuseSnapshots(
+          p.runs,
+          live.runs.map((r) => r.snapshot()),
+        ),
+        images: reuseSnapshots(
+          p.images,
+          live.images.map((img) => img.snapshot()),
+        ),
         tables: live.tables
           .filter((tbl) => tbl.editing)
           .map((tbl) => tbl.snapshot()),
         rules: live.rules,
-        shapes: live.shapes.map((shape) => shape.snapshot()),
+        shapes: reuseSnapshots(
+          p.shapes,
+          live.shapes.map((shape) => shape.snapshot()),
+        ),
       };
     });
     if (!changed) return;

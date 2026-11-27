@@ -12,7 +12,7 @@ import {
 import { buildMarkupRows, type MarkupRowSource } from "./markupRows";
 
 const metres = { factor: 1, ratio: 1, unit: "m" };
-const feet = { factor: 1, ratio: 1, unit: "ft" };
+const centimetres = { factor: 1, ratio: 1, unit: "cm" };
 
 const labels: CsvLabels = {
   rowType: "Row type",
@@ -44,7 +44,7 @@ const area = (id: string, side: number, extra: Partial<MarkupRowSource> = {}): M
 
 const rowsFor = (annotations: MarkupRowSource[]) =>
   buildMarkupRows(annotations, {
-    scaleFor: (pageIndex) => (pageIndex === 0 ? metres : feet),
+    scaleFor: (pageIndex) => (pageIndex === 0 ? metres : centimetres),
     typeName: (type) => type,
   });
 
@@ -126,7 +126,7 @@ describe("buildMarkupsCsv", () => {
       "Subtotal,Slab (3),,mixed",
       "Markup,Slab,4.00,m",
       "Markup,Slab,9.00,m",
-      "Markup,Slab,16.00,ft",
+      "Markup,Slab,16.00,cm",
       "Total,Total (4),,mixed",
       "",
     ]);

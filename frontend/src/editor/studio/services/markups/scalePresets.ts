@@ -1,8 +1,6 @@
 import type { MeasureScale } from "@editor/utils/measurementTypes";
 import { calculateScaleFactor, generateScaleLabel, parsePresetRatio } from "@editor/utils/measurementUtils";
 
-export type ScaleSystem = "metric" | "imperial";
-
 export interface ScalePreset {
   id: string;
   /** Shown in the preset list and as the page's scale. */
@@ -10,40 +8,19 @@ export interface ScalePreset {
   /** Real length per unit of paper length, so 100 for 1:100. */
   ratio: number;
   /** The unit values on a page with this scale are shown in. */
-  unit: "m" | "ft";
-  system: ScaleSystem;
+  unit: "m";
 }
 
 const METRIC_RATIOS = [1, 5, 10, 20, 50, 100, 200, 500, 1000] as const;
-
-/** Architectural paper-inch per real-foot scales; the ratio is real inches per paper inch. */
-const IMPERIAL: readonly { label: string; ratio: number }[] = [
-  { label: `1/8" = 1'-0"`, ratio: 96 },
-  { label: `1/4" = 1'-0"`, ratio: 48 },
-  { label: `1/2" = 1'-0"`, ratio: 24 },
-  { label: `1" = 1'-0"`, ratio: 12 },
-  { label: `1" = 10'`, ratio: 120 },
-  { label: `1" = 20'`, ratio: 240 },
-  { label: `1" = 50'`, ratio: 600 },
-];
 
 export const METRIC_PRESETS: readonly ScalePreset[] = METRIC_RATIOS.map((ratio) => ({
   id: `1:${ratio}`,
   label: `1:${ratio}`,
   ratio,
   unit: "m",
-  system: "metric",
 }));
 
-export const IMPERIAL_PRESETS: readonly ScalePreset[] = IMPERIAL.map(({ label, ratio }) => ({
-  id: label,
-  label,
-  ratio,
-  unit: "ft",
-  system: "imperial",
-}));
-
-export const SCALE_PRESETS: readonly ScalePreset[] = [...METRIC_PRESETS, ...IMPERIAL_PRESETS];
+export const SCALE_PRESETS: readonly ScalePreset[] = METRIC_PRESETS;
 
 /** The scale a preset stands for; its `factor` is the real length of one PDF point. */
 export function presetScale(preset: ScalePreset): MeasureScale {
@@ -69,11 +46,9 @@ export function findPreset(scale: MeasureScale | null | undefined): ScalePreset 
   );
 }
 
-/** How a page's scale reads in the panel: an imperial preset by its name, anything else as `1:100 (m)`. */
+/** How a page's scale reads in the panel, for example `1:100 (m)`. */
 export function describeScale(scale: MeasureScale | null | undefined): string | null {
   if (!scale) return null;
-  const preset = findPreset(scale);
-  if (preset?.system === "imperial") return preset.label;
   return generateScaleLabel(scale.ratio, scale.unit);
 }
 

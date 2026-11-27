@@ -9,7 +9,7 @@ export interface PagePoint {
 export interface MeasureScale {
   factor: number; // Real-world units per PDF point
   ratio: number | null; // Architectural ratio (e.g., 100 for "1:100") - display only
-  unit: string; // m, cm, mm, km, ft, in, yd, mi
+  unit: string; // m, cm, mm, km
 }
 
 export type MeasureScaleLike = MeasureScale;

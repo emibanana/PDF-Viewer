@@ -5646,11 +5646,10 @@ wallArea = "Wall area"
 
 [markups.scale]
 applyAll = "Apply to all pages"
+calibrate = "Calibrate"
+calibrating = "Calibrating: click two points of a known length (Esc cancels)"
 choose = "Choose a scale"
 customRatio = "Custom 1 :"
-draw = "Draw to set scale"
-drawCancel = "Click two points of a known length (Esc cancels)"
-imperial = "Imperial"
 metric = "Metric"
 notSet = "Scale not set"
 page = "Page {{page}}"
@@ -11489,13 +11488,9 @@ title = "Rotate Settings Overview"
 
 [ruler.units]
 cm = "Centimeters (cm)"
-ft = "Feet (ft)"
-in = "Inches (in)"
 km = "Kilometers (km)"
 m = "Meters (m)"
-mi = "Miles (mi)"
 mm = "Millimeters (mm)"
-yd = "Yards (yd)"
 
 [runLocation]
 back = "Back"

@@ -113,7 +113,7 @@ describe("ensureMeasureDictionaries", () => {
         context.obj({
           Type: "Measure",
           Subtype: "RL",
-          X: [{ Type: "NumberFormat", U: PDFString.of("ft"), C: 0.0833, F: "D", D: 100 }],
+          X: [{ Type: "NumberFormat", U: PDFString.of("cm"), C: 0.5, F: "D", D: 100 }],
         }),
       );
       const viewport = context.obj({ Type: "Viewport", BBox: [0, 0, 300, 400], Measure: measure });
@@ -122,9 +122,9 @@ describe("ensureMeasureDictionaries", () => {
     const saved = await ensureMeasureDictionaries(bytes, new Map());
     const annot = await annotOf(saved, 0);
     const measure = annot.lookup(PDFName.of("Measure"), PDFDict);
-    expect(text(measure.lookup(PDFName.of("X"), PDFArray).lookup(0, PDFDict), "U")).toBe("ft");
+    expect(text(measure.lookup(PDFName.of("X"), PDFArray).lookup(0, PDFDict), "U")).toBe("cm");
     const read = await extractPageMeasureScales(new Blob([saved as BlobPart], { type: "application/pdf" }));
-    expect(read?.get(0)?.viewports[0].scale.unit).toBe("ft");
+    expect(read?.get(0)?.viewports[0].scale.unit).toBe("cm");
   });
 
   it("replaces a whole-page viewport but keeps a region viewport", async () => {
@@ -140,7 +140,7 @@ describe("ensureMeasureDictionaries", () => {
       const old = context.obj({
         Type: "Viewport",
         BBox: [0, 0, 300, 400],
-        Measure: { Type: "Measure", Subtype: "RL", D: [fmt("ft", 0.0833)] },
+        Measure: { Type: "Measure", Subtype: "RL", D: [fmt("mm", 0.3)] },
       });
       const region = context.obj({
         Type: "Viewport",

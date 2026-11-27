@@ -8,19 +8,15 @@ import type {
   CalibrationMetadata,
 } from "@editor/utils/measurementTypes";
 
-// 1 PDF point in meters (1/72 inch)
+// 1 PDF point in meters; the PDF point is defined as 1/72 of an inch (0.0254 m)
 const POINT_TO_METERS = 0.0254 / 72;
 
-// Conversion factors: units per PDF point
+// Conversion factors: units per PDF point. Metric only: imperial units are deliberately unsupported.
 export const POINT_TO_UNIT = {
   m: POINT_TO_METERS,
   cm: POINT_TO_METERS * 100,
   mm: POINT_TO_METERS * 1000,
   km: POINT_TO_METERS / 1000,
-  ft: POINT_TO_METERS / 0.3048,
-  in: POINT_TO_METERS / 0.0254,
-  yd: POINT_TO_METERS / 0.9144,
-  mi: POINT_TO_METERS / 1609.344,
 } as const;
 
 // Valid measurement units from POINT_TO_UNIT
@@ -65,15 +61,6 @@ export function generateScaleLabel(ratio: number | null, unit: string): string {
   return `1:${display} (${unit})`;
 }
 
-// Imperial units
-const IMPERIAL_UNITS = ["ft", "in", "yd", "mi"] as const;
-export function isImperialUnit(unit: string): boolean {
-  const normalized = normalizeUnit(unit);
-  return isMeasurementUnit(normalized)
-    ? (IMPERIAL_UNITS as readonly MeasurementUnit[]).includes(normalized)
-    : false;
-}
-
 export function convertUnit(
   value: number,
   sourceUnit: string,
@@ -114,10 +101,6 @@ export const UNIT_OPTIONS = [
   { value: "cm", labelKey: "ruler.units.cm", label: "Centimeters (cm)" },
   { value: "mm", labelKey: "ruler.units.mm", label: "Millimeters (mm)" },
   { value: "km", labelKey: "ruler.units.km", label: "Kilometers (km)" },
-  { value: "ft", labelKey: "ruler.units.ft", label: "Feet (ft)" },
-  { value: "in", labelKey: "ruler.units.in", label: "Inches (in)" },
-  { value: "yd", labelKey: "ruler.units.yd", label: "Yards (yd)" },
-  { value: "mi", labelKey: "ruler.units.mi", label: "Miles (mi)" },
 ] as const;
 
 /** UNIT_OPTIONS with labels translated; call at render time. */

@@ -12,7 +12,6 @@ import { cancelCalibration, restartCalibration, useCalibration } from "@editor/s
 import { useMeasureActions } from "@editor/components/viewer/markups/useMeasureActions";
 import { setPagePrecision, setScaleForPages, usePageScale } from "@editor/services/markups/pageScaleStore";
 import {
-  IMPERIAL_PRESETS,
   METRIC_PRESETS,
   SCALE_PRESETS,
   customScale,
@@ -67,10 +66,6 @@ export function PageScaleSection({ fileKey, pageIndex, totalPages }: PageScaleSe
         group: t("markups.scale.metric", "Metric"),
         options: METRIC_PRESETS.map(({ id, label }) => ({ value: id, label })),
       },
-      {
-        group: t("markups.scale.imperial", "Imperial"),
-        options: IMPERIAL_PRESETS.map(({ id, label }) => ({ value: id, label })),
-      },
     ],
     [t],
   );
@@ -115,8 +110,8 @@ export function PageScaleSection({ fileKey, pageIndex, totalPages }: PageScaleSe
         data-testid="markups-calibrate"
       >
         {calibration.active
-          ? t("markups.scale.drawCancel", "Drawing a known length: click two points (Esc cancels)")
-          : t("markups.scale.draw", "Draw to set scale")}
+          ? t("markups.scale.calibrating", "Calibrating: click two points of a known length (Esc cancels)")
+          : t("markups.scale.calibrate", "Calibrate")}
       </Button>
       <div className="markups-fields">
         <FormField label={t("markups.scale.preset", "Scale")}>

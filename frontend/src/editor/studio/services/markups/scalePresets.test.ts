@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { calculateCalibratedScale } from "../../../core/utils/measurementUtils";
 import {
-  IMPERIAL_PRESETS,
   METRIC_PRESETS,
   customScale,
   describeScale,
@@ -12,7 +11,7 @@ import {
 } from "./scalePresets";
 
 describe("presets", () => {
-  it("lists the metric and imperial presets of the plan", () => {
+  it("lists the metric presets of the plan", () => {
     expect(METRIC_PRESETS.map((preset) => preset.label)).toEqual([
       "1:1",
       "1:5",
@@ -24,23 +23,6 @@ describe("presets", () => {
       "1:500",
       "1:1000",
     ]);
-    expect(IMPERIAL_PRESETS.map((preset) => preset.label)).toEqual([
-      `1/8" = 1'-0"`,
-      `1/4" = 1'-0"`,
-      `1/2" = 1'-0"`,
-      `1" = 1'-0"`,
-      `1" = 10'`,
-      `1" = 20'`,
-      `1" = 50'`,
-    ]);
-  });
-
-  it("makes 1/4 inch on paper one foot in the world", () => {
-    const quarter = IMPERIAL_PRESETS.find((preset) => preset.label.startsWith(`1/4"`));
-    expect(quarter).toBeDefined();
-    const scale = presetScale(quarter!);
-    expect(18 * scale.factor).toBeCloseTo(1, 9);
-    expect(scale.unit).toBe("ft");
   });
 
   it("makes 1 mm on paper 100 mm in the world at 1:100", () => {
@@ -52,10 +34,9 @@ describe("presets", () => {
 });
 
 describe("findPreset and describeScale", () => {
-  it("recognises a preset's own scale and names it", () => {
-    const quarter = IMPERIAL_PRESETS[1];
-    expect(findPreset(presetScale(quarter))).toBe(quarter);
-    expect(describeScale(presetScale(quarter))).toBe(`1/4" = 1'-0"`);
+  it("recognises a preset's own scale", () => {
+    const preset = METRIC_PRESETS[4];
+    expect(findPreset(presetScale(preset))).toBe(preset);
   });
 
   it("describes a metric preset as ratio and unit", () => {
@@ -98,8 +79,9 @@ describe("customScale", () => {
     expect(scale).toEqual({ factor: presetScale(METRIC_PRESETS[4]).factor, ratio: 50, unit: "m" });
   });
 
-  it("returns null for an unknown unit or a bad ratio", () => {
+  it("returns null for an unknown or imperial unit, or a bad ratio", () => {
     expect(customScale(50, "parsec")).toBeNull();
+    expect(customScale(50, "ft")).toBeNull();
     expect(customScale(0, "m")).toBeNull();
   });
 });

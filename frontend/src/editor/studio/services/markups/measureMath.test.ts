@@ -120,7 +120,7 @@ describe("formatting", () => {
     expect(formatQuantity(15.6666, "m", "length")).toBe("15.67 m");
     expect(formatQuantity(13.783, "m", "area")).toBe("13.78 sq m");
     expect(formatQuantity(0.456, "m", "volume")).toBe("0.46 cu m");
-    expect(formatQuantity(12, "ft", "area", 0)).toBe("12 sq ft");
+    expect(formatQuantity(12, "cm", "area", 0)).toBe("12 sq cm");
   });
 
   it("never prints a negative zero", () => {
@@ -131,7 +131,8 @@ describe("formatting", () => {
 describe("unit conversion", () => {
   it("converts between supported units", () => {
     expect(convertLength(1, "m", "cm")).toBeCloseTo(100, 9);
-    expect(convertLength(1, "ft", "in")).toBeCloseTo(12, 9);
+    expect(convertLength(1, "m", "mm")).toBeCloseTo(1000, 9);
+    expect(convertLength(1, "ft", "m")).toBeNull();
     expect(convertLength(1, "m", "parsec")).toBeNull();
   });
 });
@@ -235,7 +236,7 @@ describe("computeMeasurement", () => {
 describe("defaultExtent", () => {
   it("gives a wall height and slab depth in the scale's own unit", () => {
     expect(defaultExtent("m")).toEqual({ height: 3, depth: 0.1 });
-    expect(defaultExtent("ft").height).toBe(10);
+    expect(defaultExtent("cm").height).toBe(300);
   });
 });
 

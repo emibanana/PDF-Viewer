@@ -18,7 +18,7 @@ import { readMarkupCustom } from "./markupModel";
 
 // One PDF point is one metre, which keeps the expected numbers readable.
 const metres = { factor: 1, ratio: 1, unit: "m" };
-const feet = { factor: 1, ratio: 1, unit: "ft" };
+const centimetres = { factor: 1, ratio: 1, unit: "cm" };
 
 const options = (scales: Record<number, typeof metres | null> = {}): MarkupRowOptions => ({
   scaleFor: (pageIndex) => scales[pageIndex] ?? null,
@@ -219,7 +219,7 @@ describe("totals and grouping", () => {
   });
 
   it("does not add values measured in different units", () => {
-    const rows = buildMarkupRows([area("a", 10), area("b", 5, { pageIndex: 1 })], options({ 0: metres, 1: feet }));
+    const rows = buildMarkupRows([area("a", 10), area("b", 5, { pageIndex: 1 })], options({ 0: metres, 1: centimetres }));
     const totals = computeTotals(rows);
     expect(totals.sums.area).toBe(MIXED_UNITS);
     expect(totals.unit).toBe(MIXED_UNITS);
@@ -242,7 +242,7 @@ describe("totals and grouping", () => {
       linePoints: { start: { x: 0, y: 0 }, end: { x: 5, y: 0 } },
       custom: { markup: { v: 1, kind: "length" } },
     });
-    const totals = computeTotals(buildMarkupRows([wall, length], options({ 0: metres, 1: feet })));
+    const totals = computeTotals(buildMarkupRows([wall, length], options({ 0: metres, 1: centimetres })));
     expect(totals.unit).toBe(MIXED_UNITS);
     expect(totals.sums.length).toBe(MIXED_UNITS);
     expect(totals.sums.wallArea).toBe(MIXED_UNITS);
@@ -269,7 +269,7 @@ describe("totals and grouping", () => {
         area("3", 2, { subject: "slab" }),
         area("4", 3, { subject: "Floor", pageIndex: 1 }),
       ],
-      options({ 0: metres, 1: feet }),
+      options({ 0: metres, 1: centimetres }),
     );
     const groups = groupBySubject(rows);
     expect(groups.map((group) => [group.subject, group.rows.map((row) => row.id)])).toEqual([
@@ -278,7 +278,7 @@ describe("totals and grouping", () => {
       ["Slab", ["1", "3"]],
     ]);
     expect(groups[2].totals.sums.area).toEqual({ value: 5, unit: "m" });
-    expect(groups[0].totals.sums.area).toEqual({ value: 9, unit: "ft" });
+    expect(groups[0].totals.sums.area).toEqual({ value: 9, unit: "cm" });
     expect(groupBySubject(rows, true).map((group) => group.subject)).toEqual(["Slab", "Notes", "Floor"]);
   });
 });

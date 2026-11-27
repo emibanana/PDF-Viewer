@@ -1,6 +1,31 @@
-import { describe, expect, test, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { renderHook } from "@testing-library/react";
 import { useViewerWheelZoom } from "@editor/components/viewer/useViewerWheelZoom";
+
+let now = 0;
+let frames: FrameRequestCallback[] = [];
+
+beforeEach(() => {
+  now = 0;
+  frames = [];
+  vi.stubGlobal("requestAnimationFrame", (cb: FrameRequestCallback) => frames.push(cb));
+  vi.stubGlobal("cancelAnimationFrame", () => {});
+});
+
+afterEach(() => vi.unstubAllGlobals());
+
+/** Runs animation frames 16 ms apart until the glide has nothing left to pay. */
+function settle() {
+  for (let i = 0; i < 200 && frames.length > 0; i++) {
+    const batch = frames;
+    frames = [];
+    now += 16;
+    batch.forEach((cb) => cb(now));
+  }
+}
+
+const totalFactor = (zoomBy: { mock: { calls: unknown[][] } }) =>
+  zoomBy.mock.calls.reduce((product, [factor]) => product * (factor as number), 1);
 
 function setup() {
   const root = document.createElement("div");
@@ -35,13 +60,16 @@ describe("useViewerWheelZoom", () => {
     const event = wheel({ ctrlKey: true, deltaY: -100, clientX: 400, clientY: 250 });
 
     expect(event.defaultPrevented).toBe(true);
-    expect(zoomBy).toHaveBeenCalledTimes(1);
-    const [factor, center] = zoomBy.mock.calls[0];
-    expect(factor).toBeCloseTo(1.2);
-    expect(center).toEqual({ vx: 300, vy: 200 });
+    expect(zoomBy).not.toHaveBeenCalled();
+    settle();
+    expect(zoomBy.mock.calls.length).toBeGreaterThan(1);
+    expect(zoomBy.mock.calls[0][1]).toEqual({ vx: 300, vy: 200 });
+    expect(totalFactor(zoomBy)).toBeCloseTo(1.2, 6);
 
+    zoomBy.mockClear();
     wheel({ ctrlKey: true, deltaY: 100, clientX: 400, clientY: 250 });
-    expect(zoomBy.mock.calls[1][0]).toBeCloseTo(1 / 1.2);
+    settle();
+    expect(totalFactor(zoomBy)).toBeCloseTo(1 / 1.2, 6);
     cleanup();
   });
 
@@ -60,7 +88,8 @@ describe("useViewerWheelZoom", () => {
 
     wheel({ ctrlKey: true, deltaY: -1000, clientX: 400, clientY: 250 });
 
-    expect(zoomBy.mock.calls[0][0]).toBeCloseTo(1.2);
+    settle();
+    expect(totalFactor(zoomBy)).toBeCloseTo(1.2, 6);
     cleanup();
   });
 });

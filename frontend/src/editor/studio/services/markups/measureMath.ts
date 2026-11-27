@@ -139,14 +139,6 @@ export function defaultExtent(unit: string): { height: number; depth: number } {
       return { height: 3000, depth: 100 };
     case "km":
       return { height: 0.003, depth: 0.0001 };
-    case "ft":
-      return { height: 10, depth: 0.5 };
-    case "in":
-      return { height: 120, depth: 4 };
-    case "yd":
-      return { height: 3, depth: 0.15 };
-    case "mi":
-      return { height: 0.002, depth: 0.0001 };
     default:
       return { height: 1, depth: 1 };
   }
