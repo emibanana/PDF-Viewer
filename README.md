@@ -12,12 +12,18 @@ Read, mark up, organise and protect PDFs in one lightweight desktop app. No acco
 
 Professionals who work with drawings and documents usually pay for two tools: **Bluebeam Revu** to mark up and measure, and **Adobe Acrobat Pro** to edit and manage PDFs. PDF Viewer is building towards both in a single free app, with the quick, keyboard-first feel of a professional markup tool.
 
-- **Fast.** PDFium rendering with flash-free zoom, a document on screen in about half a second, and one small native host instead of a browser tab and a server.
-- **Local and private.** No login, no telemetry service, no online features. Ctrl+S saves straight back to the file, atomically.
-- **Really free.** Open source, no feature tiers, no trial, no watermark.
-- **Feels native.** Each PDF opens in its own window, the window title shows unsaved changes, Windows fonts are used for rendering, and markups carry your Windows user name.
+The first big goal is **Revu-compatible review for everyone without a Revu licence**. Bluebeam no longer offers a free viewer, so subcontractors, clients and consultants who receive marked-up drawing sets cannot see Revu's statuses, custom columns or measurements, or answer them. PDF Viewer will.
 
 PDF Viewer starts from the [Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) editor UI (MIT) and reshapes it into a desktop app: the Java backend, Docker setup and server-only tools are gone, and the tools that needed a server are being re-written to run inside the app.
+
+## Where PDF Viewer is different
+
+- **Free and open source.** No subscription, no feature tiers, no trial, no watermark. Anyone can read the code, fork it or extend it.
+- **No account, nothing online.** No sign-in, no licence check, no telemetry, no cloud or AI service. Your files never leave your PC, which suits confidential drawings and air-gapped networks.
+- **Installs without admin rights.** The installer is per-user, so it works on locked-down company laptops where IT has to install Revu or Acrobat for you.
+- **Page orders the others don't do.** Booklet and side-stitch order, interleaving separately scanned front and back pages, odd/even splits and other page-reordering modes, built in.
+- **Light and quick.** One small native app with no Java and no server: a document is on screen in about half a second, zoom never flashes, and Ctrl+S saves straight back to the file.
+- **Coming next: Revu markups without Revu.** Read and reply to Bluebeam markups with their status, custom columns and measurements ([roadmap P2](docs/ROADMAP.md#phases)).
 
 ## What you can do today
 
@@ -31,9 +37,15 @@ PDF Viewer starts from the [Stirling-PDF](https://github.com/Stirling-Tools/Stir
 
 | Feature | PDF Viewer | Bluebeam Revu | Acrobat Pro |
 | --- | :---: | :---: | :---: |
-| **Price** | Free, open source | Paid subscription | Paid subscription |
-| **Account needed** | None | Bluebeam ID | Adobe ID |
+| **Price** | Free | Paid subscription | Paid subscription |
 | **Platforms** | Windows | Windows, plus web and iPad | Windows, macOS, web, mobile |
+| _Freedom and footprint_ | | | |
+| Open source | ✅ | ❌ | ❌ |
+| No account or sign-in | ✅ | ❌ | ❌ |
+| Works fully offline, no licence check or cloud features | ✅ | 🟡 | 🟡 |
+| Installs without admin rights | ✅ | ❌ | ❌ |
+| Booklet, side-stitch and duplex-scan page reordering | ✅ | ❌ | 🟡 |
+| Review Revu markups (status, columns, measurements) without a Revu licence | 🗺️ | ❌ | 🟡 |
 | _Viewing_ | | | |
 | Fast viewer, thumbnails, bookmarks, text search | ✅ | ✅ | ✅ |
 | Search across files with bulk markup from results | 🗺️ | ✅ | 🟡 |
@@ -71,15 +83,15 @@ PDF Viewer starts from the [Stirling-PDF](https://github.com/Stirling-Tools/Stir
 
 ✅ available · 🟡 partial · 🗺️ on our [roadmap](docs/ROADMAP.md) · ❌ not offered · ➖ not planned (needs a server)
 
-Competitor columns reflect Bluebeam Revu 21 (Complete) and Adobe Acrobat Pro as publicly described in late 2026; check the vendors' sites for current details. PDF Viewer is not affiliated with Bluebeam or Adobe, and their names are trademarks of their owners.
+Competitor columns reflect Bluebeam Revu 21 (Complete) and Adobe Acrobat Pro as publicly described in late 2026; check the vendors' sites for current details. Acrobat's 🟡 for page reordering is booklet printing only, and for Revu markups it is Acrobat showing them as ordinary comments. PDF Viewer is not affiliated with Bluebeam or Adobe, and their names are trademarks of their owners.
 
 ## Roadmap
 
 | Phase | Theme | Highlights |
 | --- | --- | --- |
 | **P1** | Snappy desktop core | Any Windows font and non-Latin text, Bluebeam-style search panel, single-key tools, file switcher, print, file association |
-| **P2** | Markup Studio | Properties panel, Tool Chest, rich text and callouts, clouds, dimension lines, custom stamps |
-| **P3** | Markups List and review | Markup grid with status and custom columns, summaries, Bluebeam compatibility, XFDF review, layers, overlay |
+| **P2** | Revu-compatible review | Read and reply to Bluebeam markups, Markups List with status, custom columns and totals, Revu measurement values, CSV/XLSX summaries, XFDF review |
+| **P3** | Markup Studio | Tool Chest, properties panel, rich text and callouts, clouds and Cloud+, dimension lines, custom stamps, layers, overlay |
 | **P4** | Measurement and takeoff | Calibration, length, area, volume, count, cutouts, snapping, quantity export |
 | **P5** | Acrobat-class editing | Inline text and image editing, Organize Pages, headers and Bates, forms, OCR, compress, Office conversion |
 | **P6** | Trust and scale | Certificate signing, PDF/A, accessibility, document sets, Visual Search |
